@@ -18,6 +18,6 @@ module NCO_cos_sin # (
   output signed [O_WIDTH-1:0] NCO_sin
 );
   // output assign
-  assign NCO_cos = NCO_tvalid ? NCO_tdata[O_WIDTH*1-1:0] : 0;
-  assign NCO_sin = NCO_tvalid ? NCO_tdata[O_WIDTH*2-1:O_WIDTH] : 0;
+  assign NCO_cos = NCO_tdata[O_WIDTH*1-1:0];
+  assign NCO_sin = NCO_tdata[O_WIDTH*2-1:O_WIDTH];
 endmodule

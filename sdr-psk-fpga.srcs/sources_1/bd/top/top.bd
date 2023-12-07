@@ -87,6 +87,150 @@
             "value": "0"
           }
         },
+        "interface_ports": {
+          "I_out": {
+            "mode": "Master",
+            "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
+            "vlnv": "xilinx.com:interface:axis_rtl:1.0",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "costas_loop_aclk_0",
+                "value_src": "default"
+              },
+              "FREQ_HZ": {
+                "value": "16384000",
+                "value_src": "default"
+              },
+              "HAS_TKEEP": {
+                "value": "0",
+                "value_src": "default"
+              },
+              "HAS_TLAST": {
+                "value": "0",
+                "value_src": "default"
+              },
+              "HAS_TREADY": {
+                "value": "0",
+                "value_src": "default"
+              },
+              "HAS_TSTRB": {
+                "value": "0",
+                "value_src": "default"
+              },
+              "INSERT_VIP": {
+                "value": "0",
+                "value_src": "default"
+              },
+              "LAYERED_METADATA": {
+                "value": "undef",
+                "value_src": "default"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "default"
+              },
+              "TDATA_NUM_BYTES": {
+                "value": "2",
+                "value_src": "default"
+              },
+              "TDEST_WIDTH": {
+                "value": "0",
+                "value_src": "default"
+              },
+              "TID_WIDTH": {
+                "value": "0",
+                "value_src": "default"
+              },
+              "TUSER_WIDTH": {
+                "value": "0",
+                "value_src": "default"
+              }
+            },
+            "port_maps": {
+              "TDATA": {
+                "physical_name": "I_out_tdata",
+                "direction": "O",
+                "left": "15",
+                "right": "0"
+              },
+              "TVALID": {
+                "physical_name": "I_out_tvalid",
+                "direction": "O"
+              }
+            }
+          },
+          "Q_out": {
+            "mode": "Master",
+            "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
+            "vlnv": "xilinx.com:interface:axis_rtl:1.0",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "costas_loop_aclk_0",
+                "value_src": "default"
+              },
+              "FREQ_HZ": {
+                "value": "16384000",
+                "value_src": "default"
+              },
+              "HAS_TKEEP": {
+                "value": "0",
+                "value_src": "default"
+              },
+              "HAS_TLAST": {
+                "value": "0",
+                "value_src": "default"
+              },
+              "HAS_TREADY": {
+                "value": "0",
+                "value_src": "default"
+              },
+              "HAS_TSTRB": {
+                "value": "0",
+                "value_src": "default"
+              },
+              "INSERT_VIP": {
+                "value": "0",
+                "value_src": "default"
+              },
+              "LAYERED_METADATA": {
+                "value": "undef",
+                "value_src": "default"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "default"
+              },
+              "TDATA_NUM_BYTES": {
+                "value": "2",
+                "value_src": "default"
+              },
+              "TDEST_WIDTH": {
+                "value": "0",
+                "value_src": "default"
+              },
+              "TID_WIDTH": {
+                "value": "0",
+                "value_src": "default"
+              },
+              "TUSER_WIDTH": {
+                "value": "0",
+                "value_src": "default"
+              }
+            },
+            "port_maps": {
+              "TDATA": {
+                "physical_name": "Q_out_tdata",
+                "direction": "O",
+                "left": "15",
+                "right": "0"
+              },
+              "TVALID": {
+                "physical_name": "Q_out_tvalid",
+                "direction": "O"
+              }
+            }
+          }
+        },
         "ports": {
           "clk_16M384": {
             "type": "clk",
@@ -97,6 +241,10 @@
             "direction": "I",
             "left": "15",
             "right": "0"
+          },
+          "clk_32M768": {
+            "type": "clk",
+            "direction": "I"
           }
         },
         "post_compiled_compname": "costas_loop_inst_0",
@@ -104,7 +252,7 @@
         "variant_info": {
           "costas_loop.bd": {
             "scoped_diagram": "costas_loop_inst_0.bd",
-            "design_checksum": "0xD08B70FA",
+            "design_checksum": "0xD6D61896",
             "ref_name": "costas_loop",
             "ref_subinst_path": "top_costas_loop_0",
             "ref_type": "Block Design",
@@ -473,7 +621,8 @@
       "clk_wiz_32M768_clk_32M768": {
         "ports": [
           "clk_wiz_32M768/clk_32M768",
-          "Div_clk32M768_0/clk32M768"
+          "Div_clk32M768_0/clk32M768",
+          "costas_loop_0/clk_32M768"
         ]
       }
     }

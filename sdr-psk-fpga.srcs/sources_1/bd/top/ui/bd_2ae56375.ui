@@ -1,41 +1,41 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"0.716944",
-   "Default View_TopLeft":"-173,-8",
+   "Default View_ScaleFactor":"0.756913",
+   "Default View_TopLeft":"-184,-25",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
 #  -string -flagsOSRD
-preplace port port-id_PL_CLK_100MHz -pg 1 -lvl 0 -x 0 -y 210 -defaultsOSRD
-preplace port port-id_AD9361_RX_CLK -pg 1 -lvl 5 -x 1160 -y 520 -defaultsOSRD
-preplace port port-id_AD9361_TX_FRAME -pg 1 -lvl 5 -x 1160 -y 610 -defaultsOSRD
-preplace port port-id_AD9361_FBCLK -pg 1 -lvl 5 -x 1160 -y 580 -defaultsOSRD
-preplace port port-id_AD9361_DATACLK -pg 1 -lvl 0 -x 0 -y 530 -defaultsOSRD
-preplace port port-id_AD9361_RX_FRAME -pg 1 -lvl 0 -x 0 -y 560 -defaultsOSRD
-preplace portBus AD9361_P1_D -pg 1 -lvl 5 -x 1160 -y 550 -defaultsOSRD
-preplace portBus AD9361_P0_D -pg 1 -lvl 0 -x 0 -y 500 -defaultsOSRD
-preplace inst costas_loop_0 -pg 1 -lvl 4 -x 1030 -y 440 -defaultsOSRD
+preplace port port-id_PL_CLK_100MHz -pg 1 -lvl 0 -x -10 -y 210 -defaultsOSRD
+preplace port port-id_AD9361_RX_CLK -pg 1 -lvl 5 -x 1200 -y 520 -defaultsOSRD
+preplace port port-id_AD9361_TX_FRAME -pg 1 -lvl 5 -x 1200 -y 610 -defaultsOSRD
+preplace port port-id_AD9361_FBCLK -pg 1 -lvl 5 -x 1200 -y 580 -defaultsOSRD
+preplace port port-id_AD9361_DATACLK -pg 1 -lvl 0 -x -10 -y 530 -defaultsOSRD
+preplace port port-id_AD9361_RX_FRAME -pg 1 -lvl 0 -x -10 -y 560 -defaultsOSRD
+preplace portBus AD9361_P1_D -pg 1 -lvl 5 -x 1200 -y 550 -defaultsOSRD
+preplace portBus AD9361_P0_D -pg 1 -lvl 0 -x -10 -y 500 -defaultsOSRD
+preplace inst costas_loop_0 -pg 1 -lvl 4 -x 1050 -y 440 -defaultsOSRD
 preplace inst clk_wiz_128M -pg 1 -lvl 1 -x 110 -y 210 -defaultsOSRD
 preplace inst clk_wiz_32M768 -pg 1 -lvl 2 -x 410 -y 200 -defaultsOSRD
 preplace inst AD9361_1RT_FDD_0 -pg 1 -lvl 2 -x 410 -y 550 -defaultsOSRD
-preplace inst PSK_Signal_Extend_0 -pg 1 -lvl 3 -x 770 -y 450 -defaultsOSRD
-preplace inst Div_clk32M768_0 -pg 1 -lvl 3 -x 770 -y 200 -defaultsOSRD
+preplace inst PSK_Signal_Extend_0 -pg 1 -lvl 3 -x 780 -y 450 -defaultsOSRD
+preplace inst Div_clk32M768_0 -pg 1 -lvl 3 -x 780 -y 200 -defaultsOSRD
+preplace netloc AD9361_1RT_FDD_0_AD9361_FBCLK 1 2 3 N 580 NJ 580 N
+preplace netloc AD9361_1RT_FDD_0_AD9361_P1_D 1 2 3 N 560 NJ 560 1180
+preplace netloc AD9361_1RT_FDD_0_AD9361_RX_CLK 1 1 4 210 430 610 530 N 530 1180
+preplace netloc AD9361_1RT_FDD_0_AD9361_RX_DAT_I 1 2 1 620 440n
+preplace netloc AD9361_1RT_FDD_0_AD9361_RX_DAT_Q 1 2 1 630 460n
+preplace netloc AD9361_1RT_FDD_0_AD9361_TX_FRAME 1 2 3 620 610 NJ 610 N
+preplace netloc AD9361_DATACLK_1 1 0 2 NJ 530 N
+preplace netloc AD9361_P0_D_1 1 0 2 NJ 500 200
+preplace netloc AD9361_RX_FRAME_1 1 0 2 NJ 560 200
+preplace netloc Div_clk32M768_0_clk16M384 1 3 1 920 60n
 preplace netloc PL_CLK_100MHz_1 1 0 1 N 210
+preplace netloc PSK_Signal_Extend_0_PSK_signal 1 3 1 920 440n
 preplace netloc clk_wiz_128M_clk_128M 1 1 1 N 200
 preplace netloc clk_wiz_128M_clk_200M 1 1 1 200 220n
-preplace netloc AD9361_1RT_FDD_0_AD9361_RX_CLK 1 1 4 210 430 630 520 N 520 N
-preplace netloc AD9361_1RT_FDD_0_AD9361_TX_FRAME 1 2 3 630 610 NJ 610 N
-preplace netloc AD9361_1RT_FDD_0_AD9361_P1_D 1 2 3 620 550 NJ 550 N
-preplace netloc AD9361_1RT_FDD_0_AD9361_FBCLK 1 2 3 N 580 NJ 580 N
-preplace netloc AD9361_1RT_FDD_0_AD9361_RX_DAT_I 1 2 1 620 440n
-preplace netloc AD9361_1RT_FDD_0_AD9361_RX_DAT_Q 1 2 1 610 460n
-preplace netloc PSK_Signal_Extend_0_PSK_signal 1 3 1 N 450
-preplace netloc AD9361_P0_D_1 1 0 2 NJ 500 200
-preplace netloc AD9361_DATACLK_1 1 0 2 NJ 530 N
-preplace netloc AD9361_RX_FRAME_1 1 0 2 NJ 560 200
-preplace netloc clk_wiz_32M768_clk_32M768 1 2 1 N 200
-preplace netloc Div_clk32M768_0_clk16M384 1 3 1 910 60n
-levelinfo -pg 1 0 110 410 770 1030 1160
-pagesize -pg 1 -db -bbox -sgen -180 0 1340 670
+preplace netloc clk_wiz_32M768_clk_32M768 1 2 2 640 520 920
+levelinfo -pg 1 -10 110 410 780 1050 1200
+pagesize -pg 1 -db -bbox -sgen -190 0 1380 670
 "
 }
 0
