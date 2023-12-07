@@ -2,10 +2,10 @@
 <Root MajorVersion="0" MinorVersion="40">
   <CompositeFile CompositeFileTopName="top" CanBeSetAsTop="false" CanDisplayChildGraph="true">
     <Description>Composite Fileset</Description>
-    <Generation Name="SYNTHESIS" State="STALE" Timestamp="1701936891"/>
-    <Generation Name="IMPLEMENTATION" State="STALE" Timestamp="1701936891"/>
-    <Generation Name="SIMULATION" State="STALE" Timestamp="1701936891"/>
-    <Generation Name="HW_HANDOFF" State="STALE" Timestamp="1701936891"/>
+    <Generation Name="SYNTHESIS" State="STALE" Timestamp="1701951705"/>
+    <Generation Name="IMPLEMENTATION" State="STALE" Timestamp="1701951705"/>
+    <Generation Name="SIMULATION" State="STALE" Timestamp="1701951705"/>
+    <Generation Name="HW_HANDOFF" State="STALE" Timestamp="1701951705"/>
     <FileCollection Name="SOURCES" Type="SOURCES"/>
     <BlockContainerCollection>
       <BlockContainer InstPath="/costas_loop_0" IsPR="false" State="Stale">
@@ -20,6 +20,7 @@
       <ModuleReference TargetName="costas_loop" Type="Block Design" SubInstancePath="top_costas_loop_0">
         <TopFile Name="..\..\..\..\sdr-psk-fpga.srcs\sources_1\bd\costas_loop\costas_loop.bd"/>
         <FileCollection>
+          <File Name="..\..\..\..\verilog\NCO_cos_sin.v"/>
           <File Name="..\..\..\..\sdr-psk-fpga.srcs\sources_1\bd\costas_loop\costas_loop.bd"/>
         </FileCollection>
       </ModuleReference>
