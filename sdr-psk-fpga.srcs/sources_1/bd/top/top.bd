@@ -35,10 +35,9 @@
           }
         },
         "ports": {
-          "dout_0": {
-            "direction": "O",
-            "left": "0",
-            "right": "0"
+          "clk_16M384": {
+            "type": "clk",
+            "direction": "I"
           }
         },
         "post_compiled_compname": "costas_loop_inst_0",
@@ -46,7 +45,7 @@
         "variant_info": {
           "costas_loop.bd": {
             "scoped_diagram": "costas_loop_inst_0.bd",
-            "design_checksum": "0xF732FACE",
+            "design_checksum": "0xEF61C84",
             "ref_name": "costas_loop",
             "ref_subinst_path": "top_costas_loop_0",
             "ref_type": "Block Design",
