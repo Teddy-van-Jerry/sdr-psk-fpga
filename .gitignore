@@ -1,0 +1,6 @@
+# Vivado
+*.cache
+*.sim
+
+# macOS
+.DS_Store

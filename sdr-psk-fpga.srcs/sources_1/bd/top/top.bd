@@ -1,0 +1,60 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0x0",
+      "device": "xc7z020clg484-1",
+      "gen_directory": "../../../../sdr-psk-fpga.gen/sources_1/bd/top",
+      "name": "top",
+      "rev_ctrl_bd_flag": "RevCtrlBdOff",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2022.2"
+    },
+    "design_tree": {
+      "costas_loop_0": ""
+    },
+    "components": {
+      "costas_loop_0": {
+        "parameters": {
+          "ACTIVE_SIM_BD": {
+            "value": "costas_loop.bd"
+          },
+          "ACTIVE_SYNTH_BD": {
+            "value": "costas_loop.bd"
+          },
+          "ENABLE_DFX": {
+            "value": "0"
+          },
+          "LIST_SIM_BD": {
+            "value": "costas_loop.bd"
+          },
+          "LIST_SYNTH_BD": {
+            "value": "costas_loop.bd"
+          },
+          "LOCK_PROPAGATE": {
+            "value": "0"
+          }
+        },
+        "ports": {
+          "dout_0": {
+            "direction": "O",
+            "left": "0",
+            "right": "0"
+          }
+        },
+        "post_compiled_compname": "costas_loop_inst_0",
+        "architecture": "zynq",
+        "variant_info": {
+          "costas_loop.bd": {
+            "scoped_diagram": "costas_loop_inst_0.bd",
+            "design_checksum": "0xF732FACE",
+            "ref_name": "costas_loop",
+            "ref_subinst_path": "top_costas_loop_0",
+            "ref_type": "Block Design",
+            "source_type": "all",
+            "active": "all"
+          }
+        }
+      }
+    }
+  }
+}
