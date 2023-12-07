@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x102726E03E2EA7FF",
+      "boundary_crc": "0xDD01AACBFE4F9F1D",
       "device": "xc7z020clg484-1",
       "gen_directory": "../../../../sdr-psk-fpga.gen/sources_1/bd/costas_loop",
       "name": "costas_loop",
@@ -12,7 +12,9 @@
     },
     "design_tree": {
       "NCO": "",
-      "NCO_cos_sin_0": ""
+      "NCO_cos_sin_0": "",
+      "phase_detector_I": "",
+      "phase_detector_Q": ""
     },
     "ports": {
       "clk_16M384": {
@@ -36,6 +38,18 @@
           },
           "PHASE": {
             "value": "0.0",
+            "value_src": "default"
+          }
+        }
+      },
+      "PSK_signal": {
+        "type": "data",
+        "direction": "I",
+        "left": "15",
+        "right": "0",
+        "parameters": {
+          "LAYERED_METADATA": {
+            "value": "undef",
             "value_src": "default"
           }
         }
@@ -219,6 +233,76 @@
             "right": "0"
           }
         }
+      },
+      "phase_detector_I": {
+        "vlnv": "xilinx.com:ip:mult_gen:12.0",
+        "xci_name": "costas_loop_mult_gen_0_0",
+        "xci_path": "ip\\costas_loop_mult_gen_0_0\\costas_loop_mult_gen_0_0.xci",
+        "inst_hier_path": "phase_detector_I",
+        "parameters": {
+          "Multiplier_Construction": {
+            "value": "Use_Mults"
+          },
+          "OutputWidthHigh": {
+            "value": "31"
+          },
+          "OutputWidthLow": {
+            "value": "16"
+          },
+          "PipeStages": {
+            "value": "3"
+          },
+          "PortAType": {
+            "value": "Signed"
+          },
+          "PortAWidth": {
+            "value": "16"
+          },
+          "PortBType": {
+            "value": "Signed"
+          },
+          "PortBWidth": {
+            "value": "16"
+          },
+          "Use_Custom_Output_Width": {
+            "value": "true"
+          }
+        }
+      },
+      "phase_detector_Q": {
+        "vlnv": "xilinx.com:ip:mult_gen:12.0",
+        "xci_name": "costas_loop_phase_detector_I_0",
+        "xci_path": "ip\\costas_loop_phase_detector_I_0\\costas_loop_phase_detector_I_0.xci",
+        "inst_hier_path": "phase_detector_Q",
+        "parameters": {
+          "Multiplier_Construction": {
+            "value": "Use_Mults"
+          },
+          "OutputWidthHigh": {
+            "value": "31"
+          },
+          "OutputWidthLow": {
+            "value": "16"
+          },
+          "PipeStages": {
+            "value": "3"
+          },
+          "PortAType": {
+            "value": "Signed"
+          },
+          "PortAWidth": {
+            "value": "16"
+          },
+          "PortBType": {
+            "value": "Signed"
+          },
+          "PortBWidth": {
+            "value": "16"
+          },
+          "Use_Custom_Output_Width": {
+            "value": "true"
+          }
+        }
       }
     },
     "interface_nets": {
@@ -230,10 +314,31 @@
       }
     },
     "nets": {
+      "NCO_cos_sin_0_NCO_cos": {
+        "ports": [
+          "NCO_cos_sin_0/NCO_cos",
+          "phase_detector_I/B"
+        ]
+      },
+      "NCO_cos_sin_0_NCO_sin": {
+        "ports": [
+          "NCO_cos_sin_0/NCO_sin",
+          "phase_detector_Q/B"
+        ]
+      },
+      "PSK_signal_1": {
+        "ports": [
+          "PSK_signal",
+          "phase_detector_I/A",
+          "phase_detector_Q/A"
+        ]
+      },
       "aclk_0_1": {
         "ports": [
           "clk_16M384",
-          "NCO/aclk"
+          "NCO/aclk",
+          "phase_detector_I/CLK",
+          "phase_detector_Q/CLK"
         ]
       }
     }
