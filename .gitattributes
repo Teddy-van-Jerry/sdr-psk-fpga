@@ -1,1 +1,2 @@
 *.lpr linguist-language=XML
+constraints/lt_zynq_V200.xdc linguist-vendored
