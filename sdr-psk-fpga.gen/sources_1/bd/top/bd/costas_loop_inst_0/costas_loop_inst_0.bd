@@ -36,15 +36,11 @@
       }
     },
     "interface_ports": {
-      "I_out": {
+      "I": {
         "mode": "Master",
         "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
         "vlnv": "xilinx.com:interface:axis_rtl:1.0",
         "parameters": {
-          "CLK_DOMAIN": {
-            "value": "costas_loop_aclk_0",
-            "value_src": "default"
-          },
           "FREQ_HZ": {
             "value": "16384000",
             "value_src": "default"
@@ -96,26 +92,22 @@
         },
         "port_maps": {
           "TDATA": {
-            "physical_name": "I_out_tdata",
+            "physical_name": "I_tdata",
             "direction": "O",
             "left": "15",
             "right": "0"
           },
           "TVALID": {
-            "physical_name": "I_out_tvalid",
+            "physical_name": "I_tvalid",
             "direction": "O"
           }
         }
       },
-      "Q_out": {
+      "Q": {
         "mode": "Master",
         "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
         "vlnv": "xilinx.com:interface:axis_rtl:1.0",
         "parameters": {
-          "CLK_DOMAIN": {
-            "value": "costas_loop_aclk_0",
-            "value_src": "default"
-          },
           "FREQ_HZ": {
             "value": "16384000",
             "value_src": "default"
@@ -167,13 +159,11 @@
         },
         "port_maps": {
           "TDATA": {
-            "physical_name": "Q_out_tdata",
-            "direction": "O",
-            "left": "15",
-            "right": "0"
+            "physical_name": "Q_tdata",
+            "direction": "O"
           },
           "TVALID": {
-            "physical_name": "Q_out_tvalid",
+            "physical_name": "Q_tvalid",
             "direction": "O"
           }
         }
@@ -184,10 +174,6 @@
         "type": "clk",
         "direction": "I",
         "parameters": {
-          "ASSOCIATED_BUSIF": {
-            "value": "I_out:Q_out",
-            "value_src": "strong"
-          },
           "ASSOCIATED_RESET": {
             "value": "rst_16M386",
             "value_src": "strong"
@@ -2151,22 +2137,10 @@
       }
     },
     "interface_nets": {
-      "AXI_2x_0_O1": {
-        "interface_ports": [
-          "I_out",
-          "IQ_Connect/I1"
-        ]
-      },
       "AXI_2x_I_O2": {
         "interface_ports": [
           "IQ_Connect/I2",
           "Error_Detect/in_I"
-        ]
-      },
-      "AXI_2x_Q_O1": {
-        "interface_ports": [
-          "Q_out",
-          "IQ_Connect/Q1"
         ]
       },
       "AXI_2x_Q_O2": {
@@ -2179,6 +2153,18 @@
         "interface_ports": [
           "Error_Detect/error",
           "loop_filter/S_AXIS_DATA"
+        ]
+      },
+      "IQ_Connect_I1": {
+        "interface_ports": [
+          "I",
+          "IQ_Connect/I1"
+        ]
+      },
+      "IQ_Connect_Q1": {
+        "interface_ports": [
+          "Q",
+          "IQ_Connect/Q1"
         ]
       },
       "fir_compiler_I_M_AXIS_DATA": {

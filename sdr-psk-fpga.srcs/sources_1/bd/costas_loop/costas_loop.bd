@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x16F2C98B807E8471",
+      "boundary_crc": "0xC1FA8648F7C9F0A3",
       "device": "xc7z020clg484-1",
       "gen_directory": "../../../../sdr-psk-fpga.gen/sources_1/bd/costas_loop",
       "name": "costas_loop",
@@ -36,85 +36,11 @@
       }
     },
     "interface_ports": {
-      "Q_out": {
+      "I": {
         "mode": "Master",
         "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
         "vlnv": "xilinx.com:interface:axis_rtl:1.0",
         "parameters": {
-          "CLK_DOMAIN": {
-            "value": "costas_loop_aclk_0",
-            "value_src": "default"
-          },
-          "FREQ_HZ": {
-            "value": "16384000"
-          },
-          "HAS_TKEEP": {
-            "value": "0",
-            "value_src": "const_prop"
-          },
-          "HAS_TLAST": {
-            "value": "0",
-            "value_src": "const_prop"
-          },
-          "HAS_TREADY": {
-            "value": "0",
-            "value_src": "const_prop"
-          },
-          "HAS_TSTRB": {
-            "value": "0",
-            "value_src": "const_prop"
-          },
-          "INSERT_VIP": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "LAYERED_METADATA": {
-            "value": "undef",
-            "value_src": "default"
-          },
-          "PHASE": {
-            "value": "0.0",
-            "value_src": "default"
-          },
-          "TDATA_NUM_BYTES": {
-            "value": "0",
-            "value_src": "const_prop"
-          },
-          "TDEST_WIDTH": {
-            "value": "0",
-            "value_src": "const_prop"
-          },
-          "TID_WIDTH": {
-            "value": "0",
-            "value_src": "const_prop"
-          },
-          "TUSER_WIDTH": {
-            "value": "0",
-            "value_src": "const_prop"
-          }
-        },
-        "port_maps": {
-          "TDATA": {
-            "physical_name": "Q_out_tdata",
-            "direction": "O",
-            "left": "15",
-            "right": "0"
-          },
-          "TVALID": {
-            "physical_name": "Q_out_tvalid",
-            "direction": "O"
-          }
-        }
-      },
-      "I_out": {
-        "mode": "Master",
-        "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
-        "vlnv": "xilinx.com:interface:axis_rtl:1.0",
-        "parameters": {
-          "CLK_DOMAIN": {
-            "value": "costas_loop_aclk_0",
-            "value_src": "default"
-          },
           "FREQ_HZ": {
             "value": "16384000"
           },
@@ -165,13 +91,77 @@
         },
         "port_maps": {
           "TDATA": {
-            "physical_name": "I_out_tdata",
+            "physical_name": "I_tdata",
             "direction": "O",
             "left": "15",
             "right": "0"
           },
           "TVALID": {
-            "physical_name": "I_out_tvalid",
+            "physical_name": "I_tvalid",
+            "direction": "O"
+          }
+        }
+      },
+      "Q": {
+        "mode": "Master",
+        "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
+        "vlnv": "xilinx.com:interface:axis_rtl:1.0",
+        "parameters": {
+          "FREQ_HZ": {
+            "value": "16384000"
+          },
+          "HAS_TKEEP": {
+            "value": "0",
+            "value_src": "const_prop"
+          },
+          "HAS_TLAST": {
+            "value": "0",
+            "value_src": "const_prop"
+          },
+          "HAS_TREADY": {
+            "value": "0",
+            "value_src": "const_prop"
+          },
+          "HAS_TSTRB": {
+            "value": "0",
+            "value_src": "const_prop"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "LAYERED_METADATA": {
+            "value": "undef",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
+          },
+          "TDATA_NUM_BYTES": {
+            "value": "0",
+            "value_src": "const_prop"
+          },
+          "TDEST_WIDTH": {
+            "value": "0",
+            "value_src": "const_prop"
+          },
+          "TID_WIDTH": {
+            "value": "0",
+            "value_src": "const_prop"
+          },
+          "TUSER_WIDTH": {
+            "value": "0",
+            "value_src": "const_prop"
+          }
+        },
+        "port_maps": {
+          "TDATA": {
+            "physical_name": "Q_tdata",
+            "direction": "O"
+          },
+          "TVALID": {
+            "physical_name": "Q_tvalid",
             "direction": "O"
           }
         }
@@ -182,9 +172,6 @@
         "type": "clk",
         "direction": "I",
         "parameters": {
-          "ASSOCIATED_BUSIF": {
-            "value": "I_out:Q_out"
-          },
           "ASSOCIATED_RESET": {
             "value": "rst_16M386",
             "value_src": "default"
@@ -2039,22 +2026,10 @@
       }
     },
     "interface_nets": {
-      "AXI_2x_0_O1": {
-        "interface_ports": [
-          "I_out",
-          "IQ_Connect/I1"
-        ]
-      },
       "AXI_2x_I_O2": {
         "interface_ports": [
           "IQ_Connect/I2",
           "Error_Detect/in_I"
-        ]
-      },
-      "AXI_2x_Q_O1": {
-        "interface_ports": [
-          "Q_out",
-          "IQ_Connect/Q1"
         ]
       },
       "AXI_2x_Q_O2": {
@@ -2067,6 +2042,18 @@
         "interface_ports": [
           "Error_Detect/error",
           "loop_filter/S_AXIS_DATA"
+        ]
+      },
+      "IQ_Connect_I1": {
+        "interface_ports": [
+          "I",
+          "IQ_Connect/I1"
+        ]
+      },
+      "IQ_Connect_Q1": {
+        "interface_ports": [
+          "Q",
+          "IQ_Connect/Q1"
         ]
       },
       "fir_compiler_I_M_AXIS_DATA": {
