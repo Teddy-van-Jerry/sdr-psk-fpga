@@ -2,7 +2,7 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "costas_loop_inst_0_AXI_2x_Q_0",
-    "cell_name": "costas_loop_0/AXI_2x_Q",
+    "cell_name": "costas_loop_0/IQ_Connect/AXI_2x_Q",
     "component_reference": "xilinx.com:module_ref:AXI_2x:1.0",
     "ip_revision": "1",
     "gen_directory": ".",

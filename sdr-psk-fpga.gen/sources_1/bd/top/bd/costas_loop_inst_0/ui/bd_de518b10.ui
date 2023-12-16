@@ -1,0 +1,25 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"1.25",
+   "Default View_TopLeft":"-410,-186",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
+#  -string -flagsOSRD
+preplace port IQ -pg 1 -lvl 3 -x 600 -y 160 -defaultsOSRD
+preplace port port-id_clk_16M384 -pg 1 -lvl 0 -x 0 -y 230 -defaultsOSRD
+preplace portBus I -pg 1 -lvl 0 -x 0 -y 40 -defaultsOSRD
+preplace portBus Q -pg 1 -lvl 0 -x 0 -y 70 -defaultsOSRD
+preplace inst xlconcat_0 -pg 1 -lvl 1 -x 130 -y 60 -defaultsOSRD
+preplace inst xlconstant_valid_one -pg 1 -lvl 1 -x 130 -y 170 -defaultsOSRD
+preplace inst LP_filter -pg 1 -lvl 2 -x 410 -y 160 -defaultsOSRD
+preplace netloc xlconcat_0_dout 1 1 1 230 60n
+preplace netloc xlconstant_valid_one_dout 1 1 1 NJ 170
+preplace netloc phase_detector_I_P 1 0 1 20J 40n
+preplace netloc phase_detector_Q_P 1 0 1 NJ 70
+preplace netloc aclk_0_1 1 0 2 NJ 230 230J
+preplace netloc fir_compiler_I_M_AXIS_DATA 1 2 1 N 160
+levelinfo -pg 1 0 130 410 600
+pagesize -pg 1 -db -bbox -sgen -130 -10 670 250
+"
+}
+

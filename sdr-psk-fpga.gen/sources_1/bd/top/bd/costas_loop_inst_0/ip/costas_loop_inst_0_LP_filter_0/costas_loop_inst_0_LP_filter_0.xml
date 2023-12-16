@@ -2,7 +2,7 @@
 <spirit:component xmlns:xilinx="http://www.xilinx.com" xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <spirit:vendor>xilinx.com</spirit:vendor>
   <spirit:library>customized_ip</spirit:library>
-  <spirit:name>costas_loop_inst_0_fir_compiler_0_0</spirit:name>
+  <spirit:name>costas_loop_inst_0_LP_filter_0</spirit:name>
   <spirit:version>1.0</spirit:version>
   <spirit:busInterfaces>
     <spirit:busInterface>
@@ -1643,11 +1643,11 @@ nimum {} maximum {}} value 0}}}}}} TUSER_WIDTH 0}</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="string">
         <spirit:name>C_COMPONENT_NAME</spirit:name>
-        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_COMPONENT_NAME">costas_loop_inst_0_fir_compiler_0_0</spirit:value>
+        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_COMPONENT_NAME">costas_loop_inst_0_LP_filter_0</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="string">
         <spirit:name>C_COEF_FILE</spirit:name>
-        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_COEF_FILE">costas_loop_inst_0_fir_compiler_0_0.mif</spirit:value>
+        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_COEF_FILE">costas_loop_inst_0_LP_filter_0.mif</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_COEF_FILE_LINES</spirit:name>
@@ -2051,7 +2051,7 @@ nimum {} maximum {}} value 0}}}}}} TUSER_WIDTH 0}</spirit:value>
   <spirit:parameters>
     <spirit:parameter>
       <spirit:name>Component_Name</spirit:name>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Component_Name" spirit:order="1">costas_loop_inst_0_fir_compiler_0_0</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Component_Name" spirit:order="1">costas_loop_inst_0_LP_filter_0</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>GUI_Behaviour</spirit:name>

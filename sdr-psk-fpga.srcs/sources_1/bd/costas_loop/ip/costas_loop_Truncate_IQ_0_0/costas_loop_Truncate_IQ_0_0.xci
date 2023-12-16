@@ -2,7 +2,7 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "costas_loop_Truncate_IQ_0_0",
-    "cell_name": "Truncate_IQ_0",
+    "cell_name": "IQ_Connect/Truncate_IQ_0",
     "component_reference": "xilinx.com:module_ref:Truncate_IQ:1.0",
     "ip_revision": "1",
     "gen_directory": "../../../../../../sdr-psk-fpga.gen/sources_1/bd/costas_loop/ip/costas_loop_Truncate_IQ_0_0",

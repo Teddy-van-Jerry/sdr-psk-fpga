@@ -2,7 +2,7 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "costas_loop_xlconcat_0_0",
-    "cell_name": "xlconcat_0",
+    "cell_name": "LPF/xlconcat_0",
     "component_reference": "xilinx.com:ip:xlconcat:2.1",
     "ip_revision": "4",
     "gen_directory": "../../../../../../sdr-psk-fpga.gen/sources_1/bd/costas_loop/ip/costas_loop_xlconcat_0_0",

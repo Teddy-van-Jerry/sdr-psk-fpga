@@ -249,6 +249,9 @@
           "rst_16M386": {
             "type": "rst",
             "direction": "I"
+          },
+          "is_bpsk": {
+            "direction": "I"
           }
         },
         "post_compiled_compname": "costas_loop_inst_0",
@@ -256,7 +259,7 @@
         "variant_info": {
           "costas_loop.bd": {
             "scoped_diagram": "costas_loop_inst_0.bd",
-            "design_checksum": "0x44CDA11",
+            "design_checksum": "0xDE17A865",
             "ref_name": "costas_loop",
             "ref_subinst_path": "top_costas_loop_0",
             "ref_type": "Block Design",

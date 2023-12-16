@@ -1,15 +1,15 @@
 {
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
-    "xci_name": "costas_loop_inst_0_mult_gen_0_0",
-    "cell_name": "costas_loop_0/mult_gen_0",
+    "xci_name": "costas_loop_inst_0_Error_Detect_BPSK_0",
+    "cell_name": "costas_loop_0/Error_Detect/Error_Detect_BPSK",
     "component_reference": "xilinx.com:ip:mult_gen:12.0",
     "ip_revision": "18",
     "gen_directory": ".",
     "parameters": {
       "component_parameters": {
         "InternalUser": [ { "value": "0", "resolve_type": "user", "format": "long", "usage": "all" } ],
-        "Component_Name": [ { "value": "costas_loop_inst_0_mult_gen_0_0", "resolve_type": "user", "usage": "all" } ],
+        "Component_Name": [ { "value": "costas_loop_inst_0_Error_Detect_BPSK_0", "resolve_type": "user", "usage": "all" } ],
         "MultType": [ { "value": "Parallel_Multiplier", "resolve_type": "user", "usage": "all" } ],
         "PortAType": [ { "value": "Signed", "value_src": "user", "value_permission": "bd_and_user", "resolve_type": "user", "usage": "all" } ],
         "PortAWidth": [ { "value": "16", "value_src": "user", "value_permission": "bd_and_user", "resolve_type": "user", "format": "long", "usage": "all" } ],
