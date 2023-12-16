@@ -9,9 +9,9 @@ module Delay # (
   parameter WIDTH = 16,
   parameter DELAY = 1
 ) (
-  input clk,
-  input rst,
-  input [WIDTH-1:0] I,
+  input              clk,
+  input              rst,
+  input  [WIDTH-1:0] I,
   output [WIDTH-1:0] O
 );
   genvar i;
@@ -29,7 +29,7 @@ module Delay # (
     end
     else begin // DELAY >= 2
       reg [WIDTH-1:0] I_delayed [0:DELAY-1];
-      for (i = 0; i < DELAY; i++) begin
+      for (i = 0; i < DELAY; i = i+1) begin
         always @ (posedge clk or posedge rst) begin
           if (rst) I_delayed[i] <= 0;
           else begin

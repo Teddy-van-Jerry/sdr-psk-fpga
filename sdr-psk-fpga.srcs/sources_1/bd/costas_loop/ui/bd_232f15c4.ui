@@ -1,37 +1,52 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"0.593509",
-   "Default View_TopLeft":"-551,-649",
+   "Default View_ScaleFactor":"0.823276",
+   "Default View_TopLeft":"-181,-119",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
 #  -string -flagsOSRD
-preplace port I_out -pg 1 -lvl 7 -x 1180 -y -170 -defaultsOSRD
-preplace port Q_out -pg 1 -lvl 7 -x 1180 -y -140 -defaultsOSRD
-preplace port port-id_clk_16M384 -pg 1 -lvl 0 -x -400 -y -80 -defaultsOSRD
-preplace port port-id_clk_32M768 -pg 1 -lvl 0 -x -400 -y -110 -defaultsOSRD
-preplace portBus PSK_signal -pg 1 -lvl 0 -x -400 -y -160 -defaultsOSRD
-preplace inst NCO -pg 1 -lvl 1 -x -230 -y -100 -defaultsOSRD
-preplace inst phase_detector_I -pg 1 -lvl 3 -x 320 -y -180 -defaultsOSRD
-preplace inst phase_detector_Q -pg 1 -lvl 3 -x 320 -y -40 -defaultsOSRD
-preplace inst fir_compiler_0 -pg 1 -lvl 5 -x 800 -y -150 -defaultsOSRD
-preplace inst xlconstant_valid_one -pg 1 -lvl 3 -x 320 -y -320 -defaultsOSRD
-preplace inst xlconcat_0 -pg 1 -lvl 4 -x 520 -y -120 -defaultsOSRD
-preplace inst Truncate_IQ_0 -pg 1 -lvl 6 -x 1070 -y -150 -defaultsOSRD
-preplace inst NCO_cos_sin_0 -pg 1 -lvl 2 -x 60 -y -110 -defaultsOSRD
-preplace netloc NCO_cos_sin_0_NCO_cos 1 2 1 210 -160n
-preplace netloc NCO_cos_sin_0_NCO_sin 1 2 1 190 -100n
-preplace netloc PSK_signal_1 1 0 3 -380J -180 NJ -180 220
-preplace netloc aclk_0_1 1 0 5 -380 -30 N -30 200 40 N 40 630
-preplace netloc xlconstant_valid_one_dout 1 3 2 N -320 630
-preplace netloc xlconcat_0_dout 1 4 1 620 -160n
-preplace netloc phase_detector_I_P 1 3 1 420 -180n
-preplace netloc phase_detector_Q_P 1 3 1 420 -110n
-preplace netloc NCO_M_AXIS_DATA 1 1 1 N -110
-preplace netloc fir_compiler_I_M_AXIS_DATA 1 5 1 N -150
-preplace netloc Truncate_IQ_0_I_out 1 6 1 1160 -170n
-preplace netloc Truncate_IQ_0_Q_out 1 6 1 N -140
-levelinfo -pg 1 -400 -230 60 320 520 800 1070 1180
-pagesize -pg 1 -db -bbox -sgen -560 -380 1270 140
+preplace port Q_out -pg 1 -lvl 8 -x 1820 -y 430 -defaultsOSRD
+preplace port I_out -pg 1 -lvl 8 -x 1820 -y 400 -defaultsOSRD
+preplace port port-id_clk_16M384 -pg 1 -lvl 0 -x -30 -y 390 -defaultsOSRD
+preplace port port-id_clk_32M768 -pg 1 -lvl 0 -x -30 -y 20 -defaultsOSRD
+preplace port port-id_rst_16M386 -pg 1 -lvl 0 -x -30 -y 250 -defaultsOSRD
+preplace portBus PSK_signal -pg 1 -lvl 0 -x -30 -y 360 -defaultsOSRD
+preplace inst NCO -pg 1 -lvl 1 -x 140 -y 440 -defaultsOSRD
+preplace inst phase_detector_I -pg 1 -lvl 3 -x 670 -y 400 -defaultsOSRD
+preplace inst phase_detector_Q -pg 1 -lvl 3 -x 670 -y 660 -defaultsOSRD
+preplace inst fir_compiler_0 -pg 1 -lvl 5 -x 1200 -y 420 -defaultsOSRD
+preplace inst xlconstant_valid_one -pg 1 -lvl 4 -x 870 -y 520 -defaultsOSRD
+preplace inst xlconcat_0 -pg 1 -lvl 4 -x 870 -y 410 -defaultsOSRD
+preplace inst NCO_cos_sin_0 -pg 1 -lvl 2 -x 430 -y 430 -defaultsOSRD
+preplace inst Error_Detect_Ctrl_0 -pg 1 -lvl 5 -x 1200 -y 170 -defaultsOSRD
+preplace inst Error_Detect_QPSK -pg 1 -lvl 6 -x 1500 -y 250 -defaultsOSRD
+preplace inst Truncate_IQ_0 -pg 1 -lvl 6 -x 1500 -y 450 -defaultsOSRD
+preplace inst AXI_2x_Q -pg 1 -lvl 7 -x 1690 -y 520 -defaultsOSRD
+preplace inst mult_gen_0 -pg 1 -lvl 6 -x 1500 -y 40 -defaultsOSRD
+preplace inst AXI_2x_I -pg 1 -lvl 7 -x 1690 -y 400 -defaultsOSRD
+preplace netloc NCO_cos_sin_0_NCO_cos 1 2 1 N 420
+preplace netloc NCO_cos_sin_0_NCO_sin 1 2 1 560 440n
+preplace netloc PSK_signal_1 1 0 3 NJ 360 NJ 360 570
+preplace netloc aclk_0_1 1 0 6 -10 350 NJ 350 580 480 760J 340 970 10 1390
+preplace netloc phase_detector_I_P 1 3 1 N 400
+preplace netloc phase_detector_Q_P 1 3 1 770 420n
+preplace netloc xlconcat_0_dout 1 4 1 N 410
+preplace netloc xlconstant_valid_one_dout 1 4 1 980 110n
+preplace netloc rst_16M386_1 1 0 5 NJ 250 NJ 250 NJ 250 NJ 250 NJ
+preplace netloc Error_Detect_Ctrl_0_out_I_tdata 1 5 1 1400 40n
+preplace netloc Error_Detect_Ctrl_0_out_Q_tdata 1 5 1 1410 60n
+preplace netloc Error_Detect_QPSK_S 1 4 3 1000 -50 NJ -50 1600
+preplace netloc mult_gen_0_P 1 4 3 1010 -40 NJ -40 1590
+preplace netloc NCO_M_AXIS_DATA 1 1 1 NJ 430
+preplace netloc fir_compiler_I_M_AXIS_DATA 1 5 1 1400 420n
+preplace netloc Truncate_IQ_0_I 1 6 1 1590 400n
+preplace netloc AXI_2x_0_O1 1 7 1 1800 390n
+preplace netloc Truncate_IQ_0_Q 1 6 1 1600 460n
+preplace netloc AXI_2x_Q_O1 1 7 1 1800 430n
+preplace netloc AXI_2x_I_O2 1 4 4 990 -60 N -60 N -60 1790
+preplace netloc AXI_2x_Q_O2 1 4 4 1010 330 N 330 N 330 1780
+levelinfo -pg 1 -30 140 430 670 870 1200 1500 1690 1820
+pagesize -pg 1 -db -bbox -sgen -190 -70 1910 740
 "
 }
 0
