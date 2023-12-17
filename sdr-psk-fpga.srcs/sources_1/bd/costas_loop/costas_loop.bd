@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xC1FA8648F7C9F0A3",
+      "boundary_crc": "0xE6BD415646487477",
       "device": "xc7z020clg484-1",
       "gen_directory": "../../../../sdr-psk-fpga.gen/sources_1/bd/costas_loop",
       "name": "costas_loop",
@@ -22,8 +22,8 @@
       },
       "IQ_Connect": {
         "AXI_2x_I": "",
-        "AXI_2x_Q": "",
-        "Truncate_IQ_0": ""
+        "Truncate_IQ_0": "",
+        "AXI_2x_Q": ""
       },
       "LPF": {
         "xlconcat_0": "",
@@ -139,8 +139,8 @@
             "value_src": "default"
           },
           "TDATA_NUM_BYTES": {
-            "value": "0",
-            "value_src": "const_prop"
+            "value": "2",
+            "value_src": "auto_prop"
           },
           "TDEST_WIDTH": {
             "value": "0",
@@ -158,7 +158,9 @@
         "port_maps": {
           "TDATA": {
             "physical_name": "Q_tdata",
-            "direction": "O"
+            "direction": "O",
+            "left": "15",
+            "right": "0"
           },
           "TVALID": {
             "physical_name": "Q_tvalid",
@@ -200,7 +202,7 @@
       "PSK_signal": {
         "type": "data",
         "direction": "I",
-        "left": "15",
+        "left": "11",
         "right": "0",
         "parameters": {
           "LAYERED_METADATA": {
@@ -262,10 +264,10 @@
             "value": "Use_Mults"
           },
           "OutputWidthHigh": {
-            "value": "31"
+            "value": "23"
           },
           "OutputWidthLow": {
-            "value": "16"
+            "value": "8"
           },
           "PipeStages": {
             "value": "3"
@@ -274,13 +276,13 @@
             "value": "Signed"
           },
           "PortAWidth": {
-            "value": "16"
+            "value": "12"
           },
           "PortBType": {
             "value": "Signed"
           },
           "PortBWidth": {
-            "value": "16"
+            "value": "12"
           },
           "Use_Custom_Output_Width": {
             "value": "true"
@@ -297,10 +299,10 @@
             "value": "Use_Mults"
           },
           "OutputWidthHigh": {
-            "value": "31"
+            "value": "23"
           },
           "OutputWidthLow": {
-            "value": "16"
+            "value": "8"
           },
           "PipeStages": {
             "value": "3"
@@ -309,13 +311,13 @@
             "value": "Signed"
           },
           "PortAWidth": {
-            "value": "16"
+            "value": "12"
           },
           "PortBType": {
             "value": "Signed"
           },
           "PortBWidth": {
-            "value": "16"
+            "value": "12"
           },
           "Use_Custom_Output_Width": {
             "value": "true"
@@ -1107,9 +1109,6 @@
                   "HAS_TLAST": {
                     "value": "0",
                     "value_src": "constant"
-                  },
-                  "FREQ_HZ": {
-                    "value": "16384000"
                   }
                 },
                 "port_maps": {
@@ -1226,175 +1225,6 @@
                     "direction": "O",
                     "left": "15",
                     "right": "0"
-                  },
-                  "TVALID": {
-                    "physical_name": "O2_tvalid",
-                    "direction": "O"
-                  }
-                }
-              }
-            }
-          },
-          "AXI_2x_Q": {
-            "vlnv": "xilinx.com:module_ref:AXI_2x:1.0",
-            "xci_name": "costas_loop_AXI_2x_0_1",
-            "xci_path": "ip\\costas_loop_AXI_2x_0_1\\costas_loop_AXI_2x_0_1.xci",
-            "inst_hier_path": "IQ_Connect/AXI_2x_Q",
-            "reference_info": {
-              "ref_type": "hdl",
-              "ref_name": "AXI_2x",
-              "boundary_crc": "0x0"
-            },
-            "interface_ports": {
-              "I": {
-                "mode": "Slave",
-                "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
-                "vlnv": "xilinx.com:interface:axis_rtl:1.0",
-                "parameters": {
-                  "TDATA_NUM_BYTES": {
-                    "value": "0",
-                    "value_src": "constant"
-                  },
-                  "TDEST_WIDTH": {
-                    "value": "0",
-                    "value_src": "constant"
-                  },
-                  "TID_WIDTH": {
-                    "value": "0",
-                    "value_src": "constant"
-                  },
-                  "TUSER_WIDTH": {
-                    "value": "0",
-                    "value_src": "constant"
-                  },
-                  "HAS_TREADY": {
-                    "value": "0",
-                    "value_src": "constant"
-                  },
-                  "HAS_TSTRB": {
-                    "value": "0",
-                    "value_src": "constant"
-                  },
-                  "HAS_TKEEP": {
-                    "value": "0",
-                    "value_src": "constant"
-                  },
-                  "HAS_TLAST": {
-                    "value": "0",
-                    "value_src": "constant"
-                  },
-                  "FREQ_HZ": {
-                    "value": "16384000"
-                  }
-                },
-                "port_maps": {
-                  "TDATA": {
-                    "physical_name": "I_tdata",
-                    "direction": "I"
-                  },
-                  "TVALID": {
-                    "physical_name": "I_tvalid",
-                    "direction": "I"
-                  }
-                }
-              },
-              "O1": {
-                "mode": "Master",
-                "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
-                "vlnv": "xilinx.com:interface:axis_rtl:1.0",
-                "parameters": {
-                  "TDATA_NUM_BYTES": {
-                    "value": "0",
-                    "value_src": "constant"
-                  },
-                  "TDEST_WIDTH": {
-                    "value": "0",
-                    "value_src": "constant"
-                  },
-                  "TID_WIDTH": {
-                    "value": "0",
-                    "value_src": "constant"
-                  },
-                  "TUSER_WIDTH": {
-                    "value": "0",
-                    "value_src": "constant"
-                  },
-                  "HAS_TREADY": {
-                    "value": "0",
-                    "value_src": "constant"
-                  },
-                  "HAS_TSTRB": {
-                    "value": "0",
-                    "value_src": "constant"
-                  },
-                  "HAS_TKEEP": {
-                    "value": "0",
-                    "value_src": "constant"
-                  },
-                  "HAS_TLAST": {
-                    "value": "0",
-                    "value_src": "constant"
-                  },
-                  "FREQ_HZ": {
-                    "value": "16384000"
-                  }
-                },
-                "port_maps": {
-                  "TDATA": {
-                    "physical_name": "O1_tdata",
-                    "direction": "O"
-                  },
-                  "TVALID": {
-                    "physical_name": "O1_tvalid",
-                    "direction": "O"
-                  }
-                }
-              },
-              "O2": {
-                "mode": "Master",
-                "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
-                "vlnv": "xilinx.com:interface:axis_rtl:1.0",
-                "parameters": {
-                  "TDATA_NUM_BYTES": {
-                    "value": "0",
-                    "value_src": "constant"
-                  },
-                  "TDEST_WIDTH": {
-                    "value": "0",
-                    "value_src": "constant"
-                  },
-                  "TID_WIDTH": {
-                    "value": "0",
-                    "value_src": "constant"
-                  },
-                  "TUSER_WIDTH": {
-                    "value": "0",
-                    "value_src": "constant"
-                  },
-                  "HAS_TREADY": {
-                    "value": "0",
-                    "value_src": "constant"
-                  },
-                  "HAS_TSTRB": {
-                    "value": "0",
-                    "value_src": "constant"
-                  },
-                  "HAS_TKEEP": {
-                    "value": "0",
-                    "value_src": "constant"
-                  },
-                  "HAS_TLAST": {
-                    "value": "0",
-                    "value_src": "constant"
-                  },
-                  "FREQ_HZ": {
-                    "value": "16384000"
-                  }
-                },
-                "port_maps": {
-                  "TDATA": {
-                    "physical_name": "O2_tdata",
-                    "direction": "O"
                   },
                   "TVALID": {
                     "physical_name": "O2_tvalid",
@@ -1506,9 +1336,6 @@
                     "value": "0",
                     "value_src": "constant"
                   },
-                  "FREQ_HZ": {
-                    "value": "16384000"
-                  },
                   "LAYERED_METADATA": {
                     "value": [
                       "xilinx.com:interface:datatypes:1.0 {",
@@ -1606,6 +1433,178 @@
                 }
               }
             }
+          },
+          "AXI_2x_Q": {
+            "vlnv": "xilinx.com:module_ref:AXI_2x:1.0",
+            "xci_name": "costas_loop_AXI_2x_I_0",
+            "xci_path": "ip\\costas_loop_AXI_2x_I_0\\costas_loop_AXI_2x_I_0.xci",
+            "inst_hier_path": "IQ_Connect/AXI_2x_Q",
+            "reference_info": {
+              "ref_type": "hdl",
+              "ref_name": "AXI_2x",
+              "boundary_crc": "0x0"
+            },
+            "interface_ports": {
+              "I": {
+                "mode": "Slave",
+                "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
+                "vlnv": "xilinx.com:interface:axis_rtl:1.0",
+                "parameters": {
+                  "TDATA_NUM_BYTES": {
+                    "value": "2",
+                    "value_src": "auto"
+                  },
+                  "TDEST_WIDTH": {
+                    "value": "0",
+                    "value_src": "constant"
+                  },
+                  "TID_WIDTH": {
+                    "value": "0",
+                    "value_src": "constant"
+                  },
+                  "TUSER_WIDTH": {
+                    "value": "0",
+                    "value_src": "constant"
+                  },
+                  "HAS_TREADY": {
+                    "value": "0",
+                    "value_src": "constant"
+                  },
+                  "HAS_TSTRB": {
+                    "value": "0",
+                    "value_src": "constant"
+                  },
+                  "HAS_TKEEP": {
+                    "value": "0",
+                    "value_src": "constant"
+                  },
+                  "HAS_TLAST": {
+                    "value": "0",
+                    "value_src": "constant"
+                  }
+                },
+                "port_maps": {
+                  "TDATA": {
+                    "physical_name": "I_tdata",
+                    "direction": "I",
+                    "left": "15",
+                    "right": "0"
+                  },
+                  "TVALID": {
+                    "physical_name": "I_tvalid",
+                    "direction": "I"
+                  }
+                }
+              },
+              "O1": {
+                "mode": "Master",
+                "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
+                "vlnv": "xilinx.com:interface:axis_rtl:1.0",
+                "parameters": {
+                  "TDATA_NUM_BYTES": {
+                    "value": "2",
+                    "value_src": "auto"
+                  },
+                  "TDEST_WIDTH": {
+                    "value": "0",
+                    "value_src": "constant"
+                  },
+                  "TID_WIDTH": {
+                    "value": "0",
+                    "value_src": "constant"
+                  },
+                  "TUSER_WIDTH": {
+                    "value": "0",
+                    "value_src": "constant"
+                  },
+                  "HAS_TREADY": {
+                    "value": "0",
+                    "value_src": "constant"
+                  },
+                  "HAS_TSTRB": {
+                    "value": "0",
+                    "value_src": "constant"
+                  },
+                  "HAS_TKEEP": {
+                    "value": "0",
+                    "value_src": "constant"
+                  },
+                  "HAS_TLAST": {
+                    "value": "0",
+                    "value_src": "constant"
+                  },
+                  "FREQ_HZ": {
+                    "value": "16384000"
+                  }
+                },
+                "port_maps": {
+                  "TDATA": {
+                    "physical_name": "O1_tdata",
+                    "direction": "O",
+                    "left": "15",
+                    "right": "0"
+                  },
+                  "TVALID": {
+                    "physical_name": "O1_tvalid",
+                    "direction": "O"
+                  }
+                }
+              },
+              "O2": {
+                "mode": "Master",
+                "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
+                "vlnv": "xilinx.com:interface:axis_rtl:1.0",
+                "parameters": {
+                  "TDATA_NUM_BYTES": {
+                    "value": "2",
+                    "value_src": "auto"
+                  },
+                  "TDEST_WIDTH": {
+                    "value": "0",
+                    "value_src": "constant"
+                  },
+                  "TID_WIDTH": {
+                    "value": "0",
+                    "value_src": "constant"
+                  },
+                  "TUSER_WIDTH": {
+                    "value": "0",
+                    "value_src": "constant"
+                  },
+                  "HAS_TREADY": {
+                    "value": "0",
+                    "value_src": "constant"
+                  },
+                  "HAS_TSTRB": {
+                    "value": "0",
+                    "value_src": "constant"
+                  },
+                  "HAS_TKEEP": {
+                    "value": "0",
+                    "value_src": "constant"
+                  },
+                  "HAS_TLAST": {
+                    "value": "0",
+                    "value_src": "constant"
+                  },
+                  "FREQ_HZ": {
+                    "value": "16384000"
+                  }
+                },
+                "port_maps": {
+                  "TDATA": {
+                    "physical_name": "O2_tdata",
+                    "direction": "O",
+                    "left": "15",
+                    "right": "0"
+                  },
+                  "TVALID": {
+                    "physical_name": "O2_tvalid",
+                    "direction": "O"
+                  }
+                }
+              }
+            }
           }
         },
         "interface_nets": {
@@ -1615,22 +1614,22 @@
               "AXI_2x_I/O1"
             ]
           },
-          "AXI_2x_I_O2": {
-            "interface_ports": [
-              "I2",
-              "AXI_2x_I/O2"
-            ]
-          },
-          "AXI_2x_Q_O1": {
+          "AXI_2x_I1_O1": {
             "interface_ports": [
               "Q1",
               "AXI_2x_Q/O1"
             ]
           },
-          "AXI_2x_Q_O2": {
+          "AXI_2x_I1_O2": {
             "interface_ports": [
               "Q2",
               "AXI_2x_Q/O2"
+            ]
+          },
+          "AXI_2x_I_O2": {
+            "interface_ports": [
+              "I2",
+              "AXI_2x_I/O2"
             ]
           },
           "Truncate_IQ_0_I": {
@@ -1641,8 +1640,8 @@
           },
           "Truncate_IQ_0_Q": {
             "interface_ports": [
-              "Truncate_IQ_0/Q",
-              "AXI_2x_Q/I"
+              "AXI_2x_Q/I",
+              "Truncate_IQ_0/Q"
             ]
           },
           "fir_compiler_I_M_AXIS_DATA": {
@@ -1682,7 +1681,15 @@
             "vlnv": "xilinx.com:ip:xlconcat:2.1",
             "xci_name": "costas_loop_xlconcat_0_0",
             "xci_path": "ip\\costas_loop_xlconcat_0_0\\costas_loop_xlconcat_0_0.xci",
-            "inst_hier_path": "LPF/xlconcat_0"
+            "inst_hier_path": "LPF/xlconcat_0",
+            "parameters": {
+              "IN0_WIDTH": {
+                "value": "16"
+              },
+              "IN1_WIDTH": {
+                "value": "16"
+              }
+            }
           },
           "xlconstant_valid_one": {
             "vlnv": "xilinx.com:ip:xlconstant:1.1",
@@ -1699,6 +1706,9 @@
               "Clock_Frequency": {
                 "value": "16.384"
               },
+              "Coefficient_Fractional_Bits": {
+                "value": "0"
+              },
               "Coefficient_Structure": {
                 "value": "Inferred"
               },
@@ -1710,6 +1720,12 @@
               },
               "DATA_Has_TLAST": {
                 "value": "Not_Required"
+              },
+              "Data_Fractional_Bits": {
+                "value": "0"
+              },
+              "Data_Width": {
+                "value": "16"
               },
               "Filter_Architecture": {
                 "value": "Systolic_Multiply_Accumulate"

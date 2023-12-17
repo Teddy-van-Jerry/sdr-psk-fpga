@@ -1,13 +1,14 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x0",
+      "boundary_crc": "0xB8941EB7125741EC",
       "device": "xc7z020clg484-1",
       "gen_directory": "../../../../sdr-psk-fpga.gen/sources_1/bd/top",
       "name": "top",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
       "synth_flow_mode": "Hierarchical",
-      "tool_version": "2022.2"
+      "tool_version": "2022.2",
+      "validated": "true"
     },
     "design_tree": {
       "RF_Data_Converter": "",
@@ -37,47 +38,143 @@
         "type": "clk",
         "direction": "I",
         "parameters": {
+          "CLK_DOMAIN": {
+            "value": "top_PL_CLK_100MHz",
+            "value_src": "default"
+          },
           "FREQ_HZ": {
             "value": "100000000"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
           }
         }
       },
       "AD9361_RX_CLK": {
         "type": "clk",
-        "direction": "O"
+        "direction": "O",
+        "parameters": {
+          "CLK_DOMAIN": {
+            "value": "top_AD9361_1RT_FDD_0_0_AD9361_RX_CLK",
+            "value_src": "default_prop"
+          },
+          "FREQ_HZ": {
+            "value": "100000000",
+            "value_src": "default"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
+          }
+        }
       },
       "AD9361_TX_FRAME": {
         "type": "data",
-        "direction": "O"
+        "direction": "O",
+        "parameters": {
+          "LAYERED_METADATA": {
+            "value": "undef",
+            "value_src": "default"
+          }
+        }
       },
       "AD9361_P1_D": {
         "type": "data",
         "direction": "O",
         "left": "11",
-        "right": "0"
+        "right": "0",
+        "parameters": {
+          "LAYERED_METADATA": {
+            "value": "undef",
+            "value_src": "default"
+          }
+        }
       },
       "AD9361_FBCLK": {
         "type": "clk",
-        "direction": "O"
+        "direction": "O",
+        "parameters": {
+          "FREQ_HZ": {
+            "value": "100000000",
+            "value_src": "default"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
+          }
+        }
       },
       "AD9361_P0_D": {
         "type": "data",
         "direction": "I",
         "left": "11",
-        "right": "0"
+        "right": "0",
+        "parameters": {
+          "LAYERED_METADATA": {
+            "value": "undef",
+            "value_src": "default"
+          }
+        }
       },
       "AD9361_DATACLK": {
         "type": "clk",
         "direction": "I",
         "parameters": {
+          "CLK_DOMAIN": {
+            "value": "top_AD9361_DATACLK",
+            "value_src": "default"
+          },
           "FREQ_HZ": {
             "value": "30720000"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
           }
         }
       },
       "AD9361_RX_FRAME": {
         "type": "data",
-        "direction": "I"
+        "direction": "I",
+        "parameters": {
+          "LAYERED_METADATA": {
+            "value": "undef",
+            "value_src": "default"
+          }
+        }
       }
     },
     "components": {
@@ -104,7 +201,7 @@
                 "value_src": "ip_prop"
               },
               "CLK_DOMAIN": {
-                "value": "/clk_wiz_128M_clk_out1",
+                "value": "/Clock_Gen/clk_wiz_128M_clk_out1",
                 "value_src": "ip_prop"
               }
             }
@@ -224,6 +321,11 @@
             "xci_name": "top_PSK_Signal_Extend_0_1",
             "xci_path": "ip\\top_PSK_Signal_Extend_0_1\\top_PSK_Signal_Extend_0_1.xci",
             "inst_hier_path": "Rx/PSK_Signal_Extend_0",
+            "parameters": {
+              "O_WIDTH": {
+                "value": "12"
+              }
+            },
             "reference_info": {
               "ref_type": "hdl",
               "ref_name": "PSK_Signal_Extend",
@@ -242,7 +344,7 @@
               },
               "PSK_signal": {
                 "direction": "O",
-                "left": "15",
+                "left": "11",
                 "right": "0"
               }
             }
@@ -374,8 +476,8 @@
                     "value_src": "default"
                   },
                   "TDATA_NUM_BYTES": {
-                    "value": "0",
-                    "value_src": "const_prop"
+                    "value": "2",
+                    "value_src": "auto_prop"
                   },
                   "TDEST_WIDTH": {
                     "value": "0",
@@ -407,21 +509,85 @@
             "ports": {
               "clk_16M384": {
                 "type": "clk",
-                "direction": "I"
+                "direction": "I",
+                "parameters": {
+                  "ASSOCIATED_RESET": {
+                    "value": "rst_16M386",
+                    "value_src": "strong"
+                  },
+                  "CLK_DOMAIN": {
+                    "value": "costas_loop_aclk_0",
+                    "value_src": "strong"
+                  },
+                  "FREQ_HZ": {
+                    "value": "16384000",
+                    "value_src": "strong"
+                  },
+                  "FREQ_TOLERANCE_HZ": {
+                    "value": "0",
+                    "value_src": "strong"
+                  },
+                  "INSERT_VIP": {
+                    "value": "0",
+                    "value_src": "strong"
+                  },
+                  "PHASE": {
+                    "value": "0.0",
+                    "value_src": "strong"
+                  }
+                }
               },
               "PSK_signal": {
                 "type": "data",
                 "direction": "I",
-                "left": "15",
-                "right": "0"
+                "left": "11",
+                "right": "0",
+                "parameters": {
+                  "LAYERED_METADATA": {
+                    "value": "undef",
+                    "value_src": "strong"
+                  }
+                }
               },
               "clk_32M768": {
                 "type": "clk",
-                "direction": "I"
+                "direction": "I",
+                "parameters": {
+                  "CLK_DOMAIN": {
+                    "value": "/Clock_Gen/clk_wiz_32M768_clk_out1",
+                    "value_src": "ip_prop"
+                  },
+                  "FREQ_HZ": {
+                    "value": "32768000",
+                    "value_src": "ip_prop"
+                  },
+                  "FREQ_TOLERANCE_HZ": {
+                    "value": "0",
+                    "value_src": "strong"
+                  },
+                  "INSERT_VIP": {
+                    "value": "0",
+                    "value_src": "strong"
+                  },
+                  "PHASE": {
+                    "value": "0.0",
+                    "value_src": "ip_prop"
+                  }
+                }
               },
               "rst_16M386": {
                 "type": "rst",
-                "direction": "I"
+                "direction": "I",
+                "parameters": {
+                  "INSERT_VIP": {
+                    "value": "0",
+                    "value_src": "strong"
+                  },
+                  "POLARITY": {
+                    "value": "ACTIVE_HIGH",
+                    "value_src": "const_prop"
+                  }
+                }
               },
               "is_bpsk": {
                 "direction": "I"
@@ -432,7 +598,7 @@
             "variant_info": {
               "costas_loop.bd": {
                 "scoped_diagram": "costas_loop_inst_0.bd",
-                "design_checksum": "0x78DCF1CA",
+                "design_checksum": "0xEBA9D3C1",
                 "ref_name": "costas_loop",
                 "ref_subinst_path": "top_costas_loop_0",
                 "ref_type": "Block Design",
@@ -488,6 +654,12 @@
                   "HAS_TLAST": {
                     "value": "0",
                     "value_src": "constant"
+                  },
+                  "FREQ_HZ": {
+                    "value": "16384000"
+                  },
+                  "CLK_DOMAIN": {
+                    "value": "/Clock_Gen/clk_wiz_32M768_clk_out1"
                   }
                 },
                 "port_maps": {
@@ -539,6 +711,12 @@
                   "HAS_TLAST": {
                     "value": "0",
                     "value_src": "constant"
+                  },
+                  "FREQ_HZ": {
+                    "value": "16384000"
+                  },
+                  "CLK_DOMAIN": {
+                    "value": "/Clock_Gen/clk_wiz_32M768_clk_out1"
                   }
                 },
                 "port_maps": {
@@ -567,6 +745,12 @@
                   "ASSOCIATED_RESET": {
                     "value": "rst",
                     "value_src": "constant"
+                  },
+                  "FREQ_HZ": {
+                    "value": "16384000"
+                  },
+                  "CLK_DOMAIN": {
+                    "value": "/Clock_Gen/clk_wiz_32M768_clk_out1"
                   }
                 }
               },
@@ -666,7 +850,9 @@
             "direction": "O"
           },
           "rst_16M384": {
-            "direction": "O"
+            "direction": "O",
+            "left": "0",
+            "right": "0"
           }
         },
         "components": {
@@ -808,7 +994,7 @@
                     "value_src": "ip_prop"
                   },
                   "CLK_DOMAIN": {
-                    "value": "/clk_wiz_32M768_clk_out1",
+                    "value": "/Clock_Gen/clk_wiz_32M768_clk_out1",
                     "value_src": "ip_prop"
                   }
                 }
@@ -1080,7 +1266,13 @@
                 "direction": "I"
               },
               "rst_16M384": {
-                "direction": "I"
+                "direction": "I",
+                "parameters": {
+                  "POLARITY": {
+                    "value": "ACTIVE_HIGH",
+                    "value_src": "const_prop"
+                  }
+                }
               },
               "is_bpsk": {
                 "direction": "I"
@@ -1176,6 +1368,34 @@
                   "HAS_TLAST": {
                     "value": "0",
                     "value_src": "constant"
+                  },
+                  "LAYERED_METADATA": {
+                    "value": [
+                      "xilinx.com:interface:datatypes:1.0 {",
+                      "TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {}",
+                      "maximum {}} value 28} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} array_type {name {attribs {resolve_type immediate dependency {} format string",
+                      "minimum {} maximum {}} value chan} size {attribs {resolve_type generated dependency chan_size format long minimum {} maximum {}} value 1} stride {attribs {resolve_type generated dependency chan_stride",
+                      "format long minimum {} maximum {}} value 32} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic",
+                      "dependency {} format long minimum {} maximum {}} value 28} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} struct {field_cosine {name {attribs",
+                      "{resolve_type immediate dependency {} format string minimum {} maximum {}} value cosine} enabled {attribs {resolve_type generated dependency cosine_enabled format bool minimum {} maximum {}} value",
+                      "true} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency cosine_width format long minimum",
+                      "{} maximum {}} value 12} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} real {fixed {fractwidth {attribs {resolve_type generated dependency",
+                      "cosine_fractwidth format long minimum {} maximum {}} value 11} signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true}}}}} field_sine {name {attribs",
+                      "{resolve_type immediate dependency {} format string minimum {} maximum {}} value sine} enabled {attribs {resolve_type generated dependency sine_enabled format bool minimum {} maximum {}} value true}",
+                      "datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency sine_width format long minimum {}",
+                      "maximum {}} value 12} bitoffset {attribs {resolve_type generated dependency sine_offset format long minimum {} maximum {}} value 16} real {fixed {fractwidth {attribs {resolve_type generated dependency",
+                      "sine_fractwidth format long minimum {} maximum {}} value 11} signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true}}}}}}}}}} TDATA_WIDTH 32 TUSER",
+                      "{datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}}",
+                      "value 0} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} struct {field_chanid {name {attribs {resolve_type immediate dependency {} format string",
+                      "minimum {} maximum {}} value chanid} enabled {attribs {resolve_type generated dependency chanid_enabled format bool minimum {} maximum {}} value false} datatype {name {attribs {resolve_type immediate",
+                      "dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency chanid_width format long minimum {} maximum {}} value 0} bitoffset {attribs",
+                      "{resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}}",
+                      "field_user {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value user} enabled {attribs {resolve_type generated dependency user_enabled format bool minimum {}",
+                      "maximum {}} value false} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency user_width",
+                      "format long minimum {} maximum {}} value 0} bitoffset {attribs {resolve_type generated dependency user_offset format long minimum {} maximum {}} value 0}}}}}} TUSER_WIDTH 0",
+                      "}"
+                    ],
+                    "value_src": "ip_prop"
                   }
                 },
                 "port_maps": {

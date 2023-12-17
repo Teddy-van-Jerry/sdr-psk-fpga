@@ -2,7 +2,7 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "costas_loop_inst_0_Error_Detect_BPSK_0",
-    "cell_name": "Error_Detect/Error_Detect_BPSK",
+    "cell_name": "Rx/costas_loop_0/Error_Detect/Error_Detect_BPSK",
     "component_reference": "xilinx.com:ip:mult_gen:12.0",
     "ip_revision": "18",
     "gen_directory": ".",

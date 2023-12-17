@@ -9,13 +9,13 @@
     "parameters": {
       "component_parameters": {
         "I_WIDTH": [ { "value": "12", "resolve_type": "user", "format": "long", "usage": "all" } ],
-        "O_WIDTH": [ { "value": "16", "resolve_type": "user", "format": "long", "usage": "all" } ],
+        "O_WIDTH": [ { "value": "12", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "USE_I_STRM": [ { "value": "1", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "Component_Name": [ { "value": "top_PSK_Signal_Extend_0_1", "resolve_type": "user", "usage": "all" } ]
       },
       "model_parameters": {
         "I_WIDTH": [ { "value": "12", "resolve_type": "generated", "format": "long", "usage": "all" } ],
-        "O_WIDTH": [ { "value": "16", "resolve_type": "generated", "format": "long", "usage": "all" } ],
+        "O_WIDTH": [ { "value": "12", "resolve_type": "generated", "format": "long", "usage": "all" } ],
         "USE_I_STRM": [ { "value": "1", "resolve_type": "generated", "format": "long", "usage": "all" } ]
       },
       "project_parameters": {
@@ -48,7 +48,7 @@
       "ports": {
         "DAC_I": [ { "direction": "in", "size_left": "11", "size_right": "0" } ],
         "DAC_Q": [ { "direction": "in", "size_left": "11", "size_right": "0" } ],
-        "PSK_signal": [ { "direction": "out", "size_left": "15", "size_right": "0" } ]
+        "PSK_signal": [ { "direction": "out", "size_left": "11", "size_right": "0" } ]
       }
     }
   }

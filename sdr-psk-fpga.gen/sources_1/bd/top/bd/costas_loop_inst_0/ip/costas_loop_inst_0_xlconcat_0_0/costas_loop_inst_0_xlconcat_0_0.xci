@@ -2,7 +2,7 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "costas_loop_inst_0_xlconcat_0_0",
-    "cell_name": "LPF/xlconcat_0",
+    "cell_name": "Rx/costas_loop_0/LPF/xlconcat_0",
     "component_reference": "xilinx.com:ip:xlconcat:2.1",
     "ip_revision": "4",
     "gen_directory": ".",
@@ -10,8 +10,8 @@
       "component_parameters": {
         "Component_Name": [ { "value": "costas_loop_inst_0_xlconcat_0_0", "resolve_type": "user", "usage": "all" } ],
         "NUM_PORTS": [ { "value": "2", "resolve_type": "user", "format": "long", "usage": "all" } ],
-        "IN0_WIDTH": [ { "value": "16", "value_src": "propagated", "value_permission": "bd_and_user", "resolve_type": "user", "format": "long", "usage": "all" } ],
-        "IN1_WIDTH": [ { "value": "16", "value_src": "propagated", "value_permission": "bd_and_user", "resolve_type": "user", "format": "long", "usage": "all" } ],
+        "IN0_WIDTH": [ { "value": "16", "value_src": "user", "value_permission": "bd_and_user", "resolve_type": "user", "format": "long", "usage": "all" } ],
+        "IN1_WIDTH": [ { "value": "16", "value_src": "user", "value_permission": "bd_and_user", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "IN2_WIDTH": [ { "value": "1", "value_permission": "bd_and_user", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "IN3_WIDTH": [ { "value": "1", "value_permission": "bd_and_user", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "IN4_WIDTH": [ { "value": "1", "value_permission": "bd_and_user", "resolve_type": "user", "format": "long", "usage": "all" } ],
