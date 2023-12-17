@@ -1,3 +1,10 @@
+// Module: PSK_Detection
+// =====================
+// Detect BPSK/QPSK from I/Q data.
+//
+// Author: Wuqiong Zhao (me@wqzhao.org)
+// Date: 2023/12/17
+
 module PSK_Detection # (
   parameter WIDTH = 16
 ) (
@@ -11,7 +18,7 @@ module PSK_Detection # (
   output reg         [1:0] QPSK,
   output reg               vld
 );
-  always @ (posedge clk or posedge rst) begin
+  always @ (posedge clk) begin
     if (rst) begin
       QPSK <= 2'b0;
       vld  <= 1'b0;

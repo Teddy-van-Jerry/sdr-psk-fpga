@@ -1,0 +1,28 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"1.25",
+   "Default View_TopLeft":"-392,-175",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
+#  -string -flagsOSRD
+preplace port port-id_PL_CLK_100MHz -pg 1 -lvl 0 -x -10 -y 400 -defaultsOSRD
+preplace port port-id_clk_200M -pg 1 -lvl 3 -x 630 -y 500 -defaultsOSRD
+preplace port port-id_clk_32M768 -pg 1 -lvl 3 -x 630 -y 280 -defaultsOSRD
+preplace port port-id_clk_16M384 -pg 1 -lvl 3 -x 630 -y 50 -defaultsOSRD
+preplace port port-id_rst_16M384 -pg 1 -lvl 3 -x 630 -y 350 -defaultsOSRD
+preplace inst clk_wiz_128M -pg 1 -lvl 2 -x 490 -y 490 -defaultsOSRD
+preplace inst clk_wiz_32M768 -pg 1 -lvl 1 -x 140 -y 480 -defaultsOSRD
+preplace inst Div_clk32M768_0 -pg 1 -lvl 1 -x 140 -y 190 -defaultsOSRD
+preplace inst Reset_Gen -pg 1 -lvl 2 -x 490 -y 350 -defaultsOSRD
+preplace netloc clk_wiz_128M_clk_128M 1 0 3 10 410 NJ 410 610
+preplace netloc clk_wiz_32M768_locked 1 1 1 280 360n
+preplace netloc PL_CLK_100MHz_1 1 0 2 NJ 400 290J
+preplace netloc clk_wiz_128M_clk_200M 1 2 1 NJ 500
+preplace netloc clk_wiz_32M768_clk_32M768 1 0 3 10 -10 270 280 NJ
+preplace netloc Div_clk32M768_0_clk16M384 1 1 2 290 50 NJ
+preplace netloc Reset_Gen_rst_16M384 1 2 1 N 350
+levelinfo -pg 1 -10 140 490 630
+pagesize -pg 1 -db -bbox -sgen -170 -20 760 760
+"
+}
+

@@ -169,7 +169,7 @@ set_property IOSTANDARD LVCMOS33 [get_ports LS_DAC_MODE]
 
 
 
-# 音频 AD 管脚
+# Audio AD Pins
 set_property PACKAGE_PIN AB6 [get_ports Audio_AD_SDOUT]
 set_property PACKAGE_PIN AB2 [get_ports Audio_AD_SCLK]
 set_property PACKAGE_PIN Y8 [get_ports Audio_AD_nRST]
@@ -186,7 +186,7 @@ set_property IOSTANDARD LVCMOS33 [get_ports Audio_AD_M1]
 set_property IOSTANDARD LVCMOS33 [get_ports Audio_AD_M0]
 set_property IOSTANDARD LVCMOS33 [get_ports Audio_AD_LRCK]
 
-# 音频 DA 管脚
+# Audio DA Pins
 set_property PACKAGE_PIN U6 [get_ports Audio_DA_SDIN]
 set_property PACKAGE_PIN U5 [get_ports Audio_DA_SCLK]
 set_property PACKAGE_PIN U4 [get_ports Audio_DA_LRCL]
@@ -197,7 +197,7 @@ set_property IOSTANDARD LVCMOS33 [get_ports Audio_DA_SCLK]
 set_property IOSTANDARD LVCMOS33 [get_ports Audio_DA_LRCL]
 set_property IOSTANDARD LVCMOS33 [get_ports Audio_DA_MCLK]
 
-# 88E1512 管脚
+# 88E1512 Pins
 set_property PACKAGE_PIN C18 [get_ports {ETH_PL_RXD[3]}]
 set_property PACKAGE_PIN C17 [get_ports {ETH_PL_RXD[2]}]
 set_property PACKAGE_PIN B17 [get_ports {ETH_PL_RXD[1]}]

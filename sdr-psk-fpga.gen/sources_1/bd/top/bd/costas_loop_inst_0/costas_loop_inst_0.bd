@@ -47,19 +47,19 @@
           },
           "HAS_TKEEP": {
             "value": "0",
-            "value_src": "default"
+            "value_src": "const_prop"
           },
           "HAS_TLAST": {
             "value": "0",
-            "value_src": "default"
+            "value_src": "const_prop"
           },
           "HAS_TREADY": {
             "value": "0",
-            "value_src": "default"
+            "value_src": "const_prop"
           },
           "HAS_TSTRB": {
             "value": "0",
-            "value_src": "default"
+            "value_src": "const_prop"
           },
           "INSERT_VIP": {
             "value": "0",
@@ -75,19 +75,19 @@
           },
           "TDATA_NUM_BYTES": {
             "value": "2",
-            "value_src": "default"
+            "value_src": "auto_prop"
           },
           "TDEST_WIDTH": {
             "value": "0",
-            "value_src": "default"
+            "value_src": "const_prop"
           },
           "TID_WIDTH": {
             "value": "0",
-            "value_src": "default"
+            "value_src": "const_prop"
           },
           "TUSER_WIDTH": {
             "value": "0",
-            "value_src": "default"
+            "value_src": "const_prop"
           }
         },
         "port_maps": {
@@ -114,19 +114,19 @@
           },
           "HAS_TKEEP": {
             "value": "0",
-            "value_src": "default"
+            "value_src": "const_prop"
           },
           "HAS_TLAST": {
             "value": "0",
-            "value_src": "default"
+            "value_src": "const_prop"
           },
           "HAS_TREADY": {
             "value": "0",
-            "value_src": "default"
+            "value_src": "const_prop"
           },
           "HAS_TSTRB": {
             "value": "0",
-            "value_src": "default"
+            "value_src": "const_prop"
           },
           "INSERT_VIP": {
             "value": "0",
@@ -142,25 +142,27 @@
           },
           "TDATA_NUM_BYTES": {
             "value": "0",
-            "value_src": "default"
+            "value_src": "const_prop"
           },
           "TDEST_WIDTH": {
             "value": "0",
-            "value_src": "default"
+            "value_src": "const_prop"
           },
           "TID_WIDTH": {
             "value": "0",
-            "value_src": "default"
+            "value_src": "const_prop"
           },
           "TUSER_WIDTH": {
             "value": "0",
-            "value_src": "default"
+            "value_src": "const_prop"
           }
         },
         "port_maps": {
           "TDATA": {
             "physical_name": "Q_tdata",
-            "direction": "O"
+            "direction": "O",
+            "left": "15",
+            "right": "0"
           },
           "TVALID": {
             "physical_name": "Q_tvalid",
@@ -217,12 +219,12 @@
         "direction": "I",
         "parameters": {
           "CLK_DOMAIN": {
-            "value": "costas_loop_clk_32M768",
-            "value_src": "strong"
+            "value": "/clk_wiz_32M768_clk_out1",
+            "value_src": "ip_prop"
           },
           "FREQ_HZ": {
             "value": "32768000",
-            "value_src": "strong"
+            "value_src": "ip_prop"
           },
           "FREQ_TOLERANCE_HZ": {
             "value": "0",
@@ -234,7 +236,7 @@
           },
           "PHASE": {
             "value": "0.0",
-            "value_src": "strong"
+            "value_src": "ip_prop"
           }
         }
       },
@@ -248,7 +250,7 @@
           },
           "POLARITY": {
             "value": "ACTIVE_HIGH",
-            "value_src": "strong"
+            "value_src": "const_prop"
           }
         }
       },
@@ -392,7 +394,9 @@
             "port_maps": {
               "TDATA": {
                 "physical_name": "error_tdata",
-                "direction": "O"
+                "direction": "O",
+                "left": "15",
+                "right": "0"
               },
               "TVALID": {
                 "physical_name": "error_tvalid",
@@ -407,7 +411,9 @@
             "port_maps": {
               "TDATA": {
                 "physical_name": "in_I_tdata",
-                "direction": "I"
+                "direction": "I",
+                "left": "15",
+                "right": "0"
               },
               "TVALID": {
                 "physical_name": "in_I_tvalid",
@@ -422,7 +428,9 @@
             "port_maps": {
               "TDATA": {
                 "physical_name": "in_Q_tdata",
-                "direction": "I"
+                "direction": "I",
+                "left": "15",
+                "right": "0"
               },
               "TVALID": {
                 "physical_name": "in_Q_tvalid",
@@ -500,7 +508,11 @@
                   },
                   "FREQ_HZ": {
                     "value": "16384000",
-                    "value_src": "user_prop"
+                    "value_src": "default_prop"
+                  },
+                  "PHASE": {
+                    "value": "0.0",
+                    "value_src": "default_prop"
                   },
                   "CLK_DOMAIN": {
                     "value": "costas_loop_aclk_0",
@@ -559,7 +571,11 @@
                   },
                   "FREQ_HZ": {
                     "value": "16384000",
-                    "value_src": "user_prop"
+                    "value_src": "default_prop"
+                  },
+                  "PHASE": {
+                    "value": "0.0",
+                    "value_src": "default_prop"
                   },
                   "CLK_DOMAIN": {
                     "value": "costas_loop_aclk_0",
@@ -618,7 +634,11 @@
                   },
                   "FREQ_HZ": {
                     "value": "16384000",
-                    "value_src": "user_prop"
+                    "value_src": "default_prop"
+                  },
+                  "PHASE": {
+                    "value": "0.0",
+                    "value_src": "default_prop"
                   },
                   "CLK_DOMAIN": {
                     "value": "costas_loop_aclk_0",
@@ -677,7 +697,11 @@
                   },
                   "FREQ_HZ": {
                     "value": "16384000",
-                    "value_src": "user_prop"
+                    "value_src": "default_prop"
+                  },
+                  "PHASE": {
+                    "value": "0.0",
+                    "value_src": "default_prop"
                   },
                   "CLK_DOMAIN": {
                     "value": "costas_loop_aclk_0",
@@ -736,7 +760,11 @@
                   },
                   "FREQ_HZ": {
                     "value": "16384000",
-                    "value_src": "user_prop"
+                    "value_src": "default_prop"
+                  },
+                  "PHASE": {
+                    "value": "0.0",
+                    "value_src": "default_prop"
                   },
                   "CLK_DOMAIN": {
                     "value": "costas_loop_aclk_0",
@@ -795,7 +823,11 @@
                   },
                   "FREQ_HZ": {
                     "value": "16384000",
-                    "value_src": "user_prop"
+                    "value_src": "default_prop"
+                  },
+                  "PHASE": {
+                    "value": "0.0",
+                    "value_src": "default_prop"
                   },
                   "CLK_DOMAIN": {
                     "value": "costas_loop_aclk_0",
@@ -854,7 +886,11 @@
                   },
                   "FREQ_HZ": {
                     "value": "16384000",
-                    "value_src": "user_prop"
+                    "value_src": "default_prop"
+                  },
+                  "PHASE": {
+                    "value": "0.0",
+                    "value_src": "default_prop"
                   },
                   "CLK_DOMAIN": {
                     "value": "costas_loop_aclk_0",
@@ -890,7 +926,11 @@
                   },
                   "FREQ_HZ": {
                     "value": "16384000",
-                    "value_src": "user_prop"
+                    "value_src": "default_prop"
+                  },
+                  "PHASE": {
+                    "value": "0.0",
+                    "value_src": "default_prop"
                   },
                   "CLK_DOMAIN": {
                     "value": "costas_loop_aclk_0",
@@ -904,7 +944,7 @@
                 "parameters": {
                   "POLARITY": {
                     "value": "ACTIVE_HIGH",
-                    "value_src": "user_prop"
+                    "value_src": "const_prop"
                   }
                 }
               },
@@ -1075,7 +1115,9 @@
             "port_maps": {
               "TDATA": {
                 "physical_name": "I1_tdata",
-                "direction": "O"
+                "direction": "O",
+                "left": "15",
+                "right": "0"
               },
               "TVALID": {
                 "physical_name": "I1_tvalid",
@@ -1090,7 +1132,9 @@
             "port_maps": {
               "TDATA": {
                 "physical_name": "I2_tdata",
-                "direction": "O"
+                "direction": "O",
+                "left": "15",
+                "right": "0"
               },
               "TVALID": {
                 "physical_name": "I2_tvalid",
@@ -1105,7 +1149,9 @@
             "port_maps": {
               "TDATA": {
                 "physical_name": "Q1_tdata",
-                "direction": "O"
+                "direction": "O",
+                "left": "15",
+                "right": "0"
               },
               "TVALID": {
                 "physical_name": "Q1_tvalid",
@@ -1120,7 +1166,9 @@
             "port_maps": {
               "TDATA": {
                 "physical_name": "Q2_tdata",
-                "direction": "O"
+                "direction": "O",
+                "left": "15",
+                "right": "0"
               },
               "TVALID": {
                 "physical_name": "Q2_tvalid",
@@ -1135,7 +1183,9 @@
             "port_maps": {
               "TDATA": {
                 "physical_name": "IQ_tdata",
-                "direction": "I"
+                "direction": "I",
+                "left": "47",
+                "right": "0"
               },
               "TVALID": {
                 "physical_name": "IQ_tvalid",
@@ -1753,7 +1803,9 @@
             "port_maps": {
               "TDATA": {
                 "physical_name": "IQ_tdata",
-                "direction": "O"
+                "direction": "O",
+                "left": "47",
+                "right": "0"
               },
               "TVALID": {
                 "physical_name": "IQ_tvalid",
@@ -1898,7 +1950,9 @@
             "port_maps": {
               "TDATA": {
                 "physical_name": "increment_tdata",
-                "direction": "I"
+                "direction": "I",
+                "left": "15",
+                "right": "0"
               },
               "TVALID": {
                 "physical_name": "increment_tvalid",
