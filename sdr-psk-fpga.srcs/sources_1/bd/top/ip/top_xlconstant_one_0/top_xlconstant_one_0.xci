@@ -1,20 +1,20 @@
 {
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
-    "xci_name": "costas_loop_inst_0_xlconstant_valid_one_0",
-    "cell_name": "LPF/xlconstant_valid_one",
+    "xci_name": "top_xlconstant_one_0",
+    "cell_name": "Reset_Gen/xlconstant_zero",
     "component_reference": "xilinx.com:ip:xlconstant:1.1",
     "ip_revision": "7",
-    "gen_directory": ".",
+    "gen_directory": "../../../../../../sdr-psk-fpga.gen/sources_1/bd/top/ip/top_xlconstant_one_0",
     "parameters": {
       "component_parameters": {
-        "Component_Name": [ { "value": "costas_loop_inst_0_xlconstant_valid_one_0", "resolve_type": "user", "usage": "all" } ],
+        "Component_Name": [ { "value": "top_xlconstant_one_0", "resolve_type": "user", "usage": "all" } ],
         "CONST_WIDTH": [ { "value": "1", "resolve_type": "user", "format": "long", "usage": "all" } ],
-        "CONST_VAL": [ { "value": "1", "resolve_type": "user", "usage": "all" } ]
+        "CONST_VAL": [ { "value": "0", "value_src": "user", "resolve_type": "user", "usage": "all" } ]
       },
       "model_parameters": {
         "CONST_WIDTH": [ { "value": "1", "resolve_type": "generated", "format": "long", "usage": "all" } ],
-        "CONST_VAL": [ { "value": "0x1", "resolve_type": "generated", "format": "bitString", "usage": "all" } ]
+        "CONST_VAL": [ { "value": "0x0", "resolve_type": "generated", "format": "bitString", "usage": "all" } ]
       },
       "project_parameters": {
         "ARCHITECTURE": [ { "value": "zynq" } ],
@@ -35,7 +35,7 @@
         "IPCONTEXT": [ { "value": "IP_Integrator" } ],
         "IPREVISION": [ { "value": "7" } ],
         "MANAGED": [ { "value": "TRUE" } ],
-        "OUTPUTDIR": [ { "value": "." } ],
+        "OUTPUTDIR": [ { "value": "../../../../../../sdr-psk-fpga.gen/sources_1/bd/top/ip/top_xlconstant_one_0" } ],
         "SELECTEDSIMMODEL": [ { "value": "" } ],
         "SHAREDDIR": [ { "value": "../../ipshared" } ],
         "SWVERSION": [ { "value": "2022.2" } ],

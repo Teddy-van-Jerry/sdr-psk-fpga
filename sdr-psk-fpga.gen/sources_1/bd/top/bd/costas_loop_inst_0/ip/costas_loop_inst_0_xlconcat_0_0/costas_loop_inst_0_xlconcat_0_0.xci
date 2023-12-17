@@ -2,7 +2,7 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "costas_loop_inst_0_xlconcat_0_0",
-    "cell_name": "costas_loop_0/LPF/xlconcat_0",
+    "cell_name": "LPF/xlconcat_0",
     "component_reference": "xilinx.com:ip:xlconcat:2.1",
     "ip_revision": "4",
     "gen_directory": ".",

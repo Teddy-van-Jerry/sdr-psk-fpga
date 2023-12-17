@@ -18,6 +18,11 @@
         "PSK_Detection_0": "",
         "PSK_Signal_Extend_0": "",
         "costas_loop_0": ""
+      },
+      "Reset_Gen": {
+        "xlconstant_zero": "",
+        "xlconstant_one": "",
+        "proc_sys_reset_16M384": ""
       }
     },
     "ports": {
@@ -177,7 +182,7 @@
             "value": "128.000"
           },
           "USE_LOCKED": {
-            "value": "false"
+            "value": "true"
           },
           "USE_RESET": {
             "value": "false"
@@ -329,6 +334,10 @@
           },
           "clk_32M768": {
             "type": "clk",
+            "direction": "I"
+          },
+          "rst_16M384": {
+            "type": "rst",
             "direction": "I"
           }
         },
@@ -753,8 +762,82 @@
           },
           "rst_16M386_1": {
             "ports": [
+              "rst_16M384",
               "PSK_Detection_0/rst",
               "costas_loop_0/rst_16M386"
+            ]
+          }
+        }
+      },
+      "Reset_Gen": {
+        "ports": {
+          "clk_16M384": {
+            "type": "clk",
+            "direction": "I"
+          },
+          "dcm_locked": {
+            "direction": "I"
+          },
+          "rst_16M384": {
+            "type": "rst",
+            "direction": "O"
+          }
+        },
+        "components": {
+          "xlconstant_zero": {
+            "vlnv": "xilinx.com:ip:xlconstant:1.1",
+            "xci_name": "top_xlconstant_one_0",
+            "xci_path": "ip\\top_xlconstant_one_0\\top_xlconstant_one_0.xci",
+            "inst_hier_path": "Reset_Gen/xlconstant_zero",
+            "parameters": {
+              "CONST_VAL": {
+                "value": "0"
+              }
+            }
+          },
+          "xlconstant_one": {
+            "vlnv": "xilinx.com:ip:xlconstant:1.1",
+            "xci_name": "top_xlconstant_0_0",
+            "xci_path": "ip\\top_xlconstant_0_0\\top_xlconstant_0_0.xci",
+            "inst_hier_path": "Reset_Gen/xlconstant_one"
+          },
+          "proc_sys_reset_16M384": {
+            "vlnv": "xilinx.com:ip:proc_sys_reset:5.0",
+            "xci_name": "top_proc_sys_reset_0_0",
+            "xci_path": "ip\\top_proc_sys_reset_0_0\\top_proc_sys_reset_0_0.xci",
+            "inst_hier_path": "Reset_Gen/proc_sys_reset_16M384"
+          }
+        },
+        "nets": {
+          "Div_clk32M768_0_clk16M384": {
+            "ports": [
+              "clk_16M384",
+              "proc_sys_reset_16M384/slowest_sync_clk"
+            ]
+          },
+          "clk_wiz_32M768_locked": {
+            "ports": [
+              "dcm_locked",
+              "proc_sys_reset_16M384/dcm_locked"
+            ]
+          },
+          "proc_sys_reset_16M384_bus_struct_reset": {
+            "ports": [
+              "proc_sys_reset_16M384/bus_struct_reset",
+              "rst_16M384"
+            ]
+          },
+          "xlconstant_one_dout": {
+            "ports": [
+              "xlconstant_one/dout",
+              "proc_sys_reset_16M384/ext_reset_in",
+              "proc_sys_reset_16M384/aux_reset_in"
+            ]
+          },
+          "xlconstant_zero_dout": {
+            "ports": [
+              "xlconstant_zero/dout",
+              "proc_sys_reset_16M384/mb_debug_sys_rst"
             ]
           }
         }
@@ -819,7 +902,8 @@
       "Div_clk32M768_0_clk16M384": {
         "ports": [
           "Div_clk32M768_0/clk16M384",
-          "Rx/clk_16M384"
+          "Rx/clk_16M384",
+          "Reset_Gen/clk_16M384"
         ]
       },
       "PL_CLK_100MHz_1": {
@@ -845,6 +929,18 @@
           "clk_wiz_32M768/clk_32M768",
           "Div_clk32M768_0/clk32M768",
           "Rx/clk_32M768"
+        ]
+      },
+      "clk_wiz_32M768_locked": {
+        "ports": [
+          "clk_wiz_32M768/locked",
+          "Reset_Gen/dcm_locked"
+        ]
+      },
+      "proc_sys_reset_16M384_mb_reset": {
+        "ports": [
+          "Reset_Gen/rst_16M384",
+          "Rx/rst_16M384"
         ]
       }
     }

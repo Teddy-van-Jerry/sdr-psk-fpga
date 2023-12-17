@@ -23,11 +23,12 @@
   <key id="VT" for="node" attr.name="vert_type" attr.type="string"/>
   <graph id="G" edgedefault="undirected" parse.nodeids="canonical" parse.edgeids="canonical" parse.order="nodesfirst">
     <node id="n0">
-      <data key="VM">/Rx/costas_loop_0</data>
-      <data key="VT">BC</data>
+      <data key="TU">active</data>
+      <data key="VH">10</data>
+      <data key="VT">PM</data>
     </node>
     <node id="n1">
-      <data key="VM">top</data>
+      <data key="VM">/Rx/costas_loop_0</data>
       <data key="VT">BC</data>
     </node>
     <node id="n2">
@@ -36,18 +37,17 @@
       <data key="VT">VR</data>
     </node>
     <node id="n3">
-      <data key="TU">active</data>
-      <data key="VH">10</data>
-      <data key="VT">PM</data>
-    </node>
-    <node id="n4">
       <data key="VH">2</data>
       <data key="VM">top</data>
       <data key="VT">VR</data>
     </node>
-    <edge id="e0" source="n1" target="n4"/>
-    <edge id="e1" source="n4" target="n3"/>
-    <edge id="e2" source="n0" target="n2"/>
-    <edge id="e3" source="n2" target="n3"/>
+    <node id="n4">
+      <data key="VM">top</data>
+      <data key="VT">BC</data>
+    </node>
+    <edge id="e0" source="n4" target="n3"/>
+    <edge id="e1" source="n3" target="n0"/>
+    <edge id="e2" source="n1" target="n2"/>
+    <edge id="e3" source="n2" target="n0"/>
   </graph>
 </graphml>
