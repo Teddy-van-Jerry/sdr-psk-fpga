@@ -11,12 +11,12 @@ module PSK_Mod #(
 ) (
   input                         clk_16M384,
   input                         rst_16M384,
-  input                         is_bpsk,
   // data AIXS input, from 16.384M FIFO, with real data rate of 1.024M
   input           [BYTES*8-1:0] data_tdata, // BPSK only uses data_tdata[1]
   input                         data_tvalid,
   output reg                    data_tready,
   input                         data_tlast,
+  input                         data_tuser, // is_bpsk
   // input carrier I signal (cos)
   input      signed [WIDTH-1:0] carrier_I,
   // input carrier Q signal (sin)
@@ -33,6 +33,8 @@ module PSK_Mod #(
   output                        out_clk_1M024
 );
   localparam BITS = BYTES * 8;
+
+  wire is_bpsk = data_tuser;
 
   reg      [3:0] cnt;
   reg [BITS-1:0] data_buf;

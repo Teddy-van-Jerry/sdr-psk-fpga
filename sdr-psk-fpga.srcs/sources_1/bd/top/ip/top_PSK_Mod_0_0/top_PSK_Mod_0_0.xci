@@ -46,11 +46,11 @@
       "ports": {
         "clk_16M384": [ { "direction": "in" } ],
         "rst_16M384": [ { "direction": "in" } ],
-        "is_bpsk": [ { "direction": "in" } ],
         "data_tdata": [ { "direction": "in", "size_left": "7", "size_right": "0", "driver_value": "0" } ],
         "data_tvalid": [ { "direction": "in" } ],
         "data_tready": [ { "direction": "out" } ],
         "data_tlast": [ { "direction": "in", "driver_value": "0" } ],
+        "data_tuser": [ { "direction": "in", "driver_value": "0" } ],
         "carrier_I": [ { "direction": "in", "size_left": "11", "size_right": "0" } ],
         "carrier_Q": [ { "direction": "in", "size_left": "11", "size_right": "0" } ],
         "out_I": [ { "direction": "out", "size_left": "11", "size_right": "0" } ],
@@ -70,7 +70,7 @@
             "TDATA_NUM_BYTES": [ { "value": "1", "value_src": "auto", "value_permission": "bd_and_user", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
             "TDEST_WIDTH": [ { "value": "0", "value_src": "constant", "value_permission": "bd_and_user", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
             "TID_WIDTH": [ { "value": "0", "value_src": "constant", "value_permission": "bd_and_user", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
-            "TUSER_WIDTH": [ { "value": "0", "value_src": "constant", "value_permission": "bd_and_user", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+            "TUSER_WIDTH": [ { "value": "1", "value_src": "constant", "value_permission": "bd_and_user", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
             "HAS_TREADY": [ { "value": "1", "value_src": "constant", "value_permission": "bd_and_user", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
             "HAS_TSTRB": [ { "value": "0", "value_src": "constant", "value_permission": "bd_and_user", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
             "HAS_TKEEP": [ { "value": "0", "value_src": "constant", "value_permission": "bd_and_user", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
@@ -84,6 +84,7 @@
           "port_maps": {
             "TDATA": [ { "physical_name": "data_tdata" } ],
             "TLAST": [ { "physical_name": "data_tlast" } ],
+            "TUSER": [ { "physical_name": "data_tuser" } ],
             "TVALID": [ { "physical_name": "data_tvalid" } ],
             "TREADY": [ { "physical_name": "data_tready" } ]
           }
