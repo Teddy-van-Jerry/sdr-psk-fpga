@@ -2,7 +2,7 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "top_dds_compiler_0_0",
-    "cell_name": "Tx/dds_compiler_carrier",
+    "cell_name": "Tx/PSK_Modulation/dds_compiler_carrier",
     "component_reference": "xilinx.com:ip:dds_compiler:6.0",
     "ip_revision": "22",
     "gen_directory": "../../../../../../sdr-psk-fpga.gen/sources_1/bd/top/ip/top_dds_compiler_0_0",

@@ -1,0 +1,27 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"1.25",
+   "Default View_TopLeft":"-456,-274",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
+#  -string -flagsOSRD
+preplace port port-id_clk_16M384 -pg 1 -lvl 0 -x 0 -y 200 -defaultsOSRD
+preplace port port-id_rst_16M384 -pg 1 -lvl 0 -x 0 -y 170 -defaultsOSRD
+preplace port port-id_clk_1M024 -pg 1 -lvl 0 -x 0 -y 230 -defaultsOSRD
+preplace portBus DAC_I -pg 1 -lvl 3 -x 490 -y 80 -defaultsOSRD
+preplace portBus DAC_Q -pg 1 -lvl 3 -x 490 -y 110 -defaultsOSRD
+preplace portBus rst_n_1M024 -pg 1 -lvl 0 -x 0 -y 140 -defaultsOSRD
+preplace inst PSK_Modulation -pg 1 -lvl 2 -x 350 -y 100 -defaultsOSRD
+preplace inst Tx_Data_0 -pg 1 -lvl 1 -x 120 -y 60 -defaultsOSRD
+preplace netloc Div_clk32M768_0_clk16M384 1 0 2 N 200 210J
+preplace netloc PSK_Mod_0_out_I 1 2 1 470J 80n
+preplace netloc PSK_Mod_0_out_Q 1 2 1 NJ 110
+preplace netloc proc_sys_reset_16M384_mb_reset 1 0 2 NJ 170 220J
+preplace netloc clk_1M024 1 0 2 20J 120 N
+preplace netloc s_axis_aresetn_1 1 0 2 NJ 140 NJ
+preplace netloc Tx_Data_0_data 1 1 1 N 60
+levelinfo -pg 1 0 120 350 490
+pagesize -pg 1 -db -bbox -sgen -160 0 620 250
+"
+}
+0

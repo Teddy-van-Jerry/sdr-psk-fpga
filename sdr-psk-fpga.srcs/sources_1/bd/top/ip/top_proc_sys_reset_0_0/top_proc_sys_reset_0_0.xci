@@ -2,7 +2,7 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "top_proc_sys_reset_0_0",
-    "cell_name": "Reset_Gen/proc_sys_reset_16M384",
+    "cell_name": "Clock_Gen/Reset_Gen/proc_sys_reset_16M384",
     "component_reference": "xilinx.com:ip:proc_sys_reset:5.0",
     "ip_revision": "13",
     "gen_directory": "../../../../../../sdr-psk-fpga.gen/sources_1/bd/top/ip/top_proc_sys_reset_0_0",

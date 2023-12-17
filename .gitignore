@@ -1,6 +1,9 @@
 # Vivado
 *.cache
 *.sim
+*.runs
+*.ip_user_files/*
+!*.ip_user_files/README*
 
 # macOS
 .DS_Store

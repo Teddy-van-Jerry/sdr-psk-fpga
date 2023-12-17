@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x5218992752189927",
+      "boundary_crc": "0xE6BD415646487477",
       "design_src": "E:/Documents/Study/Verilog/SDR/sdr-psk-fpga/sdr-psk-fpga.srcs/sources_1/bd/costas_loop/costas_loop.bd",
       "device": "xc7z020clg484-1",
       "name": "costas_loop_inst_0",
@@ -31,8 +31,8 @@
         "LP_filter": ""
       },
       "NCO": {
-        "NCO_cos_sin_0": "",
-        "NCO_DDS": ""
+        "NCO_DDS": "",
+        "NCO_cos_sin_0": ""
       }
     },
     "interface_ports": {
@@ -1972,12 +1972,12 @@
         "ports": {
           "NCO_cos": {
             "direction": "O",
-            "left": "15",
+            "left": "11",
             "right": "0"
           },
           "NCO_sin": {
             "direction": "O",
-            "left": "15",
+            "left": "11",
             "right": "0"
           },
           "clk_16M384": {
@@ -1986,11 +1986,87 @@
           }
         },
         "components": {
+          "NCO_DDS": {
+            "vlnv": "xilinx.com:ip:dds_compiler:6.0",
+            "xci_name": "costas_loop_inst_0_NCO_DDS_0",
+            "xci_path": "ip\\costas_loop_inst_0_NCO_DDS_0\\costas_loop_inst_0_NCO_DDS_0.xci",
+            "inst_hier_path": "NCO/NCO_DDS",
+            "parameters": {
+              "Amplitude_Mode": {
+                "value": "Full_Range"
+              },
+              "DATA_Has_TLAST": {
+                "value": "Not_Required"
+              },
+              "DDS_Clock_Rate": {
+                "value": "16.384"
+              },
+              "DSP48_Use": {
+                "value": "Maximal"
+              },
+              "Frequency_Resolution": {
+                "value": "0.4"
+              },
+              "Has_Phase_Out": {
+                "value": "false"
+              },
+              "Has_TREADY": {
+                "value": "false"
+              },
+              "Latency": {
+                "value": "8"
+              },
+              "M_DATA_Has_TUSER": {
+                "value": "Not_Required"
+              },
+              "Noise_Shaping": {
+                "value": "None"
+              },
+              "Optimization_Goal": {
+                "value": "Auto"
+              },
+              "Output_Frequency1": {
+                "value": "0"
+              },
+              "Output_Width": {
+                "value": "12"
+              },
+              "PINC1": {
+                "value": "0"
+              },
+              "Parameter_Entry": {
+                "value": "Hardware_Parameters"
+              },
+              "PartsPresent": {
+                "value": "Phase_Generator_and_SIN_COS_LUT"
+              },
+              "Phase_Increment": {
+                "value": "Programmable"
+              },
+              "Phase_Width": {
+                "value": "16"
+              },
+              "Phase_offset": {
+                "value": "None"
+              },
+              "S_PHASE_Has_TUSER": {
+                "value": "Not_Required"
+              },
+              "Spurious_Free_Dynamic_Range": {
+                "value": "45"
+              }
+            }
+          },
           "NCO_cos_sin_0": {
             "vlnv": "xilinx.com:module_ref:NCO_cos_sin:1.0",
             "xci_name": "costas_loop_inst_0_NCO_cos_sin_0_0",
             "xci_path": "ip\\costas_loop_inst_0_NCO_cos_sin_0_0\\costas_loop_inst_0_NCO_cos_sin_0_0.xci",
             "inst_hier_path": "NCO/NCO_cos_sin_0",
+            "parameters": {
+              "O_WIDTH": {
+                "value": "12"
+              }
+            },
             "reference_info": {
               "ref_type": "hdl",
               "ref_name": "NCO_cos_sin",
@@ -2034,22 +2110,34 @@
                     "value": "0",
                     "value_src": "constant"
                   },
+                  "FREQ_HZ": {
+                    "value": "16384000",
+                    "value_src": "default_prop"
+                  },
+                  "PHASE": {
+                    "value": "0.0",
+                    "value_src": "default_prop"
+                  },
+                  "CLK_DOMAIN": {
+                    "value": "costas_loop_aclk_0",
+                    "value_src": "default_prop"
+                  },
                   "LAYERED_METADATA": {
                     "value": [
                       "xilinx.com:interface:datatypes:1.0 {",
                       "TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {}",
-                      "maximum {}} value 32} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} array_type {name {attribs {resolve_type immediate dependency {} format string",
+                      "maximum {}} value 28} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} array_type {name {attribs {resolve_type immediate dependency {} format string",
                       "minimum {} maximum {}} value chan} size {attribs {resolve_type generated dependency chan_size format long minimum {} maximum {}} value 1} stride {attribs {resolve_type generated dependency chan_stride",
                       "format long minimum {} maximum {}} value 32} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic",
-                      "dependency {} format long minimum {} maximum {}} value 32} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} struct {field_cosine {name {attribs",
+                      "dependency {} format long minimum {} maximum {}} value 28} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} struct {field_cosine {name {attribs",
                       "{resolve_type immediate dependency {} format string minimum {} maximum {}} value cosine} enabled {attribs {resolve_type generated dependency cosine_enabled format bool minimum {} maximum {}} value",
                       "true} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency cosine_width format long minimum",
-                      "{} maximum {}} value 16} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} real {fixed {fractwidth {attribs {resolve_type generated dependency",
-                      "cosine_fractwidth format long minimum {} maximum {}} value 15} signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true}}}}} field_sine {name {attribs",
+                      "{} maximum {}} value 12} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} real {fixed {fractwidth {attribs {resolve_type generated dependency",
+                      "cosine_fractwidth format long minimum {} maximum {}} value 11} signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true}}}}} field_sine {name {attribs",
                       "{resolve_type immediate dependency {} format string minimum {} maximum {}} value sine} enabled {attribs {resolve_type generated dependency sine_enabled format bool minimum {} maximum {}} value true}",
                       "datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency sine_width format long minimum {}",
-                      "maximum {}} value 16} bitoffset {attribs {resolve_type generated dependency sine_offset format long minimum {} maximum {}} value 16} real {fixed {fractwidth {attribs {resolve_type generated dependency",
-                      "sine_fractwidth format long minimum {} maximum {}} value 15} signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true}}}}}}}}}} TDATA_WIDTH 32 TUSER",
+                      "maximum {}} value 12} bitoffset {attribs {resolve_type generated dependency sine_offset format long minimum {} maximum {}} value 16} real {fixed {fractwidth {attribs {resolve_type generated dependency",
+                      "sine_fractwidth format long minimum {} maximum {}} value 11} signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true}}}}}}}}}} TDATA_WIDTH 32 TUSER",
                       "{datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}}",
                       "value 0} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} struct {field_chanid {name {attribs {resolve_type immediate dependency {} format string",
                       "minimum {} maximum {}} value chanid} enabled {attribs {resolve_type generated dependency chanid_enabled format bool minimum {} maximum {}} value false} datatype {name {attribs {resolve_type immediate",
@@ -2078,86 +2166,37 @@
               }
             },
             "ports": {
+              "clk": {
+                "type": "clk",
+                "direction": "I",
+                "parameters": {
+                  "ASSOCIATED_BUSIF": {
+                    "value": "NCO",
+                    "value_src": "constant"
+                  },
+                  "FREQ_HZ": {
+                    "value": "16384000",
+                    "value_src": "default_prop"
+                  },
+                  "PHASE": {
+                    "value": "0.0",
+                    "value_src": "default_prop"
+                  },
+                  "CLK_DOMAIN": {
+                    "value": "costas_loop_aclk_0",
+                    "value_src": "default_prop"
+                  }
+                }
+              },
               "NCO_cos": {
                 "direction": "O",
-                "left": "15",
+                "left": "11",
                 "right": "0"
               },
               "NCO_sin": {
                 "direction": "O",
-                "left": "15",
+                "left": "11",
                 "right": "0"
-              }
-            }
-          },
-          "NCO_DDS": {
-            "vlnv": "xilinx.com:ip:dds_compiler:6.0",
-            "xci_name": "costas_loop_inst_0_NCO_DDS_0",
-            "xci_path": "ip\\costas_loop_inst_0_NCO_DDS_0\\costas_loop_inst_0_NCO_DDS_0.xci",
-            "inst_hier_path": "NCO/NCO_DDS",
-            "parameters": {
-              "Amplitude_Mode": {
-                "value": "Full_Range"
-              },
-              "DATA_Has_TLAST": {
-                "value": "Not_Required"
-              },
-              "DDS_Clock_Rate": {
-                "value": "16.384"
-              },
-              "DSP48_Use": {
-                "value": "Maximal"
-              },
-              "Frequency_Resolution": {
-                "value": "0.4"
-              },
-              "Has_Phase_Out": {
-                "value": "true"
-              },
-              "Has_TREADY": {
-                "value": "false"
-              },
-              "Latency": {
-                "value": "8"
-              },
-              "M_DATA_Has_TUSER": {
-                "value": "Not_Required"
-              },
-              "Noise_Shaping": {
-                "value": "None"
-              },
-              "Optimization_Goal": {
-                "value": "Auto"
-              },
-              "Output_Frequency1": {
-                "value": "0"
-              },
-              "Output_Width": {
-                "value": "16"
-              },
-              "PINC1": {
-                "value": "0"
-              },
-              "Parameter_Entry": {
-                "value": "Hardware_Parameters"
-              },
-              "PartsPresent": {
-                "value": "Phase_Generator_and_SIN_COS_LUT"
-              },
-              "Phase_Increment": {
-                "value": "Programmable"
-              },
-              "Phase_Width": {
-                "value": "16"
-              },
-              "Phase_offset": {
-                "value": "None"
-              },
-              "S_PHASE_Has_TUSER": {
-                "value": "Not_Required"
-              },
-              "Spurious_Free_Dynamic_Range": {
-                "value": "45"
               }
             }
           }
@@ -2192,7 +2231,8 @@
           "aclk_0_1": {
             "ports": [
               "clk_16M384",
-              "NCO_DDS/aclk"
+              "NCO_DDS/aclk",
+              "NCO_cos_sin_0/clk"
             ]
           }
         }
