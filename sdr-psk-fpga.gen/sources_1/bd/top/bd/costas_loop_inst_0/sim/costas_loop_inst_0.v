@@ -1,7 +1,7 @@
 //Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-//Date        : Sun Dec 17 22:13:04 2023
+//Date        : Mon Dec 18 16:43:17 2023
 //Host        : TVJ-PC running 64-bit major release  (build 9200)
 //Command     : generate_target costas_loop_inst_0.bd
 //Design      : costas_loop_inst_0
@@ -198,22 +198,22 @@ module NCO_imp_UABGQB
     clk_16M384,
     increment_tdata,
     increment_tvalid);
-  output [15:0]NCO_cos;
-  output [15:0]NCO_sin;
+  output [11:0]NCO_cos;
+  output [11:0]NCO_sin;
   input clk_16M384;
   input [15:0]increment_tdata;
   input increment_tvalid;
 
   wire [31:0]NCO_M_AXIS_DATA_TDATA;
   wire NCO_M_AXIS_DATA_TVALID;
-  wire [15:0]NCO_cos_sin_0_NCO_cos;
-  wire [15:0]NCO_cos_sin_0_NCO_sin;
+  wire [11:0]NCO_cos_sin_0_NCO_cos;
+  wire [11:0]NCO_cos_sin_0_NCO_sin;
   wire aclk_0_1;
   wire [15:0]loop_filter_M_AXIS_DATA_TDATA;
   wire loop_filter_M_AXIS_DATA_TVALID;
 
-  assign NCO_cos[15:0] = NCO_cos_sin_0_NCO_cos;
-  assign NCO_sin[15:0] = NCO_cos_sin_0_NCO_sin;
+  assign NCO_cos[11:0] = NCO_cos_sin_0_NCO_cos;
+  assign NCO_sin[11:0] = NCO_cos_sin_0_NCO_sin;
   assign aclk_0_1 = clk_16M384;
   assign loop_filter_M_AXIS_DATA_TDATA = increment_tdata[15:0];
   assign loop_filter_M_AXIS_DATA_TVALID = increment_tvalid;
@@ -227,7 +227,8 @@ module NCO_imp_UABGQB
        (.NCO_cos(NCO_cos_sin_0_NCO_cos),
         .NCO_sin(NCO_cos_sin_0_NCO_sin),
         .NCO_tdata(NCO_M_AXIS_DATA_TDATA),
-        .NCO_tvalid(NCO_M_AXIS_DATA_TVALID));
+        .NCO_tvalid(NCO_M_AXIS_DATA_TVALID),
+        .clk(aclk_0_1));
 endmodule
 
 (* CORE_GENERATION_INFO = "costas_loop_inst_0,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=costas_loop_inst_0,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=19,numReposBlks=15,numNonXlnxBlks=0,numHierBlks=4,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=5,numPkgbdBlks=0,bdsource=E_/Documents/Study/Verilog/SDR/sdr-psk-fpga/sdr-psk-fpga.srcs/sources_1/bd/costas_loop/costas_loop.bd,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "costas_loop_inst_0.hwdef" *) 
@@ -261,8 +262,8 @@ module costas_loop_inst_0
   wire IQ_Connect_I1_TVALID;
   wire [15:0]IQ_Connect_Q1_TDATA;
   wire IQ_Connect_Q1_TVALID;
-  wire [15:0]NCO_cos_sin_0_NCO_cos;
-  wire [15:0]NCO_cos_sin_0_NCO_sin;
+  wire [11:0]NCO_cos_sin_0_NCO_cos;
+  wire [11:0]NCO_cos_sin_0_NCO_sin;
   wire [11:0]PSK_signal_1;
   wire aclk_0_1;
   wire [47:0]fir_compiler_I_M_AXIS_DATA_TDATA;
@@ -323,12 +324,12 @@ module costas_loop_inst_0
         .s_axis_data_tvalid(Error_Detect_Ctrl_0_error_TVALID));
   costas_loop_inst_0_phase_detector_I_0 phase_detector_I
        (.A(PSK_signal_1),
-        .B(NCO_cos_sin_0_NCO_cos[11:0]),
+        .B(NCO_cos_sin_0_NCO_cos),
         .CLK(aclk_0_1),
         .P(phase_detector_I_P));
   costas_loop_inst_0_phase_detector_Q_0 phase_detector_Q
        (.A(PSK_signal_1),
-        .B(NCO_cos_sin_0_NCO_sin[11:0]),
+        .B(NCO_cos_sin_0_NCO_sin),
         .CLK(aclk_0_1),
         .P(phase_detector_Q_P));
 endmodule

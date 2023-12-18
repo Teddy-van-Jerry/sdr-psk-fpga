@@ -7,7 +7,8 @@
       "name": "top",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
       "synth_flow_mode": "Hierarchical",
-      "tool_version": "2022.2"
+      "tool_version": "2022.2",
+      "validated": "true"
     },
     "design_tree": {
       "RF_Data_Converter": "",
@@ -42,47 +43,143 @@
         "type": "clk",
         "direction": "I",
         "parameters": {
+          "CLK_DOMAIN": {
+            "value": "top_PL_CLK_100MHz",
+            "value_src": "default"
+          },
           "FREQ_HZ": {
             "value": "100000000"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
           }
         }
       },
       "AD9361_RX_CLK": {
         "type": "clk",
-        "direction": "O"
+        "direction": "O",
+        "parameters": {
+          "CLK_DOMAIN": {
+            "value": "top_AD9361_1RT_FDD_0_0_AD9361_RX_CLK",
+            "value_src": "default_prop"
+          },
+          "FREQ_HZ": {
+            "value": "100000000",
+            "value_src": "default"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
+          }
+        }
       },
       "AD9361_TX_FRAME": {
         "type": "data",
-        "direction": "O"
+        "direction": "O",
+        "parameters": {
+          "LAYERED_METADATA": {
+            "value": "undef",
+            "value_src": "default"
+          }
+        }
       },
       "AD9361_P1_D": {
         "type": "data",
         "direction": "O",
         "left": "11",
-        "right": "0"
+        "right": "0",
+        "parameters": {
+          "LAYERED_METADATA": {
+            "value": "undef",
+            "value_src": "default"
+          }
+        }
       },
       "AD9361_FBCLK": {
         "type": "clk",
-        "direction": "O"
+        "direction": "O",
+        "parameters": {
+          "FREQ_HZ": {
+            "value": "100000000",
+            "value_src": "default"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
+          }
+        }
       },
       "AD9361_P0_D": {
         "type": "data",
         "direction": "I",
         "left": "11",
-        "right": "0"
+        "right": "0",
+        "parameters": {
+          "LAYERED_METADATA": {
+            "value": "undef",
+            "value_src": "default"
+          }
+        }
       },
       "AD9361_DATACLK": {
         "type": "clk",
         "direction": "I",
         "parameters": {
+          "CLK_DOMAIN": {
+            "value": "top_AD9361_DATACLK",
+            "value_src": "default"
+          },
           "FREQ_HZ": {
             "value": "30720000"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
           }
         }
       },
       "AD9361_RX_FRAME": {
         "type": "data",
-        "direction": "I"
+        "direction": "I",
+        "parameters": {
+          "LAYERED_METADATA": {
+            "value": "undef",
+            "value_src": "default"
+          }
+        }
       }
     },
     "components": {
@@ -417,21 +514,85 @@
             "ports": {
               "clk_16M384": {
                 "type": "clk",
-                "direction": "I"
+                "direction": "I",
+                "parameters": {
+                  "ASSOCIATED_RESET": {
+                    "value": "rst_16M386",
+                    "value_src": "strong"
+                  },
+                  "CLK_DOMAIN": {
+                    "value": "costas_loop_aclk_0",
+                    "value_src": "strong"
+                  },
+                  "FREQ_HZ": {
+                    "value": "16384000",
+                    "value_src": "strong"
+                  },
+                  "FREQ_TOLERANCE_HZ": {
+                    "value": "0",
+                    "value_src": "strong"
+                  },
+                  "INSERT_VIP": {
+                    "value": "0",
+                    "value_src": "strong"
+                  },
+                  "PHASE": {
+                    "value": "0.0",
+                    "value_src": "strong"
+                  }
+                }
               },
               "PSK_signal": {
                 "type": "data",
                 "direction": "I",
                 "left": "11",
-                "right": "0"
+                "right": "0",
+                "parameters": {
+                  "LAYERED_METADATA": {
+                    "value": "undef",
+                    "value_src": "strong"
+                  }
+                }
               },
               "clk_32M768": {
                 "type": "clk",
-                "direction": "I"
+                "direction": "I",
+                "parameters": {
+                  "CLK_DOMAIN": {
+                    "value": "/Clock_Gen/clk_wiz_32M768_clk_out1",
+                    "value_src": "ip_prop"
+                  },
+                  "FREQ_HZ": {
+                    "value": "32768000",
+                    "value_src": "ip_prop"
+                  },
+                  "FREQ_TOLERANCE_HZ": {
+                    "value": "0",
+                    "value_src": "strong"
+                  },
+                  "INSERT_VIP": {
+                    "value": "0",
+                    "value_src": "strong"
+                  },
+                  "PHASE": {
+                    "value": "0.0",
+                    "value_src": "ip_prop"
+                  }
+                }
               },
               "rst_16M386": {
                 "type": "rst",
-                "direction": "I"
+                "direction": "I",
+                "parameters": {
+                  "INSERT_VIP": {
+                    "value": "0",
+                    "value_src": "strong"
+                  },
+                  "POLARITY": {
+                    "value": "ACTIVE_HIGH",
+                    "value_src": "const_prop"
+                  }
+                }
               },
               "is_bpsk": {
                 "direction": "I"
@@ -442,7 +603,7 @@
             "variant_info": {
               "costas_loop.bd": {
                 "scoped_diagram": "costas_loop_inst_0.bd",
-                "design_checksum": "0x7A4830EF",
+                "design_checksum": "0x51BDA47A",
                 "ref_name": "costas_loop",
                 "ref_subinst_path": "top_costas_loop_0",
                 "ref_type": "Block Design",
@@ -1138,6 +1299,9 @@
                   "Frequency_Resolution": {
                     "value": "512"
                   },
+                  "Has_ARESETn": {
+                    "value": "false"
+                  },
                   "Has_Phase_Out": {
                     "value": "false"
                   },
@@ -1151,13 +1315,13 @@
                     "value": "Auto"
                   },
                   "Output_Frequency1": {
-                    "value": "4.192"
+                    "value": "4.096"
                   },
                   "Output_Width": {
                     "value": "12"
                   },
                   "PINC1": {
-                    "value": "10000011000000"
+                    "value": "10000000000000"
                   },
                   "Parameter_Entry": {
                     "value": "System_Parameters"
@@ -1395,7 +1559,13 @@
                     "direction": "I"
                   },
                   "rst_16M384": {
-                    "direction": "I"
+                    "direction": "I",
+                    "parameters": {
+                      "POLARITY": {
+                        "value": "ACTIVE_HIGH",
+                        "value_src": "const_prop"
+                      }
+                    }
                   },
                   "carrier_I": {
                     "direction": "I",
@@ -1489,11 +1659,6 @@
                 "ports": [
                   "PSK_Mod_0/out_Q",
                   "DAC_Q"
-                ]
-              },
-              "axis_data_fifo_0_m_axis_tuser": {
-                "ports": [
-                  "axis_data_fifo_0/m_axis_tuser"
                 ]
               },
               "proc_sys_reset_16M384_mb_reset": {

@@ -1,7 +1,7 @@
 //Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-//Date        : Sun Dec 17 22:46:05 2023
+//Date        : Mon Dec 18 16:43:16 2023
 //Host        : TVJ-PC running 64-bit major release  (build 9200)
 //Command     : generate_target top.bd
 //Design      : top
@@ -11,36 +11,46 @@
 
 module Clock_Gen_imp_1QWPH1V
    (PL_CLK_100MHz,
+    clk1M024,
     clk_16M384,
     clk_200M,
     clk_32M768,
-    rst_16M384);
+    rst_16M384,
+    rst_n_1M024);
   input PL_CLK_100MHz;
+  output clk1M024;
   output clk_16M384;
   output clk_200M;
   output clk_32M768;
   output [0:0]rst_16M384;
+  output [0:0]rst_n_1M024;
 
   wire Div_clk32M768_0_clk16M384;
+  wire Div_clk32M768_0_clk1M024;
   wire PL_CLK_100MHz_1;
   wire [0:0]Reset_Gen_rst_16M384;
   wire clk_wiz_128M_clk_128M;
   wire clk_wiz_128M_clk_200M;
   wire clk_wiz_32M768_clk_32M768;
   wire clk_wiz_32M768_locked;
+  wire [0:0]rst_n_1M024;
 
   assign PL_CLK_100MHz_1 = PL_CLK_100MHz;
+  assign clk1M024 = Div_clk32M768_0_clk1M024;
   assign clk_16M384 = Div_clk32M768_0_clk16M384;
   assign clk_200M = clk_wiz_128M_clk_200M;
   assign clk_32M768 = clk_wiz_32M768_clk_32M768;
   assign rst_16M384[0] = Reset_Gen_rst_16M384;
   top_Div_clk32M768_0_0 Div_clk32M768_0
        (.clk16M384(Div_clk32M768_0_clk16M384),
+        .clk1M024(Div_clk32M768_0_clk1M024),
         .clk32M768(clk_wiz_32M768_clk_32M768));
   Reset_Gen_imp_19G9OF2 Reset_Gen
-       (.clk_16M384(Div_clk32M768_0_clk16M384),
+       (.clk1M024(Div_clk32M768_0_clk1M024),
+        .clk_16M384(Div_clk32M768_0_clk16M384),
         .dcm_locked(clk_wiz_32M768_locked),
-        .rst_16M384(Reset_Gen_rst_16M384));
+        .rst_16M384(Reset_Gen_rst_16M384),
+        .rst_n_1M024(rst_n_1M024));
   top_clk_wiz_0_0 clk_wiz_128M
        (.clk_128M(clk_wiz_128M_clk_128M),
         .clk_200M(clk_wiz_128M_clk_200M),
@@ -55,45 +65,58 @@ module PSK_Modulation_imp_1W4LMRU
    (DAC_I,
     DAC_Q,
     clk_16M384,
+    clk_1M024,
     data_tdata,
     data_tlast,
     data_tready,
+    data_tuser,
     data_tvalid,
-    is_bpsk,
-    rst_16M384);
+    rst_16M384,
+    rst_n_1M024);
   output [11:0]DAC_I;
   output [11:0]DAC_Q;
   input clk_16M384;
-  input data_tdata;
+  input clk_1M024;
+  input [7:0]data_tdata;
   input data_tlast;
   output data_tready;
+  input data_tuser;
   input data_tvalid;
-  input is_bpsk;
   input rst_16M384;
+  input rst_n_1M024;
 
   wire Div_clk32M768_0_clk16M384;
   wire [11:0]NCO_cos_sin_0_NCO_cos;
   wire [11:0]NCO_cos_sin_0_NCO_sin;
   wire [11:0]PSK_Mod_0_out_I;
   wire [11:0]PSK_Mod_0_out_Q;
-  wire data_1_TDATA;
+  wire [7:0]axis_data_fifo_0_M_AXIS_TDATA;
+  wire axis_data_fifo_0_M_AXIS_TLAST;
+  wire axis_data_fifo_0_M_AXIS_TREADY;
+  wire [0:0]axis_data_fifo_0_M_AXIS_TUSER;
+  wire axis_data_fifo_0_M_AXIS_TVALID;
+  wire [7:0]data_1_TDATA;
   wire data_1_TLAST;
   wire data_1_TREADY;
+  wire data_1_TUSER;
   wire data_1_TVALID;
   wire [31:0]dds_compiler_0_M_AXIS_DATA_TDATA;
   wire dds_compiler_0_M_AXIS_DATA_TVALID;
-  wire is_bpsk_1;
   wire proc_sys_reset_16M384_mb_reset;
+  wire s_axis_aclk_1;
+  wire s_axis_aresetn_1;
 
   assign DAC_I[11:0] = PSK_Mod_0_out_I;
   assign DAC_Q[11:0] = PSK_Mod_0_out_Q;
   assign Div_clk32M768_0_clk16M384 = clk_16M384;
-  assign data_1_TDATA = data_tdata;
+  assign data_1_TDATA = data_tdata[7:0];
   assign data_1_TLAST = data_tlast;
+  assign data_1_TUSER = data_tuser;
   assign data_1_TVALID = data_tvalid;
   assign data_tready = data_1_TREADY;
-  assign is_bpsk_1 = is_bpsk;
   assign proc_sys_reset_16M384_mb_reset = rst_16M384;
+  assign s_axis_aclk_1 = clk_1M024;
+  assign s_axis_aresetn_1 = rst_n_1M024;
   top_NCO_cos_sin_0_0 NCO_cos_sin_0
        (.NCO_cos(NCO_cos_sin_0_NCO_cos),
         .NCO_sin(NCO_cos_sin_0_NCO_sin),
@@ -104,14 +127,28 @@ module PSK_Modulation_imp_1W4LMRU
        (.carrier_I(NCO_cos_sin_0_NCO_cos),
         .carrier_Q(NCO_cos_sin_0_NCO_sin),
         .clk_16M384(Div_clk32M768_0_clk16M384),
-        .data_tdata({data_1_TDATA,data_1_TDATA,data_1_TDATA,data_1_TDATA,data_1_TDATA,data_1_TDATA,data_1_TDATA,data_1_TDATA}),
-        .data_tlast(data_1_TLAST),
-        .data_tready(data_1_TREADY),
-        .data_tvalid(data_1_TVALID),
-        .is_bpsk(is_bpsk_1),
+        .data_tdata(axis_data_fifo_0_M_AXIS_TDATA),
+        .data_tlast(axis_data_fifo_0_M_AXIS_TLAST),
+        .data_tready(axis_data_fifo_0_M_AXIS_TREADY),
+        .data_tuser(axis_data_fifo_0_M_AXIS_TUSER),
+        .data_tvalid(axis_data_fifo_0_M_AXIS_TVALID),
         .out_I(PSK_Mod_0_out_I),
         .out_Q(PSK_Mod_0_out_Q),
         .rst_16M384(proc_sys_reset_16M384_mb_reset));
+  top_axis_data_fifo_0_0 axis_data_fifo_0
+       (.m_axis_aclk(Div_clk32M768_0_clk16M384),
+        .m_axis_tdata(axis_data_fifo_0_M_AXIS_TDATA),
+        .m_axis_tlast(axis_data_fifo_0_M_AXIS_TLAST),
+        .m_axis_tready(axis_data_fifo_0_M_AXIS_TREADY),
+        .m_axis_tuser(axis_data_fifo_0_M_AXIS_TUSER),
+        .m_axis_tvalid(axis_data_fifo_0_M_AXIS_TVALID),
+        .s_axis_aclk(s_axis_aclk_1),
+        .s_axis_aresetn(s_axis_aresetn_1),
+        .s_axis_tdata(data_1_TDATA),
+        .s_axis_tlast(data_1_TLAST),
+        .s_axis_tready(data_1_TREADY),
+        .s_axis_tuser(data_1_TUSER),
+        .s_axis_tvalid(data_1_TVALID));
   top_dds_compiler_0_0 dds_compiler_carrier
        (.aclk(Div_clk32M768_0_clk16M384),
         .m_axis_data_tdata(dds_compiler_0_M_AXIS_DATA_TDATA),
@@ -119,22 +156,30 @@ module PSK_Modulation_imp_1W4LMRU
 endmodule
 
 module Reset_Gen_imp_19G9OF2
-   (clk_16M384,
+   (clk1M024,
+    clk_16M384,
     dcm_locked,
-    rst_16M384);
+    rst_16M384,
+    rst_n_1M024);
+  input clk1M024;
   input clk_16M384;
   input dcm_locked;
   output [0:0]rst_16M384;
+  output [0:0]rst_n_1M024;
 
   wire Div_clk32M768_0_clk16M384;
+  wire clk1M024_1;
   wire clk_wiz_32M768_locked;
   wire [0:0]proc_sys_reset_16M384_bus_struct_reset;
+  wire [0:0]proc_sys_reset_1M024_interconnect_aresetn;
   wire [0:0]xlconstant_one_dout;
   wire [0:0]xlconstant_zero_dout;
 
   assign Div_clk32M768_0_clk16M384 = clk_16M384;
+  assign clk1M024_1 = clk1M024;
   assign clk_wiz_32M768_locked = dcm_locked;
   assign rst_16M384[0] = proc_sys_reset_16M384_bus_struct_reset;
+  assign rst_n_1M024[0] = proc_sys_reset_1M024_interconnect_aresetn;
   top_proc_sys_reset_0_0 proc_sys_reset_16M384
        (.aux_reset_in(xlconstant_one_dout),
         .bus_struct_reset(proc_sys_reset_16M384_bus_struct_reset),
@@ -142,6 +187,13 @@ module Reset_Gen_imp_19G9OF2
         .ext_reset_in(xlconstant_one_dout),
         .mb_debug_sys_rst(xlconstant_zero_dout),
         .slowest_sync_clk(Div_clk32M768_0_clk16M384));
+  top_proc_sys_reset_16M384_0 proc_sys_reset_1M024
+       (.aux_reset_in(xlconstant_one_dout),
+        .dcm_locked(clk_wiz_32M768_locked),
+        .ext_reset_in(xlconstant_one_dout),
+        .interconnect_aresetn(proc_sys_reset_1M024_interconnect_aresetn),
+        .mb_debug_sys_rst(xlconstant_zero_dout),
+        .slowest_sync_clk(clk1M024_1));
   top_xlconstant_0_0 xlconstant_one
        (.dout(xlconstant_one_dout));
   top_xlconstant_one_0 xlconstant_zero
@@ -203,33 +255,55 @@ module Tx_imp_1IUYQQO
    (DAC_I,
     DAC_Q,
     clk_16M384,
-    rst_16M384);
+    clk_1M024,
+    rst_16M384,
+    rst_n_1M024);
   output [11:0]DAC_I;
   output [11:0]DAC_Q;
   input clk_16M384;
+  input clk_1M024;
   input rst_16M384;
+  input [0:0]rst_n_1M024;
 
   wire Div_clk32M768_0_clk16M384;
   wire [11:0]PSK_Mod_0_out_I;
   wire [11:0]PSK_Mod_0_out_Q;
+  wire [7:0]Tx_Data_0_data_TDATA;
+  wire Tx_Data_0_data_TLAST;
+  wire Tx_Data_0_data_TREADY;
+  wire Tx_Data_0_data_TUSER;
+  wire Tx_Data_0_data_TVALID;
+  wire clk_1M024;
   wire proc_sys_reset_16M384_mb_reset;
+  wire [0:0]s_axis_aresetn_1;
 
   assign DAC_I[11:0] = PSK_Mod_0_out_I;
   assign DAC_Q[11:0] = PSK_Mod_0_out_Q;
   assign Div_clk32M768_0_clk16M384 = clk_16M384;
   assign proc_sys_reset_16M384_mb_reset = rst_16M384;
+  assign s_axis_aresetn_1 = rst_n_1M024[0];
   PSK_Modulation_imp_1W4LMRU PSK_Modulation
        (.DAC_I(PSK_Mod_0_out_I),
         .DAC_Q(PSK_Mod_0_out_Q),
         .clk_16M384(Div_clk32M768_0_clk16M384),
-        .data_tdata(1'b0),
-        .data_tlast(1'b0),
-        .data_tvalid(1'b0),
-        .is_bpsk(1'b0),
-        .rst_16M384(proc_sys_reset_16M384_mb_reset));
+        .clk_1M024(clk_1M024),
+        .data_tdata(Tx_Data_0_data_TDATA),
+        .data_tlast(Tx_Data_0_data_TLAST),
+        .data_tready(Tx_Data_0_data_TREADY),
+        .data_tuser(Tx_Data_0_data_TUSER),
+        .data_tvalid(Tx_Data_0_data_TVALID),
+        .rst_16M384(proc_sys_reset_16M384_mb_reset),
+        .rst_n_1M024(s_axis_aresetn_1));
+  top_Tx_Data_0_0 Tx_Data_0
+       (.clk(clk_1M024),
+        .data_tdata(Tx_Data_0_data_TDATA),
+        .data_tlast(Tx_Data_0_data_TLAST),
+        .data_tready(Tx_Data_0_data_TREADY),
+        .data_tuser(Tx_Data_0_data_TUSER),
+        .data_tvalid(Tx_Data_0_data_TVALID));
 endmodule
 
-(* CORE_GENERATION_INFO = "top,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=top,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=37,numReposBlks=27,numNonXlnxBlks=0,numHierBlks=10,maxHierDepth=3,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=11,numPkgbdBlks=1,bdsource=USER,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "top.hwdef" *) 
+(* CORE_GENERATION_INFO = "top,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=top,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=40,numReposBlks=30,numNonXlnxBlks=0,numHierBlks=10,maxHierDepth=3,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=12,numPkgbdBlks=1,bdsource=USER,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "top.hwdef" *) 
 module top
    (AD9361_DATACLK,
     AD9361_FBCLK,
@@ -257,6 +331,8 @@ module top
   wire AD9361_DATACLK_1;
   wire [11:0]AD9361_P0_D_1;
   wire AD9361_RX_FRAME_1;
+  wire Clock_Gen_clk1M024;
+  wire [0:0]Clock_Gen_interconnect_aresetn;
   wire Div_clk32M768_0_clk16M384;
   wire PL_CLK_100MHz_1;
   wire [11:0]PSK_Mod_0_out_I;
@@ -275,10 +351,12 @@ module top
   assign PL_CLK_100MHz_1 = PL_CLK_100MHz;
   Clock_Gen_imp_1QWPH1V Clock_Gen
        (.PL_CLK_100MHz(PL_CLK_100MHz_1),
+        .clk1M024(Clock_Gen_clk1M024),
         .clk_16M384(Div_clk32M768_0_clk16M384),
         .clk_200M(clk_wiz_128M_clk_200M),
         .clk_32M768(clk_wiz_32M768_clk_32M768),
-        .rst_16M384(proc_sys_reset_16M384_mb_reset));
+        .rst_16M384(proc_sys_reset_16M384_mb_reset),
+        .rst_n_1M024(Clock_Gen_interconnect_aresetn));
   top_AD9361_1RT_FDD_0_0 RF_Data_Converter
        (.AD9361_DATACLK(AD9361_DATACLK_1),
         .AD9361_FBCLK(AD9361_1RT_FDD_0_AD9361_FBCLK),
@@ -303,5 +381,7 @@ module top
        (.DAC_I(PSK_Mod_0_out_I),
         .DAC_Q(PSK_Mod_0_out_Q),
         .clk_16M384(Div_clk32M768_0_clk16M384),
-        .rst_16M384(proc_sys_reset_16M384_mb_reset));
+        .clk_1M024(Clock_Gen_clk1M024),
+        .rst_16M384(proc_sys_reset_16M384_mb_reset),
+        .rst_n_1M024(Clock_Gen_interconnect_aresetn));
 endmodule

@@ -190,6 +190,7 @@
 				"/NCO/NCO_cos_sin_0/NCO": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
+						"ACLK": { "actual": "clk"},
 						"TDATA": { "actual": "NCO_tdata"},
 						"TVALID": { "actual": "NCO_tvalid"}
 					}

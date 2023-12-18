@@ -29,7 +29,7 @@ module Error_Detect_Ctrl # (
   output                        error_tvalid
 );
   // delayed is_bpsk
-  reg is_bpsk_delayed;
+  wire is_bpsk_delayed;
   Delay #(
     .WIDTH(WIDTH),
     .DELAY(DELAY)
@@ -47,7 +47,6 @@ module Error_Detect_Ctrl # (
       out_I_tvalid <= 0;
       out_Q_tdata <= 0;
       out_Q_tvalid <= 0;
-      is_bpsk_delayed <= 0;
     end
     else begin
       if (is_bpsk) begin // BPSK

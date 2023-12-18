@@ -15,10 +15,10 @@
       "phase_detector_Q": "",
       "loop_filter": "",
       "Error_Detect": {
-        "Error_Detect_Ctrl_0": "",
         "Error_Detect_BPSK": "",
         "Error_Detect_QPSK": "",
-        "xlconstant_one": ""
+        "xlconstant_one": "",
+        "Error_Detect_Ctrl_0": ""
       },
       "IQ_Connect": {
         "AXI_2x_I": "",
@@ -412,6 +412,82 @@
           }
         },
         "components": {
+          "Error_Detect_BPSK": {
+            "vlnv": "xilinx.com:ip:mult_gen:12.0",
+            "xci_name": "costas_loop_mult_gen_0_1",
+            "xci_path": "ip\\costas_loop_mult_gen_0_1\\costas_loop_mult_gen_0_1.xci",
+            "inst_hier_path": "Error_Detect/Error_Detect_BPSK",
+            "parameters": {
+              "Multiplier_Construction": {
+                "value": "Use_Mults"
+              },
+              "OutputWidthHigh": {
+                "value": "31"
+              },
+              "OutputWidthLow": {
+                "value": "16"
+              },
+              "PipeStages": {
+                "value": "2"
+              },
+              "PortAType": {
+                "value": "Signed"
+              },
+              "PortAWidth": {
+                "value": "16"
+              },
+              "PortBType": {
+                "value": "Signed"
+              },
+              "PortBWidth": {
+                "value": "16"
+              },
+              "Use_Custom_Output_Width": {
+                "value": "true"
+              }
+            }
+          },
+          "Error_Detect_QPSK": {
+            "vlnv": "xilinx.com:ip:c_addsub:12.0",
+            "xci_name": "costas_loop_c_addsub_0_1",
+            "xci_path": "ip\\costas_loop_c_addsub_0_1\\costas_loop_c_addsub_0_1.xci",
+            "inst_hier_path": "Error_Detect/Error_Detect_QPSK",
+            "parameters": {
+              "A_Type": {
+                "value": "Signed"
+              },
+              "A_Width": {
+                "value": "16"
+              },
+              "B_Type": {
+                "value": "Signed"
+              },
+              "B_Value": {
+                "value": "0000000000000000"
+              },
+              "B_Width": {
+                "value": "16"
+              },
+              "CE": {
+                "value": "false"
+              },
+              "Implementation": {
+                "value": "DSP48"
+              },
+              "Latency": {
+                "value": "2"
+              },
+              "Out_Width": {
+                "value": "16"
+              }
+            }
+          },
+          "xlconstant_one": {
+            "vlnv": "xilinx.com:ip:xlconstant:1.1",
+            "xci_name": "costas_loop_xlconstant_0_2",
+            "xci_path": "ip\\costas_loop_xlconstant_0_2\\costas_loop_xlconstant_0_2.xci",
+            "inst_hier_path": "Error_Detect/xlconstant_one"
+          },
           "Error_Detect_Ctrl_0": {
             "vlnv": "xilinx.com:module_ref:Error_Detect_Ctrl:1.0",
             "xci_name": "costas_loop_Error_Detect_Ctrl_0_0",
@@ -879,82 +955,6 @@
                 "direction": "I"
               }
             }
-          },
-          "Error_Detect_BPSK": {
-            "vlnv": "xilinx.com:ip:mult_gen:12.0",
-            "xci_name": "costas_loop_mult_gen_0_1",
-            "xci_path": "ip\\costas_loop_mult_gen_0_1\\costas_loop_mult_gen_0_1.xci",
-            "inst_hier_path": "Error_Detect/Error_Detect_BPSK",
-            "parameters": {
-              "Multiplier_Construction": {
-                "value": "Use_Mults"
-              },
-              "OutputWidthHigh": {
-                "value": "31"
-              },
-              "OutputWidthLow": {
-                "value": "16"
-              },
-              "PipeStages": {
-                "value": "2"
-              },
-              "PortAType": {
-                "value": "Signed"
-              },
-              "PortAWidth": {
-                "value": "16"
-              },
-              "PortBType": {
-                "value": "Signed"
-              },
-              "PortBWidth": {
-                "value": "16"
-              },
-              "Use_Custom_Output_Width": {
-                "value": "true"
-              }
-            }
-          },
-          "Error_Detect_QPSK": {
-            "vlnv": "xilinx.com:ip:c_addsub:12.0",
-            "xci_name": "costas_loop_c_addsub_0_1",
-            "xci_path": "ip\\costas_loop_c_addsub_0_1\\costas_loop_c_addsub_0_1.xci",
-            "inst_hier_path": "Error_Detect/Error_Detect_QPSK",
-            "parameters": {
-              "A_Type": {
-                "value": "Signed"
-              },
-              "A_Width": {
-                "value": "16"
-              },
-              "B_Type": {
-                "value": "Signed"
-              },
-              "B_Value": {
-                "value": "0000000000000000"
-              },
-              "B_Width": {
-                "value": "16"
-              },
-              "CE": {
-                "value": "false"
-              },
-              "Implementation": {
-                "value": "DSP48"
-              },
-              "Latency": {
-                "value": "2"
-              },
-              "Out_Width": {
-                "value": "16"
-              }
-            }
-          },
-          "xlconstant_one": {
-            "vlnv": "xilinx.com:ip:xlconstant:1.1",
-            "xci_name": "costas_loop_xlconstant_0_2",
-            "xci_path": "ip\\costas_loop_xlconstant_0_2\\costas_loop_xlconstant_0_2.xci",
-            "inst_hier_path": "Error_Detect/xlconstant_one"
           }
         },
         "interface_nets": {
@@ -1027,8 +1027,8 @@
           "xlconstant_valid_one_dout": {
             "ports": [
               "xlconstant_one/dout",
-              "Error_Detect_Ctrl_0/error_qpsk_tvalid",
-              "Error_Detect_Ctrl_0/error_bpsk_tvalid"
+              "Error_Detect_Ctrl_0/error_bpsk_tvalid",
+              "Error_Detect_Ctrl_0/error_qpsk_tvalid"
             ]
           }
         }

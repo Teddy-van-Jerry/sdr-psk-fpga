@@ -52,7 +52,7 @@ module PSK_Mod #(
       // count
       cnt <= cnt + 4'b1;
       // input buffer
-      if (cnt == 4'b0) begin
+      if (cnt == 4'd8) begin
         data_tready <= 1'b1;
         data_buf <= data_tdata;
         vld_buf <= data_tvalid;
@@ -64,8 +64,8 @@ module PSK_Mod #(
       end
       // output buffer
       if (vld_buf) begin
-        out_I <=                   (data_I_buf ? carrier_I : -carrier_I);
-        out_Q <= is_bpsk_buf ? 0 : (data_Q_buf ? carrier_Q : -carrier_Q);
+        out_I <= (              data_I_buf             ) ? carrier_I : -carrier_I;
+        out_Q <= (is_bpsk_buf ? data_I_buf : data_Q_buf) ? carrier_Q : -carrier_Q;
       end
       else begin
         out_I <= 0;
@@ -78,5 +78,5 @@ module PSK_Mod #(
     end
   end
 
-  assign out_clk_1M024 = ~cnt[3];
+  assign out_clk_1M024 = cnt[3];
 endmodule
