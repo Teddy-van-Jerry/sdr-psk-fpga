@@ -1,28 +1,36 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"1.25",
-   "Default View_TopLeft":"-347,-150",
+   "Default View_ScaleFactor":"0.999074",
+   "Default View_TopLeft":"-137,-189",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
 #  -string -flagsOSRD
-preplace port port-id_clk_16M384 -pg 1 -lvl 0 -x 0 -y 120 -defaultsOSRD
-preplace port port-id_clk_32M768 -pg 1 -lvl 0 -x 0 -y 150 -defaultsOSRD
-preplace port port-id_rst_16M384 -pg 1 -lvl 0 -x 0 -y 180 -defaultsOSRD
-preplace portBus ADC_I -pg 1 -lvl 0 -x 0 -y 40 -defaultsOSRD
-preplace portBus ADC_Q -pg 1 -lvl 0 -x 0 -y 70 -defaultsOSRD
+preplace port port-id_clk_16M384 -pg 1 -lvl 0 -x -10 -y 100 -defaultsOSRD
+preplace port port-id_clk_32M768 -pg 1 -lvl 0 -x -10 -y 130 -defaultsOSRD
+preplace port port-id_rst_16M384 -pg 1 -lvl 0 -x -10 -y 190 -defaultsOSRD
+preplace port port-id_is_bpsk -pg 1 -lvl 0 -x -10 -y 160 -defaultsOSRD
+preplace port port-id_BPSK -pg 1 -lvl 4 -x 830 -y 140 -defaultsOSRD
+preplace port port-id_vld -pg 1 -lvl 4 -x 830 -y 200 -defaultsOSRD
+preplace portBus ADC_I -pg 1 -lvl 0 -x -10 -y 40 -defaultsOSRD
+preplace portBus ADC_Q -pg 1 -lvl 0 -x -10 -y 70 -defaultsOSRD
+preplace portBus QPSK -pg 1 -lvl 4 -x 830 -y 170 -defaultsOSRD
 preplace inst PSK_Signal_Extend_0 -pg 1 -lvl 1 -x 170 -y 60 -defaultsOSRD
 preplace inst costas_loop_0 -pg 1 -lvl 2 -x 460 -y 150 -defaultsOSRD
 preplace inst PSK_Detection_0 -pg 1 -lvl 3 -x 690 -y 170 -defaultsOSRD
 preplace netloc AD9361_1RT_FDD_0_AD9361_RX_DAT_I 1 0 1 20J 40n
 preplace netloc AD9361_1RT_FDD_0_AD9361_RX_DAT_Q 1 0 1 NJ 70
-preplace netloc Div_clk32M768_0_clk16M384 1 0 3 20J 130 310 50 580
-preplace netloc PSK_Signal_Extend_0_PSK_signal 1 1 1 320 60n
-preplace netloc clk_wiz_32M768_clk_32M768 1 0 2 NJ 150 NJ
-preplace netloc rst_16M386_1 1 0 3 N 180 310 250 580J
+preplace netloc Div_clk32M768_0_clk16M384 1 0 3 10J -10 320 50 580
+preplace netloc PSK_Signal_Extend_0_PSK_signal 1 1 1 310 60n
+preplace netloc clk_wiz_32M768_clk_32M768 1 0 2 20J 150 NJ
+preplace netloc rst_16M386_1 1 0 3 N 190 310 250 580J
+preplace netloc is_bpsk_1 1 0 2 NJ 160 320
+preplace netloc PSK_Detection_0_BPSK 1 3 1 800 140n
+preplace netloc PSK_Detection_0_QPSK 1 3 1 N 170
+preplace netloc PSK_Detection_0_vld 1 3 1 800 190n
 preplace netloc costas_loop_0_I 1 2 1 N 140
 preplace netloc costas_loop_0_Q 1 2 1 N 160
-levelinfo -pg 1 0 170 460 690 810
-pagesize -pg 1 -db -bbox -sgen -130 -10 810 260
+levelinfo -pg 1 -10 170 460 690 830
+pagesize -pg 1 -db -bbox -sgen -140 -20 950 260
 "
 }
 0

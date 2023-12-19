@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xB8941EB7125741EC",
+      "boundary_crc": "0xAB7A691B72634698",
       "device": "xc7z020clg484-1",
       "gen_directory": "../../../../sdr-psk-fpga.gen/sources_1/bd/top",
       "name": "top",
@@ -36,7 +36,9 @@
           "PSK_Mod_0": ""
         },
         "Tx_Data_0": ""
-      }
+      },
+      "xlconstant_0": "",
+      "system_ila_0": ""
     },
     "ports": {
       "PL_CLK_100MHz": {
@@ -49,32 +51,6 @@
           },
           "FREQ_HZ": {
             "value": "100000000"
-          },
-          "FREQ_TOLERANCE_HZ": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "INSERT_VIP": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "PHASE": {
-            "value": "0.0",
-            "value_src": "default"
-          }
-        }
-      },
-      "AD9361_RX_CLK": {
-        "type": "clk",
-        "direction": "O",
-        "parameters": {
-          "CLK_DOMAIN": {
-            "value": "top_AD9361_1RT_FDD_0_0_AD9361_RX_CLK",
-            "value_src": "default_prop"
-          },
-          "FREQ_HZ": {
-            "value": "100000000",
-            "value_src": "default"
           },
           "FREQ_TOLERANCE_HZ": {
             "value": "0",
@@ -260,7 +236,12 @@
           },
           "AD9361_RX_CLK": {
             "type": "clk",
-            "direction": "O"
+            "direction": "O",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "30720000"
+              }
+            }
           },
           "AD9361_TX_DAT_I": {
             "direction": "I",
@@ -276,6 +257,9 @@
             "type": "clk",
             "direction": "I",
             "parameters": {
+              "FREQ_HZ": {
+                "value": "30720000"
+              },
               "CLK_DOMAIN": {
                 "value": "top_AD9361_1RT_FDD_0_0_AD9361_RX_CLK",
                 "value_src": "default_prop"
@@ -318,6 +302,20 @@
           "rst_16M384": {
             "type": "rst",
             "direction": "I"
+          },
+          "is_bpsk": {
+            "direction": "I"
+          },
+          "BPSK": {
+            "direction": "O"
+          },
+          "QPSK": {
+            "direction": "O",
+            "left": "1",
+            "right": "0"
+          },
+          "vld": {
+            "direction": "O"
           }
         },
         "components": {
@@ -804,6 +802,24 @@
               "PSK_Detection_0/clk"
             ]
           },
+          "PSK_Detection_0_BPSK": {
+            "ports": [
+              "PSK_Detection_0/BPSK",
+              "BPSK"
+            ]
+          },
+          "PSK_Detection_0_QPSK": {
+            "ports": [
+              "PSK_Detection_0/QPSK",
+              "QPSK"
+            ]
+          },
+          "PSK_Detection_0_vld": {
+            "ports": [
+              "PSK_Detection_0/vld",
+              "vld"
+            ]
+          },
           "PSK_Signal_Extend_0_PSK_signal": {
             "ports": [
               "PSK_Signal_Extend_0/PSK_signal",
@@ -814,6 +830,12 @@
             "ports": [
               "clk_32M768",
               "costas_loop_0/clk_32M768"
+            ]
+          },
+          "is_bpsk_1": {
+            "ports": [
+              "is_bpsk",
+              "costas_loop_0/is_bpsk"
             ]
           },
           "rst_16M386_1": {
@@ -1245,6 +1267,14 @@
             "direction": "I",
             "left": "0",
             "right": "0"
+          },
+          "DAC_vld": {
+            "direction": "O"
+          },
+          "DAC_bits": {
+            "direction": "O",
+            "left": "1",
+            "right": "0"
           }
         },
         "components": {
@@ -1281,6 +1311,14 @@
               "rst_n_1M024": {
                 "type": "rst",
                 "direction": "I"
+              },
+              "DAC_vld": {
+                "direction": "O"
+              },
+              "DAC_bits": {
+                "direction": "O",
+                "left": "1",
+                "right": "0"
               }
             },
             "components": {
@@ -1661,6 +1699,18 @@
                   "DAC_Q"
                 ]
               },
+              "PSK_Mod_0_out_bits": {
+                "ports": [
+                  "PSK_Mod_0/out_bits",
+                  "DAC_bits"
+                ]
+              },
+              "PSK_Mod_0_out_vld": {
+                "ports": [
+                  "PSK_Mod_0/out_vld",
+                  "DAC_vld"
+                ]
+              },
               "proc_sys_reset_16M384_mb_reset": {
                 "ports": [
                   "rst_16M384",
@@ -1797,6 +1847,18 @@
               "DAC_Q"
             ]
           },
+          "PSK_Modulation_out_bits": {
+            "ports": [
+              "PSK_Modulation/DAC_bits",
+              "DAC_bits"
+            ]
+          },
+          "PSK_Modulation_out_vld": {
+            "ports": [
+              "PSK_Modulation/DAC_vld",
+              "DAC_vld"
+            ]
+          },
           "clk_1M024": {
             "ports": [
               "clk_1M024",
@@ -1817,6 +1879,29 @@
             ]
           }
         }
+      },
+      "xlconstant_0": {
+        "vlnv": "xilinx.com:ip:xlconstant:1.1",
+        "xci_name": "top_xlconstant_0_1",
+        "xci_path": "ip\\top_xlconstant_0_1\\top_xlconstant_0_1.xci",
+        "inst_hier_path": "xlconstant_0"
+      },
+      "system_ila_0": {
+        "vlnv": "xilinx.com:ip:system_ila:1.1",
+        "xci_name": "top_system_ila_0_0",
+        "xci_path": "ip\\top_system_ila_0_0\\top_system_ila_0_0.xci",
+        "inst_hier_path": "system_ila_0",
+        "parameters": {
+          "C_INPUT_PIPE_STAGES": {
+            "value": "2"
+          },
+          "C_MON_TYPE": {
+            "value": "NATIVE"
+          },
+          "C_NUM_OF_PROBES": {
+            "value": "8"
+          }
+        }
       }
     },
     "nets": {
@@ -1835,20 +1920,21 @@
       "AD9361_1RT_FDD_0_AD9361_RX_CLK": {
         "ports": [
           "RF_Data_Converter/AD9361_RX_CLK",
-          "RF_Data_Converter/AD9361_TX_CLK",
-          "AD9361_RX_CLK"
+          "RF_Data_Converter/AD9361_TX_CLK"
         ]
       },
       "AD9361_1RT_FDD_0_AD9361_RX_DAT_I": {
         "ports": [
           "RF_Data_Converter/AD9361_RX_DAT_I",
-          "Rx/ADC_I"
+          "Rx/ADC_I",
+          "system_ila_0/probe4"
         ]
       },
       "AD9361_1RT_FDD_0_AD9361_RX_DAT_Q": {
         "ports": [
           "RF_Data_Converter/AD9361_RX_DAT_Q",
-          "Rx/ADC_Q"
+          "Rx/ADC_Q",
+          "system_ila_0/probe5"
         ]
       },
       "AD9361_1RT_FDD_0_AD9361_TX_FRAME": {
@@ -1891,7 +1977,8 @@
         "ports": [
           "Clock_Gen/clk_16M384",
           "Rx/clk_16M384",
-          "Tx/clk_16M384"
+          "Tx/clk_16M384",
+          "system_ila_0/clk"
         ]
       },
       "PL_CLK_100MHz_1": {
@@ -1903,13 +1990,39 @@
       "PSK_Mod_0_out_I": {
         "ports": [
           "Tx/DAC_I",
-          "RF_Data_Converter/AD9361_TX_DAT_I"
+          "RF_Data_Converter/AD9361_TX_DAT_I",
+          "system_ila_0/probe0"
         ]
       },
       "PSK_Mod_0_out_Q": {
         "ports": [
           "Tx/DAC_Q",
-          "RF_Data_Converter/AD9361_TX_DAT_Q"
+          "RF_Data_Converter/AD9361_TX_DAT_Q",
+          "system_ila_0/probe1"
+        ]
+      },
+      "Rx_BPSK": {
+        "ports": [
+          "Rx/BPSK",
+          "system_ila_0/probe6"
+        ]
+      },
+      "Rx_QPSK": {
+        "ports": [
+          "Rx/QPSK",
+          "system_ila_0/probe7"
+        ]
+      },
+      "Tx_out_bits": {
+        "ports": [
+          "Tx/DAC_bits",
+          "system_ila_0/probe3"
+        ]
+      },
+      "Tx_out_vld": {
+        "ports": [
+          "Tx/DAC_vld",
+          "system_ila_0/probe2"
         ]
       },
       "clk_wiz_128M_clk_200M": {
@@ -1929,6 +2042,12 @@
           "Clock_Gen/rst_16M384",
           "Rx/rst_16M384",
           "Tx/rst_16M384"
+        ]
+      },
+      "xlconstant_0_dout": {
+        "ports": [
+          "xlconstant_0/dout",
+          "Rx/is_bpsk"
         ]
       }
     }

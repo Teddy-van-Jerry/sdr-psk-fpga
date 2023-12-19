@@ -413,7 +413,7 @@ set_property IOSTANDARD LVCMOS33 [get_ports AD9361_10M_IN]
 
 create_clock -period 32.552 -name AD9361_DATACLK [get_ports AD9361_DATACLK]
 #create_clock -name CLK_B2B_FPGA_7 -period 32 [ get_ports CLK_B2B_FPGA_7_P ]
-create_clock -period 32.552 -name clk2AD9361 [get_pins inst_AD9361/AD9361_RX_CLK]
+# create_clock -period 32.552 -name clk2AD9361 [get_pins inst_AD9361/AD9361_RX_CLK]
 
 
 #set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets AD9361_RX_FRAME]

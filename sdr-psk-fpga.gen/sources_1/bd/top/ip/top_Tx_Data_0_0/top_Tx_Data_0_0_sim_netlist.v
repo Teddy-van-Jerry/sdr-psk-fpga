@@ -1,7 +1,7 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Mon Dec 18 00:24:00 2023
+// Date        : Tue Dec 19 10:49:14 2023
 // Host        : TVJ-PC running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               e:/Documents/Study/Verilog/SDR/sdr-psk-fpga/sdr-psk-fpga.gen/sources_1/bd/top/ip/top_Tx_Data_0_0/top_Tx_Data_0_0_sim_netlist.v
@@ -29,40 +29,124 @@ module top_Tx_Data_0_0
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 data TLAST" *) output data_tlast;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 data TUSER" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME data, TDATA_NUM_BYTES 1, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 1, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 1, FREQ_HZ 100000000, PHASE 0.0, LAYERED_METADATA undef, INSERT_VIP 0" *) output data_tuser;
 
+  wire \<const0> ;
+  wire \<const1> ;
   wire clk;
-  wire [7:0]data_tdata;
-  wire data_tlast;
-  wire data_tready;
-  wire data_tuser;
-  wire data_tvalid;
+  wire [1:1]\^data_tdata ;
 
-  (* BITS = "8" *) 
-  (* BYTES = "1" *) 
+  assign data_tdata[7] = \<const0> ;
+  assign data_tdata[6] = \<const0> ;
+  assign data_tdata[5] = \<const0> ;
+  assign data_tdata[4] = \<const0> ;
+  assign data_tdata[3] = \<const0> ;
+  assign data_tdata[2] = \<const0> ;
+  assign data_tdata[1] = \^data_tdata [1];
+  assign data_tdata[0] = \<const0> ;
+  assign data_tlast = \<const0> ;
+  assign data_tuser = \<const1> ;
+  assign data_tvalid = \<const1> ;
+  GND GND
+       (.G(\<const0> ));
+  VCC VCC
+       (.P(\<const1> ));
   top_Tx_Data_0_0_Tx_Data inst
        (.clk(clk),
-        .data_tdata(data_tdata),
-        .data_tlast(data_tlast),
-        .data_tready(data_tready),
-        .data_tuser(data_tuser),
-        .data_tvalid(data_tvalid));
+        .data_tdata(\^data_tdata ));
 endmodule
 
-(* BITS = "8" *) (* BYTES = "1" *) (* ORIG_REF_NAME = "Tx_Data" *) 
-module top_Tx_Data_0_0_Tx_Data
-   (clk,
-    data_tdata,
-    data_tvalid,
-    data_tready,
-    data_tlast,
-    data_tuser);
+(* ORIG_REF_NAME = "PN_Gen" *) 
+module top_Tx_Data_0_0_PN_Gen
+   (data_tdata,
+    clk);
+  output [0:0]data_tdata;
   input clk;
-  output [7:0]data_tdata;
-  output data_tvalid;
-  input data_tready;
-  output data_tlast;
-  output data_tuser;
 
+  wire \PN_buf_reg_n_0_[0] ;
+  wire \PN_buf_reg_n_0_[1] ;
+  wire \PN_buf_reg_n_0_[2] ;
+  wire \PN_buf_reg_n_0_[3] ;
+  wire clk;
+  wire [0:0]data_tdata;
+  wire p_0_in;
+  wire [0:0]p_1_out;
+  wire pn_i_1_n_0;
 
+  LUT2 #(
+    .INIT(4'h6)) 
+    \PN_buf[0]_i_1 
+       (.I0(\PN_buf_reg_n_0_[2] ),
+        .I1(p_0_in),
+        .O(p_1_out));
+  FDSE #(
+    .INIT(1'b1)) 
+    \PN_buf_reg[0] 
+       (.C(clk),
+        .CE(1'b1),
+        .D(p_1_out),
+        .Q(\PN_buf_reg_n_0_[0] ),
+        .S(pn_i_1_n_0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \PN_buf_reg[1] 
+       (.C(clk),
+        .CE(1'b1),
+        .D(\PN_buf_reg_n_0_[0] ),
+        .Q(\PN_buf_reg_n_0_[1] ),
+        .R(pn_i_1_n_0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \PN_buf_reg[2] 
+       (.C(clk),
+        .CE(1'b1),
+        .D(\PN_buf_reg_n_0_[1] ),
+        .Q(\PN_buf_reg_n_0_[2] ),
+        .R(pn_i_1_n_0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \PN_buf_reg[3] 
+       (.C(clk),
+        .CE(1'b1),
+        .D(\PN_buf_reg_n_0_[2] ),
+        .Q(\PN_buf_reg_n_0_[3] ),
+        .R(pn_i_1_n_0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \PN_buf_reg[4] 
+       (.C(clk),
+        .CE(1'b1),
+        .D(\PN_buf_reg_n_0_[3] ),
+        .Q(p_0_in),
+        .R(pn_i_1_n_0));
+  LUT5 #(
+    .INIT(32'h00000001)) 
+    pn_i_1
+       (.I0(\PN_buf_reg_n_0_[0] ),
+        .I1(\PN_buf_reg_n_0_[3] ),
+        .I2(p_0_in),
+        .I3(\PN_buf_reg_n_0_[1] ),
+        .I4(\PN_buf_reg_n_0_[2] ),
+        .O(pn_i_1_n_0));
+  FDRE pn_reg
+       (.C(clk),
+        .CE(1'b1),
+        .D(p_0_in),
+        .Q(data_tdata),
+        .R(pn_i_1_n_0));
+endmodule
+
+(* ORIG_REF_NAME = "Tx_Data" *) 
+module top_Tx_Data_0_0_Tx_Data
+   (data_tdata,
+    clk);
+  output [0:0]data_tdata;
+  input clk;
+
+  wire clk;
+  wire [0:0]data_tdata;
+
+  top_Tx_Data_0_0_PN_Gen inst_PN_Gen
+       (.clk(clk),
+        .data_tdata(data_tdata));
 endmodule
 `ifndef GLBL
 `define GLBL

@@ -11,4 +11,15 @@ module Tx_Data # (
 );
   localparam BITS = BYTES * 8;
 
+  wire pn;
+
+  PN_Gen #(.N(5)) inst_PN_Gen (
+    .clk(clk),
+    .pn(pn)
+  );
+
+  assign data_tdata = { {BITS-2{1'b0}}, pn, 1'b0 };
+  assign data_tvalid = 1'b1;
+  assign data_tlast = 1'b0;
+  assign data_tuser = 1'b1;
 endmodule
