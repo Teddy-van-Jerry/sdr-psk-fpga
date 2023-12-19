@@ -21,6 +21,8 @@ module PSK_Mod #(
   input      signed [WIDTH-1:0] carrier_I,
   // input carrier Q signal (sin)
   input      signed [WIDTH-1:0] carrier_Q,
+  // input configuration constant
+  input                   [3:0] DELAY_CNT,
   // output modulated I signal
   output reg signed [WIDTH-1:0] out_I,
   // output modulated I signal
@@ -52,7 +54,7 @@ module PSK_Mod #(
       // count
       cnt <= cnt + 4'b1;
       // input buffer
-      if (cnt == 4'd8) begin
+      if (cnt == DELAY_CNT) begin
         data_tready <= 1'b1;
         data_buf <= data_tdata;
         vld_buf <= data_tvalid;

@@ -1,18 +1,18 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Sun Dec 17 22:15:25 2023
+// Date        : Tue Dec 19 20:13:37 2023
 // Host        : TVJ-PC running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim -rename_top costas_loop_inst_0_Truncate_IQ_0_0 -prefix
-//               costas_loop_inst_0_Truncate_IQ_0_0_ costas_loop_inst_0_Truncate_IQ_0_0_sim_netlist.v
-// Design      : costas_loop_inst_0_Truncate_IQ_0_0
+//               costas_loop_inst_0_Truncate_IQ_0_0_ costas_loop_Truncate_IQ_0_0_sim_netlist.v
+// Design      : costas_loop_Truncate_IQ_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
 // Device      : xc7z020clg484-1
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CHECK_LICENSE_TYPE = "costas_loop_inst_0_Truncate_IQ_0_0,Truncate_IQ,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
+(* CHECK_LICENSE_TYPE = "costas_loop_Truncate_IQ_0_0,Truncate_IQ,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
 (* X_CORE_INFO = "Truncate_IQ,Vivado 2022.2" *) 
 (* NotValidForBitStream *)
 module costas_loop_inst_0_Truncate_IQ_0_0
@@ -32,9 +32,9 @@ module costas_loop_inst_0_Truncate_IQ_0_0
   wire [47:0]IQ_tdata;
   wire IQ_tvalid;
 
-  assign I_tdata[15:0] = IQ_tdata[43:28];
+  assign I_tdata[15:0] = IQ_tdata[47:32];
   assign I_tvalid = IQ_tvalid;
-  assign Q_tdata[15:0] = IQ_tdata[43:28];
+  assign Q_tdata[15:0] = IQ_tdata[23:8];
   assign Q_tvalid = IQ_tvalid;
 endmodule
 `ifndef GLBL

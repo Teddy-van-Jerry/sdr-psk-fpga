@@ -52,7 +52,7 @@
 
 (* X_CORE_INFO = "Truncate_IQ,Vivado 2022.2" *)
 (* CHECK_LICENSE_TYPE = "costas_loop_inst_0_Truncate_IQ_0_0,Truncate_IQ,{}" *)
-(* CORE_GENERATION_INFO = "costas_loop_inst_0_Truncate_IQ_0_0,Truncate_IQ,{x_ipProduct=Vivado 2022.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=Truncate_IQ,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,I_WIDTH=48,O_WIDTH=16,MSB_TRUNCATE_BITS=4}" *)
+(* CORE_GENERATION_INFO = "costas_loop_inst_0_Truncate_IQ_0_0,Truncate_IQ,{x_ipProduct=Vivado 2022.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=Truncate_IQ,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,I_WIDTH=48,O_WIDTH=16,MSB_TRUNCATE_BITS=8}" *)
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module costas_loop_inst_0_Truncate_IQ_0_0 (
@@ -91,7 +91,7 @@ output wire Q_tvalid;
   Truncate_IQ #(
     .I_WIDTH(48),
     .O_WIDTH(16),
-    .MSB_TRUNCATE_BITS(4)
+    .MSB_TRUNCATE_BITS(8)
   ) inst (
     .IQ_tdata(IQ_tdata),
     .IQ_tvalid(IQ_tvalid),

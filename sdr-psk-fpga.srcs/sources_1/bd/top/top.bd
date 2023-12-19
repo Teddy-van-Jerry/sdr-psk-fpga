@@ -15,7 +15,9 @@
       "Rx": {
         "PSK_Signal_Extend_0": "",
         "costas_loop_0": "",
-        "PSK_Detection_0": ""
+        "PSK_Detection_0": "",
+        "c_shift_ram_I": "",
+        "c_shift_ram_Q": ""
       },
       "Clock_Gen": {
         "clk_wiz_128M": "",
@@ -38,7 +40,8 @@
         "Tx_Data_0": ""
       },
       "xlconstant_0": "",
-      "system_ila_0": ""
+      "system_ila_0": "",
+      "xlconstant_1": ""
     },
     "ports": {
       "PL_CLK_100MHz": {
@@ -295,10 +298,6 @@
             "left": "11",
             "right": "0"
           },
-          "clk_32M768": {
-            "type": "clk",
-            "direction": "I"
-          },
           "rst_16M384": {
             "type": "rst",
             "direction": "I"
@@ -316,6 +315,21 @@
           },
           "vld": {
             "direction": "O"
+          },
+          "I_data": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "Q_data": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "NCO_cos": {
+            "direction": "O",
+            "left": "11",
+            "right": "0"
           }
         },
         "components": {
@@ -515,7 +529,7 @@
                 "direction": "I",
                 "parameters": {
                   "ASSOCIATED_RESET": {
-                    "value": "rst_16M386",
+                    "value": "rst_16M386:rst_16M384",
                     "value_src": "strong"
                   },
                   "CLK_DOMAIN": {
@@ -552,33 +566,10 @@
                   }
                 }
               },
-              "clk_32M768": {
-                "type": "clk",
-                "direction": "I",
-                "parameters": {
-                  "CLK_DOMAIN": {
-                    "value": "/Clock_Gen/clk_wiz_32M768_clk_out1",
-                    "value_src": "ip_prop"
-                  },
-                  "FREQ_HZ": {
-                    "value": "32768000",
-                    "value_src": "ip_prop"
-                  },
-                  "FREQ_TOLERANCE_HZ": {
-                    "value": "0",
-                    "value_src": "strong"
-                  },
-                  "INSERT_VIP": {
-                    "value": "0",
-                    "value_src": "strong"
-                  },
-                  "PHASE": {
-                    "value": "0.0",
-                    "value_src": "ip_prop"
-                  }
-                }
+              "is_bpsk": {
+                "direction": "I"
               },
-              "rst_16M386": {
+              "rst_16M384": {
                 "type": "rst",
                 "direction": "I",
                 "parameters": {
@@ -592,8 +583,10 @@
                   }
                 }
               },
-              "is_bpsk": {
-                "direction": "I"
+              "NCO_cos": {
+                "direction": "O",
+                "left": "11",
+                "right": "0"
               }
             },
             "post_compiled_compname": "costas_loop_inst_0",
@@ -601,7 +594,7 @@
             "variant_info": {
               "costas_loop.bd": {
                 "scoped_diagram": "costas_loop_inst_0.bd",
-                "design_checksum": "0x51BDA47A",
+                "design_checksum": "0x67B7038F",
                 "ref_name": "costas_loop",
                 "ref_subinst_path": "top_costas_loop_0",
                 "ref_type": "Block Design",
@@ -766,13 +759,35 @@
                 "direction": "O"
               }
             }
+          },
+          "c_shift_ram_I": {
+            "vlnv": "xilinx.com:ip:c_shift_ram:12.0",
+            "xci_name": "top_c_shift_ram_0_2",
+            "xci_path": "ip\\top_c_shift_ram_0_2\\top_c_shift_ram_0_2.xci",
+            "inst_hier_path": "Rx/c_shift_ram_I",
+            "parameters": {
+              "Depth": {
+                "value": "1"
+              }
+            }
+          },
+          "c_shift_ram_Q": {
+            "vlnv": "xilinx.com:ip:c_shift_ram:12.0",
+            "xci_name": "top_c_shift_ram_I_0",
+            "xci_path": "ip\\top_c_shift_ram_I_0\\top_c_shift_ram_I_0.xci",
+            "inst_hier_path": "Rx/c_shift_ram_Q",
+            "parameters": {
+              "Depth": {
+                "value": "1"
+              }
+            }
           }
         },
         "interface_nets": {
           "costas_loop_0_I": {
             "interface_ports": [
-              "PSK_Detection_0/I",
-              "costas_loop_0/I"
+              "costas_loop_0/I",
+              "PSK_Detection_0/I"
             ]
           },
           "costas_loop_0_Q": {
@@ -799,7 +814,9 @@
             "ports": [
               "clk_16M384",
               "costas_loop_0/clk_16M384",
-              "PSK_Detection_0/clk"
+              "PSK_Detection_0/clk",
+              "c_shift_ram_I/CLK",
+              "c_shift_ram_Q/CLK"
             ]
           },
           "PSK_Detection_0_BPSK": {
@@ -826,10 +843,36 @@
               "costas_loop_0/PSK_signal"
             ]
           },
-          "clk_wiz_32M768_clk_32M768": {
+          "c_shift_ram_I_Q": {
             "ports": [
-              "clk_32M768",
-              "costas_loop_0/clk_32M768"
+              "c_shift_ram_I/Q",
+              "I_data"
+            ]
+          },
+          "c_shift_ram_Q_Q": {
+            "ports": [
+              "c_shift_ram_Q/Q",
+              "Q_data"
+            ]
+          },
+          "costas_loop_0_I_tdata": {
+            "ports": [
+              "costas_loop_0/I_tdata",
+              "PSK_Detection_0/I_tdata",
+              "c_shift_ram_I/D"
+            ]
+          },
+          "costas_loop_0_NCO_cos": {
+            "ports": [
+              "costas_loop_0/NCO_cos",
+              "NCO_cos"
+            ]
+          },
+          "costas_loop_0_Q_tdata": {
+            "ports": [
+              "costas_loop_0/Q_tdata",
+              "PSK_Detection_0/Q_tdata",
+              "c_shift_ram_Q/D"
             ]
           },
           "is_bpsk_1": {
@@ -841,8 +884,8 @@
           "rst_16M386_1": {
             "ports": [
               "rst_16M384",
-              "costas_loop_0/rst_16M386",
-              "PSK_Detection_0/rst"
+              "PSK_Detection_0/rst",
+              "costas_loop_0/rst_16M384"
             ]
           }
         }
@@ -1275,6 +1318,11 @@
             "direction": "O",
             "left": "1",
             "right": "0"
+          },
+          "DELAY_CNT": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
           }
         },
         "components": {
@@ -1318,6 +1366,11 @@
               "DAC_bits": {
                 "direction": "O",
                 "left": "1",
+                "right": "0"
+              },
+              "DELAY_CNT": {
+                "direction": "I",
+                "left": "3",
                 "right": "0"
               }
             },
@@ -1615,6 +1668,11 @@
                     "left": "11",
                     "right": "0"
                   },
+                  "DELAY_CNT": {
+                    "direction": "I",
+                    "left": "3",
+                    "right": "0"
+                  },
                   "out_I": {
                     "direction": "O",
                     "left": "11",
@@ -1666,6 +1724,12 @@
               }
             },
             "nets": {
+              "DELAY_CNT_1": {
+                "ports": [
+                  "DELAY_CNT",
+                  "PSK_Mod_0/DELAY_CNT"
+                ]
+              },
               "Div_clk32M768_0_clk16M384": {
                 "ports": [
                   "clk_16M384",
@@ -1829,6 +1893,12 @@
           }
         },
         "nets": {
+          "DELAY_CNT_1": {
+            "ports": [
+              "DELAY_CNT",
+              "PSK_Modulation/DELAY_CNT"
+            ]
+          },
           "Div_clk32M768_0_clk16M384": {
             "ports": [
               "clk_16M384",
@@ -1898,8 +1968,43 @@
           "C_MON_TYPE": {
             "value": "NATIVE"
           },
+          "C_NUM_MONITOR_SLOTS": {
+            "value": "2"
+          },
           "C_NUM_OF_PROBES": {
+            "value": "11"
+          },
+          "C_PROBE10_TYPE": {
+            "value": "1"
+          },
+          "C_PROBE8_TYPE": {
+            "value": "1"
+          },
+          "C_PROBE9_TYPE": {
+            "value": "1"
+          },
+          "C_SLOT": {
+            "value": "1"
+          },
+          "C_SLOT_0_INTF_TYPE": {
+            "value": "xilinx.com:interface:axis_rtl:1.0"
+          },
+          "C_SLOT_1_INTF_TYPE": {
+            "value": "xilinx.com:interface:axis_rtl:1.0"
+          }
+        }
+      },
+      "xlconstant_1": {
+        "vlnv": "xilinx.com:ip:xlconstant:1.1",
+        "xci_name": "top_xlconstant_1_0",
+        "xci_path": "ip\\top_xlconstant_1_0\\top_xlconstant_1_0.xci",
+        "inst_hier_path": "xlconstant_1",
+        "parameters": {
+          "CONST_VAL": {
             "value": "8"
+          },
+          "CONST_WIDTH": {
+            "value": "4"
           }
         }
       }
@@ -1973,6 +2078,12 @@
           "Tx/rst_n_1M024"
         ]
       },
+      "DELAY_CNT_1": {
+        "ports": [
+          "xlconstant_1/dout",
+          "Tx/DELAY_CNT"
+        ]
+      },
       "Div_clk32M768_0_clk16M384": {
         "ports": [
           "Clock_Gen/clk_16M384",
@@ -2007,10 +2118,28 @@
           "system_ila_0/probe6"
         ]
       },
+      "Rx_I_data": {
+        "ports": [
+          "Rx/I_data",
+          "system_ila_0/probe8"
+        ]
+      },
+      "Rx_NCO_cos": {
+        "ports": [
+          "Rx/NCO_cos",
+          "system_ila_0/probe10"
+        ]
+      },
       "Rx_QPSK": {
         "ports": [
           "Rx/QPSK",
           "system_ila_0/probe7"
+        ]
+      },
+      "Rx_Q_data": {
+        "ports": [
+          "Rx/Q_data",
+          "system_ila_0/probe9"
         ]
       },
       "Tx_out_bits": {
@@ -2029,12 +2158,6 @@
         "ports": [
           "Clock_Gen/clk_200M",
           "RF_Data_Converter/clk200M"
-        ]
-      },
-      "clk_wiz_32M768_clk_32M768": {
-        "ports": [
-          "Clock_Gen/clk_32M768",
-          "Rx/clk_32M768"
         ]
       },
       "proc_sys_reset_16M384_mb_reset": {

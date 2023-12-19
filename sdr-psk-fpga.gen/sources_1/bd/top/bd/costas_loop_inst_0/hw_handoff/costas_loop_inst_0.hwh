@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Dec 19 11:05:11 2023" VIVADOVERSION="2022.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Dec 19 21:41:07 2023" VIVADOVERSION="2022.2">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z020" NAME="costas_loop_inst_0" PACKAGE="clg484" SPEEDGRADE="-1"/>
 
@@ -43,15 +43,19 @@
         <CONNECTION INSTANCE="phase_detector_Q" PORT="A"/>
       </CONNECTIONS>
     </PORT>
-    <PORT CLKFREQUENCY="32768000" DIR="I" NAME="clk_32M768" SIGIS="clk"/>
-    <PORT DIR="I" NAME="rst_16M386" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_rst_16M386">
+    <PORT DIR="I" NAME="is_bpsk" SIGIS="undef" SIGNAME="External_Ports_is_bpsk">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Error_Detect_Error_Detect_Ctrl_0" PORT="is_bpsk"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="rst_16M384" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_rst_16M384">
       <CONNECTIONS>
         <CONNECTION INSTANCE="Error_Detect_Error_Detect_Ctrl_0" PORT="rst"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="I" NAME="is_bpsk" SIGIS="undef" SIGNAME="External_Ports_is_bpsk">
+    <PORT DIR="O" LEFT="11" NAME="NCO_cos" RIGHT="0" SIGIS="undef" SIGNAME="NCO_NCO_cos_sin_0_NCO_cos">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="Error_Detect_Error_Detect_Ctrl_0" PORT="is_bpsk"/>
+        <CONNECTION INSTANCE="NCO_NCO_cos_sin_0" PORT="NCO_cos"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>
@@ -184,9 +188,9 @@
             <CONNECTION INSTANCE="External_Ports" PORT="clk_16M384"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="rst" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_rst_16M386">
+        <PORT DIR="I" NAME="rst" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_rst_16M384">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="rst_16M386"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="rst_16M384"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="is_bpsk" SIGIS="undef" SIGNAME="External_Ports_is_bpsk">
@@ -699,7 +703,7 @@
       <PARAMETERS>
         <PARAMETER NAME="I_WIDTH" VALUE="48"/>
         <PARAMETER NAME="O_WIDTH" VALUE="16"/>
-        <PARAMETER NAME="MSB_TRUNCATE_BITS" VALUE="4"/>
+        <PARAMETER NAME="MSB_TRUNCATE_BITS" VALUE="8"/>
         <PARAMETER NAME="Component_Name" VALUE="costas_loop_inst_0_Truncate_IQ_0_0"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
@@ -1217,7 +1221,7 @@
         <PARAMETER NAME="C_OUTPUT_FORM" VALUE="0"/>
         <PARAMETER NAME="C_OUTPUT_WIDTH" VALUE="12"/>
         <PARAMETER NAME="C_PHASE_ANGLE_WIDTH" VALUE="12"/>
-        <PARAMETER NAME="C_PHASE_INCREMENT" VALUE="1"/>
+        <PARAMETER NAME="C_PHASE_INCREMENT" VALUE="3"/>
         <PARAMETER NAME="C_PHASE_INCREMENT_VALUE" VALUE="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
         <PARAMETER NAME="C_RESYNC" VALUE="0"/>
         <PARAMETER NAME="C_PHASE_OFFSET" VALUE="0"/>
@@ -1230,13 +1234,13 @@
         <PARAMETER NAME="C_HAS_ARESETN" VALUE="0"/>
         <PARAMETER NAME="C_HAS_TLAST" VALUE="0"/>
         <PARAMETER NAME="C_HAS_TREADY" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_S_PHASE" VALUE="0"/>
-        <PARAMETER NAME="C_S_PHASE_TDATA_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_HAS_S_PHASE" VALUE="1"/>
+        <PARAMETER NAME="C_S_PHASE_TDATA_WIDTH" VALUE="16"/>
         <PARAMETER NAME="C_S_PHASE_HAS_TUSER" VALUE="0"/>
         <PARAMETER NAME="C_S_PHASE_TUSER_WIDTH" VALUE="1"/>
-        <PARAMETER NAME="C_HAS_S_CONFIG" VALUE="1"/>
+        <PARAMETER NAME="C_HAS_S_CONFIG" VALUE="0"/>
         <PARAMETER NAME="C_S_CONFIG_SYNC_MODE" VALUE="0"/>
-        <PARAMETER NAME="C_S_CONFIG_TDATA_WIDTH" VALUE="16"/>
+        <PARAMETER NAME="C_S_CONFIG_TDATA_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_HAS_M_DATA" VALUE="1"/>
         <PARAMETER NAME="C_M_DATA_TDATA_WIDTH" VALUE="32"/>
         <PARAMETER NAME="C_M_DATA_HAS_TUSER" VALUE="0"/>
@@ -1259,7 +1263,7 @@
         <PARAMETER NAME="Noise_Shaping" VALUE="None"/>
         <PARAMETER NAME="Phase_Width" VALUE="16"/>
         <PARAMETER NAME="Output_Width" VALUE="12"/>
-        <PARAMETER NAME="Phase_Increment" VALUE="Programmable"/>
+        <PARAMETER NAME="Phase_Increment" VALUE="Streaming"/>
         <PARAMETER NAME="Resync" VALUE="false"/>
         <PARAMETER NAME="Phase_offset" VALUE="None"/>
         <PARAMETER NAME="Output_Selection" VALUE="Sine_and_Cosine"/>
@@ -1358,12 +1362,12 @@
             <CONNECTION INSTANCE="External_Ports" PORT="clk_16M384"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="s_axis_config_tvalid" SIGIS="undef" SIGNAME="NCO_NCO_DDS_s_axis_config_tvalid">
+        <PORT DIR="I" NAME="s_axis_phase_tvalid" SIGIS="undef" SIGNAME="NCO_NCO_DDS_s_axis_phase_tvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="loop_filter" PORT="m_axis_data_tvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="15" NAME="s_axis_config_tdata" RIGHT="0" SIGIS="undef" SIGNAME="NCO_NCO_DDS_s_axis_config_tdata">
+        <PORT DIR="I" LEFT="15" NAME="s_axis_phase_tdata" RIGHT="0" SIGIS="undef" SIGNAME="NCO_NCO_DDS_s_axis_phase_tdata">
           <CONNECTIONS>
             <CONNECTION INSTANCE="loop_filter" PORT="m_axis_data_tdata"/>
           </CONNECTIONS>
@@ -1380,6 +1384,25 @@
         </PORT>
       </PORTS>
       <BUSINTERFACES>
+        <BUSINTERFACE BUSNAME="loop_filter_M_AXIS_DATA" NAME="S_AXIS_PHASE" TYPE="TARGET" VLNV="xilinx.com:interface:axis:1.0">
+          <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="2"/>
+          <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TUSER_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="HAS_TREADY" VALUE="0"/>
+          <PARAMETER NAME="HAS_TSTRB" VALUE="0"/>
+          <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
+          <PARAMETER NAME="HAS_TLAST" VALUE="0"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="16384000"/>
+          <PARAMETER NAME="PHASE" VALUE="0.0"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="costas_loop_aclk_0"/>
+          <PARAMETER NAME="LAYERED_METADATA" VALUE="xilinx.com:interface:datatypes:1.0 {TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 16} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} array_type {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value chan} size {attribs {resolve_type generated dependency chan_size format long minimum {} maximum {}} value 1} stride {attribs {resolve_type generated dependency chan_stride format long minimum {} maximum {}} value 16} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 16} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} array_type {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value path} size {attribs {resolve_type generated dependency path_size format long minimum {} maximum {}} value 1} stride {attribs {resolve_type generated dependency path_stride format long minimum {} maximum {}} value 16} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency out_width format long minimum {} maximum {}} value 16} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} real {fixed {fractwidth {attribs {resolve_type generated dependency out_fractwidth format long minimum {} maximum {}} value 0} signed {attribs {resolve_type generated dependency out_signed format bool minimum {} maximum {}} value true}}}}}}}}} TDATA_WIDTH 16 TUSER {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 0} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} struct {field_data_valid {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value data_valid} enabled {attribs {resolve_type generated dependency data_valid_enabled format bool minimum {} maximum {}} value false} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency data_valid_bitwidth format long minimum {} maximum {}} value 0} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}} field_chanid {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value chanid} enabled {attribs {resolve_type generated dependency chanid_enabled format bool minimum {} maximum {}} value false} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency chanid_bitwidth format long minimum {} maximum {}} value 0} bitoffset {attribs {resolve_type generated dependency chanid_bitoffset format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} field_user {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value user} enabled {attribs {resolve_type generated dependency user_enabled format bool minimum {} maximum {}} value false} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency user_bitwidth format long minimum {} maximum {}} value 0} bitoffset {attribs {resolve_type generated dependency user_bitoffset format long minimum {} maximum {}} value 0}}}}}} TUSER_WIDTH 0}"/>
+          <PARAMETER NAME="INSERT_VIP" VALUE="0"/>
+          <PORTMAPS>
+            <PORTMAP LOGICAL="TDATA" PHYSICAL="s_axis_phase_tdata"/>
+            <PORTMAP LOGICAL="TVALID" PHYSICAL="s_axis_phase_tvalid"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
         <BUSINTERFACE BUSNAME="NCO_NCO_DDS_M_AXIS_DATA" NAME="M_AXIS_DATA" TYPE="INITIATOR" VLNV="xilinx.com:interface:axis:1.0">
           <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="4"/>
           <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
@@ -1397,25 +1420,6 @@
           <PORTMAPS>
             <PORTMAP LOGICAL="TDATA" PHYSICAL="m_axis_data_tdata"/>
             <PORTMAP LOGICAL="TVALID" PHYSICAL="m_axis_data_tvalid"/>
-          </PORTMAPS>
-        </BUSINTERFACE>
-        <BUSINTERFACE BUSNAME="loop_filter_M_AXIS_DATA" NAME="S_AXIS_CONFIG" TYPE="TARGET" VLNV="xilinx.com:interface:axis:1.0">
-          <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="2"/>
-          <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
-          <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
-          <PARAMETER NAME="TUSER_WIDTH" VALUE="0"/>
-          <PARAMETER NAME="HAS_TREADY" VALUE="0"/>
-          <PARAMETER NAME="HAS_TSTRB" VALUE="0"/>
-          <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
-          <PARAMETER NAME="HAS_TLAST" VALUE="0"/>
-          <PARAMETER NAME="FREQ_HZ" VALUE="16384000"/>
-          <PARAMETER NAME="PHASE" VALUE="0.0"/>
-          <PARAMETER NAME="CLK_DOMAIN" VALUE="costas_loop_aclk_0"/>
-          <PARAMETER NAME="LAYERED_METADATA" VALUE="xilinx.com:interface:datatypes:1.0 {TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 16} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} array_type {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value chan} size {attribs {resolve_type generated dependency chan_size format long minimum {} maximum {}} value 1} stride {attribs {resolve_type generated dependency chan_stride format long minimum {} maximum {}} value 16} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 16} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} array_type {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value path} size {attribs {resolve_type generated dependency path_size format long minimum {} maximum {}} value 1} stride {attribs {resolve_type generated dependency path_stride format long minimum {} maximum {}} value 16} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency out_width format long minimum {} maximum {}} value 16} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} real {fixed {fractwidth {attribs {resolve_type generated dependency out_fractwidth format long minimum {} maximum {}} value 0} signed {attribs {resolve_type generated dependency out_signed format bool minimum {} maximum {}} value true}}}}}}}}} TDATA_WIDTH 16 TUSER {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 0} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} struct {field_data_valid {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value data_valid} enabled {attribs {resolve_type generated dependency data_valid_enabled format bool minimum {} maximum {}} value false} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency data_valid_bitwidth format long minimum {} maximum {}} value 0} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}} field_chanid {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value chanid} enabled {attribs {resolve_type generated dependency chanid_enabled format bool minimum {} maximum {}} value false} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency chanid_bitwidth format long minimum {} maximum {}} value 0} bitoffset {attribs {resolve_type generated dependency chanid_bitoffset format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} field_user {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value user} enabled {attribs {resolve_type generated dependency user_enabled format bool minimum {} maximum {}} value false} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency user_bitwidth format long minimum {} maximum {}} value 0} bitoffset {attribs {resolve_type generated dependency user_bitoffset format long minimum {} maximum {}} value 0}}}}}} TUSER_WIDTH 0}"/>
-          <PARAMETER NAME="INSERT_VIP" VALUE="0"/>
-          <PORTMAPS>
-            <PORTMAP LOGICAL="TDATA" PHYSICAL="s_axis_config_tdata"/>
-            <PORTMAP LOGICAL="TVALID" PHYSICAL="s_axis_config_tvalid"/>
           </PORTMAPS>
         </BUSINTERFACE>
       </BUSINTERFACES>
@@ -1447,6 +1451,7 @@
         <PORT DIR="O" LEFT="11" NAME="NCO_cos" RIGHT="0" SIGIS="undef" SIGNAME="NCO_NCO_cos_sin_0_NCO_cos">
           <CONNECTIONS>
             <CONNECTION INSTANCE="phase_detector_I" PORT="B"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="NCO_cos"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="11" NAME="NCO_sin" RIGHT="0" SIGIS="undef" SIGNAME="NCO_NCO_cos_sin_0_NCO_sin">
@@ -1652,14 +1657,14 @@
             <CONNECTION INSTANCE="Error_Detect_Error_Detect_Ctrl_0" PORT="error_tdata"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="m_axis_data_tvalid" SIGIS="undef" SIGNAME="NCO_NCO_DDS_s_axis_config_tvalid">
+        <PORT DIR="O" NAME="m_axis_data_tvalid" SIGIS="undef" SIGNAME="NCO_NCO_DDS_s_axis_phase_tvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="NCO_NCO_DDS" PORT="s_axis_config_tvalid"/>
+            <CONNECTION INSTANCE="NCO_NCO_DDS" PORT="s_axis_phase_tvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="15" NAME="m_axis_data_tdata" RIGHT="0" SIGIS="undef" SIGNAME="NCO_NCO_DDS_s_axis_config_tdata">
+        <PORT DIR="O" LEFT="15" NAME="m_axis_data_tdata" RIGHT="0" SIGIS="undef" SIGNAME="NCO_NCO_DDS_s_axis_phase_tdata">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="NCO_NCO_DDS" PORT="s_axis_config_tdata"/>
+            <CONNECTION INSTANCE="NCO_NCO_DDS" PORT="s_axis_phase_tdata"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>

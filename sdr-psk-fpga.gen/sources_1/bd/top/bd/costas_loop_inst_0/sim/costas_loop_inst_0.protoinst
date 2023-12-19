@@ -34,7 +34,7 @@
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "clk_16M384"},
-						"ARESET": { "actual": "rst_16M386"},
+						"ARESET": { "actual": "rst_16M384"},
 						"TDATA": { "actual": "error_tdata"},
 						"TVALID": { "actual": "error_tvalid"}
 					}
@@ -43,7 +43,7 @@
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "clk_16M384"},
-						"ARESET": { "actual": "rst_16M386"},
+						"ARESET": { "actual": "rst_16M384"},
 						"TDATA": { "actual": "in_I_tdata"},
 						"TVALID": { "actual": "in_I_tvalid"}
 					}
@@ -52,7 +52,7 @@
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "clk_16M384"},
-						"ARESET": { "actual": "rst_16M386"},
+						"ARESET": { "actual": "rst_16M384"},
 						"TDATA": { "actual": "in_Q_tdata"},
 						"TVALID": { "actual": "in_Q_tvalid"}
 					}
@@ -179,12 +179,12 @@
 						"TVALID": { "actual": "m_axis_data_tvalid"}
 					}
 				},
-				"/NCO/NCO_DDS/S_AXIS_CONFIG": {
+				"/NCO/NCO_DDS/S_AXIS_PHASE": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "aclk"},
-						"TDATA": { "actual": "s_axis_config_tdata"},
-						"TVALID": { "actual": "s_axis_config_tvalid"}
+						"TDATA": { "actual": "s_axis_phase_tdata"},
+						"TVALID": { "actual": "s_axis_phase_tvalid"}
 					}
 				},
 				"/NCO/NCO_cos_sin_0/NCO": {

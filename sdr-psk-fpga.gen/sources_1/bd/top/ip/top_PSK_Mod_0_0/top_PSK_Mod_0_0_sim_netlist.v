@@ -1,7 +1,7 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Mon Dec 18 16:44:32 2023
+// Date        : Tue Dec 19 12:40:12 2023
 // Host        : TVJ-PC running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               e:/Documents/Study/Verilog/SDR/sdr-psk-fpga/sdr-psk-fpga.gen/sources_1/bd/top/ip/top_PSK_Mod_0_0/top_PSK_Mod_0_0_sim_netlist.v
@@ -25,6 +25,7 @@ module top_PSK_Mod_0_0
     data_tuser,
     carrier_I,
     carrier_Q,
+    DELAY_CNT,
     out_I,
     out_Q,
     out_vld,
@@ -41,6 +42,7 @@ module top_PSK_Mod_0_0
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 data TUSER" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME data, TDATA_NUM_BYTES 1, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 1, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 1, FREQ_HZ 100000000, PHASE 0.0, LAYERED_METADATA undef, INSERT_VIP 0" *) input data_tuser;
   input [11:0]carrier_I;
   input [11:0]carrier_Q;
+  input [3:0]DELAY_CNT;
   output [11:0]out_I;
   output [11:0]out_Q;
   output out_vld;
@@ -49,6 +51,7 @@ module top_PSK_Mod_0_0
   output [1:0]out_bits;
   output out_clk_1M024;
 
+  wire [3:0]DELAY_CNT;
   wire [11:0]carrier_I;
   wire [11:0]carrier_Q;
   wire clk_16M384;
@@ -67,7 +70,8 @@ module top_PSK_Mod_0_0
   wire rst_16M384;
 
   top_PSK_Mod_0_0_PSK_Mod inst
-       (.carrier_I(carrier_I),
+       (.DELAY_CNT(DELAY_CNT),
+        .carrier_I(carrier_I),
         .carrier_Q(carrier_Q),
         .clk_16M384(clk_16M384),
         .data_tdata(data_tdata[1:0]),
@@ -95,6 +99,7 @@ module top_PSK_Mod_0_0_PSK_Mod
     out_last,
     out_is_bpsk,
     out_bits,
+    DELAY_CNT,
     rst_16M384,
     clk_16M384,
     data_tdata,
@@ -111,6 +116,7 @@ module top_PSK_Mod_0_0_PSK_Mod
   output out_last;
   output out_is_bpsk;
   output [1:0]out_bits;
+  input [3:0]DELAY_CNT;
   input rst_16M384;
   input clk_16M384;
   input [1:0]data_tdata;
@@ -120,6 +126,7 @@ module top_PSK_Mod_0_0_PSK_Mod
   input [11:0]carrier_Q;
   input data_tlast;
 
+  wire [3:0]DELAY_CNT;
   wire [11:0]carrier_I;
   wire [11:0]carrier_Q;
   wire clk_16M384;
@@ -129,10 +136,11 @@ module top_PSK_Mod_0_0_PSK_Mod
   wire [1:0]data_tdata;
   wire data_tlast;
   wire data_tready;
+  wire data_tready_i_1_n_0;
+  wire data_tready_i_2_n_0;
   wire data_tuser;
   wire data_tvalid;
   wire is_bpsk_buf;
-  wire is_bpsk_buf_0;
   wire last_buf;
   wire [11:0]out_I;
   wire [11:1]out_I1;
@@ -208,19 +216,20 @@ module top_PSK_Mod_0_0_PSK_Mod
   wire [3:2]\NLW_out_Q_reg[11]_i_2_CO_UNCONNECTED ;
   wire [3:3]\NLW_out_Q_reg[11]_i_2_O_UNCONNECTED ;
 
+  (* SOFT_HLUTNM = "soft_lutpair6" *) 
   LUT1 #(
     .INIT(2'h1)) 
     \cnt[0]_i_1 
        (.I0(cnt_reg[0]),
         .O(p_0_in[0]));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  (* SOFT_HLUTNM = "soft_lutpair6" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \cnt[1]_i_1 
        (.I0(cnt_reg[0]),
         .I1(cnt_reg[1]),
         .O(p_0_in[1]));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
   LUT3 #(
     .INIT(8'h78)) 
     \cnt[2]_i_1 
@@ -261,14 +270,13 @@ module top_PSK_Mod_0_0_PSK_Mod
         .D(p_0_in[3]),
         .Q(out_clk_1M024),
         .R(rst_16M384));
-  LUT5 #(
-    .INIT(32'h00000004)) 
+  LUT4 #(
+    .INIT(16'h0082)) 
     \data_buf[1]_i_1 
-       (.I0(cnt_reg[1]),
-        .I1(out_clk_1M024),
-        .I2(cnt_reg[2]),
-        .I3(cnt_reg[0]),
-        .I4(rst_16M384),
+       (.I0(data_tready_i_2_n_0),
+        .I1(DELAY_CNT[3]),
+        .I2(out_clk_1M024),
+        .I3(rst_16M384),
         .O(\data_buf[1]_i_1_n_0 ));
   FDRE \data_buf_reg[0] 
        (.C(clk_16M384),
@@ -282,19 +290,27 @@ module top_PSK_Mod_0_0_PSK_Mod
         .D(data_tdata[1]),
         .Q(data_buf[1]),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
-  LUT4 #(
-    .INIT(16'h0010)) 
-    data_tready__0
+  LUT3 #(
+    .INIT(8'h90)) 
+    data_tready_i_1
+       (.I0(out_clk_1M024),
+        .I1(DELAY_CNT[3]),
+        .I2(data_tready_i_2_n_0),
+        .O(data_tready_i_1_n_0));
+  LUT6 #(
+    .INIT(64'h9009000000009009)) 
+    data_tready_i_2
        (.I0(cnt_reg[0]),
-        .I1(cnt_reg[2]),
-        .I2(out_clk_1M024),
-        .I3(cnt_reg[1]),
-        .O(is_bpsk_buf_0));
+        .I1(DELAY_CNT[0]),
+        .I2(DELAY_CNT[2]),
+        .I3(cnt_reg[2]),
+        .I4(DELAY_CNT[1]),
+        .I5(cnt_reg[1]),
+        .O(data_tready_i_2_n_0));
   FDRE data_tready_reg
        (.C(clk_16M384),
         .CE(1'b1),
-        .D(is_bpsk_buf_0),
+        .D(data_tready_i_1_n_0),
         .Q(data_tready),
         .R(rst_16M384));
   FDRE is_bpsk_buf_reg
@@ -309,7 +325,7 @@ module top_PSK_Mod_0_0_PSK_Mod
         .D(data_tlast),
         .Q(last_buf),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair6" *) 
+  (* SOFT_HLUTNM = "soft_lutpair5" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \out_I[10]_i_1 
@@ -350,7 +366,7 @@ module top_PSK_Mod_0_0_PSK_Mod
     \out_I[11]_i_7 
        (.I0(carrier_I[9]),
         .O(p_0_in__0[9]));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \out_I[1]_i_1 
@@ -358,7 +374,7 @@ module top_PSK_Mod_0_0_PSK_Mod
         .I1(data_buf[1]),
         .I2(out_I1[1]),
         .O(\out_I[1]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \out_I[2]_i_1 
@@ -366,7 +382,7 @@ module top_PSK_Mod_0_0_PSK_Mod
         .I1(data_buf[1]),
         .I2(out_I1[2]),
         .O(\out_I[2]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \out_I[3]_i_1 
@@ -374,7 +390,7 @@ module top_PSK_Mod_0_0_PSK_Mod
         .I1(data_buf[1]),
         .I2(out_I1[3]),
         .O(\out_I[3]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \out_I[4]_i_1 
@@ -407,7 +423,7 @@ module top_PSK_Mod_0_0_PSK_Mod
     \out_I[4]_i_7 
        (.I0(carrier_I[1]),
         .O(p_0_in__0[1]));
-  (* SOFT_HLUTNM = "soft_lutpair4" *) 
+  (* SOFT_HLUTNM = "soft_lutpair3" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \out_I[5]_i_1 
@@ -415,7 +431,7 @@ module top_PSK_Mod_0_0_PSK_Mod
         .I1(data_buf[1]),
         .I2(out_I1[5]),
         .O(\out_I[5]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair4" *) 
+  (* SOFT_HLUTNM = "soft_lutpair3" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \out_I[6]_i_1 
@@ -423,7 +439,7 @@ module top_PSK_Mod_0_0_PSK_Mod
         .I1(data_buf[1]),
         .I2(out_I1[6]),
         .O(\out_I[6]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair5" *) 
+  (* SOFT_HLUTNM = "soft_lutpair4" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \out_I[7]_i_1 
@@ -431,7 +447,7 @@ module top_PSK_Mod_0_0_PSK_Mod
         .I1(data_buf[1]),
         .I2(out_I1[7]),
         .O(\out_I[7]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair5" *) 
+  (* SOFT_HLUTNM = "soft_lutpair4" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \out_I[8]_i_1 
@@ -459,7 +475,7 @@ module top_PSK_Mod_0_0_PSK_Mod
     \out_I[8]_i_6 
        (.I0(carrier_I[5]),
         .O(p_0_in__0[5]));
-  (* SOFT_HLUTNM = "soft_lutpair6" *) 
+  (* SOFT_HLUTNM = "soft_lutpair5" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \out_I[9]_i_1 

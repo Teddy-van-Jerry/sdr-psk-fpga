@@ -65,6 +65,7 @@ module top_PSK_Mod_0_0 (
   data_tuser,
   carrier_I,
   carrier_Q,
+  DELAY_CNT,
   out_I,
   out_Q,
   out_vld,
@@ -89,6 +90,7 @@ input wire data_tlast;
 input wire data_tuser;
 input wire [11 : 0] carrier_I;
 input wire [11 : 0] carrier_Q;
+input wire [3 : 0] DELAY_CNT;
 output wire [11 : 0] out_I;
 output wire [11 : 0] out_Q;
 output wire out_vld;
@@ -110,6 +112,7 @@ output wire out_clk_1M024;
     .data_tuser(data_tuser),
     .carrier_I(carrier_I),
     .carrier_Q(carrier_Q),
+    .DELAY_CNT(DELAY_CNT),
     .out_I(out_I),
     .out_Q(out_Q),
     .out_vld(out_vld),

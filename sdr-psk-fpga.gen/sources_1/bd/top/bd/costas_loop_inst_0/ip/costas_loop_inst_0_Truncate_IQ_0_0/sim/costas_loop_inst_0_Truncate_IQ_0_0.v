@@ -90,7 +90,7 @@ output wire Q_tvalid;
   Truncate_IQ #(
     .I_WIDTH(48),
     .O_WIDTH(16),
-    .MSB_TRUNCATE_BITS(4)
+    .MSB_TRUNCATE_BITS(8)
   ) inst (
     .IQ_tdata(IQ_tdata),
     .IQ_tvalid(IQ_tvalid),

@@ -2,7 +2,7 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "costas_loop_inst_0_Error_Detect_QPSK_0",
-    "cell_name": "Error_Detect/Error_Detect_QPSK",
+    "cell_name": "Rx/costas_loop_0/Error_Detect/Error_Detect_QPSK",
     "component_reference": "xilinx.com:ip:c_addsub:12.0",
     "ip_revision": "14",
     "gen_directory": ".",

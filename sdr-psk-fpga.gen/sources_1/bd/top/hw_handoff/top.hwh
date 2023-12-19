@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Dec 19 11:05:12 2023" VIVADOVERSION="2022.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Dec 19 21:41:08 2023" VIVADOVERSION="2022.2">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z020" NAME="top" PACKAGE="clg484" SPEEDGRADE="-1"/>
 
@@ -60,6 +60,8 @@
           <CONNECTIONS>
             <CONNECTION INSTANCE="Rx_costas_loop_0" PORT="clk_16M384"/>
             <CONNECTION INSTANCE="Rx_PSK_Detection_0" PORT="clk"/>
+            <CONNECTION INSTANCE="Rx_c_shift_ram_I" PORT="CLK"/>
+            <CONNECTION INSTANCE="Rx_c_shift_ram_Q" PORT="CLK"/>
             <CONNECTION INSTANCE="Tx_PSK_Modulation_dds_compiler_carrier" PORT="aclk"/>
             <CONNECTION INSTANCE="Tx_PSK_Modulation_NCO_cos_sin_0" PORT="clk"/>
             <CONNECTION INSTANCE="Tx_PSK_Modulation_axis_data_fifo_0" PORT="m_axis_aclk"/>
@@ -139,8 +141,8 @@
         <PORT DIR="O" NAME="mb_reset" POLARITY="ACTIVE_HIGH" SIGIS="rst"/>
         <PORT DIR="O" LEFT="0" NAME="bus_struct_reset" POLARITY="ACTIVE_HIGH" RIGHT="0" SIGIS="rst" SIGNAME="Clock_Gen_Reset_Gen_proc_sys_reset_16M384_bus_struct_reset">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="Rx_costas_loop_0" PORT="rst_16M386"/>
             <CONNECTION INSTANCE="Rx_PSK_Detection_0" PORT="rst"/>
+            <CONNECTION INSTANCE="Rx_costas_loop_0" PORT="rst_16M384"/>
             <CONNECTION INSTANCE="Tx_PSK_Modulation_PSK_Mod_0" PORT="rst_16M384"/>
           </CONNECTIONS>
         </PORT>
@@ -1430,7 +1432,6 @@
         </PORT>
         <PORT CLKFREQUENCY="32768000" DIR="O" NAME="clk_32M768" SIGIS="clk" SIGNAME="Clock_Gen_clk_wiz_32M768_clk_32M768">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="Rx_costas_loop_0" PORT="clk_32M768"/>
             <CONNECTION INSTANCE="Clock_Gen_Div_clk32M768_0" PORT="clk32M768"/>
           </CONNECTIONS>
         </PORT>
@@ -1538,8 +1539,9 @@
             <CONNECTION INSTANCE="Clock_Gen_Reset_Gen_proc_sys_reset_16M384" PORT="bus_struct_reset"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="15" NAME="I_tdata" RIGHT="0" SIGIS="undef" SIGNAME="Rx_PSK_Detection_0_I_tdata">
+        <PORT DIR="I" LEFT="15" NAME="I_tdata" RIGHT="0" SIGIS="undef" SIGNAME="Rx_costas_loop_0_I_tdata">
           <CONNECTIONS>
+            <CONNECTION INSTANCE="Rx_costas_loop_0" PORT="I_tdata"/>
             <CONNECTION INSTANCE="Rx_costas_loop_0" PORT="I_tdata"/>
           </CONNECTIONS>
         </PORT>
@@ -1548,8 +1550,9 @@
             <CONNECTION INSTANCE="Rx_costas_loop_0" PORT="I_tvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="15" NAME="Q_tdata" RIGHT="0" SIGIS="undef" SIGNAME="Rx_PSK_Detection_0_Q_tdata">
+        <PORT DIR="I" LEFT="15" NAME="Q_tdata" RIGHT="0" SIGIS="undef" SIGNAME="Rx_costas_loop_0_Q_tdata">
           <CONNECTIONS>
+            <CONNECTION INSTANCE="Rx_costas_loop_0" PORT="Q_tdata"/>
             <CONNECTION INSTANCE="Rx_costas_loop_0" PORT="Q_tdata"/>
           </CONNECTIONS>
         </PORT>
@@ -1639,6 +1642,142 @@
       </PORTS>
       <BUSINTERFACES/>
     </MODULE>
+    <MODULE COREREVISION="14" FULLNAME="/Rx/c_shift_ram_I" HWVERSION="12.0" INSTANCE="Rx_c_shift_ram_I" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="c_shift_ram" VLNV="xilinx.com:ip:c_shift_ram:12.0">
+      <DOCUMENTS>
+        <DOCUMENT SOURCE="http://www.xilinx.com/cgi-bin/docs/ipdoc?c=c_shift_ram;v=v12_0;d=pg122-c-shift-ram.pdf"/>
+      </DOCUMENTS>
+      <PARAMETERS>
+        <PARAMETER NAME="C_XDEVICEFAMILY" VALUE="zynq"/>
+        <PARAMETER NAME="C_VERBOSITY" VALUE="0"/>
+        <PARAMETER NAME="C_WIDTH" VALUE="16"/>
+        <PARAMETER NAME="C_DEPTH" VALUE="1"/>
+        <PARAMETER NAME="C_ADDR_WIDTH" VALUE="4"/>
+        <PARAMETER NAME="C_SHIFT_TYPE" VALUE="0"/>
+        <PARAMETER NAME="C_OPT_GOAL" VALUE="0"/>
+        <PARAMETER NAME="C_AINIT_VAL" VALUE="0000000000000000"/>
+        <PARAMETER NAME="C_SINIT_VAL" VALUE="0000000000000000"/>
+        <PARAMETER NAME="C_DEFAULT_DATA" VALUE="0000000000000000"/>
+        <PARAMETER NAME="C_HAS_A" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_CE" VALUE="0"/>
+        <PARAMETER NAME="C_REG_LAST_BIT" VALUE="1"/>
+        <PARAMETER NAME="C_SYNC_PRIORITY" VALUE="1"/>
+        <PARAMETER NAME="C_SYNC_ENABLE" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_SCLR" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_SSET" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_SINIT" VALUE="0"/>
+        <PARAMETER NAME="C_MEM_INIT_FILE" VALUE="no_coe_file_loaded"/>
+        <PARAMETER NAME="C_ELABORATION_DIR" VALUE="./"/>
+        <PARAMETER NAME="C_READ_MIF" VALUE="0"/>
+        <PARAMETER NAME="C_PARSER_TYPE" VALUE="0"/>
+        <PARAMETER NAME="Component_Name" VALUE="top_c_shift_ram_0_2"/>
+        <PARAMETER NAME="ShiftRegType" VALUE="Fixed_Length"/>
+        <PARAMETER NAME="OptGoal" VALUE="Resources"/>
+        <PARAMETER NAME="RegLastBit" VALUE="true"/>
+        <PARAMETER NAME="CE" VALUE="false"/>
+        <PARAMETER NAME="Width" VALUE="16"/>
+        <PARAMETER NAME="Depth" VALUE="1"/>
+        <PARAMETER NAME="DefaultDataRadix" VALUE="2"/>
+        <PARAMETER NAME="DefaultData" VALUE="0000000000000000"/>
+        <PARAMETER NAME="ReadMifFile" VALUE="false"/>
+        <PARAMETER NAME="MemInitFile" VALUE="no_coe_file_loaded"/>
+        <PARAMETER NAME="AsyncInitRadix" VALUE="2"/>
+        <PARAMETER NAME="AsyncInitVal" VALUE="0000000000000000"/>
+        <PARAMETER NAME="SSET" VALUE="false"/>
+        <PARAMETER NAME="SCLR" VALUE="false"/>
+        <PARAMETER NAME="SINIT" VALUE="false"/>
+        <PARAMETER NAME="SyncInitRadix" VALUE="2"/>
+        <PARAMETER NAME="SyncInitVal" VALUE="0000000000000000"/>
+        <PARAMETER NAME="SyncCtrlPriority" VALUE="Reset_Overrides_Set"/>
+        <PARAMETER NAME="CEPriority" VALUE="Sync_Overrides_CE"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="15" NAME="D" RIGHT="0" SIGIS="data" SIGNAME="Rx_costas_loop_0_I_tdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Rx_costas_loop_0" PORT="I_tdata"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="CLK" SIGIS="clk" SIGNAME="Clock_Gen_Div_clk32M768_0_clk16M384">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Clock_Gen_Div_clk32M768_0" PORT="clk16M384"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="Q" RIGHT="0" SIGIS="data" SIGNAME="Rx_c_shift_ram_I_Q">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="system_ila_0" PORT="probe8"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="14" FULLNAME="/Rx/c_shift_ram_Q" HWVERSION="12.0" INSTANCE="Rx_c_shift_ram_Q" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="c_shift_ram" VLNV="xilinx.com:ip:c_shift_ram:12.0">
+      <DOCUMENTS>
+        <DOCUMENT SOURCE="http://www.xilinx.com/cgi-bin/docs/ipdoc?c=c_shift_ram;v=v12_0;d=pg122-c-shift-ram.pdf"/>
+      </DOCUMENTS>
+      <PARAMETERS>
+        <PARAMETER NAME="C_XDEVICEFAMILY" VALUE="zynq"/>
+        <PARAMETER NAME="C_VERBOSITY" VALUE="0"/>
+        <PARAMETER NAME="C_WIDTH" VALUE="16"/>
+        <PARAMETER NAME="C_DEPTH" VALUE="1"/>
+        <PARAMETER NAME="C_ADDR_WIDTH" VALUE="4"/>
+        <PARAMETER NAME="C_SHIFT_TYPE" VALUE="0"/>
+        <PARAMETER NAME="C_OPT_GOAL" VALUE="0"/>
+        <PARAMETER NAME="C_AINIT_VAL" VALUE="0000000000000000"/>
+        <PARAMETER NAME="C_SINIT_VAL" VALUE="0000000000000000"/>
+        <PARAMETER NAME="C_DEFAULT_DATA" VALUE="0000000000000000"/>
+        <PARAMETER NAME="C_HAS_A" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_CE" VALUE="0"/>
+        <PARAMETER NAME="C_REG_LAST_BIT" VALUE="1"/>
+        <PARAMETER NAME="C_SYNC_PRIORITY" VALUE="1"/>
+        <PARAMETER NAME="C_SYNC_ENABLE" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_SCLR" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_SSET" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_SINIT" VALUE="0"/>
+        <PARAMETER NAME="C_MEM_INIT_FILE" VALUE="no_coe_file_loaded"/>
+        <PARAMETER NAME="C_ELABORATION_DIR" VALUE="./"/>
+        <PARAMETER NAME="C_READ_MIF" VALUE="0"/>
+        <PARAMETER NAME="C_PARSER_TYPE" VALUE="0"/>
+        <PARAMETER NAME="Component_Name" VALUE="top_c_shift_ram_I_0"/>
+        <PARAMETER NAME="ShiftRegType" VALUE="Fixed_Length"/>
+        <PARAMETER NAME="OptGoal" VALUE="Resources"/>
+        <PARAMETER NAME="RegLastBit" VALUE="true"/>
+        <PARAMETER NAME="CE" VALUE="false"/>
+        <PARAMETER NAME="Width" VALUE="16"/>
+        <PARAMETER NAME="Depth" VALUE="1"/>
+        <PARAMETER NAME="DefaultDataRadix" VALUE="2"/>
+        <PARAMETER NAME="DefaultData" VALUE="0000000000000000"/>
+        <PARAMETER NAME="ReadMifFile" VALUE="false"/>
+        <PARAMETER NAME="MemInitFile" VALUE="no_coe_file_loaded"/>
+        <PARAMETER NAME="AsyncInitRadix" VALUE="2"/>
+        <PARAMETER NAME="AsyncInitVal" VALUE="0000000000000000"/>
+        <PARAMETER NAME="SSET" VALUE="false"/>
+        <PARAMETER NAME="SCLR" VALUE="false"/>
+        <PARAMETER NAME="SINIT" VALUE="false"/>
+        <PARAMETER NAME="SyncInitRadix" VALUE="2"/>
+        <PARAMETER NAME="SyncInitVal" VALUE="0000000000000000"/>
+        <PARAMETER NAME="SyncCtrlPriority" VALUE="Reset_Overrides_Set"/>
+        <PARAMETER NAME="CEPriority" VALUE="Sync_Overrides_CE"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="15" NAME="D" RIGHT="0" SIGIS="data" SIGNAME="Rx_costas_loop_0_Q_tdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Rx_costas_loop_0" PORT="Q_tdata"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="CLK" SIGIS="clk" SIGNAME="Clock_Gen_Div_clk32M768_0_clk16M384">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Clock_Gen_Div_clk32M768_0" PORT="clk16M384"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="Q" RIGHT="0" SIGIS="data" SIGNAME="Rx_c_shift_ram_Q_Q">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="system_ila_0" PORT="probe9"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
     <MODULE BD="costas_loop_inst_0" BDTYPE="BLOCK_CONTAINER" DRIVERMODE="SUBCORE" FULLNAME="/Rx/costas_loop_0" INSTANCE="Rx_costas_loop_0" IS_ENABLE="1">
       <DOCUMENTS/>
       <PARAMETERS>
@@ -1650,9 +1789,11 @@
         <PARAMETER NAME="ENABLE_DFX" VALUE="0"/>
       </PARAMETERS>
       <PORTS>
-        <PORT DIR="O" LEFT="15" NAME="I_tdata" RIGHT="0" SIGIS="undef" SIGNAME="Rx_PSK_Detection_0_I_tdata">
+        <PORT DIR="O" LEFT="15" NAME="I_tdata" RIGHT="0" SIGIS="undef" SIGNAME="Rx_costas_loop_0_I_tdata">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Rx_PSK_Detection_0" PORT="I_tdata"/>
+            <CONNECTION INSTANCE="Rx_PSK_Detection_0" PORT="I_tdata"/>
+            <CONNECTION INSTANCE="Rx_c_shift_ram_I" PORT="D"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="I_tvalid" SIGIS="undef" SIGNAME="Rx_PSK_Detection_0_I_tvalid">
@@ -1660,9 +1801,11 @@
             <CONNECTION INSTANCE="Rx_PSK_Detection_0" PORT="I_tvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="15" NAME="Q_tdata" RIGHT="0" SIGIS="undef" SIGNAME="Rx_PSK_Detection_0_Q_tdata">
+        <PORT DIR="O" LEFT="15" NAME="Q_tdata" RIGHT="0" SIGIS="undef" SIGNAME="Rx_costas_loop_0_Q_tdata">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Rx_PSK_Detection_0" PORT="Q_tdata"/>
+            <CONNECTION INSTANCE="Rx_PSK_Detection_0" PORT="Q_tdata"/>
+            <CONNECTION INSTANCE="Rx_c_shift_ram_Q" PORT="D"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="Q_tvalid" SIGIS="undef" SIGNAME="Rx_PSK_Detection_0_Q_tvalid">
@@ -1680,12 +1823,7 @@
             <CONNECTION INSTANCE="Rx_PSK_Signal_Extend_0" PORT="PSK_signal"/>
           </CONNECTIONS>
         </PORT>
-        <PORT CLKFREQUENCY="32768000" DIR="I" NAME="clk_32M768" SIGIS="clk" SIGNAME="Clock_Gen_clk_wiz_32M768_clk_32M768">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="Clock_Gen_clk_wiz_32M768" PORT="clk_32M768"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="rst_16M386" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="Clock_Gen_Reset_Gen_proc_sys_reset_16M384_bus_struct_reset">
+        <PORT DIR="I" NAME="rst_16M384" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="Clock_Gen_Reset_Gen_proc_sys_reset_16M384_bus_struct_reset">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Clock_Gen_Reset_Gen_proc_sys_reset_16M384" PORT="bus_struct_reset"/>
           </CONNECTIONS>
@@ -1693,6 +1831,11 @@
         <PORT DIR="I" NAME="is_bpsk" SIGIS="undef" SIGNAME="xlconstant_0_dout">
           <CONNECTIONS>
             <CONNECTION INSTANCE="xlconstant_0" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="11" NAME="NCO_cos" RIGHT="0" SIGIS="undef" SIGNAME="Rx_costas_loop_0_NCO_cos">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="system_ila_0" PORT="probe10"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -1846,6 +1989,11 @@
         <PORT DIR="I" LEFT="11" NAME="carrier_Q" RIGHT="0" SIGIS="undef" SIGNAME="Tx_PSK_Modulation_NCO_cos_sin_0_NCO_sin">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Tx_PSK_Modulation_NCO_cos_sin_0" PORT="NCO_sin"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="3" NAME="DELAY_CNT" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_1_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_1" PORT="dout"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="11" NAME="out_I" RIGHT="0" SIGIS="undef" SIGNAME="Tx_PSK_Modulation_PSK_Mod_0_out_I">
@@ -2328,7 +2476,7 @@
       <PARAMETERS>
         <PARAMETER NAME="C_EN_TIME_TAG" VALUE="0"/>
         <PARAMETER NAME="C_TIME_TAG_WIDTH" VALUE="32"/>
-        <PARAMETER NAME="C_SLOT" VALUE="0"/>
+        <PARAMETER NAME="C_SLOT" VALUE="1"/>
         <PARAMETER NAME="C_SLOT_15_TYPE" VALUE="0"/>
         <PARAMETER NAME="C_SLOT_14_TYPE" VALUE="0"/>
         <PARAMETER NAME="C_SLOT_13_TYPE" VALUE="0"/>
@@ -3855,9 +4003,9 @@
         <PARAMETER NAME="C_PROBE13_TYPE" VALUE="0"/>
         <PARAMETER NAME="C_PROBE12_TYPE" VALUE="0"/>
         <PARAMETER NAME="C_PROBE11_TYPE" VALUE="0"/>
-        <PARAMETER NAME="C_PROBE10_TYPE" VALUE="0"/>
-        <PARAMETER NAME="C_PROBE9_TYPE" VALUE="0"/>
-        <PARAMETER NAME="C_PROBE8_TYPE" VALUE="0"/>
+        <PARAMETER NAME="C_PROBE10_TYPE" VALUE="1"/>
+        <PARAMETER NAME="C_PROBE9_TYPE" VALUE="1"/>
+        <PARAMETER NAME="C_PROBE8_TYPE" VALUE="1"/>
         <PARAMETER NAME="C_PROBE7_TYPE" VALUE="0"/>
         <PARAMETER NAME="C_PROBE6_TYPE" VALUE="0"/>
         <PARAMETER NAME="C_PROBE5_TYPE" VALUE="0"/>
@@ -4890,7 +5038,7 @@
         <PARAMETER NAME="C_PROBE1_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_PROBE0_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_DATA_DEPTH" VALUE="1024"/>
-        <PARAMETER NAME="C_NUM_OF_PROBES" VALUE="8"/>
+        <PARAMETER NAME="C_NUM_OF_PROBES" VALUE="11"/>
         <PARAMETER NAME="C_XLNX_HW_PROBE_INFO" VALUE="DEFAULT"/>
         <PARAMETER NAME="Component_Name" VALUE="top_system_ila_0_0"/>
         <PARAMETER NAME="C_PROBE70_WIDTH" VALUE="1"/>
@@ -5928,7 +6076,7 @@
         <PARAMETER NAME="EN_BRAM_DRC" VALUE="TRUE"/>
         <PARAMETER NAME="ALL_PROBE_SAME_MU" VALUE="TRUE"/>
         <PARAMETER NAME="ALL_PROBE_SAME_MU_CNT" VALUE="1"/>
-        <PARAMETER NAME="C_NUM_MONITOR_SLOTS" VALUE="1"/>
+        <PARAMETER NAME="C_NUM_MONITOR_SLOTS" VALUE="2"/>
         <PARAMETER NAME="C_SLOT_0_AXI_ARUSER_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_SLOT_0_AXI_RUSER_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_SLOT_0_AXI_AWUSER_WIDTH" VALUE="1"/>
@@ -5955,8 +6103,8 @@
         <PARAMETER NAME="C_SLOT_1_AXIS_TID_WIDTH" VALUE="AUTO"/>
         <PARAMETER NAME="C_SLOT_1_AXIS_TUSER_WIDTH" VALUE="AUTO"/>
         <PARAMETER NAME="C_SLOT_1_AXIS_TDEST_WIDTH" VALUE="AUTO"/>
-        <PARAMETER NAME="C_SLOT_0_INTF_TYPE" VALUE="xilinx.com:interface:aximm_rtl:1.0"/>
-        <PARAMETER NAME="C_SLOT_1_INTF_TYPE" VALUE="xilinx.com:interface:aximm_rtl:1.0"/>
+        <PARAMETER NAME="C_SLOT_0_INTF_TYPE" VALUE="xilinx.com:interface:axis_rtl:1.0"/>
+        <PARAMETER NAME="C_SLOT_1_INTF_TYPE" VALUE="xilinx.com:interface:axis_rtl:1.0"/>
         <PARAMETER NAME="C_SLOT_2_INTF_TYPE" VALUE="xilinx.com:interface:aximm_rtl:1.0"/>
         <PARAMETER NAME="C_SLOT_3_INTF_TYPE" VALUE="xilinx.com:interface:aximm_rtl:1.0"/>
         <PARAMETER NAME="C_SLOT_4_INTF_TYPE" VALUE="xilinx.com:interface:aximm_rtl:1.0"/>
@@ -6203,6 +6351,21 @@
             <CONNECTION INSTANCE="Rx_PSK_Detection_0" PORT="QPSK"/>
           </CONNECTIONS>
         </PORT>
+        <PORT DIR="I" LEFT="15" NAME="probe8" RIGHT="0" SIGIS="undef" SIGNAME="Rx_c_shift_ram_I_Q">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Rx_c_shift_ram_I" PORT="Q"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="probe9" RIGHT="0" SIGIS="undef" SIGNAME="Rx_c_shift_ram_Q_Q">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Rx_c_shift_ram_Q" PORT="Q"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="11" NAME="probe10" RIGHT="0" SIGIS="undef" SIGNAME="Rx_costas_loop_0_NCO_cos">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Rx_costas_loop_0" PORT="NCO_cos"/>
+          </CONNECTIONS>
+        </PORT>
       </PORTS>
       <BUSINTERFACES/>
     </MODULE>
@@ -6218,6 +6381,23 @@
         <PORT DIR="O" LEFT="0" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_0_dout">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Rx_costas_loop_0" PORT="is_bpsk"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="7" FULLNAME="/xlconstant_1" HWVERSION="1.1" INSTANCE="xlconstant_1" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlconstant" VLNV="xilinx.com:ip:xlconstant:1.1">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="CONST_WIDTH" VALUE="4"/>
+        <PARAMETER NAME="CONST_VAL" VALUE="0x8"/>
+        <PARAMETER NAME="Component_Name" VALUE="top_xlconstant_1_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" LEFT="3" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_1_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Tx_PSK_Modulation_PSK_Mod_0" PORT="DELAY_CNT"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>

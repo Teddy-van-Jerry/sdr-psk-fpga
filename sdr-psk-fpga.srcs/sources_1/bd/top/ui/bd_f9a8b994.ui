@@ -1,25 +1,25 @@
 {
    "ActiveEmotionalView":"Default View",
    "Default View_ScaleFactor":"1.25",
-   "Default View_TopLeft":"-427,-178",
+   "Default View_TopLeft":"-171,-94",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
 #  -string -flagsOSRD
-preplace port IQ -pg 1 -lvl 3 -x 580 -y 160 -defaultsOSRD
-preplace port port-id_clk_16M384 -pg 1 -lvl 0 -x 0 -y 230 -defaultsOSRD
-preplace portBus I -pg 1 -lvl 0 -x 0 -y 40 -defaultsOSRD
-preplace portBus Q -pg 1 -lvl 0 -x 0 -y 70 -defaultsOSRD
+preplace port IQ -pg 1 -lvl 3 -x 590 -y 160 -defaultsOSRD
+preplace port port-id_clk_16M384 -pg 1 -lvl 0 -x -10 -y 230 -defaultsOSRD
+preplace portBus I -pg 1 -lvl 0 -x -10 -y 40 -defaultsOSRD
+preplace portBus Q -pg 1 -lvl 0 -x -10 -y 70 -defaultsOSRD
 preplace inst xlconcat_0 -pg 1 -lvl 1 -x 120 -y 60 -defaultsOSRD
 preplace inst xlconstant_valid_one -pg 1 -lvl 1 -x 120 -y 170 -defaultsOSRD
-preplace inst LP_filter -pg 1 -lvl 2 -x 390 -y 160 -defaultsOSRD
+preplace inst LP_filter -pg 1 -lvl 2 -x 400 -y 160 -defaultsOSRD
 preplace netloc aclk_0_1 1 0 2 NJ 230 220J
-preplace netloc phase_detector_I_P 1 0 1 20J 40n
+preplace netloc phase_detector_I_P 1 0 1 10J 40n
 preplace netloc phase_detector_Q_P 1 0 1 NJ 70
 preplace netloc xlconcat_0_dout 1 1 1 220 60n
 preplace netloc xlconstant_valid_one_dout 1 1 1 NJ 170
 preplace netloc fir_compiler_I_M_AXIS_DATA 1 2 1 N 160
-levelinfo -pg 1 0 120 390 580
-pagesize -pg 1 -db -bbox -sgen -130 -10 650 250
+levelinfo -pg 1 -10 120 400 590
+pagesize -pg 1 -db -bbox -sgen -140 -10 660 250
 "
 }
 

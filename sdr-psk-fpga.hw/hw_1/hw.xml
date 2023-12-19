@@ -4,7 +4,7 @@
 <!-- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.        -->
 
 <hwsession version="1" minor="2">
-  <device name="xc7z020_1" gui_info=""/>
+  <device name="xc7z020_1" gui_info="dashboard1=hw_ila_1[xc7z020_1/hw_ila_1/Waveform=ILA_WAVE_1;xc7z020_1/hw_ila_1/Capture Setup=ILA_CAPTURE_1;xc7z020_1/hw_ila_1/Status=ILA_STATUS_1;xc7z020_1/hw_ila_1/Trigger Setup=ILA_TRIGGER_1;xc7z020_1/hw_ila_1/Settings=ILA_SETTINGS_1;]"/>
   <ObjectList object_type="hw_device" gui_info="">
     <Object name="xc7z020_1" gui_info="">
       <Properties Property="FULL_PROBES.FILE" value="$_project_name_.runs/impl_1/top_wrapper.ltx"/>
@@ -54,6 +54,35 @@
         <net name="top_i/system_ila_0/inst/probe0_1[2]"/>
         <net name="top_i/system_ila_0/inst/probe0_1[1]"/>
         <net name="top_i/system_ila_0/inst/probe0_1[0]"/>
+      </nets>
+    </probe>
+    <probe type="ila_data" busType="bus" source="netlist" spec="ILA_DATA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="SIGNED"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe10[11:0]"/>
+        <Option Id="NAME.CUSTOM" value="Rx_NCO_cos"/>
+        <Option Id="NAME.SELECT" value="Custom"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="WAVEFORM_STYLE" value="Analog"/>
+      </probeOptions>
+      <nets>
+        <net name="top_i/system_ila_0/inst/probe10_1[11]"/>
+        <net name="top_i/system_ila_0/inst/probe10_1[10]"/>
+        <net name="top_i/system_ila_0/inst/probe10_1[9]"/>
+        <net name="top_i/system_ila_0/inst/probe10_1[8]"/>
+        <net name="top_i/system_ila_0/inst/probe10_1[7]"/>
+        <net name="top_i/system_ila_0/inst/probe10_1[6]"/>
+        <net name="top_i/system_ila_0/inst/probe10_1[5]"/>
+        <net name="top_i/system_ila_0/inst/probe10_1[4]"/>
+        <net name="top_i/system_ila_0/inst/probe10_1[3]"/>
+        <net name="top_i/system_ila_0/inst/probe10_1[2]"/>
+        <net name="top_i/system_ila_0/inst/probe10_1[1]"/>
+        <net name="top_i/system_ila_0/inst/probe10_1[0]"/>
       </nets>
     </probe>
     <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
@@ -236,6 +265,72 @@
       <nets>
         <net name="top_i/system_ila_0/inst/probe7_1[1]"/>
         <net name="top_i/system_ila_0/inst/probe7_1[0]"/>
+      </nets>
+    </probe>
+    <probe type="ila_data" busType="bus" source="netlist" spec="ILA_DATA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="SIGNED"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe8[15:0]"/>
+        <Option Id="NAME.CUSTOM" value="Rx_I_data"/>
+        <Option Id="NAME.SELECT" value="Custom"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="WAVEFORM_STYLE" value="Analog"/>
+      </probeOptions>
+      <nets>
+        <net name="top_i/system_ila_0/inst/probe8_1[15]"/>
+        <net name="top_i/system_ila_0/inst/probe8_1[14]"/>
+        <net name="top_i/system_ila_0/inst/probe8_1[13]"/>
+        <net name="top_i/system_ila_0/inst/probe8_1[12]"/>
+        <net name="top_i/system_ila_0/inst/probe8_1[11]"/>
+        <net name="top_i/system_ila_0/inst/probe8_1[10]"/>
+        <net name="top_i/system_ila_0/inst/probe8_1[9]"/>
+        <net name="top_i/system_ila_0/inst/probe8_1[8]"/>
+        <net name="top_i/system_ila_0/inst/probe8_1[7]"/>
+        <net name="top_i/system_ila_0/inst/probe8_1[6]"/>
+        <net name="top_i/system_ila_0/inst/probe8_1[5]"/>
+        <net name="top_i/system_ila_0/inst/probe8_1[4]"/>
+        <net name="top_i/system_ila_0/inst/probe8_1[3]"/>
+        <net name="top_i/system_ila_0/inst/probe8_1[2]"/>
+        <net name="top_i/system_ila_0/inst/probe8_1[1]"/>
+        <net name="top_i/system_ila_0/inst/probe8_1[0]"/>
+      </nets>
+    </probe>
+    <probe type="ila_data" busType="bus" source="netlist" spec="ILA_DATA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="SIGNED"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe9[15:0]"/>
+        <Option Id="NAME.CUSTOM" value="Rx_Q_data"/>
+        <Option Id="NAME.SELECT" value="Custom"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="WAVEFORM_STYLE" value="Analog"/>
+      </probeOptions>
+      <nets>
+        <net name="top_i/system_ila_0/inst/probe9_1[15]"/>
+        <net name="top_i/system_ila_0/inst/probe9_1[14]"/>
+        <net name="top_i/system_ila_0/inst/probe9_1[13]"/>
+        <net name="top_i/system_ila_0/inst/probe9_1[12]"/>
+        <net name="top_i/system_ila_0/inst/probe9_1[11]"/>
+        <net name="top_i/system_ila_0/inst/probe9_1[10]"/>
+        <net name="top_i/system_ila_0/inst/probe9_1[9]"/>
+        <net name="top_i/system_ila_0/inst/probe9_1[8]"/>
+        <net name="top_i/system_ila_0/inst/probe9_1[7]"/>
+        <net name="top_i/system_ila_0/inst/probe9_1[6]"/>
+        <net name="top_i/system_ila_0/inst/probe9_1[5]"/>
+        <net name="top_i/system_ila_0/inst/probe9_1[4]"/>
+        <net name="top_i/system_ila_0/inst/probe9_1[3]"/>
+        <net name="top_i/system_ila_0/inst/probe9_1[2]"/>
+        <net name="top_i/system_ila_0/inst/probe9_1[1]"/>
+        <net name="top_i/system_ila_0/inst/probe9_1[0]"/>
       </nets>
     </probe>
   </probeset>

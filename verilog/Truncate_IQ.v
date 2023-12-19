@@ -25,7 +25,7 @@ module Truncate_IQ #(
   assign { I_in, Q_in } = IQ_tdata;
   // truncate bits with arithematic right shift
   assign I_tdata = I_in >>> MSB_TRUNCATE_BITS;
-  assign Q_tdata = I_in >>> MSB_TRUNCATE_BITS;
+  assign Q_tdata = Q_in >>> MSB_TRUNCATE_BITS;
   // pass through valid signal
   assign I_tvalid = IQ_tvalid;
   assign Q_tvalid = IQ_tvalid;

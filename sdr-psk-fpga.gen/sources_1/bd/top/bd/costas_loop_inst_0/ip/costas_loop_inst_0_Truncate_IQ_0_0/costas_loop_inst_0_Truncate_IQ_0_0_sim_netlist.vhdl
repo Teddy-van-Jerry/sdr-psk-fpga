@@ -1,11 +1,11 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
--- Date        : Sun Dec 17 22:15:25 2023
+-- Date        : Tue Dec 19 20:13:37 2023
 -- Host        : TVJ-PC running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim -rename_top costas_loop_inst_0_Truncate_IQ_0_0 -prefix
---               costas_loop_inst_0_Truncate_IQ_0_0_ costas_loop_inst_0_Truncate_IQ_0_0_sim_netlist.vhdl
--- Design      : costas_loop_inst_0_Truncate_IQ_0_0
+--               costas_loop_inst_0_Truncate_IQ_0_0_ costas_loop_Truncate_IQ_0_0_sim_netlist.vhdl
+-- Design      : costas_loop_Truncate_IQ_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
 -- Device      : xc7z020clg484-1
@@ -26,7 +26,7 @@ entity costas_loop_inst_0_Truncate_IQ_0_0 is
   attribute NotValidForBitStream : boolean;
   attribute NotValidForBitStream of costas_loop_inst_0_Truncate_IQ_0_0 : entity is true;
   attribute CHECK_LICENSE_TYPE : string;
-  attribute CHECK_LICENSE_TYPE of costas_loop_inst_0_Truncate_IQ_0_0 : entity is "costas_loop_inst_0_Truncate_IQ_0_0,Truncate_IQ,{}";
+  attribute CHECK_LICENSE_TYPE of costas_loop_inst_0_Truncate_IQ_0_0 : entity is "costas_loop_Truncate_IQ_0_0,Truncate_IQ,{}";
   attribute DowngradeIPIdentifiedWarnings : string;
   attribute DowngradeIPIdentifiedWarnings of costas_loop_inst_0_Truncate_IQ_0_0 : entity is "yes";
   attribute IP_DEFINITION_SOURCE : string;
@@ -50,10 +50,11 @@ architecture STRUCTURE of costas_loop_inst_0_Truncate_IQ_0_0 is
   attribute X_INTERFACE_INFO of I_tdata : signal is "xilinx.com:interface:axis:1.0 I TDATA";
   attribute X_INTERFACE_INFO of Q_tdata : signal is "xilinx.com:interface:axis:1.0 Q TDATA";
 begin
-  I_tdata(15 downto 0) <= \^iq_tdata\(43 downto 28);
+  I_tdata(15 downto 0) <= \^iq_tdata\(47 downto 32);
   I_tvalid <= \^iq_tvalid\;
-  Q_tdata(15 downto 0) <= \^iq_tdata\(43 downto 28);
+  Q_tdata(15 downto 0) <= \^iq_tdata\(23 downto 8);
   Q_tvalid <= \^iq_tvalid\;
-  \^iq_tdata\(43 downto 28) <= IQ_tdata(43 downto 28);
+  \^iq_tdata\(47 downto 32) <= IQ_tdata(47 downto 32);
+  \^iq_tdata\(23 downto 8) <= IQ_tdata(23 downto 8);
   \^iq_tvalid\ <= IQ_tvalid;
 end STRUCTURE;

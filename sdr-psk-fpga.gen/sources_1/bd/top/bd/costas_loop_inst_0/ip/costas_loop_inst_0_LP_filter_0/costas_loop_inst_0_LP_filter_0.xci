@@ -2,7 +2,7 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "costas_loop_inst_0_LP_filter_0",
-    "cell_name": "LPF/LP_filter",
+    "cell_name": "Rx/costas_loop_0/LPF/LP_filter",
     "component_reference": "xilinx.com:ip:fir_compiler:7.2",
     "ip_revision": "18",
     "gen_directory": ".",

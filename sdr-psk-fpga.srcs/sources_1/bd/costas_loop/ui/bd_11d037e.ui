@@ -1,20 +1,20 @@
 {
    "ActiveEmotionalView":"Default View",
    "Default View_ScaleFactor":"1.25",
-   "Default View_TopLeft":"-374,-34",
+   "Default View_TopLeft":"-143,238",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
 #  -string -flagsOSRD
-preplace port error -pg 1 -lvl 3 -x 690 -y 270 -defaultsOSRD
+preplace port error -pg 1 -lvl 3 -x 700 -y 270 -defaultsOSRD
 preplace port in_I -pg 1 -lvl 0 -x -20 -y 200 -defaultsOSRD
 preplace port in_Q -pg 1 -lvl 0 -x -20 -y 370 -defaultsOSRD
 preplace port port-id_clk_16M384 -pg 1 -lvl 0 -x -20 -y 230 -defaultsOSRD
-preplace port port-id_rst_16M386 -pg 1 -lvl 0 -x -20 -y 430 -defaultsOSRD
+preplace port port-id_rst_16M384 -pg 1 -lvl 0 -x -20 -y 430 -defaultsOSRD
 preplace port port-id_is_bpsk -pg 1 -lvl 0 -x -20 -y 400 -defaultsOSRD
-preplace inst Error_Detect_Ctrl_0 -pg 1 -lvl 2 -x 470 -y 310 -defaultsOSRD
 preplace inst Error_Detect_BPSK -pg 1 -lvl 1 -x 120 -y 70 -defaultsOSRD
 preplace inst Error_Detect_QPSK -pg 1 -lvl 1 -x 120 -y 290 -defaultsOSRD
 preplace inst xlconstant_one -pg 1 -lvl 1 -x 120 -y 460 -defaultsOSRD
+preplace inst Error_Detect_Ctrl_0 -pg 1 -lvl 2 -x 470 -y 310 -defaultsOSRD
 preplace netloc Error_Detect_Ctrl_0_out_I_tdata 1 0 3 10 530 NJ 530 670
 preplace netloc Error_Detect_Ctrl_0_out_Q_tdata 1 0 3 20 520 NJ 520 660
 preplace netloc Error_Detect_QPSK_S 1 1 1 N 290
@@ -26,8 +26,8 @@ preplace netloc xlconstant_valid_one_dout 1 1 1 220 250n
 preplace netloc AXI_2x_I_O2 1 0 2 NJ 200 210J
 preplace netloc AXI_2x_Q_O2 1 0 2 NJ 370 210J
 preplace netloc Error_Detect_Ctrl_0_error 1 2 1 N 270
-levelinfo -pg 1 -20 120 470 690
-pagesize -pg 1 -db -bbox -sgen -150 -110 770 560
+levelinfo -pg 1 -20 120 470 700
+pagesize -pg 1 -db -bbox -sgen -150 -110 780 560
 "
 }
 0

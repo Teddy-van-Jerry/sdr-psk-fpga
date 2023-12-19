@@ -1,11 +1,11 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
--- Date        : Sun Dec 17 22:15:25 2023
+-- Date        : Tue Dec 19 20:13:37 2023
 -- Host        : TVJ-PC running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode synth_stub -rename_top costas_loop_inst_0_Truncate_IQ_0_0 -prefix
---               costas_loop_inst_0_Truncate_IQ_0_0_ costas_loop_inst_0_Truncate_IQ_0_0_stub.vhdl
--- Design      : costas_loop_inst_0_Truncate_IQ_0_0
+--               costas_loop_inst_0_Truncate_IQ_0_0_ costas_loop_Truncate_IQ_0_0_stub.vhdl
+-- Design      : costas_loop_Truncate_IQ_0_0
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7z020clg484-1
 -- --------------------------------------------------------------------------------

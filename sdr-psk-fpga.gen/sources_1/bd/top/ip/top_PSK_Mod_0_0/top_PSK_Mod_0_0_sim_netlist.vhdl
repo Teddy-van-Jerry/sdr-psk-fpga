@@ -1,7 +1,7 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
--- Date        : Mon Dec 18 16:44:32 2023
+-- Date        : Tue Dec 19 12:40:13 2023
 -- Host        : TVJ-PC running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               e:/Documents/Study/Verilog/SDR/sdr-psk-fpga/sdr-psk-fpga.gen/sources_1/bd/top/ip/top_PSK_Mod_0_0/top_PSK_Mod_0_0_sim_netlist.vhdl
@@ -24,6 +24,7 @@ entity top_PSK_Mod_0_0_PSK_Mod is
     out_last : out STD_LOGIC;
     out_is_bpsk : out STD_LOGIC;
     out_bits : out STD_LOGIC_VECTOR ( 1 downto 0 );
+    DELAY_CNT : in STD_LOGIC_VECTOR ( 3 downto 0 );
     rst_16M384 : in STD_LOGIC;
     clk_16M384 : in STD_LOGIC;
     data_tdata : in STD_LOGIC_VECTOR ( 1 downto 0 );
@@ -41,8 +42,9 @@ architecture STRUCTURE of top_PSK_Mod_0_0_PSK_Mod is
   signal cnt_reg : STD_LOGIC_VECTOR ( 2 downto 0 );
   signal data_buf : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal \data_buf[1]_i_1_n_0\ : STD_LOGIC;
+  signal data_tready_i_1_n_0 : STD_LOGIC;
+  signal data_tready_i_2_n_0 : STD_LOGIC;
   signal is_bpsk_buf : STD_LOGIC;
-  signal is_bpsk_buf_0 : STD_LOGIC;
   signal last_buf : STD_LOGIC;
   signal out_I1 : STD_LOGIC_VECTOR ( 11 downto 1 );
   signal \out_I[10]_i_1_n_0\ : STD_LOGIC;
@@ -111,20 +113,20 @@ architecture STRUCTURE of top_PSK_Mod_0_0_PSK_Mod is
   signal \NLW_out_Q_reg[11]_i_2_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 2 );
   signal \NLW_out_Q_reg[11]_i_2_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \cnt[1]_i_1\ : label is "soft_lutpair1";
-  attribute SOFT_HLUTNM of \cnt[2]_i_1\ : label is "soft_lutpair1";
+  attribute SOFT_HLUTNM of \cnt[0]_i_1\ : label is "soft_lutpair6";
+  attribute SOFT_HLUTNM of \cnt[1]_i_1\ : label is "soft_lutpair6";
+  attribute SOFT_HLUTNM of \cnt[2]_i_1\ : label is "soft_lutpair0";
   attribute SOFT_HLUTNM of \cnt[3]_i_1\ : label is "soft_lutpair0";
-  attribute SOFT_HLUTNM of \data_tready__0\ : label is "soft_lutpair0";
-  attribute SOFT_HLUTNM of \out_I[10]_i_1\ : label is "soft_lutpair6";
-  attribute SOFT_HLUTNM of \out_I[1]_i_1\ : label is "soft_lutpair2";
-  attribute SOFT_HLUTNM of \out_I[2]_i_1\ : label is "soft_lutpair2";
-  attribute SOFT_HLUTNM of \out_I[3]_i_1\ : label is "soft_lutpair3";
-  attribute SOFT_HLUTNM of \out_I[4]_i_1\ : label is "soft_lutpair3";
-  attribute SOFT_HLUTNM of \out_I[5]_i_1\ : label is "soft_lutpair4";
-  attribute SOFT_HLUTNM of \out_I[6]_i_1\ : label is "soft_lutpair4";
-  attribute SOFT_HLUTNM of \out_I[7]_i_1\ : label is "soft_lutpair5";
-  attribute SOFT_HLUTNM of \out_I[8]_i_1\ : label is "soft_lutpair5";
-  attribute SOFT_HLUTNM of \out_I[9]_i_1\ : label is "soft_lutpair6";
+  attribute SOFT_HLUTNM of \out_I[10]_i_1\ : label is "soft_lutpair5";
+  attribute SOFT_HLUTNM of \out_I[1]_i_1\ : label is "soft_lutpair1";
+  attribute SOFT_HLUTNM of \out_I[2]_i_1\ : label is "soft_lutpair1";
+  attribute SOFT_HLUTNM of \out_I[3]_i_1\ : label is "soft_lutpair2";
+  attribute SOFT_HLUTNM of \out_I[4]_i_1\ : label is "soft_lutpair2";
+  attribute SOFT_HLUTNM of \out_I[5]_i_1\ : label is "soft_lutpair3";
+  attribute SOFT_HLUTNM of \out_I[6]_i_1\ : label is "soft_lutpair3";
+  attribute SOFT_HLUTNM of \out_I[7]_i_1\ : label is "soft_lutpair4";
+  attribute SOFT_HLUTNM of \out_I[8]_i_1\ : label is "soft_lutpair4";
+  attribute SOFT_HLUTNM of \out_I[9]_i_1\ : label is "soft_lutpair5";
   attribute ADDER_THRESHOLD : integer;
   attribute ADDER_THRESHOLD of \out_I_reg[11]_i_4\ : label is 35;
   attribute ADDER_THRESHOLD of \out_I_reg[4]_i_2\ : label is 35;
@@ -204,16 +206,15 @@ begin
       Q => \^out_clk_1m024\,
       R => rst_16M384
     );
-\data_buf[1]_i_1\: unisim.vcomponents.LUT5
+\data_buf[1]_i_1\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"00000004"
+      INIT => X"0082"
     )
         port map (
-      I0 => cnt_reg(1),
-      I1 => \^out_clk_1m024\,
-      I2 => cnt_reg(2),
-      I3 => cnt_reg(0),
-      I4 => rst_16M384,
+      I0 => data_tready_i_2_n_0,
+      I1 => DELAY_CNT(3),
+      I2 => \^out_clk_1m024\,
+      I3 => rst_16M384,
       O => \data_buf[1]_i_1_n_0\
     );
 \data_buf_reg[0]\: unisim.vcomponents.FDRE
@@ -232,22 +233,34 @@ begin
       Q => data_buf(1),
       R => '0'
     );
-\data_tready__0\: unisim.vcomponents.LUT4
+data_tready_i_1: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"0010"
+      INIT => X"90"
+    )
+        port map (
+      I0 => \^out_clk_1m024\,
+      I1 => DELAY_CNT(3),
+      I2 => data_tready_i_2_n_0,
+      O => data_tready_i_1_n_0
+    );
+data_tready_i_2: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"9009000000009009"
     )
         port map (
       I0 => cnt_reg(0),
-      I1 => cnt_reg(2),
-      I2 => \^out_clk_1m024\,
-      I3 => cnt_reg(1),
-      O => is_bpsk_buf_0
+      I1 => DELAY_CNT(0),
+      I2 => DELAY_CNT(2),
+      I3 => cnt_reg(2),
+      I4 => DELAY_CNT(1),
+      I5 => cnt_reg(1),
+      O => data_tready_i_2_n_0
     );
 data_tready_reg: unisim.vcomponents.FDRE
      port map (
       C => clk_16M384,
       CE => '1',
-      D => is_bpsk_buf_0,
+      D => data_tready_i_1_n_0,
       Q => data_tready,
       R => rst_16M384
     );
@@ -1056,6 +1069,7 @@ entity top_PSK_Mod_0_0 is
     data_tuser : in STD_LOGIC;
     carrier_I : in STD_LOGIC_VECTOR ( 11 downto 0 );
     carrier_Q : in STD_LOGIC_VECTOR ( 11 downto 0 );
+    DELAY_CNT : in STD_LOGIC_VECTOR ( 3 downto 0 );
     out_I : out STD_LOGIC_VECTOR ( 11 downto 0 );
     out_Q : out STD_LOGIC_VECTOR ( 11 downto 0 );
     out_vld : out STD_LOGIC;
@@ -1088,6 +1102,7 @@ architecture STRUCTURE of top_PSK_Mod_0_0 is
 begin
 inst: entity work.top_PSK_Mod_0_0_PSK_Mod
      port map (
+      DELAY_CNT(3 downto 0) => DELAY_CNT(3 downto 0),
       carrier_I(11 downto 0) => carrier_I(11 downto 0),
       carrier_Q(11 downto 0) => carrier_Q(11 downto 0),
       clk_16M384 => clk_16M384,

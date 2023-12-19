@@ -1,7 +1,7 @@
 //Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-//Date        : Tue Dec 19 11:05:09 2023
+//Date        : Tue Dec 19 21:41:01 2023
 //Host        : TVJ-PC running 64-bit major release  (build 9200)
 //Command     : generate_target top.bd
 //Design      : top
@@ -66,6 +66,7 @@ module PSK_Modulation_imp_1W4LMRU
     DAC_Q,
     DAC_bits,
     DAC_vld,
+    DELAY_CNT,
     clk_16M384,
     clk_1M024,
     data_tdata,
@@ -79,6 +80,7 @@ module PSK_Modulation_imp_1W4LMRU
   output [11:0]DAC_Q;
   output [1:0]DAC_bits;
   output DAC_vld;
+  input [3:0]DELAY_CNT;
   input clk_16M384;
   input clk_1M024;
   input [7:0]data_tdata;
@@ -89,6 +91,7 @@ module PSK_Modulation_imp_1W4LMRU
   input rst_16M384;
   input rst_n_1M024;
 
+  wire [3:0]DELAY_CNT_1;
   wire Div_clk32M768_0_clk16M384;
   wire [11:0]NCO_cos_sin_0_NCO_cos;
   wire [11:0]NCO_cos_sin_0_NCO_sin;
@@ -116,6 +119,7 @@ module PSK_Modulation_imp_1W4LMRU
   assign DAC_Q[11:0] = PSK_Mod_0_out_Q;
   assign DAC_bits[1:0] = PSK_Mod_0_out_bits;
   assign DAC_vld = PSK_Mod_0_out_vld;
+  assign DELAY_CNT_1 = DELAY_CNT[3:0];
   assign Div_clk32M768_0_clk16M384 = clk_16M384;
   assign data_1_TDATA = data_tdata[7:0];
   assign data_1_TLAST = data_tlast;
@@ -132,7 +136,8 @@ module PSK_Modulation_imp_1W4LMRU
         .NCO_tvalid(dds_compiler_0_M_AXIS_DATA_TVALID),
         .clk(Div_clk32M768_0_clk16M384));
   top_PSK_Mod_0_0 PSK_Mod_0
-       (.carrier_I(NCO_cos_sin_0_NCO_cos),
+       (.DELAY_CNT(DELAY_CNT_1),
+        .carrier_I(NCO_cos_sin_0_NCO_cos),
         .carrier_Q(NCO_cos_sin_0_NCO_sin),
         .clk_16M384(Div_clk32M768_0_clk16M384),
         .data_tdata(axis_data_fifo_0_M_AXIS_TDATA),
@@ -214,18 +219,22 @@ module Rx_imp_KSVDXC
    (ADC_I,
     ADC_Q,
     BPSK,
+    I_data,
+    NCO_cos,
     QPSK,
+    Q_data,
     clk_16M384,
-    clk_32M768,
     is_bpsk,
     rst_16M384,
     vld);
   input [11:0]ADC_I;
   input [11:0]ADC_Q;
   output BPSK;
+  output [15:0]I_data;
+  output [11:0]NCO_cos;
   output [1:0]QPSK;
+  output [15:0]Q_data;
   input clk_16M384;
-  input clk_32M768;
   input is_bpsk;
   input rst_16M384;
   output vld;
@@ -237,11 +246,13 @@ module Rx_imp_KSVDXC
   wire [1:0]PSK_Detection_0_QPSK;
   wire PSK_Detection_0_vld;
   wire [11:0]PSK_Signal_Extend_0_PSK_signal;
-  wire clk_wiz_32M768_clk_32M768;
-  wire [15:0]costas_loop_0_I_TDATA;
+  wire [15:0]c_shift_ram_I_Q;
+  wire [15:0]c_shift_ram_Q_Q;
   wire costas_loop_0_I_TVALID;
-  wire [15:0]costas_loop_0_Q_TDATA;
+  wire [15:0]costas_loop_0_I_tdata;
+  wire [11:0]costas_loop_0_NCO_cos;
   wire costas_loop_0_Q_TVALID;
+  wire [15:0]costas_loop_0_Q_tdata;
   wire is_bpsk_1;
   wire rst_16M386_1;
 
@@ -249,17 +260,19 @@ module Rx_imp_KSVDXC
   assign AD9361_1RT_FDD_0_AD9361_RX_DAT_Q = ADC_Q[11:0];
   assign BPSK = PSK_Detection_0_BPSK;
   assign Div_clk32M768_0_clk16M384 = clk_16M384;
+  assign I_data[15:0] = c_shift_ram_I_Q;
+  assign NCO_cos[11:0] = costas_loop_0_NCO_cos;
   assign QPSK[1:0] = PSK_Detection_0_QPSK;
-  assign clk_wiz_32M768_clk_32M768 = clk_32M768;
+  assign Q_data[15:0] = c_shift_ram_Q_Q;
   assign is_bpsk_1 = is_bpsk;
   assign rst_16M386_1 = rst_16M384;
   assign vld = PSK_Detection_0_vld;
   top_PSK_Detection_0_0 PSK_Detection_0
        (.BPSK(PSK_Detection_0_BPSK),
-        .I_tdata(costas_loop_0_I_TDATA),
+        .I_tdata(costas_loop_0_I_tdata),
         .I_tvalid(costas_loop_0_I_TVALID),
         .QPSK(PSK_Detection_0_QPSK),
-        .Q_tdata(costas_loop_0_Q_TDATA),
+        .Q_tdata(costas_loop_0_Q_tdata),
         .Q_tvalid(costas_loop_0_Q_TVALID),
         .clk(Div_clk32M768_0_clk16M384),
         .rst(rst_16M386_1),
@@ -268,16 +281,24 @@ module Rx_imp_KSVDXC
        (.DAC_I(AD9361_1RT_FDD_0_AD9361_RX_DAT_I),
         .DAC_Q(AD9361_1RT_FDD_0_AD9361_RX_DAT_Q),
         .PSK_signal(PSK_Signal_Extend_0_PSK_signal));
+  top_c_shift_ram_0_2 c_shift_ram_I
+       (.CLK(Div_clk32M768_0_clk16M384),
+        .D(costas_loop_0_I_tdata),
+        .Q(c_shift_ram_I_Q));
+  top_c_shift_ram_I_0 c_shift_ram_Q
+       (.CLK(Div_clk32M768_0_clk16M384),
+        .D(costas_loop_0_Q_tdata),
+        .Q(c_shift_ram_Q_Q));
   costas_loop_inst_0 costas_loop_0
-       (.I_tdata(costas_loop_0_I_TDATA),
+       (.I_tdata(costas_loop_0_I_tdata),
         .I_tvalid(costas_loop_0_I_TVALID),
+        .NCO_cos(costas_loop_0_NCO_cos),
         .PSK_signal(PSK_Signal_Extend_0_PSK_signal),
-        .Q_tdata(costas_loop_0_Q_TDATA),
+        .Q_tdata(costas_loop_0_Q_tdata),
         .Q_tvalid(costas_loop_0_Q_TVALID),
         .clk_16M384(Div_clk32M768_0_clk16M384),
-        .clk_32M768(clk_wiz_32M768_clk_32M768),
         .is_bpsk(is_bpsk_1),
-        .rst_16M386(rst_16M386_1));
+        .rst_16M384(rst_16M386_1));
 endmodule
 
 module Tx_imp_1IUYQQO
@@ -285,6 +306,7 @@ module Tx_imp_1IUYQQO
     DAC_Q,
     DAC_bits,
     DAC_vld,
+    DELAY_CNT,
     clk_16M384,
     clk_1M024,
     rst_16M384,
@@ -293,11 +315,13 @@ module Tx_imp_1IUYQQO
   output [11:0]DAC_Q;
   output [1:0]DAC_bits;
   output DAC_vld;
+  input [3:0]DELAY_CNT;
   input clk_16M384;
   input clk_1M024;
   input rst_16M384;
   input [0:0]rst_n_1M024;
 
+  wire [3:0]DELAY_CNT_1;
   wire Div_clk32M768_0_clk16M384;
   wire [11:0]PSK_Mod_0_out_I;
   wire [11:0]PSK_Mod_0_out_Q;
@@ -316,6 +340,7 @@ module Tx_imp_1IUYQQO
   assign DAC_Q[11:0] = PSK_Mod_0_out_Q;
   assign DAC_bits[1:0] = PSK_Modulation_out_bits;
   assign DAC_vld = PSK_Modulation_out_vld;
+  assign DELAY_CNT_1 = DELAY_CNT[3:0];
   assign Div_clk32M768_0_clk16M384 = clk_16M384;
   assign proc_sys_reset_16M384_mb_reset = rst_16M384;
   assign s_axis_aresetn_1 = rst_n_1M024[0];
@@ -324,6 +349,7 @@ module Tx_imp_1IUYQQO
         .DAC_Q(PSK_Mod_0_out_Q),
         .DAC_bits(PSK_Modulation_out_bits),
         .DAC_vld(PSK_Modulation_out_vld),
+        .DELAY_CNT(DELAY_CNT_1),
         .clk_16M384(Div_clk32M768_0_clk16M384),
         .clk_1M024(clk_1M024),
         .data_tdata(Tx_Data_0_data_TDATA),
@@ -342,7 +368,7 @@ module Tx_imp_1IUYQQO
         .data_tvalid(Tx_Data_0_data_TVALID));
 endmodule
 
-(* CORE_GENERATION_INFO = "top,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=top,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=42,numReposBlks=32,numNonXlnxBlks=0,numHierBlks=10,maxHierDepth=3,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=12,numPkgbdBlks=1,bdsource=USER,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "top.hwdef" *) 
+(* CORE_GENERATION_INFO = "top,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=top,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=45,numReposBlks=35,numNonXlnxBlks=0,numHierBlks=10,maxHierDepth=3,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=12,numPkgbdBlks=1,bdsource=USER,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "top.hwdef" *) 
 module top
    (AD9361_DATACLK,
     AD9361_FBCLK,
@@ -370,16 +396,19 @@ module top
   wire AD9361_RX_FRAME_1;
   wire Clock_Gen_clk1M024;
   wire [0:0]Clock_Gen_interconnect_aresetn;
+  wire [3:0]DELAY_CNT_1;
   wire Div_clk32M768_0_clk16M384;
   wire PL_CLK_100MHz_1;
   wire [11:0]PSK_Mod_0_out_I;
   wire [11:0]PSK_Mod_0_out_Q;
   wire Rx_BPSK;
+  wire [15:0]Rx_I_data;
+  wire [11:0]Rx_NCO_cos;
   wire [1:0]Rx_QPSK;
+  wire [15:0]Rx_Q_data;
   wire [1:0]Tx_out_bits;
   wire Tx_out_vld;
   wire clk_wiz_128M_clk_200M;
-  wire clk_wiz_32M768_clk_32M768;
   wire [0:0]proc_sys_reset_16M384_mb_reset;
   wire [0:0]xlconstant_0_dout;
 
@@ -395,7 +424,6 @@ module top
         .clk1M024(Clock_Gen_clk1M024),
         .clk_16M384(Div_clk32M768_0_clk16M384),
         .clk_200M(clk_wiz_128M_clk_200M),
-        .clk_32M768(clk_wiz_32M768_clk_32M768),
         .rst_16M384(proc_sys_reset_16M384_mb_reset),
         .rst_n_1M024(Clock_Gen_interconnect_aresetn));
   top_AD9361_1RT_FDD_0_0 RF_Data_Converter
@@ -416,9 +444,11 @@ module top
        (.ADC_I(AD9361_1RT_FDD_0_AD9361_RX_DAT_I),
         .ADC_Q(AD9361_1RT_FDD_0_AD9361_RX_DAT_Q),
         .BPSK(Rx_BPSK),
+        .I_data(Rx_I_data),
+        .NCO_cos(Rx_NCO_cos),
         .QPSK(Rx_QPSK),
+        .Q_data(Rx_Q_data),
         .clk_16M384(Div_clk32M768_0_clk16M384),
-        .clk_32M768(clk_wiz_32M768_clk_32M768),
         .is_bpsk(xlconstant_0_dout),
         .rst_16M384(proc_sys_reset_16M384_mb_reset));
   Tx_imp_1IUYQQO Tx
@@ -426,6 +456,7 @@ module top
         .DAC_Q(PSK_Mod_0_out_Q),
         .DAC_bits(Tx_out_bits),
         .DAC_vld(Tx_out_vld),
+        .DELAY_CNT(DELAY_CNT_1),
         .clk_16M384(Div_clk32M768_0_clk16M384),
         .clk_1M024(Clock_Gen_clk1M024),
         .rst_16M384(proc_sys_reset_16M384_mb_reset),
@@ -434,12 +465,17 @@ module top
        (.clk(Div_clk32M768_0_clk16M384),
         .probe0(PSK_Mod_0_out_I),
         .probe1(PSK_Mod_0_out_Q),
+        .probe10(Rx_NCO_cos),
         .probe2(Tx_out_vld),
         .probe3(Tx_out_bits),
         .probe4(AD9361_1RT_FDD_0_AD9361_RX_DAT_I),
         .probe5(AD9361_1RT_FDD_0_AD9361_RX_DAT_Q),
         .probe6(Rx_BPSK),
-        .probe7(Rx_QPSK));
+        .probe7(Rx_QPSK),
+        .probe8(Rx_I_data),
+        .probe9(Rx_Q_data));
   top_xlconstant_0_1 xlconstant_0
        (.dout(xlconstant_0_dout));
+  top_xlconstant_1_0 xlconstant_1
+       (.dout(DELAY_CNT_1));
 endmodule

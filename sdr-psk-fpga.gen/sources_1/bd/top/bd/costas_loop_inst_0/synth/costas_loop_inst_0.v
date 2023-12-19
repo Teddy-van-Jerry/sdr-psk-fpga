@@ -1,7 +1,7 @@
 //Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-//Date        : Tue Dec 19 11:05:11 2023
+//Date        : Tue Dec 19 21:41:05 2023
 //Host        : TVJ-PC running 64-bit major release  (build 9200)
 //Command     : generate_target costas_loop_inst_0.bd
 //Design      : costas_loop_inst_0
@@ -18,7 +18,7 @@ module Error_Detect_imp_1JXVF2
     in_Q_tdata,
     in_Q_tvalid,
     is_bpsk,
-    rst_16M386);
+    rst_16M384);
   input clk_16M384;
   output [15:0]error_tdata;
   output error_tvalid;
@@ -27,7 +27,7 @@ module Error_Detect_imp_1JXVF2
   input [15:0]in_Q_tdata;
   input in_Q_tvalid;
   input is_bpsk;
-  input rst_16M386;
+  input rst_16M384;
 
   wire [15:0]AXI_2x_I_O2_TDATA;
   wire AXI_2x_I_O2_TVALID;
@@ -52,7 +52,7 @@ module Error_Detect_imp_1JXVF2
   assign error_tdata[15:0] = Error_Detect_Ctrl_0_error_TDATA;
   assign error_tvalid = Error_Detect_Ctrl_0_error_TVALID;
   assign is_bpsk_1 = is_bpsk;
-  assign rst_16M386_1 = rst_16M386;
+  assign rst_16M386_1 = rst_16M384;
   costas_loop_inst_0_Error_Detect_BPSK_0 Error_Detect_BPSK
        (.A(Error_Detect_Ctrl_0_out_I_tdata),
         .B(Error_Detect_Ctrl_0_out_Q_tdata),
@@ -209,20 +209,20 @@ module NCO_imp_UABGQB
   wire [11:0]NCO_cos_sin_0_NCO_cos;
   wire [11:0]NCO_cos_sin_0_NCO_sin;
   wire aclk_0_1;
-  wire [15:0]loop_filter_M_AXIS_DATA_TDATA;
-  wire loop_filter_M_AXIS_DATA_TVALID;
+  wire [15:0]increment_1_TDATA;
+  wire increment_1_TVALID;
 
   assign NCO_cos[11:0] = NCO_cos_sin_0_NCO_cos;
   assign NCO_sin[11:0] = NCO_cos_sin_0_NCO_sin;
   assign aclk_0_1 = clk_16M384;
-  assign loop_filter_M_AXIS_DATA_TDATA = increment_tdata[15:0];
-  assign loop_filter_M_AXIS_DATA_TVALID = increment_tvalid;
+  assign increment_1_TDATA = increment_tdata[15:0];
+  assign increment_1_TVALID = increment_tvalid;
   costas_loop_inst_0_NCO_DDS_0 NCO_DDS
        (.aclk(aclk_0_1),
         .m_axis_data_tdata(NCO_M_AXIS_DATA_TDATA),
         .m_axis_data_tvalid(NCO_M_AXIS_DATA_TVALID),
-        .s_axis_config_tdata(loop_filter_M_AXIS_DATA_TDATA),
-        .s_axis_config_tvalid(loop_filter_M_AXIS_DATA_TVALID));
+        .s_axis_phase_tdata(increment_1_TDATA),
+        .s_axis_phase_tvalid(increment_1_TVALID));
   costas_loop_inst_0_NCO_cos_sin_0_0 NCO_cos_sin_0
        (.NCO_cos(NCO_cos_sin_0_NCO_cos),
         .NCO_sin(NCO_cos_sin_0_NCO_sin),
@@ -235,22 +235,22 @@ endmodule
 module costas_loop_inst_0
    (I_tdata,
     I_tvalid,
+    NCO_cos,
     PSK_signal,
     Q_tdata,
     Q_tvalid,
     clk_16M384,
-    clk_32M768,
     is_bpsk,
-    rst_16M386);
+    rst_16M384);
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 I TDATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME I, FREQ_HZ 16384000, HAS_TKEEP 0, HAS_TLAST 0, HAS_TREADY 0, HAS_TSTRB 0, INSERT_VIP 0, LAYERED_METADATA undef, PHASE 0.0, TDATA_NUM_BYTES 2, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0" *) output [15:0]I_tdata;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 I TVALID" *) output I_tvalid;
+  output [11:0]NCO_cos;
   (* X_INTERFACE_INFO = "xilinx.com:signal:data:1.0 DATA.PSK_SIGNAL DATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME DATA.PSK_SIGNAL, LAYERED_METADATA undef" *) input [11:0]PSK_signal;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 Q TDATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME Q, FREQ_HZ 16384000, HAS_TKEEP 0, HAS_TLAST 0, HAS_TREADY 0, HAS_TSTRB 0, INSERT_VIP 0, LAYERED_METADATA undef, PHASE 0.0, TDATA_NUM_BYTES 2, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0" *) output [15:0]Q_tdata;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 Q TVALID" *) output Q_tvalid;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.CLK_16M384 CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.CLK_16M384, ASSOCIATED_RESET rst_16M386, CLK_DOMAIN costas_loop_aclk_0, FREQ_HZ 16384000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0" *) input clk_16M384;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.CLK_32M768 CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.CLK_32M768, CLK_DOMAIN /Clock_Gen/clk_wiz_32M768_clk_out1, FREQ_HZ 32768000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0" *) input clk_32M768;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.CLK_16M384 CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.CLK_16M384, ASSOCIATED_RESET rst_16M386:rst_16M384, CLK_DOMAIN costas_loop_aclk_0, FREQ_HZ 16384000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0" *) input clk_16M384;
   input is_bpsk;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.RST_16M386 RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.RST_16M386, INSERT_VIP 0, POLARITY ACTIVE_HIGH" *) input rst_16M386;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.RST_16M384 RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.RST_16M384, INSERT_VIP 0, POLARITY ACTIVE_HIGH" *) input rst_16M384;
 
   wire [15:0]AXI_2x_I_O2_TDATA;
   wire AXI_2x_I_O2_TVALID;
@@ -277,12 +277,13 @@ module costas_loop_inst_0
 
   assign I_tdata[15:0] = IQ_Connect_I1_TDATA;
   assign I_tvalid = IQ_Connect_I1_TVALID;
+  assign NCO_cos[11:0] = NCO_cos_sin_0_NCO_cos;
   assign PSK_signal_1 = PSK_signal[11:0];
   assign Q_tdata[15:0] = IQ_Connect_Q1_TDATA;
   assign Q_tvalid = IQ_Connect_Q1_TVALID;
   assign aclk_0_1 = clk_16M384;
   assign is_bpsk_1 = is_bpsk;
-  assign rst_16M386_1 = rst_16M386;
+  assign rst_16M386_1 = rst_16M384;
   Error_Detect_imp_1JXVF2 Error_Detect
        (.clk_16M384(aclk_0_1),
         .error_tdata(Error_Detect_Ctrl_0_error_TDATA),
@@ -292,7 +293,7 @@ module costas_loop_inst_0
         .in_Q_tdata(AXI_2x_Q_O2_TDATA),
         .in_Q_tvalid(AXI_2x_Q_O2_TVALID),
         .is_bpsk(is_bpsk_1),
-        .rst_16M386(rst_16M386_1));
+        .rst_16M384(rst_16M386_1));
   IQ_Connect_imp_16TE85B IQ_Connect
        (.I1_tdata(IQ_Connect_I1_TDATA),
         .I1_tvalid(IQ_Connect_I1_TVALID),
