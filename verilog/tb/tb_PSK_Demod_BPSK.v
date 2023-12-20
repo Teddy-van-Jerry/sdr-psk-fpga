@@ -9,6 +9,7 @@ module tb_PSK_Demod_BPSK;
   reg rst_n_1M024;
 
   wire signed [11:0] DAC_I, DAC_Q;
+  reg  signed [11:0] noise_I, noise_Q;
   wire [1:0] DAC_bits;
   wire BPSK;
   wire DAC_vld, BPSK_vld;
@@ -19,7 +20,7 @@ module tb_PSK_Demod_BPSK;
     .rst_16M384(rst_16M384),
     .clk_1M024(clk_1M024),
     .rst_n_1M024(rst_n_1M024),
-    .DELAY_CNT(4'd8), // <-- change this to test different scenarios
+    .DELAY_CNT(4'd11), // <-- change this to test different scenarios
     .DAC_I(DAC_I),
     .DAC_Q(DAC_Q),
     .DAC_bits(DAC_bits),
@@ -29,8 +30,8 @@ module tb_PSK_Demod_BPSK;
   Rx_imp_KSVDXC inst_Rx (
     .clk_16M384(clk_16M384),
     .rst_16M384(rst_16M384),
-    .ADC_I(DAC_I), // loopback
-    .ADC_Q(DAC_Q), // loopback
+    .ADC_I(DAC_I / 2 + noise_I), // loopback with gain and noise
+    .ADC_Q(DAC_Q / 2 + noise_Q), // loopback with gain and noise
     .BPSK(BPSK),
     .QPSK(),
     .is_bpsk(1'b1),
@@ -56,6 +57,13 @@ module tb_PSK_Demod_BPSK;
     #128
     rst_16M384 = 1'b0;
     rst_n_1M024 = 1'b1;
+  end
+
+  // random number
+  always begin
+    #2
+    noise_I <= $urandom_range(128);
+    noise_Q <= $urandom_range(128);
   end
 
 endmodule;
