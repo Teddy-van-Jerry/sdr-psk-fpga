@@ -1,7 +1,7 @@
 //Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-//Date        : Tue Dec 19 21:41:05 2023
+//Date        : Wed Dec 20 12:38:00 2023
 //Host        : TVJ-PC running 64-bit major release  (build 9200)
 //Command     : generate_target costas_loop_inst_0.bd
 //Design      : costas_loop_inst_0
@@ -196,33 +196,46 @@ module NCO_imp_UABGQB
    (NCO_cos,
     NCO_sin,
     clk_16M384,
-    increment_tdata,
-    increment_tvalid);
+    feedback_tdata,
+    feedback_tvalid,
+    rst_16M384);
   output [11:0]NCO_cos;
   output [11:0]NCO_sin;
   input clk_16M384;
-  input [15:0]increment_tdata;
-  input increment_tvalid;
+  input [15:0]feedback_tdata;
+  input feedback_tvalid;
+  input rst_16M384;
 
   wire [31:0]NCO_M_AXIS_DATA_TDATA;
   wire NCO_M_AXIS_DATA_TVALID;
+  wire [15:0]NCO_Phase_0_phase_TDATA;
+  wire NCO_Phase_0_phase_TVALID;
   wire [11:0]NCO_cos_sin_0_NCO_cos;
   wire [11:0]NCO_cos_sin_0_NCO_sin;
   wire aclk_0_1;
-  wire [15:0]increment_1_TDATA;
-  wire increment_1_TVALID;
+  wire [15:0]feedback_1_TDATA;
+  wire feedback_1_TVALID;
+  wire rst_16M384_1;
 
   assign NCO_cos[11:0] = NCO_cos_sin_0_NCO_cos;
   assign NCO_sin[11:0] = NCO_cos_sin_0_NCO_sin;
   assign aclk_0_1 = clk_16M384;
-  assign increment_1_TDATA = increment_tdata[15:0];
-  assign increment_1_TVALID = increment_tvalid;
+  assign feedback_1_TDATA = feedback_tdata[15:0];
+  assign feedback_1_TVALID = feedback_tvalid;
+  assign rst_16M384_1 = rst_16M384;
   costas_loop_inst_0_NCO_DDS_0 NCO_DDS
        (.aclk(aclk_0_1),
         .m_axis_data_tdata(NCO_M_AXIS_DATA_TDATA),
         .m_axis_data_tvalid(NCO_M_AXIS_DATA_TVALID),
-        .s_axis_phase_tdata(increment_1_TDATA),
-        .s_axis_phase_tvalid(increment_1_TVALID));
+        .s_axis_phase_tdata(NCO_Phase_0_phase_TDATA),
+        .s_axis_phase_tvalid(NCO_Phase_0_phase_TVALID));
+  costas_loop_inst_0_NCO_Phase_0_0 NCO_Phase_0
+       (.clk(aclk_0_1),
+        .feedback_tdata(feedback_1_TDATA),
+        .feedback_tvalid(feedback_1_TVALID),
+        .phase_tdata(NCO_Phase_0_phase_TDATA),
+        .phase_tvalid(NCO_Phase_0_phase_TVALID),
+        .rst(rst_16M384_1));
   costas_loop_inst_0_NCO_cos_sin_0_0 NCO_cos_sin_0
        (.NCO_cos(NCO_cos_sin_0_NCO_cos),
         .NCO_sin(NCO_cos_sin_0_NCO_sin),
@@ -231,7 +244,7 @@ module NCO_imp_UABGQB
         .clk(aclk_0_1));
 endmodule
 
-(* CORE_GENERATION_INFO = "costas_loop_inst_0,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=costas_loop_inst_0,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=19,numReposBlks=15,numNonXlnxBlks=0,numHierBlks=4,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=5,numPkgbdBlks=0,bdsource=E_/Documents/Study/Verilog/SDR/sdr-psk-fpga/sdr-psk-fpga.srcs/sources_1/bd/costas_loop/costas_loop.bd,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "costas_loop_inst_0.hwdef" *) 
+(* CORE_GENERATION_INFO = "costas_loop_inst_0,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=costas_loop_inst_0,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=20,numReposBlks=16,numNonXlnxBlks=0,numHierBlks=4,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=6,numPkgbdBlks=0,bdsource=E_/Documents/Study/Verilog/SDR/sdr-psk-fpga/sdr-psk-fpga.srcs/sources_1/bd/costas_loop/costas_loop.bd,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "costas_loop_inst_0.hwdef" *) 
 module costas_loop_inst_0
    (I_tdata,
     I_tvalid,
@@ -315,8 +328,9 @@ module costas_loop_inst_0
        (.NCO_cos(NCO_cos_sin_0_NCO_cos),
         .NCO_sin(NCO_cos_sin_0_NCO_sin),
         .clk_16M384(aclk_0_1),
-        .increment_tdata(loop_filter_M_AXIS_DATA_TDATA),
-        .increment_tvalid(loop_filter_M_AXIS_DATA_TVALID));
+        .feedback_tdata(loop_filter_M_AXIS_DATA_TDATA),
+        .feedback_tvalid(loop_filter_M_AXIS_DATA_TVALID),
+        .rst_16M384(rst_16M386_1));
   costas_loop_inst_0_loop_filter_0 loop_filter
        (.aclk(aclk_0_1),
         .m_axis_data_tdata(loop_filter_M_AXIS_DATA_TDATA),

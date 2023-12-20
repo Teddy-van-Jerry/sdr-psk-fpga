@@ -187,6 +187,24 @@
 						"TVALID": { "actual": "s_axis_phase_tvalid"}
 					}
 				},
+				"/NCO/NCO_Phase_0/feedback": {
+					"interface": "xilinx.com:interface:axis:1.0",
+					"ports": {
+						"ACLK": { "actual": "clk"},
+						"ARESET": { "actual": "rst"},
+						"TDATA": { "actual": "feedback_tdata"},
+						"TVALID": { "actual": "feedback_tvalid"}
+					}
+				},
+				"/NCO/NCO_Phase_0/phase": {
+					"interface": "xilinx.com:interface:axis:1.0",
+					"ports": {
+						"ACLK": { "actual": "clk"},
+						"ARESET": { "actual": "rst"},
+						"TDATA": { "actual": "phase_tdata"},
+						"TVALID": { "actual": "phase_tvalid"}
+					}
+				},
 				"/NCO/NCO_cos_sin_0/NCO": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
@@ -195,12 +213,13 @@
 						"TVALID": { "actual": "NCO_tvalid"}
 					}
 				},
-				"/NCO/increment": {
+				"/NCO/feedback": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "clk_16M384"},
-						"TDATA": { "actual": "increment_tdata"},
-						"TVALID": { "actual": "increment_tvalid"}
+						"ARESET": { "actual": "rst_16M384"},
+						"TDATA": { "actual": "feedback_tdata"},
+						"TVALID": { "actual": "feedback_tvalid"}
 					}
 				},
 				"/loop_filter/M_AXIS_DATA": {

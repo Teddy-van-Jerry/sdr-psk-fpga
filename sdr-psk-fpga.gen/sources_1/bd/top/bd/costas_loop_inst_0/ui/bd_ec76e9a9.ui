@@ -1,23 +1,27 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"1.24884",
-   "Default View_TopLeft":"-123,-170",
+   "Default View_ScaleFactor":"0.995387",
+   "Default View_TopLeft":"-123,-178",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
 #  -string -flagsOSRD
-preplace port increment -pg 1 -lvl 0 -x 0 -y 70 -defaultsOSRD
+preplace port feedback -pg 1 -lvl 0 -x 0 -y 70 -defaultsOSRD
 preplace port port-id_clk_16M384 -pg 1 -lvl 0 -x 0 -y 100 -defaultsOSRD
-preplace portBus NCO_cos -pg 1 -lvl 3 -x 600 -y 70 -defaultsOSRD
-preplace portBus NCO_sin -pg 1 -lvl 3 -x 600 -y 100 -defaultsOSRD
-preplace inst NCO_DDS -pg 1 -lvl 1 -x 170 -y 80 -defaultsOSRD
-preplace inst NCO_cos_sin_0 -pg 1 -lvl 2 -x 450 -y 90 -defaultsOSRD
-preplace netloc NCO_cos_sin_0_NCO_cos 1 2 1 580J 70n
-preplace netloc NCO_cos_sin_0_NCO_sin 1 2 1 NJ 100
-preplace netloc aclk_0_1 1 0 2 20J 150 310
-preplace netloc NCO_M_AXIS_DATA 1 1 1 N 80
-preplace netloc increment_1 1 0 1 N 70
-levelinfo -pg 1 0 170 450 600
-pagesize -pg 1 -db -bbox -sgen -130 0 750 160
+preplace port port-id_rst_16M384 -pg 1 -lvl 0 -x 0 -y 130 -defaultsOSRD
+preplace portBus NCO_cos -pg 1 -lvl 4 -x 820 -y 90 -defaultsOSRD
+preplace portBus NCO_sin -pg 1 -lvl 4 -x 820 -y 120 -defaultsOSRD
+preplace inst NCO_DDS -pg 1 -lvl 2 -x 400 -y 100 -defaultsOSRD
+preplace inst NCO_cos_sin_0 -pg 1 -lvl 3 -x 670 -y 110 -defaultsOSRD
+preplace inst NCO_Phase_0 -pg 1 -lvl 1 -x 140 -y 90 -defaultsOSRD
+preplace netloc NCO_cos_sin_0_NCO_cos 1 3 1 800J 90n
+preplace netloc NCO_cos_sin_0_NCO_sin 1 3 1 NJ 120
+preplace netloc aclk_0_1 1 0 3 20J 10 260 30 540
+preplace netloc rst_16M384_1 1 0 1 20J 110n
+preplace netloc NCO_M_AXIS_DATA 1 2 1 N 100
+preplace netloc feedback_1 1 0 1 N 70
+preplace netloc NCO_Phase_0_phase 1 1 1 N 90
+levelinfo -pg 1 0 140 400 670 820
+pagesize -pg 1 -db -bbox -sgen -130 0 970 180
 "
 }
 

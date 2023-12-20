@@ -33,7 +33,8 @@
       },
       "NCO": {
         "NCO_DDS": "",
-        "NCO_cos_sin_0": ""
+        "NCO_cos_sin_0": "",
+        "NCO_Phase_0": ""
       }
     },
     "interface_ports": {
@@ -1936,19 +1937,19 @@
       },
       "NCO": {
         "interface_ports": {
-          "increment": {
+          "feedback": {
             "mode": "Slave",
             "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
             "vlnv": "xilinx.com:interface:axis_rtl:1.0",
             "port_maps": {
               "TDATA": {
-                "physical_name": "increment_tdata",
+                "physical_name": "feedback_tdata",
                 "direction": "I",
                 "left": "15",
                 "right": "0"
               },
               "TVALID": {
-                "physical_name": "increment_tvalid",
+                "physical_name": "feedback_tvalid",
                 "direction": "I"
               }
             }
@@ -1967,6 +1968,10 @@
           },
           "clk_16M384": {
             "type": "clk",
+            "direction": "I"
+          },
+          "rst_16M384": {
+            "type": "rst",
             "direction": "I"
           }
         },
@@ -2184,6 +2189,211 @@
                 "right": "0"
               }
             }
+          },
+          "NCO_Phase_0": {
+            "vlnv": "xilinx.com:module_ref:NCO_Phase:1.0",
+            "xci_name": "costas_loop_inst_0_NCO_Phase_0_0",
+            "xci_path": "ip\\costas_loop_inst_0_NCO_Phase_0_0\\costas_loop_inst_0_NCO_Phase_0_0.xci",
+            "inst_hier_path": "NCO/NCO_Phase_0",
+            "reference_info": {
+              "ref_type": "hdl",
+              "ref_name": "NCO_Phase",
+              "boundary_crc": "0x0"
+            },
+            "interface_ports": {
+              "feedback": {
+                "mode": "Slave",
+                "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
+                "vlnv": "xilinx.com:interface:axis_rtl:1.0",
+                "parameters": {
+                  "TDATA_NUM_BYTES": {
+                    "value": "2",
+                    "value_src": "auto"
+                  },
+                  "TDEST_WIDTH": {
+                    "value": "0",
+                    "value_src": "constant"
+                  },
+                  "TID_WIDTH": {
+                    "value": "0",
+                    "value_src": "constant"
+                  },
+                  "TUSER_WIDTH": {
+                    "value": "0",
+                    "value_src": "constant"
+                  },
+                  "HAS_TREADY": {
+                    "value": "0",
+                    "value_src": "constant"
+                  },
+                  "HAS_TSTRB": {
+                    "value": "0",
+                    "value_src": "constant"
+                  },
+                  "HAS_TKEEP": {
+                    "value": "0",
+                    "value_src": "constant"
+                  },
+                  "HAS_TLAST": {
+                    "value": "0",
+                    "value_src": "constant"
+                  },
+                  "FREQ_HZ": {
+                    "value": "16384000",
+                    "value_src": "default_prop"
+                  },
+                  "PHASE": {
+                    "value": "0.0",
+                    "value_src": "default_prop"
+                  },
+                  "CLK_DOMAIN": {
+                    "value": "costas_loop_aclk_0",
+                    "value_src": "default_prop"
+                  },
+                  "LAYERED_METADATA": {
+                    "value": [
+                      "xilinx.com:interface:datatypes:1.0 {",
+                      "TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {}",
+                      "maximum {}} value 16} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} array_type {name {attribs {resolve_type immediate dependency {} format string",
+                      "minimum {} maximum {}} value chan} size {attribs {resolve_type generated dependency chan_size format long minimum {} maximum {}} value 1} stride {attribs {resolve_type generated dependency chan_stride",
+                      "format long minimum {} maximum {}} value 16} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic",
+                      "dependency {} format long minimum {} maximum {}} value 16} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} array_type {name {attribs {resolve_type",
+                      "immediate dependency {} format string minimum {} maximum {}} value path} size {attribs {resolve_type generated dependency path_size format long minimum {} maximum {}} value 1} stride {attribs",
+                      "{resolve_type generated dependency path_stride format long minimum {} maximum {}} value 16} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}}",
+                      "bitwidth {attribs {resolve_type generated dependency out_width format long minimum {} maximum {}} value 16} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}}",
+                      "value 0} real {fixed {fractwidth {attribs {resolve_type generated dependency out_fractwidth format long minimum {} maximum {}} value 0} signed {attribs {resolve_type generated dependency out_signed",
+                      "format bool minimum {} maximum {}} value true}}}}}}}}} TDATA_WIDTH 16 TUSER {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth",
+                      "{attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 0} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} struct",
+                      "{field_data_valid {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value data_valid} enabled {attribs {resolve_type generated dependency data_valid_enabled",
+                      "format bool minimum {} maximum {}} value false} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated",
+                      "dependency data_valid_bitwidth format long minimum {} maximum {}} value 0} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}} field_chanid {name",
+                      "{attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value chanid} enabled {attribs {resolve_type generated dependency chanid_enabled format bool minimum {} maximum {}}",
+                      "value false} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency chanid_bitwidth format",
+                      "long minimum {} maximum {}} value 0} bitoffset {attribs {resolve_type generated dependency chanid_bitoffset format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate",
+                      "dependency {} format bool minimum {} maximum {}} value false}}}} field_user {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value user} enabled {attribs",
+                      "{resolve_type generated dependency user_enabled format bool minimum {} maximum {}} value false} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value",
+                      "{}} bitwidth {attribs {resolve_type generated dependency user_bitwidth format long minimum {} maximum {}} value 0} bitoffset {attribs {resolve_type generated dependency user_bitoffset format long",
+                      "minimum {} maximum {}} value 0}}}}}} TUSER_WIDTH 0",
+                      "}"
+                    ],
+                    "value_src": "ip_prop"
+                  }
+                },
+                "port_maps": {
+                  "TDATA": {
+                    "physical_name": "feedback_tdata",
+                    "direction": "I",
+                    "left": "15",
+                    "right": "0"
+                  },
+                  "TVALID": {
+                    "physical_name": "feedback_tvalid",
+                    "direction": "I"
+                  }
+                }
+              },
+              "phase": {
+                "mode": "Master",
+                "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
+                "vlnv": "xilinx.com:interface:axis_rtl:1.0",
+                "parameters": {
+                  "TDATA_NUM_BYTES": {
+                    "value": "2",
+                    "value_src": "auto"
+                  },
+                  "TDEST_WIDTH": {
+                    "value": "0",
+                    "value_src": "constant"
+                  },
+                  "TID_WIDTH": {
+                    "value": "0",
+                    "value_src": "constant"
+                  },
+                  "TUSER_WIDTH": {
+                    "value": "0",
+                    "value_src": "constant"
+                  },
+                  "HAS_TREADY": {
+                    "value": "0",
+                    "value_src": "constant"
+                  },
+                  "HAS_TSTRB": {
+                    "value": "0",
+                    "value_src": "constant"
+                  },
+                  "HAS_TKEEP": {
+                    "value": "0",
+                    "value_src": "constant"
+                  },
+                  "HAS_TLAST": {
+                    "value": "0",
+                    "value_src": "constant"
+                  },
+                  "FREQ_HZ": {
+                    "value": "16384000",
+                    "value_src": "default_prop"
+                  },
+                  "PHASE": {
+                    "value": "0.0",
+                    "value_src": "default_prop"
+                  },
+                  "CLK_DOMAIN": {
+                    "value": "costas_loop_aclk_0",
+                    "value_src": "default_prop"
+                  }
+                },
+                "port_maps": {
+                  "TDATA": {
+                    "physical_name": "phase_tdata",
+                    "direction": "O",
+                    "left": "15",
+                    "right": "0"
+                  },
+                  "TVALID": {
+                    "physical_name": "phase_tvalid",
+                    "direction": "O"
+                  }
+                }
+              }
+            },
+            "ports": {
+              "clk": {
+                "type": "clk",
+                "direction": "I",
+                "parameters": {
+                  "ASSOCIATED_BUSIF": {
+                    "value": "feedback:phase",
+                    "value_src": "constant"
+                  },
+                  "ASSOCIATED_RESET": {
+                    "value": "rst",
+                    "value_src": "constant"
+                  },
+                  "FREQ_HZ": {
+                    "value": "16384000",
+                    "value_src": "default_prop"
+                  },
+                  "PHASE": {
+                    "value": "0.0",
+                    "value_src": "default_prop"
+                  },
+                  "CLK_DOMAIN": {
+                    "value": "costas_loop_aclk_0",
+                    "value_src": "default_prop"
+                  }
+                }
+              },
+              "rst": {
+                "type": "rst",
+                "direction": "I",
+                "parameters": {
+                  "POLARITY": {
+                    "value": "ACTIVE_HIGH",
+                    "value_src": "const_prop"
+                  }
+                }
+              }
+            }
           }
         },
         "interface_nets": {
@@ -2193,10 +2403,16 @@
               "NCO_DDS/M_AXIS_DATA"
             ]
           },
-          "increment_1": {
+          "NCO_Phase_0_phase": {
             "interface_ports": [
-              "increment",
+              "NCO_Phase_0/phase",
               "NCO_DDS/S_AXIS_PHASE"
+            ]
+          },
+          "feedback_1": {
+            "interface_ports": [
+              "feedback",
+              "NCO_Phase_0/feedback"
             ]
           }
         },
@@ -2217,7 +2433,14 @@
             "ports": [
               "clk_16M384",
               "NCO_DDS/aclk",
-              "NCO_cos_sin_0/clk"
+              "NCO_cos_sin_0/clk",
+              "NCO_Phase_0/clk"
+            ]
+          },
+          "rst_16M384_1": {
+            "ports": [
+              "rst_16M384",
+              "NCO_Phase_0/rst"
             ]
           }
         }
@@ -2263,7 +2486,7 @@
       "loop_filter_M_AXIS_DATA": {
         "interface_ports": [
           "loop_filter/M_AXIS_DATA",
-          "NCO/increment"
+          "NCO/feedback"
         ]
       }
     },
@@ -2320,7 +2543,8 @@
       "rst_16M386_1": {
         "ports": [
           "rst_16M384",
-          "Error_Detect/rst_16M384"
+          "Error_Detect/rst_16M384",
+          "NCO/rst_16M384"
         ]
       }
     }
