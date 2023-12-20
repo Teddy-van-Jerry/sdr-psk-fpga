@@ -1,6 +1,6 @@
 `timescale 1ns/1ps
 
-module tb_costas_loop_BPSK;
+module tb_PSK_Demod_BPSK;
 
   // clock
   reg clk_16M384;

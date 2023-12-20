@@ -49,19 +49,19 @@
           },
           "HAS_TKEEP": {
             "value": "0",
-            "value_src": "const_prop"
+            "value_src": "default"
           },
           "HAS_TLAST": {
             "value": "0",
-            "value_src": "const_prop"
+            "value_src": "default"
           },
           "HAS_TREADY": {
             "value": "0",
-            "value_src": "const_prop"
+            "value_src": "default"
           },
           "HAS_TSTRB": {
             "value": "0",
-            "value_src": "const_prop"
+            "value_src": "default"
           },
           "INSERT_VIP": {
             "value": "0",
@@ -77,19 +77,19 @@
           },
           "TDATA_NUM_BYTES": {
             "value": "2",
-            "value_src": "auto_prop"
+            "value_src": "default"
           },
           "TDEST_WIDTH": {
             "value": "0",
-            "value_src": "const_prop"
+            "value_src": "default"
           },
           "TID_WIDTH": {
             "value": "0",
-            "value_src": "const_prop"
+            "value_src": "default"
           },
           "TUSER_WIDTH": {
             "value": "0",
-            "value_src": "const_prop"
+            "value_src": "default"
           }
         },
         "port_maps": {
@@ -116,19 +116,19 @@
           },
           "HAS_TKEEP": {
             "value": "0",
-            "value_src": "const_prop"
+            "value_src": "default"
           },
           "HAS_TLAST": {
             "value": "0",
-            "value_src": "const_prop"
+            "value_src": "default"
           },
           "HAS_TREADY": {
             "value": "0",
-            "value_src": "const_prop"
+            "value_src": "default"
           },
           "HAS_TSTRB": {
             "value": "0",
-            "value_src": "const_prop"
+            "value_src": "default"
           },
           "INSERT_VIP": {
             "value": "0",
@@ -144,19 +144,19 @@
           },
           "TDATA_NUM_BYTES": {
             "value": "2",
-            "value_src": "auto_prop"
+            "value_src": "default"
           },
           "TDEST_WIDTH": {
             "value": "0",
-            "value_src": "const_prop"
+            "value_src": "default"
           },
           "TID_WIDTH": {
             "value": "0",
-            "value_src": "const_prop"
+            "value_src": "default"
           },
           "TUSER_WIDTH": {
             "value": "0",
-            "value_src": "const_prop"
+            "value_src": "default"
           }
         },
         "port_maps": {
@@ -229,7 +229,7 @@
           },
           "POLARITY": {
             "value": "ACTIVE_HIGH",
-            "value_src": "const_prop"
+            "value_src": "strong"
           }
         }
       },
@@ -1653,7 +1653,7 @@
                       "minimum {} maximum {}} value 0}}}}}} TUSER_WIDTH 0",
                       "}"
                     ],
-                    "value_src": "ip_prop"
+                    "value_src": "default_prop"
                   }
                 },
                 "port_maps": {
@@ -2138,7 +2138,7 @@
                       "format long minimum {} maximum {}} value 0} bitoffset {attribs {resolve_type generated dependency user_offset format long minimum {} maximum {}} value 0}}}}}} TUSER_WIDTH 0",
                       "}"
                     ],
-                    "value_src": "ip_prop"
+                    "value_src": "default_prop"
                   }
                 },
                 "port_maps": {
@@ -2276,7 +2276,7 @@
                       "minimum {} maximum {}} value 0}}}}}} TUSER_WIDTH 0",
                       "}"
                     ],
-                    "value_src": "ip_prop"
+                    "value_src": "default_prop"
                   }
                 },
                 "port_maps": {

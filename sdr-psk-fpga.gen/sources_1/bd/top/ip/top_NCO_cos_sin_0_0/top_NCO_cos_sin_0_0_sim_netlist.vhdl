@@ -3,8 +3,8 @@
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
 -- Date        : Mon Dec 18 00:24:00 2023
 -- Host        : TVJ-PC running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim
---               e:/Documents/Study/Verilog/SDR/sdr-psk-fpga/sdr-psk-fpga.gen/sources_1/bd/top/ip/top_NCO_cos_sin_0_0/top_NCO_cos_sin_0_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top top_NCO_cos_sin_0_0 -prefix
+--               top_NCO_cos_sin_0_0_ top_NCO_cos_sin_0_0_sim_netlist.vhdl
 -- Design      : top_NCO_cos_sin_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -21,8 +21,6 @@ entity top_NCO_cos_sin_0_0_NCO_cos_sin is
     NCO_tdata : in STD_LOGIC_VECTOR ( 23 downto 0 );
     clk : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of top_NCO_cos_sin_0_0_NCO_cos_sin : entity is "NCO_cos_sin";
 end top_NCO_cos_sin_0_0_NCO_cos_sin;
 
 architecture STRUCTURE of top_NCO_cos_sin_0_0_NCO_cos_sin is

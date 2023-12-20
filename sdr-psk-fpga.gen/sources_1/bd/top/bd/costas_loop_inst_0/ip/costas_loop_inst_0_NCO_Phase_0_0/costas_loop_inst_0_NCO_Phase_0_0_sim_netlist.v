@@ -1,7 +1,7 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Wed Dec 20 12:39:32 2023
+// Date        : Wed Dec 20 18:10:02 2023
 // Host        : TVJ-PC running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               e:/Documents/Study/Verilog/SDR/sdr-psk-fpga/sdr-psk-fpga.gen/sources_1/bd/top/bd/costas_loop_inst_0/ip/costas_loop_inst_0_NCO_Phase_0_0/costas_loop_inst_0_NCO_Phase_0_0_sim_netlist.v
@@ -63,54 +63,6 @@ module costas_loop_inst_0_NCO_Phase_0_0_NCO_Phase
   wire clk;
   wire [15:0]feedback_tdata;
   wire feedback_tvalid;
-  wire \increment[0]_i_2_n_0 ;
-  wire \increment[0]_i_3_n_0 ;
-  wire \increment[0]_i_4_n_0 ;
-  wire \increment[0]_i_5_n_0 ;
-  wire \increment[12]_i_2_n_0 ;
-  wire \increment[12]_i_3_n_0 ;
-  wire \increment[12]_i_4_n_0 ;
-  wire \increment[12]_i_5_n_0 ;
-  wire \increment[4]_i_2_n_0 ;
-  wire \increment[4]_i_3_n_0 ;
-  wire \increment[4]_i_4_n_0 ;
-  wire \increment[4]_i_5_n_0 ;
-  wire \increment[8]_i_2_n_0 ;
-  wire \increment[8]_i_3_n_0 ;
-  wire \increment[8]_i_4_n_0 ;
-  wire \increment[8]_i_5_n_0 ;
-  wire [15:0]increment_reg;
-  wire \increment_reg[0]_i_1_n_0 ;
-  wire \increment_reg[0]_i_1_n_1 ;
-  wire \increment_reg[0]_i_1_n_2 ;
-  wire \increment_reg[0]_i_1_n_3 ;
-  wire \increment_reg[0]_i_1_n_4 ;
-  wire \increment_reg[0]_i_1_n_5 ;
-  wire \increment_reg[0]_i_1_n_6 ;
-  wire \increment_reg[0]_i_1_n_7 ;
-  wire \increment_reg[12]_i_1_n_1 ;
-  wire \increment_reg[12]_i_1_n_2 ;
-  wire \increment_reg[12]_i_1_n_3 ;
-  wire \increment_reg[12]_i_1_n_4 ;
-  wire \increment_reg[12]_i_1_n_5 ;
-  wire \increment_reg[12]_i_1_n_6 ;
-  wire \increment_reg[12]_i_1_n_7 ;
-  wire \increment_reg[4]_i_1_n_0 ;
-  wire \increment_reg[4]_i_1_n_1 ;
-  wire \increment_reg[4]_i_1_n_2 ;
-  wire \increment_reg[4]_i_1_n_3 ;
-  wire \increment_reg[4]_i_1_n_4 ;
-  wire \increment_reg[4]_i_1_n_5 ;
-  wire \increment_reg[4]_i_1_n_6 ;
-  wire \increment_reg[4]_i_1_n_7 ;
-  wire \increment_reg[8]_i_1_n_0 ;
-  wire \increment_reg[8]_i_1_n_1 ;
-  wire \increment_reg[8]_i_1_n_2 ;
-  wire \increment_reg[8]_i_1_n_3 ;
-  wire \increment_reg[8]_i_1_n_4 ;
-  wire \increment_reg[8]_i_1_n_5 ;
-  wire \increment_reg[8]_i_1_n_6 ;
-  wire \increment_reg[8]_i_1_n_7 ;
   wire [15:0]phase_tdata;
   wire \phase_tdata[11]_i_2_n_0 ;
   wire \phase_tdata[11]_i_3_n_0 ;
@@ -161,330 +113,103 @@ module costas_loop_inst_0_NCO_Phase_0_0_NCO_Phase
   wire \phase_tdata_reg[7]_i_1_n_7 ;
   wire phase_tvalid;
   wire phase_tvalid_i_1_n_0;
-  wire phase_tvalid_reg__0;
-  wire phase_tvalid_reg_i_1_n_0;
   wire rst;
-  wire [3:3]\NLW_increment_reg[12]_i_1_CO_UNCONNECTED ;
   wire [3:3]\NLW_phase_tdata_reg[15]_i_1_CO_UNCONNECTED ;
 
   LUT2 #(
     .INIT(4'h6)) 
-    \increment[0]_i_2 
-       (.I0(feedback_tdata[3]),
-        .I1(increment_reg[3]),
-        .O(\increment[0]_i_2_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \increment[0]_i_3 
-       (.I0(feedback_tdata[2]),
-        .I1(increment_reg[2]),
-        .O(\increment[0]_i_3_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \increment[0]_i_4 
-       (.I0(feedback_tdata[1]),
-        .I1(increment_reg[1]),
-        .O(\increment[0]_i_4_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \increment[0]_i_5 
-       (.I0(feedback_tdata[0]),
-        .I1(increment_reg[0]),
-        .O(\increment[0]_i_5_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \increment[12]_i_2 
-       (.I0(feedback_tdata[15]),
-        .I1(increment_reg[15]),
-        .O(\increment[12]_i_2_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \increment[12]_i_3 
-       (.I0(feedback_tdata[14]),
-        .I1(increment_reg[14]),
-        .O(\increment[12]_i_3_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \increment[12]_i_4 
-       (.I0(feedback_tdata[13]),
-        .I1(increment_reg[13]),
-        .O(\increment[12]_i_4_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \increment[12]_i_5 
-       (.I0(feedback_tdata[12]),
-        .I1(increment_reg[12]),
-        .O(\increment[12]_i_5_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \increment[4]_i_2 
-       (.I0(feedback_tdata[7]),
-        .I1(increment_reg[7]),
-        .O(\increment[4]_i_2_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \increment[4]_i_3 
-       (.I0(feedback_tdata[6]),
-        .I1(increment_reg[6]),
-        .O(\increment[4]_i_3_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \increment[4]_i_4 
-       (.I0(feedback_tdata[5]),
-        .I1(increment_reg[5]),
-        .O(\increment[4]_i_4_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \increment[4]_i_5 
-       (.I0(feedback_tdata[4]),
-        .I1(increment_reg[4]),
-        .O(\increment[4]_i_5_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \increment[8]_i_2 
-       (.I0(feedback_tdata[11]),
-        .I1(increment_reg[11]),
-        .O(\increment[8]_i_2_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \increment[8]_i_3 
-       (.I0(feedback_tdata[10]),
-        .I1(increment_reg[10]),
-        .O(\increment[8]_i_3_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \increment[8]_i_4 
-       (.I0(feedback_tdata[9]),
-        .I1(increment_reg[9]),
-        .O(\increment[8]_i_4_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \increment[8]_i_5 
-       (.I0(feedback_tdata[8]),
-        .I1(increment_reg[8]),
-        .O(\increment[8]_i_5_n_0 ));
-  FDRE \increment_reg[0] 
-       (.C(clk),
-        .CE(feedback_tvalid),
-        .D(\increment_reg[0]_i_1_n_7 ),
-        .Q(increment_reg[0]),
-        .R(rst));
-  (* ADDER_THRESHOLD = "11" *) 
-  CARRY4 \increment_reg[0]_i_1 
-       (.CI(1'b0),
-        .CO({\increment_reg[0]_i_1_n_0 ,\increment_reg[0]_i_1_n_1 ,\increment_reg[0]_i_1_n_2 ,\increment_reg[0]_i_1_n_3 }),
-        .CYINIT(1'b0),
-        .DI(feedback_tdata[3:0]),
-        .O({\increment_reg[0]_i_1_n_4 ,\increment_reg[0]_i_1_n_5 ,\increment_reg[0]_i_1_n_6 ,\increment_reg[0]_i_1_n_7 }),
-        .S({\increment[0]_i_2_n_0 ,\increment[0]_i_3_n_0 ,\increment[0]_i_4_n_0 ,\increment[0]_i_5_n_0 }));
-  FDRE \increment_reg[10] 
-       (.C(clk),
-        .CE(feedback_tvalid),
-        .D(\increment_reg[8]_i_1_n_5 ),
-        .Q(increment_reg[10]),
-        .R(rst));
-  FDRE \increment_reg[11] 
-       (.C(clk),
-        .CE(feedback_tvalid),
-        .D(\increment_reg[8]_i_1_n_4 ),
-        .Q(increment_reg[11]),
-        .R(rst));
-  FDSE \increment_reg[12] 
-       (.C(clk),
-        .CE(feedback_tvalid),
-        .D(\increment_reg[12]_i_1_n_7 ),
-        .Q(increment_reg[12]),
-        .S(rst));
-  (* ADDER_THRESHOLD = "11" *) 
-  CARRY4 \increment_reg[12]_i_1 
-       (.CI(\increment_reg[8]_i_1_n_0 ),
-        .CO({\NLW_increment_reg[12]_i_1_CO_UNCONNECTED [3],\increment_reg[12]_i_1_n_1 ,\increment_reg[12]_i_1_n_2 ,\increment_reg[12]_i_1_n_3 }),
-        .CYINIT(1'b0),
-        .DI({1'b0,feedback_tdata[14:12]}),
-        .O({\increment_reg[12]_i_1_n_4 ,\increment_reg[12]_i_1_n_5 ,\increment_reg[12]_i_1_n_6 ,\increment_reg[12]_i_1_n_7 }),
-        .S({\increment[12]_i_2_n_0 ,\increment[12]_i_3_n_0 ,\increment[12]_i_4_n_0 ,\increment[12]_i_5_n_0 }));
-  FDRE \increment_reg[13] 
-       (.C(clk),
-        .CE(feedback_tvalid),
-        .D(\increment_reg[12]_i_1_n_6 ),
-        .Q(increment_reg[13]),
-        .R(rst));
-  FDRE \increment_reg[14] 
-       (.C(clk),
-        .CE(feedback_tvalid),
-        .D(\increment_reg[12]_i_1_n_5 ),
-        .Q(increment_reg[14]),
-        .R(rst));
-  FDRE \increment_reg[15] 
-       (.C(clk),
-        .CE(feedback_tvalid),
-        .D(\increment_reg[12]_i_1_n_4 ),
-        .Q(increment_reg[15]),
-        .R(rst));
-  FDRE \increment_reg[1] 
-       (.C(clk),
-        .CE(feedback_tvalid),
-        .D(\increment_reg[0]_i_1_n_6 ),
-        .Q(increment_reg[1]),
-        .R(rst));
-  FDRE \increment_reg[2] 
-       (.C(clk),
-        .CE(feedback_tvalid),
-        .D(\increment_reg[0]_i_1_n_5 ),
-        .Q(increment_reg[2]),
-        .R(rst));
-  FDRE \increment_reg[3] 
-       (.C(clk),
-        .CE(feedback_tvalid),
-        .D(\increment_reg[0]_i_1_n_4 ),
-        .Q(increment_reg[3]),
-        .R(rst));
-  FDRE \increment_reg[4] 
-       (.C(clk),
-        .CE(feedback_tvalid),
-        .D(\increment_reg[4]_i_1_n_7 ),
-        .Q(increment_reg[4]),
-        .R(rst));
-  (* ADDER_THRESHOLD = "11" *) 
-  CARRY4 \increment_reg[4]_i_1 
-       (.CI(\increment_reg[0]_i_1_n_0 ),
-        .CO({\increment_reg[4]_i_1_n_0 ,\increment_reg[4]_i_1_n_1 ,\increment_reg[4]_i_1_n_2 ,\increment_reg[4]_i_1_n_3 }),
-        .CYINIT(1'b0),
-        .DI(feedback_tdata[7:4]),
-        .O({\increment_reg[4]_i_1_n_4 ,\increment_reg[4]_i_1_n_5 ,\increment_reg[4]_i_1_n_6 ,\increment_reg[4]_i_1_n_7 }),
-        .S({\increment[4]_i_2_n_0 ,\increment[4]_i_3_n_0 ,\increment[4]_i_4_n_0 ,\increment[4]_i_5_n_0 }));
-  FDRE \increment_reg[5] 
-       (.C(clk),
-        .CE(feedback_tvalid),
-        .D(\increment_reg[4]_i_1_n_6 ),
-        .Q(increment_reg[5]),
-        .R(rst));
-  FDRE \increment_reg[6] 
-       (.C(clk),
-        .CE(feedback_tvalid),
-        .D(\increment_reg[4]_i_1_n_5 ),
-        .Q(increment_reg[6]),
-        .R(rst));
-  FDRE \increment_reg[7] 
-       (.C(clk),
-        .CE(feedback_tvalid),
-        .D(\increment_reg[4]_i_1_n_4 ),
-        .Q(increment_reg[7]),
-        .R(rst));
-  FDRE \increment_reg[8] 
-       (.C(clk),
-        .CE(feedback_tvalid),
-        .D(\increment_reg[8]_i_1_n_7 ),
-        .Q(increment_reg[8]),
-        .R(rst));
-  (* ADDER_THRESHOLD = "11" *) 
-  CARRY4 \increment_reg[8]_i_1 
-       (.CI(\increment_reg[4]_i_1_n_0 ),
-        .CO({\increment_reg[8]_i_1_n_0 ,\increment_reg[8]_i_1_n_1 ,\increment_reg[8]_i_1_n_2 ,\increment_reg[8]_i_1_n_3 }),
-        .CYINIT(1'b0),
-        .DI(feedback_tdata[11:8]),
-        .O({\increment_reg[8]_i_1_n_4 ,\increment_reg[8]_i_1_n_5 ,\increment_reg[8]_i_1_n_6 ,\increment_reg[8]_i_1_n_7 }),
-        .S({\increment[8]_i_2_n_0 ,\increment[8]_i_3_n_0 ,\increment[8]_i_4_n_0 ,\increment[8]_i_5_n_0 }));
-  FDRE \increment_reg[9] 
-       (.C(clk),
-        .CE(feedback_tvalid),
-        .D(\increment_reg[8]_i_1_n_6 ),
-        .Q(increment_reg[9]),
-        .R(rst));
-  LUT2 #(
-    .INIT(4'h6)) 
     \phase_tdata[11]_i_2 
-       (.I0(increment_reg[11]),
+       (.I0(feedback_tdata[11]),
         .I1(phase_tdata[11]),
         .O(\phase_tdata[11]_i_2_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \phase_tdata[11]_i_3 
-       (.I0(increment_reg[10]),
+       (.I0(feedback_tdata[10]),
         .I1(phase_tdata[10]),
         .O(\phase_tdata[11]_i_3_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \phase_tdata[11]_i_4 
-       (.I0(increment_reg[9]),
+       (.I0(feedback_tdata[9]),
         .I1(phase_tdata[9]),
         .O(\phase_tdata[11]_i_4_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \phase_tdata[11]_i_5 
-       (.I0(increment_reg[8]),
+       (.I0(feedback_tdata[8]),
         .I1(phase_tdata[8]),
         .O(\phase_tdata[11]_i_5_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \phase_tdata[15]_i_2 
-       (.I0(increment_reg[15]),
+       (.I0(feedback_tdata[15]),
         .I1(phase_tdata[15]),
         .O(\phase_tdata[15]_i_2_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \phase_tdata[15]_i_3 
-       (.I0(increment_reg[14]),
+       (.I0(feedback_tdata[14]),
         .I1(phase_tdata[14]),
         .O(\phase_tdata[15]_i_3_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \phase_tdata[15]_i_4 
-       (.I0(increment_reg[13]),
+       (.I0(feedback_tdata[13]),
         .I1(phase_tdata[13]),
         .O(\phase_tdata[15]_i_4_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \phase_tdata[15]_i_5 
-       (.I0(increment_reg[12]),
+       (.I0(feedback_tdata[12]),
         .I1(phase_tdata[12]),
         .O(\phase_tdata[15]_i_5_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \phase_tdata[3]_i_2 
-       (.I0(increment_reg[3]),
+       (.I0(feedback_tdata[3]),
         .I1(phase_tdata[3]),
         .O(\phase_tdata[3]_i_2_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \phase_tdata[3]_i_3 
-       (.I0(increment_reg[2]),
+       (.I0(feedback_tdata[2]),
         .I1(phase_tdata[2]),
         .O(\phase_tdata[3]_i_3_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \phase_tdata[3]_i_4 
-       (.I0(increment_reg[1]),
+       (.I0(feedback_tdata[1]),
         .I1(phase_tdata[1]),
         .O(\phase_tdata[3]_i_4_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \phase_tdata[3]_i_5 
-       (.I0(increment_reg[0]),
+       (.I0(feedback_tdata[0]),
         .I1(phase_tdata[0]),
         .O(\phase_tdata[3]_i_5_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \phase_tdata[7]_i_2 
-       (.I0(increment_reg[7]),
+       (.I0(feedback_tdata[7]),
         .I1(phase_tdata[7]),
         .O(\phase_tdata[7]_i_2_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \phase_tdata[7]_i_3 
-       (.I0(increment_reg[6]),
+       (.I0(feedback_tdata[6]),
         .I1(phase_tdata[6]),
         .O(\phase_tdata[7]_i_3_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \phase_tdata[7]_i_4 
-       (.I0(increment_reg[5]),
+       (.I0(feedback_tdata[5]),
         .I1(phase_tdata[5]),
         .O(\phase_tdata[7]_i_4_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \phase_tdata[7]_i_5 
-       (.I0(increment_reg[4]),
+       (.I0(feedback_tdata[4]),
         .I1(phase_tdata[4]),
         .O(\phase_tdata[7]_i_5_n_0 ));
   FDRE \phase_tdata_reg[0] 
@@ -510,15 +235,15 @@ module costas_loop_inst_0_NCO_Phase_0_0_NCO_Phase
        (.CI(\phase_tdata_reg[7]_i_1_n_0 ),
         .CO({\phase_tdata_reg[11]_i_1_n_0 ,\phase_tdata_reg[11]_i_1_n_1 ,\phase_tdata_reg[11]_i_1_n_2 ,\phase_tdata_reg[11]_i_1_n_3 }),
         .CYINIT(1'b0),
-        .DI(increment_reg[11:8]),
+        .DI(feedback_tdata[11:8]),
         .O({\phase_tdata_reg[11]_i_1_n_4 ,\phase_tdata_reg[11]_i_1_n_5 ,\phase_tdata_reg[11]_i_1_n_6 ,\phase_tdata_reg[11]_i_1_n_7 }),
         .S({\phase_tdata[11]_i_2_n_0 ,\phase_tdata[11]_i_3_n_0 ,\phase_tdata[11]_i_4_n_0 ,\phase_tdata[11]_i_5_n_0 }));
-  FDRE \phase_tdata_reg[12] 
+  FDSE \phase_tdata_reg[12] 
        (.C(clk),
         .CE(feedback_tvalid),
         .D(\phase_tdata_reg[15]_i_1_n_7 ),
         .Q(phase_tdata[12]),
-        .R(rst));
+        .S(rst));
   FDRE \phase_tdata_reg[13] 
        (.C(clk),
         .CE(feedback_tvalid),
@@ -542,7 +267,7 @@ module costas_loop_inst_0_NCO_Phase_0_0_NCO_Phase
        (.CI(\phase_tdata_reg[11]_i_1_n_0 ),
         .CO({\NLW_phase_tdata_reg[15]_i_1_CO_UNCONNECTED [3],\phase_tdata_reg[15]_i_1_n_1 ,\phase_tdata_reg[15]_i_1_n_2 ,\phase_tdata_reg[15]_i_1_n_3 }),
         .CYINIT(1'b0),
-        .DI({1'b0,increment_reg[14:12]}),
+        .DI({1'b0,feedback_tdata[14:12]}),
         .O({\phase_tdata_reg[15]_i_1_n_4 ,\phase_tdata_reg[15]_i_1_n_5 ,\phase_tdata_reg[15]_i_1_n_6 ,\phase_tdata_reg[15]_i_1_n_7 }),
         .S({\phase_tdata[15]_i_2_n_0 ,\phase_tdata[15]_i_3_n_0 ,\phase_tdata[15]_i_4_n_0 ,\phase_tdata[15]_i_5_n_0 }));
   FDRE \phase_tdata_reg[1] 
@@ -568,7 +293,7 @@ module costas_loop_inst_0_NCO_Phase_0_0_NCO_Phase
        (.CI(1'b0),
         .CO({\phase_tdata_reg[3]_i_1_n_0 ,\phase_tdata_reg[3]_i_1_n_1 ,\phase_tdata_reg[3]_i_1_n_2 ,\phase_tdata_reg[3]_i_1_n_3 }),
         .CYINIT(1'b0),
-        .DI(increment_reg[3:0]),
+        .DI(feedback_tdata[3:0]),
         .O({\phase_tdata_reg[3]_i_1_n_4 ,\phase_tdata_reg[3]_i_1_n_5 ,\phase_tdata_reg[3]_i_1_n_6 ,\phase_tdata_reg[3]_i_1_n_7 }),
         .S({\phase_tdata[3]_i_2_n_0 ,\phase_tdata[3]_i_3_n_0 ,\phase_tdata[3]_i_4_n_0 ,\phase_tdata[3]_i_5_n_0 }));
   FDRE \phase_tdata_reg[4] 
@@ -600,7 +325,7 @@ module costas_loop_inst_0_NCO_Phase_0_0_NCO_Phase
        (.CI(\phase_tdata_reg[3]_i_1_n_0 ),
         .CO({\phase_tdata_reg[7]_i_1_n_0 ,\phase_tdata_reg[7]_i_1_n_1 ,\phase_tdata_reg[7]_i_1_n_2 ,\phase_tdata_reg[7]_i_1_n_3 }),
         .CYINIT(1'b0),
-        .DI(increment_reg[7:4]),
+        .DI(feedback_tdata[7:4]),
         .O({\phase_tdata_reg[7]_i_1_n_4 ,\phase_tdata_reg[7]_i_1_n_5 ,\phase_tdata_reg[7]_i_1_n_6 ,\phase_tdata_reg[7]_i_1_n_7 }),
         .S({\phase_tdata[7]_i_2_n_0 ,\phase_tdata[7]_i_3_n_0 ,\phase_tdata[7]_i_4_n_0 ,\phase_tdata[7]_i_5_n_0 }));
   FDRE \phase_tdata_reg[8] 
@@ -615,11 +340,10 @@ module costas_loop_inst_0_NCO_Phase_0_0_NCO_Phase
         .D(\phase_tdata_reg[11]_i_1_n_6 ),
         .Q(phase_tdata[9]),
         .R(rst));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
   LUT2 #(
     .INIT(4'h2)) 
     phase_tvalid_i_1
-       (.I0(phase_tvalid_reg__0),
+       (.I0(feedback_tvalid),
         .I1(rst),
         .O(phase_tvalid_i_1_n_0));
   FDRE phase_tvalid_reg
@@ -627,20 +351,6 @@ module costas_loop_inst_0_NCO_Phase_0_0_NCO_Phase
         .CE(1'b1),
         .D(phase_tvalid_i_1_n_0),
         .Q(phase_tvalid),
-        .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
-  LUT3 #(
-    .INIT(8'hB8)) 
-    phase_tvalid_reg_i_1
-       (.I0(phase_tvalid_reg__0),
-        .I1(rst),
-        .I2(feedback_tvalid),
-        .O(phase_tvalid_reg_i_1_n_0));
-  FDRE phase_tvalid_reg_reg
-       (.C(clk),
-        .CE(1'b1),
-        .D(phase_tvalid_reg_i_1_n_0),
-        .Q(phase_tvalid_reg__0),
         .R(1'b0));
 endmodule
 `ifndef GLBL

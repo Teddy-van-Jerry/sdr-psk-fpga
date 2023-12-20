@@ -1,10 +1,10 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Sun Dec 17 22:17:57 2023
+// Date        : Sun Dec 17 22:17:56 2023
 // Host        : TVJ-PC running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim
-//               e:/Documents/Study/Verilog/SDR/sdr-psk-fpga/sdr-psk-fpga.gen/sources_1/bd/top/ip/top_Div_clk32M768_0_0/top_Div_clk32M768_0_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top top_Div_clk32M768_0_0 -prefix
+//               top_Div_clk32M768_0_0_ top_Div_clk32M768_0_0_sim_netlist.v
 // Design      : top_Div_clk32M768_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -12,66 +12,6 @@
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CHECK_LICENSE_TYPE = "top_Div_clk32M768_0_0,Div_clk32M768,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
-(* X_CORE_INFO = "Div_clk32M768,Vivado 2022.2" *) 
-(* NotValidForBitStream *)
-module top_Div_clk32M768_0_0
-   (clk32M768,
-    clk16M384,
-    clk8M192,
-    clk4M096,
-    clk2M048,
-    clk1M024,
-    clk512K,
-    clk256K,
-    clk128K,
-    clk64K,
-    clk32K,
-    clk16K,
-    clk8K,
-    clk4K,
-    clk2K,
-    clk1K);
-  input clk32M768;
-  output clk16M384;
-  output clk8M192;
-  output clk4M096;
-  output clk2M048;
-  output clk1M024;
-  output clk512K;
-  output clk256K;
-  output clk128K;
-  output clk64K;
-  output clk32K;
-  output clk16K;
-  output clk8K;
-  output clk4K;
-  output clk2K;
-  output clk1K;
-
-  wire clk128K;
-  wire clk16K;
-  wire clk16M384;
-  wire clk1K;
-  wire clk1M024;
-  wire clk256K;
-  wire clk2K;
-  wire clk2M048;
-  wire clk32K;
-  wire clk32M768;
-  wire clk4K;
-  wire clk4M096;
-  wire clk512K;
-  wire clk64K;
-  wire clk8K;
-  wire clk8M192;
-
-  top_Div_clk32M768_0_0_Div_clk32M768 inst
-       (.clk32M768(clk32M768),
-        .out({clk1K,clk2K,clk4K,clk8K,clk16K,clk32K,clk64K,clk128K,clk256K,clk512K,clk1M024,clk2M048,clk4M096,clk8M192,clk16M384}));
-endmodule
-
-(* ORIG_REF_NAME = "Div_clk32M768" *) 
 module top_Div_clk32M768_0_0_Div_clk32M768
    (out,
     clk32M768);
@@ -270,6 +210,65 @@ module top_Div_clk32M768_0_0_Div_clk32M768
         .D(\clk_cnt_reg[8]_i_1_n_6 ),
         .Q(out[9]),
         .R(1'b0));
+endmodule
+
+(* CHECK_LICENSE_TYPE = "top_Div_clk32M768_0_0,Div_clk32M768,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
+(* X_CORE_INFO = "Div_clk32M768,Vivado 2022.2" *) 
+(* NotValidForBitStream *)
+module top_Div_clk32M768_0_0
+   (clk32M768,
+    clk16M384,
+    clk8M192,
+    clk4M096,
+    clk2M048,
+    clk1M024,
+    clk512K,
+    clk256K,
+    clk128K,
+    clk64K,
+    clk32K,
+    clk16K,
+    clk8K,
+    clk4K,
+    clk2K,
+    clk1K);
+  input clk32M768;
+  output clk16M384;
+  output clk8M192;
+  output clk4M096;
+  output clk2M048;
+  output clk1M024;
+  output clk512K;
+  output clk256K;
+  output clk128K;
+  output clk64K;
+  output clk32K;
+  output clk16K;
+  output clk8K;
+  output clk4K;
+  output clk2K;
+  output clk1K;
+
+  wire clk128K;
+  wire clk16K;
+  wire clk16M384;
+  wire clk1K;
+  wire clk1M024;
+  wire clk256K;
+  wire clk2K;
+  wire clk2M048;
+  wire clk32K;
+  wire clk32M768;
+  wire clk4K;
+  wire clk4M096;
+  wire clk512K;
+  wire clk64K;
+  wire clk8K;
+  wire clk8M192;
+
+  top_Div_clk32M768_0_0_Div_clk32M768 inst
+       (.clk32M768(clk32M768),
+        .out({clk1K,clk2K,clk4K,clk8K,clk16K,clk32K,clk64K,clk128K,clk256K,clk512K,clk1M024,clk2M048,clk4M096,clk8M192,clk16M384}));
 endmodule
 `ifndef GLBL
 `define GLBL

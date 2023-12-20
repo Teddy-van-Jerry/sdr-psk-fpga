@@ -1,10 +1,10 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Sun Dec 17 22:17:24 2023
+// Date        : Sun Dec 17 22:17:23 2023
 // Host        : TVJ-PC running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim
-//               e:/Documents/Study/Verilog/SDR/sdr-psk-fpga/sdr-psk-fpga.gen/sources_1/bd/top/ip/top_PSK_Detection_0_0/top_PSK_Detection_0_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top top_PSK_Detection_0_0 -prefix
+//               top_PSK_Detection_0_0_ top_PSK_Detection_0_0_sim_netlist.v
 // Design      : top_PSK_Detection_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -12,51 +12,6 @@
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CHECK_LICENSE_TYPE = "top_PSK_Detection_0_0,PSK_Detection,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
-(* X_CORE_INFO = "PSK_Detection,Vivado 2022.2" *) 
-(* NotValidForBitStream *)
-module top_PSK_Detection_0_0
-   (clk,
-    rst,
-    I_tdata,
-    I_tvalid,
-    Q_tdata,
-    Q_tvalid,
-    BPSK,
-    QPSK,
-    vld);
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_BUSIF I:Q, ASSOCIATED_RESET rst, FREQ_HZ 16384000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /Clock_Gen/clk_wiz_32M768_clk_out1, INSERT_VIP 0" *) input clk;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 rst RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME rst, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *) input rst;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 I TDATA" *) input [15:0]I_tdata;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 I TVALID" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME I, TDATA_NUM_BYTES 2, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 16384000, PHASE 0.0, CLK_DOMAIN /Clock_Gen/clk_wiz_32M768_clk_out1, LAYERED_METADATA undef, INSERT_VIP 0" *) input I_tvalid;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 Q TDATA" *) input [15:0]Q_tdata;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 Q TVALID" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME Q, TDATA_NUM_BYTES 2, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 16384000, PHASE 0.0, CLK_DOMAIN /Clock_Gen/clk_wiz_32M768_clk_out1, LAYERED_METADATA undef, INSERT_VIP 0" *) input Q_tvalid;
-  output BPSK;
-  output [1:0]QPSK;
-  output vld;
-
-  wire [15:0]I_tdata;
-  wire I_tvalid;
-  wire [1:0]QPSK;
-  wire [15:0]Q_tdata;
-  wire Q_tvalid;
-  wire clk;
-  wire rst;
-  wire vld;
-
-  assign BPSK = QPSK[1];
-  top_PSK_Detection_0_0_PSK_Detection inst
-       (.I_tdata(I_tdata[15]),
-        .I_tvalid(I_tvalid),
-        .QPSK(QPSK),
-        .Q_tdata(Q_tdata[15]),
-        .Q_tvalid(Q_tvalid),
-        .clk(clk),
-        .rst(rst),
-        .vld(vld));
-endmodule
-
-(* ORIG_REF_NAME = "PSK_Detection" *) 
 module top_PSK_Detection_0_0_PSK_Detection
    (QPSK,
     vld,
@@ -131,6 +86,50 @@ module top_PSK_Detection_0_0_PSK_Detection
         .D(vld_i_1_n_0),
         .Q(vld),
         .R(1'b0));
+endmodule
+
+(* CHECK_LICENSE_TYPE = "top_PSK_Detection_0_0,PSK_Detection,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
+(* X_CORE_INFO = "PSK_Detection,Vivado 2022.2" *) 
+(* NotValidForBitStream *)
+module top_PSK_Detection_0_0
+   (clk,
+    rst,
+    I_tdata,
+    I_tvalid,
+    Q_tdata,
+    Q_tvalid,
+    BPSK,
+    QPSK,
+    vld);
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_BUSIF I:Q, ASSOCIATED_RESET rst, FREQ_HZ 16384000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /Clock_Gen/clk_wiz_32M768_clk_out1, INSERT_VIP 0" *) input clk;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 rst RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME rst, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *) input rst;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 I TDATA" *) input [15:0]I_tdata;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 I TVALID" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME I, TDATA_NUM_BYTES 2, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 16384000, PHASE 0.0, CLK_DOMAIN /Clock_Gen/clk_wiz_32M768_clk_out1, LAYERED_METADATA undef, INSERT_VIP 0" *) input I_tvalid;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 Q TDATA" *) input [15:0]Q_tdata;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 Q TVALID" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME Q, TDATA_NUM_BYTES 2, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 16384000, PHASE 0.0, CLK_DOMAIN /Clock_Gen/clk_wiz_32M768_clk_out1, LAYERED_METADATA undef, INSERT_VIP 0" *) input Q_tvalid;
+  output BPSK;
+  output [1:0]QPSK;
+  output vld;
+
+  wire [15:0]I_tdata;
+  wire I_tvalid;
+  wire [1:0]QPSK;
+  wire [15:0]Q_tdata;
+  wire Q_tvalid;
+  wire clk;
+  wire rst;
+  wire vld;
+
+  assign BPSK = QPSK[1];
+  top_PSK_Detection_0_0_PSK_Detection inst
+       (.I_tdata(I_tdata[15]),
+        .I_tvalid(I_tvalid),
+        .QPSK(QPSK),
+        .Q_tdata(Q_tdata[15]),
+        .Q_tvalid(Q_tvalid),
+        .clk(clk),
+        .rst(rst),
+        .vld(vld));
 endmodule
 `ifndef GLBL
 `define GLBL

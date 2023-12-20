@@ -1,7 +1,7 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
--- Date        : Wed Dec 20 12:39:32 2023
+-- Date        : Wed Dec 20 18:10:02 2023
 -- Host        : TVJ-PC running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               e:/Documents/Study/Verilog/SDR/sdr-psk-fpga/sdr-psk-fpga.gen/sources_1/bd/top/bd/costas_loop_inst_0/ip/costas_loop_inst_0_NCO_Phase_0_0/costas_loop_inst_0_NCO_Phase_0_0_sim_netlist.vhdl
@@ -28,54 +28,6 @@ entity costas_loop_inst_0_NCO_Phase_0_0_NCO_Phase is
 end costas_loop_inst_0_NCO_Phase_0_0_NCO_Phase;
 
 architecture STRUCTURE of costas_loop_inst_0_NCO_Phase_0_0_NCO_Phase is
-  signal \increment[0]_i_2_n_0\ : STD_LOGIC;
-  signal \increment[0]_i_3_n_0\ : STD_LOGIC;
-  signal \increment[0]_i_4_n_0\ : STD_LOGIC;
-  signal \increment[0]_i_5_n_0\ : STD_LOGIC;
-  signal \increment[12]_i_2_n_0\ : STD_LOGIC;
-  signal \increment[12]_i_3_n_0\ : STD_LOGIC;
-  signal \increment[12]_i_4_n_0\ : STD_LOGIC;
-  signal \increment[12]_i_5_n_0\ : STD_LOGIC;
-  signal \increment[4]_i_2_n_0\ : STD_LOGIC;
-  signal \increment[4]_i_3_n_0\ : STD_LOGIC;
-  signal \increment[4]_i_4_n_0\ : STD_LOGIC;
-  signal \increment[4]_i_5_n_0\ : STD_LOGIC;
-  signal \increment[8]_i_2_n_0\ : STD_LOGIC;
-  signal \increment[8]_i_3_n_0\ : STD_LOGIC;
-  signal \increment[8]_i_4_n_0\ : STD_LOGIC;
-  signal \increment[8]_i_5_n_0\ : STD_LOGIC;
-  signal increment_reg : STD_LOGIC_VECTOR ( 15 downto 0 );
-  signal \increment_reg[0]_i_1_n_0\ : STD_LOGIC;
-  signal \increment_reg[0]_i_1_n_1\ : STD_LOGIC;
-  signal \increment_reg[0]_i_1_n_2\ : STD_LOGIC;
-  signal \increment_reg[0]_i_1_n_3\ : STD_LOGIC;
-  signal \increment_reg[0]_i_1_n_4\ : STD_LOGIC;
-  signal \increment_reg[0]_i_1_n_5\ : STD_LOGIC;
-  signal \increment_reg[0]_i_1_n_6\ : STD_LOGIC;
-  signal \increment_reg[0]_i_1_n_7\ : STD_LOGIC;
-  signal \increment_reg[12]_i_1_n_1\ : STD_LOGIC;
-  signal \increment_reg[12]_i_1_n_2\ : STD_LOGIC;
-  signal \increment_reg[12]_i_1_n_3\ : STD_LOGIC;
-  signal \increment_reg[12]_i_1_n_4\ : STD_LOGIC;
-  signal \increment_reg[12]_i_1_n_5\ : STD_LOGIC;
-  signal \increment_reg[12]_i_1_n_6\ : STD_LOGIC;
-  signal \increment_reg[12]_i_1_n_7\ : STD_LOGIC;
-  signal \increment_reg[4]_i_1_n_0\ : STD_LOGIC;
-  signal \increment_reg[4]_i_1_n_1\ : STD_LOGIC;
-  signal \increment_reg[4]_i_1_n_2\ : STD_LOGIC;
-  signal \increment_reg[4]_i_1_n_3\ : STD_LOGIC;
-  signal \increment_reg[4]_i_1_n_4\ : STD_LOGIC;
-  signal \increment_reg[4]_i_1_n_5\ : STD_LOGIC;
-  signal \increment_reg[4]_i_1_n_6\ : STD_LOGIC;
-  signal \increment_reg[4]_i_1_n_7\ : STD_LOGIC;
-  signal \increment_reg[8]_i_1_n_0\ : STD_LOGIC;
-  signal \increment_reg[8]_i_1_n_1\ : STD_LOGIC;
-  signal \increment_reg[8]_i_1_n_2\ : STD_LOGIC;
-  signal \increment_reg[8]_i_1_n_3\ : STD_LOGIC;
-  signal \increment_reg[8]_i_1_n_4\ : STD_LOGIC;
-  signal \increment_reg[8]_i_1_n_5\ : STD_LOGIC;
-  signal \increment_reg[8]_i_1_n_6\ : STD_LOGIC;
-  signal \increment_reg[8]_i_1_n_7\ : STD_LOGIC;
   signal \^phase_tdata\ : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal \phase_tdata[11]_i_2_n_0\ : STD_LOGIC;
   signal \phase_tdata[11]_i_3_n_0\ : STD_LOGIC;
@@ -125,375 +77,20 @@ architecture STRUCTURE of costas_loop_inst_0_NCO_Phase_0_0_NCO_Phase is
   signal \phase_tdata_reg[7]_i_1_n_6\ : STD_LOGIC;
   signal \phase_tdata_reg[7]_i_1_n_7\ : STD_LOGIC;
   signal phase_tvalid_i_1_n_0 : STD_LOGIC;
-  signal \phase_tvalid_reg__0\ : STD_LOGIC;
-  signal phase_tvalid_reg_i_1_n_0 : STD_LOGIC;
-  signal \NLW_increment_reg[12]_i_1_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
   signal \NLW_phase_tdata_reg[15]_i_1_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
   attribute ADDER_THRESHOLD : integer;
-  attribute ADDER_THRESHOLD of \increment_reg[0]_i_1\ : label is 11;
-  attribute ADDER_THRESHOLD of \increment_reg[12]_i_1\ : label is 11;
-  attribute ADDER_THRESHOLD of \increment_reg[4]_i_1\ : label is 11;
-  attribute ADDER_THRESHOLD of \increment_reg[8]_i_1\ : label is 11;
   attribute ADDER_THRESHOLD of \phase_tdata_reg[11]_i_1\ : label is 11;
   attribute ADDER_THRESHOLD of \phase_tdata_reg[15]_i_1\ : label is 11;
   attribute ADDER_THRESHOLD of \phase_tdata_reg[3]_i_1\ : label is 11;
   attribute ADDER_THRESHOLD of \phase_tdata_reg[7]_i_1\ : label is 11;
-  attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of phase_tvalid_i_1 : label is "soft_lutpair0";
-  attribute SOFT_HLUTNM of phase_tvalid_reg_i_1 : label is "soft_lutpair0";
 begin
   phase_tdata(15 downto 0) <= \^phase_tdata\(15 downto 0);
-\increment[0]_i_2\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"6"
-    )
-        port map (
-      I0 => feedback_tdata(3),
-      I1 => increment_reg(3),
-      O => \increment[0]_i_2_n_0\
-    );
-\increment[0]_i_3\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"6"
-    )
-        port map (
-      I0 => feedback_tdata(2),
-      I1 => increment_reg(2),
-      O => \increment[0]_i_3_n_0\
-    );
-\increment[0]_i_4\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"6"
-    )
-        port map (
-      I0 => feedback_tdata(1),
-      I1 => increment_reg(1),
-      O => \increment[0]_i_4_n_0\
-    );
-\increment[0]_i_5\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"6"
-    )
-        port map (
-      I0 => feedback_tdata(0),
-      I1 => increment_reg(0),
-      O => \increment[0]_i_5_n_0\
-    );
-\increment[12]_i_2\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"6"
-    )
-        port map (
-      I0 => feedback_tdata(15),
-      I1 => increment_reg(15),
-      O => \increment[12]_i_2_n_0\
-    );
-\increment[12]_i_3\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"6"
-    )
-        port map (
-      I0 => feedback_tdata(14),
-      I1 => increment_reg(14),
-      O => \increment[12]_i_3_n_0\
-    );
-\increment[12]_i_4\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"6"
-    )
-        port map (
-      I0 => feedback_tdata(13),
-      I1 => increment_reg(13),
-      O => \increment[12]_i_4_n_0\
-    );
-\increment[12]_i_5\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"6"
-    )
-        port map (
-      I0 => feedback_tdata(12),
-      I1 => increment_reg(12),
-      O => \increment[12]_i_5_n_0\
-    );
-\increment[4]_i_2\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"6"
-    )
-        port map (
-      I0 => feedback_tdata(7),
-      I1 => increment_reg(7),
-      O => \increment[4]_i_2_n_0\
-    );
-\increment[4]_i_3\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"6"
-    )
-        port map (
-      I0 => feedback_tdata(6),
-      I1 => increment_reg(6),
-      O => \increment[4]_i_3_n_0\
-    );
-\increment[4]_i_4\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"6"
-    )
-        port map (
-      I0 => feedback_tdata(5),
-      I1 => increment_reg(5),
-      O => \increment[4]_i_4_n_0\
-    );
-\increment[4]_i_5\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"6"
-    )
-        port map (
-      I0 => feedback_tdata(4),
-      I1 => increment_reg(4),
-      O => \increment[4]_i_5_n_0\
-    );
-\increment[8]_i_2\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"6"
-    )
-        port map (
-      I0 => feedback_tdata(11),
-      I1 => increment_reg(11),
-      O => \increment[8]_i_2_n_0\
-    );
-\increment[8]_i_3\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"6"
-    )
-        port map (
-      I0 => feedback_tdata(10),
-      I1 => increment_reg(10),
-      O => \increment[8]_i_3_n_0\
-    );
-\increment[8]_i_4\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"6"
-    )
-        port map (
-      I0 => feedback_tdata(9),
-      I1 => increment_reg(9),
-      O => \increment[8]_i_4_n_0\
-    );
-\increment[8]_i_5\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"6"
-    )
-        port map (
-      I0 => feedback_tdata(8),
-      I1 => increment_reg(8),
-      O => \increment[8]_i_5_n_0\
-    );
-\increment_reg[0]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => feedback_tvalid,
-      D => \increment_reg[0]_i_1_n_7\,
-      Q => increment_reg(0),
-      R => rst
-    );
-\increment_reg[0]_i_1\: unisim.vcomponents.CARRY4
-     port map (
-      CI => '0',
-      CO(3) => \increment_reg[0]_i_1_n_0\,
-      CO(2) => \increment_reg[0]_i_1_n_1\,
-      CO(1) => \increment_reg[0]_i_1_n_2\,
-      CO(0) => \increment_reg[0]_i_1_n_3\,
-      CYINIT => '0',
-      DI(3 downto 0) => feedback_tdata(3 downto 0),
-      O(3) => \increment_reg[0]_i_1_n_4\,
-      O(2) => \increment_reg[0]_i_1_n_5\,
-      O(1) => \increment_reg[0]_i_1_n_6\,
-      O(0) => \increment_reg[0]_i_1_n_7\,
-      S(3) => \increment[0]_i_2_n_0\,
-      S(2) => \increment[0]_i_3_n_0\,
-      S(1) => \increment[0]_i_4_n_0\,
-      S(0) => \increment[0]_i_5_n_0\
-    );
-\increment_reg[10]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => feedback_tvalid,
-      D => \increment_reg[8]_i_1_n_5\,
-      Q => increment_reg(10),
-      R => rst
-    );
-\increment_reg[11]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => feedback_tvalid,
-      D => \increment_reg[8]_i_1_n_4\,
-      Q => increment_reg(11),
-      R => rst
-    );
-\increment_reg[12]\: unisim.vcomponents.FDSE
-     port map (
-      C => clk,
-      CE => feedback_tvalid,
-      D => \increment_reg[12]_i_1_n_7\,
-      Q => increment_reg(12),
-      S => rst
-    );
-\increment_reg[12]_i_1\: unisim.vcomponents.CARRY4
-     port map (
-      CI => \increment_reg[8]_i_1_n_0\,
-      CO(3) => \NLW_increment_reg[12]_i_1_CO_UNCONNECTED\(3),
-      CO(2) => \increment_reg[12]_i_1_n_1\,
-      CO(1) => \increment_reg[12]_i_1_n_2\,
-      CO(0) => \increment_reg[12]_i_1_n_3\,
-      CYINIT => '0',
-      DI(3) => '0',
-      DI(2 downto 0) => feedback_tdata(14 downto 12),
-      O(3) => \increment_reg[12]_i_1_n_4\,
-      O(2) => \increment_reg[12]_i_1_n_5\,
-      O(1) => \increment_reg[12]_i_1_n_6\,
-      O(0) => \increment_reg[12]_i_1_n_7\,
-      S(3) => \increment[12]_i_2_n_0\,
-      S(2) => \increment[12]_i_3_n_0\,
-      S(1) => \increment[12]_i_4_n_0\,
-      S(0) => \increment[12]_i_5_n_0\
-    );
-\increment_reg[13]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => feedback_tvalid,
-      D => \increment_reg[12]_i_1_n_6\,
-      Q => increment_reg(13),
-      R => rst
-    );
-\increment_reg[14]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => feedback_tvalid,
-      D => \increment_reg[12]_i_1_n_5\,
-      Q => increment_reg(14),
-      R => rst
-    );
-\increment_reg[15]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => feedback_tvalid,
-      D => \increment_reg[12]_i_1_n_4\,
-      Q => increment_reg(15),
-      R => rst
-    );
-\increment_reg[1]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => feedback_tvalid,
-      D => \increment_reg[0]_i_1_n_6\,
-      Q => increment_reg(1),
-      R => rst
-    );
-\increment_reg[2]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => feedback_tvalid,
-      D => \increment_reg[0]_i_1_n_5\,
-      Q => increment_reg(2),
-      R => rst
-    );
-\increment_reg[3]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => feedback_tvalid,
-      D => \increment_reg[0]_i_1_n_4\,
-      Q => increment_reg(3),
-      R => rst
-    );
-\increment_reg[4]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => feedback_tvalid,
-      D => \increment_reg[4]_i_1_n_7\,
-      Q => increment_reg(4),
-      R => rst
-    );
-\increment_reg[4]_i_1\: unisim.vcomponents.CARRY4
-     port map (
-      CI => \increment_reg[0]_i_1_n_0\,
-      CO(3) => \increment_reg[4]_i_1_n_0\,
-      CO(2) => \increment_reg[4]_i_1_n_1\,
-      CO(1) => \increment_reg[4]_i_1_n_2\,
-      CO(0) => \increment_reg[4]_i_1_n_3\,
-      CYINIT => '0',
-      DI(3 downto 0) => feedback_tdata(7 downto 4),
-      O(3) => \increment_reg[4]_i_1_n_4\,
-      O(2) => \increment_reg[4]_i_1_n_5\,
-      O(1) => \increment_reg[4]_i_1_n_6\,
-      O(0) => \increment_reg[4]_i_1_n_7\,
-      S(3) => \increment[4]_i_2_n_0\,
-      S(2) => \increment[4]_i_3_n_0\,
-      S(1) => \increment[4]_i_4_n_0\,
-      S(0) => \increment[4]_i_5_n_0\
-    );
-\increment_reg[5]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => feedback_tvalid,
-      D => \increment_reg[4]_i_1_n_6\,
-      Q => increment_reg(5),
-      R => rst
-    );
-\increment_reg[6]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => feedback_tvalid,
-      D => \increment_reg[4]_i_1_n_5\,
-      Q => increment_reg(6),
-      R => rst
-    );
-\increment_reg[7]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => feedback_tvalid,
-      D => \increment_reg[4]_i_1_n_4\,
-      Q => increment_reg(7),
-      R => rst
-    );
-\increment_reg[8]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => feedback_tvalid,
-      D => \increment_reg[8]_i_1_n_7\,
-      Q => increment_reg(8),
-      R => rst
-    );
-\increment_reg[8]_i_1\: unisim.vcomponents.CARRY4
-     port map (
-      CI => \increment_reg[4]_i_1_n_0\,
-      CO(3) => \increment_reg[8]_i_1_n_0\,
-      CO(2) => \increment_reg[8]_i_1_n_1\,
-      CO(1) => \increment_reg[8]_i_1_n_2\,
-      CO(0) => \increment_reg[8]_i_1_n_3\,
-      CYINIT => '0',
-      DI(3 downto 0) => feedback_tdata(11 downto 8),
-      O(3) => \increment_reg[8]_i_1_n_4\,
-      O(2) => \increment_reg[8]_i_1_n_5\,
-      O(1) => \increment_reg[8]_i_1_n_6\,
-      O(0) => \increment_reg[8]_i_1_n_7\,
-      S(3) => \increment[8]_i_2_n_0\,
-      S(2) => \increment[8]_i_3_n_0\,
-      S(1) => \increment[8]_i_4_n_0\,
-      S(0) => \increment[8]_i_5_n_0\
-    );
-\increment_reg[9]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => feedback_tvalid,
-      D => \increment_reg[8]_i_1_n_6\,
-      Q => increment_reg(9),
-      R => rst
-    );
 \phase_tdata[11]_i_2\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"6"
     )
         port map (
-      I0 => increment_reg(11),
+      I0 => feedback_tdata(11),
       I1 => \^phase_tdata\(11),
       O => \phase_tdata[11]_i_2_n_0\
     );
@@ -502,7 +99,7 @@ begin
       INIT => X"6"
     )
         port map (
-      I0 => increment_reg(10),
+      I0 => feedback_tdata(10),
       I1 => \^phase_tdata\(10),
       O => \phase_tdata[11]_i_3_n_0\
     );
@@ -511,7 +108,7 @@ begin
       INIT => X"6"
     )
         port map (
-      I0 => increment_reg(9),
+      I0 => feedback_tdata(9),
       I1 => \^phase_tdata\(9),
       O => \phase_tdata[11]_i_4_n_0\
     );
@@ -520,7 +117,7 @@ begin
       INIT => X"6"
     )
         port map (
-      I0 => increment_reg(8),
+      I0 => feedback_tdata(8),
       I1 => \^phase_tdata\(8),
       O => \phase_tdata[11]_i_5_n_0\
     );
@@ -529,7 +126,7 @@ begin
       INIT => X"6"
     )
         port map (
-      I0 => increment_reg(15),
+      I0 => feedback_tdata(15),
       I1 => \^phase_tdata\(15),
       O => \phase_tdata[15]_i_2_n_0\
     );
@@ -538,7 +135,7 @@ begin
       INIT => X"6"
     )
         port map (
-      I0 => increment_reg(14),
+      I0 => feedback_tdata(14),
       I1 => \^phase_tdata\(14),
       O => \phase_tdata[15]_i_3_n_0\
     );
@@ -547,7 +144,7 @@ begin
       INIT => X"6"
     )
         port map (
-      I0 => increment_reg(13),
+      I0 => feedback_tdata(13),
       I1 => \^phase_tdata\(13),
       O => \phase_tdata[15]_i_4_n_0\
     );
@@ -556,7 +153,7 @@ begin
       INIT => X"6"
     )
         port map (
-      I0 => increment_reg(12),
+      I0 => feedback_tdata(12),
       I1 => \^phase_tdata\(12),
       O => \phase_tdata[15]_i_5_n_0\
     );
@@ -565,7 +162,7 @@ begin
       INIT => X"6"
     )
         port map (
-      I0 => increment_reg(3),
+      I0 => feedback_tdata(3),
       I1 => \^phase_tdata\(3),
       O => \phase_tdata[3]_i_2_n_0\
     );
@@ -574,7 +171,7 @@ begin
       INIT => X"6"
     )
         port map (
-      I0 => increment_reg(2),
+      I0 => feedback_tdata(2),
       I1 => \^phase_tdata\(2),
       O => \phase_tdata[3]_i_3_n_0\
     );
@@ -583,7 +180,7 @@ begin
       INIT => X"6"
     )
         port map (
-      I0 => increment_reg(1),
+      I0 => feedback_tdata(1),
       I1 => \^phase_tdata\(1),
       O => \phase_tdata[3]_i_4_n_0\
     );
@@ -592,7 +189,7 @@ begin
       INIT => X"6"
     )
         port map (
-      I0 => increment_reg(0),
+      I0 => feedback_tdata(0),
       I1 => \^phase_tdata\(0),
       O => \phase_tdata[3]_i_5_n_0\
     );
@@ -601,7 +198,7 @@ begin
       INIT => X"6"
     )
         port map (
-      I0 => increment_reg(7),
+      I0 => feedback_tdata(7),
       I1 => \^phase_tdata\(7),
       O => \phase_tdata[7]_i_2_n_0\
     );
@@ -610,7 +207,7 @@ begin
       INIT => X"6"
     )
         port map (
-      I0 => increment_reg(6),
+      I0 => feedback_tdata(6),
       I1 => \^phase_tdata\(6),
       O => \phase_tdata[7]_i_3_n_0\
     );
@@ -619,7 +216,7 @@ begin
       INIT => X"6"
     )
         port map (
-      I0 => increment_reg(5),
+      I0 => feedback_tdata(5),
       I1 => \^phase_tdata\(5),
       O => \phase_tdata[7]_i_4_n_0\
     );
@@ -628,7 +225,7 @@ begin
       INIT => X"6"
     )
         port map (
-      I0 => increment_reg(4),
+      I0 => feedback_tdata(4),
       I1 => \^phase_tdata\(4),
       O => \phase_tdata[7]_i_5_n_0\
     );
@@ -664,7 +261,7 @@ begin
       CO(1) => \phase_tdata_reg[11]_i_1_n_2\,
       CO(0) => \phase_tdata_reg[11]_i_1_n_3\,
       CYINIT => '0',
-      DI(3 downto 0) => increment_reg(11 downto 8),
+      DI(3 downto 0) => feedback_tdata(11 downto 8),
       O(3) => \phase_tdata_reg[11]_i_1_n_4\,
       O(2) => \phase_tdata_reg[11]_i_1_n_5\,
       O(1) => \phase_tdata_reg[11]_i_1_n_6\,
@@ -674,13 +271,13 @@ begin
       S(1) => \phase_tdata[11]_i_4_n_0\,
       S(0) => \phase_tdata[11]_i_5_n_0\
     );
-\phase_tdata_reg[12]\: unisim.vcomponents.FDRE
+\phase_tdata_reg[12]\: unisim.vcomponents.FDSE
      port map (
       C => clk,
       CE => feedback_tvalid,
       D => \phase_tdata_reg[15]_i_1_n_7\,
       Q => \^phase_tdata\(12),
-      R => rst
+      S => rst
     );
 \phase_tdata_reg[13]\: unisim.vcomponents.FDRE
      port map (
@@ -715,7 +312,7 @@ begin
       CO(0) => \phase_tdata_reg[15]_i_1_n_3\,
       CYINIT => '0',
       DI(3) => '0',
-      DI(2 downto 0) => increment_reg(14 downto 12),
+      DI(2 downto 0) => feedback_tdata(14 downto 12),
       O(3) => \phase_tdata_reg[15]_i_1_n_4\,
       O(2) => \phase_tdata_reg[15]_i_1_n_5\,
       O(1) => \phase_tdata_reg[15]_i_1_n_6\,
@@ -757,7 +354,7 @@ begin
       CO(1) => \phase_tdata_reg[3]_i_1_n_2\,
       CO(0) => \phase_tdata_reg[3]_i_1_n_3\,
       CYINIT => '0',
-      DI(3 downto 0) => increment_reg(3 downto 0),
+      DI(3 downto 0) => feedback_tdata(3 downto 0),
       O(3) => \phase_tdata_reg[3]_i_1_n_4\,
       O(2) => \phase_tdata_reg[3]_i_1_n_5\,
       O(1) => \phase_tdata_reg[3]_i_1_n_6\,
@@ -807,7 +404,7 @@ begin
       CO(1) => \phase_tdata_reg[7]_i_1_n_2\,
       CO(0) => \phase_tdata_reg[7]_i_1_n_3\,
       CYINIT => '0',
-      DI(3 downto 0) => increment_reg(7 downto 4),
+      DI(3 downto 0) => feedback_tdata(7 downto 4),
       O(3) => \phase_tdata_reg[7]_i_1_n_4\,
       O(2) => \phase_tdata_reg[7]_i_1_n_5\,
       O(1) => \phase_tdata_reg[7]_i_1_n_6\,
@@ -838,7 +435,7 @@ phase_tvalid_i_1: unisim.vcomponents.LUT2
       INIT => X"2"
     )
         port map (
-      I0 => \phase_tvalid_reg__0\,
+      I0 => feedback_tvalid,
       I1 => rst,
       O => phase_tvalid_i_1_n_0
     );
@@ -848,24 +445,6 @@ phase_tvalid_reg: unisim.vcomponents.FDRE
       CE => '1',
       D => phase_tvalid_i_1_n_0,
       Q => phase_tvalid,
-      R => '0'
-    );
-phase_tvalid_reg_i_1: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"B8"
-    )
-        port map (
-      I0 => \phase_tvalid_reg__0\,
-      I1 => rst,
-      I2 => feedback_tvalid,
-      O => phase_tvalid_reg_i_1_n_0
-    );
-phase_tvalid_reg_reg: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => '1',
-      D => phase_tvalid_reg_i_1_n_0,
-      Q => \phase_tvalid_reg__0\,
       R => '0'
     );
 end STRUCTURE;

@@ -9,12 +9,12 @@
     "parameters": {
       "component_parameters": {
         "WIDTH": [ { "value": "16", "resolve_type": "user", "format": "long", "usage": "all" } ],
-        "INCREMENT_INIT": [ { "value": "0x1000", "resolve_type": "user", "format": "bitString", "usage": "all" } ],
+        "INCREMENT_INIT": [ { "value": "0x4000", "resolve_type": "user", "format": "bitString", "usage": "all" } ],
         "Component_Name": [ { "value": "costas_loop_NCO_Phase_0_0", "resolve_type": "user", "usage": "all" } ]
       },
       "model_parameters": {
         "WIDTH": [ { "value": "16", "resolve_type": "generated", "format": "long", "usage": "all" } ],
-        "INCREMENT_INIT": [ { "value": "0x1000", "resolve_type": "generated", "format": "bitString", "usage": "all" } ]
+        "INCREMENT_INIT": [ { "value": "0x4000", "resolve_type": "generated", "format": "bitString", "usage": "all" } ]
       },
       "project_parameters": {
         "ARCHITECTURE": [ { "value": "zynq" } ],

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Dec 20 12:38:05 2023" VIVADOVERSION="2022.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Dec 20 18:07:51 2023" VIVADOVERSION="2022.2">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z020" NAME="top" PACKAGE="clg484" SPEEDGRADE="-1"/>
 
@@ -1823,14 +1823,14 @@
             <CONNECTION INSTANCE="Rx_PSK_Signal_Extend_0" PORT="PSK_signal"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="rst_16M384" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="Clock_Gen_Reset_Gen_proc_sys_reset_16M384_bus_struct_reset">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="Clock_Gen_Reset_Gen_proc_sys_reset_16M384" PORT="bus_struct_reset"/>
-          </CONNECTIONS>
-        </PORT>
         <PORT DIR="I" NAME="is_bpsk" SIGIS="undef" SIGNAME="xlconstant_0_dout">
           <CONNECTIONS>
             <CONNECTION INSTANCE="xlconstant_0" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="rst_16M384" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="Clock_Gen_Reset_Gen_proc_sys_reset_16M384_bus_struct_reset">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Clock_Gen_Reset_Gen_proc_sys_reset_16M384" PORT="bus_struct_reset"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="11" NAME="NCO_cos" RIGHT="0" SIGIS="undef" SIGNAME="Rx_costas_loop_0_NCO_cos">

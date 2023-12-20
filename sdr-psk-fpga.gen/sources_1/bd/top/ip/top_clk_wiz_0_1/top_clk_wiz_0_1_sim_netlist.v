@@ -3,8 +3,8 @@
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
 // Date        : Sun Dec 17 22:17:35 2023
 // Host        : TVJ-PC running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim
-//               e:/Documents/Study/Verilog/SDR/sdr-psk-fpga/sdr-psk-fpga.gen/sources_1/bd/top/ip/top_clk_wiz_0_1/top_clk_wiz_0_1_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top top_clk_wiz_0_1 -prefix
+//               top_clk_wiz_0_1_ top_clk_wiz_0_1_sim_netlist.v
 // Design      : top_clk_wiz_0_1
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -25,13 +25,13 @@ module top_clk_wiz_0_1
   (* IBUF_LOW_PWR *) wire clk_in1;
   wire locked;
 
-  top_clk_wiz_0_1_clk_wiz inst
+  top_clk_wiz_0_1_top_clk_wiz_0_1_clk_wiz inst
        (.clk_32M768(clk_32M768),
         .clk_in1(clk_in1),
         .locked(locked));
 endmodule
 
-module top_clk_wiz_0_1_clk_wiz
+module top_clk_wiz_0_1_top_clk_wiz_0_1_clk_wiz
    (clk_32M768,
     locked,
     clk_in1);

@@ -3,8 +3,8 @@
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
 -- Date        : Tue Dec 19 10:49:14 2023
 -- Host        : TVJ-PC running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim
---               e:/Documents/Study/Verilog/SDR/sdr-psk-fpga/sdr-psk-fpga.gen/sources_1/bd/top/ip/top_Tx_Data_0_0/top_Tx_Data_0_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top top_Tx_Data_0_0 -prefix
+--               top_Tx_Data_0_0_ top_Tx_Data_0_0_sim_netlist.vhdl
 -- Design      : top_Tx_Data_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -19,8 +19,6 @@ entity top_Tx_Data_0_0_PN_Gen is
     data_tdata : out STD_LOGIC_VECTOR ( 0 to 0 );
     clk : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of top_Tx_Data_0_0_PN_Gen : entity is "PN_Gen";
 end top_Tx_Data_0_0_PN_Gen;
 
 architecture STRUCTURE of top_Tx_Data_0_0_PN_Gen is
@@ -126,8 +124,6 @@ entity top_Tx_Data_0_0_Tx_Data is
     data_tdata : out STD_LOGIC_VECTOR ( 0 to 0 );
     clk : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of top_Tx_Data_0_0_Tx_Data : entity is "Tx_Data";
 end top_Tx_Data_0_0_Tx_Data;
 
 architecture STRUCTURE of top_Tx_Data_0_0_Tx_Data is

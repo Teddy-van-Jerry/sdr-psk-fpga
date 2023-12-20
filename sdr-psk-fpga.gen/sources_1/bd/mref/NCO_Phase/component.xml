@@ -107,7 +107,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>cc830727</spirit:value>
+            <spirit:value>4f0bd1d1</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -120,7 +120,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>cc830727</spirit:value>
+            <spirit:value>4f0bd1d1</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -233,7 +233,7 @@
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>INCREMENT_INIT</spirit:name>
         <spirit:displayName>Increment Init</spirit:displayName>
-        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.INCREMENT_INIT" spirit:bitStringLength="16">0x1000</spirit:value>
+        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.INCREMENT_INIT" spirit:bitStringLength="16">0x4000</spirit:value>
       </spirit:modelParameter>
     </spirit:modelParameters>
   </spirit:model>
@@ -258,7 +258,7 @@
     <spirit:parameter>
       <spirit:name>INCREMENT_INIT</spirit:name>
       <spirit:displayName>Increment Init</spirit:displayName>
-      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.INCREMENT_INIT" spirit:bitStringLength="16">0x1000</spirit:value>
+      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.INCREMENT_INIT" spirit:bitStringLength="16">0x4000</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Component_Name</spirit:name>
@@ -280,7 +280,7 @@
         <xilinx:designToolContext>IPI</xilinx:designToolContext>
       </xilinx:designToolContexts>
       <xilinx:coreRevision>1</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2023-12-20T04:33:13Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2023-12-20T10:05:30Z</xilinx:coreCreationDateTime>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2022.2</xilinx:xilinxVersion>

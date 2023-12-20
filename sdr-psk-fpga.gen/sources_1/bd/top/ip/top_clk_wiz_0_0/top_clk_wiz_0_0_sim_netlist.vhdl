@@ -1,10 +1,10 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
--- Date        : Sun Dec 17 22:16:56 2023
+-- Date        : Sun Dec 17 22:16:55 2023
 -- Host        : TVJ-PC running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim
---               e:/Documents/Study/Verilog/SDR/sdr-psk-fpga/sdr-psk-fpga.gen/sources_1/bd/top/ip/top_clk_wiz_0_0/top_clk_wiz_0_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top top_clk_wiz_0_0 -prefix
+--               top_clk_wiz_0_0_ top_clk_wiz_0_0_sim_netlist.vhdl
 -- Design      : top_clk_wiz_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -14,15 +14,15 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity top_clk_wiz_0_0_clk_wiz is
+entity top_clk_wiz_0_0_top_clk_wiz_0_0_clk_wiz is
   port (
     clk_128M : out STD_LOGIC;
     clk_200M : out STD_LOGIC;
     clk_in1 : in STD_LOGIC
   );
-end top_clk_wiz_0_0_clk_wiz;
+end top_clk_wiz_0_0_top_clk_wiz_0_0_clk_wiz;
 
-architecture STRUCTURE of top_clk_wiz_0_0_clk_wiz is
+architecture STRUCTURE of top_clk_wiz_0_0_top_clk_wiz_0_0_clk_wiz is
   signal clk_128M_top_clk_wiz_0_0 : STD_LOGIC;
   signal clk_200M_top_clk_wiz_0_0 : STD_LOGIC;
   signal clk_in1_top_clk_wiz_0_0 : STD_LOGIC;
@@ -184,7 +184,7 @@ end top_clk_wiz_0_0;
 
 architecture STRUCTURE of top_clk_wiz_0_0 is
 begin
-inst: entity work.top_clk_wiz_0_0_clk_wiz
+inst: entity work.top_clk_wiz_0_0_top_clk_wiz_0_0_clk_wiz
      port map (
       clk_128M => clk_128M,
       clk_200M => clk_200M,
