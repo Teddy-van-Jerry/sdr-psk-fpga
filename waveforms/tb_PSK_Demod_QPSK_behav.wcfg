@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tb_PSK_Demod_QPSK_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="tb_PSK_Demod_QPSK" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="5,000.001 ns"></ZoomEndTime>
+      <Cursor1Time time="517.787 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="150"></NameColumnWidth>
+      <ValueColumnWidth column_width="72"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="12" />
+   <wvobject fp_name="/tb_PSK_Demod_QPSK/clk_16M384" type="logic">
+      <obj_property name="ElementShortName">clk_16M384</obj_property>
+      <obj_property name="ObjectShortName">clk_16M384</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_PSK_Demod_QPSK/rst_16M384" type="logic">
+      <obj_property name="ElementShortName">rst_16M384</obj_property>
+      <obj_property name="ObjectShortName">rst_16M384</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_PSK_Demod_QPSK/clk_1M024" type="logic">
+      <obj_property name="ElementShortName">clk_1M024</obj_property>
+      <obj_property name="ObjectShortName">clk_1M024</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_PSK_Demod_QPSK/rst_n_1M024" type="logic">
+      <obj_property name="ElementShortName">rst_n_1M024</obj_property>
+      <obj_property name="ObjectShortName">rst_n_1M024</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_PSK_Demod_QPSK/DAC_I" type="array">
+      <obj_property name="ElementShortName">DAC_I[11:0]</obj_property>
+      <obj_property name="ObjectShortName">DAC_I[11:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_PSK_Demod_QPSK/DAC_Q" type="array">
+      <obj_property name="ElementShortName">DAC_Q[11:0]</obj_property>
+      <obj_property name="ObjectShortName">DAC_Q[11:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_PSK_Demod_QPSK/noise_I" type="array">
+      <obj_property name="ElementShortName">noise_I[11:0]</obj_property>
+      <obj_property name="ObjectShortName">noise_I[11:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_PSK_Demod_QPSK/noise_Q" type="array">
+      <obj_property name="ElementShortName">noise_Q[11:0]</obj_property>
+      <obj_property name="ObjectShortName">noise_Q[11:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_PSK_Demod_QPSK/QPSK_Tx" type="array">
+      <obj_property name="ElementShortName">QPSK_Tx[1:0]</obj_property>
+      <obj_property name="ObjectShortName">QPSK_Tx[1:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_PSK_Demod_QPSK/QPSK_Rx" type="array">
+      <obj_property name="ElementShortName">QPSK_Rx[1:0]</obj_property>
+      <obj_property name="ObjectShortName">QPSK_Rx[1:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_PSK_Demod_QPSK/DAC_vld" type="logic">
+      <obj_property name="ElementShortName">DAC_vld</obj_property>
+      <obj_property name="ObjectShortName">DAC_vld</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_PSK_Demod_QPSK/QPSK_vld" type="logic">
+      <obj_property name="ElementShortName">QPSK_vld</obj_property>
+      <obj_property name="ObjectShortName">QPSK_vld</obj_property>
+   </wvobject>
+</wave_config>

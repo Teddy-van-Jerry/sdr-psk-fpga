@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Dec 21 01:59:07 2023" VIVADOVERSION="2022.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Dec 21 03:46:14 2023" VIVADOVERSION="2022.2">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z020" NAME="top" PACKAGE="clg484" SPEEDGRADE="-1"/>
 
@@ -62,6 +62,7 @@
             <CONNECTION INSTANCE="Rx_PSK_Detection_0" PORT="clk"/>
             <CONNECTION INSTANCE="Rx_c_shift_ram_I" PORT="CLK"/>
             <CONNECTION INSTANCE="Rx_c_shift_ram_Q" PORT="CLK"/>
+            <CONNECTION INSTANCE="Rx_PSK_Signal_Extend_0" PORT="clk"/>
             <CONNECTION INSTANCE="Tx_PSK_Modulation_dds_compiler_carrier" PORT="aclk"/>
             <CONNECTION INSTANCE="Tx_PSK_Modulation_NCO_cos_sin_0" PORT="clk"/>
             <CONNECTION INSTANCE="Tx_PSK_Modulation_axis_data_fifo_0" PORT="m_axis_aclk"/>
@@ -1675,6 +1676,11 @@
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="Clock_Gen_Div_clk32M768_0_clk16M384">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Clock_Gen_Div_clk32M768_0" PORT="clk16M384"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT DIR="I" LEFT="11" NAME="DAC_I" RIGHT="0" SIGIS="undef" SIGNAME="RF_Data_Converter_AD9361_RX_DAT_I">
           <CONNECTIONS>
             <CONNECTION INSTANCE="RF_Data_Converter" PORT="AD9361_RX_DAT_I"/>
@@ -1685,9 +1691,19 @@
             <CONNECTION INSTANCE="RF_Data_Converter" PORT="AD9361_RX_DAT_Q"/>
           </CONNECTIONS>
         </PORT>
+        <PORT DIR="I" NAME="is_bpsk" SIGIS="undef" SIGNAME="xlconstant_is_bpsk_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_is_bpsk" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT DIR="O" LEFT="11" NAME="PSK_signal" RIGHT="0" SIGIS="undef" SIGNAME="Rx_PSK_Signal_Extend_0_PSK_signal">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Rx_costas_loop_0" PORT="PSK_signal"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="is_bpsk_out" SIGIS="undef" SIGNAME="Rx_PSK_Signal_Extend_0_is_bpsk_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Rx_costas_loop_0" PORT="is_bpsk"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -1879,9 +1895,9 @@
             <CONNECTION INSTANCE="Clock_Gen_Reset_Gen_proc_sys_reset_16M384" PORT="bus_struct_reset"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="is_bpsk" SIGIS="undef" SIGNAME="xlconstant_is_bpsk_dout">
+        <PORT DIR="I" NAME="is_bpsk" SIGIS="undef" SIGNAME="Rx_PSK_Signal_Extend_0_is_bpsk_out">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="xlconstant_is_bpsk" PORT="dout"/>
+            <CONNECTION INSTANCE="Rx_PSK_Signal_Extend_0" PORT="is_bpsk_out"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="11" NAME="NCO_cos" RIGHT="0" SIGIS="undef" SIGNAME="Rx_costas_loop_0_NCO_cos">
@@ -6434,14 +6450,14 @@
       <DOCUMENTS/>
       <PARAMETERS>
         <PARAMETER NAME="CONST_WIDTH" VALUE="1"/>
-        <PARAMETER NAME="CONST_VAL" VALUE="0x1"/>
+        <PARAMETER NAME="CONST_VAL" VALUE="0x0"/>
         <PARAMETER NAME="Component_Name" VALUE="top_xlconstant_0_1"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
         <PORT DIR="O" LEFT="0" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_is_bpsk_dout">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="Rx_costas_loop_0" PORT="is_bpsk"/>
+            <CONNECTION INSTANCE="Rx_PSK_Signal_Extend_0" PORT="is_bpsk"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>

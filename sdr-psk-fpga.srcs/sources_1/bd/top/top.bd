@@ -13,11 +13,11 @@
     "design_tree": {
       "RF_Data_Converter": "",
       "Rx": {
-        "PSK_Signal_Extend_0": "",
         "costas_loop_0": "",
         "PSK_Detection_0": "",
         "c_shift_ram_I": "",
-        "c_shift_ram_Q": ""
+        "c_shift_ram_Q": "",
+        "PSK_Signal_Extend_0": ""
       },
       "Clock_Gen": {
         "clk_wiz_128M": "",
@@ -347,39 +347,6 @@
           }
         },
         "components": {
-          "PSK_Signal_Extend_0": {
-            "vlnv": "xilinx.com:module_ref:PSK_Signal_Extend:1.0",
-            "xci_name": "top_PSK_Signal_Extend_0_1",
-            "xci_path": "ip\\top_PSK_Signal_Extend_0_1\\top_PSK_Signal_Extend_0_1.xci",
-            "inst_hier_path": "Rx/PSK_Signal_Extend_0",
-            "parameters": {
-              "O_WIDTH": {
-                "value": "12"
-              }
-            },
-            "reference_info": {
-              "ref_type": "hdl",
-              "ref_name": "PSK_Signal_Extend",
-              "boundary_crc": "0x0"
-            },
-            "ports": {
-              "DAC_I": {
-                "direction": "I",
-                "left": "11",
-                "right": "0"
-              },
-              "DAC_Q": {
-                "direction": "I",
-                "left": "11",
-                "right": "0"
-              },
-              "PSK_signal": {
-                "direction": "O",
-                "left": "11",
-                "right": "0"
-              }
-            }
-          },
           "costas_loop_0": {
             "parameters": {
               "ACTIVE_SIM_BD": {
@@ -805,6 +772,49 @@
                 "value": "1"
               }
             }
+          },
+          "PSK_Signal_Extend_0": {
+            "vlnv": "xilinx.com:module_ref:PSK_Signal_Extend:1.0",
+            "xci_name": "top_PSK_Signal_Extend_0_1",
+            "xci_path": "ip\\top_PSK_Signal_Extend_0_1\\top_PSK_Signal_Extend_0_1.xci",
+            "inst_hier_path": "Rx/PSK_Signal_Extend_0",
+            "parameters": {
+              "O_WIDTH": {
+                "value": "12"
+              }
+            },
+            "reference_info": {
+              "ref_type": "hdl",
+              "ref_name": "PSK_Signal_Extend",
+              "boundary_crc": "0x0"
+            },
+            "ports": {
+              "clk": {
+                "type": "clk",
+                "direction": "I"
+              },
+              "DAC_I": {
+                "direction": "I",
+                "left": "11",
+                "right": "0"
+              },
+              "DAC_Q": {
+                "direction": "I",
+                "left": "11",
+                "right": "0"
+              },
+              "is_bpsk": {
+                "direction": "I"
+              },
+              "PSK_signal": {
+                "direction": "O",
+                "left": "11",
+                "right": "0"
+              },
+              "is_bpsk_out": {
+                "direction": "O"
+              }
+            }
           }
         },
         "interface_nets": {
@@ -840,7 +850,8 @@
               "costas_loop_0/clk_16M384",
               "PSK_Detection_0/clk",
               "c_shift_ram_I/CLK",
-              "c_shift_ram_Q/CLK"
+              "c_shift_ram_Q/CLK",
+              "PSK_Signal_Extend_0/clk"
             ]
           },
           "FEEDBACK_SHIFT_1": {
@@ -879,6 +890,12 @@
               "costas_loop_0/PSK_signal"
             ]
           },
+          "PSK_Signal_Extend_0_is_bpsk_out": {
+            "ports": [
+              "PSK_Signal_Extend_0/is_bpsk_out",
+              "costas_loop_0/is_bpsk"
+            ]
+          },
           "c_shift_ram_I_Q": {
             "ports": [
               "c_shift_ram_I/Q",
@@ -914,7 +931,7 @@
           "is_bpsk_1": {
             "ports": [
               "is_bpsk",
-              "costas_loop_0/is_bpsk"
+              "PSK_Signal_Extend_0/is_bpsk"
             ]
           },
           "rst_16M386_1": {
@@ -1986,7 +2003,12 @@
         "vlnv": "xilinx.com:ip:xlconstant:1.1",
         "xci_name": "top_xlconstant_0_1",
         "xci_path": "ip\\top_xlconstant_0_1\\top_xlconstant_0_1.xci",
-        "inst_hier_path": "xlconstant_is_bpsk"
+        "inst_hier_path": "xlconstant_is_bpsk",
+        "parameters": {
+          "CONST_VAL": {
+            "value": "0"
+          }
+        }
       },
       "system_ila_0": {
         "vlnv": "xilinx.com:ip:system_ila:1.1",

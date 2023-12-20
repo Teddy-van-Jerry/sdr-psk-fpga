@@ -56,22 +56,33 @@
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module top_PSK_Signal_Extend_0_1 (
+  clk,
   DAC_I,
   DAC_Q,
-  PSK_signal
+  is_bpsk,
+  PSK_signal,
+  is_bpsk_out
 );
 
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *)
+input wire clk;
 input wire [11 : 0] DAC_I;
 input wire [11 : 0] DAC_Q;
+input wire is_bpsk;
 output wire [11 : 0] PSK_signal;
+output wire is_bpsk_out;
 
   PSK_Signal_Extend #(
     .I_WIDTH(12),
     .O_WIDTH(12),
     .USE_I_STRM(1)
   ) inst (
+    .clk(clk),
     .DAC_I(DAC_I),
     .DAC_Q(DAC_Q),
-    .PSK_signal(PSK_signal)
+    .is_bpsk(is_bpsk),
+    .PSK_signal(PSK_signal),
+    .is_bpsk_out(is_bpsk_out)
   );
 endmodule

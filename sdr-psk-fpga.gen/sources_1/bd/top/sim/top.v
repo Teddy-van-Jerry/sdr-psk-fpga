@@ -1,7 +1,7 @@
 //Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-//Date        : Thu Dec 21 01:59:01 2023
+//Date        : Thu Dec 21 03:46:11 2023
 //Host        : TVJ-PC running 64-bit major release  (build 9200)
 //Command     : generate_target top.bd
 //Design      : top
@@ -272,6 +272,7 @@ module Rx_imp_KSVDXC
   wire [1:0]PSK_Detection_0_QPSK;
   wire PSK_Detection_0_vld;
   wire [11:0]PSK_Signal_Extend_0_PSK_signal;
+  wire PSK_Signal_Extend_0_is_bpsk_out;
   wire [15:0]c_shift_ram_I_Q;
   wire [15:0]c_shift_ram_Q_Q;
   wire costas_loop_0_I_TVALID;
@@ -308,7 +309,10 @@ module Rx_imp_KSVDXC
   top_PSK_Signal_Extend_0_1 PSK_Signal_Extend_0
        (.DAC_I(AD9361_1RT_FDD_0_AD9361_RX_DAT_I),
         .DAC_Q(AD9361_1RT_FDD_0_AD9361_RX_DAT_Q),
-        .PSK_signal(PSK_Signal_Extend_0_PSK_signal));
+        .PSK_signal(PSK_Signal_Extend_0_PSK_signal),
+        .clk(Div_clk32M768_0_clk16M384),
+        .is_bpsk(is_bpsk_1),
+        .is_bpsk_out(PSK_Signal_Extend_0_is_bpsk_out));
   top_c_shift_ram_0_2 c_shift_ram_I
        (.CLK(Div_clk32M768_0_clk16M384),
         .D(costas_loop_0_I_tdata),
@@ -327,7 +331,7 @@ module Rx_imp_KSVDXC
         .Q_tdata(costas_loop_0_Q_tdata),
         .Q_tvalid(costas_loop_0_Q_TVALID),
         .clk_16M384(Div_clk32M768_0_clk16M384),
-        .is_bpsk(is_bpsk_1),
+        .is_bpsk(PSK_Signal_Extend_0_is_bpsk_out),
         .rst_16M384(rst_16M386_1));
 endmodule
 
