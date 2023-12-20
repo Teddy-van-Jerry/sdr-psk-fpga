@@ -39,9 +39,13 @@
         },
         "Tx_Data_0": ""
       },
-      "xlconstant_0": "",
+      "xlconstant_is_bpsk": "",
       "system_ila_0": "",
-      "xlconstant_1": ""
+      "Const_Config": {
+        "xlconstant_DELAY_CNT": "",
+        "xlconstant_FEEDBACK_SHIFT": "",
+        "xlconstant_MODE_CTRL": ""
+      }
     },
     "ports": {
       "PL_CLK_100MHz": {
@@ -330,6 +334,16 @@
             "direction": "O",
             "left": "11",
             "right": "0"
+          },
+          "FEEDBACK_SHIFT": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "MODE_CTRL": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
           }
         },
         "components": {
@@ -587,6 +601,16 @@
                 "direction": "O",
                 "left": "11",
                 "right": "0"
+              },
+              "FEEDBACK_SHIFT": {
+                "direction": "I",
+                "left": "7",
+                "right": "0"
+              },
+              "MODE_CTRL": {
+                "direction": "I",
+                "left": "3",
+                "right": "0"
               }
             },
             "post_compiled_compname": "costas_loop_inst_0",
@@ -594,7 +618,7 @@
             "variant_info": {
               "costas_loop.bd": {
                 "scoped_diagram": "costas_loop_inst_0.bd",
-                "design_checksum": "0x6A312C8A",
+                "design_checksum": "0x12D19964",
                 "ref_name": "costas_loop",
                 "ref_subinst_path": "top_costas_loop_0",
                 "ref_type": "Block Design",
@@ -819,6 +843,18 @@
               "c_shift_ram_Q/CLK"
             ]
           },
+          "FEEDBACK_SHIFT_1": {
+            "ports": [
+              "FEEDBACK_SHIFT",
+              "costas_loop_0/FEEDBACK_SHIFT"
+            ]
+          },
+          "MODE_CTRL_1": {
+            "ports": [
+              "MODE_CTRL",
+              "costas_loop_0/MODE_CTRL"
+            ]
+          },
           "PSK_Detection_0_BPSK": {
             "ports": [
               "PSK_Detection_0/BPSK",
@@ -898,9 +934,6 @@
           },
           "clk_200M": {
             "type": "clk",
-            "direction": "O"
-          },
-          "clk_32M768": {
             "direction": "O"
           },
           "clk_16M384": {
@@ -1264,7 +1297,6 @@
           "clk_wiz_32M768_clk_32M768": {
             "ports": [
               "clk_wiz_32M768/clk_32M768",
-              "clk_32M768",
               "Div_clk32M768_0/clk32M768"
             ]
           },
@@ -1950,11 +1982,11 @@
           }
         }
       },
-      "xlconstant_0": {
+      "xlconstant_is_bpsk": {
         "vlnv": "xilinx.com:ip:xlconstant:1.1",
         "xci_name": "top_xlconstant_0_1",
         "xci_path": "ip\\top_xlconstant_0_1\\top_xlconstant_0_1.xci",
-        "inst_hier_path": "xlconstant_0"
+        "inst_hier_path": "xlconstant_is_bpsk"
       },
       "system_ila_0": {
         "vlnv": "xilinx.com:ip:system_ila:1.1",
@@ -1994,17 +2026,83 @@
           }
         }
       },
-      "xlconstant_1": {
-        "vlnv": "xilinx.com:ip:xlconstant:1.1",
-        "xci_name": "top_xlconstant_1_0",
-        "xci_path": "ip\\top_xlconstant_1_0\\top_xlconstant_1_0.xci",
-        "inst_hier_path": "xlconstant_1",
-        "parameters": {
-          "CONST_VAL": {
-            "value": "8"
+      "Const_Config": {
+        "ports": {
+          "DELAY_CNT": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
           },
-          "CONST_WIDTH": {
-            "value": "4"
+          "FEEDBACK_SHIFT": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "MODE_CTRL": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          }
+        },
+        "components": {
+          "xlconstant_DELAY_CNT": {
+            "vlnv": "xilinx.com:ip:xlconstant:1.1",
+            "xci_name": "top_xlconstant_1_0",
+            "xci_path": "ip\\top_xlconstant_1_0\\top_xlconstant_1_0.xci",
+            "inst_hier_path": "Const_Config/xlconstant_DELAY_CNT",
+            "parameters": {
+              "CONST_VAL": {
+                "value": "8"
+              },
+              "CONST_WIDTH": {
+                "value": "4"
+              }
+            }
+          },
+          "xlconstant_FEEDBACK_SHIFT": {
+            "vlnv": "xilinx.com:ip:xlconstant:1.1",
+            "xci_name": "top_xlconstant_2_0",
+            "xci_path": "ip\\top_xlconstant_2_0\\top_xlconstant_2_0.xci",
+            "inst_hier_path": "Const_Config/xlconstant_FEEDBACK_SHIFT",
+            "parameters": {
+              "CONST_WIDTH": {
+                "value": "8"
+              }
+            }
+          },
+          "xlconstant_MODE_CTRL": {
+            "vlnv": "xilinx.com:ip:xlconstant:1.1",
+            "xci_name": "top_xlconstant_3_0",
+            "xci_path": "ip\\top_xlconstant_3_0\\top_xlconstant_3_0.xci",
+            "inst_hier_path": "Const_Config/xlconstant_MODE_CTRL",
+            "parameters": {
+              "CONST_VAL": {
+                "value": "0"
+              },
+              "CONST_WIDTH": {
+                "value": "4"
+              }
+            }
+          }
+        },
+        "nets": {
+          "DELAY_CNT_1": {
+            "ports": [
+              "xlconstant_DELAY_CNT/dout",
+              "DELAY_CNT"
+            ]
+          },
+          "FEEDBACK_SHIFT_1": {
+            "ports": [
+              "xlconstant_FEEDBACK_SHIFT/dout",
+              "FEEDBACK_SHIFT"
+            ]
+          },
+          "xlconstant_MODE_CTRL_dout": {
+            "ports": [
+              "xlconstant_MODE_CTRL/dout",
+              "MODE_CTRL"
+            ]
           }
         }
       }
@@ -2080,7 +2178,7 @@
       },
       "DELAY_CNT_1": {
         "ports": [
-          "xlconstant_1/dout",
+          "Const_Config/DELAY_CNT",
           "Tx/DELAY_CNT"
         ]
       },
@@ -2090,6 +2188,12 @@
           "Rx/clk_16M384",
           "Tx/clk_16M384",
           "system_ila_0/clk"
+        ]
+      },
+      "FEEDBACK_SHIFT_1": {
+        "ports": [
+          "Const_Config/FEEDBACK_SHIFT",
+          "Rx/FEEDBACK_SHIFT"
         ]
       },
       "PL_CLK_100MHz_1": {
@@ -2169,8 +2273,14 @@
       },
       "xlconstant_0_dout": {
         "ports": [
-          "xlconstant_0/dout",
+          "xlconstant_is_bpsk/dout",
           "Rx/is_bpsk"
+        ]
+      },
+      "xlconstant_MODE_CTRL_dout": {
+        "ports": [
+          "Const_Config/MODE_CTRL",
+          "Rx/MODE_CTRL"
         ]
       }
     }

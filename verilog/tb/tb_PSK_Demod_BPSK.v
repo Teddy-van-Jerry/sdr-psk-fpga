@@ -26,24 +26,6 @@ module tb_PSK_Demod_BPSK;
     .DAC_vld(DAC_vld)
   );
 
-//   module Rx_imp_KSVDXC
-//   (ADC_I,
-//    ADC_Q,
-//    BPSK,
-//    QPSK,
-//    clk_16M384,
-//    is_bpsk,
-//    rst_16M384,
-//    vld);
-//  input [11:0]ADC_I;
-//  input [11:0]ADC_Q;
-//  output BPSK;
-//  output [1:0]QPSK;
-//  input clk_16M384;
-//  input is_bpsk;
-//  input rst_16M384;
-//  output vld;
-
   Rx_imp_KSVDXC inst_Rx (
     .clk_16M384(clk_16M384),
     .rst_16M384(rst_16M384),
@@ -52,7 +34,9 @@ module tb_PSK_Demod_BPSK;
     .BPSK(BPSK),
     .QPSK(),
     .is_bpsk(1'b1),
-    .vld(BPSK_vld)
+    .vld(BPSK_vld),
+    .FEEDBACK_SHIFT(4'd3),
+    .MODE_CTRL(4'b0000)
   );
 
   // clock generation

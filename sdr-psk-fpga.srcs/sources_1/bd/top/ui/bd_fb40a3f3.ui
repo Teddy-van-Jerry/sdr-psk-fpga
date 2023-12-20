@@ -1,0 +1,21 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"1.25",
+   "Default View_TopLeft":"-475,-162",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
+#  -string -flagsOSRD
+preplace portBus DELAY_CNT -pg 1 -lvl 2 -x 240 -y 50 -defaultsOSRD
+preplace portBus FEEDBACK_SHIFT -pg 1 -lvl 2 -x 240 -y 150 -defaultsOSRD
+preplace portBus MODE_CTRL -pg 1 -lvl 2 -x 240 -y 250 -defaultsOSRD
+preplace inst xlconstant_DELAY_CNT -pg 1 -lvl 1 -x 110 -y 50 -defaultsOSRD
+preplace inst xlconstant_FEEDBACK_SHIFT -pg 1 -lvl 1 -x 110 -y 150 -defaultsOSRD
+preplace inst xlconstant_MODE_CTRL -pg 1 -lvl 1 -x 110 -y 250 -defaultsOSRD
+preplace netloc DELAY_CNT_1 1 1 1 NJ 50
+preplace netloc FEEDBACK_SHIFT_1 1 1 1 NJ 150
+preplace netloc xlconstant_MODE_CTRL_dout 1 1 1 NJ 250
+levelinfo -pg 1 0 110 240
+pagesize -pg 1 -db -bbox -sgen 0 -10 430 310
+"
+}
+

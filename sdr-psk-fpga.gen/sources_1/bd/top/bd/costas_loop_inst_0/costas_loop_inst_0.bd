@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xDCAAF1F070727E8D",
+      "boundary_crc": "0xDE50D02ECC69B7F5",
       "design_src": "E:/Documents/Study/Verilog/SDR/sdr-psk-fpga/sdr-psk-fpga.srcs/sources_1/bd/costas_loop/costas_loop.bd",
       "device": "xc7z020clg484-1",
       "name": "costas_loop_inst_0",
@@ -49,19 +49,19 @@
           },
           "HAS_TKEEP": {
             "value": "0",
-            "value_src": "default"
+            "value_src": "const_prop"
           },
           "HAS_TLAST": {
             "value": "0",
-            "value_src": "default"
+            "value_src": "const_prop"
           },
           "HAS_TREADY": {
             "value": "0",
-            "value_src": "default"
+            "value_src": "const_prop"
           },
           "HAS_TSTRB": {
             "value": "0",
-            "value_src": "default"
+            "value_src": "const_prop"
           },
           "INSERT_VIP": {
             "value": "0",
@@ -77,19 +77,19 @@
           },
           "TDATA_NUM_BYTES": {
             "value": "2",
-            "value_src": "default"
+            "value_src": "auto_prop"
           },
           "TDEST_WIDTH": {
             "value": "0",
-            "value_src": "default"
+            "value_src": "const_prop"
           },
           "TID_WIDTH": {
             "value": "0",
-            "value_src": "default"
+            "value_src": "const_prop"
           },
           "TUSER_WIDTH": {
             "value": "0",
-            "value_src": "default"
+            "value_src": "const_prop"
           }
         },
         "port_maps": {
@@ -116,19 +116,19 @@
           },
           "HAS_TKEEP": {
             "value": "0",
-            "value_src": "default"
+            "value_src": "const_prop"
           },
           "HAS_TLAST": {
             "value": "0",
-            "value_src": "default"
+            "value_src": "const_prop"
           },
           "HAS_TREADY": {
             "value": "0",
-            "value_src": "default"
+            "value_src": "const_prop"
           },
           "HAS_TSTRB": {
             "value": "0",
-            "value_src": "default"
+            "value_src": "const_prop"
           },
           "INSERT_VIP": {
             "value": "0",
@@ -144,19 +144,19 @@
           },
           "TDATA_NUM_BYTES": {
             "value": "2",
-            "value_src": "default"
+            "value_src": "auto_prop"
           },
           "TDEST_WIDTH": {
             "value": "0",
-            "value_src": "default"
+            "value_src": "const_prop"
           },
           "TID_WIDTH": {
             "value": "0",
-            "value_src": "default"
+            "value_src": "const_prop"
           },
           "TUSER_WIDTH": {
             "value": "0",
-            "value_src": "default"
+            "value_src": "const_prop"
           }
         },
         "port_maps": {
@@ -229,13 +229,23 @@
           },
           "POLARITY": {
             "value": "ACTIVE_HIGH",
-            "value_src": "strong"
+            "value_src": "const_prop"
           }
         }
       },
       "NCO_cos": {
         "direction": "O",
         "left": "11",
+        "right": "0"
+      },
+      "FEEDBACK_SHIFT": {
+        "direction": "I",
+        "left": "7",
+        "right": "0"
+      },
+      "MODE_CTRL": {
+        "direction": "I",
+        "left": "3",
         "right": "0"
       }
     },
@@ -319,6 +329,21 @@
           "Clock_Frequency": {
             "value": "16.384"
           },
+          "CoefficientSource": {
+            "value": "COE_File"
+          },
+          "Coefficient_File": {
+            "value": "../../../../../../../../matlab/costas_loop_LPF.coe"
+          },
+          "Coefficient_Fractional_Bits": {
+            "value": "0"
+          },
+          "Coefficient_Sets": {
+            "value": "1"
+          },
+          "Coefficient_Sign": {
+            "value": "Signed"
+          },
           "Coefficient_Structure": {
             "value": "Inferred"
           },
@@ -326,10 +351,13 @@
             "value": "16"
           },
           "ColumnConfig": {
-            "value": "11"
+            "value": "14"
           },
           "DATA_Has_TLAST": {
             "value": "Not_Required"
+          },
+          "Data_Width": {
+            "value": "16"
           },
           "Filter_Architecture": {
             "value": "Systolic_Multiply_Accumulate"
@@ -348,6 +376,9 @@
           },
           "Output_Width": {
             "value": "16"
+          },
+          "Quantization": {
+            "value": "Integer_Coefficients"
           },
           "RateSpecification": {
             "value": "Frequency_Specification"
@@ -431,6 +462,11 @@
           },
           "is_bpsk": {
             "direction": "I"
+          },
+          "MODE_CTRL": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
           }
         },
         "components": {
@@ -1165,7 +1201,7 @@
               "TDATA": {
                 "physical_name": "IQ_tdata",
                 "direction": "I",
-                "left": "47",
+                "left": "79",
                 "right": "0"
               },
               "TVALID": {
@@ -1523,11 +1559,14 @@
           "Truncate_IQ_0": {
             "vlnv": "xilinx.com:module_ref:Truncate_IQ:1.0",
             "xci_name": "costas_loop_inst_0_Truncate_IQ_0_0",
-            "xci_path": "ip\\costas_loop_inst_0_Truncate_IQ_0_0\\costas_loop_inst_0_Truncate_IQ_0_0.xci",
+            "xci_path": "ip\\costas_loop_inst_0_Truncate_IQ_0_0_1\\costas_loop_inst_0_Truncate_IQ_0_0.xci",
             "inst_hier_path": "IQ_Connect/Truncate_IQ_0",
             "parameters": {
+              "I_WIDTH": {
+                "value": "80"
+              },
               "MSB_TRUNCATE_BITS": {
-                "value": "8"
+                "value": "0"
               }
             },
             "reference_info": {
@@ -1596,7 +1635,7 @@
                 "vlnv": "xilinx.com:interface:axis_rtl:1.0",
                 "parameters": {
                   "TDATA_NUM_BYTES": {
-                    "value": "6",
+                    "value": "10",
                     "value_src": "auto"
                   },
                   "TDEST_WIDTH": {
@@ -1627,19 +1666,22 @@
                     "value": "0",
                     "value_src": "constant"
                   },
+                  "FREQ_HZ": {
+                    "value": "16384000"
+                  },
                   "LAYERED_METADATA": {
                     "value": [
                       "xilinx.com:interface:datatypes:1.0 {",
                       "TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {}",
-                      "maximum {}} value 48} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} array_type {name {attribs {resolve_type immediate dependency {} format string",
+                      "maximum {}} value 74} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} array_type {name {attribs {resolve_type immediate dependency {} format string",
                       "minimum {} maximum {}} value chan} size {attribs {resolve_type generated dependency chan_size format long minimum {} maximum {}} value 1} stride {attribs {resolve_type generated dependency chan_stride",
-                      "format long minimum {} maximum {}} value 48} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic",
-                      "dependency {} format long minimum {} maximum {}} value 48} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} array_type {name {attribs {resolve_type",
+                      "format long minimum {} maximum {}} value 80} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic",
+                      "dependency {} format long minimum {} maximum {}} value 74} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} array_type {name {attribs {resolve_type",
                       "immediate dependency {} format string minimum {} maximum {}} value path} size {attribs {resolve_type generated dependency path_size format long minimum {} maximum {}} value 2} stride {attribs",
-                      "{resolve_type generated dependency path_stride format long minimum {} maximum {}} value 24} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}}",
-                      "bitwidth {attribs {resolve_type generated dependency out_width format long minimum {} maximum {}} value 24} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}}",
+                      "{resolve_type generated dependency path_stride format long minimum {} maximum {}} value 40} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}}",
+                      "bitwidth {attribs {resolve_type generated dependency out_width format long minimum {} maximum {}} value 34} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}}",
                       "value 0} real {fixed {fractwidth {attribs {resolve_type generated dependency out_fractwidth format long minimum {} maximum {}} value 0} signed {attribs {resolve_type generated dependency out_signed",
-                      "format bool minimum {} maximum {}} value true}}}}}}}}} TDATA_WIDTH 48 TUSER {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth",
+                      "format bool minimum {} maximum {}} value true}}}}}}}}} TDATA_WIDTH 80 TUSER {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth",
                       "{attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 0} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} struct",
                       "{field_data_valid {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value data_valid} enabled {attribs {resolve_type generated dependency data_valid_enabled",
                       "format bool minimum {} maximum {}} value false} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated",
@@ -1653,14 +1695,14 @@
                       "minimum {} maximum {}} value 0}}}}}} TUSER_WIDTH 0",
                       "}"
                     ],
-                    "value_src": "default_prop"
+                    "value_src": "ip_prop"
                   }
                 },
                 "port_maps": {
                   "TDATA": {
                     "physical_name": "IQ_tdata",
                     "direction": "I",
-                    "left": "47",
+                    "left": "79",
                     "right": "0"
                   },
                   "TVALID": {
@@ -1781,7 +1823,7 @@
               "TDATA": {
                 "physical_name": "IQ_tdata",
                 "direction": "O",
-                "left": "47",
+                "left": "79",
                 "right": "0"
               },
               "TVALID": {
@@ -1837,8 +1879,23 @@
               "Clock_Frequency": {
                 "value": "16.384"
               },
+              "CoefficientSource": {
+                "value": "COE_File"
+              },
+              "CoefficientVector": {
+                "value": "6,0,-4,-3,5,6,-6,-13,7,44,64,44,7,-13,-6,6,5,-3,-4,0,6"
+              },
+              "Coefficient_File": {
+                "value": "../../../../../../../../matlab/costas_loop_LPF.coe"
+              },
               "Coefficient_Fractional_Bits": {
                 "value": "0"
+              },
+              "Coefficient_Sets": {
+                "value": "1"
+              },
+              "Coefficient_Sign": {
+                "value": "Signed"
               },
               "Coefficient_Structure": {
                 "value": "Inferred"
@@ -1847,7 +1904,7 @@
                 "value": "16"
               },
               "ColumnConfig": {
-                "value": "11"
+                "value": "14"
               },
               "DATA_Has_TLAST": {
                 "value": "Not_Required"
@@ -1874,7 +1931,10 @@
                 "value": "Full_Precision"
               },
               "Output_Width": {
-                "value": "24"
+                "value": "34"
+              },
+              "Quantization": {
+                "value": "Integer_Coefficients"
               },
               "RateSpecification": {
                 "value": "Frequency_Specification"
@@ -1973,6 +2033,11 @@
           "rst_16M384": {
             "type": "rst",
             "direction": "I"
+          },
+          "FEEDBACK_SHIFT": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
           }
         },
         "components": {
@@ -2138,7 +2203,7 @@
                       "format long minimum {} maximum {}} value 0} bitoffset {attribs {resolve_type generated dependency user_offset format long minimum {} maximum {}} value 0}}}}}} TUSER_WIDTH 0",
                       "}"
                     ],
-                    "value_src": "default_prop"
+                    "value_src": "ip_prop"
                   }
                 },
                 "port_maps": {
@@ -2276,7 +2341,7 @@
                       "minimum {} maximum {}} value 0}}}}}} TUSER_WIDTH 0",
                       "}"
                     ],
-                    "value_src": "default_prop"
+                    "value_src": "ip_prop"
                   }
                 },
                 "port_maps": {
@@ -2392,6 +2457,11 @@
                     "value_src": "const_prop"
                   }
                 }
+              },
+              "FEEDBACK_SHIFT": {
+                "direction": "I",
+                "left": "3",
+                "right": "0"
               }
             }
           }
@@ -2417,6 +2487,12 @@
           }
         },
         "nets": {
+          "FEEDBACK_SHIFT_1": {
+            "ports": [
+              "FEEDBACK_SHIFT",
+              "NCO_Phase_0/FEEDBACK_SHIFT"
+            ]
+          },
           "NCO_cos_sin_0_NCO_cos": {
             "ports": [
               "NCO_cos_sin_0/NCO_cos",
@@ -2491,6 +2567,18 @@
       }
     },
     "nets": {
+      "FEEDBACK_SHIFT_1": {
+        "ports": [
+          "FEEDBACK_SHIFT",
+          "NCO/FEEDBACK_SHIFT"
+        ]
+      },
+      "MODE_CTRL_1": {
+        "ports": [
+          "MODE_CTRL",
+          "Error_Detect/MODE_CTRL"
+        ]
+      },
       "NCO_cos_sin_0_NCO_cos": {
         "ports": [
           "NCO/NCO_cos",

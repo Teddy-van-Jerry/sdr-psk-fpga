@@ -1,27 +1,27 @@
 {
    "ActiveEmotionalView":"Default View",
    "Default View_ScaleFactor":"1.25",
-   "Default View_TopLeft":"-229,-82",
+   "Default View_TopLeft":"-525,-166",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
 #  -string -flagsOSRD
-preplace port I1 -pg 1 -lvl 3 -x 400 -y 60 -defaultsOSRD
-preplace port I2 -pg 1 -lvl 3 -x 400 -y 90 -defaultsOSRD
-preplace port Q1 -pg 1 -lvl 3 -x 400 -y 170 -defaultsOSRD
-preplace port Q2 -pg 1 -lvl 3 -x 400 -y 200 -defaultsOSRD
-preplace port IQ -pg 1 -lvl 0 -x 0 -y 80 -defaultsOSRD
-preplace inst AXI_2x_I -pg 1 -lvl 2 -x 290 -y 70 -defaultsOSRD
-preplace inst AXI_2x_Q -pg 1 -lvl 2 -x 290 -y 190 -defaultsOSRD
-preplace inst Truncate_IQ_0 -pg 1 -lvl 1 -x 110 -y 80 -defaultsOSRD
+preplace port I1 -pg 1 -lvl 3 -x 360 -y 60 -defaultsOSRD
+preplace port I2 -pg 1 -lvl 3 -x 360 -y 90 -defaultsOSRD
+preplace port Q1 -pg 1 -lvl 3 -x 360 -y 170 -defaultsOSRD
+preplace port Q2 -pg 1 -lvl 3 -x 360 -y 200 -defaultsOSRD
+preplace port IQ -pg 1 -lvl 0 -x -40 -y 80 -defaultsOSRD
+preplace inst AXI_2x_I -pg 1 -lvl 2 -x 250 -y 70 -defaultsOSRD
+preplace inst AXI_2x_Q -pg 1 -lvl 2 -x 250 -y 190 -defaultsOSRD
+preplace inst Truncate_IQ_0 -pg 1 -lvl 1 -x 70 -y 80 -defaultsOSRD
 preplace netloc AXI_2x_0_O1 1 2 1 NJ 60
-preplace netloc AXI_2x_I1_O1 1 2 1 380 170n
+preplace netloc AXI_2x_I1_O1 1 2 1 340 170n
 preplace netloc AXI_2x_I1_O2 1 2 1 N 200
-preplace netloc AXI_2x_I_O2 1 2 1 380J 80n
+preplace netloc AXI_2x_I_O2 1 2 1 340J 80n
 preplace netloc Truncate_IQ_0_I 1 1 1 N 70
-preplace netloc Truncate_IQ_0_Q 1 1 1 200 90n
+preplace netloc Truncate_IQ_0_Q 1 1 1 160 90n
 preplace netloc fir_compiler_I_M_AXIS_DATA 1 0 1 N 80
-levelinfo -pg 1 0 110 290 400
-pagesize -pg 1 -db -bbox -sgen -70 0 470 260
+levelinfo -pg 1 -40 70 250 360
+pagesize -pg 1 -db -bbox -sgen -110 0 430 260
 "
 }
 

@@ -426,7 +426,7 @@ nimum {} maximum {}} value 0}}}}}} TUSER_WIDTH 0}</spirit:value>
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:94a95ed8</spirit:value>
+            <spirit:value>9:431d1b87</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -437,7 +437,7 @@ nimum {} maximum {}} value 0}}}}}} TUSER_WIDTH 0}</spirit:value>
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:94a95ed8</spirit:value>
+            <spirit:value>9:431d1b87</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -453,11 +453,11 @@ nimum {} maximum {}} value 0}}}}}} TUSER_WIDTH 0}</spirit:value>
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Dec 20 04:38:06 UTC 2023</spirit:value>
+            <spirit:value>Wed Dec 20 17:59:08 UTC 2023</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:94a95ed8</spirit:value>
+            <spirit:value>9:431d1b87</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -469,7 +469,7 @@ nimum {} maximum {}} value 0}}}}}} TUSER_WIDTH 0}</spirit:value>
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:2834d704</spirit:value>
+            <spirit:value>9:b7137fe3</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -485,11 +485,11 @@ nimum {} maximum {}} value 0}}}}}} TUSER_WIDTH 0}</spirit:value>
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Dec 20 04:38:06 UTC 2023</spirit:value>
+            <spirit:value>Wed Dec 20 17:59:08 UTC 2023</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:2834d704</spirit:value>
+            <spirit:value>9:b7137fe3</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -502,8 +502,12 @@ nimum {} maximum {}} value 0}}}}}} TUSER_WIDTH 0}</spirit:value>
         </spirit:fileSetRef>
         <spirit:parameters>
           <spirit:parameter>
+            <spirit:name>GENtimestamp</spirit:name>
+            <spirit:value>Wed Dec 20 18:00:36 UTC 2023</spirit:value>
+          </spirit:parameter>
+          <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:94a95ed8</spirit:value>
+            <spirit:value>9:431d1b87</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -536,6 +540,23 @@ nimum {} maximum {}} value 0}}}}}} TUSER_WIDTH 0}</spirit:value>
         </spirit:wire>
       </spirit:port>
       <spirit:port>
+        <spirit:name>FEEDBACK_SHIFT</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">3</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic_vector</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
         <spirit:name>feedback_tdata</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
@@ -545,7 +566,7 @@ nimum {} maximum {}} value 0}}}}}} TUSER_WIDTH 0}</spirit:value>
           </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
-              <spirit:typeName>std_logic_vector</spirit:typeName>
+              <spirit:typeName>signed</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -578,7 +599,7 @@ nimum {} maximum {}} value 0}}}}}} TUSER_WIDTH 0}</spirit:value>
           </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
-              <spirit:typeName>reg</spirit:typeName>
+              <spirit:typeName>reg signed</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -605,10 +626,10 @@ nimum {} maximum {}} value 0}}}}}} TUSER_WIDTH 0}</spirit:value>
         <spirit:displayName>Width</spirit:displayName>
         <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.WIDTH">16</spirit:value>
       </spirit:modelParameter>
-      <spirit:modelParameter spirit:dataType="integer">
-        <spirit:name>INCREMENT_INIT</spirit:name>
-        <spirit:displayName>Increment Init</spirit:displayName>
-        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.INCREMENT_INIT" spirit:bitStringLength="16">0x1000</spirit:value>
+      <spirit:modelParameter spirit:dataType="signed">
+        <spirit:name>FREE_FREQ</spirit:name>
+        <spirit:displayName>Free Freq</spirit:displayName>
+        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.FREE_FREQ" spirit:bitStringLength="16">0x4000</spirit:value>
       </spirit:modelParameter>
     </spirit:modelParameters>
   </spirit:model>
@@ -674,9 +695,9 @@ nimum {} maximum {}} value 0}}}}}} TUSER_WIDTH 0}</spirit:value>
       <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.WIDTH">16</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
-      <spirit:name>INCREMENT_INIT</spirit:name>
-      <spirit:displayName>Increment Init</spirit:displayName>
-      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.INCREMENT_INIT" spirit:bitStringLength="16">0x1000</spirit:value>
+      <spirit:name>FREE_FREQ</spirit:name>
+      <spirit:displayName>Free Freq</spirit:displayName>
+      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.FREE_FREQ" spirit:bitStringLength="16">0x4000</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Component_Name</spirit:name>
@@ -702,7 +723,7 @@ nimum {} maximum {}} value 0}}}}}} TUSER_WIDTH 0}</spirit:value>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.FEEDBACK.HAS_TLAST" xilinx:valueSource="constant" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.FEEDBACK.HAS_TREADY" xilinx:valueSource="constant" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.FEEDBACK.HAS_TSTRB" xilinx:valueSource="constant" xilinx:valuePermission="bd_and_user"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.FEEDBACK.LAYERED_METADATA" xilinx:valueSource="default_prop" xilinx:valuePermission="bd_and_user"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.FEEDBACK.LAYERED_METADATA" xilinx:valueSource="ip_propagated" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.FEEDBACK.PHASE" xilinx:valueSource="default_prop" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.FEEDBACK.TDATA_NUM_BYTES" xilinx:valueSource="auto" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.FEEDBACK.TDEST_WIDTH" xilinx:valueSource="constant" xilinx:valuePermission="bd_and_user"/>

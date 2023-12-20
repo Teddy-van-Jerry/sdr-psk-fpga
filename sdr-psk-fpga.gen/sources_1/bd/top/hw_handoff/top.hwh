@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Dec 20 18:07:51 2023" VIVADOVERSION="2022.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Dec 21 01:59:07 2023" VIVADOVERSION="2022.2">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z020" NAME="top" PACKAGE="clg484" SPEEDGRADE="-1"/>
 
@@ -1444,6 +1444,57 @@
       </PORTS>
       <BUSINTERFACES/>
     </MODULE>
+    <MODULE COREREVISION="7" FULLNAME="/Const_Config/xlconstant_DELAY_CNT" HWVERSION="1.1" INSTANCE="Const_Config_xlconstant_DELAY_CNT" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlconstant" VLNV="xilinx.com:ip:xlconstant:1.1">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="CONST_WIDTH" VALUE="4"/>
+        <PARAMETER NAME="CONST_VAL" VALUE="0x8"/>
+        <PARAMETER NAME="Component_Name" VALUE="top_xlconstant_1_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" LEFT="3" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="Const_Config_xlconstant_DELAY_CNT_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Tx_PSK_Modulation_PSK_Mod_0" PORT="DELAY_CNT"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="7" FULLNAME="/Const_Config/xlconstant_FEEDBACK_SHIFT" HWVERSION="1.1" INSTANCE="Const_Config_xlconstant_FEEDBACK_SHIFT" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlconstant" VLNV="xilinx.com:ip:xlconstant:1.1">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="CONST_WIDTH" VALUE="8"/>
+        <PARAMETER NAME="CONST_VAL" VALUE="0x01"/>
+        <PARAMETER NAME="Component_Name" VALUE="top_xlconstant_2_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" LEFT="7" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="Const_Config_xlconstant_FEEDBACK_SHIFT_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Rx_costas_loop_0" PORT="FEEDBACK_SHIFT"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="7" FULLNAME="/Const_Config/xlconstant_MODE_CTRL" HWVERSION="1.1" INSTANCE="Const_Config_xlconstant_MODE_CTRL" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlconstant" VLNV="xilinx.com:ip:xlconstant:1.1">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="CONST_WIDTH" VALUE="4"/>
+        <PARAMETER NAME="CONST_VAL" VALUE="0x0"/>
+        <PARAMETER NAME="Component_Name" VALUE="top_xlconstant_3_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" LEFT="3" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="Const_Config_xlconstant_MODE_CTRL_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Rx_costas_loop_0" PORT="MODE_CTRL"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
     <MODULE COREREVISION="1" FULLNAME="/RF_Data_Converter" HWVERSION="1.0" INSTANCE="RF_Data_Converter" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="AD9361_1RT_FDD" VLNV="xilinx.com:module_ref:AD9361_1RT_FDD:1.0">
       <DOCUMENTS/>
       <PARAMETERS>
@@ -1823,19 +1874,29 @@
             <CONNECTION INSTANCE="Rx_PSK_Signal_Extend_0" PORT="PSK_signal"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="is_bpsk" SIGIS="undef" SIGNAME="xlconstant_0_dout">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="xlconstant_0" PORT="dout"/>
-          </CONNECTIONS>
-        </PORT>
         <PORT DIR="I" NAME="rst_16M384" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="Clock_Gen_Reset_Gen_proc_sys_reset_16M384_bus_struct_reset">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Clock_Gen_Reset_Gen_proc_sys_reset_16M384" PORT="bus_struct_reset"/>
           </CONNECTIONS>
         </PORT>
+        <PORT DIR="I" NAME="is_bpsk" SIGIS="undef" SIGNAME="xlconstant_is_bpsk_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_is_bpsk" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT DIR="O" LEFT="11" NAME="NCO_cos" RIGHT="0" SIGIS="undef" SIGNAME="Rx_costas_loop_0_NCO_cos">
           <CONNECTIONS>
             <CONNECTION INSTANCE="system_ila_0" PORT="probe10"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="7" NAME="FEEDBACK_SHIFT" RIGHT="0" SIGIS="undef" SIGNAME="Const_Config_xlconstant_FEEDBACK_SHIFT_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Const_Config_xlconstant_FEEDBACK_SHIFT" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="3" NAME="MODE_CTRL" RIGHT="0" SIGIS="undef" SIGNAME="Const_Config_xlconstant_MODE_CTRL_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Const_Config_xlconstant_MODE_CTRL" PORT="dout"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -1991,9 +2052,9 @@
             <CONNECTION INSTANCE="Tx_PSK_Modulation_NCO_cos_sin_0" PORT="NCO_sin"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="3" NAME="DELAY_CNT" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_1_dout">
+        <PORT DIR="I" LEFT="3" NAME="DELAY_CNT" RIGHT="0" SIGIS="undef" SIGNAME="Const_Config_xlconstant_DELAY_CNT_dout">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="xlconstant_1" PORT="dout"/>
+            <CONNECTION INSTANCE="Const_Config_xlconstant_DELAY_CNT" PORT="dout"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="11" NAME="out_I" RIGHT="0" SIGIS="undef" SIGNAME="Tx_PSK_Modulation_PSK_Mod_0_out_I">
@@ -6369,7 +6430,7 @@
       </PORTS>
       <BUSINTERFACES/>
     </MODULE>
-    <MODULE COREREVISION="7" FULLNAME="/xlconstant_0" HWVERSION="1.1" INSTANCE="xlconstant_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlconstant" VLNV="xilinx.com:ip:xlconstant:1.1">
+    <MODULE COREREVISION="7" FULLNAME="/xlconstant_is_bpsk" HWVERSION="1.1" INSTANCE="xlconstant_is_bpsk" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlconstant" VLNV="xilinx.com:ip:xlconstant:1.1">
       <DOCUMENTS/>
       <PARAMETERS>
         <PARAMETER NAME="CONST_WIDTH" VALUE="1"/>
@@ -6378,26 +6439,9 @@
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
-        <PORT DIR="O" LEFT="0" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_0_dout">
+        <PORT DIR="O" LEFT="0" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_is_bpsk_dout">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Rx_costas_loop_0" PORT="is_bpsk"/>
-          </CONNECTIONS>
-        </PORT>
-      </PORTS>
-      <BUSINTERFACES/>
-    </MODULE>
-    <MODULE COREREVISION="7" FULLNAME="/xlconstant_1" HWVERSION="1.1" INSTANCE="xlconstant_1" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlconstant" VLNV="xilinx.com:ip:xlconstant:1.1">
-      <DOCUMENTS/>
-      <PARAMETERS>
-        <PARAMETER NAME="CONST_WIDTH" VALUE="4"/>
-        <PARAMETER NAME="CONST_VAL" VALUE="0x8"/>
-        <PARAMETER NAME="Component_Name" VALUE="top_xlconstant_1_0"/>
-        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
-      </PARAMETERS>
-      <PORTS>
-        <PORT DIR="O" LEFT="3" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_1_dout">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="Tx_PSK_Modulation_PSK_Mod_0" PORT="DELAY_CNT"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>

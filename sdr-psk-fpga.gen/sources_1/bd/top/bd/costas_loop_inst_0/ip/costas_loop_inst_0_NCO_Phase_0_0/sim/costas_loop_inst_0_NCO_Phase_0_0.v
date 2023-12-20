@@ -57,6 +57,7 @@
 module costas_loop_inst_0_NCO_Phase_0_0 (
   clk,
   rst,
+  FEEDBACK_SHIFT,
   feedback_tdata,
   feedback_tvalid,
   phase_tdata,
@@ -69,6 +70,7 @@ input wire clk;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME rst, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 rst RST" *)
 input wire rst;
+input wire [3 : 0] FEEDBACK_SHIFT;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 feedback TDATA" *)
 input wire [15 : 0] feedback_tdata;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME feedback, TDATA_NUM_BYTES 2, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 16384000, PHASE 0.0, CLK_DOMAIN costas_loop_aclk_0, LAYERED_METADATA xilinx.com:interface:datatypes:1.0 {TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 16} bitoffset {attribs {resolve\
@@ -90,10 +92,11 @@ output wire phase_tvalid;
 
   NCO_Phase #(
     .WIDTH(16),
-    .INCREMENT_INIT(16'H1000)
+    .FREE_FREQ(16'H4000)
   ) inst (
     .clk(clk),
     .rst(rst),
+    .FEEDBACK_SHIFT(FEEDBACK_SHIFT),
     .feedback_tdata(feedback_tdata),
     .feedback_tvalid(feedback_tvalid),
     .phase_tdata(phase_tdata),

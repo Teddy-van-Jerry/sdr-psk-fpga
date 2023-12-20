@@ -7,26 +7,28 @@
 // Date: 2023/12/20
 
 module NCO_Phase # (
-  parameter WIDTH          = 16,
-  parameter INCREMENT_INIT = 16'b0100000000000000 // 1/4 of 2^16
+  parameter        WIDTH     = 16,
+  parameter signed FREE_FREQ = 16'b0100000000000000 // 1/4 of 2^16
 ) (
-  input                  clk,
-  input                  rst,
+  input                         clk,
+  input                         rst,
+  // configuration
+  input                   [3:0] FEEDBACK_SHIFT, // right shift
   // feedback input
-  input      [WIDTH-1:0] feedback_tdata,
-  input                  feedback_tvalid,
+  input      signed [WIDTH-1:0] feedback_tdata,
+  input                         feedback_tvalid,
   // phase output
-  output reg [WIDTH-1:0] phase_tdata,
-  output reg             phase_tvalid
+  output reg signed [WIDTH-1:0] phase_tdata,
+  output reg                    phase_tvalid
 );
   always @(posedge clk) begin
     if (rst) begin
-      phase_tdata <= INCREMENT_INIT;
+      phase_tdata <= FREE_FREQ;
       phase_tvalid <= 0;
     end
     else begin
       if (feedback_tvalid) begin
-        phase_tdata <= phase_tdata + feedback_tdata;
+        phase_tdata <= FREE_FREQ + (feedback_tdata >>> FEEDBACK_SHIFT);
       end
       else ; // do nothing
       phase_tvalid <= feedback_tvalid;

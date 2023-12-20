@@ -6,9 +6,9 @@
 // Date: 2023/12/08
 
 module Truncate_IQ #(
-  parameter I_WIDTH = 48, // input width
+  parameter I_WIDTH = 80, // input width
   parameter O_WIDTH = 16, // output width
-  parameter MSB_TRUNCATE_BITS = 4 // truncate bits on MSB
+  parameter MSB_TRUNCATE_BITS = 0 // truncate bits on MSB
 ) (
   // input  signed [I_WIDTH-1:0] I_in_tdata,
   // input                       I_in_tvalid,
@@ -21,11 +21,13 @@ module Truncate_IQ #(
   output signed [O_WIDTH-1:0] Q_tdata,
   output                      Q_tvalid
 );
+  localparam RIGHT_SHIFT = I_WIDTH/2 - O_WIDTH - MSB_TRUNCATE_BITS;  
+
   wire signed [I_WIDTH/2-1:0] I_in, Q_in;
   assign { I_in, Q_in } = IQ_tdata;
   // truncate bits with arithematic right shift
-  assign I_tdata = I_in >>> MSB_TRUNCATE_BITS;
-  assign Q_tdata = Q_in >>> MSB_TRUNCATE_BITS;
+  assign I_tdata = I_in >>> RIGHT_SHIFT;
+  assign Q_tdata = Q_in >>> RIGHT_SHIFT;
   // pass through valid signal
   assign I_tvalid = IQ_tvalid;
   assign Q_tvalid = IQ_tvalid;

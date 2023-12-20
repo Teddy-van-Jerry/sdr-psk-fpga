@@ -1,7 +1,7 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
--- Date        : Wed Dec 20 18:10:02 2023
+-- Date        : Thu Dec 21 02:00:35 2023
 -- Host        : TVJ-PC running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               e:/Documents/Study/Verilog/SDR/sdr-psk-fpga/sdr-psk-fpga.gen/sources_1/bd/top/bd/costas_loop_inst_0/ip/costas_loop_inst_0_NCO_Phase_0_0/costas_loop_inst_0_NCO_Phase_0_0_sim_netlist.vhdl
@@ -21,413 +21,587 @@ entity costas_loop_inst_0_NCO_Phase_0_0_NCO_Phase is
     rst : in STD_LOGIC;
     feedback_tvalid : in STD_LOGIC;
     clk : in STD_LOGIC;
-    feedback_tdata : in STD_LOGIC_VECTOR ( 15 downto 0 )
+    feedback_tdata : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    FEEDBACK_SHIFT : in STD_LOGIC_VECTOR ( 3 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of costas_loop_inst_0_NCO_Phase_0_0_NCO_Phase : entity is "NCO_Phase";
 end costas_loop_inst_0_NCO_Phase_0_0_NCO_Phase;
 
 architecture STRUCTURE of costas_loop_inst_0_NCO_Phase_0_0_NCO_Phase is
-  signal \^phase_tdata\ : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal p_0_in : STD_LOGIC_VECTOR ( 15 downto 13 );
+  signal phase_tdata0_carry_i_1_n_0 : STD_LOGIC;
+  signal phase_tdata0_carry_i_3_n_0 : STD_LOGIC;
+  signal phase_tdata0_carry_n_2 : STD_LOGIC;
+  signal phase_tdata0_carry_n_3 : STD_LOGIC;
+  signal phase_tdata1 : STD_LOGIC_VECTOR ( 12 downto 0 );
+  signal \phase_tdata1__0\ : STD_LOGIC_VECTOR ( 13 to 13 );
+  signal \phase_tdata[0]_i_2_n_0\ : STD_LOGIC;
+  signal \phase_tdata[10]_i_2_n_0\ : STD_LOGIC;
+  signal \phase_tdata[10]_i_3_n_0\ : STD_LOGIC;
   signal \phase_tdata[11]_i_2_n_0\ : STD_LOGIC;
-  signal \phase_tdata[11]_i_3_n_0\ : STD_LOGIC;
-  signal \phase_tdata[11]_i_4_n_0\ : STD_LOGIC;
-  signal \phase_tdata[11]_i_5_n_0\ : STD_LOGIC;
-  signal \phase_tdata[15]_i_2_n_0\ : STD_LOGIC;
-  signal \phase_tdata[15]_i_3_n_0\ : STD_LOGIC;
-  signal \phase_tdata[15]_i_4_n_0\ : STD_LOGIC;
-  signal \phase_tdata[15]_i_5_n_0\ : STD_LOGIC;
+  signal \phase_tdata[12]_i_2_n_0\ : STD_LOGIC;
+  signal \phase_tdata[12]_i_3_n_0\ : STD_LOGIC;
+  signal \phase_tdata[1]_i_2_n_0\ : STD_LOGIC;
+  signal \phase_tdata[2]_i_2_n_0\ : STD_LOGIC;
   signal \phase_tdata[3]_i_2_n_0\ : STD_LOGIC;
-  signal \phase_tdata[3]_i_3_n_0\ : STD_LOGIC;
-  signal \phase_tdata[3]_i_4_n_0\ : STD_LOGIC;
-  signal \phase_tdata[3]_i_5_n_0\ : STD_LOGIC;
+  signal \phase_tdata[4]_i_2_n_0\ : STD_LOGIC;
+  signal \phase_tdata[5]_i_2_n_0\ : STD_LOGIC;
+  signal \phase_tdata[6]_i_2_n_0\ : STD_LOGIC;
   signal \phase_tdata[7]_i_2_n_0\ : STD_LOGIC;
-  signal \phase_tdata[7]_i_3_n_0\ : STD_LOGIC;
-  signal \phase_tdata[7]_i_4_n_0\ : STD_LOGIC;
-  signal \phase_tdata[7]_i_5_n_0\ : STD_LOGIC;
-  signal \phase_tdata_reg[11]_i_1_n_0\ : STD_LOGIC;
-  signal \phase_tdata_reg[11]_i_1_n_1\ : STD_LOGIC;
-  signal \phase_tdata_reg[11]_i_1_n_2\ : STD_LOGIC;
-  signal \phase_tdata_reg[11]_i_1_n_3\ : STD_LOGIC;
-  signal \phase_tdata_reg[11]_i_1_n_4\ : STD_LOGIC;
-  signal \phase_tdata_reg[11]_i_1_n_5\ : STD_LOGIC;
-  signal \phase_tdata_reg[11]_i_1_n_6\ : STD_LOGIC;
-  signal \phase_tdata_reg[11]_i_1_n_7\ : STD_LOGIC;
-  signal \phase_tdata_reg[15]_i_1_n_1\ : STD_LOGIC;
-  signal \phase_tdata_reg[15]_i_1_n_2\ : STD_LOGIC;
-  signal \phase_tdata_reg[15]_i_1_n_3\ : STD_LOGIC;
-  signal \phase_tdata_reg[15]_i_1_n_4\ : STD_LOGIC;
-  signal \phase_tdata_reg[15]_i_1_n_5\ : STD_LOGIC;
-  signal \phase_tdata_reg[15]_i_1_n_6\ : STD_LOGIC;
-  signal \phase_tdata_reg[15]_i_1_n_7\ : STD_LOGIC;
-  signal \phase_tdata_reg[3]_i_1_n_0\ : STD_LOGIC;
-  signal \phase_tdata_reg[3]_i_1_n_1\ : STD_LOGIC;
-  signal \phase_tdata_reg[3]_i_1_n_2\ : STD_LOGIC;
-  signal \phase_tdata_reg[3]_i_1_n_3\ : STD_LOGIC;
-  signal \phase_tdata_reg[3]_i_1_n_4\ : STD_LOGIC;
-  signal \phase_tdata_reg[3]_i_1_n_5\ : STD_LOGIC;
-  signal \phase_tdata_reg[3]_i_1_n_6\ : STD_LOGIC;
-  signal \phase_tdata_reg[3]_i_1_n_7\ : STD_LOGIC;
-  signal \phase_tdata_reg[7]_i_1_n_0\ : STD_LOGIC;
-  signal \phase_tdata_reg[7]_i_1_n_1\ : STD_LOGIC;
-  signal \phase_tdata_reg[7]_i_1_n_2\ : STD_LOGIC;
-  signal \phase_tdata_reg[7]_i_1_n_3\ : STD_LOGIC;
-  signal \phase_tdata_reg[7]_i_1_n_4\ : STD_LOGIC;
-  signal \phase_tdata_reg[7]_i_1_n_5\ : STD_LOGIC;
-  signal \phase_tdata_reg[7]_i_1_n_6\ : STD_LOGIC;
-  signal \phase_tdata_reg[7]_i_1_n_7\ : STD_LOGIC;
+  signal \phase_tdata[8]_i_2_n_0\ : STD_LOGIC;
+  signal \phase_tdata[9]_i_2_n_0\ : STD_LOGIC;
+  signal \phase_tdata[9]_i_3_n_0\ : STD_LOGIC;
   signal phase_tvalid_i_1_n_0 : STD_LOGIC;
-  signal \NLW_phase_tdata_reg[15]_i_1_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
+  signal NLW_phase_tdata0_carry_CO_UNCONNECTED : STD_LOGIC_VECTOR ( 3 downto 2 );
+  signal NLW_phase_tdata0_carry_O_UNCONNECTED : STD_LOGIC_VECTOR ( 3 to 3 );
   attribute ADDER_THRESHOLD : integer;
-  attribute ADDER_THRESHOLD of \phase_tdata_reg[11]_i_1\ : label is 11;
-  attribute ADDER_THRESHOLD of \phase_tdata_reg[15]_i_1\ : label is 11;
-  attribute ADDER_THRESHOLD of \phase_tdata_reg[3]_i_1\ : label is 11;
-  attribute ADDER_THRESHOLD of \phase_tdata_reg[7]_i_1\ : label is 11;
+  attribute ADDER_THRESHOLD of phase_tdata0_carry : label is 35;
+  attribute SOFT_HLUTNM : string;
+  attribute SOFT_HLUTNM of \phase_tdata[10]_i_2\ : label is "soft_lutpair1";
+  attribute SOFT_HLUTNM of \phase_tdata[11]_i_1\ : label is "soft_lutpair2";
+  attribute SOFT_HLUTNM of \phase_tdata[12]_i_1\ : label is "soft_lutpair2";
+  attribute SOFT_HLUTNM of \phase_tdata[7]_i_2\ : label is "soft_lutpair0";
+  attribute SOFT_HLUTNM of \phase_tdata[8]_i_2\ : label is "soft_lutpair1";
+  attribute SOFT_HLUTNM of \phase_tdata[9]_i_2\ : label is "soft_lutpair0";
 begin
-  phase_tdata(15 downto 0) <= \^phase_tdata\(15 downto 0);
-\phase_tdata[11]_i_2\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"6"
-    )
-        port map (
-      I0 => feedback_tdata(11),
-      I1 => \^phase_tdata\(11),
-      O => \phase_tdata[11]_i_2_n_0\
+phase_tdata0_carry: unisim.vcomponents.CARRY4
+     port map (
+      CI => '0',
+      CO(3 downto 2) => NLW_phase_tdata0_carry_CO_UNCONNECTED(3 downto 2),
+      CO(1) => phase_tdata0_carry_n_2,
+      CO(0) => phase_tdata0_carry_n_3,
+      CYINIT => '0',
+      DI(3 downto 0) => B"0010",
+      O(3) => NLW_phase_tdata0_carry_O_UNCONNECTED(3),
+      O(2 downto 0) => p_0_in(15 downto 13),
+      S(3) => '0',
+      S(2) => feedback_tdata(15),
+      S(1) => phase_tdata0_carry_i_1_n_0,
+      S(0) => \phase_tdata1__0\(13)
     );
-\phase_tdata[11]_i_3\: unisim.vcomponents.LUT2
+phase_tdata0_carry_i_1: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"6"
-    )
-        port map (
-      I0 => feedback_tdata(10),
-      I1 => \^phase_tdata\(10),
-      O => \phase_tdata[11]_i_3_n_0\
-    );
-\phase_tdata[11]_i_4\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"6"
-    )
-        port map (
-      I0 => feedback_tdata(9),
-      I1 => \^phase_tdata\(9),
-      O => \phase_tdata[11]_i_4_n_0\
-    );
-\phase_tdata[11]_i_5\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"6"
-    )
-        port map (
-      I0 => feedback_tdata(8),
-      I1 => \^phase_tdata\(8),
-      O => \phase_tdata[11]_i_5_n_0\
-    );
-\phase_tdata[15]_i_2\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"6"
-    )
-        port map (
-      I0 => feedback_tdata(15),
-      I1 => \^phase_tdata\(15),
-      O => \phase_tdata[15]_i_2_n_0\
-    );
-\phase_tdata[15]_i_3\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"6"
+      INIT => X"0F0F0F0F0F0F0F1D"
     )
         port map (
       I0 => feedback_tdata(14),
-      I1 => \^phase_tdata\(14),
-      O => \phase_tdata[15]_i_3_n_0\
+      I1 => FEEDBACK_SHIFT(3),
+      I2 => feedback_tdata(15),
+      I3 => FEEDBACK_SHIFT(2),
+      I4 => FEEDBACK_SHIFT(1),
+      I5 => FEEDBACK_SHIFT(0),
+      O => phase_tdata0_carry_i_1_n_0
     );
-\phase_tdata[15]_i_4\: unisim.vcomponents.LUT2
+phase_tdata0_carry_i_2: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"6"
+      INIT => X"B8"
     )
         port map (
-      I0 => feedback_tdata(13),
-      I1 => \^phase_tdata\(13),
-      O => \phase_tdata[15]_i_4_n_0\
+      I0 => phase_tdata0_carry_i_3_n_0,
+      I1 => FEEDBACK_SHIFT(0),
+      I2 => \phase_tdata[12]_i_2_n_0\,
+      O => \phase_tdata1__0\(13)
     );
-\phase_tdata[15]_i_5\: unisim.vcomponents.LUT2
+phase_tdata0_carry_i_3: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"6"
+      INIT => X"F0F1F0E0"
+    )
+        port map (
+      I0 => FEEDBACK_SHIFT(1),
+      I1 => FEEDBACK_SHIFT(2),
+      I2 => feedback_tdata(15),
+      I3 => FEEDBACK_SHIFT(3),
+      I4 => feedback_tdata(14),
+      O => phase_tdata0_carry_i_3_n_0
+    );
+\phase_tdata[0]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"AFA0CFCFAFA0C0C0"
+    )
+        port map (
+      I0 => \phase_tdata[3]_i_2_n_0\,
+      I1 => \phase_tdata[1]_i_2_n_0\,
+      I2 => FEEDBACK_SHIFT(0),
+      I3 => \phase_tdata[2]_i_2_n_0\,
+      I4 => FEEDBACK_SHIFT(1),
+      I5 => \phase_tdata[0]_i_2_n_0\,
+      O => phase_tdata1(0)
+    );
+\phase_tdata[0]_i_2\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"AFA0CFCFAFA0C0C0"
     )
         port map (
       I0 => feedback_tdata(12),
-      I1 => \^phase_tdata\(12),
-      O => \phase_tdata[15]_i_5_n_0\
+      I1 => feedback_tdata(4),
+      I2 => FEEDBACK_SHIFT(2),
+      I3 => feedback_tdata(8),
+      I4 => FEEDBACK_SHIFT(3),
+      I5 => feedback_tdata(0),
+      O => \phase_tdata[0]_i_2_n_0\
     );
-\phase_tdata[3]_i_2\: unisim.vcomponents.LUT2
+\phase_tdata[10]_i_1\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"6"
+      INIT => X"B8BBB888"
     )
         port map (
-      I0 => feedback_tdata(3),
-      I1 => \^phase_tdata\(3),
+      I0 => \phase_tdata[11]_i_2_n_0\,
+      I1 => FEEDBACK_SHIFT(0),
+      I2 => \phase_tdata[10]_i_2_n_0\,
+      I3 => FEEDBACK_SHIFT(1),
+      I4 => \phase_tdata[10]_i_3_n_0\,
+      O => phase_tdata1(10)
+    );
+\phase_tdata[10]_i_2\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"CDC8"
+    )
+        port map (
+      I0 => FEEDBACK_SHIFT(2),
+      I1 => feedback_tdata(15),
+      I2 => FEEDBACK_SHIFT(3),
+      I3 => feedback_tdata(12),
+      O => \phase_tdata[10]_i_2_n_0\
+    );
+\phase_tdata[10]_i_3\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"F0BBF088"
+    )
+        port map (
+      I0 => feedback_tdata(14),
+      I1 => FEEDBACK_SHIFT(2),
+      I2 => feedback_tdata(15),
+      I3 => FEEDBACK_SHIFT(3),
+      I4 => feedback_tdata(10),
+      O => \phase_tdata[10]_i_3_n_0\
+    );
+\phase_tdata[11]_i_1\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"B8"
+    )
+        port map (
+      I0 => \phase_tdata[12]_i_3_n_0\,
+      I1 => FEEDBACK_SHIFT(0),
+      I2 => \phase_tdata[11]_i_2_n_0\,
+      O => phase_tdata1(11)
+    );
+\phase_tdata[11]_i_2\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"FF00FB0BFF00F808"
+    )
+        port map (
+      I0 => feedback_tdata(13),
+      I1 => FEEDBACK_SHIFT(1),
+      I2 => FEEDBACK_SHIFT(2),
+      I3 => feedback_tdata(15),
+      I4 => FEEDBACK_SHIFT(3),
+      I5 => feedback_tdata(11),
+      O => \phase_tdata[11]_i_2_n_0\
+    );
+\phase_tdata[12]_i_1\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"B8"
+    )
+        port map (
+      I0 => \phase_tdata[12]_i_2_n_0\,
+      I1 => FEEDBACK_SHIFT(0),
+      I2 => \phase_tdata[12]_i_3_n_0\,
+      O => phase_tdata1(12)
+    );
+\phase_tdata[12]_i_2\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"F0F1F0E0"
+    )
+        port map (
+      I0 => FEEDBACK_SHIFT(1),
+      I1 => FEEDBACK_SHIFT(2),
+      I2 => feedback_tdata(15),
+      I3 => FEEDBACK_SHIFT(3),
+      I4 => feedback_tdata(13),
+      O => \phase_tdata[12]_i_2_n_0\
+    );
+\phase_tdata[12]_i_3\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"FF00FB0BFF00F808"
+    )
+        port map (
+      I0 => feedback_tdata(14),
+      I1 => FEEDBACK_SHIFT(1),
+      I2 => FEEDBACK_SHIFT(2),
+      I3 => feedback_tdata(15),
+      I4 => FEEDBACK_SHIFT(3),
+      I5 => feedback_tdata(12),
+      O => \phase_tdata[12]_i_3_n_0\
+    );
+\phase_tdata[1]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"AFA0CFCFAFA0C0C0"
+    )
+        port map (
+      I0 => \phase_tdata[4]_i_2_n_0\,
+      I1 => \phase_tdata[2]_i_2_n_0\,
+      I2 => FEEDBACK_SHIFT(0),
+      I3 => \phase_tdata[3]_i_2_n_0\,
+      I4 => FEEDBACK_SHIFT(1),
+      I5 => \phase_tdata[1]_i_2_n_0\,
+      O => phase_tdata1(1)
+    );
+\phase_tdata[1]_i_2\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"AFA0CFCFAFA0C0C0"
+    )
+        port map (
+      I0 => feedback_tdata(13),
+      I1 => feedback_tdata(5),
+      I2 => FEEDBACK_SHIFT(2),
+      I3 => feedback_tdata(9),
+      I4 => FEEDBACK_SHIFT(3),
+      I5 => feedback_tdata(1),
+      O => \phase_tdata[1]_i_2_n_0\
+    );
+\phase_tdata[2]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"AFA0CFCFAFA0C0C0"
+    )
+        port map (
+      I0 => \phase_tdata[5]_i_2_n_0\,
+      I1 => \phase_tdata[3]_i_2_n_0\,
+      I2 => FEEDBACK_SHIFT(0),
+      I3 => \phase_tdata[4]_i_2_n_0\,
+      I4 => FEEDBACK_SHIFT(1),
+      I5 => \phase_tdata[2]_i_2_n_0\,
+      O => phase_tdata1(2)
+    );
+\phase_tdata[2]_i_2\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"AFA0CFCFAFA0C0C0"
+    )
+        port map (
+      I0 => feedback_tdata(14),
+      I1 => feedback_tdata(6),
+      I2 => FEEDBACK_SHIFT(2),
+      I3 => feedback_tdata(10),
+      I4 => FEEDBACK_SHIFT(3),
+      I5 => feedback_tdata(2),
+      O => \phase_tdata[2]_i_2_n_0\
+    );
+\phase_tdata[3]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"AFA0CFCFAFA0C0C0"
+    )
+        port map (
+      I0 => \phase_tdata[6]_i_2_n_0\,
+      I1 => \phase_tdata[4]_i_2_n_0\,
+      I2 => FEEDBACK_SHIFT(0),
+      I3 => \phase_tdata[5]_i_2_n_0\,
+      I4 => FEEDBACK_SHIFT(1),
+      I5 => \phase_tdata[3]_i_2_n_0\,
+      O => phase_tdata1(3)
+    );
+\phase_tdata[3]_i_2\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"AFA0CFCFAFA0C0C0"
+    )
+        port map (
+      I0 => feedback_tdata(15),
+      I1 => feedback_tdata(7),
+      I2 => FEEDBACK_SHIFT(2),
+      I3 => feedback_tdata(11),
+      I4 => FEEDBACK_SHIFT(3),
+      I5 => feedback_tdata(3),
       O => \phase_tdata[3]_i_2_n_0\
     );
-\phase_tdata[3]_i_3\: unisim.vcomponents.LUT2
+\phase_tdata[4]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"6"
+      INIT => X"AFA0CFCFAFA0C0C0"
     )
         port map (
-      I0 => feedback_tdata(2),
-      I1 => \^phase_tdata\(2),
-      O => \phase_tdata[3]_i_3_n_0\
+      I0 => \phase_tdata[7]_i_2_n_0\,
+      I1 => \phase_tdata[5]_i_2_n_0\,
+      I2 => FEEDBACK_SHIFT(0),
+      I3 => \phase_tdata[6]_i_2_n_0\,
+      I4 => FEEDBACK_SHIFT(1),
+      I5 => \phase_tdata[4]_i_2_n_0\,
+      O => phase_tdata1(4)
     );
-\phase_tdata[3]_i_4\: unisim.vcomponents.LUT2
+\phase_tdata[4]_i_2\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"6"
+      INIT => X"AFA0CFCFAFA0C0C0"
     )
         port map (
-      I0 => feedback_tdata(1),
-      I1 => \^phase_tdata\(1),
-      O => \phase_tdata[3]_i_4_n_0\
+      I0 => feedback_tdata(15),
+      I1 => feedback_tdata(8),
+      I2 => FEEDBACK_SHIFT(2),
+      I3 => feedback_tdata(12),
+      I4 => FEEDBACK_SHIFT(3),
+      I5 => feedback_tdata(4),
+      O => \phase_tdata[4]_i_2_n_0\
     );
-\phase_tdata[3]_i_5\: unisim.vcomponents.LUT2
+\phase_tdata[5]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"6"
+      INIT => X"AFA0CFCFAFA0C0C0"
     )
         port map (
-      I0 => feedback_tdata(0),
-      I1 => \^phase_tdata\(0),
-      O => \phase_tdata[3]_i_5_n_0\
+      I0 => \phase_tdata[8]_i_2_n_0\,
+      I1 => \phase_tdata[6]_i_2_n_0\,
+      I2 => FEEDBACK_SHIFT(0),
+      I3 => \phase_tdata[7]_i_2_n_0\,
+      I4 => FEEDBACK_SHIFT(1),
+      I5 => \phase_tdata[5]_i_2_n_0\,
+      O => phase_tdata1(5)
     );
-\phase_tdata[7]_i_2\: unisim.vcomponents.LUT2
+\phase_tdata[5]_i_2\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"6"
+      INIT => X"AFA0CFCFAFA0C0C0"
     )
         port map (
-      I0 => feedback_tdata(7),
-      I1 => \^phase_tdata\(7),
+      I0 => feedback_tdata(15),
+      I1 => feedback_tdata(9),
+      I2 => FEEDBACK_SHIFT(2),
+      I3 => feedback_tdata(13),
+      I4 => FEEDBACK_SHIFT(3),
+      I5 => feedback_tdata(5),
+      O => \phase_tdata[5]_i_2_n_0\
+    );
+\phase_tdata[6]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"AFA0CFCFAFA0C0C0"
+    )
+        port map (
+      I0 => \phase_tdata[9]_i_3_n_0\,
+      I1 => \phase_tdata[7]_i_2_n_0\,
+      I2 => FEEDBACK_SHIFT(0),
+      I3 => \phase_tdata[8]_i_2_n_0\,
+      I4 => FEEDBACK_SHIFT(1),
+      I5 => \phase_tdata[6]_i_2_n_0\,
+      O => phase_tdata1(6)
+    );
+\phase_tdata[6]_i_2\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"AFA0CFCFAFA0C0C0"
+    )
+        port map (
+      I0 => feedback_tdata(15),
+      I1 => feedback_tdata(10),
+      I2 => FEEDBACK_SHIFT(2),
+      I3 => feedback_tdata(14),
+      I4 => FEEDBACK_SHIFT(3),
+      I5 => feedback_tdata(6),
+      O => \phase_tdata[6]_i_2_n_0\
+    );
+\phase_tdata[7]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"AFA0CFCFAFA0C0C0"
+    )
+        port map (
+      I0 => \phase_tdata[10]_i_3_n_0\,
+      I1 => \phase_tdata[8]_i_2_n_0\,
+      I2 => FEEDBACK_SHIFT(0),
+      I3 => \phase_tdata[9]_i_3_n_0\,
+      I4 => FEEDBACK_SHIFT(1),
+      I5 => \phase_tdata[7]_i_2_n_0\,
+      O => phase_tdata1(7)
+    );
+\phase_tdata[7]_i_2\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"F0BBF088"
+    )
+        port map (
+      I0 => feedback_tdata(11),
+      I1 => FEEDBACK_SHIFT(2),
+      I2 => feedback_tdata(15),
+      I3 => FEEDBACK_SHIFT(3),
+      I4 => feedback_tdata(7),
       O => \phase_tdata[7]_i_2_n_0\
     );
-\phase_tdata[7]_i_3\: unisim.vcomponents.LUT2
+\phase_tdata[8]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"6"
+      INIT => X"AFA0CFCFAFA0C0C0"
     )
         port map (
-      I0 => feedback_tdata(6),
-      I1 => \^phase_tdata\(6),
-      O => \phase_tdata[7]_i_3_n_0\
+      I0 => \phase_tdata[9]_i_2_n_0\,
+      I1 => \phase_tdata[9]_i_3_n_0\,
+      I2 => FEEDBACK_SHIFT(0),
+      I3 => \phase_tdata[10]_i_3_n_0\,
+      I4 => FEEDBACK_SHIFT(1),
+      I5 => \phase_tdata[8]_i_2_n_0\,
+      O => phase_tdata1(8)
     );
-\phase_tdata[7]_i_4\: unisim.vcomponents.LUT2
+\phase_tdata[8]_i_2\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"6"
+      INIT => X"F0BBF088"
     )
         port map (
-      I0 => feedback_tdata(5),
-      I1 => \^phase_tdata\(5),
-      O => \phase_tdata[7]_i_4_n_0\
+      I0 => feedback_tdata(12),
+      I1 => FEEDBACK_SHIFT(2),
+      I2 => feedback_tdata(15),
+      I3 => FEEDBACK_SHIFT(3),
+      I4 => feedback_tdata(8),
+      O => \phase_tdata[8]_i_2_n_0\
     );
-\phase_tdata[7]_i_5\: unisim.vcomponents.LUT2
+\phase_tdata[9]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"6"
+      INIT => X"AFA0CFCFAFA0C0C0"
     )
         port map (
-      I0 => feedback_tdata(4),
-      I1 => \^phase_tdata\(4),
-      O => \phase_tdata[7]_i_5_n_0\
+      I0 => \phase_tdata[10]_i_2_n_0\,
+      I1 => \phase_tdata[10]_i_3_n_0\,
+      I2 => FEEDBACK_SHIFT(0),
+      I3 => \phase_tdata[9]_i_2_n_0\,
+      I4 => FEEDBACK_SHIFT(1),
+      I5 => \phase_tdata[9]_i_3_n_0\,
+      O => phase_tdata1(9)
+    );
+\phase_tdata[9]_i_2\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"CDC8"
+    )
+        port map (
+      I0 => FEEDBACK_SHIFT(2),
+      I1 => feedback_tdata(15),
+      I2 => FEEDBACK_SHIFT(3),
+      I3 => feedback_tdata(11),
+      O => \phase_tdata[9]_i_2_n_0\
+    );
+\phase_tdata[9]_i_3\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"F0BBF088"
+    )
+        port map (
+      I0 => feedback_tdata(13),
+      I1 => FEEDBACK_SHIFT(2),
+      I2 => feedback_tdata(15),
+      I3 => FEEDBACK_SHIFT(3),
+      I4 => feedback_tdata(9),
+      O => \phase_tdata[9]_i_3_n_0\
     );
 \phase_tdata_reg[0]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
       CE => feedback_tvalid,
-      D => \phase_tdata_reg[3]_i_1_n_7\,
-      Q => \^phase_tdata\(0),
+      D => phase_tdata1(0),
+      Q => phase_tdata(0),
       R => rst
     );
 \phase_tdata_reg[10]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
       CE => feedback_tvalid,
-      D => \phase_tdata_reg[11]_i_1_n_5\,
-      Q => \^phase_tdata\(10),
+      D => phase_tdata1(10),
+      Q => phase_tdata(10),
       R => rst
     );
 \phase_tdata_reg[11]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
       CE => feedback_tvalid,
-      D => \phase_tdata_reg[11]_i_1_n_4\,
-      Q => \^phase_tdata\(11),
+      D => phase_tdata1(11),
+      Q => phase_tdata(11),
       R => rst
     );
-\phase_tdata_reg[11]_i_1\: unisim.vcomponents.CARRY4
-     port map (
-      CI => \phase_tdata_reg[7]_i_1_n_0\,
-      CO(3) => \phase_tdata_reg[11]_i_1_n_0\,
-      CO(2) => \phase_tdata_reg[11]_i_1_n_1\,
-      CO(1) => \phase_tdata_reg[11]_i_1_n_2\,
-      CO(0) => \phase_tdata_reg[11]_i_1_n_3\,
-      CYINIT => '0',
-      DI(3 downto 0) => feedback_tdata(11 downto 8),
-      O(3) => \phase_tdata_reg[11]_i_1_n_4\,
-      O(2) => \phase_tdata_reg[11]_i_1_n_5\,
-      O(1) => \phase_tdata_reg[11]_i_1_n_6\,
-      O(0) => \phase_tdata_reg[11]_i_1_n_7\,
-      S(3) => \phase_tdata[11]_i_2_n_0\,
-      S(2) => \phase_tdata[11]_i_3_n_0\,
-      S(1) => \phase_tdata[11]_i_4_n_0\,
-      S(0) => \phase_tdata[11]_i_5_n_0\
-    );
-\phase_tdata_reg[12]\: unisim.vcomponents.FDSE
+\phase_tdata_reg[12]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
       CE => feedback_tvalid,
-      D => \phase_tdata_reg[15]_i_1_n_7\,
-      Q => \^phase_tdata\(12),
-      S => rst
+      D => phase_tdata1(12),
+      Q => phase_tdata(12),
+      R => rst
     );
 \phase_tdata_reg[13]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
       CE => feedback_tvalid,
-      D => \phase_tdata_reg[15]_i_1_n_6\,
-      Q => \^phase_tdata\(13),
+      D => p_0_in(13),
+      Q => phase_tdata(13),
       R => rst
     );
-\phase_tdata_reg[14]\: unisim.vcomponents.FDRE
+\phase_tdata_reg[14]\: unisim.vcomponents.FDSE
      port map (
       C => clk,
       CE => feedback_tvalid,
-      D => \phase_tdata_reg[15]_i_1_n_5\,
-      Q => \^phase_tdata\(14),
-      R => rst
+      D => p_0_in(14),
+      Q => phase_tdata(14),
+      S => rst
     );
 \phase_tdata_reg[15]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
       CE => feedback_tvalid,
-      D => \phase_tdata_reg[15]_i_1_n_4\,
-      Q => \^phase_tdata\(15),
+      D => p_0_in(15),
+      Q => phase_tdata(15),
       R => rst
-    );
-\phase_tdata_reg[15]_i_1\: unisim.vcomponents.CARRY4
-     port map (
-      CI => \phase_tdata_reg[11]_i_1_n_0\,
-      CO(3) => \NLW_phase_tdata_reg[15]_i_1_CO_UNCONNECTED\(3),
-      CO(2) => \phase_tdata_reg[15]_i_1_n_1\,
-      CO(1) => \phase_tdata_reg[15]_i_1_n_2\,
-      CO(0) => \phase_tdata_reg[15]_i_1_n_3\,
-      CYINIT => '0',
-      DI(3) => '0',
-      DI(2 downto 0) => feedback_tdata(14 downto 12),
-      O(3) => \phase_tdata_reg[15]_i_1_n_4\,
-      O(2) => \phase_tdata_reg[15]_i_1_n_5\,
-      O(1) => \phase_tdata_reg[15]_i_1_n_6\,
-      O(0) => \phase_tdata_reg[15]_i_1_n_7\,
-      S(3) => \phase_tdata[15]_i_2_n_0\,
-      S(2) => \phase_tdata[15]_i_3_n_0\,
-      S(1) => \phase_tdata[15]_i_4_n_0\,
-      S(0) => \phase_tdata[15]_i_5_n_0\
     );
 \phase_tdata_reg[1]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
       CE => feedback_tvalid,
-      D => \phase_tdata_reg[3]_i_1_n_6\,
-      Q => \^phase_tdata\(1),
+      D => phase_tdata1(1),
+      Q => phase_tdata(1),
       R => rst
     );
 \phase_tdata_reg[2]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
       CE => feedback_tvalid,
-      D => \phase_tdata_reg[3]_i_1_n_5\,
-      Q => \^phase_tdata\(2),
+      D => phase_tdata1(2),
+      Q => phase_tdata(2),
       R => rst
     );
 \phase_tdata_reg[3]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
       CE => feedback_tvalid,
-      D => \phase_tdata_reg[3]_i_1_n_4\,
-      Q => \^phase_tdata\(3),
+      D => phase_tdata1(3),
+      Q => phase_tdata(3),
       R => rst
-    );
-\phase_tdata_reg[3]_i_1\: unisim.vcomponents.CARRY4
-     port map (
-      CI => '0',
-      CO(3) => \phase_tdata_reg[3]_i_1_n_0\,
-      CO(2) => \phase_tdata_reg[3]_i_1_n_1\,
-      CO(1) => \phase_tdata_reg[3]_i_1_n_2\,
-      CO(0) => \phase_tdata_reg[3]_i_1_n_3\,
-      CYINIT => '0',
-      DI(3 downto 0) => feedback_tdata(3 downto 0),
-      O(3) => \phase_tdata_reg[3]_i_1_n_4\,
-      O(2) => \phase_tdata_reg[3]_i_1_n_5\,
-      O(1) => \phase_tdata_reg[3]_i_1_n_6\,
-      O(0) => \phase_tdata_reg[3]_i_1_n_7\,
-      S(3) => \phase_tdata[3]_i_2_n_0\,
-      S(2) => \phase_tdata[3]_i_3_n_0\,
-      S(1) => \phase_tdata[3]_i_4_n_0\,
-      S(0) => \phase_tdata[3]_i_5_n_0\
     );
 \phase_tdata_reg[4]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
       CE => feedback_tvalid,
-      D => \phase_tdata_reg[7]_i_1_n_7\,
-      Q => \^phase_tdata\(4),
+      D => phase_tdata1(4),
+      Q => phase_tdata(4),
       R => rst
     );
 \phase_tdata_reg[5]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
       CE => feedback_tvalid,
-      D => \phase_tdata_reg[7]_i_1_n_6\,
-      Q => \^phase_tdata\(5),
+      D => phase_tdata1(5),
+      Q => phase_tdata(5),
       R => rst
     );
 \phase_tdata_reg[6]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
       CE => feedback_tvalid,
-      D => \phase_tdata_reg[7]_i_1_n_5\,
-      Q => \^phase_tdata\(6),
+      D => phase_tdata1(6),
+      Q => phase_tdata(6),
       R => rst
     );
 \phase_tdata_reg[7]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
       CE => feedback_tvalid,
-      D => \phase_tdata_reg[7]_i_1_n_4\,
-      Q => \^phase_tdata\(7),
+      D => phase_tdata1(7),
+      Q => phase_tdata(7),
       R => rst
-    );
-\phase_tdata_reg[7]_i_1\: unisim.vcomponents.CARRY4
-     port map (
-      CI => \phase_tdata_reg[3]_i_1_n_0\,
-      CO(3) => \phase_tdata_reg[7]_i_1_n_0\,
-      CO(2) => \phase_tdata_reg[7]_i_1_n_1\,
-      CO(1) => \phase_tdata_reg[7]_i_1_n_2\,
-      CO(0) => \phase_tdata_reg[7]_i_1_n_3\,
-      CYINIT => '0',
-      DI(3 downto 0) => feedback_tdata(7 downto 4),
-      O(3) => \phase_tdata_reg[7]_i_1_n_4\,
-      O(2) => \phase_tdata_reg[7]_i_1_n_5\,
-      O(1) => \phase_tdata_reg[7]_i_1_n_6\,
-      O(0) => \phase_tdata_reg[7]_i_1_n_7\,
-      S(3) => \phase_tdata[7]_i_2_n_0\,
-      S(2) => \phase_tdata[7]_i_3_n_0\,
-      S(1) => \phase_tdata[7]_i_4_n_0\,
-      S(0) => \phase_tdata[7]_i_5_n_0\
     );
 \phase_tdata_reg[8]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
       CE => feedback_tvalid,
-      D => \phase_tdata_reg[11]_i_1_n_7\,
-      Q => \^phase_tdata\(8),
+      D => phase_tdata1(8),
+      Q => phase_tdata(8),
       R => rst
     );
 \phase_tdata_reg[9]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
       CE => feedback_tvalid,
-      D => \phase_tdata_reg[11]_i_1_n_6\,
-      Q => \^phase_tdata\(9),
+      D => phase_tdata1(9),
+      Q => phase_tdata(9),
       R => rst
     );
 phase_tvalid_i_1: unisim.vcomponents.LUT2
@@ -456,6 +630,7 @@ entity costas_loop_inst_0_NCO_Phase_0_0 is
   port (
     clk : in STD_LOGIC;
     rst : in STD_LOGIC;
+    FEEDBACK_SHIFT : in STD_LOGIC_VECTOR ( 3 downto 0 );
     feedback_tdata : in STD_LOGIC_VECTOR ( 15 downto 0 );
     feedback_tvalid : in STD_LOGIC;
     phase_tdata : out STD_LOGIC_VECTOR ( 15 downto 0 );
@@ -489,6 +664,7 @@ architecture STRUCTURE of costas_loop_inst_0_NCO_Phase_0_0 is
 begin
 inst: entity work.costas_loop_inst_0_NCO_Phase_0_0_NCO_Phase
      port map (
+      FEEDBACK_SHIFT(3 downto 0) => FEEDBACK_SHIFT(3 downto 0),
       clk => clk,
       feedback_tdata(15 downto 0) => feedback_tdata(15 downto 0),
       feedback_tvalid => feedback_tvalid,

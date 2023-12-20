@@ -2,19 +2,19 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "costas_loop_NCO_Phase_0_0",
-    "cell_name": "NCO/NCO_Phase_0",
+    "cell_name": "NCO_Phase_0",
     "component_reference": "xilinx.com:module_ref:NCO_Phase:1.0",
     "ip_revision": "1",
     "gen_directory": "../../../../../../sdr-psk-fpga.gen/sources_1/bd/costas_loop/ip/costas_loop_NCO_Phase_0_0",
     "parameters": {
       "component_parameters": {
         "WIDTH": [ { "value": "16", "resolve_type": "user", "format": "long", "usage": "all" } ],
-        "INCREMENT_INIT": [ { "value": "0x4000", "resolve_type": "user", "format": "bitString", "usage": "all" } ],
+        "FREE_FREQ": [ { "value": "0x4000", "resolve_type": "user", "format": "bitString", "usage": "all" } ],
         "Component_Name": [ { "value": "costas_loop_NCO_Phase_0_0", "resolve_type": "user", "usage": "all" } ]
       },
       "model_parameters": {
         "WIDTH": [ { "value": "16", "resolve_type": "generated", "format": "long", "usage": "all" } ],
-        "INCREMENT_INIT": [ { "value": "0x4000", "resolve_type": "generated", "format": "bitString", "usage": "all" } ]
+        "FREE_FREQ": [ { "value": "0x4000", "resolve_type": "generated", "format": "bitString", "usage": "all" } ]
       },
       "project_parameters": {
         "ARCHITECTURE": [ { "value": "zynq" } ],
@@ -46,6 +46,7 @@
       "ports": {
         "clk": [ { "direction": "in" } ],
         "rst": [ { "direction": "in" } ],
+        "FEEDBACK_SHIFT": [ { "direction": "in", "size_left": "3", "size_right": "0" } ],
         "feedback_tdata": [ { "direction": "in", "size_left": "15", "size_right": "0", "driver_value": "0" } ],
         "feedback_tvalid": [ { "direction": "in" } ],
         "phase_tdata": [ { "direction": "out", "size_left": "15", "size_right": "0" } ],

@@ -1,7 +1,7 @@
 {
    "ActiveEmotionalView":"Default View",
    "Default View_ScaleFactor":"1.25",
-   "Default View_TopLeft":"-193,-103",
+   "Default View_TopLeft":"-449,-193",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
 #  -string -flagsOSRD
@@ -16,6 +16,7 @@ preplace portBus DAC_bits -pg 1 -lvl 3 -x 530 -y 130 -defaultsOSRD
 preplace portBus DELAY_CNT -pg 1 -lvl 0 -x -30 -y 150 -defaultsOSRD
 preplace inst PSK_Modulation -pg 1 -lvl 2 -x 370 -y 100 -defaultsOSRD
 preplace inst Tx_Data_0 -pg 1 -lvl 1 -x 110 -y 60 -defaultsOSRD
+preplace netloc DELAY_CNT_1 1 0 2 NJ 150 N
 preplace netloc Div_clk32M768_0_clk16M384 1 0 2 -10J -10 220J
 preplace netloc PSK_Mod_0_out_I 1 2 1 NJ 70
 preplace netloc PSK_Mod_0_out_Q 1 2 1 500J 90n
@@ -24,7 +25,6 @@ preplace netloc PSK_Modulation_out_vld 1 2 1 510 40n
 preplace netloc clk_1M024 1 0 2 0J 0 210J
 preplace netloc proc_sys_reset_16M384_mb_reset 1 0 2 NJ 180 220J
 preplace netloc s_axis_aresetn_1 1 0 2 NJ 120 200J
-preplace netloc DELAY_CNT_1 1 0 2 NJ 150 N
 preplace netloc Tx_Data_0_data 1 1 1 200 50n
 levelinfo -pg 1 -30 110 370 530
 pagesize -pg 1 -db -bbox -sgen -190 -20 670 260

@@ -57,20 +57,20 @@
     <Option Name="IPUserFilesDir" Val="$PIPUSERFILESDIR"/>
     <Option Name="IPStaticSourceDir" Val="$PIPUSERFILESDIR/ipstatic"/>
     <Option Name="EnableBDX" Val="FALSE"/>
-    <Option Name="WTXSimLaunchSim" Val="104"/>
+    <Option Name="WTXSimLaunchSim" Val="122"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
     <Option Name="WTVcsLaunchSim" Val="0"/>
     <Option Name="WTRivieraLaunchSim" Val="0"/>
     <Option Name="WTActivehdlLaunchSim" Val="0"/>
-    <Option Name="WTXSimExportSim" Val="19"/>
-    <Option Name="WTModelSimExportSim" Val="19"/>
-    <Option Name="WTQuestaExportSim" Val="18"/>
+    <Option Name="WTXSimExportSim" Val="26"/>
+    <Option Name="WTModelSimExportSim" Val="26"/>
+    <Option Name="WTQuestaExportSim" Val="25"/>
     <Option Name="WTIesExportSim" Val="0"/>
-    <Option Name="WTVcsExportSim" Val="18"/>
-    <Option Name="WTRivieraExportSim" Val="18"/>
-    <Option Name="WTActivehdlExportSim" Val="18"/>
+    <Option Name="WTVcsExportSim" Val="25"/>
+    <Option Name="WTRivieraExportSim" Val="25"/>
+    <Option Name="WTActivehdlExportSim" Val="25"/>
     <Option Name="GenerateIPUpgradeLog" Val="TRUE"/>
     <Option Name="XSimRadix" Val="hex"/>
     <Option Name="XSimTimeUnit" Val="ns"/>
@@ -185,11 +185,29 @@
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
+        <CompFileExtendedInfo CompFileName="top.bd" FileRelPathName="ip/top_PSK_Signal_Extend_0_1/top_PSK_Signal_Extend_0_1.xci">
+          <Proxy FileSetName="top_PSK_Signal_Extend_0_1"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="top.bd" FileRelPathName="ip/top_c_shift_ram_0_2/top_c_shift_ram_0_2.xci">
+          <Proxy FileSetName="top_c_shift_ram_0_2"/>
+        </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="top.bd" FileRelPathName="ip/top_proc_sys_reset_0_0/top_proc_sys_reset_0_0.xci">
           <Proxy FileSetName="top_proc_sys_reset_0_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="top.bd" FileRelPathName="ip/top_Div_clk32M768_0_0/top_Div_clk32M768_0_0.xci">
           <Proxy FileSetName="top_Div_clk32M768_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="top.bd" FileRelPathName="ip/top_PSK_Detection_0_0/top_PSK_Detection_0_0.xci">
+          <Proxy FileSetName="top_PSK_Detection_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="top.bd" FileRelPathName="ip/top_clk_wiz_0_1/top_clk_wiz_0_1.xci">
+          <Proxy FileSetName="top_clk_wiz_0_1"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="top.bd" FileRelPathName="ip/top_AD9361_1RT_FDD_0_0/top_AD9361_1RT_FDD_0_0.xci">
+          <Proxy FileSetName="top_AD9361_1RT_FDD_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="top.bd" FileRelPathName="ip/top_clk_wiz_0_0/top_clk_wiz_0_0.xci">
+          <Proxy FileSetName="top_clk_wiz_0_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="top.bd" FileRelPathName="ip/top_NCO_cos_sin_0_0/top_NCO_cos_sin_0_0.xci">
           <Proxy FileSetName="top_NCO_cos_sin_0_0"/>
@@ -197,35 +215,17 @@
         <CompFileExtendedInfo CompFileName="top.bd" FileRelPathName="ip/top_axis_data_fifo_0_0/top_axis_data_fifo_0_0.xci">
           <Proxy FileSetName="top_axis_data_fifo_0_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="top.bd" FileRelPathName="ip/top_Tx_Data_0_0/top_Tx_Data_0_0.xci">
-          <Proxy FileSetName="top_Tx_Data_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="top.bd" FileRelPathName="ip/top_dds_compiler_0_0/top_dds_compiler_0_0.xci">
-          <Proxy FileSetName="top_dds_compiler_0_0"/>
+        <CompFileExtendedInfo CompFileName="top.bd" FileRelPathName="ip/top_c_shift_ram_I_0/top_c_shift_ram_I_0.xci">
+          <Proxy FileSetName="top_c_shift_ram_I_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="top.bd" FileRelPathName="ip/top_PSK_Mod_0_0/top_PSK_Mod_0_0.xci">
           <Proxy FileSetName="top_PSK_Mod_0_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="top.bd" FileRelPathName="ip/top_AD9361_1RT_FDD_0_0/top_AD9361_1RT_FDD_0_0.xci">
-          <Proxy FileSetName="top_AD9361_1RT_FDD_0_0"/>
+        <CompFileExtendedInfo CompFileName="top.bd" FileRelPathName="ip/top_dds_compiler_0_0/top_dds_compiler_0_0.xci">
+          <Proxy FileSetName="top_dds_compiler_0_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="top.bd" FileRelPathName="ip/top_PSK_Signal_Extend_0_1/top_PSK_Signal_Extend_0_1.xci">
-          <Proxy FileSetName="top_PSK_Signal_Extend_0_1"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="top.bd" FileRelPathName="ip/top_c_shift_ram_0_2/top_c_shift_ram_0_2.xci">
-          <Proxy FileSetName="top_c_shift_ram_0_2"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="top.bd" FileRelPathName="ip/top_c_shift_ram_I_0/top_c_shift_ram_I_0.xci">
-          <Proxy FileSetName="top_c_shift_ram_I_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="top.bd" FileRelPathName="ip/top_PSK_Detection_0_0/top_PSK_Detection_0_0.xci">
-          <Proxy FileSetName="top_PSK_Detection_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="top.bd" FileRelPathName="ip/top_clk_wiz_0_0/top_clk_wiz_0_0.xci">
-          <Proxy FileSetName="top_clk_wiz_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="top.bd" FileRelPathName="ip/top_clk_wiz_0_1/top_clk_wiz_0_1.xci">
-          <Proxy FileSetName="top_clk_wiz_0_1"/>
+        <CompFileExtendedInfo CompFileName="top.bd" FileRelPathName="ip/top_Tx_Data_0_0/top_Tx_Data_0_0.xci">
+          <Proxy FileSetName="top_Tx_Data_0_0"/>
         </CompFileExtendedInfo>
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/hdl/top_wrapper.v">
@@ -250,15 +250,18 @@
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
-        <CompFileExtendedInfo CompFileName="costas_loop.bd" FileRelPathName="ip/costas_loop_Truncate_IQ_0_0/costas_loop_Truncate_IQ_0_0.xci">
-          <Proxy FileSetName="costas_loop_Truncate_IQ_0_0"/>
-        </CompFileExtendedInfo>
       </File>
       <File Path="$PGENDIR/sources_1/bd/costas_loop/hdl/costas_loop_wrapper.v">
         <FileInfo>
           <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/matlab/costas_loop_LPF.coe">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
@@ -671,6 +674,9 @@
         <CompFileExtendedInfo CompFileName="costas_loop_inst_0.bd" FileRelPathName="ip/costas_loop_inst_0_NCO_Phase_0_0/costas_loop_inst_0_NCO_Phase_0_0.xci">
           <Proxy FileSetName="costas_loop_inst_0_NCO_Phase_0_0"/>
         </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="costas_loop_inst_0.bd" FileRelPathName="ip/costas_loop_inst_0_Truncate_IQ_0_0_1/costas_loop_inst_0_Truncate_IQ_0_0.xci">
+          <Proxy FileSetName="costas_loop_inst_0_Truncate_IQ_0_0"/>
+        </CompFileExtendedInfo>
       </File>
       <Config>
         <Option Name="TopModule" Val="costas_loop_inst_0"/>
@@ -765,21 +771,8 @@
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
-    <FileSet Name="costas_loop_Truncate_IQ_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/costas_loop_Truncate_IQ_0_0" RelGenDir="$PGENDIR/costas_loop_Truncate_IQ_0_0">
-      <Config>
-        <Option Name="TopModule" Val="costas_loop_Truncate_IQ_0_0"/>
-        <Option Name="dataflowViewerSettings" Val="min_width=16"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-      </Config>
-    </FileSet>
-    <FileSet Name="costas_loop_inst_0_NCO_Phase_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/costas_loop_inst_0_NCO_Phase_0_0" RelGenDir="$PGENDIR/costas_loop_inst_0_NCO_Phase_0_0">
-      <Config>
-        <Option Name="TopModule" Val="costas_loop_inst_0_NCO_Phase_0_0"/>
-        <Option Name="dataflowViewerSettings" Val="min_width=16"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-      </Config>
-    </FileSet>
     <FileSet Name="sim_BPSK" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/sim_BPSK" RelGenDir="$PGENDIR/sim_BPSK">
+      <Filter Type="Srcs"/>
       <File Path="$PGENDIR/sources_1/bd/top/ipshared/dbd8/hdl/axis_data_fifo_v2_0_vl_rfs.v">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -864,7 +857,7 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PGENDIR/sources_1/bd/top/bd/costas_loop_inst_0/ip/costas_loop_inst_0_Truncate_IQ_0_0/costas_loop_inst_0_Truncate_IQ_0_0_sim_netlist.v">
+      <File Path="$PGENDIR/sources_1/bd/top/bd/costas_loop_inst_0/ip/costas_loop_inst_0_Truncate_IQ_0_0_1/costas_loop_inst_0_Truncate_IQ_0_0_sim_netlist.v">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -999,6 +992,22 @@
       </File>
       <File Path="$PPRDIR/verilog/tb/tb_PSK_Demod_BPSK.v">
         <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PGENDIR/sources_1/bd/top/bd/costas_loop_inst_0/ip/costas_loop_inst_0_NCO_Phase_0_0/sim/costas_loop_inst_0_NCO_Phase_0_0.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PGENDIR/sources_1/bd/top/bd/costas_loop_inst_0/ip/costas_loop_inst_0_Truncate_IQ_0_0/costas_loop_inst_0_Truncate_IQ_0_0_sim_netlist.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1236,14 +1245,6 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PGENDIR/sources_1/bd/top/bd/costas_loop_inst_0/ip/costas_loop_inst_0_NCO_Phase_0_0/sim/costas_loop_inst_0_NCO_Phase_0_0.v">
-        <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
       <File Path="$PGENDIR/sources_1/bd/top/bd/costas_loop_inst_0/ipshared/badb/hdl/xlconstant_v1_1_vl_rfs.v">
         <FileInfo>
           <Attr Name="AutoDisabled" Val="1"/>
@@ -1254,6 +1255,30 @@
       </File>
       <File Path="$PPRDIR/waveforms/tb_PSK_Demod_BPSK_behav.wcfg">
         <FileInfo>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PGENDIR/sources_1/bd/top/ip/top_xlconstant_2_0/sim/top_xlconstant_2_0.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PGENDIR/sources_1/bd/top/ip/top_xlconstant_3_0/sim/top_xlconstant_3_0.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PGENDIR/sources_1/bd/top/bd/costas_loop_inst_0/ip/costas_loop_inst_0_Truncate_IQ_0_0_1/sim/costas_loop_inst_0_Truncate_IQ_0_0.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
@@ -1270,6 +1295,20 @@
         <Option Name="SrcSet" Val="sources_1"/>
         <Option Name="XSimWcfgFile" Val="$PPRDIR/waveforms/tb_PSK_Demod_BPSK_behav.wcfg"/>
         <Option Name="xsim.simulate.runtime" Val="5000ns"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="costas_loop_inst_0_Truncate_IQ_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/costas_loop_inst_0_Truncate_IQ_0_0" RelGenDir="$PGENDIR/costas_loop_inst_0_Truncate_IQ_0_0">
+      <Config>
+        <Option Name="TopModule" Val="costas_loop_inst_0_Truncate_IQ_0_0"/>
+        <Option Name="dataflowViewerSettings" Val="min_width=16"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="costas_loop_inst_0_NCO_Phase_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/costas_loop_inst_0_NCO_Phase_0_0" RelGenDir="$PGENDIR/costas_loop_inst_0_NCO_Phase_0_0">
+      <Config>
+        <Option Name="TopModule" Val="costas_loop_inst_0_NCO_Phase_0_0"/>
+        <Option Name="dataflowViewerSettings" Val="min_width=16"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
   </FileSets>
@@ -1442,9 +1481,11 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="costas_loop_Truncate_IQ_0_0_synth_1" Type="Ft3:Synth" SrcSet="costas_loop_Truncate_IQ_0_0" Part="xc7z020clg484-1" ConstrsSet="costas_loop_Truncate_IQ_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/costas_loop_Truncate_IQ_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/costas_loop_Truncate_IQ_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/costas_loop_Truncate_IQ_0_0_synth_1">
+    <Run Id="costas_loop_inst_0_Truncate_IQ_0_0_synth_1" Type="Ft3:Synth" SrcSet="costas_loop_inst_0_Truncate_IQ_0_0" Part="xc7z020clg484-1" ConstrsSet="costas_loop_inst_0_Truncate_IQ_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/costas_loop_inst_0_Truncate_IQ_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/costas_loop_inst_0_Truncate_IQ_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/costas_loop_inst_0_Truncate_IQ_0_0_synth_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022"/>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -1454,7 +1495,9 @@
     </Run>
     <Run Id="costas_loop_inst_0_NCO_Phase_0_0_synth_1" Type="Ft3:Synth" SrcSet="costas_loop_inst_0_NCO_Phase_0_0" Part="xc7z020clg484-1" ConstrsSet="costas_loop_inst_0_NCO_Phase_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/costas_loop_inst_0_NCO_Phase_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/costas_loop_inst_0_NCO_Phase_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/costas_loop_inst_0_NCO_Phase_0_0_synth_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022"/>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -1718,9 +1761,11 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="costas_loop_Truncate_IQ_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg484-1" ConstrsSet="costas_loop_Truncate_IQ_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="costas_loop_Truncate_IQ_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/costas_loop_Truncate_IQ_0_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/costas_loop_Truncate_IQ_0_0_impl_1">
+    <Run Id="costas_loop_inst_0_Truncate_IQ_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg484-1" ConstrsSet="costas_loop_inst_0_Truncate_IQ_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="costas_loop_inst_0_Truncate_IQ_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/costas_loop_inst_0_Truncate_IQ_0_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/costas_loop_inst_0_Truncate_IQ_0_0_impl_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022"/>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022">
+          <Desc>Default settings for Implementation.</Desc>
+        </StratHandle>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>
@@ -1737,7 +1782,9 @@
     </Run>
     <Run Id="costas_loop_inst_0_NCO_Phase_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg484-1" ConstrsSet="costas_loop_inst_0_NCO_Phase_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="costas_loop_inst_0_NCO_Phase_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/costas_loop_inst_0_NCO_Phase_0_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/costas_loop_inst_0_NCO_Phase_0_0_impl_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022"/>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022">
+          <Desc>Default settings for Implementation.</Desc>
+        </StratHandle>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>

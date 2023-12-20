@@ -1,44 +1,48 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"0.870161",
-   "Default View_TopLeft":"-128,45",
+   "Default View_ScaleFactor":"1.16463",
+   "Default View_TopLeft":"-195,-81",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
 #  -string -flagsOSRD
-preplace port port-id_clk_16M384 -pg 1 -lvl 0 -x -10 -y 340 -defaultsOSRD
-preplace port port-id_rst_16M384 -pg 1 -lvl 0 -x -10 -y 400 -defaultsOSRD
-preplace port port-id_is_bpsk -pg 1 -lvl 0 -x -10 -y 370 -defaultsOSRD
-preplace port port-id_BPSK -pg 1 -lvl 4 -x 980 -y 330 -defaultsOSRD
-preplace port port-id_vld -pg 1 -lvl 4 -x 980 -y 490 -defaultsOSRD
-preplace portBus ADC_I -pg 1 -lvl 0 -x -10 -y 260 -defaultsOSRD
-preplace portBus ADC_Q -pg 1 -lvl 0 -x -10 -y 290 -defaultsOSRD
-preplace portBus QPSK -pg 1 -lvl 4 -x 980 -y 360 -defaultsOSRD
-preplace portBus I_data -pg 1 -lvl 4 -x 980 -y 70 -defaultsOSRD
-preplace portBus Q_data -pg 1 -lvl 4 -x 980 -y 190 -defaultsOSRD
-preplace portBus NCO_cos -pg 1 -lvl 4 -x 980 -y 460 -defaultsOSRD
+preplace port port-id_clk_16M384 -pg 1 -lvl 0 -x -10 -y 330 -defaultsOSRD
+preplace port port-id_rst_16M384 -pg 1 -lvl 0 -x -10 -y 420 -defaultsOSRD
+preplace port port-id_is_bpsk -pg 1 -lvl 0 -x -10 -y 300 -defaultsOSRD
+preplace port port-id_BPSK -pg 1 -lvl 4 -x 1140 -y 330 -defaultsOSRD
+preplace port port-id_vld -pg 1 -lvl 4 -x 1140 -y 490 -defaultsOSRD
+preplace portBus ADC_I -pg 1 -lvl 0 -x -10 -y 240 -defaultsOSRD
+preplace portBus ADC_Q -pg 1 -lvl 0 -x -10 -y 270 -defaultsOSRD
+preplace portBus QPSK -pg 1 -lvl 4 -x 1140 -y 360 -defaultsOSRD
+preplace portBus I_data -pg 1 -lvl 4 -x 1140 -y 70 -defaultsOSRD
+preplace portBus Q_data -pg 1 -lvl 4 -x 1140 -y 190 -defaultsOSRD
+preplace portBus NCO_cos -pg 1 -lvl 4 -x 1140 -y 460 -defaultsOSRD
+preplace portBus FEEDBACK_SHIFT -pg 1 -lvl 0 -x -10 -y 360 -defaultsOSRD
+preplace portBus MODE_CTRL -pg 1 -lvl 0 -x -10 -y 390 -defaultsOSRD
 preplace inst PSK_Signal_Extend_0 -pg 1 -lvl 1 -x 160 -y 270 -defaultsOSRD
-preplace inst costas_loop_0 -pg 1 -lvl 2 -x 490 -y 340 -defaultsOSRD
-preplace inst PSK_Detection_0 -pg 1 -lvl 3 -x 820 -y 350 -defaultsOSRD
-preplace inst c_shift_ram_I -pg 1 -lvl 3 -x 820 -y 70 -defaultsOSRD
-preplace inst c_shift_ram_Q -pg 1 -lvl 3 -x 820 -y 190 -defaultsOSRD
-preplace netloc AD9361_1RT_FDD_0_AD9361_RX_DAT_I 1 0 1 NJ 260
-preplace netloc AD9361_1RT_FDD_0_AD9361_RX_DAT_Q 1 0 1 10J 280n
-preplace netloc Div_clk32M768_0_clk16M384 1 0 3 NJ 340 320 440 660
+preplace inst costas_loop_0 -pg 1 -lvl 2 -x 610 -y 340 -defaultsOSRD
+preplace inst PSK_Detection_0 -pg 1 -lvl 3 -x 980 -y 350 -defaultsOSRD
+preplace inst c_shift_ram_I -pg 1 -lvl 3 -x 980 -y 70 -defaultsOSRD
+preplace inst c_shift_ram_Q -pg 1 -lvl 3 -x 980 -y 190 -defaultsOSRD
+preplace netloc AD9361_1RT_FDD_0_AD9361_RX_DAT_I 1 0 1 20J 240n
+preplace netloc AD9361_1RT_FDD_0_AD9361_RX_DAT_Q 1 0 1 20J 270n
+preplace netloc Div_clk32M768_0_clk16M384 1 0 3 10J 340 310 450 800
 preplace netloc PSK_Detection_0_BPSK 1 3 1 N 330
-preplace netloc PSK_Detection_0_QPSK 1 3 1 960 350n
-preplace netloc PSK_Detection_0_vld 1 3 1 960 370n
-preplace netloc PSK_Signal_Extend_0_PSK_signal 1 1 1 310 270n
+preplace netloc PSK_Detection_0_QPSK 1 3 1 1120 350n
+preplace netloc PSK_Detection_0_vld 1 3 1 1120 370n
+preplace netloc PSK_Signal_Extend_0_PSK_signal 1 1 1 320 270n
 preplace netloc c_shift_ram_I_Q 1 3 1 NJ 70
 preplace netloc c_shift_ram_Q_Q 1 3 1 NJ 190
-preplace netloc costas_loop_0_I_tdata 1 2 1 670J 60n
-preplace netloc costas_loop_0_NCO_cos 1 2 2 650 460 NJ
-preplace netloc costas_loop_0_Q_tdata 1 2 1 680J 180n
-preplace netloc is_bpsk_1 1 0 2 NJ 370 N
-preplace netloc rst_16M386_1 1 0 3 N 400 330 450 670J
+preplace netloc costas_loop_0_I_tdata 1 2 1 810J 60n
+preplace netloc costas_loop_0_NCO_cos 1 2 2 790 460 NJ
+preplace netloc costas_loop_0_Q_tdata 1 2 1 820J 180n
+preplace netloc is_bpsk_1 1 0 2 20J 350 N
+preplace netloc rst_16M386_1 1 0 3 N 420 320 460 780J
+preplace netloc FEEDBACK_SHIFT_1 1 0 2 NJ 360 300
+preplace netloc MODE_CTRL_1 1 0 2 NJ 390 N
 preplace netloc costas_loop_0_I 1 2 1 N 300
 preplace netloc costas_loop_0_Q 1 2 1 N 340
-levelinfo -pg 1 -10 160 490 820 980
-pagesize -pg 1 -db -bbox -sgen -140 0 1130 510
+levelinfo -pg 1 -10 160 610 980 1140
+pagesize -pg 1 -db -bbox -sgen -200 -20 1290 1040
 "
 }
 0

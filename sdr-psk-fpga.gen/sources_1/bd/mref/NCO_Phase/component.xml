@@ -107,7 +107,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>4f0bd1d1</spirit:value>
+            <spirit:value>54debf31</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -120,7 +120,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>4f0bd1d1</spirit:value>
+            <spirit:value>54debf31</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -161,6 +161,23 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
+        <spirit:name>FEEDBACK_SHIFT</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">3</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic_vector</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
         <spirit:name>feedback_tdata</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
@@ -170,7 +187,7 @@
           </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
-              <spirit:typeName>std_logic_vector</spirit:typeName>
+              <spirit:typeName>signed</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -203,7 +220,7 @@
           </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
-              <spirit:typeName>reg</spirit:typeName>
+              <spirit:typeName>reg signed</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -230,10 +247,10 @@
         <spirit:displayName>Width</spirit:displayName>
         <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.WIDTH">16</spirit:value>
       </spirit:modelParameter>
-      <spirit:modelParameter spirit:dataType="integer">
-        <spirit:name>INCREMENT_INIT</spirit:name>
-        <spirit:displayName>Increment Init</spirit:displayName>
-        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.INCREMENT_INIT" spirit:bitStringLength="16">0x4000</spirit:value>
+      <spirit:modelParameter spirit:dataType="signed">
+        <spirit:name>FREE_FREQ</spirit:name>
+        <spirit:displayName>Free Freq</spirit:displayName>
+        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.FREE_FREQ" spirit:bitStringLength="16">0x4000</spirit:value>
       </spirit:modelParameter>
     </spirit:modelParameters>
   </spirit:model>
@@ -243,7 +260,7 @@
       <spirit:file>
         <spirit:name>xgui/NCO_Phase_v1_0.tcl</spirit:name>
         <spirit:fileType>tclSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_9a9a7586</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_76985064</spirit:userFileType>
         <spirit:userFileType>XGUI_VERSION_2</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
@@ -256,9 +273,9 @@
       <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.WIDTH">16</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
-      <spirit:name>INCREMENT_INIT</spirit:name>
-      <spirit:displayName>Increment Init</spirit:displayName>
-      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.INCREMENT_INIT" spirit:bitStringLength="16">0x4000</spirit:value>
+      <spirit:name>FREE_FREQ</spirit:name>
+      <spirit:displayName>Free Freq</spirit:displayName>
+      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.FREE_FREQ" spirit:bitStringLength="16">0x4000</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Component_Name</spirit:name>
@@ -280,7 +297,7 @@
         <xilinx:designToolContext>IPI</xilinx:designToolContext>
       </xilinx:designToolContexts>
       <xilinx:coreRevision>1</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2023-12-20T10:05:30Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2023-12-20T17:40:29Z</xilinx:coreCreationDateTime>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2022.2</xilinx:xilinxVersion>

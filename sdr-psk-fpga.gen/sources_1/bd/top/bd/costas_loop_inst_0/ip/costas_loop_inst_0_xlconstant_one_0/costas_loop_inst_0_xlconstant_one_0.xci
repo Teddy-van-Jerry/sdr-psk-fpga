@@ -2,7 +2,7 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "costas_loop_inst_0_xlconstant_one_0",
-    "cell_name": "Error_Detect/xlconstant_one",
+    "cell_name": "Rx/costas_loop_0/Error_Detect/xlconstant_one",
     "component_reference": "xilinx.com:ip:xlconstant:1.1",
     "ip_revision": "7",
     "gen_directory": ".",

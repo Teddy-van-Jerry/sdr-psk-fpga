@@ -1,7 +1,7 @@
 //Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-//Date        : Wed Dec 20 18:07:47 2023
+//Date        : Thu Dec 21 01:59:01 2023
 //Host        : TVJ-PC running 64-bit major release  (build 9200)
 //Command     : generate_target top.bd
 //Design      : top
@@ -14,14 +14,12 @@ module Clock_Gen_imp_1QWPH1V
     clk1M024,
     clk_16M384,
     clk_200M,
-    clk_32M768,
     rst_16M384,
     rst_n_1M024);
   input PL_CLK_100MHz;
   output clk1M024;
   output clk_16M384;
   output clk_200M;
-  output clk_32M768;
   output [0:0]rst_16M384;
   output [0:0]rst_n_1M024;
 
@@ -39,7 +37,6 @@ module Clock_Gen_imp_1QWPH1V
   assign clk1M024 = Div_clk32M768_0_clk1M024;
   assign clk_16M384 = Div_clk32M768_0_clk16M384;
   assign clk_200M = clk_wiz_128M_clk_200M;
-  assign clk_32M768 = clk_wiz_32M768_clk_32M768;
   assign rst_16M384[0] = Reset_Gen_rst_16M384;
   top_Div_clk32M768_0_0 Div_clk32M768_0
        (.clk16M384(Div_clk32M768_0_clk16M384),
@@ -59,6 +56,29 @@ module Clock_Gen_imp_1QWPH1V
        (.clk_32M768(clk_wiz_32M768_clk_32M768),
         .clk_in1(clk_wiz_128M_clk_128M),
         .locked(clk_wiz_32M768_locked));
+endmodule
+
+module Const_Config_imp_1TTSP2B
+   (DELAY_CNT,
+    FEEDBACK_SHIFT,
+    MODE_CTRL);
+  output [3:0]DELAY_CNT;
+  output [7:0]FEEDBACK_SHIFT;
+  output [3:0]MODE_CTRL;
+
+  wire [3:0]DELAY_CNT_1;
+  wire [7:0]FEEDBACK_SHIFT_1;
+  wire [3:0]xlconstant_MODE_CTRL_dout;
+
+  assign DELAY_CNT[3:0] = DELAY_CNT_1;
+  assign FEEDBACK_SHIFT[7:0] = FEEDBACK_SHIFT_1;
+  assign MODE_CTRL[3:0] = xlconstant_MODE_CTRL_dout;
+  top_xlconstant_1_0 xlconstant_DELAY_CNT
+       (.dout(DELAY_CNT_1));
+  top_xlconstant_2_0 xlconstant_FEEDBACK_SHIFT
+       (.dout(FEEDBACK_SHIFT_1));
+  top_xlconstant_3_0 xlconstant_MODE_CTRL
+       (.dout(xlconstant_MODE_CTRL_dout));
 endmodule
 
 module PSK_Modulation_imp_1W4LMRU
@@ -219,7 +239,9 @@ module Rx_imp_KSVDXC
    (ADC_I,
     ADC_Q,
     BPSK,
+    FEEDBACK_SHIFT,
     I_data,
+    MODE_CTRL,
     NCO_cos,
     QPSK,
     Q_data,
@@ -230,7 +252,9 @@ module Rx_imp_KSVDXC
   input [11:0]ADC_I;
   input [11:0]ADC_Q;
   output BPSK;
+  input [7:0]FEEDBACK_SHIFT;
   output [15:0]I_data;
+  input [3:0]MODE_CTRL;
   output [11:0]NCO_cos;
   output [1:0]QPSK;
   output [15:0]Q_data;
@@ -242,6 +266,8 @@ module Rx_imp_KSVDXC
   wire [11:0]AD9361_1RT_FDD_0_AD9361_RX_DAT_I;
   wire [11:0]AD9361_1RT_FDD_0_AD9361_RX_DAT_Q;
   wire Div_clk32M768_0_clk16M384;
+  wire [7:0]FEEDBACK_SHIFT_1;
+  wire [3:0]MODE_CTRL_1;
   wire PSK_Detection_0_BPSK;
   wire [1:0]PSK_Detection_0_QPSK;
   wire PSK_Detection_0_vld;
@@ -260,7 +286,9 @@ module Rx_imp_KSVDXC
   assign AD9361_1RT_FDD_0_AD9361_RX_DAT_Q = ADC_Q[11:0];
   assign BPSK = PSK_Detection_0_BPSK;
   assign Div_clk32M768_0_clk16M384 = clk_16M384;
+  assign FEEDBACK_SHIFT_1 = FEEDBACK_SHIFT[7:0];
   assign I_data[15:0] = c_shift_ram_I_Q;
+  assign MODE_CTRL_1 = MODE_CTRL[3:0];
   assign NCO_cos[11:0] = costas_loop_0_NCO_cos;
   assign QPSK[1:0] = PSK_Detection_0_QPSK;
   assign Q_data[15:0] = c_shift_ram_Q_Q;
@@ -290,8 +318,10 @@ module Rx_imp_KSVDXC
         .D(costas_loop_0_Q_tdata),
         .Q(c_shift_ram_Q_Q));
   costas_loop_inst_0 costas_loop_0
-       (.I_tdata(costas_loop_0_I_tdata),
+       (.FEEDBACK_SHIFT(FEEDBACK_SHIFT_1),
+        .I_tdata(costas_loop_0_I_tdata),
         .I_tvalid(costas_loop_0_I_TVALID),
+        .MODE_CTRL(MODE_CTRL_1),
         .NCO_cos(costas_loop_0_NCO_cos),
         .PSK_signal(PSK_Signal_Extend_0_PSK_signal),
         .Q_tdata(costas_loop_0_Q_tdata),
@@ -368,7 +398,7 @@ module Tx_imp_1IUYQQO
         .data_tvalid(Tx_Data_0_data_TVALID));
 endmodule
 
-(* CORE_GENERATION_INFO = "top,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=top,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=46,numReposBlks=36,numNonXlnxBlks=0,numHierBlks=10,maxHierDepth=3,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=13,numPkgbdBlks=1,bdsource=USER,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "top.hwdef" *) 
+(* CORE_GENERATION_INFO = "top,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=top,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=49,numReposBlks=38,numNonXlnxBlks=0,numHierBlks=11,maxHierDepth=3,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=13,numPkgbdBlks=1,bdsource=USER,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "top.hwdef" *) 
 module top
    (AD9361_DATACLK,
     AD9361_FBCLK,
@@ -398,6 +428,7 @@ module top
   wire [0:0]Clock_Gen_interconnect_aresetn;
   wire [3:0]DELAY_CNT_1;
   wire Div_clk32M768_0_clk16M384;
+  wire [7:0]FEEDBACK_SHIFT_1;
   wire PL_CLK_100MHz_1;
   wire [11:0]PSK_Mod_0_out_I;
   wire [11:0]PSK_Mod_0_out_Q;
@@ -411,6 +442,7 @@ module top
   wire clk_wiz_128M_clk_200M;
   wire [0:0]proc_sys_reset_16M384_mb_reset;
   wire [0:0]xlconstant_0_dout;
+  wire [3:0]xlconstant_MODE_CTRL_dout;
 
   assign AD9361_DATACLK_1 = AD9361_DATACLK;
   assign AD9361_FBCLK = AD9361_1RT_FDD_0_AD9361_FBCLK;
@@ -426,6 +458,10 @@ module top
         .clk_200M(clk_wiz_128M_clk_200M),
         .rst_16M384(proc_sys_reset_16M384_mb_reset),
         .rst_n_1M024(Clock_Gen_interconnect_aresetn));
+  Const_Config_imp_1TTSP2B Const_Config
+       (.DELAY_CNT(DELAY_CNT_1),
+        .FEEDBACK_SHIFT(FEEDBACK_SHIFT_1),
+        .MODE_CTRL(xlconstant_MODE_CTRL_dout));
   top_AD9361_1RT_FDD_0_0 RF_Data_Converter
        (.AD9361_DATACLK(AD9361_DATACLK_1),
         .AD9361_FBCLK(AD9361_1RT_FDD_0_AD9361_FBCLK),
@@ -444,7 +480,9 @@ module top
        (.ADC_I(AD9361_1RT_FDD_0_AD9361_RX_DAT_I),
         .ADC_Q(AD9361_1RT_FDD_0_AD9361_RX_DAT_Q),
         .BPSK(Rx_BPSK),
+        .FEEDBACK_SHIFT(FEEDBACK_SHIFT_1),
         .I_data(Rx_I_data),
+        .MODE_CTRL(xlconstant_MODE_CTRL_dout),
         .NCO_cos(Rx_NCO_cos),
         .QPSK(Rx_QPSK),
         .Q_data(Rx_Q_data),
@@ -474,8 +512,6 @@ module top
         .probe7(Rx_QPSK),
         .probe8(Rx_I_data),
         .probe9(Rx_Q_data));
-  top_xlconstant_0_1 xlconstant_0
+  top_xlconstant_0_1 xlconstant_is_bpsk
        (.dout(xlconstant_0_dout));
-  top_xlconstant_1_0 xlconstant_1
-       (.dout(DELAY_CNT_1));
 endmodule
