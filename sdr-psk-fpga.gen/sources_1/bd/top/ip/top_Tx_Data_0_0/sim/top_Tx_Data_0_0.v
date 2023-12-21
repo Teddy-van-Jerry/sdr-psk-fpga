@@ -56,6 +56,7 @@
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module top_Tx_Data_0_0 (
   clk,
+  MODE_CTRL,
   data_tdata,
   data_tvalid,
   data_tready,
@@ -66,6 +67,7 @@ module top_Tx_Data_0_0 (
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_BUSIF data, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *)
 input wire clk;
+input wire [3 : 0] MODE_CTRL;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 data TDATA" *)
 output wire [7 : 0] data_tdata;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 data TVALID" *)
@@ -82,6 +84,7 @@ output wire data_tuser;
     .BYTES(1)
   ) inst (
     .clk(clk),
+    .MODE_CTRL(MODE_CTRL),
     .data_tdata(data_tdata),
     .data_tvalid(data_tvalid),
     .data_tready(data_tready),

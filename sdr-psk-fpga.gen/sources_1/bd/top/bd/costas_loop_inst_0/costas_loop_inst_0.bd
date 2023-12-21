@@ -517,6 +517,9 @@
               "A_Width": {
                 "value": "16"
               },
+              "Add_Mode": {
+                "value": "Subtract"
+              },
               "B_Type": {
                 "value": "Signed"
               },
@@ -1071,15 +1074,15 @@
           "Error_Detect_Ctrl_0_out_I_tdata": {
             "ports": [
               "Error_Detect_Ctrl_0/out_I_tdata",
-              "Error_Detect_QPSK/A",
-              "Error_Detect_BPSK/A"
+              "Error_Detect_BPSK/A",
+              "Error_Detect_QPSK/B"
             ]
           },
           "Error_Detect_Ctrl_0_out_Q_tdata": {
             "ports": [
               "Error_Detect_Ctrl_0/out_Q_tdata",
-              "Error_Detect_QPSK/B",
-              "Error_Detect_BPSK/B"
+              "Error_Detect_BPSK/B",
+              "Error_Detect_QPSK/A"
             ]
           },
           "Error_Detect_QPSK_S": {
@@ -1665,9 +1668,6 @@
                   "HAS_TLAST": {
                     "value": "0",
                     "value_src": "constant"
-                  },
-                  "FREQ_HZ": {
-                    "value": "16384000"
                   },
                   "LAYERED_METADATA": {
                     "value": [

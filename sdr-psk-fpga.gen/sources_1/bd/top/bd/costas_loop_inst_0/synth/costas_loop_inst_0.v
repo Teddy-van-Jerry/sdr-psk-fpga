@@ -1,7 +1,7 @@
 //Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-//Date        : Thu Dec 21 03:46:14 2023
+//Date        : Thu Dec 21 08:46:42 2023
 //Host        : TVJ-PC running 64-bit major release  (build 9200)
 //Command     : generate_target costas_loop_inst_0.bd
 //Design      : costas_loop_inst_0
@@ -77,8 +77,8 @@ module Error_Detect_imp_1JXVF2
         .out_Q_tdata(Error_Detect_Ctrl_0_out_Q_tdata),
         .rst(rst_16M386_1));
   costas_loop_inst_0_Error_Detect_QPSK_0 Error_Detect_QPSK
-       (.A(Error_Detect_Ctrl_0_out_I_tdata),
-        .B(Error_Detect_Ctrl_0_out_Q_tdata),
+       (.A(Error_Detect_Ctrl_0_out_Q_tdata),
+        .B(Error_Detect_Ctrl_0_out_I_tdata),
         .CLK(aclk_0_1),
         .S(Error_Detect_QPSK_S));
   costas_loop_inst_0_xlconstant_one_0 xlconstant_one

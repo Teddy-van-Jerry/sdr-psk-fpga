@@ -1,7 +1,7 @@
 //Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-//Date        : Thu Dec 21 03:46:11 2023
+//Date        : Thu Dec 21 08:46:39 2023
 //Host        : TVJ-PC running 64-bit major release  (build 9200)
 //Command     : generate_target top.bd
 //Design      : top
@@ -341,6 +341,7 @@ module Tx_imp_1IUYQQO
     DAC_bits,
     DAC_vld,
     DELAY_CNT,
+    MODE_CTRL,
     clk_16M384,
     clk_1M024,
     rst_16M384,
@@ -350,6 +351,7 @@ module Tx_imp_1IUYQQO
   output [1:0]DAC_bits;
   output DAC_vld;
   input [3:0]DELAY_CNT;
+  input [3:0]MODE_CTRL;
   input clk_16M384;
   input clk_1M024;
   input rst_16M384;
@@ -357,6 +359,7 @@ module Tx_imp_1IUYQQO
 
   wire [3:0]DELAY_CNT_1;
   wire Div_clk32M768_0_clk16M384;
+  wire [3:0]MODE_CTRL_1;
   wire [11:0]PSK_Mod_0_out_I;
   wire [11:0]PSK_Mod_0_out_Q;
   wire [1:0]PSK_Modulation_out_bits;
@@ -376,6 +379,7 @@ module Tx_imp_1IUYQQO
   assign DAC_vld = PSK_Modulation_out_vld;
   assign DELAY_CNT_1 = DELAY_CNT[3:0];
   assign Div_clk32M768_0_clk16M384 = clk_16M384;
+  assign MODE_CTRL_1 = MODE_CTRL[3:0];
   assign proc_sys_reset_16M384_mb_reset = rst_16M384;
   assign s_axis_aresetn_1 = rst_n_1M024[0];
   PSK_Modulation_imp_1W4LMRU PSK_Modulation
@@ -394,7 +398,8 @@ module Tx_imp_1IUYQQO
         .rst_16M384(proc_sys_reset_16M384_mb_reset),
         .rst_n_1M024(s_axis_aresetn_1));
   top_Tx_Data_0_0 Tx_Data_0
-       (.clk(clk_1M024),
+       (.MODE_CTRL(MODE_CTRL_1),
+        .clk(clk_1M024),
         .data_tdata(Tx_Data_0_data_TDATA),
         .data_tlast(Tx_Data_0_data_TLAST),
         .data_tready(Tx_Data_0_data_TREADY),
@@ -499,6 +504,7 @@ module top
         .DAC_bits(Tx_out_bits),
         .DAC_vld(Tx_out_vld),
         .DELAY_CNT(DELAY_CNT_1),
+        .MODE_CTRL(xlconstant_MODE_CTRL_dout),
         .clk_16M384(Div_clk32M768_0_clk16M384),
         .clk_1M024(Clock_Gen_clk1M024),
         .rst_16M384(proc_sys_reset_16M384_mb_reset),

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Dec 21 03:46:14 2023" VIVADOVERSION="2022.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Dec 21 08:46:46 2023" VIVADOVERSION="2022.2">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z020" NAME="costas_loop_inst_0" PACKAGE="clg484" SPEEDGRADE="-1"/>
 
@@ -228,15 +228,15 @@
         </PORT>
         <PORT DIR="O" LEFT="15" NAME="out_I_tdata" RIGHT="0" SIGIS="undef" SIGNAME="Error_Detect_Error_Detect_Ctrl_0_out_I_tdata">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="Error_Detect_Error_Detect_QPSK" PORT="A"/>
             <CONNECTION INSTANCE="Error_Detect_Error_Detect_BPSK" PORT="A"/>
+            <CONNECTION INSTANCE="Error_Detect_Error_Detect_QPSK" PORT="B"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="out_I_tvalid" SIGIS="undef"/>
         <PORT DIR="O" LEFT="15" NAME="out_Q_tdata" RIGHT="0" SIGIS="undef" SIGNAME="Error_Detect_Error_Detect_Ctrl_0_out_Q_tdata">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="Error_Detect_Error_Detect_QPSK" PORT="B"/>
             <CONNECTION INSTANCE="Error_Detect_Error_Detect_BPSK" PORT="B"/>
+            <CONNECTION INSTANCE="Error_Detect_Error_Detect_QPSK" PORT="A"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="out_Q_tvalid" SIGIS="undef"/>
@@ -422,7 +422,7 @@
         <PARAMETER NAME="C_A_TYPE" VALUE="0"/>
         <PARAMETER NAME="C_B_TYPE" VALUE="0"/>
         <PARAMETER NAME="C_LATENCY" VALUE="2"/>
-        <PARAMETER NAME="C_ADD_MODE" VALUE="0"/>
+        <PARAMETER NAME="C_ADD_MODE" VALUE="1"/>
         <PARAMETER NAME="C_B_CONSTANT" VALUE="0"/>
         <PARAMETER NAME="C_B_VALUE" VALUE="0000000000000000"/>
         <PARAMETER NAME="C_AINIT_VAL" VALUE="0"/>
@@ -444,7 +444,7 @@
         <PARAMETER NAME="B_Type" VALUE="Signed"/>
         <PARAMETER NAME="A_Width" VALUE="16"/>
         <PARAMETER NAME="B_Width" VALUE="16"/>
-        <PARAMETER NAME="Add_Mode" VALUE="Add"/>
+        <PARAMETER NAME="Add_Mode" VALUE="Subtract"/>
         <PARAMETER NAME="Out_Width" VALUE="16"/>
         <PARAMETER NAME="Latency_Configuration" VALUE="Manual"/>
         <PARAMETER NAME="Latency" VALUE="2"/>
@@ -467,14 +467,14 @@
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
-        <PORT DIR="I" LEFT="15" NAME="A" RIGHT="0" SIGIS="data" SIGNAME="Error_Detect_Error_Detect_Ctrl_0_out_I_tdata">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="Error_Detect_Error_Detect_Ctrl_0" PORT="out_I_tdata"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="15" NAME="B" RIGHT="0" SIGIS="data" SIGNAME="Error_Detect_Error_Detect_Ctrl_0_out_Q_tdata">
+        <PORT DIR="I" LEFT="15" NAME="A" RIGHT="0" SIGIS="data" SIGNAME="Error_Detect_Error_Detect_Ctrl_0_out_Q_tdata">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Error_Detect_Error_Detect_Ctrl_0" PORT="out_Q_tdata"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="B" RIGHT="0" SIGIS="data" SIGNAME="Error_Detect_Error_Detect_Ctrl_0_out_I_tdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Error_Detect_Error_Detect_Ctrl_0" PORT="out_I_tdata"/>
           </CONNECTIONS>
         </PORT>
         <PORT CLKFREQUENCY="16384000" DIR="I" NAME="CLK" SIGIS="clk" SIGNAME="External_Ports_clk_16M384">

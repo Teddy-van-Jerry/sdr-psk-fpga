@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Dec 21 03:46:14 2023" VIVADOVERSION="2022.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Dec 21 08:46:46 2023" VIVADOVERSION="2022.2">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z020" NAME="top" PACKAGE="clg484" SPEEDGRADE="-1"/>
 
@@ -1483,7 +1483,7 @@
       <DOCUMENTS/>
       <PARAMETERS>
         <PARAMETER NAME="CONST_WIDTH" VALUE="4"/>
-        <PARAMETER NAME="CONST_VAL" VALUE="0x0"/>
+        <PARAMETER NAME="CONST_VAL" VALUE="0x2"/>
         <PARAMETER NAME="Component_Name" VALUE="top_xlconstant_3_0"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
@@ -1491,6 +1491,7 @@
         <PORT DIR="O" LEFT="3" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="Const_Config_xlconstant_MODE_CTRL_dout">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Rx_costas_loop_0" PORT="MODE_CTRL"/>
+            <CONNECTION INSTANCE="Tx_Tx_Data_0" PORT="MODE_CTRL"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -2493,6 +2494,11 @@
         <PORT CLKFREQUENCY="100000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="Clock_Gen_Div_clk32M768_0_clk1M024">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Clock_Gen_Div_clk32M768_0" PORT="clk1M024"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="3" NAME="MODE_CTRL" RIGHT="0" SIGIS="undef" SIGNAME="Const_Config_xlconstant_MODE_CTRL_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Const_Config_xlconstant_MODE_CTRL" PORT="dout"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="7" NAME="data_tdata" RIGHT="0" SIGIS="undef" SIGNAME="Tx_PSK_Modulation_axis_data_fifo_0_s_axis_tdata">

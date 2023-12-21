@@ -21,13 +21,11 @@ module PSK_Signal_Extend #(
   generate
     if (USE_I_STRM) begin
       always @ (posedge clk) begin
-        if (is_bpsk) PSK_signal <= { DAC_I, {O_WIDTH-I_WIDTH{DAC_I[I_WIDTH-1]}} };
-        else PSK_signal <= (DAC_I >>> 1) + (DAC_Q >>> 1);
+        PSK_signal <= { DAC_I, {O_WIDTH-I_WIDTH{1'b0}} };
       end
     end else begin
       always @ (posedge clk) begin
-        if (is_bpsk) PSK_signal <= { DAC_Q, {O_WIDTH-I_WIDTH{DAC_Q[I_WIDTH-1]}} };
-        else PSK_signal <= (DAC_I >>> 1) + (DAC_Q >>> 1);
+        PSK_signal <= { DAC_Q, {O_WIDTH-I_WIDTH{1'b0}} };
       end
     end
   endgenerate

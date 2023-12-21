@@ -42,6 +42,12 @@ module PSK_Mod #(
   reg [BITS-1:0] data_buf;
   reg            vld_buf, last_buf, is_bpsk_buf;
 
+  wire signed [WIDTH-1:0] carrier_0, carrier_1, carrier_2, carrier_3;
+  assign carrier_0 =  carrier_I;
+  assign carrier_1 =  carrier_Q;
+  assign carrier_2 = -carrier_I;
+  assign carrier_3 = -carrier_Q;
+
   wire data_I_buf, data_Q_buf;
   assign { data_I_buf, data_Q_buf } = data_buf[1:0];
 
@@ -66,8 +72,30 @@ module PSK_Mod #(
       end
       // output buffer
       if (vld_buf) begin
-        out_I <= (              data_I_buf             ) ? carrier_I : -carrier_I;
-        out_Q <= (is_bpsk_buf ? data_I_buf : data_Q_buf) ? carrier_Q : -carrier_Q;
+        if (is_bpsk_buf) begin
+          out_I <= data_I_buf ? carrier_I : -carrier_I;
+          out_Q <= data_I_buf ? carrier_Q : -carrier_Q;
+        end
+        else begin
+          case (data_buf[1:0])
+            2'b00: begin
+              out_I <= carrier_0;
+              out_Q <= carrier_1;
+            end
+            2'b01: begin
+              out_I <= carrier_1;
+              out_Q <= carrier_2;
+            end
+            2'b10: begin
+              out_I <= carrier_2;
+              out_Q <= carrier_3;
+            end
+            2'b11: begin
+              out_I <= carrier_3;
+              out_Q <= carrier_0;
+            end
+          endcase
+        end
       end
       else begin
         out_I <= 0;

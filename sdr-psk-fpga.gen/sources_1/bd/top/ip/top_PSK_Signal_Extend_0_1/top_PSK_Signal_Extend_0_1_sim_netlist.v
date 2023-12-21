@@ -1,7 +1,7 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Thu Dec 21 03:47:51 2023
+// Date        : Thu Dec 21 08:32:34 2023
 // Host        : TVJ-PC running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               e:/Documents/Study/Verilog/SDR/sdr-psk-fpga/sdr-psk-fpga.gen/sources_1/bd/top/ip/top_PSK_Signal_Extend_0_1/top_PSK_Signal_Extend_0_1_sim_netlist.v
@@ -30,7 +30,6 @@ module top_PSK_Signal_Extend_0_1
   output is_bpsk_out;
 
   wire [11:0]DAC_I;
-  wire [11:0]DAC_Q;
   wire [11:0]PSK_signal;
   wire clk;
   wire is_bpsk;
@@ -38,7 +37,6 @@ module top_PSK_Signal_Extend_0_1
 
   top_PSK_Signal_Extend_0_1_PSK_Signal_Extend inst
        (.DAC_I(DAC_I),
-        .DAC_Q(DAC_Q[11:1]),
         .PSK_signal(PSK_signal),
         .clk(clk),
         .is_bpsk(is_bpsk),
@@ -49,323 +47,91 @@ endmodule
 module top_PSK_Signal_Extend_0_1_PSK_Signal_Extend
    (PSK_signal,
     is_bpsk_out,
-    DAC_Q,
-    is_bpsk,
     DAC_I,
-    clk);
+    clk,
+    is_bpsk);
   output [11:0]PSK_signal;
   output is_bpsk_out;
-  input [10:0]DAC_Q;
-  input is_bpsk;
   input [11:0]DAC_I;
   input clk;
+  input is_bpsk;
 
   wire [11:0]DAC_I;
-  wire [10:0]DAC_Q;
   wire [11:0]PSK_signal;
-  wire \PSK_signal[11]_i_2_n_0 ;
-  wire \PSK_signal[11]_i_3_n_0 ;
-  wire \PSK_signal[11]_i_4_n_0 ;
-  wire \PSK_signal[11]_i_5_n_0 ;
-  wire \PSK_signal[11]_i_6_n_0 ;
-  wire \PSK_signal[11]_i_7_n_0 ;
-  wire \PSK_signal[11]_i_8_n_0 ;
-  wire \PSK_signal[3]_i_2_n_0 ;
-  wire \PSK_signal[3]_i_3_n_0 ;
-  wire \PSK_signal[3]_i_4_n_0 ;
-  wire \PSK_signal[3]_i_5_n_0 ;
-  wire \PSK_signal[3]_i_6_n_0 ;
-  wire \PSK_signal[3]_i_7_n_0 ;
-  wire \PSK_signal[3]_i_8_n_0 ;
-  wire \PSK_signal[3]_i_9_n_0 ;
-  wire \PSK_signal[7]_i_2_n_0 ;
-  wire \PSK_signal[7]_i_3_n_0 ;
-  wire \PSK_signal[7]_i_4_n_0 ;
-  wire \PSK_signal[7]_i_5_n_0 ;
-  wire \PSK_signal[7]_i_6_n_0 ;
-  wire \PSK_signal[7]_i_7_n_0 ;
-  wire \PSK_signal[7]_i_8_n_0 ;
-  wire \PSK_signal[7]_i_9_n_0 ;
-  wire \PSK_signal_reg[11]_i_1_n_1 ;
-  wire \PSK_signal_reg[11]_i_1_n_2 ;
-  wire \PSK_signal_reg[11]_i_1_n_3 ;
-  wire \PSK_signal_reg[11]_i_1_n_4 ;
-  wire \PSK_signal_reg[11]_i_1_n_5 ;
-  wire \PSK_signal_reg[11]_i_1_n_6 ;
-  wire \PSK_signal_reg[11]_i_1_n_7 ;
-  wire \PSK_signal_reg[3]_i_1_n_0 ;
-  wire \PSK_signal_reg[3]_i_1_n_1 ;
-  wire \PSK_signal_reg[3]_i_1_n_2 ;
-  wire \PSK_signal_reg[3]_i_1_n_3 ;
-  wire \PSK_signal_reg[3]_i_1_n_4 ;
-  wire \PSK_signal_reg[3]_i_1_n_5 ;
-  wire \PSK_signal_reg[3]_i_1_n_6 ;
-  wire \PSK_signal_reg[3]_i_1_n_7 ;
-  wire \PSK_signal_reg[7]_i_1_n_0 ;
-  wire \PSK_signal_reg[7]_i_1_n_1 ;
-  wire \PSK_signal_reg[7]_i_1_n_2 ;
-  wire \PSK_signal_reg[7]_i_1_n_3 ;
-  wire \PSK_signal_reg[7]_i_1_n_4 ;
-  wire \PSK_signal_reg[7]_i_1_n_5 ;
-  wire \PSK_signal_reg[7]_i_1_n_6 ;
-  wire \PSK_signal_reg[7]_i_1_n_7 ;
   wire clk;
   wire is_bpsk;
   wire is_bpsk_out;
-  wire [3:3]\NLW_PSK_signal_reg[11]_i_1_CO_UNCONNECTED ;
 
-  LUT2 #(
-    .INIT(4'h2)) 
-    \PSK_signal[11]_i_2 
-       (.I0(DAC_Q[10]),
-        .I1(is_bpsk),
-        .O(\PSK_signal[11]_i_2_n_0 ));
-  LUT2 #(
-    .INIT(4'h2)) 
-    \PSK_signal[11]_i_3 
-       (.I0(DAC_Q[9]),
-        .I1(is_bpsk),
-        .O(\PSK_signal[11]_i_3_n_0 ));
-  LUT2 #(
-    .INIT(4'h2)) 
-    \PSK_signal[11]_i_4 
-       (.I0(DAC_Q[8]),
-        .I1(is_bpsk),
-        .O(\PSK_signal[11]_i_4_n_0 ));
-  LUT3 #(
-    .INIT(8'hB4)) 
-    \PSK_signal[11]_i_5 
-       (.I0(is_bpsk),
-        .I1(DAC_Q[10]),
-        .I2(DAC_I[11]),
-        .O(\PSK_signal[11]_i_5_n_0 ));
-  LUT4 #(
-    .INIT(16'hF606)) 
-    \PSK_signal[11]_i_6 
-       (.I0(DAC_Q[10]),
-        .I1(DAC_I[11]),
-        .I2(is_bpsk),
-        .I3(DAC_I[10]),
-        .O(\PSK_signal[11]_i_6_n_0 ));
-  LUT4 #(
-    .INIT(16'hF606)) 
-    \PSK_signal[11]_i_7 
-       (.I0(DAC_Q[9]),
-        .I1(DAC_I[10]),
-        .I2(is_bpsk),
-        .I3(DAC_I[9]),
-        .O(\PSK_signal[11]_i_7_n_0 ));
-  LUT4 #(
-    .INIT(16'hF606)) 
-    \PSK_signal[11]_i_8 
-       (.I0(DAC_Q[8]),
-        .I1(DAC_I[9]),
-        .I2(is_bpsk),
-        .I3(DAC_I[8]),
-        .O(\PSK_signal[11]_i_8_n_0 ));
-  LUT2 #(
-    .INIT(4'h2)) 
-    \PSK_signal[3]_i_2 
-       (.I0(DAC_Q[3]),
-        .I1(is_bpsk),
-        .O(\PSK_signal[3]_i_2_n_0 ));
-  LUT2 #(
-    .INIT(4'h2)) 
-    \PSK_signal[3]_i_3 
-       (.I0(DAC_Q[2]),
-        .I1(is_bpsk),
-        .O(\PSK_signal[3]_i_3_n_0 ));
-  LUT2 #(
-    .INIT(4'h2)) 
-    \PSK_signal[3]_i_4 
-       (.I0(DAC_Q[1]),
-        .I1(is_bpsk),
-        .O(\PSK_signal[3]_i_4_n_0 ));
-  LUT2 #(
-    .INIT(4'h2)) 
-    \PSK_signal[3]_i_5 
-       (.I0(DAC_Q[0]),
-        .I1(is_bpsk),
-        .O(\PSK_signal[3]_i_5_n_0 ));
-  LUT4 #(
-    .INIT(16'hF606)) 
-    \PSK_signal[3]_i_6 
-       (.I0(DAC_Q[3]),
-        .I1(DAC_I[4]),
-        .I2(is_bpsk),
-        .I3(DAC_I[3]),
-        .O(\PSK_signal[3]_i_6_n_0 ));
-  LUT4 #(
-    .INIT(16'hF606)) 
-    \PSK_signal[3]_i_7 
-       (.I0(DAC_Q[2]),
-        .I1(DAC_I[3]),
-        .I2(is_bpsk),
-        .I3(DAC_I[2]),
-        .O(\PSK_signal[3]_i_7_n_0 ));
-  LUT4 #(
-    .INIT(16'hF606)) 
-    \PSK_signal[3]_i_8 
-       (.I0(DAC_Q[1]),
-        .I1(DAC_I[2]),
-        .I2(is_bpsk),
-        .I3(DAC_I[1]),
-        .O(\PSK_signal[3]_i_8_n_0 ));
-  LUT4 #(
-    .INIT(16'hF606)) 
-    \PSK_signal[3]_i_9 
-       (.I0(DAC_Q[0]),
-        .I1(DAC_I[1]),
-        .I2(is_bpsk),
-        .I3(DAC_I[0]),
-        .O(\PSK_signal[3]_i_9_n_0 ));
-  LUT2 #(
-    .INIT(4'h2)) 
-    \PSK_signal[7]_i_2 
-       (.I0(DAC_Q[7]),
-        .I1(is_bpsk),
-        .O(\PSK_signal[7]_i_2_n_0 ));
-  LUT2 #(
-    .INIT(4'h2)) 
-    \PSK_signal[7]_i_3 
-       (.I0(DAC_Q[6]),
-        .I1(is_bpsk),
-        .O(\PSK_signal[7]_i_3_n_0 ));
-  LUT2 #(
-    .INIT(4'h2)) 
-    \PSK_signal[7]_i_4 
-       (.I0(DAC_Q[5]),
-        .I1(is_bpsk),
-        .O(\PSK_signal[7]_i_4_n_0 ));
-  LUT2 #(
-    .INIT(4'h2)) 
-    \PSK_signal[7]_i_5 
-       (.I0(DAC_Q[4]),
-        .I1(is_bpsk),
-        .O(\PSK_signal[7]_i_5_n_0 ));
-  LUT4 #(
-    .INIT(16'hF606)) 
-    \PSK_signal[7]_i_6 
-       (.I0(DAC_Q[7]),
-        .I1(DAC_I[8]),
-        .I2(is_bpsk),
-        .I3(DAC_I[7]),
-        .O(\PSK_signal[7]_i_6_n_0 ));
-  LUT4 #(
-    .INIT(16'hF606)) 
-    \PSK_signal[7]_i_7 
-       (.I0(DAC_Q[6]),
-        .I1(DAC_I[7]),
-        .I2(is_bpsk),
-        .I3(DAC_I[6]),
-        .O(\PSK_signal[7]_i_7_n_0 ));
-  LUT4 #(
-    .INIT(16'hF606)) 
-    \PSK_signal[7]_i_8 
-       (.I0(DAC_Q[5]),
-        .I1(DAC_I[6]),
-        .I2(is_bpsk),
-        .I3(DAC_I[5]),
-        .O(\PSK_signal[7]_i_8_n_0 ));
-  LUT4 #(
-    .INIT(16'hF606)) 
-    \PSK_signal[7]_i_9 
-       (.I0(DAC_Q[4]),
-        .I1(DAC_I[5]),
-        .I2(is_bpsk),
-        .I3(DAC_I[4]),
-        .O(\PSK_signal[7]_i_9_n_0 ));
   FDRE \PSK_signal_reg[0] 
        (.C(clk),
         .CE(1'b1),
-        .D(\PSK_signal_reg[3]_i_1_n_7 ),
+        .D(DAC_I[0]),
         .Q(PSK_signal[0]),
         .R(1'b0));
   FDRE \PSK_signal_reg[10] 
        (.C(clk),
         .CE(1'b1),
-        .D(\PSK_signal_reg[11]_i_1_n_5 ),
+        .D(DAC_I[10]),
         .Q(PSK_signal[10]),
         .R(1'b0));
   FDRE \PSK_signal_reg[11] 
        (.C(clk),
         .CE(1'b1),
-        .D(\PSK_signal_reg[11]_i_1_n_4 ),
+        .D(DAC_I[11]),
         .Q(PSK_signal[11]),
         .R(1'b0));
-  CARRY4 \PSK_signal_reg[11]_i_1 
-       (.CI(\PSK_signal_reg[7]_i_1_n_0 ),
-        .CO({\NLW_PSK_signal_reg[11]_i_1_CO_UNCONNECTED [3],\PSK_signal_reg[11]_i_1_n_1 ,\PSK_signal_reg[11]_i_1_n_2 ,\PSK_signal_reg[11]_i_1_n_3 }),
-        .CYINIT(1'b0),
-        .DI({1'b0,\PSK_signal[11]_i_2_n_0 ,\PSK_signal[11]_i_3_n_0 ,\PSK_signal[11]_i_4_n_0 }),
-        .O({\PSK_signal_reg[11]_i_1_n_4 ,\PSK_signal_reg[11]_i_1_n_5 ,\PSK_signal_reg[11]_i_1_n_6 ,\PSK_signal_reg[11]_i_1_n_7 }),
-        .S({\PSK_signal[11]_i_5_n_0 ,\PSK_signal[11]_i_6_n_0 ,\PSK_signal[11]_i_7_n_0 ,\PSK_signal[11]_i_8_n_0 }));
   FDRE \PSK_signal_reg[1] 
        (.C(clk),
         .CE(1'b1),
-        .D(\PSK_signal_reg[3]_i_1_n_6 ),
+        .D(DAC_I[1]),
         .Q(PSK_signal[1]),
         .R(1'b0));
   FDRE \PSK_signal_reg[2] 
        (.C(clk),
         .CE(1'b1),
-        .D(\PSK_signal_reg[3]_i_1_n_5 ),
+        .D(DAC_I[2]),
         .Q(PSK_signal[2]),
         .R(1'b0));
   FDRE \PSK_signal_reg[3] 
        (.C(clk),
         .CE(1'b1),
-        .D(\PSK_signal_reg[3]_i_1_n_4 ),
+        .D(DAC_I[3]),
         .Q(PSK_signal[3]),
         .R(1'b0));
-  CARRY4 \PSK_signal_reg[3]_i_1 
-       (.CI(1'b0),
-        .CO({\PSK_signal_reg[3]_i_1_n_0 ,\PSK_signal_reg[3]_i_1_n_1 ,\PSK_signal_reg[3]_i_1_n_2 ,\PSK_signal_reg[3]_i_1_n_3 }),
-        .CYINIT(1'b0),
-        .DI({\PSK_signal[3]_i_2_n_0 ,\PSK_signal[3]_i_3_n_0 ,\PSK_signal[3]_i_4_n_0 ,\PSK_signal[3]_i_5_n_0 }),
-        .O({\PSK_signal_reg[3]_i_1_n_4 ,\PSK_signal_reg[3]_i_1_n_5 ,\PSK_signal_reg[3]_i_1_n_6 ,\PSK_signal_reg[3]_i_1_n_7 }),
-        .S({\PSK_signal[3]_i_6_n_0 ,\PSK_signal[3]_i_7_n_0 ,\PSK_signal[3]_i_8_n_0 ,\PSK_signal[3]_i_9_n_0 }));
   FDRE \PSK_signal_reg[4] 
        (.C(clk),
         .CE(1'b1),
-        .D(\PSK_signal_reg[7]_i_1_n_7 ),
+        .D(DAC_I[4]),
         .Q(PSK_signal[4]),
         .R(1'b0));
   FDRE \PSK_signal_reg[5] 
        (.C(clk),
         .CE(1'b1),
-        .D(\PSK_signal_reg[7]_i_1_n_6 ),
+        .D(DAC_I[5]),
         .Q(PSK_signal[5]),
         .R(1'b0));
   FDRE \PSK_signal_reg[6] 
        (.C(clk),
         .CE(1'b1),
-        .D(\PSK_signal_reg[7]_i_1_n_5 ),
+        .D(DAC_I[6]),
         .Q(PSK_signal[6]),
         .R(1'b0));
   FDRE \PSK_signal_reg[7] 
        (.C(clk),
         .CE(1'b1),
-        .D(\PSK_signal_reg[7]_i_1_n_4 ),
+        .D(DAC_I[7]),
         .Q(PSK_signal[7]),
         .R(1'b0));
-  CARRY4 \PSK_signal_reg[7]_i_1 
-       (.CI(\PSK_signal_reg[3]_i_1_n_0 ),
-        .CO({\PSK_signal_reg[7]_i_1_n_0 ,\PSK_signal_reg[7]_i_1_n_1 ,\PSK_signal_reg[7]_i_1_n_2 ,\PSK_signal_reg[7]_i_1_n_3 }),
-        .CYINIT(1'b0),
-        .DI({\PSK_signal[7]_i_2_n_0 ,\PSK_signal[7]_i_3_n_0 ,\PSK_signal[7]_i_4_n_0 ,\PSK_signal[7]_i_5_n_0 }),
-        .O({\PSK_signal_reg[7]_i_1_n_4 ,\PSK_signal_reg[7]_i_1_n_5 ,\PSK_signal_reg[7]_i_1_n_6 ,\PSK_signal_reg[7]_i_1_n_7 }),
-        .S({\PSK_signal[7]_i_6_n_0 ,\PSK_signal[7]_i_7_n_0 ,\PSK_signal[7]_i_8_n_0 ,\PSK_signal[7]_i_9_n_0 }));
   FDRE \PSK_signal_reg[8] 
        (.C(clk),
         .CE(1'b1),
-        .D(\PSK_signal_reg[11]_i_1_n_7 ),
+        .D(DAC_I[8]),
         .Q(PSK_signal[8]),
         .R(1'b0));
   FDRE \PSK_signal_reg[9] 
        (.C(clk),
         .CE(1'b1),
-        .D(\PSK_signal_reg[11]_i_1_n_6 ),
+        .D(DAC_I[9]),
         .Q(PSK_signal[9]),
         .R(1'b0));
   FDRE is_bpsk_out_reg

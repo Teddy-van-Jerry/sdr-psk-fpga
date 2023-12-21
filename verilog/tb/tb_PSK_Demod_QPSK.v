@@ -2,6 +2,8 @@
 
 module tb_PSK_Demod_QPSK;
 
+  localparam [3:0] MODE_QPSK = 4'b0010;
+
   // clock
   reg clk_16M384;
   reg rst_16M384;
@@ -23,7 +25,8 @@ module tb_PSK_Demod_QPSK;
     .DAC_I(DAC_I),
     .DAC_Q(DAC_Q),
     .DAC_bits(QPSK_Tx),
-    .DAC_vld(DAC_vld)
+    .DAC_vld(DAC_vld),
+    .MODE_CTRL(MODE_QPSK)
   );
 
   Rx_imp_KSVDXC inst_Rx (
@@ -36,7 +39,7 @@ module tb_PSK_Demod_QPSK;
     .is_bpsk(1'b0), // <-- this is QPSK
     .vld(QPSK_vld),
     .FEEDBACK_SHIFT(4'd3),
-    .MODE_CTRL(4'b0000)
+    .MODE_CTRL(MODE_QPSK)
   );
 
   // clock generation

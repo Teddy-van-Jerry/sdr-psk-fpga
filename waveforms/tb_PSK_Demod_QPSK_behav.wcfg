@@ -12,14 +12,14 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="5,000.001 ns"></ZoomEndTime>
-      <Cursor1Time time="517.787 ns"></Cursor1Time>
+      <ZoomEndTime time="1,317.384 ns"></ZoomEndTime>
+      <Cursor1Time time="2,559.055 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="150"></NameColumnWidth>
+      <NameColumnWidth column_width="145"></NameColumnWidth>
       <ValueColumnWidth column_width="72"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="12" />
+   <WVObjectSize size="15" />
    <wvobject fp_name="/tb_PSK_Demod_QPSK/clk_16M384" type="logic">
       <obj_property name="ElementShortName">clk_16M384</obj_property>
       <obj_property name="ObjectShortName">clk_16M384</obj_property>
@@ -69,5 +69,20 @@
    <wvobject fp_name="/tb_PSK_Demod_QPSK/QPSK_vld" type="logic">
       <obj_property name="ElementShortName">QPSK_vld</obj_property>
       <obj_property name="ObjectShortName">QPSK_vld</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_PSK_Demod_QPSK/inst_Rx/costas_loop_0/Error_Detect/Error_Detect_QPSK/A" type="array">
+      <obj_property name="ElementShortName">A[15:0]</obj_property>
+      <obj_property name="ObjectShortName">A[15:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_PSK_Demod_QPSK/inst_Rx/costas_loop_0/Error_Detect/Error_Detect_QPSK/B" type="array">
+      <obj_property name="ElementShortName">B[15:0]</obj_property>
+      <obj_property name="ObjectShortName">B[15:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_PSK_Demod_QPSK/inst_Rx/costas_loop_0/Error_Detect/Error_Detect_QPSK/S" type="array">
+      <obj_property name="ElementShortName">S[15:0]</obj_property>
+      <obj_property name="ObjectShortName">S[15:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
    </wvobject>
 </wave_config>

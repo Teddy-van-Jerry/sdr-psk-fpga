@@ -856,7 +856,7 @@
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_ADD_MODE</spirit:name>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_ADD_MODE">0</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_ADD_MODE">1</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_B_CONSTANT</spirit:name>
@@ -1258,7 +1258,7 @@
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Add_Mode</spirit:name>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Add_Mode" spirit:choiceRef="choice_pairs_c67d132f" spirit:order="7">Add</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Add_Mode" spirit:choiceRef="choice_pairs_c67d132f" spirit:order="7">Subtract</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Out_Width</spirit:name>
@@ -1356,6 +1356,7 @@
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_INTF.LAYERED_METADATA" xilinx:valueSource="propagated" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.A_Type" xilinx:valueSource="user" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.A_Width" xilinx:valueSource="user" xilinx:valuePermission="bd_and_user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.Add_Mode" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.B_Type" xilinx:valueSource="user" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.B_Value" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.B_Width" xilinx:valueSource="user" xilinx:valuePermission="bd_and_user"/>
