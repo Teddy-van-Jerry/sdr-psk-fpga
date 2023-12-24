@@ -1,24 +1,27 @@
 {
    "ActiveEmotionalView":"Default View",
    "Default View_ScaleFactor":"1.25",
-   "Default View_TopLeft":"-552,-182",
+   "Default View_TopLeft":"-376,-162",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
 #  -string -flagsOSRD
-preplace port I -pg 1 -lvl 0 -x 0 -y 60 -defaultsOSRD
-preplace port Q -pg 1 -lvl 0 -x 0 -y 180 -defaultsOSRD
-preplace port port-id_clk_32M768 -pg 1 -lvl 0 -x 0 -y 90 -defaultsOSRD
-preplace port Ix2 -pg 1 -lvl 2 -x 320 -y 70 -defaultsOSRD
-preplace port Qx2 -pg 1 -lvl 2 -x 320 -y 190 -defaultsOSRD
-preplace inst fir_compiler_I -pg 1 -lvl 1 -x 160 -y 70 -defaultsOSRD
-preplace inst fir_compiler_Q -pg 1 -lvl 1 -x 160 -y 190 -defaultsOSRD
-preplace netloc clk_32d768_1 1 0 1 20 80n
-preplace netloc fir_compiler_I_M_AXIS_DATA 1 1 1 N 70
-preplace netloc I_1 1 0 1 N 60
-preplace netloc Q_1 1 0 1 N 180
-preplace netloc fir_compiler_I1_M_AXIS_DATA 1 1 1 N 190
-levelinfo -pg 1 0 160 320
-pagesize -pg 1 -db -bbox -sgen -130 0 400 260
+preplace port I -pg 1 -lvl 0 -x 0 -y 140 -defaultsOSRD
+preplace port Q -pg 1 -lvl 0 -x 0 -y 200 -defaultsOSRD
+preplace port port-id_clk_32M768 -pg 1 -lvl 0 -x 0 -y 170 -defaultsOSRD
+preplace portBus I_up2 -pg 1 -lvl 3 -x 620 -y 80 -defaultsOSRD
+preplace portBus Q_up2 -pg 1 -lvl 3 -x 620 -y 220 -defaultsOSRD
+preplace inst fir_compiler_I -pg 1 -lvl 2 -x 430 -y 80 -defaultsOSRD
+preplace inst fir_compiler_Q -pg 1 -lvl 2 -x 430 -y 220 -defaultsOSRD
+preplace inst Gardner_IQ_Pre_0 -pg 1 -lvl 1 -x 140 -y 200 -defaultsOSRD
+preplace netloc clk_32d768_1 1 0 2 30 120 260
+preplace netloc fir_compiler_I_m_axis_data_tdata 1 2 1 N 80
+preplace netloc fir_compiler_Q_m_axis_data_tdata 1 2 1 N 220
+preplace netloc I_1 1 0 1 20 140n
+preplace netloc Q_1 1 0 1 N 200
+preplace netloc Gardner_IQ_Pre_0_I_out 1 1 1 250 70n
+preplace netloc Gardner_IQ_Pre_0_Q_out 1 1 1 N 210
+levelinfo -pg 1 0 140 430 620
+pagesize -pg 1 -db -bbox -sgen -130 0 750 300
 "
 }
 

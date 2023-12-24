@@ -1,23 +1,26 @@
 {
    "ActiveEmotionalView":"Default View",
    "Default View_ScaleFactor":"1.25",
-   "Default View_TopLeft":"-592,-238",
+   "Default View_TopLeft":"-424,-198",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
 #  -string -flagsOSRD
-preplace port I -pg 1 -lvl 0 -x 0 -y 60 -defaultsOSRD
-preplace port Q -pg 1 -lvl 0 -x 0 -y 130 -defaultsOSRD
-preplace port port-id_clk_32M768 -pg 1 -lvl 0 -x 0 -y 100 -defaultsOSRD
-preplace port Ix2 -pg 1 -lvl 2 -x 240 -y 60 -defaultsOSRD
-preplace port Qx2 -pg 1 -lvl 2 -x 240 -y 90 -defaultsOSRD
-preplace inst Interpolation -pg 1 -lvl 1 -x 120 -y 80 -defaultsOSRD
-preplace netloc clk_32d768_1 1 0 1 N 100
-preplace netloc I_1 1 0 1 N 60
-preplace netloc Q_1 1 0 1 20 80n
-preplace netloc fir_compiler_I_M_AXIS_DATA 1 1 1 220 60n
-preplace netloc fir_compiler_Q_M_AXIS_DATA 1 1 1 N 90
-levelinfo -pg 1 0 120 240
-pagesize -pg 1 -db -bbox -sgen -130 0 320 150
+preplace port I -pg 1 -lvl 0 -x 0 -y 100 -defaultsOSRD
+preplace port Q -pg 1 -lvl 0 -x 0 -y 160 -defaultsOSRD
+preplace port port-id_clk_32M768 -pg 1 -lvl 0 -x 0 -y 130 -defaultsOSRD
+preplace port port-id_is_bpsk -pg 1 -lvl 0 -x 0 -y 70 -defaultsOSRD
+preplace portBus error_n -pg 1 -lvl 3 -x 520 -y 90 -defaultsOSRD
+preplace inst Interpolation -pg 1 -lvl 1 -x 140 -y 160 -defaultsOSRD
+preplace inst Timing_Error -pg 1 -lvl 2 -x 380 -y 90 -defaultsOSRD
+preplace netloc clk_32d768_1 1 0 2 30 80 N
+preplace netloc Interpolation_Ix2_tdata 1 1 1 250 60n
+preplace netloc Interpolation_Qx2_tdata 1 1 1 260 120n
+preplace netloc is_bpsk_1 1 0 2 NJ 70 260J
+preplace netloc Timing_Error_error_n 1 2 1 NJ 90
+preplace netloc I_1 1 0 1 20 100n
+preplace netloc Q_1 1 0 1 N 160
+levelinfo -pg 1 0 140 380 520
+pagesize -pg 1 -db -bbox -sgen -130 0 650 230
 "
 }
 
