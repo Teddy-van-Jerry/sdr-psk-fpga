@@ -1,0 +1,545 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0x0",
+      "device": "xc7z020clg484-1",
+      "gen_directory": "../../../../sdr-psk-fpga.gen/sources_1/bd/gardner_loop",
+      "name": "gardner_loop",
+      "rev_ctrl_bd_flag": "RevCtrlBdOff",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2022.2"
+    },
+    "design_tree": {
+      "Interpolation": {
+        "fir_compiler_I": "",
+        "fir_compiler_Q": ""
+      }
+    },
+    "interface_ports": {
+      "I": {
+        "mode": "Slave",
+        "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
+        "vlnv": "xilinx.com:interface:axis_rtl:1.0",
+        "parameters": {
+          "FREQ_HZ": {
+            "value": "100000000",
+            "value_src": "default"
+          },
+          "HAS_TKEEP": {
+            "value": "0"
+          },
+          "HAS_TLAST": {
+            "value": "0"
+          },
+          "HAS_TREADY": {
+            "value": "1"
+          },
+          "HAS_TSTRB": {
+            "value": "0"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "LAYERED_METADATA": {
+            "value": "undef"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
+          },
+          "TDATA_NUM_BYTES": {
+            "value": "2"
+          },
+          "TDEST_WIDTH": {
+            "value": "0"
+          },
+          "TID_WIDTH": {
+            "value": "0"
+          },
+          "TUSER_WIDTH": {
+            "value": "0"
+          }
+        },
+        "port_maps": {
+          "TDATA": {
+            "physical_name": "I_tdata",
+            "direction": "I"
+          },
+          "TREADY": {
+            "physical_name": "I_tready",
+            "direction": "O"
+          },
+          "TVALID": {
+            "physical_name": "I_tvalid",
+            "direction": "I"
+          }
+        }
+      },
+      "Q": {
+        "mode": "Slave",
+        "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
+        "vlnv": "xilinx.com:interface:axis_rtl:1.0",
+        "parameters": {
+          "FREQ_HZ": {
+            "value": "100000000",
+            "value_src": "default"
+          },
+          "HAS_TKEEP": {
+            "value": "0"
+          },
+          "HAS_TLAST": {
+            "value": "0"
+          },
+          "HAS_TREADY": {
+            "value": "1"
+          },
+          "HAS_TSTRB": {
+            "value": "0"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "LAYERED_METADATA": {
+            "value": "undef"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
+          },
+          "TDATA_NUM_BYTES": {
+            "value": "2"
+          },
+          "TDEST_WIDTH": {
+            "value": "0"
+          },
+          "TID_WIDTH": {
+            "value": "0"
+          },
+          "TUSER_WIDTH": {
+            "value": "0"
+          }
+        },
+        "port_maps": {
+          "TDATA": {
+            "physical_name": "Q_tdata",
+            "direction": "I"
+          },
+          "TREADY": {
+            "physical_name": "Q_tready",
+            "direction": "O"
+          },
+          "TVALID": {
+            "physical_name": "Q_tvalid",
+            "direction": "I"
+          }
+        }
+      },
+      "Ix2": {
+        "mode": "Master",
+        "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
+        "vlnv": "xilinx.com:interface:axis_rtl:1.0",
+        "parameters": {
+          "FREQ_HZ": {
+            "value": "100000000",
+            "value_src": "default"
+          },
+          "HAS_TKEEP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "HAS_TLAST": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "HAS_TREADY": {
+            "value": "1",
+            "value_src": "default"
+          },
+          "HAS_TSTRB": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "LAYERED_METADATA": {
+            "value": "undef",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
+          },
+          "TDATA_NUM_BYTES": {
+            "value": "1",
+            "value_src": "default"
+          },
+          "TDEST_WIDTH": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "TID_WIDTH": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "TUSER_WIDTH": {
+            "value": "0",
+            "value_src": "default"
+          }
+        },
+        "port_maps": {
+          "TDATA": {
+            "physical_name": "Ix2_tdata",
+            "direction": "O"
+          },
+          "TVALID": {
+            "physical_name": "Ix2_tvalid",
+            "direction": "O"
+          }
+        }
+      },
+      "Qx2": {
+        "mode": "Master",
+        "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
+        "vlnv": "xilinx.com:interface:axis_rtl:1.0",
+        "parameters": {
+          "FREQ_HZ": {
+            "value": "100000000",
+            "value_src": "default"
+          },
+          "HAS_TKEEP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "HAS_TLAST": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "HAS_TREADY": {
+            "value": "1",
+            "value_src": "default"
+          },
+          "HAS_TSTRB": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "LAYERED_METADATA": {
+            "value": "undef",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
+          },
+          "TDATA_NUM_BYTES": {
+            "value": "1",
+            "value_src": "default"
+          },
+          "TDEST_WIDTH": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "TID_WIDTH": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "TUSER_WIDTH": {
+            "value": "0",
+            "value_src": "default"
+          }
+        },
+        "port_maps": {
+          "TDATA": {
+            "physical_name": "Qx2_tdata",
+            "direction": "O"
+          },
+          "TVALID": {
+            "physical_name": "Qx2_tvalid",
+            "direction": "O"
+          }
+        }
+      }
+    },
+    "ports": {
+      "clk_32M768": {
+        "type": "clk",
+        "direction": "I",
+        "parameters": {
+          "FREQ_HZ": {
+            "value": "32768000"
+          }
+        }
+      }
+    },
+    "components": {
+      "Interpolation": {
+        "interface_ports": {
+          "I": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
+            "vlnv": "xilinx.com:interface:axis_rtl:1.0"
+          },
+          "Ix2": {
+            "mode": "Master",
+            "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
+            "vlnv": "xilinx.com:interface:axis_rtl:1.0"
+          },
+          "Q": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
+            "vlnv": "xilinx.com:interface:axis_rtl:1.0"
+          },
+          "Qx2": {
+            "mode": "Master",
+            "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
+            "vlnv": "xilinx.com:interface:axis_rtl:1.0"
+          }
+        },
+        "ports": {
+          "clk_32M768": {
+            "type": "clk",
+            "direction": "I"
+          }
+        },
+        "components": {
+          "fir_compiler_I": {
+            "vlnv": "xilinx.com:ip:fir_compiler:7.2",
+            "xci_name": "gardner_loop_fir_compiler_0_0",
+            "xci_path": "ip\\gardner_loop_fir_compiler_0_0\\gardner_loop_fir_compiler_0_0.xci",
+            "inst_hier_path": "Interpolation/fir_compiler_I",
+            "parameters": {
+              "Clock_Frequency": {
+                "value": "32.768"
+              },
+              "CoefficientVector": {
+                "value": "1,2,1,0"
+              },
+              "Coefficient_Fractional_Bits": {
+                "value": "14"
+              },
+              "Coefficient_Sets": {
+                "value": "1"
+              },
+              "Coefficient_Sign": {
+                "value": "Unsigned"
+              },
+              "Coefficient_Structure": {
+                "value": "Inferred"
+              },
+              "Coefficient_Width": {
+                "value": "16"
+              },
+              "ColumnConfig": {
+                "value": "2"
+              },
+              "DATA_Has_TLAST": {
+                "value": "Not_Required"
+              },
+              "Decimation_Rate": {
+                "value": "1"
+              },
+              "Filter_Architecture": {
+                "value": "Systolic_Multiply_Accumulate"
+              },
+              "Filter_Type": {
+                "value": "Interpolation"
+              },
+              "Interpolation_Rate": {
+                "value": "2"
+              },
+              "M_DATA_Has_TUSER": {
+                "value": "Not_Required"
+              },
+              "Number_Channels": {
+                "value": "1"
+              },
+              "Number_Paths": {
+                "value": "1"
+              },
+              "Output_Rounding_Mode": {
+                "value": "Truncate_LSBs"
+              },
+              "Output_Width": {
+                "value": "16"
+              },
+              "Quantization": {
+                "value": "Quantize_Only"
+              },
+              "RateSpecification": {
+                "value": "Frequency_Specification"
+              },
+              "S_DATA_Has_TUSER": {
+                "value": "Not_Required"
+              },
+              "Sample_Frequency": {
+                "value": "16.384"
+              },
+              "Select_Pattern": {
+                "value": "All"
+              },
+              "Zero_Pack_Factor": {
+                "value": "1"
+              }
+            }
+          },
+          "fir_compiler_Q": {
+            "vlnv": "xilinx.com:ip:fir_compiler:7.2",
+            "xci_name": "gardner_loop_fir_compiler_I_2",
+            "xci_path": "ip\\gardner_loop_fir_compiler_I_2\\gardner_loop_fir_compiler_I_2.xci",
+            "inst_hier_path": "Interpolation/fir_compiler_Q",
+            "parameters": {
+              "Clock_Frequency": {
+                "value": "32.768"
+              },
+              "CoefficientVector": {
+                "value": "1,2,1,0"
+              },
+              "Coefficient_Fractional_Bits": {
+                "value": "14"
+              },
+              "Coefficient_Sets": {
+                "value": "1"
+              },
+              "Coefficient_Sign": {
+                "value": "Unsigned"
+              },
+              "Coefficient_Structure": {
+                "value": "Inferred"
+              },
+              "Coefficient_Width": {
+                "value": "16"
+              },
+              "ColumnConfig": {
+                "value": "2"
+              },
+              "DATA_Has_TLAST": {
+                "value": "Not_Required"
+              },
+              "Decimation_Rate": {
+                "value": "1"
+              },
+              "Filter_Architecture": {
+                "value": "Systolic_Multiply_Accumulate"
+              },
+              "Filter_Type": {
+                "value": "Interpolation"
+              },
+              "Interpolation_Rate": {
+                "value": "2"
+              },
+              "M_DATA_Has_TUSER": {
+                "value": "Not_Required"
+              },
+              "Number_Channels": {
+                "value": "1"
+              },
+              "Number_Paths": {
+                "value": "1"
+              },
+              "Output_Rounding_Mode": {
+                "value": "Truncate_LSBs"
+              },
+              "Output_Width": {
+                "value": "16"
+              },
+              "Quantization": {
+                "value": "Quantize_Only"
+              },
+              "RateSpecification": {
+                "value": "Frequency_Specification"
+              },
+              "S_DATA_Has_TUSER": {
+                "value": "Not_Required"
+              },
+              "Sample_Frequency": {
+                "value": "16.384"
+              },
+              "Select_Pattern": {
+                "value": "All"
+              },
+              "Zero_Pack_Factor": {
+                "value": "1"
+              }
+            }
+          }
+        },
+        "interface_nets": {
+          "I_1": {
+            "interface_ports": [
+              "I",
+              "fir_compiler_I/S_AXIS_DATA"
+            ]
+          },
+          "Q_1": {
+            "interface_ports": [
+              "Q",
+              "fir_compiler_Q/S_AXIS_DATA"
+            ]
+          },
+          "fir_compiler_I1_M_AXIS_DATA": {
+            "interface_ports": [
+              "Qx2",
+              "fir_compiler_Q/M_AXIS_DATA"
+            ]
+          },
+          "fir_compiler_I_M_AXIS_DATA": {
+            "interface_ports": [
+              "Ix2",
+              "fir_compiler_I/M_AXIS_DATA"
+            ]
+          }
+        },
+        "nets": {
+          "clk_32d768_1": {
+            "ports": [
+              "clk_32M768",
+              "fir_compiler_I/aclk",
+              "fir_compiler_Q/aclk"
+            ]
+          }
+        }
+      }
+    },
+    "interface_nets": {
+      "I_1": {
+        "interface_ports": [
+          "I",
+          "Interpolation/I"
+        ]
+      },
+      "Q_1": {
+        "interface_ports": [
+          "Q",
+          "Interpolation/Q"
+        ]
+      },
+      "fir_compiler_I_M_AXIS_DATA": {
+        "interface_ports": [
+          "Ix2",
+          "Interpolation/Ix2"
+        ]
+      },
+      "fir_compiler_Q_M_AXIS_DATA": {
+        "interface_ports": [
+          "Qx2",
+          "Interpolation/Qx2"
+        ]
+      }
+    },
+    "nets": {
+      "clk_32d768_1": {
+        "ports": [
+          "clk_32M768",
+          "Interpolation/clk_32M768"
+        ]
+      }
+    }
+  }
+}
