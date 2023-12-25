@@ -8,7 +8,6 @@
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
       "synth_flow_mode": "Hierarchical",
       "tool_version": "2022.2",
-      "validated": "true",
       "variant": "true"
     },
     "design_tree": {
@@ -238,15 +237,22 @@
         "left": "11",
         "right": "0"
       },
-      "FEEDBACK_SHIFT": {
-        "direction": "I",
-        "left": "7",
-        "right": "0"
-      },
       "MODE_CTRL": {
         "direction": "I",
         "left": "3",
         "right": "0"
+      },
+      "FEEDBACK_SHIFT": {
+        "type": "data",
+        "direction": "I",
+        "left": "3",
+        "right": "0",
+        "parameters": {
+          "LAYERED_METADATA": {
+            "value": "undef",
+            "value_src": "strong"
+          }
+        }
       }
     },
     "components": {
@@ -2036,7 +2042,7 @@
           },
           "FEEDBACK_SHIFT": {
             "direction": "I",
-            "left": "7",
+            "left": "3",
             "right": "0"
           }
         },
@@ -2461,7 +2467,13 @@
               "FEEDBACK_SHIFT": {
                 "direction": "I",
                 "left": "3",
-                "right": "0"
+                "right": "0",
+                "parameters": {
+                  "LAYERED_METADATA": {
+                    "value": "undef",
+                    "value_src": "default_prop"
+                  }
+                }
               }
             }
           }

@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xBB946BEE89DFFB56",
+      "boundary_crc": "0xC11AA29564C0D047",
       "design_src": "SBD",
       "device": "xc7z020clg484-1",
       "name": "bd_0696",
@@ -20,12 +20,12 @@
         "direction": "I",
         "parameters": {
           "CLK_DOMAIN": {
-            "value": "bd_0696_clk",
+            "value": "/Clock_Gen/clk_wiz_32M768_clk_out1",
             "value_src": "default_prop"
           },
           "FREQ_HZ": {
-            "value": "100000000",
-            "value_src": "default"
+            "value": "32768000",
+            "value_src": "default_prop"
           },
           "FREQ_TOLERANCE_HZ": {
             "value": "0",
@@ -93,6 +93,16 @@
       },
       "probe10": {
         "direction": "I",
+        "left": "15",
+        "right": "0"
+      },
+      "probe11": {
+        "direction": "I",
+        "left": "15",
+        "right": "0"
+      },
+      "probe12": {
+        "direction": "I",
         "left": "11",
         "right": "0"
       }
@@ -114,7 +124,7 @@
             "value": "FALSE"
           },
           "C_DATA_DEPTH": {
-            "value": "1024"
+            "value": "2048"
           },
           "C_EN_STRG_QUAL": {
             "value": "0"
@@ -123,7 +133,7 @@
             "value": "0"
           },
           "C_ILA_CLK_FREQ": {
-            "value": "100000000"
+            "value": "32768000"
           },
           "C_INPUT_PIPE_STAGES": {
             "value": "2"
@@ -132,7 +142,7 @@
             "value": "Native"
           },
           "C_NUM_OF_PROBES": {
-            "value": "11"
+            "value": "13"
           },
           "C_PROBE0_MU_CNT": {
             "value": "1"
@@ -150,6 +160,24 @@
             "value": "1"
           },
           "C_PROBE10_WIDTH": {
+            "value": "16"
+          },
+          "C_PROBE11_MU_CNT": {
+            "value": "1"
+          },
+          "C_PROBE11_TYPE": {
+            "value": "0"
+          },
+          "C_PROBE11_WIDTH": {
+            "value": "16"
+          },
+          "C_PROBE12_MU_CNT": {
+            "value": "1"
+          },
+          "C_PROBE12_TYPE": {
+            "value": "0"
+          },
+          "C_PROBE12_WIDTH": {
             "value": "12"
           },
           "C_PROBE1_MU_CNT": {
@@ -265,6 +293,18 @@
         "ports": [
           "probe10",
           "ila_lib/probe10"
+        ]
+      },
+      "probe11_1": {
+        "ports": [
+          "probe11",
+          "ila_lib/probe11"
+        ]
+      },
+      "probe12_1": {
+        "ports": [
+          "probe12",
+          "ila_lib/probe12"
         ]
       },
       "probe1_1": {

@@ -1,28 +1,33 @@
 {
    "ActiveEmotionalView":"Default View",
    "Default View_ScaleFactor":"1.25",
-   "Default View_TopLeft":"-396,-194",
+   "Default View_TopLeft":"-391,-182",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
 #  -string -flagsOSRD
-preplace port port-id_clk_16M384 -pg 1 -lvl 0 -x -10 -y 20 -defaultsOSRD
-preplace port port-id_dcm_locked -pg 1 -lvl 0 -x -10 -y 240 -defaultsOSRD
-preplace port port-id_clk1M024 -pg 1 -lvl 0 -x -10 -y 270 -defaultsOSRD
-preplace portBus rst_16M384 -pg 1 -lvl 3 -x 560 -y 140 -defaultsOSRD
-preplace portBus rst_n_1M024 -pg 1 -lvl 3 -x 560 -y 330 -defaultsOSRD
+preplace port port-id_clk_16M384 -pg 1 -lvl 0 -x -90 -y 20 -defaultsOSRD
+preplace port port-id_dcm_locked -pg 1 -lvl 0 -x -90 -y 240 -defaultsOSRD
+preplace port port-id_clk1M024 -pg 1 -lvl 0 -x -90 -y 270 -defaultsOSRD
+preplace port port-id_clk_32M768 -pg 1 -lvl 0 -x -90 -y -90 -defaultsOSRD
+preplace portBus rst_16M384 -pg 1 -lvl 3 -x 650 -y 140 -defaultsOSRD
+preplace portBus rst_n_1M024 -pg 1 -lvl 3 -x 650 -y 330 -defaultsOSRD
+preplace portBus rst_32M768 -pg 1 -lvl 3 -x 650 -y -40 -defaultsOSRD
 preplace inst xlconstant_zero -pg 1 -lvl 1 -x 100 -y 180 -defaultsOSRD
 preplace inst xlconstant_one -pg 1 -lvl 1 -x 100 -y 80 -defaultsOSRD
-preplace inst proc_sys_reset_16M384 -pg 1 -lvl 2 -x 370 -y 130 -defaultsOSRD
-preplace inst proc_sys_reset_1M024 -pg 1 -lvl 2 -x 370 -y 310 -defaultsOSRD
-preplace netloc Div_clk32M768_0_clk16M384 1 0 2 NJ 20 200J
-preplace netloc clk_wiz_32M768_locked 1 0 2 NJ 240 200J
-preplace netloc proc_sys_reset_16M384_bus_struct_reset 1 2 1 540 110n
-preplace netloc xlconstant_one_dout 1 1 1 180 80n
-preplace netloc xlconstant_zero_dout 1 1 1 190J 150n
-preplace netloc proc_sys_reset_1M024_interconnect_aresetn 1 2 1 N 330
+preplace inst proc_sys_reset_16M384 -pg 1 -lvl 2 -x 460 -y 130 -defaultsOSRD
+preplace inst proc_sys_reset_1M024 -pg 1 -lvl 2 -x 460 -y 310 -defaultsOSRD
+preplace inst proc_sys_reset_32M768 -pg 1 -lvl 2 -x 460 -y -50 -defaultsOSRD
+preplace netloc Div_clk32M768_0_clk16M384 1 0 2 NJ 20 180J
 preplace netloc clk1M024_1 1 0 2 NJ 270 NJ
-levelinfo -pg 1 -10 100 370 560
-pagesize -pg 1 -db -bbox -sgen -140 0 720 440
+preplace netloc clk_wiz_32M768_locked 1 0 2 NJ 240 210J
+preplace netloc proc_sys_reset_16M384_bus_struct_reset 1 2 1 630 110n
+preplace netloc proc_sys_reset_1M024_interconnect_aresetn 1 2 1 N 330
+preplace netloc xlconstant_one_dout 1 1 1 190 -70n
+preplace netloc xlconstant_zero_dout 1 1 1 200J -30n
+preplace netloc proc_sys_reset_32M768_bus_struct_reset 1 2 1 630 -70n
+preplace netloc slowest_sync_clk_1 1 0 2 NJ -90 NJ
+levelinfo -pg 1 -90 100 460 650
+pagesize -pg 1 -db -bbox -sgen -220 -180 810 440
 "
 }
 0

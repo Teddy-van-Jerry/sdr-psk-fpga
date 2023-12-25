@@ -2,10 +2,10 @@
 <Root MajorVersion="0" MinorVersion="40">
   <CompositeFile CompositeFileTopName="top" CanBeSetAsTop="false" CanDisplayChildGraph="true">
     <Description>Composite Fileset</Description>
-    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1703119606"/>
-    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1703119606"/>
-    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1703119606"/>
-    <Generation Name="HW_HANDOFF" State="GENERATED" Timestamp="1703119606"/>
+    <Generation Name="SYNTHESIS" State="STALE" Timestamp="1703476092"/>
+    <Generation Name="IMPLEMENTATION" State="STALE" Timestamp="1703476092"/>
+    <Generation Name="SIMULATION" State="STALE" Timestamp="1703476092"/>
+    <Generation Name="HW_HANDOFF" State="STALE" Timestamp="1703476092"/>
     <FileCollection Name="SOURCES" Type="SOURCES">
       <File Name="synth\top.v" Type="Verilog">
         <Properties IsEditable="false" IsVisible="true" IsNetlistSimulation="false" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
@@ -61,11 +61,18 @@
           <BDFile BDFilePath="bd\costas_loop_inst_0\costas_loop_inst_0.bd" BDFileset="costas_loop_inst_0" BDSourceFile="..\..\..\..\sdr-psk-fpga.srcs\sources_1\bd\costas_loop\costas_loop.bd" BDSourceFileset="sources_1" BDVariantType="ALL"/>
         </VariantsCollection>
       </BlockContainer>
-      <BlockContainer InstPath="/Rx/costas_loop_0" IsPR="false" State="Generated">
+      <BlockContainer InstPath="/Rx/costas_loop_0" IsPR="false" State="Stale">
         <ActiveVariantSynth FileName="bd\costas_loop_inst_0\costas_loop_inst_0.bd"/>
         <ActiveVariantSim FileName="bd\costas_loop_inst_0\costas_loop_inst_0.bd"/>
         <VariantsCollection>
           <BDFile BDFilePath="bd\costas_loop_inst_0\costas_loop_inst_0.bd" BDFileset="costas_loop_inst_0" BDSourceFile="..\..\..\..\sdr-psk-fpga.srcs\sources_1\bd\costas_loop\costas_loop.bd" BDSourceFileset="sources_1" BDVariantType="ALL"/>
+        </VariantsCollection>
+      </BlockContainer>
+      <BlockContainer InstPath="/Rx/gardner_loop_0" IsPR="false" State="Stale">
+        <ActiveVariantSynth FileName="bd\gardner_loop_inst_0\gardner_loop_inst_0.bd"/>
+        <ActiveVariantSim FileName="bd\gardner_loop_inst_0\gardner_loop_inst_0.bd"/>
+        <VariantsCollection>
+          <BDFile BDFilePath="bd\gardner_loop_inst_0\gardner_loop_inst_0.bd" BDFileset="gardner_loop_inst_0" BDSourceFile="..\..\..\..\sdr-psk-fpga.srcs\sources_1\bd\gardner_loop\gardner_loop.bd" BDSourceFileset="sources_1" BDVariantType="ALL"/>
         </VariantsCollection>
       </BlockContainer>
     </BlockContainerCollection>
@@ -80,6 +87,15 @@
           <File Name="..\..\..\..\verilog\NCO_cos_sin.v"/>
           <File Name="..\..\..\..\verilog\NCO_Phase.v"/>
           <File Name="..\..\..\..\sdr-psk-fpga.srcs\sources_1\bd\costas_loop\costas_loop.bd"/>
+        </FileCollection>
+      </ModuleReference>
+      <ModuleReference TargetName="gardner_loop" Type="Block Design" SubInstancePath="top_gardner_loop_0">
+        <TopFile Name="..\..\..\..\sdr-psk-fpga.srcs\sources_1\bd\gardner_loop\gardner_loop.bd"/>
+        <FileCollection>
+          <File Name="..\..\..\..\verilog\Gardner_IQ_Pre.v"/>
+          <File Name="..\..\..\..\verilog\Gardner_Timing_Error.v"/>
+          <File Name="..\..\..\..\verilog\Gardner_Corrector.v"/>
+          <File Name="..\..\..\..\sdr-psk-fpga.srcs\sources_1\bd\gardner_loop\gardner_loop.bd"/>
         </FileCollection>
       </ModuleReference>
     </ReferenceCollection>

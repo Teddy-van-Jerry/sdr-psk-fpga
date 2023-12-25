@@ -1,32 +1,34 @@
 {
    "ActiveEmotionalView":"Default View",
    "Default View_ScaleFactor":"1.25",
-   "Default View_TopLeft":"-378,-42",
+   "Default View_TopLeft":"-360,-33",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
 #  -string -flagsOSRD
-preplace port port-id_PL_CLK_100MHz -pg 1 -lvl 0 -x -10 -y 400 -defaultsOSRD
+preplace port port-id_PL_CLK_100MHz -pg 1 -lvl 0 -x 0 -y 410 -defaultsOSRD
 preplace port port-id_clk_200M -pg 1 -lvl 3 -x 650 -y 500 -defaultsOSRD
-preplace port port-id_clk_32M768 -pg 1 -lvl 3 -x 650 -y 280 -defaultsOSRD
-preplace port port-id_clk_16M384 -pg 1 -lvl 3 -x 650 -y 50 -defaultsOSRD
-preplace port port-id_clk1M024 -pg 1 -lvl 3 -x 650 -y 130 -defaultsOSRD
-preplace portBus rst_16M384 -pg 1 -lvl 3 -x 650 -y 350 -defaultsOSRD
-preplace portBus rst_n_1M024 -pg 1 -lvl 3 -x 650 -y 320 -defaultsOSRD
-preplace inst clk_wiz_128M -pg 1 -lvl 2 -x 490 -y 490 -defaultsOSRD
-preplace inst clk_wiz_32M768 -pg 1 -lvl 1 -x 140 -y 480 -defaultsOSRD
-preplace inst Div_clk32M768_0 -pg 1 -lvl 1 -x 140 -y 190 -defaultsOSRD
-preplace inst Reset_Gen -pg 1 -lvl 2 -x 490 -y 350 -defaultsOSRD
-preplace netloc Div_clk32M768_0_clk16M384 1 1 2 300 50 NJ
-preplace netloc Div_clk32M768_0_clk1M024 1 1 2 290 130 NJ
-preplace netloc PL_CLK_100MHz_1 1 0 2 NJ 400 300J
-preplace netloc Reset_Gen_rst_16M384 1 2 1 620 340n
-preplace netloc clk_wiz_128M_clk_128M 1 0 3 10 410 290J 420 630
+preplace port port-id_clk_16M384 -pg 1 -lvl 3 -x 650 -y 380 -defaultsOSRD
+preplace port port-id_clk1M024 -pg 1 -lvl 3 -x 650 -y 410 -defaultsOSRD
+preplace port port-id_clk_32M768 -pg 1 -lvl 3 -x 650 -y 350 -defaultsOSRD
+preplace portBus rst_16M384 -pg 1 -lvl 3 -x 650 -y 470 -defaultsOSRD
+preplace portBus rst_n_1M024 -pg 1 -lvl 3 -x 650 -y 440 -defaultsOSRD
+preplace portBus rst_32M768 -pg 1 -lvl 3 -x 650 -y 320 -defaultsOSRD
+preplace inst clk_wiz_128M -pg 1 -lvl 2 -x 460 -y 490 -defaultsOSRD
+preplace inst clk_wiz_32M768 -pg 1 -lvl 1 -x 150 -y 490 -defaultsOSRD
+preplace inst Div_clk32M768_0 -pg 1 -lvl 1 -x 150 -y 200 -defaultsOSRD
+preplace inst Reset_Gen -pg 1 -lvl 2 -x 460 -y 300 -defaultsOSRD
+preplace netloc Div_clk32M768_0_clk16M384 1 1 2 320 380 NJ
+preplace netloc Div_clk32M768_0_clk1M024 1 1 2 290 410 NJ
+preplace netloc PL_CLK_100MHz_1 1 0 2 NJ 410 280J
+preplace netloc Reset_Gen_rst_16M384 1 2 1 610 280n
+preplace netloc clk_wiz_128M_clk_128M 1 0 3 20 420 NJ 420 590
 preplace netloc clk_wiz_128M_clk_200M 1 2 1 NJ 500
-preplace netloc clk_wiz_32M768_clk_32M768 1 0 3 10 -10 270 270 630J
-preplace netloc clk_wiz_32M768_locked 1 1 1 280 350n
-preplace netloc rst_n_1M024 1 2 1 630 320n
-levelinfo -pg 1 -10 140 490 650
-pagesize -pg 1 -db -bbox -sgen -170 -20 810 760
+preplace netloc clk_wiz_32M768_clk_32M768 1 0 3 20 400 310 390 620
+preplace netloc clk_wiz_32M768_locked 1 1 1 300 290n
+preplace netloc rst_n_1M024 1 2 1 600 300n
+preplace netloc Reset_Gen_rst_32M768 1 2 1 N 320
+levelinfo -pg 1 0 150 460 650
+pagesize -pg 1 -db -bbox -sgen -160 -20 810 560
 "
 }
 0

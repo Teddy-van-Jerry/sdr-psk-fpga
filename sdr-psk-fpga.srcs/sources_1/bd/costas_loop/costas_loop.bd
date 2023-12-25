@@ -233,15 +233,22 @@
         "left": "11",
         "right": "0"
       },
-      "FEEDBACK_SHIFT": {
-        "direction": "I",
-        "left": "3",
-        "right": "0"
-      },
       "MODE_CTRL": {
         "direction": "I",
         "left": "3",
         "right": "0"
+      },
+      "FEEDBACK_SHIFT": {
+        "type": "data",
+        "direction": "I",
+        "left": "3",
+        "right": "0",
+        "parameters": {
+          "LAYERED_METADATA": {
+            "value": "undef",
+            "value_src": "default"
+          }
+        }
       }
     },
     "components": {
@@ -2284,7 +2291,13 @@
               "FEEDBACK_SHIFT": {
                 "direction": "I",
                 "left": "3",
-                "right": "0"
+                "right": "0",
+                "parameters": {
+                  "LAYERED_METADATA": {
+                    "value": "undef",
+                    "value_src": "default_prop"
+                  }
+                }
               }
             }
           }
