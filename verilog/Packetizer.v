@@ -14,6 +14,7 @@ module Packetizer # (
 ) (
   input                    clk, // slow clock (i.e. 1.024MHz)
   input                    rst_n,
+  input              [3:0] MODE_CTRL,
   // payload length in bits (BPSK 1 bit per symbol, QPSK 2 bits per symbol)
   // this data should be valid when hdr_vld is 1
   input             [15:0] payload_length,
@@ -34,6 +35,9 @@ module Packetizer # (
 );
   localparam BITS = BYTES * 8;
   localparam [9:0] HDR_LENGTH = 32 * 8 + 32 + 32; // 320 symbols
+  localparam MODE_BPSK = 4'b0001;
+  localparam MODE_QPSK = 4'b0010;
+  localparam MODE_MIX  = 4'b0100;
 
   reg [9:0] hdr_cnt;
   reg [15:0] payload_cnt;
@@ -48,87 +52,98 @@ module Packetizer # (
 
   always @ (posedge clk) begin
     if (rst_n) begin
-      state <= state_next;
-      case (state)
-        STATE_IDLE: begin
-          in_tready <= 1'b1; // consume from FIFO when IDLE
-          out_tvalid <= 1'b0;
-          out_tdata <= 0;
-          out_tuser <= 1'b1; // BPSK by default
-          out_tlast <= 1'b0;
-          hdr_vld <= 1'b0;
-        end
-        STATE_HDR: begin
-          in_tready <= 1'b0;
-          out_tvalid <= 1'b1;
-          if (hdr_cnt < 32 * 7) begin
-            // 01010101....
-            out_tdata <= { BITS{hdr_cnt[0]} };
+      if (MODE_CTRL == MODE_MIX) begin
+        state <= state_next;
+        case (state)
+          STATE_IDLE: begin
+            in_tready <= 1'b1; // consume from FIFO when IDLE
+            out_tvalid <= 1'b0;
+            out_tdata <= 0;
+            out_tuser <= 1'b1; // BPSK by default
+            out_tlast <= 1'b0;
+            hdr_vld <= 1'b0;
           end
-          else if (hdr_cnt < 32 * 8) begin
-            // 10101010...
-            out_tdata <= { BITS{~hdr_cnt[0]} };
+          STATE_HDR: begin
+            in_tready <= 1'b0;
+            out_tvalid <= 1'b1;
+            if (hdr_cnt < 32 * 7) begin
+              // 01010101....
+              out_tdata <= { BITS{hdr_cnt[0]} };
+            end
+            else if (hdr_cnt < 32 * 8) begin
+              // 10101010...
+              out_tdata <= { BITS{~hdr_cnt[0]} };
+            end
+            else if (hdr_cnt < 32 * 8 + 8) begin
+              // modulation scheme
+              out_tdata <= { BITS{in_tuser ^ hdr_cnt[0]} };
+            end
+            else if (hdr_cnt < 32 * 8 + 8 + 16) begin
+              // case (hdr_cnt)
+              // 32 * 8 + 8 + 16 +  0: out_tdata <= { BITS{payload_length[15]} };
+              // 32 * 8 + 8 + 16 +  1: out_tdata <= { BITS{payload_length[14]} };
+              // 32 * 8 + 8 + 16 +  2: out_tdata <= { BITS{payload_length[13]} };
+              // 32 * 8 + 8 + 16 +  3: out_tdata <= { BITS{payload_length[12]} };
+              // 32 * 8 + 8 + 16 +  4: out_tdata <= { BITS{payload_length[11]} };
+              // 32 * 8 + 8 + 16 +  5: out_tdata <= { BITS{payload_length[10]} };
+              // 32 * 8 + 8 + 16 +  6: out_tdata <= { BITS{payload_length[ 9]} };
+              // 32 * 8 + 8 + 16 +  7: out_tdata <= { BITS{payload_length[ 8]} };
+              // 32 * 8 + 8 + 16 +  8: out_tdata <= { BITS{payload_length[ 7]} };
+              // 32 * 8 + 8 + 16 +  9: out_tdata <= { BITS{payload_length[ 6]} };
+              // 32 * 8 + 8 + 16 + 10: out_tdata <= { BITS{payload_length[ 5]} };
+              // 32 * 8 + 8 + 16 + 11: out_tdata <= { BITS{payload_length[ 4]} };
+              // 32 * 8 + 8 + 16 + 12: out_tdata <= { BITS{payload_length[ 3]} };
+              // 32 * 8 + 8 + 16 + 13: out_tdata <= { BITS{payload_length[ 2]} };
+              // 32 * 8 + 8 + 16 + 14: out_tdata <= { BITS{payload_length[ 1]} };
+              // 32 * 8 + 8 + 16 + 15: out_tdata <= { BITS{payload_length[ 0]} };
+              // endcase
+              out_tdata <= { BITS{payload_length[4'd7 - hdr_cnt[3:0]]} };
+            end
+            else begin
+              // 01010101....
+              out_tdata <= { BITS{hdr_cnt[0]} };
+            end
+            out_tlast <= 1'b0;
+            out_tuser <= 1'b1; // header is always BPSK
+            hdr_vld <= 1'b1;
           end
-          else if (hdr_cnt < 32 * 8 + 8) begin
-            // modulation scheme
-            out_tdata <= { BITS{in_tuser ^ hdr_cnt[0]} };
+          STATE_PLD: begin
+            in_tready <= 1'b1;
+            out_tvalid <= in_tvalid;
+            out_tdata <= in_tdata;
+            out_tlast <= 1'b0;
+            out_tuser <= 1'b0;
+            hdr_vld <= 1'b0;
           end
-          else if (hdr_cnt < 32 * 8 + 8 + 16) begin
-            // case (hdr_cnt)
-            // 32 * 8 + 8 + 16 +  0: out_tdata <= { BITS{payload_length[15]} };
-            // 32 * 8 + 8 + 16 +  1: out_tdata <= { BITS{payload_length[14]} };
-            // 32 * 8 + 8 + 16 +  2: out_tdata <= { BITS{payload_length[13]} };
-            // 32 * 8 + 8 + 16 +  3: out_tdata <= { BITS{payload_length[12]} };
-            // 32 * 8 + 8 + 16 +  4: out_tdata <= { BITS{payload_length[11]} };
-            // 32 * 8 + 8 + 16 +  5: out_tdata <= { BITS{payload_length[10]} };
-            // 32 * 8 + 8 + 16 +  6: out_tdata <= { BITS{payload_length[ 9]} };
-            // 32 * 8 + 8 + 16 +  7: out_tdata <= { BITS{payload_length[ 8]} };
-            // 32 * 8 + 8 + 16 +  8: out_tdata <= { BITS{payload_length[ 7]} };
-            // 32 * 8 + 8 + 16 +  9: out_tdata <= { BITS{payload_length[ 6]} };
-            // 32 * 8 + 8 + 16 + 10: out_tdata <= { BITS{payload_length[ 5]} };
-            // 32 * 8 + 8 + 16 + 11: out_tdata <= { BITS{payload_length[ 4]} };
-            // 32 * 8 + 8 + 16 + 12: out_tdata <= { BITS{payload_length[ 3]} };
-            // 32 * 8 + 8 + 16 + 13: out_tdata <= { BITS{payload_length[ 2]} };
-            // 32 * 8 + 8 + 16 + 14: out_tdata <= { BITS{payload_length[ 1]} };
-            // 32 * 8 + 8 + 16 + 15: out_tdata <= { BITS{payload_length[ 0]} };
-            // endcase
-            out_tdata <= { BITS{payload_length[4'd7 - hdr_cnt[3:0]]} };
+          STATE_LAST: begin
+            in_tready <= 1'b1;
+            out_tvalid <= in_tvalid;
+            out_tdata <= in_tdata;
+            out_tlast <= 1'b1;
+            out_tuser <= 1'b0;
+            hdr_vld <= 1'b0;
           end
-          else begin
-            // 01010101....
-            out_tdata <= { BITS{hdr_cnt[0]} };
+          default: begin
+            in_tready <= 1'b0;
+            out_tvalid <= 1'b0;
+            out_tdata <= 0;
+            out_tlast <= 1'b0;
+            out_tuser <= 1'b1; // BPSK by default
+            hdr_vld <= 1'b0;
           end
-          out_tlast <= 1'b0;
-          out_tuser <= 1'b1; // header is always BPSK
-          hdr_vld <= 1'b1;
-        end
-        STATE_PLD: begin
-          in_tready <= 1'b1;
-          out_tvalid <= in_tvalid;
-          out_tdata <= in_tdata;
-          out_tlast <= 1'b0;
-          out_tuser <= 1'b0;
-          hdr_vld <= 1'b0;
-        end
-        STATE_LAST: begin
-          in_tready <= 1'b1;
-          out_tvalid <= in_tvalid;
-          out_tdata <= in_tdata;
-          out_tlast <= 1'b1;
-          out_tuser <= 1'b0;
-          hdr_vld <= 1'b0;
-        end
-        default: begin
-          in_tready <= 1'b0;
-          out_tvalid <= 1'b0;
-          out_tdata <= 0;
-          out_tlast <= 1'b0;
-          out_tuser <= 1'b1; // BPSK by default
-          hdr_vld <= 1'b0;
-        end
-      endcase
-      // right shift payload_length by 1 if not is_bpsk (QPSK)
-      payload_length_symbs <= in_tuser ? payload_length : payload_length >> 1;
+        endcase
+        // right shift payload_length by 1 if not is_bpsk (QPSK)
+        payload_length_symbs <= in_tuser ? payload_length : payload_length >> 1;
+      end
+      else begin
+        // just pass the input to output
+        in_tready <= out_tready;
+        out_tvalid <= in_tvalid;
+        out_tdata <= in_tdata;
+        out_tlast <= in_tlast;
+        out_tuser <= in_tuser;
+        hdr_vld <= 1'b0;
+      end
     end
     else begin
       state <= STATE_IDLE;

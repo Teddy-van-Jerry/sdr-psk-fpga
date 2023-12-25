@@ -1,24 +1,24 @@
 {
    "ActiveEmotionalView":"Default View",
    "Default View_ScaleFactor":"1.25",
-   "Default View_TopLeft":"-375,-108",
+   "Default View_TopLeft":"-475,-86",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
 #  -string -flagsOSRD
-preplace portBus DELAY_CNT -pg 1 -lvl 2 -x 440 -y 50 -defaultsOSRD
-preplace portBus MODE_CTRL -pg 1 -lvl 2 -x 440 -y 250 -defaultsOSRD
-preplace portBus FEEDBACK_SHIFT -pg 1 -lvl 2 -x 440 -y 150 -defaultsOSRD
-preplace portBus GARDNER_SHIFT -pg 1 -lvl 2 -x 440 -y 360 -defaultsOSRD
-preplace inst xlconstant_DELAY_CNT -pg 1 -lvl 1 -x 110 -y 50 -defaultsOSRD
-preplace inst xlconstant_FEEDBACK_SHIFT -pg 1 -lvl 1 -x 110 -y 150 -defaultsOSRD
-preplace inst xlconstant_MODE_CTRL -pg 1 -lvl 1 -x 110 -y 250 -defaultsOSRD
+preplace portBus DELAY_CNT -pg 1 -lvl 2 -x 240 -y 60 -defaultsOSRD
+preplace portBus MODE_CTRL -pg 1 -lvl 2 -x 240 -y 260 -defaultsOSRD
+preplace portBus FEEDBACK_SHIFT -pg 1 -lvl 2 -x 240 -y 160 -defaultsOSRD
+preplace portBus GARDNER_SHIFT -pg 1 -lvl 2 -x 240 -y 360 -defaultsOSRD
+preplace inst xlconstant_DELAY_CNT -pg 1 -lvl 1 -x 110 -y 60 -defaultsOSRD
+preplace inst xlconstant_FEEDBACK_SHIFT -pg 1 -lvl 1 -x 110 -y 160 -defaultsOSRD
+preplace inst xlconstant_MODE_CTRL -pg 1 -lvl 1 -x 110 -y 260 -defaultsOSRD
 preplace inst xlconstant_GARDNER_SHIFT -pg 1 -lvl 1 -x 110 -y 360 -defaultsOSRD
-preplace netloc DELAY_CNT_1 1 1 1 NJ 50
-preplace netloc xlconstant_MODE_CTRL_dout 1 1 1 NJ 250
-preplace netloc xlconstant_FEEDBACK_SHIFT_dout 1 1 1 N 150
+preplace netloc DELAY_CNT_1 1 1 1 NJ 60
+preplace netloc xlconstant_MODE_CTRL_dout 1 1 1 NJ 260
+preplace netloc xlconstant_FEEDBACK_SHIFT_dout 1 1 1 N 160
 preplace netloc xlconstant_GARDNER_SHIFT_dout 1 1 1 N 360
-levelinfo -pg 1 0 110 440
-pagesize -pg 1 -db -bbox -sgen 0 -20 630 420
+levelinfo -pg 1 0 110 240
+pagesize -pg 1 -db -bbox -sgen 0 0 430 420
 "
 }
 0

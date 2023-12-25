@@ -144,6 +144,20 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+      <File Path="$PPRDIR/verilog/Packetizer.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/verilog/Bits_Flatten.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PPRDIR/verilog/Delay.v">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -244,9 +258,6 @@
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="top.bd" FileRelPathName="ip/top_PSK_Mod_0_0/top_PSK_Mod_0_0.xci">
           <Proxy FileSetName="top_PSK_Mod_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="top.bd" FileRelPathName="ip/top_Tx_Data_0_0/top_Tx_Data_0_0.xci">
-          <Proxy FileSetName="top_Tx_Data_0_0"/>
         </CompFileExtendedInfo>
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/hdl/top_wrapper.v">
@@ -776,8 +787,16 @@
     </FileSet>
     <FileSet Name="sim_BPSK" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/sim_BPSK" RelGenDir="$PGENDIR/sim_BPSK">
       <Filter Type="Srcs"/>
+      <File Path="$PPRDIR/verilog/tb/tb_PSK_Demod_BPSK.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PGENDIR/sources_1/bd/top/ipshared/dbd8/hdl/axis_data_fifo_v2_0_vl_rfs.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -785,6 +804,7 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/ipshared/8713/hdl/axis_infrastructure_v1_1_vl_rfs.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -792,6 +812,7 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/bd/costas_loop_inst_0/sim/costas_loop_inst_0.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -799,6 +820,7 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/sim/top.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -806,6 +828,7 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/ip/top_NCO_cos_sin_0_0/top_NCO_cos_sin_0_0_sim_netlist.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -813,6 +836,7 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/ip/top_PSK_Detection_0_0/top_PSK_Detection_0_0_sim_netlist.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -820,6 +844,7 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/ip/top_PSK_Mod_0_0/top_PSK_Mod_0_0_sim_netlist.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -827,6 +852,7 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/ip/top_PSK_Signal_Extend_0_1/top_PSK_Signal_Extend_0_1_sim_netlist.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -834,6 +860,7 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/ip/top_Tx_Data_0_0/top_Tx_Data_0_0_sim_netlist.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -841,6 +868,7 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/ip/top_axis_data_fifo_0_0/top_axis_data_fifo_0_0_sim_netlist.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -848,6 +876,7 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/ip/top_c_shift_ram_0_2/top_c_shift_ram_0_2_sim_netlist.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -855,6 +884,7 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/ip/top_c_shift_ram_I_0/top_c_shift_ram_I_0_sim_netlist.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -862,13 +892,7 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/ip/top_dds_compiler_0_0/top_dds_compiler_0_0_sim_netlist.v">
         <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/verilog/tb/tb_PSK_Demod_BPSK.v">
-        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1320,8 +1344,16 @@
     </FileSet>
     <FileSet Name="sim_QPSK" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/sim_QPSK" RelGenDir="$PGENDIR/sim_QPSK">
       <Filter Type="Srcs"/>
+      <File Path="$PPRDIR/verilog/tb/tb_PSK_Demod_QPSK.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PGENDIR/sources_1/bd/top/ipshared/dbd8/hdl/axis_data_fifo_v2_0_vl_rfs.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1329,6 +1361,7 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/ipshared/8713/hdl/axis_infrastructure_v1_1_vl_rfs.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1336,6 +1369,7 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/bd/costas_loop_inst_0/sim/costas_loop_inst_0.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1343,6 +1377,7 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/sim/top.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1350,6 +1385,7 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/ip/top_NCO_cos_sin_0_0/top_NCO_cos_sin_0_0_sim_netlist.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1357,6 +1393,7 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/ip/top_PSK_Detection_0_0/top_PSK_Detection_0_0_sim_netlist.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1364,6 +1401,7 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/ip/top_PSK_Mod_0_0/top_PSK_Mod_0_0_sim_netlist.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1371,6 +1409,7 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/ip/top_PSK_Signal_Extend_0_1/top_PSK_Signal_Extend_0_1_sim_netlist.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1378,6 +1417,7 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/ip/top_Tx_Data_0_0/top_Tx_Data_0_0_sim_netlist.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1385,6 +1425,7 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/ip/top_axis_data_fifo_0_0/top_axis_data_fifo_0_0_sim_netlist.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1392,6 +1433,7 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/ip/top_c_shift_ram_0_2/top_c_shift_ram_0_2_sim_netlist.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1399,6 +1441,7 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/ip/top_c_shift_ram_I_0/top_c_shift_ram_I_0_sim_netlist.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1406,13 +1449,7 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/ip/top_dds_compiler_0_0/top_dds_compiler_0_0_sim_netlist.v">
         <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/verilog/tb/tb_PSK_Demod_QPSK.v">
-        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1846,13 +1883,6 @@
         <Option Name="xsim.simulate.runtime" Val="5000ns"/>
       </Config>
     </FileSet>
-    <FileSet Name="top_Tx_Data_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/top_Tx_Data_0_0" RelGenDir="$PGENDIR/top_Tx_Data_0_0">
-      <Config>
-        <Option Name="TopModule" Val="top_Tx_Data_0_0"/>
-        <Option Name="dataflowViewerSettings" Val="min_width=16"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-      </Config>
-    </FileSet>
     <FileSet Name="top_PSK_Mod_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/top_PSK_Mod_0_0" RelGenDir="$PGENDIR/top_PSK_Mod_0_0">
       <Config>
         <Option Name="TopModule" Val="top_PSK_Mod_0_0"/>
@@ -2011,16 +2041,6 @@
       <RQSFiles/>
     </Run>
     <Run Id="top_c_shift_ram_I_0_synth_1" Type="Ft3:Synth" SrcSet="top_c_shift_ram_I_0" Part="xc7z020clg484-1" ConstrsSet="top_c_shift_ram_I_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/top_c_shift_ram_I_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/top_c_shift_ram_I_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/top_c_shift_ram_I_0_synth_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022"/>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2022"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="top_Tx_Data_0_0_synth_1" Type="Ft3:Synth" SrcSet="top_Tx_Data_0_0" Part="xc7z020clg484-1" ConstrsSet="top_Tx_Data_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/top_Tx_Data_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/top_Tx_Data_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/top_Tx_Data_0_0_synth_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022"/>
         <Step Id="synth_design"/>
@@ -2239,23 +2259,6 @@
       <RQSFiles/>
     </Run>
     <Run Id="top_c_shift_ram_I_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg484-1" ConstrsSet="top_c_shift_ram_I_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="top_c_shift_ram_I_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/top_c_shift_ram_I_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/top_c_shift_ram_I_0_impl_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022"/>
-        <Step Id="init_design"/>
-        <Step Id="opt_design"/>
-        <Step Id="power_opt_design"/>
-        <Step Id="place_design"/>
-        <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design"/>
-        <Step Id="route_design"/>
-        <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2022"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="top_Tx_Data_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg484-1" ConstrsSet="top_Tx_Data_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="top_Tx_Data_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/top_Tx_Data_0_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/top_Tx_Data_0_0_impl_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022"/>
         <Step Id="init_design"/>

@@ -1,7 +1,7 @@
 {
    "ActiveEmotionalView":"Default View",
    "Default View_ScaleFactor":"1.25",
-   "Default View_TopLeft":"-360,-33",
+   "Default View_TopLeft":"-360,-18",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
 #  -string -flagsOSRD
@@ -10,6 +10,7 @@ preplace port port-id_clk_200M -pg 1 -lvl 3 -x 650 -y 500 -defaultsOSRD
 preplace port port-id_clk_16M384 -pg 1 -lvl 3 -x 650 -y 380 -defaultsOSRD
 preplace port port-id_clk1M024 -pg 1 -lvl 3 -x 650 -y 410 -defaultsOSRD
 preplace port port-id_clk_32M768 -pg 1 -lvl 3 -x 650 -y 350 -defaultsOSRD
+preplace port port-id_clk_2M048 -pg 1 -lvl 3 -x 650 -y 120 -defaultsOSRD
 preplace portBus rst_16M384 -pg 1 -lvl 3 -x 650 -y 470 -defaultsOSRD
 preplace portBus rst_n_1M024 -pg 1 -lvl 3 -x 650 -y 440 -defaultsOSRD
 preplace portBus rst_32M768 -pg 1 -lvl 3 -x 650 -y 320 -defaultsOSRD
@@ -27,6 +28,7 @@ preplace netloc clk_wiz_32M768_clk_32M768 1 0 3 20 400 310 390 620
 preplace netloc clk_wiz_32M768_locked 1 1 1 300 290n
 preplace netloc rst_n_1M024 1 2 1 600 300n
 preplace netloc Reset_Gen_rst_32M768 1 2 1 N 320
+preplace netloc Div_clk32M768_0_clk2M048 1 1 2 NJ 120 NJ
 levelinfo -pg 1 0 150 460 650
 pagesize -pg 1 -db -bbox -sgen -160 -20 810 560
 "
