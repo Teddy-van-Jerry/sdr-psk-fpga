@@ -73,24 +73,46 @@ module PSK_Mod #(
       // output buffer
       if (vld_buf) begin
         if (is_bpsk_buf) begin
+          //      BPSK Constellation
+          // =============================
+          //          ^ Q (sin)
+          //          |
+          //          |`````* 0
+          //          |     :
+          // ---------+---------> I (cos)
+          //    :     |
+          //  1 *.....|
+          //          |
           out_I <= data_I_buf ? carrier_I : -carrier_I;
           out_Q <= data_I_buf ? carrier_Q : -carrier_Q;
         end
         else begin
+          //      QPSK Constellation
+          // =============================
+          //          ^ Q (sin)
+          //   10     |
+          //    *`````|`````* 00
+          //    :     |     :
+          // ---------+---------> I (cos)
+          //    :     |     :
+          // 11 *.....|.....*
+          //          |     01
+          //
+          // * Note: This is actually Gray coding for QPSK!
           case (data_buf[1:0])
             2'b00: begin
               out_I <= carrier_0;
               out_Q <= carrier_1;
             end
-            2'b01: begin
+            2'b10: begin
               out_I <= carrier_1;
               out_Q <= carrier_2;
             end
-            2'b10: begin
+            2'b11: begin
               out_I <= carrier_2;
               out_Q <= carrier_3;
             end
-            2'b11: begin
+            2'b01: begin
               out_I <= carrier_3;
               out_Q <= carrier_0;
             end
