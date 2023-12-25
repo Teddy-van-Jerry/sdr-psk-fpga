@@ -19,7 +19,13 @@
         "PSK_Signal_Extend_0": "",
         "gardner_loop_0": "",
         "c_shift_ram_is_bpsk": "",
-        "xlconstant_one": ""
+        "xlconstant_one": "",
+        "SPB_Detection": {
+          "Rx_SD_0": "",
+          "xlconstant_one": "",
+          "Rx_PD_0": "",
+          "Rx_BD_0": ""
+        }
       },
       "Clock_Gen": {
         "clk_wiz_128M": "",
@@ -304,6 +310,26 @@
           "Q_1M": {
             "direction": "O",
             "left": "15",
+            "right": "0"
+          },
+          "RX_SD_THRESHOLD": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "RX_SD_WINDOW": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "RX_PD_WINDOW": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "RX_BD_WINDOW": {
+            "direction": "I",
+            "left": "7",
             "right": "0"
           }
         },
@@ -972,6 +998,436 @@
             "xci_name": "top_xlconstant_0_2",
             "xci_path": "ip\\top_xlconstant_0_2\\top_xlconstant_0_2.xci",
             "inst_hier_path": "Rx/xlconstant_one"
+          },
+          "SPB_Detection": {
+            "ports": {
+              "I_1M": {
+                "direction": "I",
+                "left": "15",
+                "right": "0"
+              },
+              "Q_1M": {
+                "direction": "I",
+                "left": "15",
+                "right": "0"
+              },
+              "clk": {
+                "type": "clk",
+                "direction": "I"
+              },
+              "rst_32M768": {
+                "type": "rst",
+                "direction": "I"
+              },
+              "RX_SD_THRESHOLD": {
+                "direction": "I",
+                "left": "15",
+                "right": "0"
+              },
+              "RX_SD_WINDOW": {
+                "direction": "I",
+                "left": "7",
+                "right": "0"
+              },
+              "BPSK": {
+                "direction": "I"
+              },
+              "SD_flag": {
+                "direction": "O"
+              },
+              "RX_PD_WINDOW": {
+                "direction": "I",
+                "left": "7",
+                "right": "0"
+              },
+              "disassert_PD": {
+                "direction": "I"
+              },
+              "RX_BD_WINDOW": {
+                "direction": "I",
+                "left": "7",
+                "right": "0"
+              },
+              "disassert_BD": {
+                "direction": "I"
+              },
+              "BD_flag": {
+                "direction": "O"
+              },
+              "BD_sgn": {
+                "direction": "O"
+              }
+            },
+            "components": {
+              "Rx_SD_0": {
+                "vlnv": "xilinx.com:module_ref:Rx_SD:1.0",
+                "xci_name": "top_Rx_SD_0_0",
+                "xci_path": "ip\\top_Rx_SD_0_0\\top_Rx_SD_0_0.xci",
+                "inst_hier_path": "Rx/SPB_Detection/Rx_SD_0",
+                "reference_info": {
+                  "ref_type": "hdl",
+                  "ref_name": "Rx_SD",
+                  "boundary_crc": "0x0"
+                },
+                "interface_ports": {
+                  "I": {
+                    "mode": "Slave",
+                    "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
+                    "vlnv": "xilinx.com:interface:axis_rtl:1.0",
+                    "parameters": {
+                      "TDATA_NUM_BYTES": {
+                        "value": "2",
+                        "value_src": "auto"
+                      },
+                      "TDEST_WIDTH": {
+                        "value": "0",
+                        "value_src": "constant"
+                      },
+                      "TID_WIDTH": {
+                        "value": "0",
+                        "value_src": "constant"
+                      },
+                      "TUSER_WIDTH": {
+                        "value": "0",
+                        "value_src": "constant"
+                      },
+                      "HAS_TREADY": {
+                        "value": "0",
+                        "value_src": "constant"
+                      },
+                      "HAS_TSTRB": {
+                        "value": "0",
+                        "value_src": "constant"
+                      },
+                      "HAS_TKEEP": {
+                        "value": "0",
+                        "value_src": "constant"
+                      },
+                      "HAS_TLAST": {
+                        "value": "0",
+                        "value_src": "constant"
+                      }
+                    },
+                    "port_maps": {
+                      "TDATA": {
+                        "physical_name": "I_tdata",
+                        "direction": "I",
+                        "left": "15",
+                        "right": "0"
+                      },
+                      "TVALID": {
+                        "physical_name": "I_tvalid",
+                        "direction": "I"
+                      }
+                    }
+                  },
+                  "Q": {
+                    "mode": "Slave",
+                    "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
+                    "vlnv": "xilinx.com:interface:axis_rtl:1.0",
+                    "parameters": {
+                      "TDATA_NUM_BYTES": {
+                        "value": "2",
+                        "value_src": "auto"
+                      },
+                      "TDEST_WIDTH": {
+                        "value": "0",
+                        "value_src": "constant"
+                      },
+                      "TID_WIDTH": {
+                        "value": "0",
+                        "value_src": "constant"
+                      },
+                      "TUSER_WIDTH": {
+                        "value": "0",
+                        "value_src": "constant"
+                      },
+                      "HAS_TREADY": {
+                        "value": "0",
+                        "value_src": "constant"
+                      },
+                      "HAS_TSTRB": {
+                        "value": "0",
+                        "value_src": "constant"
+                      },
+                      "HAS_TKEEP": {
+                        "value": "0",
+                        "value_src": "constant"
+                      },
+                      "HAS_TLAST": {
+                        "value": "0",
+                        "value_src": "constant"
+                      }
+                    },
+                    "port_maps": {
+                      "TDATA": {
+                        "physical_name": "Q_tdata",
+                        "direction": "I",
+                        "left": "15",
+                        "right": "0"
+                      },
+                      "TVALID": {
+                        "physical_name": "Q_tvalid",
+                        "direction": "I"
+                      }
+                    }
+                  }
+                },
+                "ports": {
+                  "clk": {
+                    "type": "clk",
+                    "direction": "I",
+                    "parameters": {
+                      "ASSOCIATED_BUSIF": {
+                        "value": "I:Q",
+                        "value_src": "constant"
+                      },
+                      "ASSOCIATED_RESET": {
+                        "value": "rst",
+                        "value_src": "constant"
+                      }
+                    }
+                  },
+                  "rst": {
+                    "type": "rst",
+                    "direction": "I",
+                    "parameters": {
+                      "POLARITY": {
+                        "value": "ACTIVE_HIGH"
+                      }
+                    }
+                  },
+                  "RX_SD_THRESHOLD": {
+                    "direction": "I",
+                    "left": "15",
+                    "right": "0"
+                  },
+                  "RX_SD_WINDOW": {
+                    "direction": "I",
+                    "left": "7",
+                    "right": "0"
+                  },
+                  "SD_flag": {
+                    "direction": "O"
+                  }
+                }
+              },
+              "xlconstant_one": {
+                "vlnv": "xilinx.com:ip:xlconstant:1.1",
+                "xci_name": "top_xlconstant_one_1",
+                "xci_path": "ip\\top_xlconstant_one_1\\top_xlconstant_one_1.xci",
+                "inst_hier_path": "Rx/SPB_Detection/xlconstant_one"
+              },
+              "Rx_PD_0": {
+                "vlnv": "xilinx.com:module_ref:Rx_PD:1.0",
+                "xci_name": "top_Rx_PD_0_0",
+                "xci_path": "ip\\top_Rx_PD_0_0\\top_Rx_PD_0_0.xci",
+                "inst_hier_path": "Rx/SPB_Detection/Rx_PD_0",
+                "reference_info": {
+                  "ref_type": "hdl",
+                  "ref_name": "Rx_PD",
+                  "boundary_crc": "0x0"
+                },
+                "ports": {
+                  "clk": {
+                    "type": "clk",
+                    "direction": "I",
+                    "parameters": {
+                      "ASSOCIATED_RESET": {
+                        "value": "rst",
+                        "value_src": "constant"
+                      }
+                    }
+                  },
+                  "rst": {
+                    "type": "rst",
+                    "direction": "I",
+                    "parameters": {
+                      "POLARITY": {
+                        "value": "ACTIVE_HIGH"
+                      }
+                    }
+                  },
+                  "RX_PD_WINDOW": {
+                    "direction": "I",
+                    "left": "7",
+                    "right": "0"
+                  },
+                  "BPSK": {
+                    "direction": "I"
+                  },
+                  "disassert_PD": {
+                    "direction": "I"
+                  },
+                  "SD_flag": {
+                    "direction": "I"
+                  },
+                  "PD_flag": {
+                    "direction": "O"
+                  }
+                }
+              },
+              "Rx_BD_0": {
+                "vlnv": "xilinx.com:module_ref:Rx_BD:1.0",
+                "xci_name": "top_Rx_BD_0_0",
+                "xci_path": "ip\\top_Rx_BD_0_0\\top_Rx_BD_0_0.xci",
+                "inst_hier_path": "Rx/SPB_Detection/Rx_BD_0",
+                "reference_info": {
+                  "ref_type": "hdl",
+                  "ref_name": "Rx_BD",
+                  "boundary_crc": "0x0"
+                },
+                "ports": {
+                  "clk": {
+                    "type": "clk",
+                    "direction": "I",
+                    "parameters": {
+                      "ASSOCIATED_RESET": {
+                        "value": "rst",
+                        "value_src": "constant"
+                      }
+                    }
+                  },
+                  "rst": {
+                    "type": "rst",
+                    "direction": "I",
+                    "parameters": {
+                      "POLARITY": {
+                        "value": "ACTIVE_HIGH"
+                      }
+                    }
+                  },
+                  "RX_BD_WINDOW": {
+                    "direction": "I",
+                    "left": "7",
+                    "right": "0"
+                  },
+                  "BPSK": {
+                    "direction": "I"
+                  },
+                  "disassert_BD": {
+                    "direction": "I"
+                  },
+                  "PD_flag": {
+                    "direction": "I"
+                  },
+                  "BD_init": {
+                    "direction": "O"
+                  },
+                  "BD_flag": {
+                    "direction": "O"
+                  },
+                  "BD_sgn": {
+                    "direction": "O"
+                  }
+                }
+              }
+            },
+            "nets": {
+              "BPSK_1": {
+                "ports": [
+                  "BPSK",
+                  "Rx_PD_0/BPSK",
+                  "Rx_BD_0/BPSK"
+                ]
+              },
+              "I_1M_1": {
+                "ports": [
+                  "I_1M",
+                  "Rx_SD_0/I_tdata"
+                ]
+              },
+              "Q_1M_1": {
+                "ports": [
+                  "Q_1M",
+                  "Rx_SD_0/Q_tdata"
+                ]
+              },
+              "RX_BD_WINDOW_1": {
+                "ports": [
+                  "RX_BD_WINDOW",
+                  "Rx_BD_0/RX_BD_WINDOW"
+                ]
+              },
+              "RX_PD_WINDOW_1": {
+                "ports": [
+                  "RX_PD_WINDOW",
+                  "Rx_PD_0/RX_PD_WINDOW"
+                ]
+              },
+              "RX_SD_THRESHOLD_1": {
+                "ports": [
+                  "RX_SD_THRESHOLD",
+                  "Rx_SD_0/RX_SD_THRESHOLD"
+                ]
+              },
+              "RX_SD_WINDOW_1": {
+                "ports": [
+                  "RX_SD_WINDOW",
+                  "Rx_SD_0/RX_SD_WINDOW"
+                ]
+              },
+              "Rx_BD_0_BD_flag": {
+                "ports": [
+                  "Rx_BD_0/BD_flag",
+                  "BD_flag"
+                ]
+              },
+              "Rx_BD_0_BD_sgn": {
+                "ports": [
+                  "Rx_BD_0/BD_sgn",
+                  "BD_sgn"
+                ]
+              },
+              "Rx_PD_0_PD_flag": {
+                "ports": [
+                  "Rx_PD_0/PD_flag",
+                  "Rx_BD_0/PD_flag"
+                ]
+              },
+              "Rx_SD_0_SD_flag": {
+                "ports": [
+                  "Rx_SD_0/SD_flag",
+                  "Rx_PD_0/SD_flag",
+                  "SD_flag"
+                ]
+              },
+              "clk_1": {
+                "ports": [
+                  "clk",
+                  "Rx_SD_0/clk",
+                  "Rx_PD_0/clk",
+                  "Rx_BD_0/clk"
+                ]
+              },
+              "disassert_BD_1": {
+                "ports": [
+                  "disassert_BD",
+                  "Rx_BD_0/disassert_BD"
+                ]
+              },
+              "disassert_PD_1": {
+                "ports": [
+                  "disassert_PD",
+                  "Rx_PD_0/disassert_PD"
+                ]
+              },
+              "rst_32M768_1": {
+                "ports": [
+                  "rst_32M768",
+                  "Rx_SD_0/rst",
+                  "Rx_PD_0/rst",
+                  "Rx_BD_0/rst"
+                ]
+              },
+              "xlconstant_one_dout": {
+                "ports": [
+                  "xlconstant_one/dout",
+                  "Rx_SD_0/I_tvalid",
+                  "Rx_SD_0/Q_tvalid"
+                ]
+              }
+            }
           }
         },
         "nets": {
@@ -1018,7 +1474,8 @@
           "PSK_Detection_0_BPSK": {
             "ports": [
               "PSK_Detection_0/BPSK",
-              "BPSK"
+              "BPSK",
+              "SPB_Detection/BPSK"
             ]
           },
           "PSK_Detection_0_QPSK": {
@@ -1050,6 +1507,30 @@
             "ports": [
               "costas_loop_0/Q_tvalid",
               "gardner_loop_0/Q_tvalid"
+            ]
+          },
+          "RX_BD_WINDOW_1": {
+            "ports": [
+              "RX_BD_WINDOW",
+              "SPB_Detection/RX_BD_WINDOW"
+            ]
+          },
+          "RX_PD_WINDOW_1": {
+            "ports": [
+              "RX_PD_WINDOW",
+              "SPB_Detection/RX_PD_WINDOW"
+            ]
+          },
+          "RX_SD_THRESHOLD_1": {
+            "ports": [
+              "RX_SD_THRESHOLD",
+              "SPB_Detection/RX_SD_THRESHOLD"
+            ]
+          },
+          "RX_SD_WINDOW_1": {
+            "ports": [
+              "RX_SD_WINDOW",
+              "SPB_Detection/RX_SD_WINDOW"
             ]
           },
           "c_shift_ram_I_Q": {
@@ -1106,20 +1587,23 @@
             "ports": [
               "gardner_loop_0/I_1M",
               "PSK_Detection_0/I_tdata",
-              "I_1M"
+              "I_1M",
+              "SPB_Detection/I_1M"
             ]
           },
           "gardner_loop_0_Q_1M": {
             "ports": [
               "gardner_loop_0/Q_1M",
               "PSK_Detection_0/Q_tdata",
-              "Q_1M"
+              "Q_1M",
+              "SPB_Detection/Q_1M"
             ]
           },
           "gardner_loop_0_clk_out": {
             "ports": [
               "gardner_loop_0/clk_out",
-              "PSK_Detection_0/clk"
+              "PSK_Detection_0/clk",
+              "SPB_Detection/clk"
             ]
           },
           "is_bpsk_1": {
@@ -1138,7 +1622,8 @@
             "ports": [
               "rst_32M768",
               "gardner_loop_0/rst_32M768",
-              "PSK_Detection_0/rst"
+              "PSK_Detection_0/rst",
+              "SPB_Detection/rst_32M768"
             ]
           },
           "xlconstant_one_dout": {
@@ -1974,13 +2459,7 @@
                     "direction": "I"
                   },
                   "rst_16M384": {
-                    "direction": "I",
-                    "parameters": {
-                      "POLARITY": {
-                        "value": "ACTIVE_HIGH",
-                        "value_src": "const_prop"
-                      }
-                    }
+                    "direction": "I"
                   },
                   "carrier_I": {
                     "direction": "I",

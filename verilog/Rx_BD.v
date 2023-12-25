@@ -2,19 +2,21 @@ module Rx_BD # (
   parameter WIDTH = 16,
   parameter MAX_WINDOW_WIDTH = 8
 ) (
-  input      clk,
-  input      rst,
+  input                        clk,
+  input                        rst,
   // input configuration
-  input      RX_BD_WINDOW,
-  input      BPSK,
-  input      disassert_BD,
-  input      PD_flag,
+  input [MAX_WINDOW_WIDTH-1:0] RX_BD_WINDOW,
+  // input I symbol signal (BPSK)
+  input                        BPSK,
+  // input for disasserting BD (after one complete packet)
+  input                        disassert_BD,
+  input                        PD_flag,
   // initial detection of BD (1 CC delay)
-  output reg BD_init,
+  output reg                   BD_init,
   // output flag (RX_BD_WINDOW+1 CC delay)
-  output reg BD_flag,
+  output reg                   BD_flag,
   // output sign
-  output reg BD_sgn
+  output reg                   BD_sgn
 );
   reg [MAX_WINDOW_WIDTH-1:0] cnt;
   reg BPSK_reg;
