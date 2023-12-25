@@ -186,6 +186,13 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+      <File Path="$PPRDIR/verilog/Depacketizer.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PPRDIR/verilog/Delay.v">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -253,9 +260,6 @@
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="top.bd" FileRelPathName="ip/top_AD9361_1RT_FDD_0_0/top_AD9361_1RT_FDD_0_0.xci">
           <Proxy FileSetName="top_AD9361_1RT_FDD_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="top.bd" FileRelPathName="ip/top_PSK_Signal_Extend_0_1/top_PSK_Signal_Extend_0_1.xci">
-          <Proxy FileSetName="top_PSK_Signal_Extend_0_1"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="top.bd" FileRelPathName="ip/top_dds_compiler_0_0/top_dds_compiler_0_0.xci">
           <Proxy FileSetName="top_dds_compiler_0_0"/>
@@ -1908,13 +1912,6 @@
         <Option Name="xsim.simulate.runtime" Val="5000ns"/>
       </Config>
     </FileSet>
-    <FileSet Name="top_PSK_Signal_Extend_0_1" Type="BlockSrcs" RelSrcDir="$PSRCDIR/top_PSK_Signal_Extend_0_1" RelGenDir="$PGENDIR/top_PSK_Signal_Extend_0_1">
-      <Config>
-        <Option Name="TopModule" Val="top_PSK_Signal_Extend_0_1"/>
-        <Option Name="dataflowViewerSettings" Val="min_width=16"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-      </Config>
-    </FileSet>
     <FileSet Name="gardner_loop_inst_0" Type="BlockSrcs" RelSrcDir="$PGENDIR/sources_1/bd/top/bd/gardner_loop_inst_0" RelGenDir="$PGENDIR/sources_1/bd/top/bd/gardner_loop_inst_0">
       <File Path="$PGENDIR/sources_1/bd/top/bd/gardner_loop_inst_0/gardner_loop_inst_0.bd">
         <FileInfo>
@@ -2059,16 +2056,6 @@
       <RQSFiles/>
     </Run>
     <Run Id="top_c_shift_ram_I_0_synth_1" Type="Ft3:Synth" SrcSet="top_c_shift_ram_I_0" Part="xc7z020clg484-1" ConstrsSet="top_c_shift_ram_I_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/top_c_shift_ram_I_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/top_c_shift_ram_I_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/top_c_shift_ram_I_0_synth_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022"/>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2022"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="top_PSK_Signal_Extend_0_1_synth_1" Type="Ft3:Synth" SrcSet="top_PSK_Signal_Extend_0_1" Part="xc7z020clg484-1" ConstrsSet="top_PSK_Signal_Extend_0_1" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/top_PSK_Signal_Extend_0_1_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/top_PSK_Signal_Extend_0_1_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/top_PSK_Signal_Extend_0_1_synth_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022"/>
         <Step Id="synth_design"/>
@@ -2267,23 +2254,6 @@
       <RQSFiles/>
     </Run>
     <Run Id="top_c_shift_ram_I_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg484-1" ConstrsSet="top_c_shift_ram_I_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="top_c_shift_ram_I_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/top_c_shift_ram_I_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/top_c_shift_ram_I_0_impl_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022"/>
-        <Step Id="init_design"/>
-        <Step Id="opt_design"/>
-        <Step Id="power_opt_design"/>
-        <Step Id="place_design"/>
-        <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design"/>
-        <Step Id="route_design"/>
-        <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2022"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="top_PSK_Signal_Extend_0_1_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg484-1" ConstrsSet="top_PSK_Signal_Extend_0_1" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="top_PSK_Signal_Extend_0_1_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/top_PSK_Signal_Extend_0_1_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/top_PSK_Signal_Extend_0_1_impl_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022"/>
         <Step Id="init_design"/>

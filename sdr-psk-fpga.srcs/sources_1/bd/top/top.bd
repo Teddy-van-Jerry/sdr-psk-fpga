@@ -16,7 +16,6 @@
         "PSK_Detection_0": "",
         "c_shift_ram_I": "",
         "c_shift_ram_Q": "",
-        "PSK_Signal_Extend_0": "",
         "gardner_loop_0": "",
         "c_shift_ram_is_bpsk": "",
         "xlconstant_one": "",
@@ -25,7 +24,9 @@
           "xlconstant_one": "",
           "Rx_PD_0": "",
           "Rx_BD_0": ""
-        }
+        },
+        "PSK_Signal_Extend_0": "",
+        "Depacketizer_0": ""
       },
       "Clock_Gen": {
         "clk_wiz_128M": "",
@@ -252,9 +253,6 @@
             "type": "rst",
             "direction": "I"
           },
-          "is_bpsk": {
-            "direction": "I"
-          },
           "BPSK": {
             "direction": "O"
           },
@@ -331,6 +329,9 @@
             "direction": "I",
             "left": "7",
             "right": "0"
+          },
+          "is_bpsk": {
+            "direction": "I"
           }
         },
         "components": {
@@ -719,49 +720,6 @@
               }
             }
           },
-          "PSK_Signal_Extend_0": {
-            "vlnv": "xilinx.com:module_ref:PSK_Signal_Extend:1.0",
-            "xci_name": "top_PSK_Signal_Extend_0_1",
-            "xci_path": "ip\\top_PSK_Signal_Extend_0_1\\top_PSK_Signal_Extend_0_1.xci",
-            "inst_hier_path": "Rx/PSK_Signal_Extend_0",
-            "parameters": {
-              "O_WIDTH": {
-                "value": "12"
-              }
-            },
-            "reference_info": {
-              "ref_type": "hdl",
-              "ref_name": "PSK_Signal_Extend",
-              "boundary_crc": "0x0"
-            },
-            "ports": {
-              "clk": {
-                "type": "clk",
-                "direction": "I"
-              },
-              "DAC_I": {
-                "direction": "I",
-                "left": "11",
-                "right": "0"
-              },
-              "DAC_Q": {
-                "direction": "I",
-                "left": "11",
-                "right": "0"
-              },
-              "is_bpsk": {
-                "direction": "I"
-              },
-              "PSK_signal": {
-                "direction": "O",
-                "left": "11",
-                "right": "0"
-              },
-              "is_bpsk_out": {
-                "direction": "O"
-              }
-            }
-          },
           "gardner_loop_0": {
             "parameters": {
               "ACTIVE_SIM_BD": {
@@ -1055,6 +1013,9 @@
                 "direction": "O"
               },
               "BD_sgn": {
+                "direction": "O"
+              },
+              "PD_flag": {
                 "direction": "O"
               }
             },
@@ -1382,7 +1343,8 @@
               "Rx_PD_0_PD_flag": {
                 "ports": [
                   "Rx_PD_0/PD_flag",
-                  "Rx_BD_0/PD_flag"
+                  "Rx_BD_0/PD_flag",
+                  "PD_flag"
                 ]
               },
               "Rx_SD_0_SD_flag": {
@@ -1428,6 +1390,197 @@
                 ]
               }
             }
+          },
+          "PSK_Signal_Extend_0": {
+            "vlnv": "xilinx.com:module_ref:PSK_Signal_Extend:1.0",
+            "xci_name": "top_PSK_Signal_Extend_0_1",
+            "xci_path": "ip\\top_PSK_Signal_Extend_0_1\\top_PSK_Signal_Extend_0_1.xci",
+            "inst_hier_path": "Rx/PSK_Signal_Extend_0",
+            "parameters": {
+              "O_WIDTH": {
+                "value": "12"
+              }
+            },
+            "reference_info": {
+              "ref_type": "hdl",
+              "ref_name": "PSK_Signal_Extend",
+              "boundary_crc": "0x0"
+            },
+            "ports": {
+              "clk": {
+                "type": "clk",
+                "direction": "I"
+              },
+              "DAC_I": {
+                "direction": "I",
+                "left": "11",
+                "right": "0"
+              },
+              "DAC_Q": {
+                "direction": "I",
+                "left": "11",
+                "right": "0"
+              },
+              "is_bpsk": {
+                "direction": "I"
+              },
+              "PSK_signal": {
+                "direction": "O",
+                "left": "11",
+                "right": "0"
+              },
+              "is_bpsk_out": {
+                "direction": "O"
+              }
+            }
+          },
+          "Depacketizer_0": {
+            "vlnv": "xilinx.com:module_ref:Depacketizer:1.0",
+            "xci_name": "top_Depacketizer_0_0",
+            "xci_path": "ip\\top_Depacketizer_0_0\\top_Depacketizer_0_0.xci",
+            "inst_hier_path": "Rx/Depacketizer_0",
+            "reference_info": {
+              "ref_type": "hdl",
+              "ref_name": "Depacketizer",
+              "boundary_crc": "0x0"
+            },
+            "interface_ports": {
+              "data": {
+                "mode": "Master",
+                "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
+                "vlnv": "xilinx.com:interface:axis_rtl:1.0",
+                "parameters": {
+                  "TDATA_NUM_BYTES": {
+                    "value": "1",
+                    "value_src": "auto"
+                  },
+                  "TDEST_WIDTH": {
+                    "value": "0",
+                    "value_src": "constant"
+                  },
+                  "TID_WIDTH": {
+                    "value": "0",
+                    "value_src": "constant"
+                  },
+                  "TUSER_WIDTH": {
+                    "value": "1",
+                    "value_src": "constant"
+                  },
+                  "HAS_TREADY": {
+                    "value": "1",
+                    "value_src": "constant"
+                  },
+                  "HAS_TSTRB": {
+                    "value": "0",
+                    "value_src": "constant"
+                  },
+                  "HAS_TKEEP": {
+                    "value": "0",
+                    "value_src": "constant"
+                  },
+                  "HAS_TLAST": {
+                    "value": "1",
+                    "value_src": "constant"
+                  }
+                },
+                "port_maps": {
+                  "TDATA": {
+                    "physical_name": "data_tdata",
+                    "direction": "O",
+                    "left": "7",
+                    "right": "0"
+                  },
+                  "TLAST": {
+                    "physical_name": "data_tlast",
+                    "direction": "O"
+                  },
+                  "TUSER": {
+                    "physical_name": "data_tuser",
+                    "direction": "O"
+                  },
+                  "TVALID": {
+                    "physical_name": "data_tvalid",
+                    "direction": "O"
+                  },
+                  "TREADY": {
+                    "physical_name": "data_tready",
+                    "direction": "I"
+                  }
+                }
+              }
+            },
+            "ports": {
+              "clk": {
+                "type": "clk",
+                "direction": "I",
+                "parameters": {
+                  "ASSOCIATED_BUSIF": {
+                    "value": "data",
+                    "value_src": "constant"
+                  },
+                  "ASSOCIATED_RESET": {
+                    "value": "rst",
+                    "value_src": "constant"
+                  }
+                }
+              },
+              "rst": {
+                "type": "rst",
+                "direction": "I",
+                "parameters": {
+                  "POLARITY": {
+                    "value": "ACTIVE_HIGH"
+                  }
+                }
+              },
+              "RX_BD_WINDOW": {
+                "direction": "I",
+                "left": "7",
+                "right": "0"
+              },
+              "MODE_CTRL": {
+                "direction": "I",
+                "left": "3",
+                "right": "0"
+              },
+              "is_bpsk_in": {
+                "direction": "I"
+              },
+              "SD_flag": {
+                "direction": "I"
+              },
+              "PD_flag": {
+                "direction": "I"
+              },
+              "BD_flag": {
+                "direction": "I"
+              },
+              "BD_sgn": {
+                "direction": "I"
+              },
+              "in_QPSK": {
+                "direction": "I",
+                "left": "1",
+                "right": "0"
+              },
+              "QPSK": {
+                "direction": "O",
+                "left": "1",
+                "right": "0"
+              },
+              "BPSK": {
+                "direction": "O"
+              },
+              "is_bpsk": {
+                "direction": "O"
+              },
+              "disassert_BD": {
+                "direction": "O"
+              },
+              "disassert_PD": {
+                "direction": "O"
+              }
+            }
           }
         },
         "nets": {
@@ -1443,14 +1596,32 @@
               "PSK_Signal_Extend_0/DAC_Q"
             ]
           },
+          "Depacketizer_0_disassert_BD": {
+            "ports": [
+              "Depacketizer_0/disassert_BD",
+              "SPB_Detection/disassert_BD"
+            ]
+          },
+          "Depacketizer_0_disassert_PD": {
+            "ports": [
+              "Depacketizer_0/disassert_PD",
+              "SPB_Detection/disassert_PD"
+            ]
+          },
+          "Depacketizer_0_is_bpsk": {
+            "ports": [
+              "Depacketizer_0/is_bpsk",
+              "PSK_Signal_Extend_0/is_bpsk"
+            ]
+          },
           "Div_clk32M768_0_clk16M384": {
             "ports": [
               "clk_16M384",
               "costas_loop_0/clk_16M384",
               "c_shift_ram_I/CLK",
               "c_shift_ram_Q/CLK",
-              "PSK_Signal_Extend_0/clk",
-              "c_shift_ram_is_bpsk/CLK"
+              "c_shift_ram_is_bpsk/CLK",
+              "PSK_Signal_Extend_0/clk"
             ]
           },
           "FEEDBACK_SHIFT_1": {
@@ -1468,7 +1639,8 @@
           "MODE_CTRL_1": {
             "ports": [
               "MODE_CTRL",
-              "costas_loop_0/MODE_CTRL"
+              "costas_loop_0/MODE_CTRL",
+              "Depacketizer_0/MODE_CTRL"
             ]
           },
           "PSK_Detection_0_BPSK": {
@@ -1481,7 +1653,8 @@
           "PSK_Detection_0_QPSK": {
             "ports": [
               "PSK_Detection_0/QPSK",
-              "QPSK"
+              "QPSK",
+              "Depacketizer_0/in_QPSK"
             ]
           },
           "PSK_Detection_0_vld": {
@@ -1512,7 +1685,8 @@
           "RX_BD_WINDOW_1": {
             "ports": [
               "RX_BD_WINDOW",
-              "SPB_Detection/RX_BD_WINDOW"
+              "SPB_Detection/RX_BD_WINDOW",
+              "Depacketizer_0/RX_BD_WINDOW"
             ]
           },
           "RX_PD_WINDOW_1": {
@@ -1531,6 +1705,30 @@
             "ports": [
               "RX_SD_WINDOW",
               "SPB_Detection/RX_SD_WINDOW"
+            ]
+          },
+          "SPB_Detection_BD_flag": {
+            "ports": [
+              "SPB_Detection/BD_flag",
+              "Depacketizer_0/BD_flag"
+            ]
+          },
+          "SPB_Detection_BD_sgn": {
+            "ports": [
+              "SPB_Detection/BD_sgn",
+              "Depacketizer_0/BD_sgn"
+            ]
+          },
+          "SPB_Detection_PD_flag": {
+            "ports": [
+              "SPB_Detection/PD_flag",
+              "Depacketizer_0/PD_flag"
+            ]
+          },
+          "SPB_Detection_SD_flag": {
+            "ports": [
+              "SPB_Detection/SD_flag",
+              "Depacketizer_0/SD_flag"
             ]
           },
           "c_shift_ram_I_Q": {
@@ -1603,13 +1801,14 @@
             "ports": [
               "gardner_loop_0/clk_out",
               "PSK_Detection_0/clk",
-              "SPB_Detection/clk"
+              "SPB_Detection/clk",
+              "Depacketizer_0/clk"
             ]
           },
           "is_bpsk_1": {
             "ports": [
               "is_bpsk",
-              "PSK_Signal_Extend_0/is_bpsk"
+              "Depacketizer_0/is_bpsk_in"
             ]
           },
           "rst_16M386_1": {
@@ -1623,7 +1822,8 @@
               "rst_32M768",
               "gardner_loop_0/rst_32M768",
               "PSK_Detection_0/rst",
-              "SPB_Detection/rst_32M768"
+              "SPB_Detection/rst_32M768",
+              "Depacketizer_0/rst"
             ]
           },
           "xlconstant_one_dout": {
