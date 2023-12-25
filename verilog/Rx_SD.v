@@ -46,7 +46,7 @@ module Rx_SD # (
         cnt <= 0;
       end
       else begin
-        cnt <= cnt + 1; // one more clock without satisfying the requirement
+        if (cnt < RX_SD_WINDOW) cnt <= cnt + 1; // one more clock without satisfying the requirement
       end
     end
   end

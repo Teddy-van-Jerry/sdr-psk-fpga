@@ -29,7 +29,7 @@ module Rx_PD # (
     else begin
       BPSK_reg <= BPSK;
       if (BPSK_diff == 1'b1) begin
-        cnt <= cnt + 1;
+        if (cnt < RX_PD_WINDOW) cnt <= cnt + 1;
       end
       else begin
         cnt <= 0;
