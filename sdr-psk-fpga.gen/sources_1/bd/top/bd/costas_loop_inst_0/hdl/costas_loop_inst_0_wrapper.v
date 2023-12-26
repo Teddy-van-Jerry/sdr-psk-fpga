@@ -1,7 +1,7 @@
 //Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-//Date        : Thu Dec 21 08:46:42 2023
+//Date        : Tue Dec 26 14:10:11 2023
 //Host        : TVJ-PC running 64-bit major release  (build 9200)
 //Command     : generate_target costas_loop_inst_0_wrapper.bd
 //Design      : costas_loop_inst_0_wrapper
@@ -21,7 +21,7 @@ module costas_loop_inst_0_wrapper
     clk_16M384,
     is_bpsk,
     rst_16M384);
-  input [7:0]FEEDBACK_SHIFT;
+  input [3:0]FEEDBACK_SHIFT;
   output [15:0]I_tdata;
   output I_tvalid;
   input [3:0]MODE_CTRL;
@@ -33,7 +33,7 @@ module costas_loop_inst_0_wrapper
   input is_bpsk;
   input rst_16M384;
 
-  wire [7:0]FEEDBACK_SHIFT;
+  wire [3:0]FEEDBACK_SHIFT;
   wire [15:0]I_tdata;
   wire I_tvalid;
   wire [3:0]MODE_CTRL;

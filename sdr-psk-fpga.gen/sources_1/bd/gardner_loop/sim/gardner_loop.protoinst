@@ -1,0 +1,75 @@
+{
+	"version": "1.0",
+	"modules": {
+		"gardner_loop": {
+			"proto_instances": {
+				"/Interpolation/Gardner_IQ_Pre_0/I_in": {
+					"interface": "xilinx.com:interface:axis:1.0",
+					"ports": {
+						"ACLK": { "actual": "clk"},
+						"TDATA": { "actual": "I_in_tdata"},
+						"TVALID": { "actual": "I_in_tvalid"}
+					}
+				},
+				"/Interpolation/Gardner_IQ_Pre_0/I_out": {
+					"interface": "xilinx.com:interface:axis:1.0",
+					"ports": {
+						"ACLK": { "actual": "clk"},
+						"TDATA": { "actual": "I_out_tdata"},
+						"TVALID": { "actual": "I_out_tvalid"}
+					}
+				},
+				"/Interpolation/Gardner_IQ_Pre_0/Q_in": {
+					"interface": "xilinx.com:interface:axis:1.0",
+					"ports": {
+						"ACLK": { "actual": "clk"},
+						"TDATA": { "actual": "Q_in_tdata"},
+						"TVALID": { "actual": "Q_in_tvalid"}
+					}
+				},
+				"/Interpolation/Gardner_IQ_Pre_0/Q_out": {
+					"interface": "xilinx.com:interface:axis:1.0",
+					"ports": {
+						"ACLK": { "actual": "clk"},
+						"TDATA": { "actual": "Q_out_tdata"},
+						"TVALID": { "actual": "Q_out_tvalid"}
+					}
+				},
+				"/Interpolation/I": {
+					"interface": "xilinx.com:interface:axis:1.0",
+					"ports": {
+						"ACLK": { "actual": "clk_32M768"},
+						"TDATA": { "actual": "I_tdata"},
+						"TVALID": { "actual": "I_tvalid"}
+					}
+				},
+				"/Interpolation/Q": {
+					"interface": "xilinx.com:interface:axis:1.0",
+					"ports": {
+						"ACLK": { "actual": "clk_32M768"},
+						"TDATA": { "actual": "Q_tdata"},
+						"TVALID": { "actual": "Q_tvalid"}
+					}
+				},
+				"/Interpolation/fir_compiler_I/S_AXIS_DATA": {
+					"interface": "xilinx.com:interface:axis:1.0",
+					"ports": {
+						"ACLK": { "actual": "aclk"},
+						"TDATA": { "actual": "s_axis_data_tdata"},
+						"TREADY": { "actual": "s_axis_data_tready"},
+						"TVALID": { "actual": "s_axis_data_tvalid"}
+					}
+				},
+				"/Interpolation/fir_compiler_Q/S_AXIS_DATA": {
+					"interface": "xilinx.com:interface:axis:1.0",
+					"ports": {
+						"ACLK": { "actual": "aclk"},
+						"TDATA": { "actual": "s_axis_data_tdata"},
+						"TREADY": { "actual": "s_axis_data_tready"},
+						"TVALID": { "actual": "s_axis_data_tvalid"}
+					}
+				}
+			}
+		}
+	}
+}

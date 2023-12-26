@@ -2,7 +2,7 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "costas_loop_inst_0_NCO_DDS_0",
-    "cell_name": "Rx/costas_loop_0/NCO/NCO_DDS",
+    "cell_name": "NCO/NCO_DDS",
     "component_reference": "xilinx.com:ip:dds_compiler:6.0",
     "ip_revision": "22",
     "gen_directory": ".",

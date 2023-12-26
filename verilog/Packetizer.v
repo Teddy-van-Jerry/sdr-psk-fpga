@@ -147,7 +147,6 @@ module Packetizer # (
     end
     else begin
       state <= STATE_IDLE;
-      state_next <= STATE_IDLE;
       hdr_cnt <= 10'b0;
       payload_cnt <= 16'b0;
     end

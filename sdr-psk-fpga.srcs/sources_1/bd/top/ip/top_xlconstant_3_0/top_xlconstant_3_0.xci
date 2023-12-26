@@ -10,11 +10,11 @@
       "component_parameters": {
         "Component_Name": [ { "value": "top_xlconstant_3_0", "resolve_type": "user", "usage": "all" } ],
         "CONST_WIDTH": [ { "value": "4", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
-        "CONST_VAL": [ { "value": "2", "value_src": "user", "resolve_type": "user", "usage": "all" } ]
+        "CONST_VAL": [ { "value": "1", "value_src": "user", "resolve_type": "user", "usage": "all" } ]
       },
       "model_parameters": {
         "CONST_WIDTH": [ { "value": "4", "resolve_type": "generated", "format": "long", "usage": "all" } ],
-        "CONST_VAL": [ { "value": "0x2", "resolve_type": "generated", "format": "bitString", "usage": "all" } ]
+        "CONST_VAL": [ { "value": "0x1", "resolve_type": "generated", "format": "bitString", "usage": "all" } ]
       },
       "project_parameters": {
         "ARCHITECTURE": [ { "value": "zynq" } ],

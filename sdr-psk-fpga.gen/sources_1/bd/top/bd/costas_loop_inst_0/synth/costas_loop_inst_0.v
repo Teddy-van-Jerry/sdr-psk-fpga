@@ -1,7 +1,7 @@
 //Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-//Date        : Thu Dec 21 08:46:42 2023
+//Date        : Tue Dec 26 14:10:10 2023
 //Host        : TVJ-PC running 64-bit major release  (build 9200)
 //Command     : generate_target costas_loop_inst_0.bd
 //Design      : costas_loop_inst_0
@@ -202,7 +202,7 @@ module NCO_imp_UABGQB
     feedback_tdata,
     feedback_tvalid,
     rst_16M384);
-  input [7:0]FEEDBACK_SHIFT;
+  input [3:0]FEEDBACK_SHIFT;
   output [11:0]NCO_cos;
   output [11:0]NCO_sin;
   input clk_16M384;
@@ -210,7 +210,7 @@ module NCO_imp_UABGQB
   input feedback_tvalid;
   input rst_16M384;
 
-  wire [7:0]FEEDBACK_SHIFT_1;
+  wire [3:0]FEEDBACK_SHIFT_1;
   wire [31:0]NCO_M_AXIS_DATA_TDATA;
   wire NCO_M_AXIS_DATA_TVALID;
   wire [15:0]NCO_Phase_0_phase_TDATA;
@@ -222,7 +222,7 @@ module NCO_imp_UABGQB
   wire feedback_1_TVALID;
   wire rst_16M384_1;
 
-  assign FEEDBACK_SHIFT_1 = FEEDBACK_SHIFT[7:0];
+  assign FEEDBACK_SHIFT_1 = FEEDBACK_SHIFT[3:0];
   assign NCO_cos[11:0] = NCO_cos_sin_0_NCO_cos;
   assign NCO_sin[11:0] = NCO_cos_sin_0_NCO_sin;
   assign aclk_0_1 = clk_16M384;
@@ -236,7 +236,7 @@ module NCO_imp_UABGQB
         .s_axis_phase_tdata(NCO_Phase_0_phase_TDATA),
         .s_axis_phase_tvalid(NCO_Phase_0_phase_TVALID));
   costas_loop_inst_0_NCO_Phase_0_0 NCO_Phase_0
-       (.FEEDBACK_SHIFT(FEEDBACK_SHIFT_1[3:0]),
+       (.FEEDBACK_SHIFT(FEEDBACK_SHIFT_1),
         .clk(aclk_0_1),
         .feedback_tdata(feedback_1_TDATA),
         .feedback_tvalid(feedback_1_TVALID),
@@ -264,7 +264,7 @@ module costas_loop_inst_0
     clk_16M384,
     is_bpsk,
     rst_16M384);
-  input [7:0]FEEDBACK_SHIFT;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:data:1.0 DATA.FEEDBACK_SHIFT DATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME DATA.FEEDBACK_SHIFT, LAYERED_METADATA undef" *) input [3:0]FEEDBACK_SHIFT;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 I TDATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME I, FREQ_HZ 16384000, HAS_TKEEP 0, HAS_TLAST 0, HAS_TREADY 0, HAS_TSTRB 0, INSERT_VIP 0, LAYERED_METADATA undef, PHASE 0.0, TDATA_NUM_BYTES 2, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0" *) output [15:0]I_tdata;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 I TVALID" *) output I_tvalid;
   input [3:0]MODE_CTRL;
@@ -282,7 +282,7 @@ module costas_loop_inst_0
   wire AXI_2x_Q_O2_TVALID;
   wire [15:0]Error_Detect_Ctrl_0_error_TDATA;
   wire Error_Detect_Ctrl_0_error_TVALID;
-  wire [7:0]FEEDBACK_SHIFT_1;
+  wire [3:0]FEEDBACK_SHIFT_1;
   wire [15:0]IQ_Connect_I1_TDATA;
   wire IQ_Connect_I1_TVALID;
   wire [15:0]IQ_Connect_Q1_TDATA;
@@ -301,7 +301,7 @@ module costas_loop_inst_0
   wire [15:0]phase_detector_Q_P;
   wire rst_16M386_1;
 
-  assign FEEDBACK_SHIFT_1 = FEEDBACK_SHIFT[7:0];
+  assign FEEDBACK_SHIFT_1 = FEEDBACK_SHIFT[3:0];
   assign I_tdata[15:0] = IQ_Connect_I1_TDATA;
   assign I_tvalid = IQ_Connect_I1_TVALID;
   assign MODE_CTRL_1 = MODE_CTRL[3:0];

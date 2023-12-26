@@ -3,8 +3,8 @@
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
 // Date        : Wed Dec 20 18:09:52 2023
 // Host        : TVJ-PC running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim
-//               e:/Documents/Study/Verilog/SDR/sdr-psk-fpga/sdr-psk-fpga.gen/sources_1/bd/top/ip/top_AD9361_1RT_FDD_0_0/top_AD9361_1RT_FDD_0_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top top_AD9361_1RT_FDD_0_0 -prefix
+//               top_AD9361_1RT_FDD_0_0_ top_AD9361_1RT_FDD_0_0_sim_netlist.v
 // Design      : top_AD9361_1RT_FDD_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -12,66 +12,6 @@
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CHECK_LICENSE_TYPE = "top_AD9361_1RT_FDD_0_0,AD9361_1RT_FDD,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
-(* X_CORE_INFO = "AD9361_1RT_FDD,Vivado 2022.2" *) 
-(* NotValidForBitStream *)
-module top_AD9361_1RT_FDD_0_0
-   (clk200M,
-    AD9361_P0_D,
-    AD9361_DATACLK,
-    AD9361_RX_FRAME,
-    AD9361_RX_DAT_I,
-    AD9361_RX_DAT_Q,
-    AD9361_RX_CLK,
-    AD9361_TX_DAT_I,
-    AD9361_TX_DAT_Q,
-    AD9361_TX_CLK,
-    AD9361_P1_D,
-    AD9361_FBCLK,
-    AD9361_TX_FRAME);
-  input clk200M;
-  input [11:0]AD9361_P0_D;
-  input AD9361_DATACLK;
-  input AD9361_RX_FRAME;
-  output [11:0]AD9361_RX_DAT_I;
-  output [11:0]AD9361_RX_DAT_Q;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 AD9361_RX_CLK CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME AD9361_RX_CLK, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN top_AD9361_1RT_FDD_0_0_AD9361_RX_CLK, INSERT_VIP 0" *) output AD9361_RX_CLK;
-  input [11:0]AD9361_TX_DAT_I;
-  input [11:0]AD9361_TX_DAT_Q;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 AD9361_TX_CLK CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME AD9361_TX_CLK, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN top_AD9361_1RT_FDD_0_0_AD9361_RX_CLK, INSERT_VIP 0" *) input AD9361_TX_CLK;
-  output [11:0]AD9361_P1_D;
-  output AD9361_FBCLK;
-  output AD9361_TX_FRAME;
-
-  (* IBUF_LOW_PWR = 0 *) wire AD9361_DATACLK;
-  (* IBUF_LOW_PWR = 0 *) wire AD9361_FBCLK;
-  wire [11:0]AD9361_P0_D;
-  wire [11:0]AD9361_P1_D;
-  wire AD9361_RX_CLK;
-  wire [11:0]AD9361_RX_DAT_I;
-  wire [11:0]AD9361_RX_DAT_Q;
-  wire AD9361_RX_FRAME;
-  wire AD9361_TX_CLK;
-  wire [11:0]AD9361_TX_DAT_I;
-  wire [11:0]AD9361_TX_DAT_Q;
-  wire clk200M;
-
-  assign AD9361_TX_FRAME = AD9361_RX_FRAME;
-  top_AD9361_1RT_FDD_0_0_AD9361_1RT_FDD inst
-       (.AD9361_DATACLK(AD9361_DATACLK),
-        .AD9361_FBCLK(AD9361_FBCLK),
-        .AD9361_P0_D(AD9361_P0_D),
-        .AD9361_P1_D(AD9361_P1_D),
-        .AD9361_RX_CLK(AD9361_RX_CLK),
-        .AD9361_RX_DAT_I(AD9361_RX_DAT_I),
-        .AD9361_RX_DAT_Q(AD9361_RX_DAT_Q),
-        .AD9361_TX_CLK(AD9361_TX_CLK),
-        .AD9361_TX_DAT_I(AD9361_TX_DAT_I),
-        .AD9361_TX_DAT_Q(AD9361_TX_DAT_Q),
-        .clk200M(clk200M));
-endmodule
-
-(* ORIG_REF_NAME = "AD9361_1RT_FDD" *) 
 module top_AD9361_1RT_FDD_0_0_AD9361_1RT_FDD
    (AD9361_FBCLK,
     AD9361_RX_CLK,
@@ -883,6 +823,65 @@ module top_AD9361_1RT_FDD_0_0_AD9361_1RT_FDD
         .Q(AD9361_P1_D[9]),
         .R(NLW_ODDR_inst_B9_R_UNCONNECTED),
         .S(NLW_ODDR_inst_B9_S_UNCONNECTED));
+endmodule
+
+(* CHECK_LICENSE_TYPE = "top_AD9361_1RT_FDD_0_0,AD9361_1RT_FDD,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
+(* X_CORE_INFO = "AD9361_1RT_FDD,Vivado 2022.2" *) 
+(* NotValidForBitStream *)
+module top_AD9361_1RT_FDD_0_0
+   (clk200M,
+    AD9361_P0_D,
+    AD9361_DATACLK,
+    AD9361_RX_FRAME,
+    AD9361_RX_DAT_I,
+    AD9361_RX_DAT_Q,
+    AD9361_RX_CLK,
+    AD9361_TX_DAT_I,
+    AD9361_TX_DAT_Q,
+    AD9361_TX_CLK,
+    AD9361_P1_D,
+    AD9361_FBCLK,
+    AD9361_TX_FRAME);
+  input clk200M;
+  input [11:0]AD9361_P0_D;
+  input AD9361_DATACLK;
+  input AD9361_RX_FRAME;
+  output [11:0]AD9361_RX_DAT_I;
+  output [11:0]AD9361_RX_DAT_Q;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 AD9361_RX_CLK CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME AD9361_RX_CLK, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN top_AD9361_1RT_FDD_0_0_AD9361_RX_CLK, INSERT_VIP 0" *) output AD9361_RX_CLK;
+  input [11:0]AD9361_TX_DAT_I;
+  input [11:0]AD9361_TX_DAT_Q;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 AD9361_TX_CLK CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME AD9361_TX_CLK, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN top_AD9361_1RT_FDD_0_0_AD9361_RX_CLK, INSERT_VIP 0" *) input AD9361_TX_CLK;
+  output [11:0]AD9361_P1_D;
+  output AD9361_FBCLK;
+  output AD9361_TX_FRAME;
+
+  (* IBUF_LOW_PWR = 0 *) wire AD9361_DATACLK;
+  (* IBUF_LOW_PWR = 0 *) wire AD9361_FBCLK;
+  wire [11:0]AD9361_P0_D;
+  wire [11:0]AD9361_P1_D;
+  wire AD9361_RX_CLK;
+  wire [11:0]AD9361_RX_DAT_I;
+  wire [11:0]AD9361_RX_DAT_Q;
+  wire AD9361_RX_FRAME;
+  wire AD9361_TX_CLK;
+  wire [11:0]AD9361_TX_DAT_I;
+  wire [11:0]AD9361_TX_DAT_Q;
+  wire clk200M;
+
+  assign AD9361_TX_FRAME = AD9361_RX_FRAME;
+  top_AD9361_1RT_FDD_0_0_AD9361_1RT_FDD inst
+       (.AD9361_DATACLK(AD9361_DATACLK),
+        .AD9361_FBCLK(AD9361_FBCLK),
+        .AD9361_P0_D(AD9361_P0_D),
+        .AD9361_P1_D(AD9361_P1_D),
+        .AD9361_RX_CLK(AD9361_RX_CLK),
+        .AD9361_RX_DAT_I(AD9361_RX_DAT_I),
+        .AD9361_RX_DAT_Q(AD9361_RX_DAT_Q),
+        .AD9361_TX_CLK(AD9361_TX_CLK),
+        .AD9361_TX_DAT_I(AD9361_TX_DAT_I),
+        .AD9361_TX_DAT_Q(AD9361_TX_DAT_Q),
+        .clk200M(clk200M));
 endmodule
 `ifndef GLBL
 `define GLBL

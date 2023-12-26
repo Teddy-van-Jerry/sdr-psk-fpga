@@ -1,24 +1,36 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"1.25",
-   "Default View_TopLeft":"-475,-102",
+   "Default View_ScaleFactor":"0.730488",
+   "Default View_TopLeft":"-476,-99",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
 #  -string -flagsOSRD
-preplace portBus DELAY_CNT -pg 1 -lvl 2 -x 240 -y 60 -defaultsOSRD
-preplace portBus MODE_CTRL -pg 1 -lvl 2 -x 240 -y 260 -defaultsOSRD
-preplace portBus FEEDBACK_SHIFT -pg 1 -lvl 2 -x 240 -y 160 -defaultsOSRD
-preplace portBus GARDNER_SHIFT -pg 1 -lvl 2 -x 240 -y 360 -defaultsOSRD
-preplace inst xlconstant_DELAY_CNT -pg 1 -lvl 1 -x 110 -y 60 -defaultsOSRD
-preplace inst xlconstant_FEEDBACK_SHIFT -pg 1 -lvl 1 -x 110 -y 160 -defaultsOSRD
-preplace inst xlconstant_MODE_CTRL -pg 1 -lvl 1 -x 110 -y 260 -defaultsOSRD
-preplace inst xlconstant_GARDNER_SHIFT -pg 1 -lvl 1 -x 110 -y 360 -defaultsOSRD
-preplace netloc DELAY_CNT_1 1 1 1 NJ 60
-preplace netloc xlconstant_MODE_CTRL_dout 1 1 1 NJ 260
-preplace netloc xlconstant_FEEDBACK_SHIFT_dout 1 1 1 N 160
-preplace netloc xlconstant_GARDNER_SHIFT_dout 1 1 1 N 360
-levelinfo -pg 1 0 110 240
-pagesize -pg 1 -db -bbox -sgen 0 0 430 420
+preplace portBus DELAY_CNT -pg 1 -lvl 2 -x 440 -y 60 -defaultsOSRD
+preplace portBus MODE_CTRL -pg 1 -lvl 2 -x 440 -y 260 -defaultsOSRD
+preplace portBus FEEDBACK_SHIFT -pg 1 -lvl 2 -x 440 -y 160 -defaultsOSRD
+preplace portBus GARDNER_SHIFT -pg 1 -lvl 2 -x 440 -y 360 -defaultsOSRD
+preplace portBus RX_SD_THRESHOLD -pg 1 -lvl 2 -x 440 -y 430 -defaultsOSRD
+preplace portBus RX_SD_WINDOW -pg 1 -lvl 2 -x 440 -y 530 -defaultsOSRD
+preplace portBus RX_PD_WINDOW -pg 1 -lvl 2 -x 440 -y 590 -defaultsOSRD
+preplace portBus RX_BD_WINDOW -pg 1 -lvl 2 -x 440 -y 660 -defaultsOSRD
+preplace inst xlconstant_DELAY_CNT -pg 1 -lvl 1 -x 110 -y -40 -defaultsOSRD
+preplace inst xlconstant_FEEDBACK_SHIFT -pg 1 -lvl 1 -x 110 -y 60 -defaultsOSRD
+preplace inst xlconstant_MODE_CTRL -pg 1 -lvl 1 -x 110 -y 160 -defaultsOSRD
+preplace inst xlconstant_GARDNER_SHIFT -pg 1 -lvl 1 -x 110 -y 260 -defaultsOSRD
+preplace inst xlconstant_RX_SD_THRESHOLD -pg 1 -lvl 1 -x 110 -y 360 -defaultsOSRD
+preplace inst xlconstant_RX_SD_WINDOW -pg 1 -lvl 1 -x 110 -y 460 -defaultsOSRD
+preplace inst xlconstant_RX_PD_WINDOW1 -pg 1 -lvl 1 -x 110 -y 560 -defaultsOSRD
+preplace inst xlconstant_RX_BD_WINDOW -pg 1 -lvl 1 -x 110 -y 660 -defaultsOSRD
+preplace netloc DELAY_CNT_1 1 1 1 260J -40n
+preplace netloc xlconstant_FEEDBACK_SHIFT_dout 1 1 1 250 60n
+preplace netloc xlconstant_GARDNER_SHIFT_dout 1 1 1 230 260n
+preplace netloc xlconstant_MODE_CTRL_dout 1 1 1 240J 160n
+preplace netloc xlconstant_RX_SD_THRESHOLD_dout 1 1 1 220 360n
+preplace netloc xlconstant_RX_SD_WINDOW_dout 1 1 1 240 460n
+preplace netloc xlconstant_RX_PD_WINDOW1_dout 1 1 1 240 560n
+preplace netloc xlconstant_RX_BD_WINDOW_dout 1 1 1 N 660
+levelinfo -pg 1 0 110 440
+pagesize -pg 1 -db -bbox -sgen 0 -100 650 720
 "
 }
 0

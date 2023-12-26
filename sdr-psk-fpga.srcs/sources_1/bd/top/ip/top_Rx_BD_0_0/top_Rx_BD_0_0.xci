@@ -2,7 +2,7 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "top_Rx_BD_0_0",
-    "cell_name": "Rx_BD_0",
+    "cell_name": "Rx/SPB_Detection/Rx_BD_0",
     "component_reference": "xilinx.com:module_ref:Rx_BD:1.0",
     "ip_revision": "1",
     "gen_directory": "../../../../../../sdr-psk-fpga.gen/sources_1/bd/top/ip/top_Rx_BD_0_0",

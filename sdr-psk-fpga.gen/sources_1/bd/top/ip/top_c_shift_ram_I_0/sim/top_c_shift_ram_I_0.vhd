@@ -117,7 +117,7 @@ BEGIN
       C_XDEVICEFAMILY => "zynq",
       C_VERBOSITY => 0,
       C_WIDTH => 16,
-      C_DEPTH => 1,
+      C_DEPTH => 2,
       C_ADDR_WIDTH => 4,
       C_SHIFT_TYPE => 0,
       C_OPT_GOAL => 0,

@@ -16,7 +16,7 @@ module Rx_SD # (
   output                        SD_flag
 );
   reg [MAX_WINDOW_WIDTH-1:0] cnt;
-  reg [WIDTH-1:0] I_abs, Q_abs;
+  wire [WIDTH-1:0] I_abs, Q_abs;
 
   Abs # (
     .WIDTH(WIDTH)

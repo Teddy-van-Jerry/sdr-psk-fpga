@@ -1,7 +1,7 @@
 //Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-//Date        : Thu Dec 21 08:46:39 2023
+//Date        : Tue Dec 26 14:10:07 2023
 //Host        : TVJ-PC running 64-bit major release  (build 9200)
 //Command     : generate_target top_wrapper.bd
 //Design      : top_wrapper
@@ -16,6 +16,8 @@ module top_wrapper
     AD9361_P1_D,
     AD9361_RX_FRAME,
     AD9361_TX_FRAME,
+    GPIO_TH1,
+    GPIO_TH2,
     PL_CLK_100MHz);
   input AD9361_DATACLK;
   output AD9361_FBCLK;
@@ -23,6 +25,8 @@ module top_wrapper
   output [11:0]AD9361_P1_D;
   input AD9361_RX_FRAME;
   output AD9361_TX_FRAME;
+  output GPIO_TH1;
+  output GPIO_TH2;
   input PL_CLK_100MHz;
 
   wire AD9361_DATACLK;
@@ -31,6 +35,8 @@ module top_wrapper
   wire [11:0]AD9361_P1_D;
   wire AD9361_RX_FRAME;
   wire AD9361_TX_FRAME;
+  wire GPIO_TH1;
+  wire GPIO_TH2;
   wire PL_CLK_100MHz;
 
   top top_i
@@ -40,5 +46,7 @@ module top_wrapper
         .AD9361_P1_D(AD9361_P1_D),
         .AD9361_RX_FRAME(AD9361_RX_FRAME),
         .AD9361_TX_FRAME(AD9361_TX_FRAME),
+        .GPIO_TH1(GPIO_TH1),
+        .GPIO_TH2(GPIO_TH2),
         .PL_CLK_100MHz(PL_CLK_100MHz));
 endmodule

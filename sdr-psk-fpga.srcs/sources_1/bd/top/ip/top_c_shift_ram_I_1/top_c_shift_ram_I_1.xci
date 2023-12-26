@@ -2,7 +2,7 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "top_c_shift_ram_I_1",
-    "cell_name": "c_shift_ram_is_bpsk",
+    "cell_name": "Rx/c_shift_ram_is_bpsk",
     "component_reference": "xilinx.com:ip:c_shift_ram:12.0",
     "ip_revision": "14",
     "gen_directory": "../../../../../../sdr-psk-fpga.gen/sources_1/bd/top/ip/top_c_shift_ram_I_1",

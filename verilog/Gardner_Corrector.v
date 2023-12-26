@@ -4,7 +4,7 @@
 // It takes the 32.768MHz input and outputs the 1.024MHz symbol.
 //
 // Author: Wuqiong Zhao (me@wqzhao.org)
-// Date: 2023/12/25
+// Date: 2023/12/26
 
 module Gardner_Corrector # (
   parameter WIDTH = 16
@@ -42,8 +42,8 @@ module Gardner_Corrector # (
       increment <= INCREMENT_INIT;
       cnt <= 0;
       state <= STATE_WAIT;
-      state_next <= STATE_WAIT;
-    end else begin
+    end
+    else begin
       state <= state_next;
       case (state)
         STATE_WAIT: begin
@@ -71,7 +71,12 @@ module Gardner_Corrector # (
   always @ (*) begin
     case (state)
       STATE_WAIT: begin
-        state_next <= (cnt >= increment) ? STATE_SAMPLE : STATE_WAIT;
+        if (cnt >= increment) begin
+          state_next <= STATE_SAMPLE;
+        end else begin
+          state_next <= STATE_WAIT;
+        end
+        // state_next <= (cnt >= increment) ? STATE_SAMPLE : STATE_WAIT;
       end
       STATE_SAMPLE: begin
         state_next <= STATE_AFTER_SAMPLE;

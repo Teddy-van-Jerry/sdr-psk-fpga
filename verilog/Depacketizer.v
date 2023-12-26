@@ -33,6 +33,8 @@ module Depacketizer # (
 
   always @ (*) begin
     BD_WAIT_CC <= 31 - RX_BD_WINDOW;
+    // temprary for testing
+    is_bpsk <= is_bpsk_in;
   end
 
   assign data_tuser = is_bpsk;

@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x5AEF006FFBBCCE10",
+      "boundary_crc": "0xC79F38B5CB09CFDF",
       "device": "xc7z020clg484-1",
       "gen_directory": "../../../../sdr-psk-fpga.gen/sources_1/bd/gardner_loop",
       "name": "gardner_loop",
@@ -223,6 +223,18 @@
         "type": "data",
         "direction": "I",
         "left": "3",
+        "right": "0",
+        "parameters": {
+          "LAYERED_METADATA": {
+            "value": "undef",
+            "value_src": "default"
+          }
+        }
+      },
+      "error_n": {
+        "type": "data",
+        "direction": "O",
+        "left": "15",
         "right": "0",
         "parameters": {
           "LAYERED_METADATA": {
@@ -1128,7 +1140,8 @@
       "Timing_Error_error_n": {
         "ports": [
           "Timing_Error/error_n",
-          "Gardner_Corrector_0/error_n"
+          "Gardner_Corrector_0/error_n",
+          "error_n"
         ]
       },
       "clk_32d768_1": {
