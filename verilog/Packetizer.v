@@ -13,6 +13,7 @@ module Packetizer # (
   parameter BYTES = 1 // at least 1 byte for AXIS interface
 ) (
   input                    clk, // slow clock (i.e. 1.024MHz)
+  (* X_INTERFACE_PAREMETER = "POLARITY ACTIVE_LOW" *)
   input                    rst_n,
   input              [3:0] MODE_CTRL,
   // payload length in bits (BPSK 1 bit per symbol, QPSK 2 bits per symbol)
@@ -96,8 +97,26 @@ module Packetizer # (
               // 32 * 8 + 8 + 16 + 13: out_tdata <= { BITS{payload_length[ 2]} };
               // 32 * 8 + 8 + 16 + 14: out_tdata <= { BITS{payload_length[ 1]} };
               // 32 * 8 + 8 + 16 + 15: out_tdata <= { BITS{payload_length[ 0]} };
-              // endcase
-              out_tdata <= { BITS{payload_length[4'd7 - hdr_cnt[3:0]]} };
+              // 
+              case (hdr_cnt[3:0])
+              4'd08: out_tdata <= { BITS{payload_length[15]} };
+              4'd09: out_tdata <= { BITS{payload_length[14]} };
+              4'd10: out_tdata <= { BITS{payload_length[13]} };
+              4'd11: out_tdata <= { BITS{payload_length[12]} };
+              4'd12: out_tdata <= { BITS{payload_length[11]} };
+              4'd13: out_tdata <= { BITS{payload_length[10]} };
+              4'd14: out_tdata <= { BITS{payload_length[ 9]} };
+              4'd15: out_tdata <= { BITS{payload_length[ 8]} };
+              4'd00: out_tdata <= { BITS{payload_length[ 7]} };
+              4'd01: out_tdata <= { BITS{payload_length[ 6]} };
+              4'd02: out_tdata <= { BITS{payload_length[ 5]} };
+              4'd03: out_tdata <= { BITS{payload_length[ 4]} };
+              4'd04: out_tdata <= { BITS{payload_length[ 3]} };
+              4'd05: out_tdata <= { BITS{payload_length[ 2]} };
+              4'd06: out_tdata <= { BITS{payload_length[ 1]} };
+              4'd07: out_tdata <= { BITS{payload_length[ 0]} };
+              endcase
+              // out_tdata <= { BITS{payload_length[4'd7 - hdr_cnt[3:0]]} };
             end
             else begin
               // 01010101....

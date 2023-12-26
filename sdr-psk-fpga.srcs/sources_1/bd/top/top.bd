@@ -7,8 +7,7 @@
       "name": "top",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
       "synth_flow_mode": "Hierarchical",
-      "tool_version": "2022.2",
-      "validated": "true"
+      "tool_version": "2022.2"
     },
     "design_tree": {
       "RF_Data_Converter": "",
@@ -52,7 +51,6 @@
         "Tx_Data_0": "",
         "Packetizer_0": ""
       },
-      "xlconstant_is_bpsk": "",
       "system_ila_0": "",
       "Const_Config": {
         "xlconstant_DELAY_CNT": "",
@@ -70,137 +68,54 @@
         "type": "clk",
         "direction": "I",
         "parameters": {
-          "CLK_DOMAIN": {
-            "value": "top_PL_CLK_100MHz",
-            "value_src": "default"
-          },
           "FREQ_HZ": {
             "value": "100000000"
-          },
-          "FREQ_TOLERANCE_HZ": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "INSERT_VIP": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "PHASE": {
-            "value": "0.0",
-            "value_src": "default"
           }
         }
       },
       "AD9361_TX_FRAME": {
         "type": "data",
-        "direction": "O",
-        "parameters": {
-          "LAYERED_METADATA": {
-            "value": "undef",
-            "value_src": "default"
-          }
-        }
+        "direction": "O"
       },
       "AD9361_P1_D": {
         "type": "data",
         "direction": "O",
         "left": "11",
-        "right": "0",
-        "parameters": {
-          "LAYERED_METADATA": {
-            "value": "undef",
-            "value_src": "default"
-          }
-        }
+        "right": "0"
       },
       "AD9361_FBCLK": {
         "type": "clk",
-        "direction": "O",
-        "parameters": {
-          "FREQ_HZ": {
-            "value": "100000000",
-            "value_src": "default"
-          },
-          "FREQ_TOLERANCE_HZ": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "INSERT_VIP": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "PHASE": {
-            "value": "0.0",
-            "value_src": "default"
-          }
-        }
+        "direction": "O"
       },
       "AD9361_P0_D": {
         "type": "data",
         "direction": "I",
         "left": "11",
-        "right": "0",
-        "parameters": {
-          "LAYERED_METADATA": {
-            "value": "undef",
-            "value_src": "default"
-          }
-        }
+        "right": "0"
       },
       "AD9361_DATACLK": {
         "type": "clk",
         "direction": "I",
         "parameters": {
-          "CLK_DOMAIN": {
-            "value": "top_AD9361_DATACLK",
-            "value_src": "default"
-          },
           "FREQ_HZ": {
             "value": "30720000"
-          },
-          "FREQ_TOLERANCE_HZ": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "INSERT_VIP": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "PHASE": {
-            "value": "0.0",
-            "value_src": "default"
           }
         }
       },
       "AD9361_RX_FRAME": {
         "type": "data",
-        "direction": "I",
-        "parameters": {
-          "LAYERED_METADATA": {
-            "value": "undef",
-            "value_src": "default"
-          }
-        }
+        "direction": "I"
       },
       "GPIO_TH1": {
         "type": "data",
-        "direction": "O",
-        "parameters": {
-          "LAYERED_METADATA": {
-            "value": "undef",
-            "value_src": "default"
-          }
-        }
+        "direction": "O"
       },
       "GPIO_TH2": {
         "type": "data",
-        "direction": "O",
-        "parameters": {
-          "LAYERED_METADATA": {
-            "value": "undef",
-            "value_src": "default"
-          }
-        }
+        "direction": "O"
+      },
+      "GPIO_TH3": {
+        "direction": "O"
       }
     },
     "components": {
@@ -344,16 +259,13 @@
             "type": "rst",
             "direction": "I"
           },
-          "BPSK": {
+          "BPSK_raw": {
             "direction": "O"
           },
-          "QPSK": {
+          "QPSK_raw": {
             "direction": "O",
             "left": "1",
             "right": "0"
-          },
-          "vld": {
-            "direction": "O"
           },
           "I_16M": {
             "direction": "O",
@@ -420,9 +332,6 @@
             "direction": "I",
             "left": "7",
             "right": "0"
-          },
-          "is_bpsk": {
-            "direction": "I"
           }
         },
         "components": {
@@ -459,19 +368,19 @@
                   },
                   "HAS_TKEEP": {
                     "value": "0",
-                    "value_src": "const_prop"
+                    "value_src": "default"
                   },
                   "HAS_TLAST": {
                     "value": "0",
-                    "value_src": "const_prop"
+                    "value_src": "default"
                   },
                   "HAS_TREADY": {
                     "value": "0",
-                    "value_src": "const_prop"
+                    "value_src": "default"
                   },
                   "HAS_TSTRB": {
                     "value": "0",
-                    "value_src": "const_prop"
+                    "value_src": "default"
                   },
                   "INSERT_VIP": {
                     "value": "0",
@@ -487,19 +396,19 @@
                   },
                   "TDATA_NUM_BYTES": {
                     "value": "2",
-                    "value_src": "auto_prop"
+                    "value_src": "default"
                   },
                   "TDEST_WIDTH": {
                     "value": "0",
-                    "value_src": "const_prop"
+                    "value_src": "default"
                   },
                   "TID_WIDTH": {
                     "value": "0",
-                    "value_src": "const_prop"
+                    "value_src": "default"
                   },
                   "TUSER_WIDTH": {
                     "value": "0",
-                    "value_src": "const_prop"
+                    "value_src": "default"
                   }
                 },
                 "port_maps": {
@@ -526,19 +435,19 @@
                   },
                   "HAS_TKEEP": {
                     "value": "0",
-                    "value_src": "const_prop"
+                    "value_src": "default"
                   },
                   "HAS_TLAST": {
                     "value": "0",
-                    "value_src": "const_prop"
+                    "value_src": "default"
                   },
                   "HAS_TREADY": {
                     "value": "0",
-                    "value_src": "const_prop"
+                    "value_src": "default"
                   },
                   "HAS_TSTRB": {
                     "value": "0",
-                    "value_src": "const_prop"
+                    "value_src": "default"
                   },
                   "INSERT_VIP": {
                     "value": "0",
@@ -554,19 +463,19 @@
                   },
                   "TDATA_NUM_BYTES": {
                     "value": "2",
-                    "value_src": "auto_prop"
+                    "value_src": "default"
                   },
                   "TDEST_WIDTH": {
                     "value": "0",
-                    "value_src": "const_prop"
+                    "value_src": "default"
                   },
                   "TID_WIDTH": {
                     "value": "0",
-                    "value_src": "const_prop"
+                    "value_src": "default"
                   },
                   "TUSER_WIDTH": {
                     "value": "0",
-                    "value_src": "const_prop"
+                    "value_src": "default"
                   }
                 },
                 "port_maps": {
@@ -586,62 +495,20 @@
             "ports": {
               "clk_16M384": {
                 "type": "clk",
-                "direction": "I",
-                "parameters": {
-                  "ASSOCIATED_RESET": {
-                    "value": "rst_16M386:rst_16M384",
-                    "value_src": "strong"
-                  },
-                  "CLK_DOMAIN": {
-                    "value": "costas_loop_aclk_0",
-                    "value_src": "strong"
-                  },
-                  "FREQ_HZ": {
-                    "value": "16384000",
-                    "value_src": "strong"
-                  },
-                  "FREQ_TOLERANCE_HZ": {
-                    "value": "0",
-                    "value_src": "strong"
-                  },
-                  "INSERT_VIP": {
-                    "value": "0",
-                    "value_src": "strong"
-                  },
-                  "PHASE": {
-                    "value": "0.0",
-                    "value_src": "strong"
-                  }
-                }
+                "direction": "I"
               },
               "PSK_signal": {
                 "type": "data",
                 "direction": "I",
                 "left": "11",
-                "right": "0",
-                "parameters": {
-                  "LAYERED_METADATA": {
-                    "value": "undef",
-                    "value_src": "strong"
-                  }
-                }
+                "right": "0"
               },
               "is_bpsk": {
                 "direction": "I"
               },
               "rst_16M384": {
                 "type": "rst",
-                "direction": "I",
-                "parameters": {
-                  "INSERT_VIP": {
-                    "value": "0",
-                    "value_src": "strong"
-                  },
-                  "POLARITY": {
-                    "value": "ACTIVE_HIGH",
-                    "value_src": "const_prop"
-                  }
-                }
+                "direction": "I"
               },
               "NCO_cos": {
                 "direction": "O",
@@ -657,13 +524,7 @@
                 "type": "data",
                 "direction": "I",
                 "left": "3",
-                "right": "0",
-                "parameters": {
-                  "LAYERED_METADATA": {
-                    "value": "undef",
-                    "value_src": "strong"
-                  }
-                }
+                "right": "0"
               }
             },
             "post_compiled_compname": "costas_loop_inst_0",
@@ -892,7 +753,7 @@
                   },
                   "FREQ_HZ": {
                     "value": "32768000",
-                    "value_src": "ip_prop"
+                    "value_src": "strong"
                   },
                   "HAS_TKEEP": {
                     "value": "0",
@@ -920,7 +781,7 @@
                   },
                   "PHASE": {
                     "value": "0.0",
-                    "value_src": "ip_prop"
+                    "value_src": "strong"
                   },
                   "TDATA_NUM_BYTES": {
                     "value": "2",
@@ -963,7 +824,7 @@
                   },
                   "FREQ_HZ": {
                     "value": "32768000",
-                    "value_src": "ip_prop"
+                    "value_src": "strong"
                   },
                   "HAS_TKEEP": {
                     "value": "0",
@@ -991,7 +852,7 @@
                   },
                   "PHASE": {
                     "value": "0.0",
-                    "value_src": "ip_prop"
+                    "value_src": "strong"
                   },
                   "TDATA_NUM_BYTES": {
                     "value": "2",
@@ -1027,52 +888,11 @@
             "ports": {
               "clk_32M768": {
                 "type": "clk",
-                "direction": "I",
-                "parameters": {
-                  "ASSOCIATED_BUSIF": {
-                    "value": "I:Q",
-                    "value_src": "strong"
-                  },
-                  "ASSOCIATED_RESET": {
-                    "value": "rst_32M768",
-                    "value_src": "strong"
-                  },
-                  "CLK_DOMAIN": {
-                    "value": "/Clock_Gen/clk_wiz_32M768_clk_out1",
-                    "value_src": "ip_prop"
-                  },
-                  "FREQ_HZ": {
-                    "value": "32768000",
-                    "value_src": "ip_prop"
-                  },
-                  "FREQ_TOLERANCE_HZ": {
-                    "value": "0",
-                    "value_src": "strong"
-                  },
-                  "INSERT_VIP": {
-                    "value": "0",
-                    "value_src": "strong"
-                  },
-                  "PHASE": {
-                    "value": "0.0",
-                    "value_src": "ip_prop"
-                  }
-                }
+                "direction": "I"
               },
               "is_bpsk": {
                 "type": "data",
-                "direction": "I",
-                "parameters": {
-                  "LAYERED_METADATA": {
-                    "value": [
-                      "xilinx.com:interface:datatypes:1.0 {",
-                      "DATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value data} bitwidth {attribs {resolve_type generated dependency data_bitwidth format long",
-                      "minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}} DATA_WIDTH 1",
-                      "}"
-                    ],
-                    "value_src": "ip_prop"
-                  }
-                }
+                "direction": "I"
               },
               "I_1M": {
                 "direction": "O",
@@ -1089,41 +909,19 @@
               },
               "rst_32M768": {
                 "type": "rst",
-                "direction": "I",
-                "parameters": {
-                  "INSERT_VIP": {
-                    "value": "0",
-                    "value_src": "strong"
-                  },
-                  "POLARITY": {
-                    "value": "ACTIVE_HIGH",
-                    "value_src": "const_prop"
-                  }
-                }
+                "direction": "I"
               },
               "GARDNER_SHIFT": {
                 "type": "data",
                 "direction": "I",
                 "left": "3",
-                "right": "0",
-                "parameters": {
-                  "LAYERED_METADATA": {
-                    "value": "undef",
-                    "value_src": "strong"
-                  }
-                }
+                "right": "0"
               },
               "error_n": {
                 "type": "data",
                 "direction": "O",
                 "left": "15",
-                "right": "0",
-                "parameters": {
-                  "LAYERED_METADATA": {
-                    "value": "undef",
-                    "value_src": "default"
-                  }
-                }
+                "right": "0"
               }
             },
             "post_compiled_compname": "gardner_loop_inst_0",
@@ -1749,9 +1547,6 @@
                 "left": "3",
                 "right": "0"
               },
-              "is_bpsk_in": {
-                "direction": "I"
-              },
               "SD_flag": {
                 "direction": "I"
               },
@@ -1852,21 +1647,15 @@
           "PSK_Detection_0_BPSK": {
             "ports": [
               "PSK_Detection_0/BPSK",
-              "BPSK",
+              "BPSK_raw",
               "SPB_Detection/BPSK"
             ]
           },
           "PSK_Detection_0_QPSK": {
             "ports": [
               "PSK_Detection_0/QPSK",
-              "QPSK",
+              "QPSK_raw",
               "Depacketizer_0/in_QPSK"
-            ]
-          },
-          "PSK_Detection_0_vld": {
-            "ports": [
-              "PSK_Detection_0/vld",
-              "vld"
             ]
           },
           "PSK_Signal_Extend_0_PSK_signal": {
@@ -2009,12 +1798,6 @@
               "PSK_Detection_0/clk",
               "SPB_Detection/clk",
               "Depacketizer_0/clk"
-            ]
-          },
-          "is_bpsk_1": {
-            "ports": [
-              "is_bpsk",
-              "Depacketizer_0/is_bpsk_in"
             ]
           },
           "rst_16M386_1": {
@@ -3442,17 +3225,6 @@
           }
         }
       },
-      "xlconstant_is_bpsk": {
-        "vlnv": "xilinx.com:ip:xlconstant:1.1",
-        "xci_name": "top_xlconstant_0_1",
-        "xci_path": "ip\\top_xlconstant_0_1\\top_xlconstant_0_1.xci",
-        "inst_hier_path": "xlconstant_is_bpsk",
-        "parameters": {
-          "CONST_VAL": {
-            "value": "1"
-          }
-        }
-      },
       "system_ila_0": {
         "vlnv": "xilinx.com:ip:system_ila:1.1",
         "xci_name": "top_system_ila_0_0",
@@ -3846,7 +3618,7 @@
       },
       "Rx_BPSK": {
         "ports": [
-          "Rx/BPSK",
+          "Rx/BPSK_raw",
           "system_ila_0/probe6"
         ]
       },
@@ -3870,7 +3642,7 @@
       },
       "Rx_QPSK": {
         "ports": [
-          "Rx/QPSK",
+          "Rx/QPSK_raw",
           "system_ila_0/probe7"
         ]
       },
@@ -3908,7 +3680,7 @@
         "ports": [
           "Clock_Gen/clk_2M048",
           "Tx/clk_2M048",
-          "GPIO_TH2"
+          "GPIO_TH3"
         ]
       },
       "clk_32M768_1": {
@@ -3929,12 +3701,6 @@
           "Clock_Gen/rst_16M384",
           "Rx/rst_16M384",
           "Tx/rst_16M384"
-        ]
-      },
-      "xlconstant_0_dout": {
-        "ports": [
-          "xlconstant_is_bpsk/dout",
-          "Rx/is_bpsk"
         ]
       },
       "xlconstant_MODE_CTRL_dout": {

@@ -2,7 +2,7 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "gardner_loop_inst_0_Gardner_Corrector_0_0",
-    "cell_name": "Rx/gardner_loop_0/Gardner_Corrector_0",
+    "cell_name": "Gardner_Corrector_0",
     "component_reference": "xilinx.com:module_ref:Gardner_Corrector:1.0",
     "ip_revision": "1",
     "gen_directory": ".",

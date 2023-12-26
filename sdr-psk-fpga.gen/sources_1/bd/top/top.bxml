@@ -2,57 +2,11 @@
 <Root MajorVersion="0" MinorVersion="40">
   <CompositeFile CompositeFileTopName="top" CanBeSetAsTop="false" CanDisplayChildGraph="true">
     <Description>Composite Fileset</Description>
-    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1703571013"/>
-    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1703571013"/>
-    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1703571013"/>
-    <Generation Name="HW_HANDOFF" State="GENERATED" Timestamp="1703571013"/>
-    <FileCollection Name="SOURCES" Type="SOURCES">
-      <File Name="synth\top.v" Type="Verilog">
-        <Properties IsEditable="false" IsVisible="true" IsNetlistSimulation="false" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
-        <Library Name="xil_defaultlib"/>
-        <UsedIn Val="SYNTHESIS"/>
-        <UsedIn Val="IMPLEMENTATION"/>
-        <ProcessingOrder Val="NORMAL"/>
-      </File>
-      <File Name="sim\top.v" Type="Verilog">
-        <Properties IsEditable="false" IsVisible="true" IsNetlistSimulation="false" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
-        <Library Name="xil_defaultlib"/>
-        <UsedIn Val="SIMULATION"/>
-        <ProcessingOrder Val="NORMAL"/>
-      </File>
-      <File Name="top_ooc.xdc" Type="XDC">
-        <Properties IsEditable="false" IsVisible="true" IsNetlistSimulation="false" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
-        <Library Name="xil_defaultlib"/>
-        <UsedIn Val="SYNTHESIS"/>
-        <UsedIn Val="IMPLEMENTATION"/>
-        <UsedIn Val="OUT_OF_CONTEXT"/>
-        <ProcessingOrder Val="NORMAL"/>
-      </File>
-      <File Name="hw_handoff\top.hwh" Type="HwHandoff">
-        <Properties IsEditable="false" IsVisible="true" IsNetlistSimulation="false" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
-        <Library Name="xil_defaultlib"/>
-        <UsedIn Val="HW_HANDOFF"/>
-        <ProcessingOrder Val="NORMAL"/>
-      </File>
-      <File Name="top.bda">
-        <Properties IsEditable="false" IsVisible="true" IsNetlistSimulation="false" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
-        <Library Name="xil_defaultlib"/>
-        <UsedIn Val="HW_HANDOFF"/>
-        <ProcessingOrder Val="NORMAL"/>
-      </File>
-      <File Name="synth\top.hwdef">
-        <Properties IsEditable="false" IsVisible="true" IsNetlistSimulation="false" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
-        <Library Name="xil_defaultlib"/>
-        <UsedIn Val="HW_HANDOFF"/>
-        <ProcessingOrder Val="NORMAL"/>
-      </File>
-      <File Name="sim\top.protoinst">
-        <Properties IsEditable="false" IsVisible="true" IsNetlistSimulation="false" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
-        <Library Name="xil_defaultlib"/>
-        <UsedIn Val="SIMULATION"/>
-        <ProcessingOrder Val="NORMAL"/>
-      </File>
-    </FileCollection>
+    <Generation Name="SYNTHESIS" State="RESET" Timestamp="1703613921"/>
+    <Generation Name="IMPLEMENTATION" State="RESET" Timestamp="1703613921"/>
+    <Generation Name="SIMULATION" State="RESET" Timestamp="1703613921"/>
+    <Generation Name="HW_HANDOFF" State="RESET" Timestamp="1703613921"/>
+    <FileCollection Name="SOURCES" Type="SOURCES"/>
     <BlockContainerCollection>
       <BlockContainer InstPath="/costas_loop_0" IsPR="false" State="Stale">
         <ActiveVariantSynth FileName="bd\costas_loop_inst_0\costas_loop_inst_0.bd"/>
@@ -61,14 +15,14 @@
           <BDFile BDFilePath="bd\costas_loop_inst_0\costas_loop_inst_0.bd" BDFileset="costas_loop_inst_0" BDSourceFile="..\..\..\..\sdr-psk-fpga.srcs\sources_1\bd\costas_loop\costas_loop.bd" BDSourceFileset="sources_1" BDVariantType="ALL"/>
         </VariantsCollection>
       </BlockContainer>
-      <BlockContainer InstPath="/Rx/costas_loop_0" IsPR="false" State="Generated">
+      <BlockContainer InstPath="/Rx/costas_loop_0" IsPR="false" State="Stale">
         <ActiveVariantSynth FileName="bd\costas_loop_inst_0\costas_loop_inst_0.bd"/>
         <ActiveVariantSim FileName="bd\costas_loop_inst_0\costas_loop_inst_0.bd"/>
         <VariantsCollection>
           <BDFile BDFilePath="bd\costas_loop_inst_0\costas_loop_inst_0.bd" BDFileset="costas_loop_inst_0" BDSourceFile="..\..\..\..\sdr-psk-fpga.srcs\sources_1\bd\costas_loop\costas_loop.bd" BDSourceFileset="sources_1" BDVariantType="ALL"/>
         </VariantsCollection>
       </BlockContainer>
-      <BlockContainer InstPath="/Rx/gardner_loop_0" IsPR="false" State="Generated">
+      <BlockContainer InstPath="/Rx/gardner_loop_0" IsPR="false" State="Stale">
         <ActiveVariantSynth FileName="bd\gardner_loop_inst_0\gardner_loop_inst_0.bd"/>
         <ActiveVariantSim FileName="bd\gardner_loop_inst_0\gardner_loop_inst_0.bd"/>
         <VariantsCollection>
