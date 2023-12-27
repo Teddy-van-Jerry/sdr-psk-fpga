@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="1,777.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="1,974.669 ns"></ZoomEndTime>
-      <Cursor1Time time="5,000.000 ns"></Cursor1Time>
+      <ZoomStartTime time="0.000000 us"></ZoomStartTime>
+      <ZoomEndTime time="45.000001 us"></ZoomEndTime>
+      <Cursor1Time time="45.000000 us"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="212"></NameColumnWidth>
-      <ValueColumnWidth column_width="83"></ValueColumnWidth>
+      <NameColumnWidth column_width="203"></NameColumnWidth>
+      <ValueColumnWidth column_width="72"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="40" />
+   <WVObjectSize size="58" />
    <wvobject fp_name="/tb_Tx/DAC_I" type="array">
       <obj_property name="ElementShortName">DAC_I[11:0]</obj_property>
       <obj_property name="ObjectShortName">DAC_I[11:0]</obj_property>
@@ -39,14 +39,93 @@
       <obj_property name="ObjectShortName">DAC_bits[1:0]</obj_property>
       <obj_property name="isExpanded"></obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_Tx/dut/PSK_Modulation/PSK_Mod_0/inst/cnt" type="array">
-      <obj_property name="ElementShortName">cnt[3:0]</obj_property>
-      <obj_property name="ObjectShortName">cnt[3:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
    <wvobject fp_name="/tb_Tx/DAC_vld" type="logic">
       <obj_property name="ElementShortName">DAC_vld</obj_property>
       <obj_property name="ObjectShortName">DAC_vld</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_Tx/dut/Packetizer_0/inst/state" type="array">
+      <obj_property name="ElementShortName">state[4:0]</obj_property>
+      <obj_property name="ObjectShortName">state[4:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_Tx/dut/Packetizer_0/pkt_sent" type="logic">
+      <obj_property name="ElementShortName">pkt_sent</obj_property>
+      <obj_property name="ObjectShortName">pkt_sent</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_Tx/dut/Packetizer_0/inst/hdr_cnt" type="array">
+      <obj_property name="ElementShortName">hdr_cnt[9:0]</obj_property>
+      <obj_property name="ObjectShortName">hdr_cnt[9:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_Tx/dut/Packetizer_0/inst/payload_cnt" type="array">
+      <obj_property name="ElementShortName">payload_cnt[15:0]</obj_property>
+      <obj_property name="ObjectShortName">payload_cnt[15:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_Tx/dut/Packetizer_0/in_tdata" type="array">
+      <obj_property name="ElementShortName">in_tdata[7:0]</obj_property>
+      <obj_property name="ObjectShortName">in_tdata[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_Tx/dut/Packetizer_0/in_tvalid" type="logic">
+      <obj_property name="ElementShortName">in_tvalid</obj_property>
+      <obj_property name="ObjectShortName">in_tvalid</obj_property>
+      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_Tx/dut/Packetizer_0/in_tready" type="logic">
+      <obj_property name="ElementShortName">in_tready</obj_property>
+      <obj_property name="ObjectShortName">in_tready</obj_property>
+      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_Tx/dut/Packetizer_0/in_tlast" type="logic">
+      <obj_property name="ElementShortName">in_tlast</obj_property>
+      <obj_property name="ObjectShortName">in_tlast</obj_property>
+      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_Tx/dut/Packetizer_0/in_tuser" type="logic">
+      <obj_property name="ElementShortName">in_tuser</obj_property>
+      <obj_property name="ObjectShortName">in_tuser</obj_property>
+      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_Tx/dut/Packetizer_0/out_tdata" type="array">
+      <obj_property name="ElementShortName">out_tdata[7:0]</obj_property>
+      <obj_property name="ObjectShortName">out_tdata[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_Tx/dut/Packetizer_0/out_tvalid" type="logic">
+      <obj_property name="ElementShortName">out_tvalid</obj_property>
+      <obj_property name="ObjectShortName">out_tvalid</obj_property>
+      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_Tx/dut/Packetizer_0/out_tready" type="logic">
+      <obj_property name="ElementShortName">out_tready</obj_property>
+      <obj_property name="ObjectShortName">out_tready</obj_property>
+      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_Tx/dut/Packetizer_0/out_tlast" type="logic">
+      <obj_property name="ElementShortName">out_tlast</obj_property>
+      <obj_property name="ObjectShortName">out_tlast</obj_property>
+      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_Tx/dut/Packetizer_0/out_tuser" type="logic">
+      <obj_property name="ElementShortName">out_tuser</obj_property>
+      <obj_property name="ObjectShortName">out_tuser</obj_property>
+      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_Tx/DELAY_CNT" type="array">
       <obj_property name="ElementShortName">DELAY_CNT[3:0]</obj_property>
@@ -96,10 +175,6 @@
       <obj_property name="ElementShortName">clk_2M048</obj_property>
       <obj_property name="ObjectShortName">clk_2M048</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_Tx/data_tready" type="logic">
-      <obj_property name="ElementShortName">data_tready</obj_property>
-      <obj_property name="ObjectShortName">data_tready</obj_property>
-   </wvobject>
    <wvobject fp_name="/tb_Tx/MODE_BPSK" type="array">
       <obj_property name="ElementShortName">MODE_BPSK[3:0]</obj_property>
       <obj_property name="ObjectShortName">MODE_BPSK[3:0]</obj_property>
@@ -141,8 +216,8 @@
       <obj_property name="ObjectShortName">s_axis_tuser[0:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_Tx/dut/PSK_Modulation/PSK_Mod_0/inst/data_tdata" type="array">
-      <obj_property name="ElementShortName">data_tdata[7:0]</obj_property>
-      <obj_property name="ObjectShortName">data_tdata[7:0]</obj_property>
+      <obj_property name="ElementShortName">data_tdata[1:0]</obj_property>
+      <obj_property name="ObjectShortName">data_tdata[1:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_Tx/dut/PSK_Modulation/PSK_Mod_0/inst/data_tvalid" type="logic">
       <obj_property name="ElementShortName">data_tvalid</obj_property>
@@ -195,5 +270,41 @@
    <wvobject fp_name="/tb_Tx/dut/PSK_Modulation/axis_data_fifo_0/m_axis_tuser" type="array">
       <obj_property name="ElementShortName">m_axis_tuser[0:0]</obj_property>
       <obj_property name="ObjectShortName">m_axis_tuser[0:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_Tx/dut/Tx_Data_0/pkt_sent" type="logic">
+      <obj_property name="ElementShortName">pkt_sent</obj_property>
+      <obj_property name="ObjectShortName">pkt_sent</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_Tx/dut/Tx_Data_0/data_tdata" type="array">
+      <obj_property name="ElementShortName">data_tdata[7:0]</obj_property>
+      <obj_property name="ObjectShortName">data_tdata[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_Tx/dut/Tx_Data_0/data_tvalid" type="logic">
+      <obj_property name="ElementShortName">data_tvalid</obj_property>
+      <obj_property name="ObjectShortName">data_tvalid</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_Tx/dut/Tx_Data_0/data_tready" type="logic">
+      <obj_property name="ElementShortName">data_tready</obj_property>
+      <obj_property name="ObjectShortName">data_tready</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_Tx/dut/Tx_Data_0/data_tlast" type="logic">
+      <obj_property name="ElementShortName">data_tlast</obj_property>
+      <obj_property name="ObjectShortName">data_tlast</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_Tx/dut/Tx_Data_0/data_tuser" type="logic">
+      <obj_property name="ElementShortName">data_tuser</obj_property>
+      <obj_property name="ObjectShortName">data_tuser</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
 </wave_config>

@@ -1,44 +1,44 @@
 {
    "ActiveEmotionalView":"Default View",
    "Default View_ScaleFactor":"1.25",
-   "Default View_TopLeft":"-228,-154",
+   "Default View_TopLeft":"-228,-34",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
 #  -string -flagsOSRD
-preplace port data -pg 1 -lvl 0 -x -20 -y 350 -defaultsOSRD
-preplace port port-id_clk_16M384 -pg 1 -lvl 0 -x -20 -y 410 -defaultsOSRD
-preplace port port-id_rst_16M384 -pg 1 -lvl 0 -x -20 -y 380 -defaultsOSRD
-preplace port port-id_clk_1M024 -pg 1 -lvl 0 -x -20 -y 470 -defaultsOSRD
-preplace port port-id_rst_n_1M024 -pg 1 -lvl 0 -x -20 -y 440 -defaultsOSRD
+preplace port data -pg 1 -lvl 0 -x -30 -y 350 -defaultsOSRD
+preplace port port-id_clk_16M384 -pg 1 -lvl 0 -x -30 -y 410 -defaultsOSRD
+preplace port port-id_rst_16M384 -pg 1 -lvl 0 -x -30 -y 380 -defaultsOSRD
+preplace port port-id_clk_1M024 -pg 1 -lvl 0 -x -30 -y 470 -defaultsOSRD
+preplace port port-id_rst_n_1M024 -pg 1 -lvl 0 -x -30 -y 440 -defaultsOSRD
 preplace port port-id_DAC_vld -pg 1 -lvl 4 -x 1010 -y 160 -defaultsOSRD
 preplace portBus DAC_I -pg 1 -lvl 4 -x 1010 -y 100 -defaultsOSRD
 preplace portBus DAC_Q -pg 1 -lvl 4 -x 1010 -y 130 -defaultsOSRD
 preplace portBus DAC_bits -pg 1 -lvl 4 -x 1010 -y 210 -defaultsOSRD
-preplace portBus DELAY_CNT -pg 1 -lvl 0 -x -20 -y 120 -defaultsOSRD
-preplace portBus TX_PHASE_CONFIG -pg 1 -lvl 0 -x -20 -y 210 -defaultsOSRD
+preplace portBus DELAY_CNT -pg 1 -lvl 0 -x -30 -y 120 -defaultsOSRD
+preplace portBus TX_PHASE_CONFIG -pg 1 -lvl 0 -x -30 -y 210 -defaultsOSRD
 preplace inst dds_compiler_carrier -pg 1 -lvl 1 -x 210 -y 220 -defaultsOSRD
 preplace inst NCO_cos_sin_0 -pg 1 -lvl 2 -x 530 -y 230 -defaultsOSRD
 preplace inst axis_data_fifo_0 -pg 1 -lvl 1 -x 210 -y 380 -defaultsOSRD
-preplace inst PSK_Mod_0 -pg 1 -lvl 3 -x 840 -y 170 -defaultsOSRD
 preplace inst xlconstant_one -pg 1 -lvl 1 -x 210 -y 60 -defaultsOSRD -orient R180
+preplace inst PSK_Mod_0 -pg 1 -lvl 3 -x 840 -y 170 -defaultsOSRD
 preplace netloc DELAY_CNT_1 1 0 3 NJ 120 NJ 120 670
-preplace netloc Div_clk32M768_0_clk16M384 1 0 3 30 130 380J 140 NJ
+preplace netloc Div_clk32M768_0_clk16M384 1 0 3 20 130 380J 140 NJ
 preplace netloc NCO_cos_sin_0_NCO_cos 1 2 1 660 180n
 preplace netloc NCO_cos_sin_0_NCO_sin 1 2 1 690 200n
 preplace netloc PSK_Mod_0_out_I 1 3 1 990J 100n
 preplace netloc PSK_Mod_0_out_Q 1 3 1 NJ 130
 preplace netloc PSK_Mod_0_out_bits 1 3 1 NJ 210
 preplace netloc PSK_Mod_0_out_vld 1 3 1 990J 150n
-preplace netloc proc_sys_reset_16M384_mb_reset 1 0 3 20J 470 NJ 470 680J
-preplace netloc s_axis_aclk_1 1 0 1 10 390n
-preplace netloc s_axis_aresetn_1 1 0 1 0 370n
-preplace netloc xlconstant_one_dout 1 0 1 40 60n
 preplace netloc TX_PHASE_CONFIG_1 1 0 1 N 210
+preplace netloc proc_sys_reset_16M384_mb_reset 1 0 3 10J 470 NJ 470 680J
+preplace netloc s_axis_aclk_1 1 0 1 0 390n
+preplace netloc s_axis_aresetn_1 1 0 1 -10 370n
+preplace netloc xlconstant_one_dout 1 0 1 30 60n
 preplace netloc axis_data_fifo_0_M_AXIS 1 1 2 390 130 690
 preplace netloc data_1 1 0 1 N 350
 preplace netloc dds_compiler_0_M_AXIS_DATA 1 1 1 NJ 220
-levelinfo -pg 1 -20 210 530 840 1010
-pagesize -pg 1 -db -bbox -sgen -230 0 1150 490
+levelinfo -pg 1 -30 210 530 840 1010
+pagesize -pg 1 -db -bbox -sgen -240 0 1150 490
 "
 }
 0

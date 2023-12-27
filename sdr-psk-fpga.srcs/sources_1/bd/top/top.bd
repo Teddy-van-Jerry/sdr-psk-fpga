@@ -52,12 +52,13 @@
           "dds_compiler_carrier": "",
           "NCO_cos_sin_0": "",
           "axis_data_fifo_0": "",
-          "PSK_Mod_0": "",
-          "xlconstant_one": ""
+          "xlconstant_one": "",
+          "PSK_Mod_0": ""
         },
+        "Bits_Flatten_0": "",
+        "axis_data_fifo_0": "",
         "Tx_Data_0": "",
-        "Packetizer_0": "",
-        "Bits_Flatten_0": ""
+        "Packetizer_0": ""
       },
       "system_ila_0": "",
       "Const_Config": {
@@ -345,13 +346,6 @@
         }
       },
       "Rx": {
-        "interface_ports": {
-          "data": {
-            "mode": "Monitor",
-            "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
-            "vlnv": "xilinx.com:interface:axis_rtl:1.0"
-          }
-        },
         "ports": {
           "clk_16M384": {
             "type": "clk",
@@ -463,6 +457,20 @@
             "direction": "I"
           },
           "Rx_1bit": {
+            "direction": "O"
+          },
+          "data_tdata": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "data_tlast": {
+            "direction": "O"
+          },
+          "data_tuser": {
+            "direction": "O"
+          },
+          "data_tvalid": {
             "direction": "O"
           }
         },
@@ -2003,8 +2011,7 @@
           "Depacketizer_0_data": {
             "interface_ports": [
               "Depacketizer_0/data",
-              "Flatten/data",
-              "data"
+              "Flatten/data"
             ]
           }
         },
@@ -2031,6 +2038,34 @@
             "ports": [
               "Depacketizer_0/QPSK",
               "QPSK"
+            ]
+          },
+          "Depacketizer_0_data_tdata": {
+            "ports": [
+              "Depacketizer_0/data_tdata",
+              "Flatten/data_tdata",
+              "data_tdata"
+            ]
+          },
+          "Depacketizer_0_data_tlast": {
+            "ports": [
+              "Depacketizer_0/data_tlast",
+              "Flatten/data_tlast",
+              "data_tlast"
+            ]
+          },
+          "Depacketizer_0_data_tuser": {
+            "ports": [
+              "Depacketizer_0/data_tuser",
+              "Flatten/data_tuser",
+              "data_tuser"
+            ]
+          },
+          "Depacketizer_0_data_tvalid": {
+            "ports": [
+              "Depacketizer_0/data_tvalid",
+              "Flatten/data_tvalid",
+              "data_tvalid"
             ]
           },
           "Depacketizer_0_disassert_BD": {
@@ -2727,13 +2762,6 @@
         }
       },
       "Tx": {
-        "interface_ports": {
-          "data": {
-            "mode": "Monitor",
-            "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
-            "vlnv": "xilinx.com:interface:axis_rtl:1.0"
-          }
-        },
         "ports": {
           "clk_16M384": {
             "type": "clk",
@@ -2790,6 +2818,20 @@
             "direction": "I",
             "left": "15",
             "right": "0"
+          },
+          "data_tdata": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "data_tlast": {
+            "direction": "O"
+          },
+          "data_tuser": {
+            "direction": "O"
+          },
+          "data_tvalid": {
+            "direction": "O"
           }
         },
         "components": {
@@ -3042,6 +3084,12 @@
                   }
                 }
               },
+              "xlconstant_one": {
+                "vlnv": "xilinx.com:ip:xlconstant:1.1",
+                "xci_name": "top_xlconstant_0_4",
+                "xci_path": "ip\\top_xlconstant_0_4\\top_xlconstant_0_4.xci",
+                "inst_hier_path": "Tx/PSK_Modulation/xlconstant_one"
+              },
               "PSK_Mod_0": {
                 "vlnv": "xilinx.com:module_ref:PSK_Mod:1.0",
                 "xci_name": "top_PSK_Mod_0_0",
@@ -3173,12 +3221,6 @@
                     "direction": "O"
                   }
                 }
-              },
-              "xlconstant_one": {
-                "vlnv": "xilinx.com:ip:xlconstant:1.1",
-                "xci_name": "top_xlconstant_0_4",
-                "xci_path": "ip\\top_xlconstant_0_4\\top_xlconstant_0_4.xci",
-                "inst_hier_path": "Tx/PSK_Modulation/xlconstant_one"
               }
             },
             "interface_nets": {
@@ -3284,6 +3326,42 @@
                 ]
               }
             }
+          },
+          "Bits_Flatten_0": {
+            "vlnv": "xilinx.com:module_ref:Bits_Flatten:1.0",
+            "xci_name": "top_Bits_Flatten_0_0",
+            "xci_path": "ip\\top_Bits_Flatten_0_0\\top_Bits_Flatten_0_0.xci",
+            "inst_hier_path": "Tx/Bits_Flatten_0",
+            "reference_info": {
+              "ref_type": "hdl",
+              "ref_name": "Bits_Flatten",
+              "boundary_crc": "0x0"
+            },
+            "ports": {
+              "bypass": {
+                "direction": "I"
+              },
+              "clk_in": {
+                "direction": "I"
+              },
+              "clk_out": {
+                "direction": "I"
+              },
+              "I": {
+                "direction": "I",
+                "left": "7",
+                "right": "0"
+              },
+              "O": {
+                "direction": "O"
+              }
+            }
+          },
+          "axis_data_fifo_0": {
+            "vlnv": "xilinx.com:ip:axis_data_fifo:2.0",
+            "xci_name": "top_axis_data_fifo_0_2",
+            "xci_path": "ip\\top_axis_data_fifo_0_2\\top_axis_data_fifo_0_2.xci",
+            "inst_hier_path": "Tx/axis_data_fifo_0"
           },
           "Tx_Data_0": {
             "vlnv": "xilinx.com:module_ref:Tx_Data:1.0",
@@ -3567,35 +3645,8 @@
               },
               "hdr_vld": {
                 "direction": "O"
-              }
-            }
-          },
-          "Bits_Flatten_0": {
-            "vlnv": "xilinx.com:module_ref:Bits_Flatten:1.0",
-            "xci_name": "top_Bits_Flatten_0_0",
-            "xci_path": "ip\\top_Bits_Flatten_0_0\\top_Bits_Flatten_0_0.xci",
-            "inst_hier_path": "Tx/Bits_Flatten_0",
-            "reference_info": {
-              "ref_type": "hdl",
-              "ref_name": "Bits_Flatten",
-              "boundary_crc": "0x0"
-            },
-            "ports": {
-              "bypass": {
-                "direction": "I"
               },
-              "clk_in": {
-                "direction": "I"
-              },
-              "clk_out": {
-                "direction": "I"
-              },
-              "I": {
-                "direction": "I",
-                "left": "7",
-                "right": "0"
-              },
-              "O": {
+              "pkt_sent": {
                 "direction": "O"
               }
             }
@@ -3604,9 +3655,14 @@
         "interface_nets": {
           "Tx_Data_0_data": {
             "interface_ports": [
-              "Packetizer_0/in",
               "Tx_Data_0/data",
-              "data"
+              "axis_data_fifo_0/S_AXIS"
+            ]
+          },
+          "axis_data_fifo_0_M_AXIS": {
+            "interface_ports": [
+              "axis_data_fifo_0/M_AXIS",
+              "Packetizer_0/in"
             ]
           },
           "data_1": {
@@ -3673,13 +3729,6 @@
               "Bits_Flatten_0/I"
             ]
           },
-          "Packetizer_0_out_tlast": {
-            "ports": [
-              "Packetizer_0/out_tlast",
-              "Tx_Data_0/pkt_sent",
-              "PSK_Modulation/data_tlast"
-            ]
-          },
           "Packetizer_0_out_tuser": {
             "ports": [
               "Packetizer_0/out_tuser",
@@ -3687,10 +3736,44 @@
               "Bits_Flatten_0/bypass"
             ]
           },
+          "Packetizer_0_pkt_sent": {
+            "ports": [
+              "Packetizer_0/pkt_sent",
+              "Tx_Data_0/pkt_sent"
+            ]
+          },
           "TX_PHASE_CONFIG_1": {
             "ports": [
               "TX_PHASE_CONFIG",
               "PSK_Modulation/TX_PHASE_CONFIG"
+            ]
+          },
+          "Tx_Data_0_data_tdata": {
+            "ports": [
+              "Tx_Data_0/data_tdata",
+              "data_tdata",
+              "axis_data_fifo_0/s_axis_tdata"
+            ]
+          },
+          "Tx_Data_0_data_tlast": {
+            "ports": [
+              "Tx_Data_0/data_tlast",
+              "data_tlast",
+              "axis_data_fifo_0/s_axis_tlast"
+            ]
+          },
+          "Tx_Data_0_data_tuser": {
+            "ports": [
+              "Tx_Data_0/data_tuser",
+              "data_tuser",
+              "axis_data_fifo_0/s_axis_tuser"
+            ]
+          },
+          "Tx_Data_0_data_tvalid": {
+            "ports": [
+              "Tx_Data_0/data_tvalid",
+              "data_tvalid",
+              "axis_data_fifo_0/s_axis_tvalid"
             ]
           },
           "Tx_Data_0_payload_length": {
@@ -3703,9 +3786,10 @@
             "ports": [
               "clk_1M024",
               "PSK_Modulation/clk_1M024",
+              "Bits_Flatten_0/clk_in",
+              "axis_data_fifo_0/s_axis_aclk",
               "Tx_Data_0/clk",
-              "Packetizer_0/clk",
-              "Bits_Flatten_0/clk_in"
+              "Packetizer_0/clk"
             ]
           },
           "clk_2M048_1": {
@@ -3724,6 +3808,7 @@
             "ports": [
               "rst_n_1M024",
               "PSK_Modulation/rst_n_1M024",
+              "axis_data_fifo_0/s_axis_aresetn",
               "Tx_Data_0/rst_n",
               "Packetizer_0/rst_n"
             ]

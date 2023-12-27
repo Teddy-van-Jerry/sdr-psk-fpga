@@ -2,7 +2,7 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "top_Packetizer_0_0",
-    "cell_name": "Tx/Packetizer_0",
+    "cell_name": "Packetizer_0",
     "component_reference": "xilinx.com:module_ref:Packetizer:1.0",
     "ip_revision": "1",
     "gen_directory": "../../../../../../sdr-psk-fpga.gen/sources_1/bd/top/ip/top_Packetizer_0_0",
@@ -56,7 +56,8 @@
         "out_tready": [ { "direction": "in", "driver_value": "1" } ],
         "out_tlast": [ { "direction": "out" } ],
         "out_tuser": [ { "direction": "out" } ],
-        "hdr_vld": [ { "direction": "out" } ]
+        "hdr_vld": [ { "direction": "out" } ],
+        "pkt_sent": [ { "direction": "out" } ]
       },
       "interfaces": {
         "in": {

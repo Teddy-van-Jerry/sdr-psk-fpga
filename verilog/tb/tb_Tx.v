@@ -28,7 +28,7 @@ module tb_Tx;
 
   // configuration parameters (constants)
   assign DELAY_CNT = 4'd0;
-  assign MODE_CTRL = MODE_BPSK;
+  assign MODE_CTRL = MODE_MIX;
   assign TX_PHASE_CONFIG = 16'd8192; // 8192 for 4.196 MHz
 
   // module instantiation
@@ -48,7 +48,6 @@ module tb_Tx;
     .Tx_1bit(Tx_1bit),
     .data_tdata(data_tdata),
     .data_tlast(data_tlast),
-    .data_tready(data_tready),
     .data_tuser(data_tuser),
     .data_tvalid(data_tvalid)
   );
@@ -72,7 +71,7 @@ module tb_Tx;
     #128
     rst_16M384 = 1'b0;
     rst_n_1M024 = 1'b1;
-    #8192 $finish;
+    // #8192 $finish;
   end
 
 endmodule

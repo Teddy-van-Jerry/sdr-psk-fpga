@@ -57,7 +57,7 @@ module Tx_Data # (
       end
       else begin // including MODE_CTRL == MODE_MIX
         data_tdata <= { {BITS-1{pn_5}}, mix_is_bpsk ? pn_5 : pn_4 };
-        if (cnt < payload_length) begin
+        if (cnt < payload_length) begin // <- TODO: make payload_length into payload_length_symbs
           data_tvalid <= 1'b1;
           data_tlast <= cnt + 1 == payload_length;
           data_tuser <= mix_is_bpsk;
@@ -67,7 +67,11 @@ module Tx_Data # (
           data_tvalid <= 1'b0;
           data_tlast <= 1'b0;
           data_tuser <= 1'b0;
-          if (pkt_sent) cnt <= 0; // restart only when the last packet has been sent
+          if (pkt_sent) begin
+            cnt <= 0; // restart only when the last packet has been sent
+            mix_is_bpsk <= ~mix_is_bpsk; // change modulation every packet
+          end
+          else ;
         end
       end
     end

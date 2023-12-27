@@ -1,20 +1,20 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"0.697363",
-   "Default View_TopLeft":"-174,-311",
+   "Default View_ScaleFactor":"0.694545",
+   "Default View_TopLeft":"-173,-158",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
 #  -string -flagsOSRD
 preplace port port-id_PL_CLK_100MHz -pg 1 -lvl 0 -x 0 -y 210 -defaultsOSRD
-preplace port port-id_AD9361_TX_FRAME -pg 1 -lvl 5 -x 2120 -y 140 -defaultsOSRD
-preplace port port-id_AD9361_FBCLK -pg 1 -lvl 5 -x 2120 -y 110 -defaultsOSRD
+preplace port port-id_AD9361_TX_FRAME -pg 1 -lvl 5 -x 2130 -y 140 -defaultsOSRD
+preplace port port-id_AD9361_FBCLK -pg 1 -lvl 5 -x 2130 -y 110 -defaultsOSRD
 preplace port port-id_AD9361_DATACLK -pg 1 -lvl 0 -x 0 -y 80 -defaultsOSRD
 preplace port port-id_AD9361_RX_FRAME -pg 1 -lvl 0 -x 0 -y 50 -defaultsOSRD
-preplace port port-id_GPIO_TH1 -pg 1 -lvl 5 -x 2120 -y 790 -defaultsOSRD
-preplace port port-id_GPIO_TH2 -pg 1 -lvl 5 -x 2120 -y 510 -defaultsOSRD
-preplace port port-id_GPIO_TH3 -pg 1 -lvl 5 -x 2120 -y 690 -defaultsOSRD
-preplace port port-id_GPIO_TH4 -pg 1 -lvl 5 -x 2120 -y 540 -defaultsOSRD
-preplace portBus AD9361_P1_D -pg 1 -lvl 5 -x 2120 -y 170 -defaultsOSRD
+preplace port port-id_GPIO_TH1 -pg 1 -lvl 5 -x 2130 -y 790 -defaultsOSRD
+preplace port port-id_GPIO_TH2 -pg 1 -lvl 5 -x 2130 -y 510 -defaultsOSRD
+preplace port port-id_GPIO_TH3 -pg 1 -lvl 5 -x 2130 -y 690 -defaultsOSRD
+preplace port port-id_GPIO_TH4 -pg 1 -lvl 5 -x 2130 -y 540 -defaultsOSRD
+preplace portBus AD9361_P1_D -pg 1 -lvl 5 -x 2130 -y 170 -defaultsOSRD
 preplace portBus AD9361_P0_D -pg 1 -lvl 0 -x 0 -y 20 -defaultsOSRD
 preplace inst RF_Data_Converter -pg 1 -lvl 3 -x 1170 -y 250 -defaultsOSRD
 preplace inst Rx -pg 1 -lvl 4 -x 1820 -y 360 -defaultsOSRD
@@ -23,57 +23,57 @@ preplace inst Tx -pg 1 -lvl 2 -x 600 -y 640 -defaultsOSRD
 preplace inst system_ila_0 -pg 1 -lvl 3 -x 1170 -y 660 -defaultsOSRD -orient R270
 preplace inst Const_Config -pg 1 -lvl 1 -x 160 -y 450 -defaultsOSRD
 preplace netloc AD9361_1RT_FDD_0_AD9361_FBCLK 1 3 2 1510J 110 NJ
-preplace netloc AD9361_1RT_FDD_0_AD9361_P1_D 1 3 2 1470J 150 2100J
-preplace netloc AD9361_1RT_FDD_0_AD9361_RX_CLK 1 2 2 870 400N 1490
+preplace netloc AD9361_1RT_FDD_0_AD9361_P1_D 1 3 2 1470J 160 1980J
+preplace netloc AD9361_1RT_FDD_0_AD9361_RX_CLK 1 2 2 800 400N 1490
 preplace netloc AD9361_1RT_FDD_0_AD9361_RX_DAT_I 1 3 1 1500 200n
 preplace netloc AD9361_1RT_FDD_0_AD9361_RX_DAT_Q 1 3 1 1480 220n
 preplace netloc AD9361_1RT_FDD_0_AD9361_TX_FRAME 1 3 2 1520J 140 NJ
-preplace netloc AD9361_DATACLK_1 1 0 3 NJ 80 NJ 80 820
-preplace netloc AD9361_P0_D_1 1 0 3 NJ 20 NJ 20 870
-preplace netloc AD9361_RX_FRAME_1 1 0 3 NJ 50 NJ 50 860
-preplace netloc Clock_Gen_clk1M024 1 1 3 360 780 N 780 1650
-preplace netloc Clock_Gen_interconnect_aresetn 1 1 1 380 220n
-preplace netloc Clock_Gen_rst_32M768 1 1 3 430 370 NJ 370 1560J
-preplace netloc Const_Config_RX_BD_WINDOW 1 1 3 410J 490 780J 740 1630J
-preplace netloc Const_Config_RX_PD_WINDOW 1 1 3 300 800 NJ 800 1640J
-preplace netloc Const_Config_RX_SD_THRESHOLD 1 1 3 340 90 770J 100 1640J
-preplace netloc DELAY_CNT_1 1 1 1 350 370n
-preplace netloc Div_clk32M768_0_clk16M384 1 1 3 440 110 NJ 110 1490J
-preplace netloc FEEDBACK_SHIFT_1 1 1 3 330 100 800J 90 1660J
-preplace netloc GARDNER_SHIFT_1 1 1 3 390 130 NJ 130 1610J
-preplace netloc PL_CLK_100MHz_1 1 0 1 N 210
-preplace netloc PSK_Mod_0_out_I 1 2 1 800 270n
-preplace netloc PSK_Mod_0_out_Q 1 2 1 820 290n
-preplace netloc RX_SD_WINDOW_1 1 1 3 370 480 790J 750 1620J
-preplace netloc Rx_BPSK 1 3 2 1590 610 1980
-preplace netloc Rx_I_16M 1 3 2 1470 630 2060
-preplace netloc Rx_I_1M 1 3 2 1510 620 2020
-preplace netloc Rx_NCO_cos 1 3 2 1570 560 1990
-preplace netloc Rx_QPSK 1 3 2 1520 640 2010
-preplace netloc Rx_QPSK_raw 1 3 2 1580 570 2030
-preplace netloc Rx_Q_16M 1 3 2 1530 580 2000
-preplace netloc Rx_Q_1M 1 3 2 1490 650 2040
-preplace netloc Rx_Rx_1bit 1 4 1 N 510
-preplace netloc Rx_clk_1M_out 1 3 2 1600 590 2100
-preplace netloc Rx_data_tdata 1 3 2 1540 660 2090
-preplace netloc Rx_data_tlast 1 3 2 1550 670 2080
-preplace netloc Rx_data_tuser 1 3 2 1560 680 2070
-preplace netloc Rx_data_tvalid 1 3 2 1610 600 2050
-preplace netloc Tx_DAC_bits 1 2 1 860 520n
-preplace netloc Tx_DAC_vld 1 2 1 840 510n
-preplace netloc Tx_Tx_1bit 1 2 3 770J 790 NJ 790 NJ
-preplace netloc Tx_data_tdata 1 2 1 810 550n
-preplace netloc Tx_data_tlast 1 2 1 830 560n
-preplace netloc Tx_data_tuser 1 2 1 850 570n
-preplace netloc Tx_data_tvalid 1 2 1 870 580n
-preplace netloc clk_2M048_1 1 1 4 320 790 760J 760 1660J 690 N
-preplace netloc clk_32M768_1 1 1 3 410 380 770J 390N 1600J
-preplace netloc clk_wiz_128M_clk_200M 1 1 2 NJ 140 800J
-preplace netloc proc_sys_reset_16M384_mb_reset 1 1 3 420 390 780J 380 1530J
-preplace netloc xlconstant_MODE_CTRL_dout 1 1 3 400 120 NJ 120 1650J
+preplace netloc AD9361_DATACLK_1 1 0 3 NJ 80 NJ 80 780
+preplace netloc AD9361_P0_D_1 1 0 3 NJ 20 NJ 20 800
+preplace netloc AD9361_RX_FRAME_1 1 0 3 NJ 50 NJ 50 790
+preplace netloc Clock_Gen_clk1M024 1 1 3 350 780 770 770 1640
+preplace netloc Clock_Gen_interconnect_aresetn 1 1 1 370 220n
+preplace netloc Clock_Gen_rst_32M768 1 1 3 420 370 NJ 370 1570J
+preplace netloc Const_Config_RX_BD_WINDOW 1 1 3 300J 790 NJ 790 1630J
+preplace netloc Const_Config_RX_PD_WINDOW 1 1 3 360 500 800J 740 1620J
+preplace netloc Const_Config_RX_SD_THRESHOLD 1 1 3 360 90 760J 100 1640J
 preplace netloc Const_Config_TX_PHASE_CONFIG 1 1 1 310 530n
-levelinfo -pg 1 0 160 600 1170 1820 2120
-pagesize -pg 1 -db -bbox -sgen -180 0 2300 810
+preplace netloc DELAY_CNT_1 1 1 1 340 370n
+preplace netloc Div_clk32M768_0_clk16M384 1 1 3 430 110 NJ 110 1490J
+preplace netloc FEEDBACK_SHIFT_1 1 1 3 330 100 770J 90 1650J
+preplace netloc GARDNER_SHIFT_1 1 1 3 380 120 NJ 120 1620J
+preplace netloc PL_CLK_100MHz_1 1 0 1 N 210
+preplace netloc PSK_Mod_0_out_I 1 2 1 760 270n
+preplace netloc PSK_Mod_0_out_Q 1 2 1 790 290n
+preplace netloc RX_SD_WINDOW_1 1 1 3 400 490 810J 750 1610J
+preplace netloc Rx_BPSK 1 3 2 1600 550 1980
+preplace netloc Rx_I_16M 1 3 2 N 570 2060
+preplace netloc Rx_I_1M 1 3 2 1580 560 1990
+preplace netloc Rx_NCO_cos 1 3 2 1490 610 2070
+preplace netloc Rx_QPSK 1 3 2 1590 590 2000
+preplace netloc Rx_QPSK_raw 1 3 2 1510 580 2080
+preplace netloc Rx_Q_16M 1 3 2 1470 620 2090
+preplace netloc Rx_Q_1M 1 3 2 1520 600 2050
+preplace netloc Rx_Rx_1bit 1 4 1 2110 420n
+preplace netloc Rx_clk_1M_out 1 3 2 1530 630 2100
+preplace netloc Rx_data_tdata 1 3 2 1540 640 2040
+preplace netloc Rx_data_tlast 1 3 2 1550 650 2030
+preplace netloc Rx_data_tuser 1 3 2 1560 660 2020
+preplace netloc Rx_data_tvalid 1 3 2 1570 670 2010
+preplace netloc Tx_DAC_bits 1 2 1 830 520n
+preplace netloc Tx_DAC_vld 1 2 1 820 510n
+preplace netloc Tx_Tx_1bit 1 2 3 780J 780 NJ 780 2050J
+preplace netloc Tx_data_tdata 1 2 1 840 550n
+preplace netloc Tx_data_tlast 1 2 1 850 560n
+preplace netloc Tx_data_tuser 1 2 1 860 570n
+preplace netloc Tx_data_tvalid 1 2 1 870 580n
+preplace netloc clk_2M048_1 1 1 4 320 770 760J 760 1650J 690 N
+preplace netloc clk_32M768_1 1 1 3 400 380 770J 390N 1610J
+preplace netloc clk_wiz_128M_clk_200M 1 1 2 NJ 140 770J
+preplace netloc proc_sys_reset_16M384_mb_reset 1 1 3 410 390 780J 380 1560J
+preplace netloc xlconstant_MODE_CTRL_dout 1 1 3 390 130 NJ 130 1630J
+levelinfo -pg 1 0 160 600 1170 1820 2130
+pagesize -pg 1 -db -bbox -sgen -180 0 2310 810
 "
 }
 0

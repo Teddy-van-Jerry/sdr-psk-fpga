@@ -1,7 +1,7 @@
 //Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-//Date        : Thu Dec 28 00:14:23 2023
+//Date        : Thu Dec 28 03:56:04 2023
 //Host        : TVJ-PC running 64-bit major release  (build 9200)
 //Command     : generate_target top.bd
 //Design      : top
@@ -408,7 +408,6 @@ module Rx_imp_KSVDXC
     clk_32M768,
     data_tdata,
     data_tlast,
-    data_tready,
     data_tuser,
     data_tvalid,
     rst_16M384,
@@ -437,9 +436,8 @@ module Rx_imp_KSVDXC
   output clk_1M_out;
   input clk_2M048;
   input clk_32M768;
-  output data_tdata;
+  output [7:0]data_tdata;
   output data_tlast;
-  output data_tready;
   output data_tuser;
   output data_tvalid;
   input rst_16M384;
@@ -449,11 +447,11 @@ module Rx_imp_KSVDXC
   wire [11:0]AD9361_1RT_FDD_0_AD9361_RX_DAT_Q;
   wire Depacketizer_0_BPSK;
   wire [1:0]Depacketizer_0_QPSK;
-  wire [7:0]Depacketizer_0_data_TDATA;
-  wire Depacketizer_0_data_TLAST;
   wire Depacketizer_0_data_TREADY;
-  wire Depacketizer_0_data_TUSER;
-  wire Depacketizer_0_data_TVALID;
+  wire [7:0]Depacketizer_0_data_tdata;
+  wire Depacketizer_0_data_tlast;
+  wire Depacketizer_0_data_tuser;
+  wire Depacketizer_0_data_tvalid;
   wire Depacketizer_0_disassert_BD;
   wire Depacketizer_0_disassert_PD;
   wire Depacketizer_0_is_bpsk;
@@ -516,11 +514,10 @@ module Rx_imp_KSVDXC
   assign clk_1M_out = gardner_loop_0_clk_out;
   assign clk_2M048_1 = clk_2M048;
   assign clk_32M768_1 = clk_32M768;
-  assign data_tdata = Depacketizer_0_data_TDATA[0];
-  assign data_tlast = Depacketizer_0_data_TLAST;
-  assign data_tready = Depacketizer_0_data_TREADY;
-  assign data_tuser = Depacketizer_0_data_TUSER;
-  assign data_tvalid = Depacketizer_0_data_TVALID;
+  assign data_tdata[7:0] = Depacketizer_0_data_tdata;
+  assign data_tlast = Depacketizer_0_data_tlast;
+  assign data_tuser = Depacketizer_0_data_tuser;
+  assign data_tvalid = Depacketizer_0_data_tvalid;
   assign rst_16M386_1 = rst_16M384;
   assign rst_32M768_1 = rst_32M768;
   top_Depacketizer_0_0 Depacketizer_0
@@ -533,11 +530,11 @@ module Rx_imp_KSVDXC
         .RX_BD_WINDOW(RX_BD_WINDOW_1),
         .SD_flag(SPB_Detection_SD_flag),
         .clk(gardner_loop_0_clk_out),
-        .data_tdata(Depacketizer_0_data_TDATA),
-        .data_tlast(Depacketizer_0_data_TLAST),
+        .data_tdata(Depacketizer_0_data_tdata),
+        .data_tlast(Depacketizer_0_data_tlast),
         .data_tready(Depacketizer_0_data_TREADY),
-        .data_tuser(Depacketizer_0_data_TUSER),
-        .data_tvalid(Depacketizer_0_data_TVALID),
+        .data_tuser(Depacketizer_0_data_tuser),
+        .data_tvalid(Depacketizer_0_data_tvalid),
         .disassert_BD(Depacketizer_0_disassert_BD),
         .disassert_PD(Depacketizer_0_disassert_PD),
         .in_QPSK(PSK_Detection_0_QPSK),
@@ -548,11 +545,11 @@ module Rx_imp_KSVDXC
         .clk_1M024(clk_1M024_1),
         .clk_2M048(clk_2M048_1),
         .clk_out(gardner_loop_0_clk_out),
-        .data_tdata(Depacketizer_0_data_TDATA),
-        .data_tlast(Depacketizer_0_data_TLAST),
+        .data_tdata(Depacketizer_0_data_tdata),
+        .data_tlast(Depacketizer_0_data_tlast),
         .data_tready(Depacketizer_0_data_TREADY),
-        .data_tuser(Depacketizer_0_data_TUSER),
-        .data_tvalid(Depacketizer_0_data_TVALID),
+        .data_tuser(Depacketizer_0_data_tuser),
+        .data_tvalid(Depacketizer_0_data_tvalid),
         .rst_32M768(rst_32M768_1));
   top_PSK_Detection_0_0 PSK_Detection_0
        (.BPSK(PSK_Detection_0_BPSK),
@@ -735,7 +732,6 @@ module Tx_imp_1IUYQQO
     clk_2M048,
     data_tdata,
     data_tlast,
-    data_tready,
     data_tuser,
     data_tvalid,
     rst_16M384,
@@ -751,9 +747,8 @@ module Tx_imp_1IUYQQO
   input clk_16M384;
   input clk_1M024;
   input clk_2M048;
-  output data_tdata;
+  output [7:0]data_tdata;
   output data_tlast;
-  output data_tready;
   output data_tuser;
   output data_tvalid;
   input rst_16M384;
@@ -768,17 +763,23 @@ module Tx_imp_1IUYQQO
   wire [1:0]PSK_Modulation_out_bits;
   wire PSK_Modulation_out_vld;
   wire [7:0]Packetizer_0_out_tdata;
-  wire Packetizer_0_out_tlast;
   wire Packetizer_0_out_tuser;
+  wire Packetizer_0_pkt_sent;
   wire [15:0]TX_PHASE_CONFIG_1;
-  wire [7:0]Tx_Data_0_data_TDATA;
-  wire Tx_Data_0_data_TLAST;
   wire Tx_Data_0_data_TREADY;
-  wire Tx_Data_0_data_TUSER;
-  wire Tx_Data_0_data_TVALID;
+  wire [7:0]Tx_Data_0_data_tdata;
+  wire Tx_Data_0_data_tlast;
+  wire Tx_Data_0_data_tuser;
+  wire Tx_Data_0_data_tvalid;
   wire [15:0]Tx_Data_0_payload_length;
+  wire [7:0]axis_data_fifo_0_M_AXIS_TDATA;
+  wire axis_data_fifo_0_M_AXIS_TLAST;
+  wire axis_data_fifo_0_M_AXIS_TREADY;
+  wire [0:0]axis_data_fifo_0_M_AXIS_TUSER;
+  wire axis_data_fifo_0_M_AXIS_TVALID;
   wire clk_1M024;
   wire clk_2M048_1;
+  wire data_1_TLAST;
   wire data_1_TREADY;
   wire data_1_TVALID;
   wire proc_sys_reset_16M384_mb_reset;
@@ -794,11 +795,10 @@ module Tx_imp_1IUYQQO
   assign TX_PHASE_CONFIG_1 = TX_PHASE_CONFIG[15:0];
   assign Tx_1bit = Bits_Flatten_0_out;
   assign clk_2M048_1 = clk_2M048;
-  assign data_tdata = Tx_Data_0_data_TDATA[0];
-  assign data_tlast = Tx_Data_0_data_TLAST;
-  assign data_tready = Tx_Data_0_data_TREADY;
-  assign data_tuser = Tx_Data_0_data_TUSER;
-  assign data_tvalid = Tx_Data_0_data_TVALID;
+  assign data_tdata[7:0] = Tx_Data_0_data_tdata;
+  assign data_tlast = Tx_Data_0_data_tlast;
+  assign data_tuser = Tx_Data_0_data_tuser;
+  assign data_tvalid = Tx_Data_0_data_tvalid;
   assign proc_sys_reset_16M384_mb_reset = rst_16M384;
   assign s_axis_aresetn_1 = rst_n_1M024[0];
   top_Bits_Flatten_0_0 Bits_Flatten_0
@@ -817,7 +817,7 @@ module Tx_imp_1IUYQQO
         .clk_16M384(Div_clk32M768_0_clk16M384),
         .clk_1M024(clk_1M024),
         .data_tdata(Packetizer_0_out_tdata),
-        .data_tlast(Packetizer_0_out_tlast),
+        .data_tlast(data_1_TLAST),
         .data_tready(data_1_TREADY),
         .data_tuser(Packetizer_0_out_tuser),
         .data_tvalid(data_1_TVALID),
@@ -826,32 +826,46 @@ module Tx_imp_1IUYQQO
   top_Packetizer_0_0 Packetizer_0
        (.MODE_CTRL(MODE_CTRL_1),
         .clk(clk_1M024),
-        .in_tdata(Tx_Data_0_data_TDATA),
-        .in_tlast(Tx_Data_0_data_TLAST),
-        .in_tready(Tx_Data_0_data_TREADY),
-        .in_tuser(Tx_Data_0_data_TUSER),
-        .in_tvalid(Tx_Data_0_data_TVALID),
+        .in_tdata(axis_data_fifo_0_M_AXIS_TDATA),
+        .in_tlast(axis_data_fifo_0_M_AXIS_TLAST),
+        .in_tready(axis_data_fifo_0_M_AXIS_TREADY),
+        .in_tuser(axis_data_fifo_0_M_AXIS_TUSER),
+        .in_tvalid(axis_data_fifo_0_M_AXIS_TVALID),
         .out_tdata(Packetizer_0_out_tdata),
-        .out_tlast(Packetizer_0_out_tlast),
+        .out_tlast(data_1_TLAST),
         .out_tready(data_1_TREADY),
         .out_tuser(Packetizer_0_out_tuser),
         .out_tvalid(data_1_TVALID),
         .payload_length(Tx_Data_0_payload_length),
+        .pkt_sent(Packetizer_0_pkt_sent),
         .rst_n(s_axis_aresetn_1));
   top_Tx_Data_0_0 Tx_Data_0
        (.MODE_CTRL(MODE_CTRL_1),
         .clk(clk_1M024),
-        .data_tdata(Tx_Data_0_data_TDATA),
-        .data_tlast(Tx_Data_0_data_TLAST),
+        .data_tdata(Tx_Data_0_data_tdata),
+        .data_tlast(Tx_Data_0_data_tlast),
         .data_tready(Tx_Data_0_data_TREADY),
-        .data_tuser(Tx_Data_0_data_TUSER),
-        .data_tvalid(Tx_Data_0_data_TVALID),
+        .data_tuser(Tx_Data_0_data_tuser),
+        .data_tvalid(Tx_Data_0_data_tvalid),
         .payload_length(Tx_Data_0_payload_length),
-        .pkt_sent(Packetizer_0_out_tlast),
+        .pkt_sent(Packetizer_0_pkt_sent),
         .rst_n(s_axis_aresetn_1));
+  top_axis_data_fifo_0_2 axis_data_fifo_0
+       (.m_axis_tdata(axis_data_fifo_0_M_AXIS_TDATA),
+        .m_axis_tlast(axis_data_fifo_0_M_AXIS_TLAST),
+        .m_axis_tready(axis_data_fifo_0_M_AXIS_TREADY),
+        .m_axis_tuser(axis_data_fifo_0_M_AXIS_TUSER),
+        .m_axis_tvalid(axis_data_fifo_0_M_AXIS_TVALID),
+        .s_axis_aclk(clk_1M024),
+        .s_axis_aresetn(s_axis_aresetn_1),
+        .s_axis_tdata(Tx_Data_0_data_tdata),
+        .s_axis_tlast(Tx_Data_0_data_tlast),
+        .s_axis_tready(Tx_Data_0_data_TREADY),
+        .s_axis_tuser(Tx_Data_0_data_tuser),
+        .s_axis_tvalid(Tx_Data_0_data_tvalid));
 endmodule
 
-(* CORE_GENERATION_INFO = "top,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=top,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=83,numReposBlks=67,numNonXlnxBlks=0,numHierBlks=16,maxHierDepth=3,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=24,numPkgbdBlks=2,bdsource=USER,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "top.hwdef" *) 
+(* CORE_GENERATION_INFO = "top,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=top,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=84,numReposBlks=68,numNonXlnxBlks=0,numHierBlks=16,maxHierDepth=3,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=24,numPkgbdBlks=2,bdsource=USER,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "top.hwdef" *) 
 module top
    (AD9361_DATACLK,
     AD9361_FBCLK,
@@ -910,14 +924,14 @@ module top
   wire [15:0]Rx_Q_1M;
   wire Rx_Rx_1bit;
   wire Rx_clk_1M_out;
-  wire Rx_data_tdata;
+  wire [7:0]Rx_data_tdata;
   wire Rx_data_tlast;
   wire Rx_data_tuser;
   wire Rx_data_tvalid;
   wire [1:0]Tx_DAC_bits;
   wire Tx_DAC_vld;
   wire Tx_Tx_1bit;
-  wire Tx_data_tdata;
+  wire [7:0]Tx_data_tdata;
   wire Tx_data_tlast;
   wire Tx_data_tuser;
   wire Tx_data_tvalid;
@@ -1029,11 +1043,11 @@ module top
         .probe12(Rx_QPSK),
         .probe13(Rx_BPSK),
         .probe14(Rx_clk_1M_out),
-        .probe15({Tx_data_tdata,Tx_data_tdata,Tx_data_tdata,Tx_data_tdata,Tx_data_tdata,Tx_data_tdata,Tx_data_tdata,Tx_data_tdata}),
+        .probe15(Tx_data_tdata),
         .probe16(Tx_data_tlast),
         .probe17(Tx_data_tuser),
         .probe18(Tx_data_tvalid),
-        .probe19({Rx_data_tdata,Rx_data_tdata,Rx_data_tdata,Rx_data_tdata,Rx_data_tdata,Rx_data_tdata,Rx_data_tdata,Rx_data_tdata}),
+        .probe19(Rx_data_tdata),
         .probe2(PSK_Mod_0_out_I),
         .probe20(Rx_data_tlast),
         .probe21(Rx_data_tuser),

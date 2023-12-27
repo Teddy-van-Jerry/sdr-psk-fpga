@@ -492,7 +492,7 @@
             "xci_path": "ip\\gardner_loop_inst_0_Gardner_IQ_Pre_0_0\\gardner_loop_inst_0_Gardner_IQ_Pre_0_0.xci",
             "inst_hier_path": "Interpolation/Gardner_IQ_Pre_0",
             "reference_info": {
-              "ref_type": "unknown",
+              "ref_type": "hdl",
               "ref_name": "Gardner_IQ_Pre",
               "boundary_crc": "0x0"
             },
@@ -879,7 +879,7 @@
             "xci_path": "ip\\gardner_loop_inst_0_Gardner_Timing_Error_0_0\\gardner_loop_inst_0_Gardner_Timing_Error_0_0.xci",
             "inst_hier_path": "Timing_Error/Gardner_Timing_Error_0",
             "reference_info": {
-              "ref_type": "unknown",
+              "ref_type": "hdl",
               "ref_name": "Gardner_Timing_Error",
               "boundary_crc": "0x0"
             },
@@ -1087,7 +1087,7 @@
         "xci_path": "ip\\gardner_loop_inst_0_Gardner_Corrector_0_0\\gardner_loop_inst_0_Gardner_Corrector_0_0.xci",
         "inst_hier_path": "Gardner_Corrector_0",
         "reference_info": {
-          "ref_type": "unknown",
+          "ref_type": "hdl",
           "ref_name": "Gardner_Corrector",
           "boundary_crc": "0x0"
         },

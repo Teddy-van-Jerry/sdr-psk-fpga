@@ -15,11 +15,12 @@ add_files -fileset $sim_fileset_name -norecurse \
     [glob sdr-psk-fpga.gen/sources_1/bd/top/sim/*.v] \
     [glob sdr-psk-fpga.gen/sources_1/bd/top/ip/top_*/*_sim_netlist.v] \
     [glob sdr-psk-fpga.gen/sources_1/bd/top/ip/top_*/sim/*.v] \
-    [glob sdr-psk-fpga.gen/sources_1/bd/top/ipshared/*/hdl/*.v] \
     [glob sdr-psk-fpga.gen/sources_1/bd/top/bd/costas_loop_inst_0/sim/*.v] \
     [glob sdr-psk-fpga.gen/sources_1/bd/top/bd/costas_loop_inst_0/ip/costas_loop_inst_0_*/*_sim_netlist.v] \
     [glob sdr-psk-fpga.gen/sources_1/bd/top/bd/costas_loop_inst_0/ip/costas_loop_inst_0_*/sim/*.v] \
-    [glob sdr-psk-fpga.gen/sources_1/bd/top/bd/costas_loop_inst_0/ipshared/*/hdl/*.v] \
+    [glob sdr-psk-fpga.gen/sources_1/bd/top/bd/gardner_loop_inst_0/sim/*.v] \
+    [glob sdr-psk-fpga.gen/sources_1/bd/top/bd/gardner_loop_inst_0/ip/gardner_loop_inst_0_*/*_sim_netlist.v] \
+    [glob sdr-psk-fpga.gen/sources_1/bd/top/bd/gardner_loop_inst_0/ip/gardner_loop_inst_0_*/sim/*.v] \
     waveforms/$sim_wave_cfg \
   ]
 # set simulation top

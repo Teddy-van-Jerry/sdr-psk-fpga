@@ -1,92 +1,99 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"0.660393",
-   "Default View_TopLeft":"-280,-165",
+   "Default View_ScaleFactor":"1.07281",
+   "Default View_TopLeft":"1445,240",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
 #  -string -flagsOSRD
-preplace port data -pg 1 -lvl 6 -x 1970 -y 490 -defaultsOSRD
-preplace port port-id_clk_16M384 -pg 1 -lvl 0 -x -70 -y 180 -defaultsOSRD
-preplace port port-id_rst_16M384 -pg 1 -lvl 0 -x -70 -y 440 -defaultsOSRD
-preplace port port-id_BPSK_raw -pg 1 -lvl 6 -x 1970 -y 240 -defaultsOSRD
-preplace port port-id_clk_32M768 -pg 1 -lvl 0 -x -70 -y 60 -defaultsOSRD
-preplace port port-id_rst_32M768 -pg 1 -lvl 0 -x -70 -y 120 -defaultsOSRD
-preplace port port-id_clk_1M_out -pg 1 -lvl 6 -x 1970 -y 850 -defaultsOSRD
-preplace port port-id_BPSK -pg 1 -lvl 6 -x 1970 -y 630 -defaultsOSRD
-preplace port port-id_clk_1M024 -pg 1 -lvl 0 -x -70 -y 500 -defaultsOSRD
-preplace port port-id_clk_2M048 -pg 1 -lvl 0 -x -70 -y 90 -defaultsOSRD
-preplace port port-id_Rx_1bit -pg 1 -lvl 6 -x 1970 -y 90 -defaultsOSRD
-preplace portBus ADC_I -pg 1 -lvl 0 -x -70 -y 30 -defaultsOSRD
-preplace portBus ADC_Q -pg 1 -lvl 0 -x -70 -y 0 -defaultsOSRD
-preplace portBus QPSK_raw -pg 1 -lvl 6 -x 1970 -y 660 -defaultsOSRD
-preplace portBus I_16M -pg 1 -lvl 6 -x 1970 -y 180 -defaultsOSRD
-preplace portBus Q_16M -pg 1 -lvl 6 -x 1970 -y 210 -defaultsOSRD
-preplace portBus NCO_cos -pg 1 -lvl 6 -x 1970 -y 820 -defaultsOSRD
-preplace portBus MODE_CTRL -pg 1 -lvl 0 -x -70 -y 410 -defaultsOSRD
-preplace portBus FEEDBACK_SHIFT -pg 1 -lvl 0 -x -70 -y 380 -defaultsOSRD
-preplace portBus GARDNER_SHIFT -pg 1 -lvl 0 -x -70 -y 150 -defaultsOSRD
-preplace portBus I_1M -pg 1 -lvl 6 -x 1970 -y 790 -defaultsOSRD
-preplace portBus Q_1M -pg 1 -lvl 6 -x 1970 -y 690 -defaultsOSRD
-preplace portBus RX_SD_THRESHOLD -pg 1 -lvl 0 -x -70 -y 780 -defaultsOSRD
-preplace portBus RX_SD_WINDOW -pg 1 -lvl 0 -x -70 -y 810 -defaultsOSRD
-preplace portBus RX_PD_WINDOW -pg 1 -lvl 0 -x -70 -y 840 -defaultsOSRD
-preplace portBus RX_BD_WINDOW -pg 1 -lvl 0 -x -70 -y 750 -defaultsOSRD
-preplace portBus QPSK -pg 1 -lvl 6 -x 1970 -y 600 -defaultsOSRD
-preplace inst costas_loop_0 -pg 1 -lvl 2 -x 510 -y 380 -defaultsOSRD
-preplace inst PSK_Detection_0 -pg 1 -lvl 4 -x 1290 -y 350 -defaultsOSRD
-preplace inst c_shift_ram_I -pg 1 -lvl 3 -x 910 -y 90 -defaultsOSRD
-preplace inst c_shift_ram_Q -pg 1 -lvl 3 -x 910 -y 210 -defaultsOSRD
-preplace inst gardner_loop_0 -pg 1 -lvl 3 -x 910 -y 410 -defaultsOSRD
-preplace inst c_shift_ram_is_bpsk -pg 1 -lvl 2 -x 510 -y 210 -defaultsOSRD
-preplace inst xlconstant_one -pg 1 -lvl 3 -x 910 -y 600 -defaultsOSRD
-preplace inst SPB_Detection -pg 1 -lvl 4 -x 1290 -y 620 -defaultsOSRD
-preplace inst PSK_Signal_Extend_0 -pg 1 -lvl 1 -x 150 -y 240 -defaultsOSRD
-preplace inst Depacketizer_0 -pg 1 -lvl 5 -x 1710 -y 670 -defaultsOSRD
-preplace inst Flatten -pg 1 -lvl 5 -x 1710 -y 90 -defaultsOSRD
-preplace netloc AD9361_1RT_FDD_0_AD9361_RX_DAT_I 1 0 1 -10J 30n
-preplace netloc AD9361_1RT_FDD_0_AD9361_RX_DAT_Q 1 0 1 -40J 0n
-preplace netloc Depacketizer_0_BPSK 1 5 1 1920 630n
-preplace netloc Depacketizer_0_QPSK 1 5 1 1880 600n
-preplace netloc Depacketizer_0_disassert_BD 1 3 3 1140 860 N 860 1890
-preplace netloc Depacketizer_0_disassert_PD 1 3 3 1130 870 N 870 1880
-preplace netloc Depacketizer_0_is_bpsk 1 0 6 0 880 NJ 880 NJ 880 NJ 880 NJ 880 1900
-preplace netloc Div_clk32M768_0_clk16M384 1 0 3 0J 150 330 140 750
-preplace netloc FEEDBACK_SHIFT_1 1 0 2 NJ 380 290
-preplace netloc Flatten_Rx_1bit 1 5 1 N 90
-preplace netloc GARDNER_SHIFT_1 1 0 3 -20J 130 NJ 130 690
-preplace netloc MODE_CTRL_1 1 0 5 NJ 410 300 -20 N -20 N -20 1500
-preplace netloc PSK_Detection_0_BPSK 1 3 3 1130 220 1460 240 N
-preplace netloc PSK_Detection_0_QPSK 1 4 2 1460 500 1890
-preplace netloc PSK_Signal_Extend_0_PSK_signal 1 1 1 310 230n
-preplace netloc PSK_Signal_Extend_0_is_bpsk_out 1 1 1 320 200n
+preplace port port-id_clk_16M384 -pg 1 -lvl 0 -x -110 -y 180 -defaultsOSRD
+preplace port port-id_rst_16M384 -pg 1 -lvl 0 -x -110 -y 440 -defaultsOSRD
+preplace port port-id_BPSK_raw -pg 1 -lvl 6 -x 2170 -y 240 -defaultsOSRD
+preplace port port-id_clk_32M768 -pg 1 -lvl 0 -x -110 -y 60 -defaultsOSRD
+preplace port port-id_rst_32M768 -pg 1 -lvl 0 -x -110 -y 120 -defaultsOSRD
+preplace port port-id_clk_1M_out -pg 1 -lvl 6 -x 2170 -y 850 -defaultsOSRD
+preplace port port-id_BPSK -pg 1 -lvl 6 -x 2170 -y 630 -defaultsOSRD
+preplace port port-id_clk_1M024 -pg 1 -lvl 0 -x -110 -y 500 -defaultsOSRD
+preplace port port-id_clk_2M048 -pg 1 -lvl 0 -x -110 -y 90 -defaultsOSRD
+preplace port port-id_Rx_1bit -pg 1 -lvl 6 -x 2170 -y 90 -defaultsOSRD
+preplace port port-id_data_tlast -pg 1 -lvl 6 -x 2170 -y 570 -defaultsOSRD
+preplace port port-id_data_tuser -pg 1 -lvl 6 -x 2170 -y 720 -defaultsOSRD
+preplace port port-id_data_tvalid -pg 1 -lvl 6 -x 2170 -y 750 -defaultsOSRD
+preplace portBus ADC_I -pg 1 -lvl 0 -x -110 -y 30 -defaultsOSRD
+preplace portBus ADC_Q -pg 1 -lvl 0 -x -110 -y 0 -defaultsOSRD
+preplace portBus QPSK_raw -pg 1 -lvl 6 -x 2170 -y 660 -defaultsOSRD
+preplace portBus I_16M -pg 1 -lvl 6 -x 2170 -y 180 -defaultsOSRD
+preplace portBus Q_16M -pg 1 -lvl 6 -x 2170 -y 210 -defaultsOSRD
+preplace portBus NCO_cos -pg 1 -lvl 6 -x 2170 -y 820 -defaultsOSRD
+preplace portBus MODE_CTRL -pg 1 -lvl 0 -x -110 -y 410 -defaultsOSRD
+preplace portBus FEEDBACK_SHIFT -pg 1 -lvl 0 -x -110 -y 380 -defaultsOSRD
+preplace portBus GARDNER_SHIFT -pg 1 -lvl 0 -x -110 -y 150 -defaultsOSRD
+preplace portBus I_1M -pg 1 -lvl 6 -x 2170 -y 790 -defaultsOSRD
+preplace portBus Q_1M -pg 1 -lvl 6 -x 2170 -y 150 -defaultsOSRD
+preplace portBus RX_SD_THRESHOLD -pg 1 -lvl 0 -x -110 -y 780 -defaultsOSRD
+preplace portBus RX_SD_WINDOW -pg 1 -lvl 0 -x -110 -y 810 -defaultsOSRD
+preplace portBus RX_PD_WINDOW -pg 1 -lvl 0 -x -110 -y 840 -defaultsOSRD
+preplace portBus RX_BD_WINDOW -pg 1 -lvl 0 -x -110 -y 750 -defaultsOSRD
+preplace portBus QPSK -pg 1 -lvl 6 -x 2170 -y 600 -defaultsOSRD
+preplace portBus data_tdata -pg 1 -lvl 6 -x 2170 -y 540 -defaultsOSRD
+preplace inst costas_loop_0 -pg 1 -lvl 2 -x 460 -y 380 -defaultsOSRD
+preplace inst PSK_Detection_0 -pg 1 -lvl 4 -x 1260 -y 350 -defaultsOSRD
+preplace inst c_shift_ram_I -pg 1 -lvl 3 -x 860 -y 90 -defaultsOSRD
+preplace inst c_shift_ram_Q -pg 1 -lvl 3 -x 860 -y 210 -defaultsOSRD
+preplace inst gardner_loop_0 -pg 1 -lvl 3 -x 860 -y 410 -defaultsOSRD
+preplace inst c_shift_ram_is_bpsk -pg 1 -lvl 2 -x 460 -y 210 -defaultsOSRD
+preplace inst xlconstant_one -pg 1 -lvl 3 -x 860 -y 600 -defaultsOSRD
+preplace inst SPB_Detection -pg 1 -lvl 4 -x 1260 -y 620 -defaultsOSRD
+preplace inst PSK_Signal_Extend_0 -pg 1 -lvl 1 -x 110 -y 240 -defaultsOSRD
+preplace inst Depacketizer_0 -pg 1 -lvl 5 -x 1810 -y 770 -defaultsOSRD
+preplace inst Flatten -pg 1 -lvl 5 -x 1810 -y 380 -defaultsOSRD
+preplace netloc AD9361_1RT_FDD_0_AD9361_RX_DAT_I 1 0 1 -50J 30n
+preplace netloc AD9361_1RT_FDD_0_AD9361_RX_DAT_Q 1 0 1 -90J 0n
+preplace netloc Depacketizer_0_BPSK 1 5 1 2090 630n
+preplace netloc Depacketizer_0_QPSK 1 5 1 2050 600n
+preplace netloc Depacketizer_0_disassert_BD 1 3 3 1120 770 1440 610 1980
+preplace netloc Depacketizer_0_disassert_PD 1 3 3 1110 930 N 930 1980
+preplace netloc Depacketizer_0_is_bpsk 1 0 6 -40 940 NJ 940 NJ 940 NJ 940 NJ 940 1990
+preplace netloc Div_clk32M768_0_clk16M384 1 0 3 -40J 150 290 140 700
+preplace netloc FEEDBACK_SHIFT_1 1 0 2 NJ 380 250
+preplace netloc Flatten_Rx_1bit 1 5 1 2000 90n
+preplace netloc GARDNER_SHIFT_1 1 0 3 -60J 130 NJ 130 640
+preplace netloc MODE_CTRL_1 1 0 5 NJ 410 260 -20 N -20 N -20 1480
+preplace netloc PSK_Detection_0_BPSK 1 3 3 1120 220 1430 230 2060
+preplace netloc PSK_Detection_0_QPSK 1 4 2 1430 600 2030
+preplace netloc PSK_Signal_Extend_0_PSK_signal 1 1 1 270 230n
+preplace netloc PSK_Signal_Extend_0_is_bpsk_out 1 1 1 280 200n
 preplace netloc Q_tvalid_1 1 2 1 N 420
-preplace netloc RX_BD_WINDOW_1 1 0 5 NJ 750 NJ 750 NJ 750 1120J 770 1490
-preplace netloc RX_PD_WINDOW_1 1 0 4 -30J 690 NJ 690 NJ 690 1120J
-preplace netloc RX_SD_THRESHOLD_1 1 0 4 NJ 780 NJ 780 NJ 780 1100
-preplace netloc RX_SD_WINDOW_1 1 0 4 -10J 740 NJ 740 NJ 740 1110
-preplace netloc SPB_Detection_BD_flag 1 4 1 1450 610n
-preplace netloc SPB_Detection_BD_sgn 1 4 1 1430 630n
-preplace netloc SPB_Detection_PD_flag 1 4 1 1440 650n
-preplace netloc SPB_Detection_SD_flag 1 4 1 1470 590n
-preplace netloc c_shift_ram_I_Q 1 3 3 NJ 90 1490 180 N
-preplace netloc c_shift_ram_Q_Q 1 3 3 NJ 210 N 210 N
-preplace netloc c_shift_ram_is_bpsk_Q 1 2 1 700 210n
-preplace netloc clk_1M024_1 1 0 5 -30J 0 NJ 0 NJ 0 NJ 0 1520
-preplace netloc clk_2M048_1 1 0 5 -50J 10 NJ 10 NJ 10 NJ 10 1510
-preplace netloc clk_32M768_1 1 0 3 NJ 60 NJ 60 720
-preplace netloc costas_loop_0_I_tdata 1 2 1 710J 80n
+preplace netloc RX_BD_WINDOW_1 1 0 5 -80J 780 NJ 780 NJ 780 1100J 780 1460
+preplace netloc RX_PD_WINDOW_1 1 0 4 -60J 660 NJ 660 NJ 660 NJ
+preplace netloc RX_SD_THRESHOLD_1 1 0 4 -90J 770 NJ 770 NJ 770 1080
+preplace netloc RX_SD_WINDOW_1 1 0 4 -50J 760 NJ 760 NJ 760 1090
+preplace netloc SPB_Detection_BD_flag 1 4 1 1420 610n
+preplace netloc SPB_Detection_BD_sgn 1 4 1 1400 630n
+preplace netloc SPB_Detection_PD_flag 1 4 1 1410 650n
+preplace netloc SPB_Detection_SD_flag 1 4 1 1450 590n
+preplace netloc c_shift_ram_I_Q 1 3 3 NJ 90 N 90 1990
+preplace netloc c_shift_ram_Q_Q 1 3 3 1020J 200 N 200 2090
+preplace netloc c_shift_ram_is_bpsk_Q 1 2 1 650 210n
+preplace netloc clk_1M024_1 1 0 5 -70J -10 NJ -10 NJ -10 NJ -10 1500
+preplace netloc clk_2M048_1 1 0 5 -80J 0 NJ 0 NJ 0 NJ 0 1490
+preplace netloc clk_32M768_1 1 0 3 NJ 60 NJ 60 670
+preplace netloc costas_loop_0_I_tdata 1 2 1 660J 80n
 preplace netloc costas_loop_0_I_tvalid 1 2 1 N 360
-preplace netloc costas_loop_0_NCO_cos 1 2 4 680 -10 NJ -10 N -10 1910
-preplace netloc costas_loop_0_Q_tdata 1 2 1 740J 200n
-preplace netloc gardner_loop_0_I_1M 1 3 3 1070 840 N 840 1940
-preplace netloc gardner_loop_0_Q_1M 1 3 3 1090 890 N 890 1930
-preplace netloc gardner_loop_0_clk_out 1 3 3 1100 200 1480 850 N
-preplace netloc rst_16M386_1 1 0 2 -10 390 N
-preplace netloc rst_32M768_1 1 0 5 NJ 120 NJ 120 730 20 1110 100 1520
-preplace netloc xlconstant_one_dout 1 3 1 1080 320n
-preplace netloc Depacketizer_0_data 1 4 2 1530 490 1880
-levelinfo -pg 1 -70 150 510 910 1290 1710 1970
-pagesize -pg 1 -db -bbox -sgen -280 -120 2120 1090
+preplace netloc costas_loop_0_NCO_cos 1 2 4 630 10 NJ 10 N 10 2080
+preplace netloc costas_loop_0_Q_tdata 1 2 1 690J 200n
+preplace netloc gardner_loop_0_I_1M 1 3 3 1060 190 N 190 2070
+preplace netloc gardner_loop_0_Q_1M 1 3 3 1030 150 N 150 N
+preplace netloc gardner_loop_0_clk_out 1 3 3 1040 210 1460 590 2010
+preplace netloc rst_16M386_1 1 0 2 -50 390 N
+preplace netloc rst_32M768_1 1 0 5 NJ 120 NJ 120 680 20 1050 180 1470
+preplace netloc xlconstant_one_dout 1 3 1 1070 320n
+preplace netloc Depacketizer_0_data_tdata 1 4 2 1520 540 2060
+preplace netloc Depacketizer_0_data_tlast 1 4 2 1510 570 2040
+preplace netloc Depacketizer_0_data_tuser 1 4 2 1540 560 2000
+preplace netloc Depacketizer_0_data_tvalid 1 4 2 1530 580 2020
+preplace netloc Depacketizer_0_data 1 4 2 1520 240 1990
+levelinfo -pg 1 -110 110 460 860 1260 1810 2170
+pagesize -pg 1 -db -bbox -sgen -320 -120 2320 1230
 "
 }
 0

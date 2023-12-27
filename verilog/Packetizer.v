@@ -32,7 +32,8 @@ module Packetizer # (
   output reg               out_tlast,
   output reg               out_tuser, // is_bpsk
   // other signals
-  output reg               hdr_vld
+  output reg               hdr_vld,
+  output reg               pkt_sent
 );
   localparam BITS = BYTES * 8;
   localparam [9:0] HDR_LENGTH = 32 * 8 + 32 + 32; // 320 symbols
@@ -42,12 +43,13 @@ module Packetizer # (
 
   reg [9:0] hdr_cnt;
   reg [15:0] payload_cnt;
-  reg [3:0] state, state_next;
+  reg [4:0] state, state_next;
   reg [15:0] payload_length_symbs;
-  localparam STATE_IDLE = 4'b0001;
-  localparam STATE_HDR  = 4'b0010; // header
-  localparam STATE_PLD  = 4'b0100; // payload
-  localparam STATE_LAST = 4'b1000;
+  localparam STATE_IDLE = 5'b00001;
+  localparam STATE_HDR  = 5'b00010; // header
+  localparam STATE_PLD  = 5'b00100; // payload
+  localparam STATE_LAST = 5'b01000;
+  localparam STATE_WAIT = 5'b10000; // waiting to clear FIFO
 
   wire in_trans = in_tvalid & in_tready;
 
@@ -63,10 +65,15 @@ module Packetizer # (
             out_tuser <= 1'b1; // BPSK by default
             out_tlast <= 1'b0;
             hdr_vld <= 1'b0;
+            hdr_cnt <= 10'b0;
+            payload_cnt <= 16'b0;
+            pkt_sent <= 1'b0;
           end
           STATE_HDR: begin
+            hdr_cnt <= hdr_cnt + 10'b1;
             in_tready <= 1'b0;
             out_tvalid <= 1'b1;
+            pkt_sent <= 1'b0;
             if (hdr_cnt < 32 * 7) begin
               // 01010101....
               out_tdata <= { BITS{hdr_cnt[0]} };
@@ -129,6 +136,8 @@ module Packetizer # (
             hdr_vld <= 1'b1;
           end
           STATE_PLD: begin
+            if (in_trans) payload_cnt <= payload_cnt + 10'b1;
+            else ;
             in_tready <= 1'b1;
             out_tvalid <= in_tvalid;
             out_tdata <= in_tdata;
@@ -143,6 +152,17 @@ module Packetizer # (
             out_tlast <= 1'b1;
             out_tuser <= 1'b0;
             hdr_vld <= 1'b0;
+          end
+          STATE_WAIT: begin
+            in_tready <= 1'b1; // consume the FIFO until it is empty
+            out_tvalid <= 1'b0;
+            out_tdata <= 0;
+            out_tlast <= 1'b0;
+            out_tuser <= 1'b1; // BPSK by default
+            hdr_vld <= 1'b0;
+            // I will mark the packet has been successfully sent when the FIFO is fully consumed!
+            if (!in_tvalid) pkt_sent <= 1'b1;
+            else ;
           end
           default: begin
             in_tready <= 1'b0;
@@ -164,12 +184,14 @@ module Packetizer # (
         out_tlast <= in_tlast;
         out_tuser <= in_tuser;
         hdr_vld <= 1'b0;
+        pkt_sent <= 1'b0;
       end
     end
     else begin
       state <= STATE_IDLE;
       hdr_cnt <= 10'b0;
       payload_cnt <= 16'b0;
+      pkt_sent <= 1'b0;
     end
   end
 
@@ -190,8 +212,12 @@ module Packetizer # (
         else state_next <= STATE_PLD;
       end
       STATE_LAST: begin
-        if (in_trans) state_next <= STATE_IDLE;
+        if (in_trans) state_next <= STATE_WAIT;
         else state_next <= STATE_LAST;
+      end
+      STATE_WAIT: begin
+        if (in_tvalid) state_next <= STATE_WAIT;
+        else state_next <= STATE_IDLE;
       end
       default: begin
         state_next <= STATE_IDLE;

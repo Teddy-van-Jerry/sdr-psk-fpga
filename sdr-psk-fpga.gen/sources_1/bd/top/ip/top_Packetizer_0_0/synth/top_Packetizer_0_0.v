@@ -70,7 +70,8 @@ module top_Packetizer_0_0 (
   out_tready,
   out_tlast,
   out_tuser,
-  hdr_vld
+  hdr_vld,
+  pkt_sent
 );
 
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_BUSIF in:out, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, INSERT_VIP 0" *)
@@ -104,6 +105,7 @@ output wire out_tlast;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 out TUSER" *)
 output wire out_tuser;
 output wire hdr_vld;
+output wire pkt_sent;
 
   Packetizer #(
     .BYTES(1)
@@ -122,6 +124,7 @@ output wire hdr_vld;
     .out_tready(out_tready),
     .out_tlast(out_tlast),
     .out_tuser(out_tuser),
-    .hdr_vld(hdr_vld)
+    .hdr_vld(hdr_vld),
+    .pkt_sent(pkt_sent)
   );
 endmodule

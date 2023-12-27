@@ -1,7 +1,7 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Tue Dec 26 10:42:15 2023
+// Date        : Thu Dec 28 03:41:09 2023
 // Host        : TVJ-PC running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               e:/Documents/Study/Verilog/SDR/sdr-psk-fpga/sdr-psk-fpga.gen/sources_1/bd/top/ip/top_Tx_Data_0_0/top_Tx_Data_0_0_sim_netlist.v
@@ -90,16 +90,25 @@ endmodule
 (* ORIG_REF_NAME = "PN_Gen" *) 
 module top_Tx_Data_0_0_PN_Gen
    (pn,
-    clk);
+    mix_is_bpsk_reg,
+    clk,
+    \data_tdata_reg[0] ,
+    MODE_CTRL);
   output pn;
+  output mix_is_bpsk_reg;
   input clk;
+  input \data_tdata_reg[0] ;
+  input [3:0]MODE_CTRL;
 
+  wire [3:0]MODE_CTRL;
   wire \PN_buf[4]_i_1_n_0 ;
   wire \PN_buf_reg_n_0_[0] ;
   wire \PN_buf_reg_n_0_[1] ;
   wire \PN_buf_reg_n_0_[2] ;
   wire \PN_buf_reg_n_0_[3] ;
   wire clk;
+  wire \data_tdata_reg[0] ;
+  wire mix_is_bpsk_reg;
   wire p_0_in_0;
   wire [0:0]p_1_out;
   wire pn;
@@ -159,6 +168,16 @@ module top_Tx_Data_0_0_PN_Gen
         .D(\PN_buf_reg_n_0_[3] ),
         .Q(p_0_in_0),
         .R(\PN_buf[4]_i_1_n_0 ));
+  LUT6 #(
+    .INIT(64'h8888888088888888)) 
+    \data_tdata[0]_i_3 
+       (.I0(\data_tdata_reg[0] ),
+        .I1(pn),
+        .I2(MODE_CTRL[2]),
+        .I3(MODE_CTRL[3]),
+        .I4(MODE_CTRL[0]),
+        .I5(MODE_CTRL[1]),
+        .O(mix_is_bpsk_reg));
   FDRE pn_reg
        (.C(clk),
         .CE(1'b1),
@@ -169,19 +188,32 @@ endmodule
 
 (* ORIG_REF_NAME = "PN_Gen" *) 
 module top_Tx_Data_0_0_PN_Gen__parameterized0
-   (pn_reg_0,
-    clk);
+   (mix_is_bpsk_reg,
+    pn_reg_0,
+    clk,
+    \data_tdata_reg[0] ,
+    MODE_CTRL,
+    pn);
+  output mix_is_bpsk_reg;
   output pn_reg_0;
   input clk;
+  input \data_tdata_reg[0] ;
+  input [3:0]MODE_CTRL;
+  input pn;
 
+  wire [3:0]MODE_CTRL;
   wire PN_buf0;
   wire \PN_buf[3]_i_1_n_0 ;
   wire \PN_buf_reg_n_0_[0] ;
   wire \PN_buf_reg_n_0_[1] ;
   wire clk;
+  wire \data_tdata_reg[0] ;
+  wire mix_is_bpsk_reg;
   wire p_0_in;
   wire p_1_in;
+  wire pn;
   wire pn_reg_0;
+  wire pn_reg_n_0;
 
   LUT2 #(
     .INIT(4'h6)) 
@@ -229,32 +261,52 @@ module top_Tx_Data_0_0_PN_Gen__parameterized0
         .D(p_0_in),
         .Q(p_1_in),
         .R(\PN_buf[3]_i_1_n_0 ));
+  LUT6 #(
+    .INIT(64'h4444444044444444)) 
+    \data_tdata[0]_i_2 
+       (.I0(\data_tdata_reg[0] ),
+        .I1(pn_reg_n_0),
+        .I2(MODE_CTRL[2]),
+        .I3(MODE_CTRL[3]),
+        .I4(MODE_CTRL[1]),
+        .I5(MODE_CTRL[0]),
+        .O(mix_is_bpsk_reg));
+  LUT6 #(
+    .INIT(64'h0000002C00000020)) 
+    \data_tdata[0]_i_4 
+       (.I0(pn_reg_n_0),
+        .I1(MODE_CTRL[0]),
+        .I2(MODE_CTRL[1]),
+        .I3(MODE_CTRL[3]),
+        .I4(MODE_CTRL[2]),
+        .I5(pn),
+        .O(pn_reg_0));
   FDRE pn_reg
        (.C(clk),
         .CE(1'b1),
         .D(p_1_in),
-        .Q(pn_reg_0),
+        .Q(pn_reg_n_0),
         .R(\PN_buf[3]_i_1_n_0 ));
 endmodule
 
 (* ORIG_REF_NAME = "Tx_Data" *) 
 module top_Tx_Data_0_0_Tx_Data
-   (data_tuser,
-    data_tdata,
+   (data_tdata,
+    data_tuser,
     data_tvalid,
     data_tlast,
-    MODE_CTRL,
     rst_n,
+    pkt_sent,
     clk,
-    pkt_sent);
-  output data_tuser;
+    MODE_CTRL);
   output [1:0]data_tdata;
+  output data_tuser;
   output data_tvalid;
   output data_tlast;
-  input [3:0]MODE_CTRL;
   input rst_n;
-  input clk;
   input pkt_sent;
+  input clk;
+  input [3:0]MODE_CTRL;
 
   wire [3:0]MODE_CTRL;
   wire clear;
@@ -262,7 +314,6 @@ module top_Tx_Data_0_0_Tx_Data
   wire [7:0]cnt_reg;
   wire [1:0]data_tdata;
   wire \data_tdata[0]_i_1_n_0 ;
-  wire \data_tdata[0]_i_2_n_0 ;
   wire \data_tdata[7]_i_1_n_0 ;
   wire data_tlast;
   wire [7:0]data_tlast00;
@@ -270,10 +321,16 @@ module top_Tx_Data_0_0_Tx_Data
   wire data_tlast_i_2_n_0;
   wire data_tuser;
   wire data_tuser_i_1_n_0;
+  wire data_tuser_i_2_n_0;
+  wire data_tuser_i_3_n_0;
   wire data_tvalid;
   wire data_tvalid_i_1_n_0;
   wire data_tvalid_i_2_n_0;
   wire inst_PN_Gen_N4_n_0;
+  wire inst_PN_Gen_N4_n_1;
+  wire inst_PN_Gen_N5_n_1;
+  wire mix_is_bpsk_i_1_n_0;
+  wire mix_is_bpsk_reg_n_0;
   wire pkt_sent;
   wire pn;
   wire rst_n;
@@ -424,23 +481,14 @@ module top_Tx_Data_0_0_Tx_Data
         .Q(cnt_reg[7]),
         .R(clear));
   LUT5 #(
-    .INIT(32'hB8FFB800)) 
+    .INIT(32'hFEFFFE00)) 
     \data_tdata[0]_i_1 
        (.I0(inst_PN_Gen_N4_n_0),
-        .I1(\data_tdata[0]_i_2_n_0 ),
-        .I2(pn),
+        .I1(inst_PN_Gen_N5_n_1),
+        .I2(inst_PN_Gen_N4_n_1),
         .I3(rst_n),
         .I4(data_tdata[0]),
         .O(\data_tdata[0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
-  LUT4 #(
-    .INIT(16'hFFFD)) 
-    \data_tdata[0]_i_2 
-       (.I0(MODE_CTRL[0]),
-        .I1(MODE_CTRL[1]),
-        .I2(MODE_CTRL[3]),
-        .I3(MODE_CTRL[2]),
-        .O(\data_tdata[0]_i_2_n_0 ));
   LUT3 #(
     .INIT(8'hB8)) 
     \data_tdata[7]_i_1 
@@ -461,14 +509,14 @@ module top_Tx_Data_0_0_Tx_Data
         .Q(data_tdata[1]),
         .R(1'b0));
   LUT6 #(
-    .INIT(64'h333333B300000080)) 
+    .INIT(64'h0C0C0C0C0CAC0C0C)) 
     data_tlast_i_1
        (.I0(data_tvalid_i_2_n_0),
-        .I1(rst_n),
-        .I2(cnt_reg[6]),
+        .I1(data_tlast),
+        .I2(rst_n),
         .I3(data_tlast_i_2_n_0),
-        .I4(cnt_reg[7]),
-        .I5(data_tlast),
+        .I4(cnt_reg[6]),
+        .I5(cnt_reg[7]),
         .O(data_tlast_i_1_n_0));
   LUT6 #(
     .INIT(64'h7FFFFFFFFFFFFFFF)) 
@@ -487,15 +535,32 @@ module top_Tx_Data_0_0_Tx_Data
         .Q(data_tlast),
         .R(1'b0));
   LUT6 #(
-    .INIT(64'h0F1F0F0F00100000)) 
+    .INIT(64'h55F5CCCC5555CCCC)) 
     data_tuser_i_1
-       (.I0(MODE_CTRL[2]),
-        .I1(MODE_CTRL[3]),
-        .I2(rst_n),
-        .I3(MODE_CTRL[1]),
-        .I4(MODE_CTRL[0]),
-        .I5(data_tuser),
+       (.I0(data_tuser_i_2_n_0),
+        .I1(data_tuser),
+        .I2(data_tuser_i_3_n_0),
+        .I3(cnt_reg[7]),
+        .I4(rst_n),
+        .I5(mix_is_bpsk_reg_n_0),
         .O(data_tuser_i_1_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  LUT4 #(
+    .INIT(16'hFFFD)) 
+    data_tuser_i_2
+       (.I0(MODE_CTRL[0]),
+        .I1(MODE_CTRL[1]),
+        .I2(MODE_CTRL[3]),
+        .I3(MODE_CTRL[2]),
+        .O(data_tuser_i_2_n_0));
+  LUT4 #(
+    .INIT(16'hFFFD)) 
+    data_tuser_i_3
+       (.I0(MODE_CTRL[1]),
+        .I1(MODE_CTRL[0]),
+        .I2(MODE_CTRL[3]),
+        .I3(MODE_CTRL[2]),
+        .O(data_tuser_i_3_n_0));
   FDRE data_tuser_reg
        (.C(clk),
         .CE(1'b1),
@@ -526,11 +591,33 @@ module top_Tx_Data_0_0_Tx_Data
         .Q(data_tvalid),
         .R(1'b0));
   top_Tx_Data_0_0_PN_Gen__parameterized0 inst_PN_Gen_N4
-       (.clk(clk),
-        .pn_reg_0(inst_PN_Gen_N4_n_0));
+       (.MODE_CTRL(MODE_CTRL),
+        .clk(clk),
+        .\data_tdata_reg[0] (mix_is_bpsk_reg_n_0),
+        .mix_is_bpsk_reg(inst_PN_Gen_N4_n_0),
+        .pn(pn),
+        .pn_reg_0(inst_PN_Gen_N4_n_1));
   top_Tx_Data_0_0_PN_Gen inst_PN_Gen_N5
-       (.clk(clk),
+       (.MODE_CTRL(MODE_CTRL),
+        .clk(clk),
+        .\data_tdata_reg[0] (mix_is_bpsk_reg_n_0),
+        .mix_is_bpsk_reg(inst_PN_Gen_N5_n_1),
         .pn(pn));
+  LUT5 #(
+    .INIT(32'h28888888)) 
+    mix_is_bpsk_i_1
+       (.I0(rst_n),
+        .I1(mix_is_bpsk_reg_n_0),
+        .I2(pkt_sent),
+        .I3(cnt_reg[7]),
+        .I4(data_tvalid_i_2_n_0),
+        .O(mix_is_bpsk_i_1_n_0));
+  FDRE mix_is_bpsk_reg
+       (.C(clk),
+        .CE(1'b1),
+        .D(mix_is_bpsk_i_1_n_0),
+        .Q(mix_is_bpsk_reg_n_0),
+        .R(1'b0));
 endmodule
 `ifndef GLBL
 `define GLBL
