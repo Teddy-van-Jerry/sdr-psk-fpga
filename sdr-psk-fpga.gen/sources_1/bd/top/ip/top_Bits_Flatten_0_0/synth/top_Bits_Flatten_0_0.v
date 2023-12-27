@@ -59,15 +59,15 @@ module top_Bits_Flatten_0_0 (
   bypass,
   clk_in,
   clk_out,
-  in,
-  out
+  I,
+  O
 );
 
 input wire bypass;
 input wire clk_in;
 input wire clk_out;
-input wire [7 : 0] in;
-output wire out;
+input wire [7 : 0] I;
+output wire O;
 
   Bits_Flatten #(
     .N(2),
@@ -77,7 +77,7 @@ output wire out;
     .bypass(bypass),
     .clk_in(clk_in),
     .clk_out(clk_out),
-    .in(in),
-    .out(out)
+    .I(I),
+    .O(O)
   );
 endmodule

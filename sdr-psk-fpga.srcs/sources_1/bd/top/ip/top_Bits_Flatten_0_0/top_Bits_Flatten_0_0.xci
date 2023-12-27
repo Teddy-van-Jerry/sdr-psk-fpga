@@ -49,8 +49,8 @@
         "bypass": [ { "direction": "in" } ],
         "clk_in": [ { "direction": "in" } ],
         "clk_out": [ { "direction": "in" } ],
-        "in": [ { "direction": "in", "size_left": "7", "size_right": "0" } ],
-        "out": [ { "direction": "out" } ]
+        "I": [ { "direction": "in", "size_left": "7", "size_right": "0" } ],
+        "O": [ { "direction": "out" } ]
       }
     }
   }

@@ -1,7 +1,7 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Tue Dec 26 10:44:17 2023
+// Date        : Wed Dec 27 15:23:56 2023
 // Host        : TVJ-PC running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               e:/Documents/Study/Verilog/SDR/sdr-psk-fpga/sdr-psk-fpga.gen/sources_1/bd/top/ip/top_Bits_Flatten_0_0/top_Bits_Flatten_0_0_sim_netlist.v
@@ -19,51 +19,67 @@ module top_Bits_Flatten_0_0
    (bypass,
     clk_in,
     clk_out,
-    in,
-    out);
+    I,
+    O);
   input bypass;
   input clk_in;
   input clk_out;
-  input [7:0]in;
-  output out;
+  input [7:0]I;
+  output O;
 
+  wire [7:0]I;
+  wire O;
   wire bypass;
   wire clk_in;
   wire clk_out;
-  wire [7:0]in;
-  wire out;
 
   top_Bits_Flatten_0_0_Bits_Flatten inst
-       (.bypass(bypass),
+       (.I(I[1:0]),
+        .O(O),
+        .bypass(bypass),
         .clk_in(clk_in),
-        .clk_out(clk_out),
-        .in(in[1:0]),
-        .out(out));
+        .clk_out(clk_out));
 endmodule
 
 (* ORIG_REF_NAME = "Bits_Flatten" *) 
 module top_Bits_Flatten_0_0_Bits_Flatten
-   (out,
+   (O,
     clk_in,
     clk_out,
     bypass,
-    in);
-  output out;
+    I);
+  output O;
   input clk_in;
   input clk_out;
   input bypass;
-  input [1:0]in;
+  input [1:0]I;
 
+  wire [1:0]I;
+  wire O;
+  wire O__0_n_0;
   wire bypass;
   wire clk_in;
   wire clk_in_reg;
   wire clk_out;
   wire \cnt[0]_i_1_n_0 ;
   wire \cnt_reg_n_0_[0] ;
-  wire [1:0]in;
-  wire out;
-  wire out__0_n_0;
 
+  LUT6 #(
+    .INIT(64'hFF04FF55FB00AA00)) 
+    O__0
+       (.I0(bypass),
+        .I1(clk_in),
+        .I2(clk_in_reg),
+        .I3(I[1]),
+        .I4(\cnt_reg_n_0_[0] ),
+        .I5(I[0]),
+        .O(O__0_n_0));
+  FDRE O_reg
+       (.C(clk_out),
+        .CE(1'b1),
+        .D(O__0_n_0),
+        .Q(O),
+        .R(1'b0));
   FDRE clk_in_reg_reg
        (.C(clk_out),
         .CE(1'b1),
@@ -85,22 +101,6 @@ module top_Bits_Flatten_0_0_Bits_Flatten
         .CE(1'b1),
         .D(\cnt[0]_i_1_n_0 ),
         .Q(\cnt_reg_n_0_[0] ),
-        .R(1'b0));
-  LUT6 #(
-    .INIT(64'hFF04FF55FB00AA00)) 
-    out__0
-       (.I0(bypass),
-        .I1(clk_in),
-        .I2(clk_in_reg),
-        .I3(in[1]),
-        .I4(\cnt_reg_n_0_[0] ),
-        .I5(in[0]),
-        .O(out__0_n_0));
-  FDRE out_reg
-       (.C(clk_out),
-        .CE(1'b1),
-        .D(out__0_n_0),
-        .Q(out),
         .R(1'b0));
 endmodule
 `ifndef GLBL

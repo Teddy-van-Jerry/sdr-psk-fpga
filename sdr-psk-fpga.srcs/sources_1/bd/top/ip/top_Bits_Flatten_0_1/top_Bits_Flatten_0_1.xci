@@ -1,0 +1,57 @@
+{
+  "schema": "xilinx.com:schema:json_instance:1.0",
+  "ip_inst": {
+    "xci_name": "top_Bits_Flatten_0_1",
+    "cell_name": "Rx/Flatten/Bits_Flatten_0",
+    "component_reference": "xilinx.com:module_ref:Bits_Flatten:1.0",
+    "ip_revision": "1",
+    "gen_directory": "../../../../../../sdr-psk-fpga.gen/sources_1/bd/top/ip/top_Bits_Flatten_0_1",
+    "parameters": {
+      "component_parameters": {
+        "N": [ { "value": "2", "resolve_type": "user", "format": "long", "usage": "all" } ],
+        "M": [ { "value": "8", "resolve_type": "user", "format": "long", "usage": "all" } ],
+        "BYPASS_SELECTION": [ { "value": "1", "resolve_type": "user", "format": "long", "usage": "all" } ],
+        "Component_Name": [ { "value": "top_Bits_Flatten_0_1", "resolve_type": "user", "usage": "all" } ]
+      },
+      "model_parameters": {
+        "N": [ { "value": "2", "resolve_type": "generated", "format": "long", "usage": "all" } ],
+        "M": [ { "value": "8", "resolve_type": "generated", "format": "long", "usage": "all" } ],
+        "BYPASS_SELECTION": [ { "value": "1", "resolve_type": "generated", "format": "long", "usage": "all" } ]
+      },
+      "project_parameters": {
+        "ARCHITECTURE": [ { "value": "zynq" } ],
+        "BASE_BOARD_PART": [ { "value": "" } ],
+        "BOARD_CONNECTIONS": [ { "value": "" } ],
+        "DEVICE": [ { "value": "xc7z020" } ],
+        "PACKAGE": [ { "value": "clg484" } ],
+        "PREFHDL": [ { "value": "VERILOG" } ],
+        "SILICON_REVISION": [ { "value": "" } ],
+        "SIMULATOR_LANGUAGE": [ { "value": "MIXED" } ],
+        "SPEEDGRADE": [ { "value": "-1" } ],
+        "STATIC_POWER": [ { "value": "" } ],
+        "TEMPERATURE_GRADE": [ { "value": "" } ],
+        "USE_RDI_CUSTOMIZATION": [ { "value": "TRUE" } ],
+        "USE_RDI_GENERATION": [ { "value": "TRUE" } ]
+      },
+      "runtime_parameters": {
+        "IPCONTEXT": [ { "value": "IP_Integrator" } ],
+        "IPREVISION": [ { "value": "1" } ],
+        "MANAGED": [ { "value": "TRUE" } ],
+        "OUTPUTDIR": [ { "value": "../../../../../../sdr-psk-fpga.gen/sources_1/bd/top/ip/top_Bits_Flatten_0_1" } ],
+        "SELECTEDSIMMODEL": [ { "value": "" } ],
+        "SHAREDDIR": [ { "value": "../../ipshared" } ],
+        "SWVERSION": [ { "value": "2022.2" } ],
+        "SYNTHESISFLOW": [ { "value": "OOC_HIERARCHICAL" } ]
+      }
+    },
+    "boundary": {
+      "ports": {
+        "bypass": [ { "direction": "in" } ],
+        "clk_in": [ { "direction": "in" } ],
+        "clk_out": [ { "direction": "in" } ],
+        "I": [ { "direction": "in", "size_left": "7", "size_right": "0" } ],
+        "O": [ { "direction": "out" } ]
+      }
+    }
+  }
+}

@@ -37,7 +37,7 @@
           },
           "FREQ_HZ": {
             "value": "32768000",
-            "value_src": "strong"
+            "value_src": "ip_prop"
           },
           "HAS_TKEEP": {
             "value": "0",
@@ -65,7 +65,7 @@
           },
           "PHASE": {
             "value": "0.0",
-            "value_src": "strong"
+            "value_src": "ip_prop"
           },
           "TDATA_NUM_BYTES": {
             "value": "2",
@@ -108,7 +108,7 @@
           },
           "FREQ_HZ": {
             "value": "32768000",
-            "value_src": "strong"
+            "value_src": "ip_prop"
           },
           "HAS_TKEEP": {
             "value": "0",
@@ -136,7 +136,7 @@
           },
           "PHASE": {
             "value": "0.0",
-            "value_src": "strong"
+            "value_src": "ip_prop"
           },
           "TDATA_NUM_BYTES": {
             "value": "2",
@@ -184,11 +184,11 @@
           },
           "CLK_DOMAIN": {
             "value": "/Clock_Gen/clk_wiz_32M768_clk_out1",
-            "value_src": "strong"
+            "value_src": "ip_prop"
           },
           "FREQ_HZ": {
             "value": "32768000",
-            "value_src": "strong"
+            "value_src": "ip_prop"
           },
           "FREQ_TOLERANCE_HZ": {
             "value": "0",
@@ -200,7 +200,7 @@
           },
           "PHASE": {
             "value": "0.0",
-            "value_src": "strong"
+            "value_src": "ip_prop"
           }
         }
       },
@@ -215,7 +215,7 @@
               "minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}} DATA_WIDTH 1",
               "}"
             ],
-            "value_src": "strong"
+            "value_src": "ip_prop"
           }
         }
       },
@@ -242,7 +242,7 @@
           },
           "POLARITY": {
             "value": "ACTIVE_HIGH",
-            "value_src": "strong"
+            "value_src": "const_prop"
           }
         }
       },

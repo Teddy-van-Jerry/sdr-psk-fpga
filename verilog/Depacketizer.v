@@ -139,43 +139,44 @@ module Depacketizer # (
           if (data_tready) begin
             /* counter */ cnt_HDR <= cnt_HDR + 1;
             case (cnt_HDR)
-            5'd00: MCS[7] <= in_BPSK;
-            5'd01: MCS[6] <= in_BPSK;
-            5'd02: MCS[5] <= in_BPSK;
-            5'd03: MCS[4] <= in_BPSK;
-            5'd04: MCS[3] <= in_BPSK;
-            5'd05: MCS[2] <= in_BPSK;
-            5'd06: MCS[1] <= in_BPSK;
-            5'd07: MCS[0] <= in_BPSK;
-            5'd08: payload_length[15] <= in_BPSK;
-            5'd09: payload_length[14] <= in_BPSK;
-            5'd10: payload_length[13] <= in_BPSK;
-            5'd11: payload_length[12] <= in_BPSK;
-            5'd12: payload_length[11] <= in_BPSK;
-            5'd13: payload_length[10] <= in_BPSK;
-            5'd14: payload_length[ 9] <= in_BPSK;
-            5'd15: payload_length[ 8] <= in_BPSK;
-            5'd16: payload_length[ 7] <= in_BPSK;
-            5'd17: payload_length[ 6] <= in_BPSK;
-            5'd18: payload_length[ 5] <= in_BPSK;
-            5'd19: payload_length[ 4] <= in_BPSK;
-            5'd20: payload_length[ 3] <= in_BPSK;
-            5'd21: payload_length[ 2] <= in_BPSK;
-            5'd22: payload_length[ 1] <= in_BPSK;
-            5'd23: payload_length[ 0] <= in_BPSK;
-            5'd24: signature[7] <= in_BPSK;
-            5'd25: signature[6] <= in_BPSK;
-            5'd26: signature[5] <= in_BPSK;
-            5'd27: signature[4] <= in_BPSK;
-            5'd28: signature[3] <= in_BPSK;
-            5'd29: signature[2] <= in_BPSK;
-            5'd30: signature[1] <= in_BPSK;
-            5'd31: begin
-              signature[0] <= in_BPSK;
+            5'd00: MCS[7] <= in_BPSK + BD_sgn_reg;
+            5'd01: MCS[6] <= in_BPSK + BD_sgn_reg;
+            5'd02: MCS[5] <= in_BPSK + BD_sgn_reg;
+            5'd03: MCS[4] <= in_BPSK + BD_sgn_reg;
+            5'd04: MCS[3] <= in_BPSK + BD_sgn_reg;
+            5'd05: MCS[2] <= in_BPSK + BD_sgn_reg;
+            5'd06: MCS[1] <= in_BPSK + BD_sgn_reg;
+            5'd07: MCS[0] <= in_BPSK + BD_sgn_reg;
+            5'd08: payload_length[15] <= in_BPSK + BD_sgn_reg;
+            5'd09: payload_length[14] <= in_BPSK + BD_sgn_reg;
+            5'd10: payload_length[13] <= in_BPSK + BD_sgn_reg;
+            5'd11: payload_length[12] <= in_BPSK + BD_sgn_reg;
+            5'd12: payload_length[11] <= in_BPSK + BD_sgn_reg;
+            5'd13: payload_length[10] <= in_BPSK + BD_sgn_reg;
+            5'd14: payload_length[ 9] <= in_BPSK + BD_sgn_reg;
+            5'd15: payload_length[ 8] <= in_BPSK + BD_sgn_reg;
+            5'd16: payload_length[ 7] <= in_BPSK + BD_sgn_reg;
+            5'd17: payload_length[ 6] <= in_BPSK + BD_sgn_reg;
+            5'd18: payload_length[ 5] <= in_BPSK + BD_sgn_reg;
+            5'd19: payload_length[ 4] <= in_BPSK + BD_sgn_reg;
+            5'd20: payload_length[ 3] <= in_BPSK + BD_sgn_reg;
+            5'd21: payload_length[ 2] <= in_BPSK + BD_sgn_reg;
+            5'd22: payload_length[ 1] <= in_BPSK + BD_sgn_reg;
+            5'd23: payload_length[ 0] <= in_BPSK + BD_sgn_reg;
+            5'd24: signature[7] <= in_BPSK + BD_sgn_reg;
+            5'd25: signature[6] <= in_BPSK + BD_sgn_reg;
+            5'd26: signature[5] <= in_BPSK + BD_sgn_reg;
+            5'd27: signature[4] <= in_BPSK + BD_sgn_reg;
+            // 5'd28: signature[3] <= in_BPSK + BD_sgn_reg;
+            5'd29: signature[2] <= in_BPSK + BD_sgn_reg;
+            5'd30: signature[1] <= in_BPSK + BD_sgn_reg;
+            5'd31: signature[0] <= in_BPSK + BD_sgn_reg;
+            5'd28: begin // set is_bpsk 3 CCs ahead
+              signature[3] <= in_BPSK;
               // consider BD_sgn_reg == 0:
               // BPSK: MCS[7] == 1
               // QPSK: MCS[7] == 0
-              /* AXIS o4 */ is_bpsk_reg <= MCS[7] + BD_sgn_reg; // Now change the modulation scheme
+              /* AXIS o4 */ is_bpsk_reg <= MCS[7]; // Now change the modulation scheme
             end
             default: begin
               // nothing here, as I have considered all states
@@ -215,7 +216,7 @@ module Depacketizer # (
           /* AXIS o1 */ data_tdata_reg  <= 0;
           /* AXIS o2 */ data_tvalid_reg <= 1'b0;
           /* AXIS o3 */ data_tlast_reg  <= 1'b0;
-          /* AXIS o4 */ is_bpsk_reg     <= 1'b1;
+          /* AXIS o4 */
         end
       endcase
     end

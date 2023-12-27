@@ -64,13 +64,13 @@
     <Option Name="WTVcsLaunchSim" Val="0"/>
     <Option Name="WTRivieraLaunchSim" Val="0"/>
     <Option Name="WTActivehdlLaunchSim" Val="0"/>
-    <Option Name="WTXSimExportSim" Val="38"/>
-    <Option Name="WTModelSimExportSim" Val="38"/>
-    <Option Name="WTQuestaExportSim" Val="37"/>
+    <Option Name="WTXSimExportSim" Val="39"/>
+    <Option Name="WTModelSimExportSim" Val="39"/>
+    <Option Name="WTQuestaExportSim" Val="38"/>
     <Option Name="WTIesExportSim" Val="0"/>
-    <Option Name="WTVcsExportSim" Val="37"/>
-    <Option Name="WTRivieraExportSim" Val="37"/>
-    <Option Name="WTActivehdlExportSim" Val="37"/>
+    <Option Name="WTVcsExportSim" Val="38"/>
+    <Option Name="WTRivieraExportSim" Val="38"/>
+    <Option Name="WTActivehdlExportSim" Val="38"/>
     <Option Name="GenerateIPUpgradeLog" Val="TRUE"/>
     <Option Name="XSimRadix" Val="hex"/>
     <Option Name="XSimTimeUnit" Val="ns"/>
@@ -193,6 +193,13 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+      <File Path="$PPRDIR/verilog/Not_Gate.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PPRDIR/verilog/Delay.v">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -255,26 +262,17 @@
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
+        <CompFileExtendedInfo CompFileName="top.bd" FileRelPathName="ip/top_c_shift_ram_0_2/top_c_shift_ram_0_2.xci">
+          <Proxy FileSetName="top_c_shift_ram_0_2"/>
+        </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="top.bd" FileRelPathName="ip/top_proc_sys_reset_16M384_1/top_proc_sys_reset_16M384_1.xci">
           <Proxy FileSetName="top_proc_sys_reset_16M384_1"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="top.bd" FileRelPathName="ip/top_Rx_SD_0_0/top_Rx_SD_0_0.xci">
-          <Proxy FileSetName="top_Rx_SD_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="top.bd" FileRelPathName="ip/top_PSK_Mod_0_0/top_PSK_Mod_0_0.xci">
-          <Proxy FileSetName="top_PSK_Mod_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="top.bd" FileRelPathName="ip/top_Bits_Flatten_0_0/top_Bits_Flatten_0_0.xci">
-          <Proxy FileSetName="top_Bits_Flatten_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="top.bd" FileRelPathName="ip/top_Tx_Data_0_0/top_Tx_Data_0_0.xci">
-          <Proxy FileSetName="top_Tx_Data_0_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="top.bd" FileRelPathName="ip/top_Rx_BD_0_0/top_Rx_BD_0_0.xci">
           <Proxy FileSetName="top_Rx_BD_0_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="top.bd" FileRelPathName="ip/top_Rx_PD_0_0/top_Rx_PD_0_0.xci">
-          <Proxy FileSetName="top_Rx_PD_0_0"/>
+        <CompFileExtendedInfo CompFileName="top.bd" FileRelPathName="ip/top_Rx_SD_0_0/top_Rx_SD_0_0.xci">
+          <Proxy FileSetName="top_Rx_SD_0_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="top.bd" FileRelPathName="ip/top_c_shift_ram_I_0/top_c_shift_ram_I_0.xci">
           <Proxy FileSetName="top_c_shift_ram_I_0"/>
@@ -282,20 +280,39 @@
         <CompFileExtendedInfo CompFileName="top.bd" FileRelPathName="ip/top_c_shift_ram_I_1/top_c_shift_ram_I_1.xci">
           <Proxy FileSetName="top_c_shift_ram_I_1"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="top.bd" FileRelPathName="ip/top_c_shift_ram_0_2/top_c_shift_ram_0_2.xci">
-          <Proxy FileSetName="top_c_shift_ram_0_2"/>
+        <CompFileExtendedInfo CompFileName="top.bd" FileRelPathName="ip/top_Depacketizer_0_0/top_Depacketizer_0_0.xci">
+          <Proxy FileSetName="top_Depacketizer_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="top.bd" FileRelPathName="ip/top_Rx_PD_0_0/top_Rx_PD_0_0.xci">
+          <Proxy FileSetName="top_Rx_PD_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="top.bd" FileRelPathName="ip/top_Tx_Data_0_0/top_Tx_Data_0_0.xci">
+          <Proxy FileSetName="top_Tx_Data_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="top.bd" FileRelPathName="ip/top_system_ila_0_0/top_system_ila_0_0.xci">
+          <Proxy FileSetName="top_system_ila_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="top.bd" FileRelPathName="ip/top_Bits_Flatten_0_0/top_Bits_Flatten_0_0.xci">
+          <Proxy FileSetName="top_Bits_Flatten_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="top.bd" FileRelPathName="ip/top_PSK_Mod_0_0/top_PSK_Mod_0_0.xci">
+          <Proxy FileSetName="top_PSK_Mod_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="top.bd" FileRelPathName="ip/top_Packetizer_0_0/top_Packetizer_0_0.xci">
+          <Proxy FileSetName="top_Packetizer_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="top.bd" FileRelPathName="ip/top_axis_data_fifo_0_1/top_axis_data_fifo_0_1.xci">
+          <Proxy FileSetName="top_axis_data_fifo_0_1"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="top.bd" FileRelPathName="ip/top_Bits_Flatten_0_1/top_Bits_Flatten_0_1.xci">
+          <Proxy FileSetName="top_Bits_Flatten_0_1"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="top.bd" FileRelPathName="ip/top_Not_Gate_0_1/top_Not_Gate_0_1.xci">
+          <Proxy FileSetName="top_Not_Gate_0_1"/>
         </CompFileExtendedInfo>
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/hdl/top_wrapper.v">
         <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/verilog/Not_Gate.v">
-        <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -762,16 +779,8 @@
     </FileSet>
     <FileSet Name="sim_BPSK" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/sim_BPSK" RelGenDir="$PGENDIR/sim_BPSK">
       <Filter Type="Srcs"/>
-      <File Path="$PPRDIR/verilog/tb/tb_PSK_Demod_BPSK.v">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
       <File Path="$PGENDIR/sources_1/bd/top/ipshared/dbd8/hdl/axis_data_fifo_v2_0_vl_rfs.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -779,7 +788,6 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/ipshared/8713/hdl/axis_infrastructure_v1_1_vl_rfs.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -787,7 +795,6 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/bd/costas_loop_inst_0/sim/costas_loop_inst_0.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -795,7 +802,6 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/bd/costas_loop_inst_0/ip/costas_loop_inst_0_AXI_2x_I_0/costas_loop_inst_0_AXI_2x_I_0_sim_netlist.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -803,7 +809,6 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/bd/costas_loop_inst_0/ip/costas_loop_inst_0_AXI_2x_Q_0/costas_loop_inst_0_AXI_2x_Q_0_sim_netlist.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -811,7 +816,6 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/bd/costas_loop_inst_0/ip/costas_loop_inst_0_Error_Detect_BPSK_0/costas_loop_inst_0_Error_Detect_BPSK_0_sim_netlist.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -819,7 +823,6 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/bd/costas_loop_inst_0/ip/costas_loop_inst_0_Error_Detect_Ctrl_0_0/costas_loop_inst_0_Error_Detect_Ctrl_0_0_sim_netlist.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -827,7 +830,6 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/bd/costas_loop_inst_0/ip/costas_loop_inst_0_Error_Detect_QPSK_0/costas_loop_inst_0_Error_Detect_QPSK_0_sim_netlist.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -835,7 +837,6 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/bd/costas_loop_inst_0/ip/costas_loop_inst_0_LP_filter_0/costas_loop_inst_0_LP_filter_0_sim_netlist.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -843,7 +844,6 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/bd/costas_loop_inst_0/ip/costas_loop_inst_0_NCO_DDS_0/costas_loop_inst_0_NCO_DDS_0_sim_netlist.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -851,7 +851,6 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/bd/costas_loop_inst_0/ip/costas_loop_inst_0_NCO_Phase_0_0/costas_loop_inst_0_NCO_Phase_0_0_sim_netlist.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -859,7 +858,6 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/bd/costas_loop_inst_0/ip/costas_loop_inst_0_NCO_cos_sin_0_0/costas_loop_inst_0_NCO_cos_sin_0_0_sim_netlist.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -867,7 +865,6 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/bd/costas_loop_inst_0/ip/costas_loop_inst_0_Truncate_IQ_0_0_1/costas_loop_inst_0_Truncate_IQ_0_0_sim_netlist.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -875,7 +872,6 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/bd/costas_loop_inst_0/ip/costas_loop_inst_0_loop_filter_0/costas_loop_inst_0_loop_filter_0_sim_netlist.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -883,7 +879,6 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/bd/costas_loop_inst_0/ip/costas_loop_inst_0_phase_detector_I_0/costas_loop_inst_0_phase_detector_I_0_sim_netlist.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -891,7 +886,6 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/bd/costas_loop_inst_0/ip/costas_loop_inst_0_phase_detector_Q_0/costas_loop_inst_0_phase_detector_Q_0_sim_netlist.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -899,7 +893,6 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/bd/costas_loop_inst_0/ip/costas_loop_inst_0_xlconcat_0_0/sim/costas_loop_inst_0_xlconcat_0_0.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -907,7 +900,6 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/bd/costas_loop_inst_0/ip/costas_loop_inst_0_xlconstant_one_0/sim/costas_loop_inst_0_xlconstant_one_0.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -915,7 +907,6 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/bd/costas_loop_inst_0/ip/costas_loop_inst_0_xlconstant_valid_one_0/sim/costas_loop_inst_0_xlconstant_valid_one_0.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -923,7 +914,6 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/sim/top.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -931,7 +921,6 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/ip/top_NCO_cos_sin_0_0/top_NCO_cos_sin_0_0_sim_netlist.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -939,7 +928,6 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/ip/top_PSK_Detection_0_0/top_PSK_Detection_0_0_sim_netlist.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -947,7 +935,6 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/ip/top_PSK_Mod_0_0/top_PSK_Mod_0_0_sim_netlist.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -955,7 +942,6 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/ip/top_PSK_Signal_Extend_0_1/top_PSK_Signal_Extend_0_1_sim_netlist.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -963,7 +949,6 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/ip/top_Tx_Data_0_0/top_Tx_Data_0_0_sim_netlist.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -971,7 +956,6 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/ip/top_axis_data_fifo_0_0/top_axis_data_fifo_0_0_sim_netlist.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -979,7 +963,6 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/ip/top_c_shift_ram_0_2/top_c_shift_ram_0_2_sim_netlist.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -987,7 +970,6 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/ip/top_c_shift_ram_I_0/top_c_shift_ram_I_0_sim_netlist.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -995,7 +977,6 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/ip/top_dds_compiler_0_0/top_dds_compiler_0_0_sim_netlist.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1003,7 +984,6 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/bd/costas_loop_inst_0/ipshared/4b67/hdl/xlconcat_v2_1_vl_rfs.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1011,7 +991,13 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/ipshared/badb/hdl/xlconstant_v1_1_vl_rfs.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/verilog/tb/tb_PSK_Demod_BPSK.v">
+        <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1319,16 +1305,8 @@
     </FileSet>
     <FileSet Name="sim_QPSK" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/sim_QPSK" RelGenDir="$PGENDIR/sim_QPSK">
       <Filter Type="Srcs"/>
-      <File Path="$PPRDIR/verilog/tb/tb_PSK_Demod_QPSK.v">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
       <File Path="$PGENDIR/sources_1/bd/top/ipshared/dbd8/hdl/axis_data_fifo_v2_0_vl_rfs.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1336,7 +1314,6 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/ipshared/8713/hdl/axis_infrastructure_v1_1_vl_rfs.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1344,7 +1321,6 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/bd/costas_loop_inst_0/sim/costas_loop_inst_0.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1352,7 +1328,6 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/bd/costas_loop_inst_0/ip/costas_loop_inst_0_AXI_2x_I_0/costas_loop_inst_0_AXI_2x_I_0_sim_netlist.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1360,7 +1335,6 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/bd/costas_loop_inst_0/ip/costas_loop_inst_0_AXI_2x_Q_0/costas_loop_inst_0_AXI_2x_Q_0_sim_netlist.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1368,7 +1342,6 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/bd/costas_loop_inst_0/ip/costas_loop_inst_0_Error_Detect_BPSK_0/costas_loop_inst_0_Error_Detect_BPSK_0_sim_netlist.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1376,7 +1349,6 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/bd/costas_loop_inst_0/ip/costas_loop_inst_0_Error_Detect_Ctrl_0_0/costas_loop_inst_0_Error_Detect_Ctrl_0_0_sim_netlist.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1384,7 +1356,6 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/bd/costas_loop_inst_0/ip/costas_loop_inst_0_Error_Detect_QPSK_0/costas_loop_inst_0_Error_Detect_QPSK_0_sim_netlist.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1392,7 +1363,6 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/bd/costas_loop_inst_0/ip/costas_loop_inst_0_LP_filter_0/costas_loop_inst_0_LP_filter_0_sim_netlist.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1400,7 +1370,6 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/bd/costas_loop_inst_0/ip/costas_loop_inst_0_NCO_DDS_0/costas_loop_inst_0_NCO_DDS_0_sim_netlist.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1408,7 +1377,6 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/bd/costas_loop_inst_0/ip/costas_loop_inst_0_NCO_Phase_0_0/costas_loop_inst_0_NCO_Phase_0_0_sim_netlist.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1416,7 +1384,6 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/bd/costas_loop_inst_0/ip/costas_loop_inst_0_NCO_cos_sin_0_0/costas_loop_inst_0_NCO_cos_sin_0_0_sim_netlist.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1424,7 +1391,6 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/bd/costas_loop_inst_0/ip/costas_loop_inst_0_Truncate_IQ_0_0_1/costas_loop_inst_0_Truncate_IQ_0_0_sim_netlist.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1432,7 +1398,6 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/bd/costas_loop_inst_0/ip/costas_loop_inst_0_loop_filter_0/costas_loop_inst_0_loop_filter_0_sim_netlist.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1440,7 +1405,6 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/bd/costas_loop_inst_0/ip/costas_loop_inst_0_phase_detector_I_0/costas_loop_inst_0_phase_detector_I_0_sim_netlist.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1448,7 +1412,6 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/bd/costas_loop_inst_0/ip/costas_loop_inst_0_phase_detector_Q_0/costas_loop_inst_0_phase_detector_Q_0_sim_netlist.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1456,7 +1419,6 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/bd/costas_loop_inst_0/ip/costas_loop_inst_0_xlconcat_0_0/sim/costas_loop_inst_0_xlconcat_0_0.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1464,7 +1426,6 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/bd/costas_loop_inst_0/ip/costas_loop_inst_0_xlconstant_one_0/sim/costas_loop_inst_0_xlconstant_one_0.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1472,7 +1433,6 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/bd/costas_loop_inst_0/ip/costas_loop_inst_0_xlconstant_valid_one_0/sim/costas_loop_inst_0_xlconstant_valid_one_0.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1480,7 +1440,6 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/sim/top.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1488,7 +1447,6 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/ip/top_NCO_cos_sin_0_0/top_NCO_cos_sin_0_0_sim_netlist.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1496,7 +1454,6 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/ip/top_PSK_Detection_0_0/top_PSK_Detection_0_0_sim_netlist.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1504,7 +1461,6 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/ip/top_PSK_Mod_0_0/top_PSK_Mod_0_0_sim_netlist.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1512,7 +1468,6 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/ip/top_PSK_Signal_Extend_0_1/top_PSK_Signal_Extend_0_1_sim_netlist.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1520,7 +1475,6 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/ip/top_Tx_Data_0_0/top_Tx_Data_0_0_sim_netlist.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1528,7 +1482,6 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/ip/top_axis_data_fifo_0_0/top_axis_data_fifo_0_0_sim_netlist.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1536,7 +1489,6 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/ip/top_c_shift_ram_0_2/top_c_shift_ram_0_2_sim_netlist.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1544,7 +1496,6 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/ip/top_c_shift_ram_I_0/top_c_shift_ram_I_0_sim_netlist.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1552,7 +1503,6 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/ip/top_dds_compiler_0_0/top_dds_compiler_0_0_sim_netlist.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1560,7 +1510,6 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/bd/costas_loop_inst_0/ipshared/4b67/hdl/xlconcat_v2_1_vl_rfs.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1568,7 +1517,13 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/ipshared/badb/hdl/xlconstant_v1_1_vl_rfs.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/verilog/tb/tb_PSK_Demod_QPSK.v">
+        <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1906,13 +1861,6 @@
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
-    <FileSet Name="top_Bits_Flatten_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/top_Bits_Flatten_0_0" RelGenDir="$PGENDIR/top_Bits_Flatten_0_0">
-      <Config>
-        <Option Name="TopModule" Val="top_Bits_Flatten_0_0"/>
-        <Option Name="dataflowViewerSettings" Val="min_width=16"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-      </Config>
-    </FileSet>
     <FileSet Name="top_c_shift_ram_I_1" Type="BlockSrcs" RelSrcDir="$PSRCDIR/top_c_shift_ram_I_1" RelGenDir="$PGENDIR/top_c_shift_ram_I_1">
       <Config>
         <Option Name="TopModule" Val="top_c_shift_ram_I_1"/>
@@ -1930,6 +1878,55 @@
     <FileSet Name="gardner_loop_Gardner_Corrector_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/gardner_loop_Gardner_Corrector_0_0" RelGenDir="$PGENDIR/gardner_loop_Gardner_Corrector_0_0">
       <Config>
         <Option Name="TopModule" Val="gardner_loop_Gardner_Corrector_0_0"/>
+        <Option Name="dataflowViewerSettings" Val="min_width=16"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="top_Depacketizer_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/top_Depacketizer_0_0" RelGenDir="$PGENDIR/top_Depacketizer_0_0">
+      <Config>
+        <Option Name="TopModule" Val="top_Depacketizer_0_0"/>
+        <Option Name="dataflowViewerSettings" Val="min_width=16"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="top_Bits_Flatten_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/top_Bits_Flatten_0_0" RelGenDir="$PGENDIR/top_Bits_Flatten_0_0">
+      <Config>
+        <Option Name="TopModule" Val="top_Bits_Flatten_0_0"/>
+        <Option Name="dataflowViewerSettings" Val="min_width=16"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="top_Packetizer_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/top_Packetizer_0_0" RelGenDir="$PGENDIR/top_Packetizer_0_0">
+      <Config>
+        <Option Name="TopModule" Val="top_Packetizer_0_0"/>
+        <Option Name="dataflowViewerSettings" Val="min_width=16"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="top_system_ila_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/top_system_ila_0_0" RelGenDir="$PGENDIR/top_system_ila_0_0">
+      <Config>
+        <Option Name="TopModule" Val="top_system_ila_0_0"/>
+        <Option Name="dataflowViewerSettings" Val="min_width=16"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="top_axis_data_fifo_0_1" Type="BlockSrcs" RelSrcDir="$PSRCDIR/top_axis_data_fifo_0_1" RelGenDir="$PGENDIR/top_axis_data_fifo_0_1">
+      <Config>
+        <Option Name="TopModule" Val="top_axis_data_fifo_0_1"/>
+        <Option Name="dataflowViewerSettings" Val="min_width=16"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="top_Not_Gate_0_1" Type="BlockSrcs" RelSrcDir="$PSRCDIR/top_Not_Gate_0_1" RelGenDir="$PGENDIR/top_Not_Gate_0_1">
+      <Config>
+        <Option Name="TopModule" Val="top_Not_Gate_0_1"/>
+        <Option Name="dataflowViewerSettings" Val="min_width=16"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="top_Bits_Flatten_0_1" Type="BlockSrcs" RelSrcDir="$PSRCDIR/top_Bits_Flatten_0_1" RelGenDir="$PGENDIR/top_Bits_Flatten_0_1">
+      <Config>
+        <Option Name="TopModule" Val="top_Bits_Flatten_0_1"/>
         <Option Name="dataflowViewerSettings" Val="min_width=16"/>
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
@@ -2034,16 +2031,6 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="top_Bits_Flatten_0_0_synth_1" Type="Ft3:Synth" SrcSet="top_Bits_Flatten_0_0" Part="xc7z020clg484-1" ConstrsSet="top_Bits_Flatten_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/top_Bits_Flatten_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/top_Bits_Flatten_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/top_Bits_Flatten_0_0_synth_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022"/>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2022"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
     <Run Id="top_c_shift_ram_I_1_synth_1" Type="Ft3:Synth" SrcSet="top_c_shift_ram_I_1" Part="xc7z020clg484-1" ConstrsSet="top_c_shift_ram_I_1" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/top_c_shift_ram_I_1_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/top_c_shift_ram_I_1_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/top_c_shift_ram_I_1_synth_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022"/>
@@ -2067,6 +2054,90 @@
     <Run Id="gardner_loop_Gardner_Corrector_0_0_synth_1" Type="Ft3:Synth" SrcSet="gardner_loop_Gardner_Corrector_0_0" Part="xc7z020clg484-1" ConstrsSet="gardner_loop_Gardner_Corrector_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/gardner_loop_Gardner_Corrector_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/gardner_loop_Gardner_Corrector_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/gardner_loop_Gardner_Corrector_0_0_synth_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022"/>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2022"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="top_Depacketizer_0_0_synth_1" Type="Ft3:Synth" SrcSet="top_Depacketizer_0_0" Part="xc7z020clg484-1" ConstrsSet="top_Depacketizer_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/top_Depacketizer_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/top_Depacketizer_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/top_Depacketizer_0_0_synth_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2022"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="top_Bits_Flatten_0_0_synth_1" Type="Ft3:Synth" SrcSet="top_Bits_Flatten_0_0" Part="xc7z020clg484-1" ConstrsSet="top_Bits_Flatten_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/top_Bits_Flatten_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/top_Bits_Flatten_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/top_Bits_Flatten_0_0_synth_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2022"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="top_Packetizer_0_0_synth_1" Type="Ft3:Synth" SrcSet="top_Packetizer_0_0" Part="xc7z020clg484-1" ConstrsSet="top_Packetizer_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/top_Packetizer_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/top_Packetizer_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/top_Packetizer_0_0_synth_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2022"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="top_system_ila_0_0_synth_1" Type="Ft3:Synth" SrcSet="top_system_ila_0_0" Part="xc7z020clg484-1" ConstrsSet="top_system_ila_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/top_system_ila_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/top_system_ila_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/top_system_ila_0_0_synth_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2022"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="top_axis_data_fifo_0_1_synth_1" Type="Ft3:Synth" SrcSet="top_axis_data_fifo_0_1" Part="xc7z020clg484-1" ConstrsSet="top_axis_data_fifo_0_1" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/top_axis_data_fifo_0_1_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/top_axis_data_fifo_0_1_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/top_axis_data_fifo_0_1_synth_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2022"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="top_Not_Gate_0_1_synth_1" Type="Ft3:Synth" SrcSet="top_Not_Gate_0_1" Part="xc7z020clg484-1" ConstrsSet="top_Not_Gate_0_1" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/top_Not_Gate_0_1_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/top_Not_Gate_0_1_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/top_Not_Gate_0_1_synth_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2022"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="top_Bits_Flatten_0_1_synth_1" Type="Ft3:Synth" SrcSet="top_Bits_Flatten_0_1" Part="xc7z020clg484-1" ConstrsSet="top_Bits_Flatten_0_1" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/top_Bits_Flatten_0_1_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/top_Bits_Flatten_0_1_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/top_Bits_Flatten_0_1_synth_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -2211,23 +2282,6 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="top_Bits_Flatten_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg484-1" ConstrsSet="top_Bits_Flatten_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="top_Bits_Flatten_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/top_Bits_Flatten_0_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/top_Bits_Flatten_0_0_impl_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022"/>
-        <Step Id="init_design"/>
-        <Step Id="opt_design"/>
-        <Step Id="power_opt_design"/>
-        <Step Id="place_design"/>
-        <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design"/>
-        <Step Id="route_design"/>
-        <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2022"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
     <Run Id="top_c_shift_ram_I_1_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg484-1" ConstrsSet="top_c_shift_ram_I_1" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="top_c_shift_ram_I_1_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/top_c_shift_ram_I_1_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/top_c_shift_ram_I_1_impl_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022"/>
@@ -2265,6 +2319,139 @@
     <Run Id="gardner_loop_Gardner_Corrector_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg484-1" ConstrsSet="gardner_loop_Gardner_Corrector_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="gardner_loop_Gardner_Corrector_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/gardner_loop_Gardner_Corrector_0_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/gardner_loop_Gardner_Corrector_0_0_impl_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022"/>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2022"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="top_Depacketizer_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg484-1" ConstrsSet="top_Depacketizer_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="top_Depacketizer_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/top_Depacketizer_0_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/top_Depacketizer_0_0_impl_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022">
+          <Desc>Default settings for Implementation.</Desc>
+        </StratHandle>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2022"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="top_Bits_Flatten_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg484-1" ConstrsSet="top_Bits_Flatten_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="top_Bits_Flatten_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/top_Bits_Flatten_0_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/top_Bits_Flatten_0_0_impl_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022">
+          <Desc>Default settings for Implementation.</Desc>
+        </StratHandle>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2022"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="top_Packetizer_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg484-1" ConstrsSet="top_Packetizer_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="top_Packetizer_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/top_Packetizer_0_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/top_Packetizer_0_0_impl_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022">
+          <Desc>Default settings for Implementation.</Desc>
+        </StratHandle>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2022"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="top_system_ila_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg484-1" ConstrsSet="top_system_ila_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="top_system_ila_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/top_system_ila_0_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/top_system_ila_0_0_impl_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022">
+          <Desc>Default settings for Implementation.</Desc>
+        </StratHandle>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2022"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="top_axis_data_fifo_0_1_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg484-1" ConstrsSet="top_axis_data_fifo_0_1" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="top_axis_data_fifo_0_1_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/top_axis_data_fifo_0_1_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/top_axis_data_fifo_0_1_impl_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022">
+          <Desc>Default settings for Implementation.</Desc>
+        </StratHandle>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2022"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="top_Not_Gate_0_1_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg484-1" ConstrsSet="top_Not_Gate_0_1" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="top_Not_Gate_0_1_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/top_Not_Gate_0_1_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/top_Not_Gate_0_1_impl_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022">
+          <Desc>Default settings for Implementation.</Desc>
+        </StratHandle>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2022"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="top_Bits_Flatten_0_1_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg484-1" ConstrsSet="top_Bits_Flatten_0_1" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="top_Bits_Flatten_0_1_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/top_Bits_Flatten_0_1_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/top_Bits_Flatten_0_1_impl_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022">
+          <Desc>Default settings for Implementation.</Desc>
+        </StratHandle>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>

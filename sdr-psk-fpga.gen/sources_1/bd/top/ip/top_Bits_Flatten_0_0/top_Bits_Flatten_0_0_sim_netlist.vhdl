@@ -1,7 +1,7 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
--- Date        : Tue Dec 26 10:44:17 2023
+-- Date        : Wed Dec 27 15:23:57 2023
 -- Host        : TVJ-PC running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               e:/Documents/Study/Verilog/SDR/sdr-psk-fpga/sdr-psk-fpga.gen/sources_1/bd/top/ip/top_Bits_Flatten_0_0/top_Bits_Flatten_0_0_sim_netlist.vhdl
@@ -16,22 +16,43 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity top_Bits_Flatten_0_0_Bits_Flatten is
   port (
-    \out\ : out STD_LOGIC;
+    O : out STD_LOGIC;
     clk_in : in STD_LOGIC;
     clk_out : in STD_LOGIC;
     bypass : in STD_LOGIC;
-    \in\ : in STD_LOGIC_VECTOR ( 1 downto 0 )
+    I : in STD_LOGIC_VECTOR ( 1 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of top_Bits_Flatten_0_0_Bits_Flatten : entity is "Bits_Flatten";
 end top_Bits_Flatten_0_0_Bits_Flatten;
 
 architecture STRUCTURE of top_Bits_Flatten_0_0_Bits_Flatten is
+  signal \O__0_n_0\ : STD_LOGIC;
   signal clk_in_reg : STD_LOGIC;
   signal \cnt[0]_i_1_n_0\ : STD_LOGIC;
   signal \cnt_reg_n_0_[0]\ : STD_LOGIC;
-  signal \out__0_n_0\ : STD_LOGIC;
 begin
+\O__0\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"FF04FF55FB00AA00"
+    )
+        port map (
+      I0 => bypass,
+      I1 => clk_in,
+      I2 => clk_in_reg,
+      I3 => I(1),
+      I4 => \cnt_reg_n_0_[0]\,
+      I5 => I(0),
+      O => \O__0_n_0\
+    );
+O_reg: unisim.vcomponents.FDRE
+     port map (
+      C => clk_out,
+      CE => '1',
+      D => \O__0_n_0\,
+      Q => O,
+      R => '0'
+    );
 clk_in_reg_reg: unisim.vcomponents.FDRE
      port map (
       C => clk_out,
@@ -62,27 +83,6 @@ clk_in_reg_reg: unisim.vcomponents.FDRE
       Q => \cnt_reg_n_0_[0]\,
       R => '0'
     );
-\out__0\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"FF04FF55FB00AA00"
-    )
-        port map (
-      I0 => bypass,
-      I1 => clk_in,
-      I2 => clk_in_reg,
-      I3 => \in\(1),
-      I4 => \cnt_reg_n_0_[0]\,
-      I5 => \in\(0),
-      O => \out__0_n_0\
-    );
-out_reg: unisim.vcomponents.FDRE
-     port map (
-      C => clk_out,
-      CE => '1',
-      D => \out__0_n_0\,
-      Q => \out\,
-      R => '0'
-    );
 end STRUCTURE;
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
@@ -93,8 +93,8 @@ entity top_Bits_Flatten_0_0 is
     bypass : in STD_LOGIC;
     clk_in : in STD_LOGIC;
     clk_out : in STD_LOGIC;
-    \in\ : in STD_LOGIC_VECTOR ( 7 downto 0 );
-    \out\ : out STD_LOGIC
+    I : in STD_LOGIC_VECTOR ( 7 downto 0 );
+    O : out STD_LOGIC
   );
   attribute NotValidForBitStream : boolean;
   attribute NotValidForBitStream of top_Bits_Flatten_0_0 : entity is true;
@@ -112,10 +112,10 @@ architecture STRUCTURE of top_Bits_Flatten_0_0 is
 begin
 inst: entity work.top_Bits_Flatten_0_0_Bits_Flatten
      port map (
+      I(1 downto 0) => I(1 downto 0),
+      O => O,
       bypass => bypass,
       clk_in => clk_in,
-      clk_out => clk_out,
-      \in\(1 downto 0) => \in\(1 downto 0),
-      \out\ => \out\
+      clk_out => clk_out
     );
 end STRUCTURE;

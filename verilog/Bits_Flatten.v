@@ -6,13 +6,13 @@ module Bits_Flatten # (
   input              bypass, // bypass the module (when is_bpsk is high)
   input              clk_in, // input-side clock (low frequency clock)
   input              clk_out, // output-side clock (high frequency clock)
-  input      [M-1:0] in,
-  output reg         out
+  input      [M-1:0] I,
+  output reg         O
 );
   localparam CNT_WIDTH = $clog2(N);
 
-  wire [N-1:0] in_LSB;
-  assign in_LSB = in[N-1:0];
+  wire [N-1:0] I_LSB;
+  assign I_LSB = I[N-1:0];
 
   reg [CNT_WIDTH-1:0] cnt = 0;
   reg clk_in_reg;
@@ -23,16 +23,16 @@ module Bits_Flatten # (
   always @ (posedge clk_out) begin
     clk_in_reg <= clk_in;
     if (bypass) begin
-      out <= in_LSB[BYPASS_SELECTION];
+      O <= I_LSB[BYPASS_SELECTION];
     end
     else begin
       if (clk_in_posedge) begin
         cnt <= 1;
-        out <= in_LSB[0];
+        O <= I_LSB[0];
       end
       else begin
         cnt <= cnt + 1;
-        out <= in_LSB[cnt];
+        O <= I_LSB[cnt];
       end
     end
   end

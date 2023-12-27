@@ -67,25 +67,45 @@ module top_system_ila_0_0 (
   probe9,
   probe10,
   probe11,
-  probe12
+  probe12,
+  probe13,
+  probe14,
+  probe15,
+  probe16,
+  probe17,
+  probe18,
+  probe19,
+  probe20,
+  probe21,
+  probe22
 );
 
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.clk, FREQ_HZ 32768000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /Clock_Gen/clk_wiz_32M768_clk_out1, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.clk CLK" *)
 input wire clk;
-input wire [11 : 0] probe0;
-input wire [11 : 0] probe1;
-input wire [0 : 0] probe2;
-input wire [1 : 0] probe3;
+input wire [0 : 0] probe0;
+input wire [1 : 0] probe1;
+input wire [11 : 0] probe2;
+input wire [11 : 0] probe3;
 input wire [11 : 0] probe4;
-input wire [11 : 0] probe5;
-input wire [0 : 0] probe6;
-input wire [1 : 0] probe7;
-input wire [15 : 0] probe8;
-input wire [15 : 0] probe9;
+input wire [0 : 0] probe5;
+input wire [15 : 0] probe6;
+input wire [15 : 0] probe7;
+input wire [11 : 0] probe8;
+input wire [1 : 0] probe9;
 input wire [15 : 0] probe10;
 input wire [15 : 0] probe11;
-input wire [11 : 0] probe12;
+input wire [1 : 0] probe12;
+input wire [0 : 0] probe13;
+input wire [0 : 0] probe14;
+input wire [0 : 0] probe15;
+input wire [0 : 0] probe16;
+input wire [0 : 0] probe17;
+input wire [0 : 0] probe18;
+input wire [0 : 0] probe19;
+input wire [0 : 0] probe20;
+input wire [0 : 0] probe21;
+input wire [0 : 0] probe22;
 
   bd_0696 inst (
     .clk(clk),
@@ -101,6 +121,16 @@ input wire [11 : 0] probe12;
     .probe9(probe9),
     .probe10(probe10),
     .probe11(probe11),
-    .probe12(probe12)
+    .probe12(probe12),
+    .probe13(probe13),
+    .probe14(probe14),
+    .probe15(probe15),
+    .probe16(probe16),
+    .probe17(probe17),
+    .probe18(probe18),
+    .probe19(probe19),
+    .probe20(probe20),
+    .probe21(probe21),
+    .probe22(probe22)
   );
 endmodule
