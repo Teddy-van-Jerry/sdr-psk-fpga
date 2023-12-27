@@ -77,6 +77,8 @@ module Packetizer # (
             end
             else if (hdr_cnt < 32 * 8 + 8) begin
               // modulation scheme
+              // BPSK: 1 ^ 0101010101 -> 1010101010
+              // QPSK: 0 ^ 1010101010 -> 0101010101
               out_tdata <= { BITS{in_tuser ^ hdr_cnt[0]} };
             end
             else if (hdr_cnt < 32 * 8 + 8 + 16) begin
