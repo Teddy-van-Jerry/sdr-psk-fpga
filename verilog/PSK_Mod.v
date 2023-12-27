@@ -61,7 +61,7 @@ module PSK_Mod #(
       // count
       cnt <= cnt + 4'b1;
       // input buffer
-      if (cnt + 1 == DELAY_CNT) begin
+      if (cnt + 4'b1 == DELAY_CNT) begin
         data_tready <= 1'b1; // read next clock cycle
       end
       else if (cnt == DELAY_CNT) begin

@@ -59,6 +59,8 @@ USE dds_compiler_v6_0_22.dds_compiler_v6_0_22;
 ENTITY top_dds_compiler_0_0 IS
   PORT (
     aclk : IN STD_LOGIC;
+    s_axis_config_tvalid : IN STD_LOGIC;
+    s_axis_config_tdata : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     m_axis_data_tvalid : OUT STD_LOGIC;
     m_axis_data_tdata : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
   );
@@ -128,7 +130,7 @@ ARCHITECTURE top_dds_compiler_0_0_arch OF top_dds_compiler_0_0 IS
       s_axis_phase_tuser : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
       s_axis_config_tvalid : IN STD_LOGIC;
       s_axis_config_tready : OUT STD_LOGIC;
-      s_axis_config_tdata : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
+      s_axis_config_tdata : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       s_axis_config_tlast : IN STD_LOGIC;
       m_axis_data_tvalid : OUT STD_LOGIC;
       m_axis_data_tready : IN STD_LOGIC;
@@ -156,8 +158,8 @@ ARCHITECTURE top_dds_compiler_0_0_arch OF top_dds_compiler_0_0 IS
   ATTRIBUTE CHECK_LICENSE_TYPE OF top_dds_compiler_0_0_arch : ARCHITECTURE IS "top_dds_compiler_0_0,dds_compiler_v6_0_22,{}";
   ATTRIBUTE CORE_GENERATION_INFO : STRING;
   ATTRIBUTE CORE_GENERATION_INFO OF top_dds_compiler_0_0_arch: ARCHITECTURE IS "top_dds_compiler_0_0,dds_compiler_v6_0_22,{x_ipProduct=Vivado 2022.2,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=dds_compiler,x_ipVersion=6.0,x_ipCoreRevision=22,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_XDEVICEFAMILY=zynq,C_MODE_OF_OPERATION=0,C_MODULUS=9,C_ACCUMULATOR_WIDTH=15,C_CHANNELS=1,C_HAS_PHASE_OUT=0,C_HAS_PHASEGEN=1,C_HAS_SINCOS=1,C_LATENCY=7,C_MEM_TYPE=1,C_NEGATIVE_COSINE=0,C_NEGATIVE_SINE=0,C_NOISE_SHAPING=0,C_OUTPUTS_REQUIRED=2,C_OUTPUT_FORM=0,C_OUTPUT_WIDTH=12,C_PHASE_ANGLE_WI" & 
-"DTH=12,C_PHASE_INCREMENT=2,C_PHASE_INCREMENT_VALUE=10000000000000_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,C_RESYNC=0,C_PHASE_OFFSET=0,C_PHASE_OFFSET_VALUE=0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,C_OPTIMISE_GOAL=0,C_USE_DSP48=0,C_POR_MODE=0,C_AMPLITUDE=0,C_HAS_ACLKEN=0,C_HAS_ARESETN=0,C_HAS_TLAST=0,C_HAS_TREADY=0,C_HAS_S_PHASE=0,C_S_PHASE_TDATA_WIDTH=1,C_S_PHASE_HAS_TUSER=0,C_S_PHASE_TUSER_WIDTH=1,C_HAS_S_CONFIG=0,C_S_CONFIG_SYNC_MODE=0,C_S_CONFIG_TDATA_WIDTH=1,C_HAS_M_DATA=1,C_M_DATA_TDATA_WIDTH=32,C_M_DATA_HAS_T" & 
-"USER=0,C_M_DATA_TUSER_WIDTH=1,C_HAS_M_PHASE=0,C_M_PHASE_TDATA_WIDTH=1,C_M_PHASE_HAS_TUSER=0,C_M_PHASE_TUSER_WIDTH=1,C_DEBUG_INTERFACE=0,C_CHAN_WIDTH=1}";
+"DTH=12,C_PHASE_INCREMENT=1,C_PHASE_INCREMENT_VALUE=10000000000000_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,C_RESYNC=0,C_PHASE_OFFSET=0,C_PHASE_OFFSET_VALUE=0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,C_OPTIMISE_GOAL=0,C_USE_DSP48=0,C_POR_MODE=0,C_AMPLITUDE=0,C_HAS_ACLKEN=0,C_HAS_ARESETN=0,C_HAS_TLAST=0,C_HAS_TREADY=0,C_HAS_S_PHASE=0,C_S_PHASE_TDATA_WIDTH=1,C_S_PHASE_HAS_TUSER=0,C_S_PHASE_TUSER_WIDTH=1,C_HAS_S_CONFIG=1,C_S_CONFIG_SYNC_MODE=0,C_S_CONFIG_TDATA_WIDTH=16,C_HAS_M_DATA=1,C_M_DATA_TDATA_WIDTH=32,C_M_DATA_HAS_" & 
+"TUSER=0,C_M_DATA_TUSER_WIDTH=1,C_HAS_M_PHASE=0,C_M_PHASE_TDATA_WIDTH=1,C_M_PHASE_HAS_TUSER=0,C_M_PHASE_TUSER_WIDTH=1,C_DEBUG_INTERFACE=0,C_CHAN_WIDTH=1}";
   ATTRIBUTE X_INTERFACE_INFO : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER OF aclk: SIGNAL IS "XIL_INTERFACENAME aclk_intf, ASSOCIATED_BUSIF M_AXIS_PHASE:S_AXIS_CONFIG:M_AXIS_DATA:S_AXIS_PHASE, ASSOCIATED_RESET aresetn, ASSOCIATED_CLKEN aclken, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, INSERT_VIP 0";
@@ -173,6 +175,9 @@ ARCHITECTURE top_dds_compiler_0_0_arch OF top_dds_compiler_0_0 IS
 "ency chanid_width format long minimum {} maximum {}} value 0} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} field_user {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value user} enabled {attribs {resolve_type generated dependency user_enabled format bool minimum {} maximum {}} value fals" & 
 "e} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency user_width format long minimum {} maximum {}} value 0} bitoffset {attribs {resolve_type generated dependency user_offset format long minimum {} maximum {}} value 0}}}}}} TUSER_WIDTH 0}, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF m_axis_data_tvalid: SIGNAL IS "xilinx.com:interface:axis:1.0 M_AXIS_DATA TVALID";
+  ATTRIBUTE X_INTERFACE_INFO OF s_axis_config_tdata: SIGNAL IS "xilinx.com:interface:axis:1.0 S_AXIS_CONFIG TDATA";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF s_axis_config_tvalid: SIGNAL IS "XIL_INTERFACENAME S_AXIS_CONFIG, TDATA_NUM_BYTES 2, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.0, LAYERED_METADATA undef, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_INFO OF s_axis_config_tvalid: SIGNAL IS "xilinx.com:interface:axis:1.0 S_AXIS_CONFIG TVALID";
 BEGIN
   U0 : dds_compiler_v6_0_22
     GENERIC MAP (
@@ -193,7 +198,7 @@ BEGIN
       C_OUTPUT_FORM => 0,
       C_OUTPUT_WIDTH => 12,
       C_PHASE_ANGLE_WIDTH => 12,
-      C_PHASE_INCREMENT => 2,
+      C_PHASE_INCREMENT => 1,
       C_PHASE_INCREMENT_VALUE => "10000000000000,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
       C_RESYNC => 0,
       C_PHASE_OFFSET => 0,
@@ -210,9 +215,9 @@ BEGIN
       C_S_PHASE_TDATA_WIDTH => 1,
       C_S_PHASE_HAS_TUSER => 0,
       C_S_PHASE_TUSER_WIDTH => 1,
-      C_HAS_S_CONFIG => 0,
+      C_HAS_S_CONFIG => 1,
       C_S_CONFIG_SYNC_MODE => 0,
-      C_S_CONFIG_TDATA_WIDTH => 1,
+      C_S_CONFIG_TDATA_WIDTH => 16,
       C_HAS_M_DATA => 1,
       C_M_DATA_TDATA_WIDTH => 32,
       C_M_DATA_HAS_TUSER => 0,
@@ -232,8 +237,8 @@ BEGIN
       s_axis_phase_tdata => STD_LOGIC_VECTOR(TO_UNSIGNED(0, 1)),
       s_axis_phase_tlast => '0',
       s_axis_phase_tuser => STD_LOGIC_VECTOR(TO_UNSIGNED(0, 1)),
-      s_axis_config_tvalid => '0',
-      s_axis_config_tdata => STD_LOGIC_VECTOR(TO_UNSIGNED(0, 1)),
+      s_axis_config_tvalid => s_axis_config_tvalid,
+      s_axis_config_tdata => s_axis_config_tdata,
       s_axis_config_tlast => '0',
       m_axis_data_tvalid => m_axis_data_tvalid,
       m_axis_data_tready => '0',

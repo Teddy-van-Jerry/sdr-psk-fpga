@@ -52,7 +52,8 @@
           "dds_compiler_carrier": "",
           "NCO_cos_sin_0": "",
           "axis_data_fifo_0": "",
-          "PSK_Mod_0": ""
+          "PSK_Mod_0": "",
+          "xlconstant_one": ""
         },
         "Tx_Data_0": "",
         "Packetizer_0": "",
@@ -67,7 +68,8 @@
         "xlconstant_RX_SD_THRESHOLD": "",
         "xlconstant_RX_SD_WINDOW": "",
         "xlconstant_RX_PD_WINDOW1": "",
-        "xlconstant_RX_BD_WINDOW": ""
+        "xlconstant_RX_BD_WINDOW": "",
+        "xlconstant_TX_PHASE_CONFIG": ""
       }
     },
     "ports": {
@@ -2783,6 +2785,11 @@
             "direction": "I",
             "left": "0",
             "right": "0"
+          },
+          "TX_PHASE_CONFIG": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
           }
         },
         "components": {
@@ -2831,6 +2838,11 @@
               "DELAY_CNT": {
                 "direction": "I",
                 "left": "3",
+                "right": "0"
+              },
+              "TX_PHASE_CONFIG": {
+                "direction": "I",
+                "left": "15",
                 "right": "0"
               }
             },
@@ -2881,7 +2893,7 @@
                     "value": "Phase_Generator_and_SIN_COS_LUT"
                   },
                   "Phase_Increment": {
-                    "value": "Fixed"
+                    "value": "Programmable"
                   },
                   "Phase_Width": {
                     "value": "15"
@@ -3161,6 +3173,12 @@
                     "direction": "O"
                   }
                 }
+              },
+              "xlconstant_one": {
+                "vlnv": "xilinx.com:ip:xlconstant:1.1",
+                "xci_name": "top_xlconstant_0_4",
+                "xci_path": "ip\\top_xlconstant_0_4\\top_xlconstant_0_4.xci",
+                "inst_hier_path": "Tx/PSK_Modulation/xlconstant_one"
               }
             },
             "interface_nets": {
@@ -3235,6 +3253,12 @@
                   "DAC_vld"
                 ]
               },
+              "TX_PHASE_CONFIG_1": {
+                "ports": [
+                  "TX_PHASE_CONFIG",
+                  "dds_compiler_carrier/s_axis_config_tdata"
+                ]
+              },
               "proc_sys_reset_16M384_mb_reset": {
                 "ports": [
                   "rst_16M384",
@@ -3251,6 +3275,12 @@
                 "ports": [
                   "rst_n_1M024",
                   "axis_data_fifo_0/s_axis_aresetn"
+                ]
+              },
+              "xlconstant_one_dout": {
+                "ports": [
+                  "xlconstant_one/dout",
+                  "dds_compiler_carrier/s_axis_config_tvalid"
                 ]
               }
             }
@@ -3657,6 +3687,12 @@
               "Bits_Flatten_0/bypass"
             ]
           },
+          "TX_PHASE_CONFIG_1": {
+            "ports": [
+              "TX_PHASE_CONFIG",
+              "PSK_Modulation/TX_PHASE_CONFIG"
+            ]
+          },
           "Tx_Data_0_payload_length": {
             "ports": [
               "Tx_Data_0/payload_length",
@@ -3818,6 +3854,11 @@
             "direction": "O",
             "left": "7",
             "right": "0"
+          },
+          "TX_PHASE_CONFIG": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
           }
         },
         "components": {
@@ -3929,6 +3970,20 @@
                 "value": "8"
               }
             }
+          },
+          "xlconstant_TX_PHASE_CONFIG": {
+            "vlnv": "xilinx.com:ip:xlconstant:1.1",
+            "xci_name": "top_xlconstant_0_5",
+            "xci_path": "ip\\top_xlconstant_0_5\\top_xlconstant_0_5.xci",
+            "inst_hier_path": "Const_Config/xlconstant_TX_PHASE_CONFIG",
+            "parameters": {
+              "CONST_VAL": {
+                "value": "8192"
+              },
+              "CONST_WIDTH": {
+                "value": "16"
+              }
+            }
           }
         },
         "nets": {
@@ -3978,6 +4033,12 @@
             "ports": [
               "xlconstant_RX_SD_WINDOW/dout",
               "RX_SD_WINDOW"
+            ]
+          },
+          "xlconstant_TX_PHASE_CONFIG_dout": {
+            "ports": [
+              "xlconstant_TX_PHASE_CONFIG/dout",
+              "TX_PHASE_CONFIG"
             ]
           }
         }
@@ -4075,6 +4136,12 @@
         "ports": [
           "Const_Config/RX_SD_THRESHOLD",
           "Rx/RX_SD_THRESHOLD"
+        ]
+      },
+      "Const_Config_TX_PHASE_CONFIG": {
+        "ports": [
+          "Const_Config/TX_PHASE_CONFIG",
+          "Tx/TX_PHASE_CONFIG"
         ]
       },
       "DELAY_CNT_1": {

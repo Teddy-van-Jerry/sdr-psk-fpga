@@ -15,6 +15,7 @@ add_files -fileset $sim_fileset_name -norecurse \
     [glob sdr-psk-fpga.gen/sources_1/bd/top/sim/*.v] \
     [glob sdr-psk-fpga.gen/sources_1/bd/top/ip/top_*/*_sim_netlist.v] \
     [glob sdr-psk-fpga.gen/sources_1/bd/top/ip/top_*/sim/*.v] \
+    waveforms/$sim_wave_cfg \
   ]
 # set simulation top
 set_property top $sim_top_module [get_filesets $sim_fileset_name]

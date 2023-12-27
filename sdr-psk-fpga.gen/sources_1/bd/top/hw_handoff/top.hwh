@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Dec 27 19:47:37 2023" VIVADOVERSION="2022.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Dec 28 00:14:29 2023" VIVADOVERSION="2022.2">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z020" NAME="top" PACKAGE="clg484" SPEEDGRADE="-1"/>
 
@@ -1685,6 +1685,23 @@
       </PORTS>
       <BUSINTERFACES/>
     </MODULE>
+    <MODULE COREREVISION="7" FULLNAME="/Const_Config/xlconstant_TX_PHASE_CONFIG" HWVERSION="1.1" INSTANCE="Const_Config_xlconstant_TX_PHASE_CONFIG" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlconstant" VLNV="xilinx.com:ip:xlconstant:1.1">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="CONST_WIDTH" VALUE="16"/>
+        <PARAMETER NAME="CONST_VAL" VALUE="0x2000"/>
+        <PARAMETER NAME="Component_Name" VALUE="top_xlconstant_0_5"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" LEFT="15" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="Const_Config_xlconstant_TX_PHASE_CONFIG_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Tx_PSK_Modulation_dds_compiler_carrier" PORT="s_axis_config_tdata"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
     <MODULE COREREVISION="1" FULLNAME="/RF_Data_Converter" HWVERSION="1.0" INSTANCE="RF_Data_Converter" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="AD9361_1RT_FDD" VLNV="xilinx.com:module_ref:AD9361_1RT_FDD:1.0">
       <DOCUMENTS/>
       <PARAMETERS>
@@ -3317,7 +3334,7 @@
         <PARAMETER NAME="C_OUTPUT_FORM" VALUE="0"/>
         <PARAMETER NAME="C_OUTPUT_WIDTH" VALUE="12"/>
         <PARAMETER NAME="C_PHASE_ANGLE_WIDTH" VALUE="12"/>
-        <PARAMETER NAME="C_PHASE_INCREMENT" VALUE="2"/>
+        <PARAMETER NAME="C_PHASE_INCREMENT" VALUE="1"/>
         <PARAMETER NAME="C_PHASE_INCREMENT_VALUE" VALUE="10000000000000,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
         <PARAMETER NAME="C_RESYNC" VALUE="0"/>
         <PARAMETER NAME="C_PHASE_OFFSET" VALUE="0"/>
@@ -3334,9 +3351,9 @@
         <PARAMETER NAME="C_S_PHASE_TDATA_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_S_PHASE_HAS_TUSER" VALUE="0"/>
         <PARAMETER NAME="C_S_PHASE_TUSER_WIDTH" VALUE="1"/>
-        <PARAMETER NAME="C_HAS_S_CONFIG" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_S_CONFIG" VALUE="1"/>
         <PARAMETER NAME="C_S_CONFIG_SYNC_MODE" VALUE="0"/>
-        <PARAMETER NAME="C_S_CONFIG_TDATA_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_S_CONFIG_TDATA_WIDTH" VALUE="16"/>
         <PARAMETER NAME="C_HAS_M_DATA" VALUE="1"/>
         <PARAMETER NAME="C_M_DATA_TDATA_WIDTH" VALUE="32"/>
         <PARAMETER NAME="C_M_DATA_HAS_TUSER" VALUE="0"/>
@@ -3359,7 +3376,7 @@
         <PARAMETER NAME="Noise_Shaping" VALUE="Auto"/>
         <PARAMETER NAME="Phase_Width" VALUE="15"/>
         <PARAMETER NAME="Output_Width" VALUE="12"/>
-        <PARAMETER NAME="Phase_Increment" VALUE="Fixed"/>
+        <PARAMETER NAME="Phase_Increment" VALUE="Programmable"/>
         <PARAMETER NAME="Resync" VALUE="false"/>
         <PARAMETER NAME="Phase_offset" VALUE="None"/>
         <PARAMETER NAME="Output_Selection" VALUE="Sine_and_Cosine"/>
@@ -3458,6 +3475,16 @@
             <CONNECTION INSTANCE="Clock_Gen_Div_clk32M768_0" PORT="clk16M384"/>
           </CONNECTIONS>
         </PORT>
+        <PORT DIR="I" NAME="s_axis_config_tvalid" SIGIS="undef" SIGNAME="Tx_PSK_Modulation_xlconstant_one_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Tx_PSK_Modulation_xlconstant_one" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="s_axis_config_tdata" RIGHT="0" SIGIS="undef" SIGNAME="Const_Config_xlconstant_TX_PHASE_CONFIG_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Const_Config_xlconstant_TX_PHASE_CONFIG" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT DIR="O" NAME="m_axis_data_tvalid" SIGIS="undef" SIGNAME="Tx_PSK_Modulation_NCO_cos_sin_0_NCO_tvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Tx_PSK_Modulation_NCO_cos_sin_0" PORT="NCO_tvalid"/>
@@ -3489,7 +3516,43 @@
             <PORTMAP LOGICAL="TVALID" PHYSICAL="m_axis_data_tvalid"/>
           </PORTMAPS>
         </BUSINTERFACE>
+        <BUSINTERFACE BUSNAME="__NOC__" NAME="S_AXIS_CONFIG" TYPE="TARGET" VLNV="xilinx.com:interface:axis:1.0">
+          <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="2"/>
+          <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TUSER_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="HAS_TREADY" VALUE="0"/>
+          <PARAMETER NAME="HAS_TSTRB" VALUE="0"/>
+          <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
+          <PARAMETER NAME="HAS_TLAST" VALUE="0"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
+          <PARAMETER NAME="PHASE" VALUE="0.0"/>
+          <PARAMETER NAME="CLK_DOMAIN"/>
+          <PARAMETER NAME="LAYERED_METADATA" VALUE="undef"/>
+          <PARAMETER NAME="INSERT_VIP" VALUE="0"/>
+          <PORTMAPS>
+            <PORTMAP LOGICAL="TDATA" PHYSICAL="s_axis_config_tdata"/>
+            <PORTMAP LOGICAL="TVALID" PHYSICAL="s_axis_config_tvalid"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
       </BUSINTERFACES>
+    </MODULE>
+    <MODULE COREREVISION="7" FULLNAME="/Tx/PSK_Modulation/xlconstant_one" HWVERSION="1.1" INSTANCE="Tx_PSK_Modulation_xlconstant_one" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlconstant" VLNV="xilinx.com:ip:xlconstant:1.1">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="CONST_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="CONST_VAL" VALUE="0x1"/>
+        <PARAMETER NAME="Component_Name" VALUE="top_xlconstant_0_4"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" LEFT="0" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="Tx_PSK_Modulation_xlconstant_one_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Tx_PSK_Modulation_dds_compiler_carrier" PORT="s_axis_config_tvalid"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
     </MODULE>
     <MODULE COREREVISION="1" FULLNAME="/Tx/Packetizer_0" HWVERSION="1.0" INSTANCE="Tx_Packetizer_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="Packetizer" VLNV="xilinx.com:module_ref:Packetizer:1.0">
       <DOCUMENTS/>

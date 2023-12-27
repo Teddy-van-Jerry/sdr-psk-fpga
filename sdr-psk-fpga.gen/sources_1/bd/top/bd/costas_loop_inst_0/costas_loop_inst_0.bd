@@ -49,19 +49,19 @@
           },
           "HAS_TKEEP": {
             "value": "0",
-            "value_src": "default"
+            "value_src": "const_prop"
           },
           "HAS_TLAST": {
             "value": "0",
-            "value_src": "default"
+            "value_src": "const_prop"
           },
           "HAS_TREADY": {
             "value": "0",
-            "value_src": "default"
+            "value_src": "const_prop"
           },
           "HAS_TSTRB": {
             "value": "0",
-            "value_src": "default"
+            "value_src": "const_prop"
           },
           "INSERT_VIP": {
             "value": "0",
@@ -77,19 +77,19 @@
           },
           "TDATA_NUM_BYTES": {
             "value": "2",
-            "value_src": "default"
+            "value_src": "auto_prop"
           },
           "TDEST_WIDTH": {
             "value": "0",
-            "value_src": "default"
+            "value_src": "const_prop"
           },
           "TID_WIDTH": {
             "value": "0",
-            "value_src": "default"
+            "value_src": "const_prop"
           },
           "TUSER_WIDTH": {
             "value": "0",
-            "value_src": "default"
+            "value_src": "const_prop"
           }
         },
         "port_maps": {
@@ -116,19 +116,19 @@
           },
           "HAS_TKEEP": {
             "value": "0",
-            "value_src": "default"
+            "value_src": "const_prop"
           },
           "HAS_TLAST": {
             "value": "0",
-            "value_src": "default"
+            "value_src": "const_prop"
           },
           "HAS_TREADY": {
             "value": "0",
-            "value_src": "default"
+            "value_src": "const_prop"
           },
           "HAS_TSTRB": {
             "value": "0",
-            "value_src": "default"
+            "value_src": "const_prop"
           },
           "INSERT_VIP": {
             "value": "0",
@@ -144,19 +144,19 @@
           },
           "TDATA_NUM_BYTES": {
             "value": "2",
-            "value_src": "default"
+            "value_src": "auto_prop"
           },
           "TDEST_WIDTH": {
             "value": "0",
-            "value_src": "default"
+            "value_src": "const_prop"
           },
           "TID_WIDTH": {
             "value": "0",
-            "value_src": "default"
+            "value_src": "const_prop"
           },
           "TUSER_WIDTH": {
             "value": "0",
-            "value_src": "default"
+            "value_src": "const_prop"
           }
         },
         "port_maps": {
@@ -229,7 +229,7 @@
           },
           "POLARITY": {
             "value": "ACTIVE_HIGH",
-            "value_src": "strong"
+            "value_src": "const_prop"
           }
         }
       },

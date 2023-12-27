@@ -13,6 +13,7 @@ module tb_Tx;
   wire  [3:0] DELAY_CNT;
   wire  [3:0] MODE_CTRL;
   wire        Tx_1bit;
+  wire [15:0] TX_PHASE_CONFIG; // maximum 15 bits
   wire  [7:0] data_tdata;
   wire        data_tlast;
   wire        data_tuser;
@@ -26,8 +27,9 @@ module tb_Tx;
   reg clk_2M048;
 
   // configuration parameters (constants)
-  assign DELAY_CNT = 4'd8;
+  assign DELAY_CNT = 4'd0;
   assign MODE_CTRL = MODE_BPSK;
+  assign TX_PHASE_CONFIG = 16'd8192; // 8192 for 4.196 MHz
 
   // module instantiation
   Tx_imp_1IUYQQO dut (
@@ -42,6 +44,7 @@ module tb_Tx;
     .DAC_bits(DAC_bits),
     .DAC_vld(DAC_vld),
     .MODE_CTRL(MODE_CTRL),
+    .TX_PHASE_CONFIG(TX_PHASE_CONFIG),
     .Tx_1bit(Tx_1bit),
     .data_tdata(data_tdata),
     .data_tlast(data_tlast),

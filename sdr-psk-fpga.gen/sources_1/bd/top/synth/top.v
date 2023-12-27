@@ -1,7 +1,7 @@
 //Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-//Date        : Wed Dec 27 19:47:32 2023
+//Date        : Thu Dec 28 00:14:22 2023
 //Host        : TVJ-PC running 64-bit major release  (build 9200)
 //Command     : generate_target top.bd
 //Design      : top
@@ -80,7 +80,8 @@ module Const_Config_imp_1TTSP2B
     RX_BD_WINDOW,
     RX_PD_WINDOW,
     RX_SD_THRESHOLD,
-    RX_SD_WINDOW);
+    RX_SD_WINDOW,
+    TX_PHASE_CONFIG);
   output [3:0]DELAY_CNT;
   output [3:0]FEEDBACK_SHIFT;
   output [3:0]GARDNER_SHIFT;
@@ -89,6 +90,7 @@ module Const_Config_imp_1TTSP2B
   output [7:0]RX_PD_WINDOW;
   output [15:0]RX_SD_THRESHOLD;
   output [7:0]RX_SD_WINDOW;
+  output [15:0]TX_PHASE_CONFIG;
 
   wire [3:0]DELAY_CNT_1;
   wire [3:0]xlconstant_FEEDBACK_SHIFT_dout;
@@ -98,6 +100,7 @@ module Const_Config_imp_1TTSP2B
   wire [7:0]xlconstant_RX_PD_WINDOW1_dout;
   wire [15:0]xlconstant_RX_SD_THRESHOLD_dout;
   wire [7:0]xlconstant_RX_SD_WINDOW_dout;
+  wire [15:0]xlconstant_TX_PHASE_CONFIG_dout;
 
   assign DELAY_CNT[3:0] = DELAY_CNT_1;
   assign FEEDBACK_SHIFT[3:0] = xlconstant_FEEDBACK_SHIFT_dout;
@@ -107,6 +110,7 @@ module Const_Config_imp_1TTSP2B
   assign RX_PD_WINDOW[7:0] = xlconstant_RX_PD_WINDOW1_dout;
   assign RX_SD_THRESHOLD[15:0] = xlconstant_RX_SD_THRESHOLD_dout;
   assign RX_SD_WINDOW[7:0] = xlconstant_RX_SD_WINDOW_dout;
+  assign TX_PHASE_CONFIG[15:0] = xlconstant_TX_PHASE_CONFIG_dout;
   top_xlconstant_1_0 xlconstant_DELAY_CNT
        (.dout(DELAY_CNT_1));
   top_xlconstant_2_0 xlconstant_FEEDBACK_SHIFT
@@ -123,6 +127,8 @@ module Const_Config_imp_1TTSP2B
        (.dout(xlconstant_RX_SD_THRESHOLD_dout));
   top_xlconstant_RX_SD_THRESHOLD_0 xlconstant_RX_SD_WINDOW
        (.dout(xlconstant_RX_SD_WINDOW_dout));
+  top_xlconstant_0_5 xlconstant_TX_PHASE_CONFIG
+       (.dout(xlconstant_TX_PHASE_CONFIG_dout));
 endmodule
 
 module Flatten_imp_1HVGDJ4
@@ -203,6 +209,7 @@ module PSK_Modulation_imp_1W4LMRU
     DAC_bits,
     DAC_vld,
     DELAY_CNT,
+    TX_PHASE_CONFIG,
     clk_16M384,
     clk_1M024,
     data_tdata,
@@ -217,6 +224,7 @@ module PSK_Modulation_imp_1W4LMRU
   output [1:0]DAC_bits;
   output DAC_vld;
   input [3:0]DELAY_CNT;
+  input [15:0]TX_PHASE_CONFIG;
   input clk_16M384;
   input clk_1M024;
   input [7:0]data_tdata;
@@ -235,6 +243,7 @@ module PSK_Modulation_imp_1W4LMRU
   wire [11:0]PSK_Mod_0_out_Q;
   wire [1:0]PSK_Mod_0_out_bits;
   wire PSK_Mod_0_out_vld;
+  wire [15:0]TX_PHASE_CONFIG_1;
   wire [7:0]axis_data_fifo_0_M_AXIS_TDATA;
   wire axis_data_fifo_0_M_AXIS_TLAST;
   wire axis_data_fifo_0_M_AXIS_TREADY;
@@ -250,6 +259,7 @@ module PSK_Modulation_imp_1W4LMRU
   wire proc_sys_reset_16M384_mb_reset;
   wire s_axis_aclk_1;
   wire s_axis_aresetn_1;
+  wire [0:0]xlconstant_one_dout;
 
   assign DAC_I[11:0] = PSK_Mod_0_out_I;
   assign DAC_Q[11:0] = PSK_Mod_0_out_Q;
@@ -257,6 +267,7 @@ module PSK_Modulation_imp_1W4LMRU
   assign DAC_vld = PSK_Mod_0_out_vld;
   assign DELAY_CNT_1 = DELAY_CNT[3:0];
   assign Div_clk32M768_0_clk16M384 = clk_16M384;
+  assign TX_PHASE_CONFIG_1 = TX_PHASE_CONFIG[15:0];
   assign data_1_TDATA = data_tdata[7:0];
   assign data_1_TLAST = data_tlast;
   assign data_1_TUSER = data_tuser;
@@ -303,7 +314,11 @@ module PSK_Modulation_imp_1W4LMRU
   top_dds_compiler_0_0 dds_compiler_carrier
        (.aclk(Div_clk32M768_0_clk16M384),
         .m_axis_data_tdata(dds_compiler_0_M_AXIS_DATA_TDATA),
-        .m_axis_data_tvalid(dds_compiler_0_M_AXIS_DATA_TVALID));
+        .m_axis_data_tvalid(dds_compiler_0_M_AXIS_DATA_TVALID),
+        .s_axis_config_tdata(TX_PHASE_CONFIG_1),
+        .s_axis_config_tvalid(xlconstant_one_dout));
+  top_xlconstant_0_4 xlconstant_one
+       (.dout(xlconstant_one_dout));
 endmodule
 
 module Reset_Gen_imp_19G9OF2
@@ -422,10 +437,10 @@ module Rx_imp_KSVDXC
   output clk_1M_out;
   input clk_2M048;
   input clk_32M768;
-  output [7:0]data_tdata;
+  output data_tdata;
   output data_tlast;
   output data_tready;
-  output [0:0]data_tuser;
+  output data_tuser;
   output data_tvalid;
   input rst_16M384;
   input rst_32M768;
@@ -501,10 +516,10 @@ module Rx_imp_KSVDXC
   assign clk_1M_out = gardner_loop_0_clk_out;
   assign clk_2M048_1 = clk_2M048;
   assign clk_32M768_1 = clk_32M768;
-  assign data_tdata[7:0] = Depacketizer_0_data_TDATA;
+  assign data_tdata = Depacketizer_0_data_TDATA[0];
   assign data_tlast = Depacketizer_0_data_TLAST;
   assign data_tready = Depacketizer_0_data_TREADY;
-  assign data_tuser[0] = Depacketizer_0_data_TUSER;
+  assign data_tuser = Depacketizer_0_data_TUSER;
   assign data_tvalid = Depacketizer_0_data_TVALID;
   assign rst_16M386_1 = rst_16M384;
   assign rst_32M768_1 = rst_32M768;
@@ -713,6 +728,7 @@ module Tx_imp_1IUYQQO
     DAC_vld,
     DELAY_CNT,
     MODE_CTRL,
+    TX_PHASE_CONFIG,
     Tx_1bit,
     clk_16M384,
     clk_1M024,
@@ -730,11 +746,12 @@ module Tx_imp_1IUYQQO
   output DAC_vld;
   input [3:0]DELAY_CNT;
   input [3:0]MODE_CTRL;
+  input [15:0]TX_PHASE_CONFIG;
   output Tx_1bit;
   input clk_16M384;
   input clk_1M024;
   input clk_2M048;
-  output [7:0]data_tdata;
+  output data_tdata;
   output data_tlast;
   output data_tready;
   output data_tuser;
@@ -753,6 +770,7 @@ module Tx_imp_1IUYQQO
   wire [7:0]Packetizer_0_out_tdata;
   wire Packetizer_0_out_tlast;
   wire Packetizer_0_out_tuser;
+  wire [15:0]TX_PHASE_CONFIG_1;
   wire [7:0]Tx_Data_0_data_TDATA;
   wire Tx_Data_0_data_TLAST;
   wire Tx_Data_0_data_TREADY;
@@ -773,9 +791,10 @@ module Tx_imp_1IUYQQO
   assign DELAY_CNT_1 = DELAY_CNT[3:0];
   assign Div_clk32M768_0_clk16M384 = clk_16M384;
   assign MODE_CTRL_1 = MODE_CTRL[3:0];
+  assign TX_PHASE_CONFIG_1 = TX_PHASE_CONFIG[15:0];
   assign Tx_1bit = Bits_Flatten_0_out;
   assign clk_2M048_1 = clk_2M048;
-  assign data_tdata[7:0] = Tx_Data_0_data_TDATA;
+  assign data_tdata = Tx_Data_0_data_TDATA[0];
   assign data_tlast = Tx_Data_0_data_TLAST;
   assign data_tready = Tx_Data_0_data_TREADY;
   assign data_tuser = Tx_Data_0_data_TUSER;
@@ -794,6 +813,7 @@ module Tx_imp_1IUYQQO
         .DAC_bits(PSK_Modulation_out_bits),
         .DAC_vld(PSK_Modulation_out_vld),
         .DELAY_CNT(DELAY_CNT_1),
+        .TX_PHASE_CONFIG(TX_PHASE_CONFIG_1),
         .clk_16M384(Div_clk32M768_0_clk16M384),
         .clk_1M024(clk_1M024),
         .data_tdata(Packetizer_0_out_tdata),
@@ -831,7 +851,7 @@ module Tx_imp_1IUYQQO
         .rst_n(s_axis_aresetn_1));
 endmodule
 
-(* CORE_GENERATION_INFO = "top,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=top,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=81,numReposBlks=65,numNonXlnxBlks=0,numHierBlks=16,maxHierDepth=3,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=24,numPkgbdBlks=2,bdsource=USER,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "top.hwdef" *) 
+(* CORE_GENERATION_INFO = "top,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=top,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=83,numReposBlks=67,numNonXlnxBlks=0,numHierBlks=16,maxHierDepth=3,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=24,numPkgbdBlks=2,bdsource=USER,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "top.hwdef" *) 
 module top
    (AD9361_DATACLK,
     AD9361_FBCLK,
@@ -871,6 +891,7 @@ module top
   wire [7:0]Const_Config_RX_BD_WINDOW;
   wire [7:0]Const_Config_RX_PD_WINDOW;
   wire [15:0]Const_Config_RX_SD_THRESHOLD;
+  wire [15:0]Const_Config_TX_PHASE_CONFIG;
   wire [3:0]DELAY_CNT_1;
   wire Div_clk32M768_0_clk16M384;
   wire [3:0]FEEDBACK_SHIFT_1;
@@ -889,14 +910,14 @@ module top
   wire [15:0]Rx_Q_1M;
   wire Rx_Rx_1bit;
   wire Rx_clk_1M_out;
-  wire [7:0]Rx_data_tdata;
+  wire Rx_data_tdata;
   wire Rx_data_tlast;
-  wire [0:0]Rx_data_tuser;
+  wire Rx_data_tuser;
   wire Rx_data_tvalid;
   wire [1:0]Tx_DAC_bits;
   wire Tx_DAC_vld;
   wire Tx_Tx_1bit;
-  wire [7:0]Tx_data_tdata;
+  wire Tx_data_tdata;
   wire Tx_data_tlast;
   wire Tx_data_tuser;
   wire Tx_data_tvalid;
@@ -935,7 +956,8 @@ module top
         .RX_BD_WINDOW(Const_Config_RX_BD_WINDOW),
         .RX_PD_WINDOW(Const_Config_RX_PD_WINDOW),
         .RX_SD_THRESHOLD(Const_Config_RX_SD_THRESHOLD),
-        .RX_SD_WINDOW(RX_SD_WINDOW_1));
+        .RX_SD_WINDOW(RX_SD_WINDOW_1),
+        .TX_PHASE_CONFIG(Const_Config_TX_PHASE_CONFIG));
   top_AD9361_1RT_FDD_0_0 RF_Data_Converter
        (.AD9361_DATACLK(AD9361_DATACLK_1),
         .AD9361_FBCLK(AD9361_1RT_FDD_0_AD9361_FBCLK),
@@ -987,6 +1009,7 @@ module top
         .DAC_vld(Tx_DAC_vld),
         .DELAY_CNT(DELAY_CNT_1),
         .MODE_CTRL(xlconstant_MODE_CTRL_dout),
+        .TX_PHASE_CONFIG(Const_Config_TX_PHASE_CONFIG),
         .Tx_1bit(Tx_Tx_1bit),
         .clk_16M384(Div_clk32M768_0_clk16M384),
         .clk_1M024(Clock_Gen_clk1M024),
@@ -1006,11 +1029,11 @@ module top
         .probe12(Rx_QPSK),
         .probe13(Rx_BPSK),
         .probe14(Rx_clk_1M_out),
-        .probe15(Tx_data_tdata),
+        .probe15({Tx_data_tdata,Tx_data_tdata,Tx_data_tdata,Tx_data_tdata,Tx_data_tdata,Tx_data_tdata,Tx_data_tdata,Tx_data_tdata}),
         .probe16(Tx_data_tlast),
         .probe17(Tx_data_tuser),
         .probe18(Tx_data_tvalid),
-        .probe19(Rx_data_tdata),
+        .probe19({Rx_data_tdata,Rx_data_tdata,Rx_data_tdata,Rx_data_tdata,Rx_data_tdata,Rx_data_tdata,Rx_data_tdata,Rx_data_tdata}),
         .probe2(PSK_Mod_0_out_I),
         .probe20(Rx_data_tlast),
         .probe21(Rx_data_tuser),
