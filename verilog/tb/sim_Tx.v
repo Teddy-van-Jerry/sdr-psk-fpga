@@ -35,11 +35,16 @@ module sim_Tx # (
   end
 
   wire [15:0] payload_length;
-  wire  [7:0] data_tdata;
-  wire        data_tvalid;
-  wire        data_tready;
-  wire        data_tlast;
-  wire        data_tuser; // is_bpsk
+  wire  [7:0] in_tdata;
+  wire        in_tvalid;
+  wire        in_tready;
+  wire        in_tlast;
+  wire        in_tuser; // is_bpsk
+  wire  [7:0] out_tdata;
+  wire        out_tvalid;
+  wire        out_tready;
+  wire        out_tlast;
+  wire        out_tuser; // is_bpsk
 
   Tx_Data inst_Tx_data (
     .clk(clk_1M024),
@@ -54,14 +59,32 @@ module sim_Tx # (
     .payload_length(payload_length)
   );
 
+  Packetizer inst_Packetizer (
+    .clk(clk_1M024),
+    .rst_n(rst_n_1M024),
+    .MODE_CTRL(MODE_CTRL),
+    .payload_length(payload_length),
+    .in_tdata(in_tdata),
+    .in_tvalid(in_tvalid),
+    .in_tready(in_tready),
+    .in_tlast(in_tlast),
+    .in_tuser(in_tuser), // is_bpsk
+    .out_tdata(out_tdata),
+    .out_tvalid(out_tvalid),
+    .out_tready(out_tready),
+    .out_tlast(out_tlast),
+    .out_tuser(out_tuser), // is_bpsk
+    .hdr_vld()
+  );
+
   PSK_Mod inst_PSK_Mod (
     .clk_16M384(clk_16M384),
     .rst_16M384(rst_16M384),
-    .data_tdata(data_tdata),
-    .data_tvalid(data_tvalid),
-    .data_tready(data_tready),
-    .data_tlast(data_tlast),
-    .data_tuser(data_tuser), // is_bpsk
+    .data_tdata(out_tdata),
+    .data_tvalid(out_tvalid),
+    .data_tready(out_tready),
+    .data_tlast(out_tlast),
+    .data_tuser(out_tuser), // is_bpsk
     .carrier_I(carrier_I),
     .carrier_Q(carrier_Q),
     .DELAY_CNT(4'd0),

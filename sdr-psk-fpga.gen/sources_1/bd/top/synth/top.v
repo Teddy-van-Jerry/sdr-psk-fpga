@@ -1,7 +1,7 @@
 //Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-//Date        : Wed Dec 27 15:20:42 2023
+//Date        : Wed Dec 27 19:47:32 2023
 //Host        : TVJ-PC running 64-bit major release  (build 9200)
 //Command     : generate_target top.bd
 //Design      : top
@@ -386,16 +386,16 @@ module Rx_imp_KSVDXC
     RX_SD_THRESHOLD,
     RX_SD_WINDOW,
     Rx_1bit,
-    Rx_data_tdata,
-    Rx_data_tlast,
-    Rx_data_tready,
-    Rx_data_tuser,
-    Rx_data_tvalid,
     clk_16M384,
     clk_1M024,
     clk_1M_out,
     clk_2M048,
     clk_32M768,
+    data_tdata,
+    data_tlast,
+    data_tready,
+    data_tuser,
+    data_tvalid,
     rst_16M384,
     rst_32M768);
   input [11:0]ADC_I;
@@ -417,16 +417,16 @@ module Rx_imp_KSVDXC
   input [15:0]RX_SD_THRESHOLD;
   input [7:0]RX_SD_WINDOW;
   output Rx_1bit;
-  output [7:0]Rx_data_tdata;
-  output Rx_data_tlast;
-  output Rx_data_tready;
-  output [0:0]Rx_data_tuser;
-  output Rx_data_tvalid;
   input clk_16M384;
   input clk_1M024;
   output clk_1M_out;
   input clk_2M048;
   input clk_32M768;
+  output [7:0]data_tdata;
+  output data_tlast;
+  output data_tready;
+  output [0:0]data_tuser;
+  output data_tvalid;
   input rst_16M384;
   input rst_32M768;
 
@@ -497,15 +497,15 @@ module Rx_imp_KSVDXC
   assign RX_SD_THRESHOLD_1 = RX_SD_THRESHOLD[15:0];
   assign RX_SD_WINDOW_1 = RX_SD_WINDOW[7:0];
   assign Rx_1bit = Flatten_Rx_1bit;
-  assign Rx_data_tdata[7:0] = Depacketizer_0_data_TDATA;
-  assign Rx_data_tlast = Depacketizer_0_data_TLAST;
-  assign Rx_data_tready = Depacketizer_0_data_TREADY;
-  assign Rx_data_tuser[0] = Depacketizer_0_data_TUSER;
-  assign Rx_data_tvalid = Depacketizer_0_data_TVALID;
   assign clk_1M024_1 = clk_1M024;
   assign clk_1M_out = gardner_loop_0_clk_out;
   assign clk_2M048_1 = clk_2M048;
   assign clk_32M768_1 = clk_32M768;
+  assign data_tdata[7:0] = Depacketizer_0_data_TDATA;
+  assign data_tlast = Depacketizer_0_data_TLAST;
+  assign data_tready = Depacketizer_0_data_TREADY;
+  assign data_tuser[0] = Depacketizer_0_data_TUSER;
+  assign data_tvalid = Depacketizer_0_data_TVALID;
   assign rst_16M386_1 = rst_16M384;
   assign rst_32M768_1 = rst_32M768;
   top_Depacketizer_0_0 Depacketizer_0
@@ -714,14 +714,14 @@ module Tx_imp_1IUYQQO
     DELAY_CNT,
     MODE_CTRL,
     Tx_1bit,
-    Tx_data_tdata,
-    Tx_data_tlast,
-    Tx_data_tready,
-    Tx_data_tuser,
-    Tx_data_tvalid,
     clk_16M384,
     clk_1M024,
     clk_2M048,
+    data_tdata,
+    data_tlast,
+    data_tready,
+    data_tuser,
+    data_tvalid,
     rst_16M384,
     rst_n_1M024);
   output [11:0]DAC_I;
@@ -731,14 +731,14 @@ module Tx_imp_1IUYQQO
   input [3:0]DELAY_CNT;
   input [3:0]MODE_CTRL;
   output Tx_1bit;
-  output [7:0]Tx_data_tdata;
-  output Tx_data_tlast;
-  output Tx_data_tready;
-  output Tx_data_tuser;
-  output Tx_data_tvalid;
   input clk_16M384;
   input clk_1M024;
   input clk_2M048;
+  output [7:0]data_tdata;
+  output data_tlast;
+  output data_tready;
+  output data_tuser;
+  output data_tvalid;
   input rst_16M384;
   input [0:0]rst_n_1M024;
 
@@ -774,12 +774,12 @@ module Tx_imp_1IUYQQO
   assign Div_clk32M768_0_clk16M384 = clk_16M384;
   assign MODE_CTRL_1 = MODE_CTRL[3:0];
   assign Tx_1bit = Bits_Flatten_0_out;
-  assign Tx_data_tdata[7:0] = Tx_Data_0_data_TDATA;
-  assign Tx_data_tlast = Tx_Data_0_data_TLAST;
-  assign Tx_data_tready = Tx_Data_0_data_TREADY;
-  assign Tx_data_tuser = Tx_Data_0_data_TUSER;
-  assign Tx_data_tvalid = Tx_Data_0_data_TVALID;
   assign clk_2M048_1 = clk_2M048;
+  assign data_tdata[7:0] = Tx_Data_0_data_TDATA;
+  assign data_tlast = Tx_Data_0_data_TLAST;
+  assign data_tready = Tx_Data_0_data_TREADY;
+  assign data_tuser = Tx_Data_0_data_TUSER;
+  assign data_tvalid = Tx_Data_0_data_TVALID;
   assign proc_sys_reset_16M384_mb_reset = rst_16M384;
   assign s_axis_aresetn_1 = rst_n_1M024[0];
   top_Bits_Flatten_0_0 Bits_Flatten_0
@@ -888,18 +888,18 @@ module top
   wire [15:0]Rx_Q_16M;
   wire [15:0]Rx_Q_1M;
   wire Rx_Rx_1bit;
-  wire [7:0]Rx_Rx_data_tdata;
-  wire Rx_Rx_data_tlast;
-  wire [0:0]Rx_Rx_data_tuser;
-  wire Rx_Rx_data_tvalid;
   wire Rx_clk_1M_out;
+  wire [7:0]Rx_data_tdata;
+  wire Rx_data_tlast;
+  wire [0:0]Rx_data_tuser;
+  wire Rx_data_tvalid;
   wire [1:0]Tx_DAC_bits;
   wire Tx_DAC_vld;
   wire Tx_Tx_1bit;
-  wire [7:0]Tx_Tx_data_tdata;
-  wire Tx_Tx_data_tlast;
-  wire Tx_Tx_data_tuser;
-  wire Tx_Tx_data_tvalid;
+  wire [7:0]Tx_data_tdata;
+  wire Tx_data_tlast;
+  wire Tx_data_tuser;
+  wire Tx_data_tvalid;
   wire clk_2M048_1;
   wire clk_32M768_1;
   wire clk_wiz_128M_clk_200M;
@@ -969,15 +969,15 @@ module top
         .RX_SD_THRESHOLD(Const_Config_RX_SD_THRESHOLD),
         .RX_SD_WINDOW(RX_SD_WINDOW_1),
         .Rx_1bit(Rx_Rx_1bit),
-        .Rx_data_tdata(Rx_Rx_data_tdata),
-        .Rx_data_tlast(Rx_Rx_data_tlast),
-        .Rx_data_tuser(Rx_Rx_data_tuser),
-        .Rx_data_tvalid(Rx_Rx_data_tvalid),
         .clk_16M384(Div_clk32M768_0_clk16M384),
         .clk_1M024(Clock_Gen_clk1M024),
         .clk_1M_out(Rx_clk_1M_out),
         .clk_2M048(clk_2M048_1),
         .clk_32M768(clk_32M768_1),
+        .data_tdata(Rx_data_tdata),
+        .data_tlast(Rx_data_tlast),
+        .data_tuser(Rx_data_tuser),
+        .data_tvalid(Rx_data_tvalid),
         .rst_16M384(proc_sys_reset_16M384_mb_reset),
         .rst_32M768(Clock_Gen_rst_32M768));
   Tx_imp_1IUYQQO Tx
@@ -988,13 +988,13 @@ module top
         .DELAY_CNT(DELAY_CNT_1),
         .MODE_CTRL(xlconstant_MODE_CTRL_dout),
         .Tx_1bit(Tx_Tx_1bit),
-        .Tx_data_tdata(Tx_Tx_data_tdata),
-        .Tx_data_tlast(Tx_Tx_data_tlast),
-        .Tx_data_tuser(Tx_Tx_data_tuser),
-        .Tx_data_tvalid(Tx_Tx_data_tvalid),
         .clk_16M384(Div_clk32M768_0_clk16M384),
         .clk_1M024(Clock_Gen_clk1M024),
         .clk_2M048(clk_2M048_1),
+        .data_tdata(Tx_data_tdata),
+        .data_tlast(Tx_data_tlast),
+        .data_tuser(Tx_data_tuser),
+        .data_tvalid(Tx_data_tvalid),
         .rst_16M384(proc_sys_reset_16M384_mb_reset),
         .rst_n_1M024(Clock_Gen_interconnect_aresetn));
   top_system_ila_0_0 system_ila_0
@@ -1006,15 +1006,15 @@ module top
         .probe12(Rx_QPSK),
         .probe13(Rx_BPSK),
         .probe14(Rx_clk_1M_out),
-        .probe15(Tx_Tx_data_tdata[0]),
-        .probe16(Tx_Tx_data_tlast),
-        .probe17(Tx_Tx_data_tuser),
-        .probe18(Tx_Tx_data_tvalid),
-        .probe19(Rx_Rx_data_tdata[0]),
+        .probe15(Tx_data_tdata),
+        .probe16(Tx_data_tlast),
+        .probe17(Tx_data_tuser),
+        .probe18(Tx_data_tvalid),
+        .probe19(Rx_data_tdata),
         .probe2(PSK_Mod_0_out_I),
-        .probe20(Rx_Rx_data_tlast),
-        .probe21(Rx_Rx_data_tuser),
-        .probe22(Rx_Rx_data_tvalid),
+        .probe20(Rx_data_tlast),
+        .probe21(Rx_data_tuser),
+        .probe22(Rx_data_tvalid),
         .probe3(PSK_Mod_0_out_Q),
         .probe4(AD9361_1RT_FDD_0_AD9361_RX_DAT_I),
         .probe5(AD9361_1RT_FDD_0_AD9361_RX_CLK),

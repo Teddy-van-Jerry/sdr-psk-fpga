@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Dec 26 13:59:33 2023" VIVADOVERSION="2022.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Dec 27 20:47:38 2023" VIVADOVERSION="2022.2">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z020" NAME="gardner_loop" PACKAGE="clg484" SPEEDGRADE="-1"/>
 
@@ -65,6 +65,11 @@
     <PORT DIR="I" LEFT="3" NAME="GARDNER_SHIFT" RIGHT="0" SIGIS="data" SIGNAME="External_Ports_GARDNER_SHIFT">
       <CONNECTIONS>
         <CONNECTION INSTANCE="Gardner_Corrector_0" PORT="GARDNER_SHIFT"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="15" NAME="error_n" RIGHT="0" SIGIS="data" SIGNAME="Timing_Error_Gardner_Timing_Error_0_error_n">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Timing_Error_Gardner_Timing_Error_0" PORT="error_n"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>
@@ -804,6 +809,7 @@
         <PORT DIR="O" LEFT="15" NAME="error_n" RIGHT="0" SIGIS="undef" SIGNAME="Timing_Error_Gardner_Timing_Error_0_error_n">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Gardner_Corrector_0" PORT="error_n"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="error_n"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>

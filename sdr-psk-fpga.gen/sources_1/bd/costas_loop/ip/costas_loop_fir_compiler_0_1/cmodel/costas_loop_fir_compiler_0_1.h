@@ -51,7 +51,7 @@
 //
 //------------------------------------------------------------------------------
 //
-// coefficients: 6,0,-4,-3,5,6,-6,-13,7,44,64,44,7,-13,-6,6,5,-3,-4,0,6
+// coefficients: 4477,-198,-1192,-2563,-3869,-4577,-4172,-2315,1062,5660,10885,15914,19875,22057,22057,19875,15914,10885,5660,1062,-2315,-4172,-4577,-3869,-2563,-1192,-198,4477
 // chanpats: 173
 // name: costas_loop_fir_compiler_0_1
 // filter_type: 0
@@ -60,7 +60,7 @@
 // decim_rate: 1
 // zero_pack_factor: 1
 // coeff_padding: 0
-// num_coeffs: 21
+// num_coeffs: 28
 // coeff_sets: 1
 // reloadable: 0
 // is_halfband: 0
@@ -77,7 +77,7 @@
 // output_fract_width: 0
 // config_method: 0
 
-const double costas_loop_fir_compiler_0_1_coefficients[21] = {6,0,-4,-3,5,6,-6,-13,7,44,64,44,7,-13,-6,6,5,-3,-4,0,6};
+const double costas_loop_fir_compiler_0_1_coefficients[28] = {4477,-198,-1192,-2563,-3869,-4577,-4172,-2315,1062,5660,10885,15914,19875,22057,22057,19875,15914,10885,5660,1062,-2315,-4172,-4577,-3869,-2563,-1192,-198,4477};
 
 const xip_fir_v7_2_pattern costas_loop_fir_compiler_0_1_chanpats[1] = {P_BASIC};
 
@@ -91,7 +91,7 @@ static xip_fir_v7_2_config gen_costas_loop_fir_compiler_0_1_config() {
   config.zero_pack_factor    = 1;
   config.coeff               = &costas_loop_fir_compiler_0_1_coefficients[0];
   config.coeff_padding       = 0;
-  config.num_coeffs          = 21;
+  config.num_coeffs          = 28;
   config.coeff_sets          = 1;
   config.reloadable          = 0;
   config.is_halfband         = 0;

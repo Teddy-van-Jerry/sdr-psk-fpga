@@ -136,7 +136,7 @@ BEGIN
       C_A_TYPE => 0,
       C_B_TYPE => 0,
       C_LATENCY => 2,
-      C_ADD_MODE => 0,
+      C_ADD_MODE => 1,
       C_B_CONSTANT => 0,
       C_B_VALUE => "0000000000000000",
       C_AINIT_VAL => "0",

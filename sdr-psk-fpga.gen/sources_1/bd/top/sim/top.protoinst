@@ -34,7 +34,7 @@
 						"TDATA": { "actual": "data_tdata"},
 						"TLAST": { "actual": "data_tlast"},
 						"TREADY": { "actual": "data_tready"},
-						"TUSER": { "actual": "data_tuser[0:0]"},
+						"TUSER": { "actual": "data_tuser"},
 						"TVALID": { "actual": "data_tvalid"}
 					}
 				},

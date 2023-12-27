@@ -55,17 +55,21 @@ module PSK_Mod #(
     if (rst_16M384) begin
       cnt <= 4'b0;
       data_tready <= 1'b0;
+      out_bits <= 2'b00;
     end
     else begin
       // count
       cnt <= cnt + 4'b1;
       // input buffer
-      if (cnt == DELAY_CNT) begin
-        data_tready <= 1'b1;
+      if (cnt + 1 == DELAY_CNT) begin
+        data_tready <= 1'b1; // read next clock cycle
+      end
+      else if (cnt == DELAY_CNT) begin
         data_buf <= data_tdata;
         vld_buf <= data_tvalid;
         last_buf <= data_tlast;
         is_bpsk_buf <= is_bpsk;
+        data_tready <= 1'b0;
       end
       else begin
         data_tready <= 1'b0;

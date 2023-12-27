@@ -1,4 +1,4 @@
-# condigurations
+# configurations
 set sim_fileset_name sim_BPSK
 set sim_top_module   tb_PSK_Demod_BPSK
 set sim_top_filename $sim_top_module.v

@@ -1,47 +1,47 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"0.82115",
-   "Default View_TopLeft":"-156,-228",
+   "Default View_ScaleFactor":"1.08972",
+   "Default View_TopLeft":"-166,-108",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
 #  -string -flagsOSRD
-preplace port data -pg 1 -lvl 4 -x 1120 -y 70 -defaultsOSRD
-preplace port port-id_clk_16M384 -pg 1 -lvl 0 -x 0 -y 360 -defaultsOSRD
-preplace port port-id_rst_16M384 -pg 1 -lvl 0 -x 0 -y 330 -defaultsOSRD
-preplace port port-id_clk_1M024 -pg 1 -lvl 0 -x 0 -y 390 -defaultsOSRD
-preplace port port-id_DAC_vld -pg 1 -lvl 4 -x 1120 -y 160 -defaultsOSRD
-preplace port port-id_clk_2M048 -pg 1 -lvl 0 -x 0 -y 430 -defaultsOSRD
-preplace port port-id_Tx_1bit -pg 1 -lvl 4 -x 1120 -y 420 -defaultsOSRD
-preplace portBus DAC_I -pg 1 -lvl 4 -x 1120 -y 190 -defaultsOSRD
-preplace portBus DAC_Q -pg 1 -lvl 4 -x 1120 -y 220 -defaultsOSRD
-preplace portBus DAC_bits -pg 1 -lvl 4 -x 1120 -y 250 -defaultsOSRD
-preplace portBus DELAY_CNT -pg 1 -lvl 0 -x 0 -y 300 -defaultsOSRD
-preplace portBus MODE_CTRL -pg 1 -lvl 0 -x 0 -y 130 -defaultsOSRD
-preplace portBus rst_n_1M024 -pg 1 -lvl 0 -x 0 -y 100 -defaultsOSRD
-preplace inst PSK_Modulation -pg 1 -lvl 3 -x 950 -y 220 -defaultsOSRD
+preplace port data -pg 1 -lvl 4 -x 1150 -y 70 -defaultsOSRD
+preplace port port-id_clk_16M384 -pg 1 -lvl 0 -x -10 -y 360 -defaultsOSRD
+preplace port port-id_rst_16M384 -pg 1 -lvl 0 -x -10 -y 330 -defaultsOSRD
+preplace port port-id_clk_1M024 -pg 1 -lvl 0 -x -10 -y 390 -defaultsOSRD
+preplace port port-id_DAC_vld -pg 1 -lvl 4 -x 1150 -y 160 -defaultsOSRD
+preplace port port-id_clk_2M048 -pg 1 -lvl 0 -x -10 -y 430 -defaultsOSRD
+preplace port port-id_Tx_1bit -pg 1 -lvl 4 -x 1150 -y 420 -defaultsOSRD
+preplace portBus DAC_I -pg 1 -lvl 4 -x 1150 -y 190 -defaultsOSRD
+preplace portBus DAC_Q -pg 1 -lvl 4 -x 1150 -y 220 -defaultsOSRD
+preplace portBus DAC_bits -pg 1 -lvl 4 -x 1150 -y 250 -defaultsOSRD
+preplace portBus DELAY_CNT -pg 1 -lvl 0 -x -10 -y 300 -defaultsOSRD
+preplace portBus MODE_CTRL -pg 1 -lvl 0 -x -10 -y 130 -defaultsOSRD
+preplace portBus rst_n_1M024 -pg 1 -lvl 0 -x -10 -y 100 -defaultsOSRD
+preplace inst PSK_Modulation -pg 1 -lvl 3 -x 980 -y 220 -defaultsOSRD
 preplace inst Tx_Data_0 -pg 1 -lvl 1 -x 220 -y 110 -defaultsOSRD
-preplace inst Packetizer_0 -pg 1 -lvl 2 -x 580 -y 180 -defaultsOSRD
-preplace inst Bits_Flatten_0 -pg 1 -lvl 3 -x 950 -y 420 -defaultsOSRD
+preplace inst Packetizer_0 -pg 1 -lvl 2 -x 610 -y 180 -defaultsOSRD
+preplace inst Bits_Flatten_0 -pg 1 -lvl 3 -x 980 -y 420 -defaultsOSRD
 preplace netloc Bits_Flatten_0_out 1 3 1 N 420
 preplace netloc DELAY_CNT_1 1 0 3 NJ 300 N 300 N
-preplace netloc Div_clk32M768_0_clk16M384 1 0 3 50J 320 NJ 320 770
+preplace netloc Div_clk32M768_0_clk16M384 1 0 3 10J 10 NJ 10 840
 preplace netloc MODE_CTRL_1 1 0 2 40 200 N
 preplace netloc PSK_Mod_0_out_I 1 3 1 NJ 190
-preplace netloc PSK_Mod_0_out_Q 1 3 1 1090J 210n
+preplace netloc PSK_Mod_0_out_Q 1 3 1 1120J 210n
 preplace netloc PSK_Modulation_out_bits 1 3 1 N 250
-preplace netloc PSK_Modulation_out_vld 1 3 1 1100 160n
-preplace netloc Packetizer_0_out_tdata 1 2 1 790 160n
-preplace netloc Packetizer_0_out_tlast 1 0 3 50 10 NJ 10 750
-preplace netloc Packetizer_0_out_tuser 1 2 1 810 200n
-preplace netloc Tx_Data_0_payload_length 1 1 1 390 120n
-preplace netloc clk_1M024 1 0 3 30J 20 400J 80 760
+preplace netloc PSK_Modulation_out_vld 1 3 1 1130 160n
+preplace netloc Packetizer_0_out_tdata 1 2 1 820 160n
+preplace netloc Packetizer_0_out_tlast 1 0 3 50 210 390J 50 790
+preplace netloc Packetizer_0_out_tuser 1 2 1 830 200n
+preplace netloc Tx_Data_0_payload_length 1 1 1 410 120n
+preplace netloc clk_1M024 1 0 3 30J 220 400J 80 780
 preplace netloc clk_2M048_1 1 0 3 NJ 430 NJ 430 N
-preplace netloc proc_sys_reset_16M384_mb_reset 1 0 3 NJ 330 NJ 330 800
-preplace netloc s_axis_aresetn_1 1 0 3 20 310 410J 310 780
-preplace netloc Tx_Data_0_data 1 1 3 410 70 N 70 N
+preplace netloc proc_sys_reset_16M384_mb_reset 1 0 3 50J 230 430J 60 800
+preplace netloc s_axis_aresetn_1 1 0 3 20 20 420J 40 810
+preplace netloc Tx_Data_0_data 1 1 3 440 70 N 70 N
 preplace netloc data_1 1 2 1 N 140
-levelinfo -pg 1 0 220 580 950 1120
-pagesize -pg 1 -db -bbox -sgen -160 0 1260 510
+levelinfo -pg 1 -10 220 610 980 1150
+pagesize -pg 1 -db -bbox -sgen -170 0 1290 510
 "
 }
 0

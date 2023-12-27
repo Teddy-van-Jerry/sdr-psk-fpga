@@ -8,6 +8,7 @@
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
       "synth_flow_mode": "Hierarchical",
       "tool_version": "2022.2",
+      "validated": "true",
       "variant": "true"
     },
     "design_tree": {
@@ -37,7 +38,7 @@
           },
           "FREQ_HZ": {
             "value": "32768000",
-            "value_src": "ip_prop"
+            "value_src": "strong"
           },
           "HAS_TKEEP": {
             "value": "0",
@@ -65,7 +66,7 @@
           },
           "PHASE": {
             "value": "0.0",
-            "value_src": "ip_prop"
+            "value_src": "strong"
           },
           "TDATA_NUM_BYTES": {
             "value": "2",
@@ -108,7 +109,7 @@
           },
           "FREQ_HZ": {
             "value": "32768000",
-            "value_src": "ip_prop"
+            "value_src": "strong"
           },
           "HAS_TKEEP": {
             "value": "0",
@@ -136,7 +137,7 @@
           },
           "PHASE": {
             "value": "0.0",
-            "value_src": "ip_prop"
+            "value_src": "strong"
           },
           "TDATA_NUM_BYTES": {
             "value": "2",
@@ -184,11 +185,11 @@
           },
           "CLK_DOMAIN": {
             "value": "/Clock_Gen/clk_wiz_32M768_clk_out1",
-            "value_src": "ip_prop"
+            "value_src": "strong"
           },
           "FREQ_HZ": {
             "value": "32768000",
-            "value_src": "ip_prop"
+            "value_src": "strong"
           },
           "FREQ_TOLERANCE_HZ": {
             "value": "0",
@@ -200,7 +201,7 @@
           },
           "PHASE": {
             "value": "0.0",
-            "value_src": "ip_prop"
+            "value_src": "strong"
           }
         }
       },
@@ -215,7 +216,7 @@
               "minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}} DATA_WIDTH 1",
               "}"
             ],
-            "value_src": "ip_prop"
+            "value_src": "strong"
           }
         }
       },
@@ -242,7 +243,7 @@
           },
           "POLARITY": {
             "value": "ACTIVE_HIGH",
-            "value_src": "const_prop"
+            "value_src": "strong"
           }
         }
       },
@@ -491,7 +492,7 @@
             "xci_path": "ip\\gardner_loop_inst_0_Gardner_IQ_Pre_0_0\\gardner_loop_inst_0_Gardner_IQ_Pre_0_0.xci",
             "inst_hier_path": "Interpolation/Gardner_IQ_Pre_0",
             "reference_info": {
-              "ref_type": "hdl",
+              "ref_type": "unknown",
               "ref_name": "Gardner_IQ_Pre",
               "boundary_crc": "0x0"
             },
@@ -878,7 +879,7 @@
             "xci_path": "ip\\gardner_loop_inst_0_Gardner_Timing_Error_0_0\\gardner_loop_inst_0_Gardner_Timing_Error_0_0.xci",
             "inst_hier_path": "Timing_Error/Gardner_Timing_Error_0",
             "reference_info": {
-              "ref_type": "hdl",
+              "ref_type": "unknown",
               "ref_name": "Gardner_Timing_Error",
               "boundary_crc": "0x0"
             },
@@ -1086,7 +1087,7 @@
         "xci_path": "ip\\gardner_loop_inst_0_Gardner_Corrector_0_0\\gardner_loop_inst_0_Gardner_Corrector_0_0.xci",
         "inst_hier_path": "Gardner_Corrector_0",
         "reference_info": {
-          "ref_type": "hdl",
+          "ref_type": "unknown",
           "ref_name": "Gardner_Corrector",
           "boundary_crc": "0x0"
         },

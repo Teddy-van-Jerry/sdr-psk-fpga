@@ -8,6 +8,7 @@
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
       "synth_flow_mode": "Hierarchical",
       "tool_version": "2022.2",
+      "validated": "true",
       "variant": "true"
     },
     "design_tree": {
@@ -48,19 +49,19 @@
           },
           "HAS_TKEEP": {
             "value": "0",
-            "value_src": "const_prop"
+            "value_src": "default"
           },
           "HAS_TLAST": {
             "value": "0",
-            "value_src": "const_prop"
+            "value_src": "default"
           },
           "HAS_TREADY": {
             "value": "0",
-            "value_src": "const_prop"
+            "value_src": "default"
           },
           "HAS_TSTRB": {
             "value": "0",
-            "value_src": "const_prop"
+            "value_src": "default"
           },
           "INSERT_VIP": {
             "value": "0",
@@ -76,19 +77,19 @@
           },
           "TDATA_NUM_BYTES": {
             "value": "2",
-            "value_src": "auto_prop"
+            "value_src": "default"
           },
           "TDEST_WIDTH": {
             "value": "0",
-            "value_src": "const_prop"
+            "value_src": "default"
           },
           "TID_WIDTH": {
             "value": "0",
-            "value_src": "const_prop"
+            "value_src": "default"
           },
           "TUSER_WIDTH": {
             "value": "0",
-            "value_src": "const_prop"
+            "value_src": "default"
           }
         },
         "port_maps": {
@@ -115,19 +116,19 @@
           },
           "HAS_TKEEP": {
             "value": "0",
-            "value_src": "const_prop"
+            "value_src": "default"
           },
           "HAS_TLAST": {
             "value": "0",
-            "value_src": "const_prop"
+            "value_src": "default"
           },
           "HAS_TREADY": {
             "value": "0",
-            "value_src": "const_prop"
+            "value_src": "default"
           },
           "HAS_TSTRB": {
             "value": "0",
-            "value_src": "const_prop"
+            "value_src": "default"
           },
           "INSERT_VIP": {
             "value": "0",
@@ -143,19 +144,19 @@
           },
           "TDATA_NUM_BYTES": {
             "value": "2",
-            "value_src": "auto_prop"
+            "value_src": "default"
           },
           "TDEST_WIDTH": {
             "value": "0",
-            "value_src": "const_prop"
+            "value_src": "default"
           },
           "TID_WIDTH": {
             "value": "0",
-            "value_src": "const_prop"
+            "value_src": "default"
           },
           "TUSER_WIDTH": {
             "value": "0",
-            "value_src": "const_prop"
+            "value_src": "default"
           }
         },
         "port_maps": {
@@ -228,7 +229,7 @@
           },
           "POLARITY": {
             "value": "ACTIVE_HIGH",
-            "value_src": "const_prop"
+            "value_src": "strong"
           }
         }
       },
@@ -566,7 +567,7 @@
               }
             },
             "reference_info": {
-              "ref_type": "hdl",
+              "ref_type": "unknown",
               "ref_name": "Error_Detect_Ctrl",
               "boundary_crc": "0x0"
             },
@@ -1227,7 +1228,7 @@
             "xci_path": "ip\\costas_loop_inst_0_AXI_2x_I_0\\costas_loop_inst_0_AXI_2x_I_0.xci",
             "inst_hier_path": "IQ_Connect/AXI_2x_I",
             "reference_info": {
-              "ref_type": "hdl",
+              "ref_type": "unknown",
               "ref_name": "AXI_2x",
               "boundary_crc": "0x0"
             },
@@ -1399,7 +1400,7 @@
             "xci_path": "ip\\costas_loop_inst_0_AXI_2x_Q_0\\costas_loop_inst_0_AXI_2x_Q_0.xci",
             "inst_hier_path": "IQ_Connect/AXI_2x_Q",
             "reference_info": {
-              "ref_type": "hdl",
+              "ref_type": "unknown",
               "ref_name": "AXI_2x",
               "boundary_crc": "0x0"
             },
@@ -1579,7 +1580,7 @@
               }
             },
             "reference_info": {
-              "ref_type": "hdl",
+              "ref_type": "unknown",
               "ref_name": "Truncate_IQ",
               "boundary_crc": "0x0"
             },
@@ -2129,7 +2130,7 @@
               }
             },
             "reference_info": {
-              "ref_type": "hdl",
+              "ref_type": "unknown",
               "ref_name": "NCO_cos_sin",
               "boundary_crc": "0x0"
             },
@@ -2267,7 +2268,7 @@
             "xci_path": "ip\\costas_loop_inst_0_NCO_Phase_0_0\\costas_loop_inst_0_NCO_Phase_0_0.xci",
             "inst_hier_path": "NCO/NCO_Phase_0",
             "reference_info": {
-              "ref_type": "hdl",
+              "ref_type": "unknown",
               "ref_name": "NCO_Phase",
               "boundary_crc": "0x0"
             },
