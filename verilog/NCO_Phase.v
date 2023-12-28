@@ -24,14 +24,17 @@ module NCO_Phase # (
   always @(posedge clk) begin
     if (rst) begin
       phase_tdata <= FREE_FREQ;
-      phase_tvalid <= 0;
+      phase_tvalid <= 1'b1;
     end
     else begin
       if (feedback_tvalid) begin
         phase_tdata <= FREE_FREQ + (feedback_tdata >>> FEEDBACK_SHIFT);
+        phase_tvalid <= 1'b1;
       end
-      else ; // do nothing
-      phase_tvalid <= feedback_tvalid;
+      else begin
+        phase_tdata <= FREE_FREQ;
+        phase_tvalid <= feedback_tvalid;
+      end
     end
   end
 endmodule

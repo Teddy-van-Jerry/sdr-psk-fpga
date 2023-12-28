@@ -25,8 +25,8 @@ preplace portBus data_tdata -pg 1 -lvl 5 -x 1530 -y 90 -defaultsOSRD
 preplace inst PSK_Modulation -pg 1 -lvl 4 -x 1330 -y 280 -defaultsOSRD
 preplace inst Bits_Flatten_0 -pg 1 -lvl 4 -x 1330 -y 490 -defaultsOSRD
 preplace inst axis_data_fifo_0 -pg 1 -lvl 2 -x 560 -y 180 -defaultsOSRD
-preplace inst Packetizer_0 -pg 1 -lvl 3 -x 940 -y 230 -defaultsOSRD
 preplace inst Tx_Data_0 -pg 1 -lvl 1 -x 200 -y 170 -defaultsOSRD
+preplace inst Packetizer_0 -pg 1 -lvl 3 -x 940 -y 230 -defaultsOSRD
 preplace netloc Bits_Flatten_0_out 1 4 1 N 490
 preplace netloc DELAY_CNT_1 1 0 4 NJ 340 N 340 N 340 N
 preplace netloc Div_clk32M768_0_clk16M384 1 0 4 NJ 430 NJ 430 710 130 1160

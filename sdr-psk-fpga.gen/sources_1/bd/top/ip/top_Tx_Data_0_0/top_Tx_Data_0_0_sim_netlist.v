@@ -1,10 +1,10 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Thu Dec 28 10:49:27 2023
+// Date        : Thu Dec 28 13:59:00 2023
 // Host        : TVJ-PC running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim -rename_top top_Tx_Data_0_0 -prefix
-//               top_Tx_Data_0_0_ top_Tx_Data_0_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim
+//               e:/Documents/Study/Verilog/SDR/sdr-psk-fpga/sdr-psk-fpga.gen/sources_1/bd/top/ip/top_Tx_Data_0_0/top_Tx_Data_0_0_sim_netlist.v
 // Design      : top_Tx_Data_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -12,6 +12,84 @@
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
+(* CHECK_LICENSE_TYPE = "top_Tx_Data_0_0,Tx_Data,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
+(* X_CORE_INFO = "Tx_Data,Vivado 2022.2" *) 
+(* NotValidForBitStream *)
+module top_Tx_Data_0_0
+   (clk,
+    rst_n,
+    MODE_CTRL,
+    pkt_sent,
+    data_tdata,
+    data_tvalid,
+    data_tready,
+    data_tlast,
+    data_tuser,
+    payload_length);
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_BUSIF data, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, INSERT_VIP 0" *) input clk;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 rst_n RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME rst_n, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input rst_n;
+  input [3:0]MODE_CTRL;
+  input pkt_sent;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 data TDATA" *) output [7:0]data_tdata;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 data TVALID" *) output data_tvalid;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 data TREADY" *) input data_tready;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 data TLAST" *) output data_tlast;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 data TUSER" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME data, TDATA_NUM_BYTES 1, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 1, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 1, FREQ_HZ 100000000, PHASE 0.0, LAYERED_METADATA undef, INSERT_VIP 0" *) output data_tuser;
+  output [15:0]payload_length;
+
+  wire \<const0> ;
+  wire \<const1> ;
+  wire [3:0]MODE_CTRL;
+  wire clk;
+  wire [6:0]\^data_tdata ;
+  wire data_tlast;
+  wire data_tready;
+  wire data_tuser;
+  wire data_tvalid;
+  wire pkt_sent;
+  wire rst_n;
+
+  assign data_tdata[7] = \^data_tdata [6];
+  assign data_tdata[6] = \^data_tdata [6];
+  assign data_tdata[5] = \^data_tdata [6];
+  assign data_tdata[4] = \^data_tdata [6];
+  assign data_tdata[3] = \^data_tdata [6];
+  assign data_tdata[2] = \^data_tdata [6];
+  assign data_tdata[1] = \^data_tdata [6];
+  assign data_tdata[0] = \^data_tdata [0];
+  assign payload_length[15] = \<const0> ;
+  assign payload_length[14] = \<const0> ;
+  assign payload_length[13] = \<const0> ;
+  assign payload_length[12] = \<const0> ;
+  assign payload_length[11] = \<const0> ;
+  assign payload_length[10] = \<const0> ;
+  assign payload_length[9] = \<const0> ;
+  assign payload_length[8] = \<const0> ;
+  assign payload_length[7] = \<const1> ;
+  assign payload_length[6] = \<const0> ;
+  assign payload_length[5] = \<const0> ;
+  assign payload_length[4] = \<const0> ;
+  assign payload_length[3] = \<const0> ;
+  assign payload_length[2] = \<const0> ;
+  assign payload_length[1] = \<const0> ;
+  assign payload_length[0] = \<const0> ;
+  GND GND
+       (.G(\<const0> ));
+  VCC VCC
+       (.P(\<const1> ));
+  top_Tx_Data_0_0_Tx_Data inst
+       (.MODE_CTRL(MODE_CTRL),
+        .clk(clk),
+        .data_tdata({\^data_tdata [6],\^data_tdata [0]}),
+        .data_tlast(data_tlast),
+        .data_tready(data_tready),
+        .data_tuser(data_tuser),
+        .data_tvalid(data_tvalid),
+        .pkt_sent(pkt_sent),
+        .rst_n(rst_n));
+endmodule
+
+(* ORIG_REF_NAME = "PN_Gen" *) 
 module top_Tx_Data_0_0_PN_Gen
    (pn,
     clk);
@@ -184,6 +262,7 @@ module top_Tx_Data_0_0_PN_Gen__parameterized0
         .R(\PN_buf[3]_i_1_n_0 ));
 endmodule
 
+(* ORIG_REF_NAME = "Tx_Data" *) 
 module top_Tx_Data_0_0_Tx_Data
    (data_tdata,
     data_tuser,
@@ -192,7 +271,8 @@ module top_Tx_Data_0_0_Tx_Data
     MODE_CTRL,
     rst_n,
     pkt_sent,
-    clk);
+    clk,
+    data_tready);
   output [1:0]data_tdata;
   output data_tuser;
   output data_tvalid;
@@ -201,10 +281,12 @@ module top_Tx_Data_0_0_Tx_Data
   input rst_n;
   input pkt_sent;
   input clk;
+  input data_tready;
 
   wire [3:0]MODE_CTRL;
   wire clear;
   wire clk;
+  wire \cnt[0]_i_4_n_0 ;
   wire [15:0]cnt_reg;
   wire \cnt_reg[0]_i_3_n_0 ;
   wire \cnt_reg[0]_i_3_n_1 ;
@@ -247,15 +329,34 @@ module top_Tx_Data_0_0_Tx_Data
   wire \data_tlast0_inferred__0/i__carry_n_1 ;
   wire \data_tlast0_inferred__0/i__carry_n_2 ;
   wire \data_tlast0_inferred__0/i__carry_n_3 ;
-  wire [16:0]data_tlast1;
+  wire [15:0]data_tlast1;
+  wire data_tlast1_carry__0_n_0;
+  wire data_tlast1_carry__0_n_1;
+  wire data_tlast1_carry__0_n_2;
+  wire data_tlast1_carry__0_n_3;
+  wire data_tlast1_carry__1_n_0;
+  wire data_tlast1_carry__1_n_1;
+  wire data_tlast1_carry__1_n_2;
+  wire data_tlast1_carry__1_n_3;
+  wire data_tlast1_carry__2_n_1;
+  wire data_tlast1_carry__2_n_2;
+  wire data_tlast1_carry__2_n_3;
+  wire data_tlast1_carry_i_1_n_0;
+  wire data_tlast1_carry_n_0;
+  wire data_tlast1_carry_n_1;
+  wire data_tlast1_carry_n_2;
+  wire data_tlast1_carry_n_3;
   wire data_tlast_i_1_n_0;
   wire data_tlast_i_2_n_0;
   wire data_tlast_i_3_n_0;
+  wire data_tready;
   wire data_tuser;
   wire data_tuser0_out;
   wire data_tuser_i_1_n_0;
   wire data_tuser_i_2_n_0;
   wire data_tvalid;
+  wire \data_tvalid0_inferred__0/i__carry__0_n_1 ;
+  wire \data_tvalid0_inferred__0/i__carry__0_n_2 ;
   wire \data_tvalid0_inferred__0/i__carry__0_n_3 ;
   wire \data_tvalid0_inferred__0/i__carry_n_0 ;
   wire \data_tvalid0_inferred__0/i__carry_n_1 ;
@@ -265,9 +366,14 @@ module top_Tx_Data_0_0_Tx_Data
   wire data_tvalid_i_2_n_0;
   wire i__carry__0_i_1__0_n_0;
   wire i__carry__0_i_1_n_0;
+  wire i__carry__0_i_2__0_n_0;
   wire i__carry__0_i_2_n_0;
-  wire i__carry__0_i_3_n_2;
-  wire i__carry__0_i_3_n_3;
+  wire i__carry__0_i_3_n_0;
+  wire i__carry__0_i_4_n_2;
+  wire i__carry__0_i_4_n_3;
+  wire i__carry__0_i_4_n_5;
+  wire i__carry__0_i_4_n_6;
+  wire i__carry__0_i_4_n_7;
   wire i__carry_i_1__0_n_0;
   wire i__carry_i_1_n_0;
   wire i__carry_i_2__0_n_0;
@@ -276,19 +382,31 @@ module top_Tx_Data_0_0_Tx_Data
   wire i__carry_i_3_n_0;
   wire i__carry_i_4__0_n_0;
   wire i__carry_i_4_n_0;
-  wire i__carry_i_5__0_n_0;
-  wire i__carry_i_5__0_n_1;
-  wire i__carry_i_5__0_n_2;
-  wire i__carry_i_5__0_n_3;
   wire i__carry_i_5_n_0;
   wire i__carry_i_6_n_0;
-  wire i__carry_i_6_n_1;
-  wire i__carry_i_6_n_2;
-  wire i__carry_i_6_n_3;
   wire i__carry_i_7_n_0;
   wire i__carry_i_7_n_1;
   wire i__carry_i_7_n_2;
   wire i__carry_i_7_n_3;
+  wire i__carry_i_7_n_4;
+  wire i__carry_i_7_n_5;
+  wire i__carry_i_7_n_6;
+  wire i__carry_i_7_n_7;
+  wire i__carry_i_8_n_0;
+  wire i__carry_i_8_n_1;
+  wire i__carry_i_8_n_2;
+  wire i__carry_i_8_n_3;
+  wire i__carry_i_8_n_4;
+  wire i__carry_i_8_n_5;
+  wire i__carry_i_8_n_6;
+  wire i__carry_i_9_n_0;
+  wire i__carry_i_9_n_1;
+  wire i__carry_i_9_n_2;
+  wire i__carry_i_9_n_3;
+  wire i__carry_i_9_n_4;
+  wire i__carry_i_9_n_5;
+  wire i__carry_i_9_n_6;
+  wire i__carry_i_9_n_7;
   wire inst_PN_Gen_N4_n_0;
   wire mix_is_bpsk_i_1_n_0;
   wire mix_is_bpsk_i_2_n_0;
@@ -301,11 +419,13 @@ module top_Tx_Data_0_0_Tx_Data
   wire [3:0]\NLW_data_tlast0_inferred__0/i__carry_O_UNCONNECTED ;
   wire [3:2]\NLW_data_tlast0_inferred__0/i__carry__0_CO_UNCONNECTED ;
   wire [3:0]\NLW_data_tlast0_inferred__0/i__carry__0_O_UNCONNECTED ;
+  wire [3:3]NLW_data_tlast1_carry__2_CO_UNCONNECTED;
   wire [3:0]\NLW_data_tvalid0_inferred__0/i__carry_O_UNCONNECTED ;
-  wire [3:1]\NLW_data_tvalid0_inferred__0/i__carry__0_CO_UNCONNECTED ;
+  wire [3:3]\NLW_data_tvalid0_inferred__0/i__carry__0_CO_UNCONNECTED ;
   wire [3:0]\NLW_data_tvalid0_inferred__0/i__carry__0_O_UNCONNECTED ;
-  wire [2:2]NLW_i__carry__0_i_3_CO_UNCONNECTED;
-  wire [3:3]NLW_i__carry__0_i_3_O_UNCONNECTED;
+  wire [3:2]NLW_i__carry__0_i_4_CO_UNCONNECTED;
+  wire [3:3]NLW_i__carry__0_i_4_O_UNCONNECTED;
+  wire [0:0]NLW_i__carry_i_8_O_UNCONNECTED;
 
   LUT6 #(
     .INIT(64'h00F00090FFFFFFFF)) 
@@ -313,24 +433,25 @@ module top_Tx_Data_0_0_Tx_Data
        (.I0(MODE_CTRL[0]),
         .I1(MODE_CTRL[1]),
         .I2(pkt_sent),
-        .I3(\data_tvalid0_inferred__0/i__carry__0_n_3 ),
+        .I3(\data_tvalid0_inferred__0/i__carry__0_n_1 ),
         .I4(data_tvalid_i_2_n_0),
         .I5(rst_n),
         .O(clear));
-  LUT5 #(
-    .INIT(32'hF0E0E0F0)) 
+  LUT6 #(
+    .INIT(64'hF000E000E000F000)) 
     \cnt[0]_i_2 
        (.I0(MODE_CTRL[3]),
         .I1(MODE_CTRL[2]),
-        .I2(\data_tvalid0_inferred__0/i__carry__0_n_3 ),
-        .I3(MODE_CTRL[1]),
-        .I4(MODE_CTRL[0]),
+        .I2(data_tready),
+        .I3(\data_tvalid0_inferred__0/i__carry__0_n_1 ),
+        .I4(MODE_CTRL[1]),
+        .I5(MODE_CTRL[0]),
         .O(sel));
   LUT1 #(
     .INIT(2'h1)) 
     \cnt[0]_i_4 
        (.I0(cnt_reg[0]),
-        .O(data_tlast1[0]));
+        .O(\cnt[0]_i_4_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
     \cnt_reg[0] 
@@ -346,7 +467,7 @@ module top_Tx_Data_0_0_Tx_Data
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b1}),
         .O({\cnt_reg[0]_i_3_n_4 ,\cnt_reg[0]_i_3_n_5 ,\cnt_reg[0]_i_3_n_6 ,\cnt_reg[0]_i_3_n_7 }),
-        .S({cnt_reg[3:1],data_tlast1[0]}));
+        .S({cnt_reg[3:1],\cnt[0]_i_4_n_0 }));
   FDRE #(
     .INIT(1'b0)) 
     \cnt_reg[10] 
@@ -525,20 +646,57 @@ module top_Tx_Data_0_0_Tx_Data
         .CYINIT(1'b1),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O(\NLW_data_tlast0_inferred__0/i__carry_O_UNCONNECTED [3:0]),
-        .S({i__carry_i_1__0_n_0,i__carry_i_2_n_0,i__carry_i_3__0_n_0,i__carry_i_4_n_0}));
+        .S({i__carry_i_1__0_n_0,i__carry_i_2_n_0,i__carry_i_3__0_n_0,i__carry_i_4__0_n_0}));
   CARRY4 \data_tlast0_inferred__0/i__carry__0 
        (.CI(\data_tlast0_inferred__0/i__carry_n_0 ),
         .CO({\NLW_data_tlast0_inferred__0/i__carry__0_CO_UNCONNECTED [3:2],\data_tlast0_inferred__0/i__carry__0_n_2 ,\data_tlast0_inferred__0/i__carry__0_n_3 }),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O(\NLW_data_tlast0_inferred__0/i__carry__0_O_UNCONNECTED [3:0]),
-        .S({1'b0,1'b0,i__carry__0_i_1__0_n_0,i__carry__0_i_2_n_0}));
+        .S({1'b0,1'b0,i__carry__0_i_1_n_0,i__carry__0_i_2__0_n_0}));
+  (* ADDER_THRESHOLD = "35" *) 
+  CARRY4 data_tlast1_carry
+       (.CI(1'b0),
+        .CO({data_tlast1_carry_n_0,data_tlast1_carry_n_1,data_tlast1_carry_n_2,data_tlast1_carry_n_3}),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b0,cnt_reg[1],1'b0}),
+        .O(data_tlast1[3:0]),
+        .S({cnt_reg[3:2],data_tlast1_carry_i_1_n_0,cnt_reg[0]}));
+  (* ADDER_THRESHOLD = "35" *) 
+  CARRY4 data_tlast1_carry__0
+       (.CI(data_tlast1_carry_n_0),
+        .CO({data_tlast1_carry__0_n_0,data_tlast1_carry__0_n_1,data_tlast1_carry__0_n_2,data_tlast1_carry__0_n_3}),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b0,1'b0,1'b0}),
+        .O(data_tlast1[7:4]),
+        .S(cnt_reg[7:4]));
+  (* ADDER_THRESHOLD = "35" *) 
+  CARRY4 data_tlast1_carry__1
+       (.CI(data_tlast1_carry__0_n_0),
+        .CO({data_tlast1_carry__1_n_0,data_tlast1_carry__1_n_1,data_tlast1_carry__1_n_2,data_tlast1_carry__1_n_3}),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b0,1'b0,1'b0}),
+        .O(data_tlast1[11:8]),
+        .S(cnt_reg[11:8]));
+  (* ADDER_THRESHOLD = "35" *) 
+  CARRY4 data_tlast1_carry__2
+       (.CI(data_tlast1_carry__1_n_0),
+        .CO({NLW_data_tlast1_carry__2_CO_UNCONNECTED[3],data_tlast1_carry__2_n_1,data_tlast1_carry__2_n_2,data_tlast1_carry__2_n_3}),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b0,1'b0,1'b0}),
+        .O(data_tlast1[15:12]),
+        .S(cnt_reg[15:12]));
+  LUT1 #(
+    .INIT(2'h1)) 
+    data_tlast1_carry_i_1
+       (.I0(cnt_reg[1]),
+        .O(data_tlast1_carry_i_1_n_0));
   LUT6 #(
     .INIT(64'h000000C0AAAAAAAA)) 
     data_tlast_i_1
        (.I0(data_tlast),
         .I1(\data_tlast0_inferred__0/i__carry__0_n_2 ),
-        .I2(\data_tvalid0_inferred__0/i__carry__0_n_3 ),
+        .I2(\data_tvalid0_inferred__0/i__carry__0_n_1 ),
         .I3(data_tlast_i_2_n_0),
         .I4(data_tlast_i_3_n_0),
         .I5(rst_n),
@@ -573,7 +731,7 @@ module top_Tx_Data_0_0_Tx_Data
        (.I0(data_tuser),
         .I1(rst_n),
         .I2(data_tuser_i_2_n_0),
-        .I3(\data_tvalid0_inferred__0/i__carry__0_n_3 ),
+        .I3(\data_tvalid0_inferred__0/i__carry__0_n_1 ),
         .I4(mix_is_bpsk_reg_n_0),
         .I5(data_tuser0_out),
         .O(data_tuser_i_1_n_0));
@@ -607,22 +765,22 @@ module top_Tx_Data_0_0_Tx_Data
        (.CI(1'b0),
         .CO({\data_tvalid0_inferred__0/i__carry_n_0 ,\data_tvalid0_inferred__0/i__carry_n_1 ,\data_tvalid0_inferred__0/i__carry_n_2 ,\data_tvalid0_inferred__0/i__carry_n_3 }),
         .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,i__carry_i_1_n_0}),
+        .DI({1'b0,i__carry_i_1_n_0,1'b0,i__carry_i_2__0_n_0}),
         .O(\NLW_data_tvalid0_inferred__0/i__carry_O_UNCONNECTED [3:0]),
-        .S({i__carry_i_2__0_n_0,i__carry_i_3_n_0,i__carry_i_4__0_n_0,i__carry_i_5_n_0}));
+        .S({i__carry_i_3_n_0,i__carry_i_4_n_0,i__carry_i_5_n_0,i__carry_i_6_n_0}));
   (* COMPARATOR_THRESHOLD = "11" *) 
   CARRY4 \data_tvalid0_inferred__0/i__carry__0 
        (.CI(\data_tvalid0_inferred__0/i__carry_n_0 ),
-        .CO({\NLW_data_tvalid0_inferred__0/i__carry__0_CO_UNCONNECTED [3:1],\data_tvalid0_inferred__0/i__carry__0_n_3 }),
+        .CO({\NLW_data_tvalid0_inferred__0/i__carry__0_CO_UNCONNECTED [3],\data_tvalid0_inferred__0/i__carry__0_n_1 ,\data_tvalid0_inferred__0/i__carry__0_n_2 ,\data_tvalid0_inferred__0/i__carry__0_n_3 }),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O(\NLW_data_tvalid0_inferred__0/i__carry__0_O_UNCONNECTED [3:0]),
-        .S({1'b0,1'b0,1'b0,i__carry__0_i_1_n_0}));
+        .S({1'b0,i__carry__0_i_1__0_n_0,i__carry__0_i_2_n_0,i__carry__0_i_3_n_0}));
   LUT6 #(
     .INIT(64'hCCCCCFFCAAAAAAAA)) 
     data_tvalid_i_1
        (.I0(data_tvalid),
-        .I1(\data_tvalid0_inferred__0/i__carry__0_n_3 ),
+        .I1(\data_tvalid0_inferred__0/i__carry__0_n_1 ),
         .I2(MODE_CTRL[1]),
         .I3(MODE_CTRL[0]),
         .I4(data_tvalid_i_2_n_0),
@@ -640,37 +798,49 @@ module top_Tx_Data_0_0_Tx_Data
         .D(data_tvalid_i_1_n_0),
         .Q(data_tvalid),
         .R(1'b0));
-  LUT2 #(
-    .INIT(4'h1)) 
+  LUT1 #(
+    .INIT(2'h1)) 
     i__carry__0_i_1
-       (.I0(cnt_reg[14]),
-        .I1(cnt_reg[15]),
+       (.I0(data_tlast1[15]),
         .O(i__carry__0_i_1_n_0));
   LUT2 #(
     .INIT(4'h1)) 
     i__carry__0_i_1__0
-       (.I0(data_tlast1[15]),
-        .I1(data_tlast1[16]),
+       (.I0(i__carry__0_i_4_n_6),
+        .I1(i__carry__0_i_4_n_5),
         .O(i__carry__0_i_1__0_n_0));
+  LUT2 #(
+    .INIT(4'h1)) 
+    i__carry__0_i_2
+       (.I0(i__carry_i_9_n_4),
+        .I1(i__carry__0_i_4_n_7),
+        .O(i__carry__0_i_2_n_0));
   LUT3 #(
     .INIT(8'h01)) 
-    i__carry__0_i_2
+    i__carry__0_i_2__0
        (.I0(data_tlast1[14]),
         .I1(data_tlast1[13]),
         .I2(data_tlast1[12]),
-        .O(i__carry__0_i_2_n_0));
-  CARRY4 i__carry__0_i_3
-       (.CI(i__carry_i_5__0_n_0),
-        .CO({data_tlast1[16],NLW_i__carry__0_i_3_CO_UNCONNECTED[2],i__carry__0_i_3_n_2,i__carry__0_i_3_n_3}),
+        .O(i__carry__0_i_2__0_n_0));
+  LUT2 #(
+    .INIT(4'h1)) 
+    i__carry__0_i_3
+       (.I0(i__carry_i_9_n_6),
+        .I1(i__carry_i_9_n_5),
+        .O(i__carry__0_i_3_n_0));
+  (* ADDER_THRESHOLD = "35" *) 
+  CARRY4 i__carry__0_i_4
+       (.CI(i__carry_i_9_n_0),
+        .CO({NLW_i__carry__0_i_4_CO_UNCONNECTED[3:2],i__carry__0_i_4_n_2,i__carry__0_i_4_n_3}),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O({NLW_i__carry__0_i_3_O_UNCONNECTED[3],data_tlast1[15:13]}),
-        .S({1'b1,cnt_reg[15:13]}));
+        .O({NLW_i__carry__0_i_4_O_UNCONNECTED[3],i__carry__0_i_4_n_5,i__carry__0_i_4_n_6,i__carry__0_i_4_n_7}),
+        .S({1'b0,cnt_reg[15:13]}));
   LUT3 #(
     .INIT(8'h31)) 
     i__carry_i_1
-       (.I0(cnt_reg[6]),
-        .I1(cnt_reg[7]),
+       (.I0(i__carry_i_7_n_6),
+        .I1(i__carry_i_7_n_5),
         .I2(mix_is_bpsk_reg_n_0),
         .O(i__carry_i_1_n_0));
   LUT3 #(
@@ -691,14 +861,14 @@ module top_Tx_Data_0_0_Tx_Data
   LUT2 #(
     .INIT(4'h1)) 
     i__carry_i_2__0
-       (.I0(cnt_reg[12]),
-        .I1(cnt_reg[13]),
+       (.I0(i__carry_i_8_n_6),
+        .I1(i__carry_i_8_n_5),
         .O(i__carry_i_2__0_n_0));
   LUT2 #(
     .INIT(4'h1)) 
     i__carry_i_3
-       (.I0(cnt_reg[10]),
-        .I1(cnt_reg[11]),
+       (.I0(i__carry_i_7_n_4),
+        .I1(i__carry_i_9_n_7),
         .O(i__carry_i_3_n_0));
   LUT3 #(
     .INIT(8'h01)) 
@@ -708,46 +878,55 @@ module top_Tx_Data_0_0_Tx_Data
         .I2(data_tlast1[3]),
         .O(i__carry_i_3__0_n_0));
   LUT3 #(
-    .INIT(8'h02)) 
+    .INIT(8'h42)) 
     i__carry_i_4
-       (.I0(cnt_reg[0]),
-        .I1(data_tlast1[2]),
-        .I2(data_tlast1[1]),
+       (.I0(i__carry_i_7_n_6),
+        .I1(mix_is_bpsk_reg_n_0),
+        .I2(i__carry_i_7_n_5),
         .O(i__carry_i_4_n_0));
+  LUT3 #(
+    .INIT(8'h04)) 
+    i__carry_i_4__0
+       (.I0(data_tlast1[1]),
+        .I1(data_tlast1[2]),
+        .I2(data_tlast1[0]),
+        .O(i__carry_i_4__0_n_0));
   LUT2 #(
     .INIT(4'h1)) 
-    i__carry_i_4__0
-       (.I0(cnt_reg[8]),
-        .I1(cnt_reg[9]),
-        .O(i__carry_i_4__0_n_0));
-  LUT3 #(
-    .INIT(8'h42)) 
     i__carry_i_5
-       (.I0(cnt_reg[6]),
-        .I1(mix_is_bpsk_reg_n_0),
-        .I2(cnt_reg[7]),
+       (.I0(i__carry_i_8_n_4),
+        .I1(i__carry_i_7_n_7),
         .O(i__carry_i_5_n_0));
-  CARRY4 i__carry_i_5__0
-       (.CI(i__carry_i_6_n_0),
-        .CO({i__carry_i_5__0_n_0,i__carry_i_5__0_n_1,i__carry_i_5__0_n_2,i__carry_i_5__0_n_3}),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O(data_tlast1[12:9]),
-        .S(cnt_reg[12:9]));
-  CARRY4 i__carry_i_6
-       (.CI(i__carry_i_7_n_0),
-        .CO({i__carry_i_6_n_0,i__carry_i_6_n_1,i__carry_i_6_n_2,i__carry_i_6_n_3}),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O(data_tlast1[8:5]),
-        .S(cnt_reg[8:5]));
+  LUT2 #(
+    .INIT(4'h2)) 
+    i__carry_i_6
+       (.I0(i__carry_i_8_n_6),
+        .I1(i__carry_i_8_n_5),
+        .O(i__carry_i_6_n_0));
+  (* ADDER_THRESHOLD = "35" *) 
   CARRY4 i__carry_i_7
-       (.CI(1'b0),
+       (.CI(i__carry_i_8_n_0),
         .CO({i__carry_i_7_n_0,i__carry_i_7_n_1,i__carry_i_7_n_2,i__carry_i_7_n_3}),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b0,1'b0,1'b0}),
+        .O({i__carry_i_7_n_4,i__carry_i_7_n_5,i__carry_i_7_n_6,i__carry_i_7_n_7}),
+        .S(cnt_reg[8:5]));
+  (* ADDER_THRESHOLD = "35" *) 
+  CARRY4 i__carry_i_8
+       (.CI(1'b0),
+        .CO({i__carry_i_8_n_0,i__carry_i_8_n_1,i__carry_i_8_n_2,i__carry_i_8_n_3}),
         .CYINIT(cnt_reg[0]),
         .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O(data_tlast1[4:1]),
+        .O({i__carry_i_8_n_4,i__carry_i_8_n_5,i__carry_i_8_n_6,NLW_i__carry_i_8_O_UNCONNECTED[0]}),
         .S(cnt_reg[4:1]));
+  (* ADDER_THRESHOLD = "35" *) 
+  CARRY4 i__carry_i_9
+       (.CI(i__carry_i_7_n_0),
+        .CO({i__carry_i_9_n_0,i__carry_i_9_n_1,i__carry_i_9_n_2,i__carry_i_9_n_3}),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b0,1'b0,1'b0}),
+        .O({i__carry_i_9_n_4,i__carry_i_9_n_5,i__carry_i_9_n_6,i__carry_i_9_n_7}),
+        .S(cnt_reg[12:9]));
   top_Tx_Data_0_0_PN_Gen__parameterized0 inst_PN_Gen_N4
        (.MODE_CTRL(MODE_CTRL[1:0]),
         .clk(clk),
@@ -764,7 +943,7 @@ module top_Tx_Data_0_0_Tx_Data
        (.I0(rst_n),
         .I1(mix_is_bpsk_reg_n_0),
         .I2(data_tvalid_i_2_n_0),
-        .I3(\data_tvalid0_inferred__0/i__carry__0_n_3 ),
+        .I3(\data_tvalid0_inferred__0/i__carry__0_n_1 ),
         .I4(pkt_sent),
         .I5(mix_is_bpsk_i_2_n_0),
         .O(mix_is_bpsk_i_1_n_0));
@@ -780,81 +959,6 @@ module top_Tx_Data_0_0_Tx_Data
         .D(mix_is_bpsk_i_1_n_0),
         .Q(mix_is_bpsk_reg_n_0),
         .R(1'b0));
-endmodule
-
-(* CHECK_LICENSE_TYPE = "top_Tx_Data_0_0,Tx_Data,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
-(* X_CORE_INFO = "Tx_Data,Vivado 2022.2" *) 
-(* NotValidForBitStream *)
-module top_Tx_Data_0_0
-   (clk,
-    rst_n,
-    MODE_CTRL,
-    pkt_sent,
-    data_tdata,
-    data_tvalid,
-    data_tready,
-    data_tlast,
-    data_tuser,
-    payload_length);
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_BUSIF data, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, INSERT_VIP 0" *) input clk;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 rst_n RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME rst_n, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input rst_n;
-  input [3:0]MODE_CTRL;
-  input pkt_sent;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 data TDATA" *) output [7:0]data_tdata;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 data TVALID" *) output data_tvalid;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 data TREADY" *) input data_tready;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 data TLAST" *) output data_tlast;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 data TUSER" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME data, TDATA_NUM_BYTES 1, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 1, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 1, FREQ_HZ 100000000, PHASE 0.0, LAYERED_METADATA undef, INSERT_VIP 0" *) output data_tuser;
-  output [15:0]payload_length;
-
-  wire \<const0> ;
-  wire \<const1> ;
-  wire [3:0]MODE_CTRL;
-  wire clk;
-  wire [6:0]\^data_tdata ;
-  wire data_tlast;
-  wire data_tuser;
-  wire data_tvalid;
-  wire pkt_sent;
-  wire rst_n;
-
-  assign data_tdata[7] = \^data_tdata [6];
-  assign data_tdata[6] = \^data_tdata [6];
-  assign data_tdata[5] = \^data_tdata [6];
-  assign data_tdata[4] = \^data_tdata [6];
-  assign data_tdata[3] = \^data_tdata [6];
-  assign data_tdata[2] = \^data_tdata [6];
-  assign data_tdata[1] = \^data_tdata [6];
-  assign data_tdata[0] = \^data_tdata [0];
-  assign payload_length[15] = \<const0> ;
-  assign payload_length[14] = \<const0> ;
-  assign payload_length[13] = \<const0> ;
-  assign payload_length[12] = \<const0> ;
-  assign payload_length[11] = \<const0> ;
-  assign payload_length[10] = \<const0> ;
-  assign payload_length[9] = \<const0> ;
-  assign payload_length[8] = \<const0> ;
-  assign payload_length[7] = \<const1> ;
-  assign payload_length[6] = \<const0> ;
-  assign payload_length[5] = \<const0> ;
-  assign payload_length[4] = \<const0> ;
-  assign payload_length[3] = \<const0> ;
-  assign payload_length[2] = \<const0> ;
-  assign payload_length[1] = \<const0> ;
-  assign payload_length[0] = \<const0> ;
-  GND GND
-       (.G(\<const0> ));
-  VCC VCC
-       (.P(\<const1> ));
-  top_Tx_Data_0_0_Tx_Data inst
-       (.MODE_CTRL(MODE_CTRL),
-        .clk(clk),
-        .data_tdata({\^data_tdata [6],\^data_tdata [0]}),
-        .data_tlast(data_tlast),
-        .data_tuser(data_tuser),
-        .data_tvalid(data_tvalid),
-        .pkt_sent(pkt_sent),
-        .rst_n(rst_n));
 endmodule
 `ifndef GLBL
 `define GLBL

@@ -4,11 +4,10 @@
 // It also controls the BPSK/QPSK mode.
 //
 // Author: Wuqiong Zhao (me@wqzhao.org)
-// Date: 2023/12/16
+// Date: 2023/12/28
 
 module Error_Detect_Ctrl # (
-  parameter WIDTH = 16,
-  parameter DELAY = 1
+  parameter WIDTH = 16
 ) (
   input                         clk,
   input                         rst,
@@ -26,45 +25,37 @@ module Error_Detect_Ctrl # (
   input      signed [WIDTH-1:0] error_qpsk_tdata,
   input                         error_qpsk_tvalid,
   output     signed [WIDTH-1:0] error_tdata,
-  output                        error_tvalid
+  output                        error_tvalid,
+  // for debugging
+  output reg                    is_bpsk_delayed
 );
-  // delayed is_bpsk
-  wire is_bpsk_delayed;
-  Delay #(
-    .WIDTH(WIDTH),
-    .DELAY(DELAY)
-  ) Delay_is_bpsk (
-    .clk(clk),
-    .rst(rst),
-    .I(is_bpsk),
-    .O(is_bpsk_delayed)
-  );
-
   // output
-  always @ (posedge clk or posedge rst) begin
+  always @ (posedge clk) begin
     if (rst) begin
+      // We want the loop filter to get ready now.
       out_I_tdata <= 0;
-      out_I_tvalid <= 0;
+      out_I_tvalid <= 1'b1;
       out_Q_tdata <= 0;
-      out_Q_tvalid <= 0;
+      out_Q_tvalid <= 1'b1;
+      is_bpsk_delayed <= 1; // default as BPSK
     end
     else begin
+      is_bpsk_delayed <= is_bpsk;
       if (is_bpsk) begin // BPSK
-        out_I_tdata <= in_I_tdata;
-        out_Q_tdata <= in_Q_tdata;
-        out_I_tvalid <= in_I_tvalid;
-        out_Q_tvalid <= in_Q_tvalid;
+        out_I_tdata <= in_I_tvalid ? in_I_tdata : 0;
+        out_Q_tdata <= in_Q_tvalid ? in_Q_tdata : 0;
       end
       else begin // QPSK
-        out_I_tdata <= in_Q_tdata[WIDTH-1] ? -in_I_tdata : in_I_tdata;
-        out_Q_tdata <= in_I_tdata[WIDTH-1] ? -in_Q_tdata : in_Q_tdata;
-        out_I_tvalid <= in_I_tvalid;
-        out_Q_tvalid <= in_Q_tvalid;
+        out_I_tdata <= in_I_tvalid ? (in_Q_tdata[WIDTH-1] ? -in_I_tdata : in_I_tdata) : 0;
+        out_Q_tdata <= in_Q_tvalid ? (in_I_tdata[WIDTH-1] ? -in_Q_tdata : in_Q_tdata) : 0;
       end
+      out_I_tvalid <= 1'b1;
+      out_Q_tvalid <= 1'b1;
     end
   end
   
-  // error output
-  assign error_tdata = is_bpsk_delayed ? error_bpsk_tdata : error_qpsk_tdata;
-  assign error_tvalid = is_bpsk_delayed ? error_bpsk_tvalid : error_qpsk_tvalid;
+  // error output (MUX)
+  // start with error valid (but data zero)
+  assign error_tdata = in_I_tvalid ? (is_bpsk_delayed ? error_bpsk_tdata : error_qpsk_tdata) : 0;
+  assign error_tvalid = in_I_tvalid;
 endmodule

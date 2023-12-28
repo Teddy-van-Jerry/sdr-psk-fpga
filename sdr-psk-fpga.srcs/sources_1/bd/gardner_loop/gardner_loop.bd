@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xC79F38B5CB09CFDF",
+      "boundary_crc": "0xC79F38B5BCEBD447",
       "device": "xc7z020clg484-1",
       "gen_directory": "../../../../sdr-psk-fpga.gen/sources_1/bd/gardner_loop",
       "name": "gardner_loop",
@@ -25,139 +25,11 @@
       },
       "Gardner_Corrector_0": ""
     },
-    "interface_ports": {
-      "I": {
-        "mode": "Slave",
-        "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
-        "vlnv": "xilinx.com:interface:axis_rtl:1.0",
-        "parameters": {
-          "CLK_DOMAIN": {
-            "value": "gardner_loop_clk_32M768",
-            "value_src": "default"
-          },
-          "FREQ_HZ": {
-            "value": "32768000"
-          },
-          "HAS_TKEEP": {
-            "value": "0"
-          },
-          "HAS_TLAST": {
-            "value": "0"
-          },
-          "HAS_TREADY": {
-            "value": "1"
-          },
-          "HAS_TSTRB": {
-            "value": "0"
-          },
-          "INSERT_VIP": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "LAYERED_METADATA": {
-            "value": "undef"
-          },
-          "PHASE": {
-            "value": "0.0",
-            "value_src": "default"
-          },
-          "TDATA_NUM_BYTES": {
-            "value": "2"
-          },
-          "TDEST_WIDTH": {
-            "value": "0"
-          },
-          "TID_WIDTH": {
-            "value": "0"
-          },
-          "TUSER_WIDTH": {
-            "value": "0"
-          }
-        },
-        "port_maps": {
-          "TDATA": {
-            "physical_name": "I_tdata",
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "TVALID": {
-            "physical_name": "I_tvalid",
-            "direction": "I"
-          }
-        }
-      },
-      "Q": {
-        "mode": "Slave",
-        "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
-        "vlnv": "xilinx.com:interface:axis_rtl:1.0",
-        "parameters": {
-          "CLK_DOMAIN": {
-            "value": "gardner_loop_clk_32M768",
-            "value_src": "default"
-          },
-          "FREQ_HZ": {
-            "value": "32768000"
-          },
-          "HAS_TKEEP": {
-            "value": "0"
-          },
-          "HAS_TLAST": {
-            "value": "0"
-          },
-          "HAS_TREADY": {
-            "value": "1"
-          },
-          "HAS_TSTRB": {
-            "value": "0"
-          },
-          "INSERT_VIP": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "LAYERED_METADATA": {
-            "value": "undef"
-          },
-          "PHASE": {
-            "value": "0.0",
-            "value_src": "default"
-          },
-          "TDATA_NUM_BYTES": {
-            "value": "2"
-          },
-          "TDEST_WIDTH": {
-            "value": "0"
-          },
-          "TID_WIDTH": {
-            "value": "0"
-          },
-          "TUSER_WIDTH": {
-            "value": "0"
-          }
-        },
-        "port_maps": {
-          "TDATA": {
-            "physical_name": "Q_tdata",
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "TVALID": {
-            "physical_name": "Q_tvalid",
-            "direction": "I"
-          }
-        }
-      }
-    },
     "ports": {
       "clk_32M768": {
         "type": "clk",
         "direction": "I",
         "parameters": {
-          "ASSOCIATED_BUSIF": {
-            "value": "I:Q",
-            "value_src": "default"
-          },
           "ASSOCIATED_RESET": {
             "value": "rst_32M768",
             "value_src": "default"
@@ -242,6 +114,22 @@
             "value_src": "default"
           }
         }
+      },
+      "I_tdata": {
+        "direction": "I",
+        "left": "15",
+        "right": "0"
+      },
+      "I_tvalid": {
+        "direction": "I"
+      },
+      "Q_tdata": {
+        "direction": "I",
+        "left": "15",
+        "right": "0"
+      },
+      "Q_tvalid": {
+        "direction": "I"
       }
     },
     "components": {
@@ -493,10 +381,6 @@
                   "CLK_DOMAIN": {
                     "value": "gardner_loop_clk_32M768",
                     "value_src": "default_prop"
-                  },
-                  "LAYERED_METADATA": {
-                    "value": "undef",
-                    "value_src": "user_prop"
                   }
                 },
                 "port_maps": {
@@ -615,10 +499,6 @@
                   "CLK_DOMAIN": {
                     "value": "gardner_loop_clk_32M768",
                     "value_src": "default_prop"
-                  },
-                  "LAYERED_METADATA": {
-                    "value": "undef",
-                    "value_src": "user_prop"
                   }
                 },
                 "port_maps": {
@@ -1084,20 +964,6 @@
         }
       }
     },
-    "interface_nets": {
-      "I_1": {
-        "interface_ports": [
-          "I",
-          "Interpolation/I"
-        ]
-      },
-      "Q_1": {
-        "interface_ports": [
-          "Q",
-          "Interpolation/Q"
-        ]
-      }
-    },
     "nets": {
       "GARDNER_SHIFT_1": {
         "ports": [
@@ -1123,6 +989,18 @@
           "clk_out"
         ]
       },
+      "I_tdata_1": {
+        "ports": [
+          "I_tdata",
+          "Interpolation/I_tdata"
+        ]
+      },
+      "I_tvalid_1": {
+        "ports": [
+          "I_tvalid",
+          "Interpolation/I_tvalid"
+        ]
+      },
       "Interpolation_Ix2_tdata": {
         "ports": [
           "Interpolation/I_up2",
@@ -1135,6 +1013,18 @@
           "Interpolation/Q_up2",
           "Timing_Error/Q",
           "Gardner_Corrector_0/Q_32M"
+        ]
+      },
+      "Q_tdata_1": {
+        "ports": [
+          "Q_tdata",
+          "Interpolation/Q_tdata"
+        ]
+      },
+      "Q_tvalid_1": {
+        "ports": [
+          "Q_tvalid",
+          "Interpolation/Q_tvalid"
         ]
       },
       "Timing_Error_error_n": {

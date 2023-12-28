@@ -1,29 +1,9 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Dec 28 12:35:16 2023" VIVADOVERSION="2022.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Dec 28 23:18:27 2023" VIVADOVERSION="2022.2">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z020" NAME="gardner_loop_inst_0" PACKAGE="clg484" SPEEDGRADE="-1"/>
 
   <EXTERNALPORTS>
-    <PORT DIR="I" LEFT="15" NAME="I_tdata" RIGHT="0" SIGIS="undef" SIGNAME="Interpolation_Gardner_IQ_Pre_0_I_in_tdata">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="Interpolation_Gardner_IQ_Pre_0" PORT="I_in_tdata"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" NAME="I_tvalid" SIGIS="undef" SIGNAME="Interpolation_Gardner_IQ_Pre_0_I_in_tvalid">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="Interpolation_Gardner_IQ_Pre_0" PORT="I_in_tvalid"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" LEFT="15" NAME="Q_tdata" RIGHT="0" SIGIS="undef" SIGNAME="Interpolation_Gardner_IQ_Pre_0_Q_in_tdata">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="Interpolation_Gardner_IQ_Pre_0" PORT="Q_in_tdata"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" NAME="Q_tvalid" SIGIS="undef" SIGNAME="Interpolation_Gardner_IQ_Pre_0_Q_in_tvalid">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="Interpolation_Gardner_IQ_Pre_0" PORT="Q_in_tvalid"/>
-      </CONNECTIONS>
-    </PORT>
     <PORT CLKFREQUENCY="32768000" DIR="I" NAME="clk_32M768" SIGIS="clk" SIGNAME="External_Ports_clk_32M768">
       <CONNECTIONS>
         <CONNECTION INSTANCE="Interpolation_fir_compiler_I" PORT="aclk"/>
@@ -72,48 +52,13 @@
         <CONNECTION INSTANCE="Timing_Error_Gardner_Timing_Error_0" PORT="error_n"/>
       </CONNECTIONS>
     </PORT>
+    <PORT DIR="I" LEFT="15" NAME="I_tdata" RIGHT="0" SIGIS="undef"/>
+    <PORT DIR="I" NAME="I_tvalid" SIGIS="undef"/>
+    <PORT DIR="I" LEFT="15" NAME="Q_tdata" RIGHT="0" SIGIS="undef"/>
+    <PORT DIR="I" NAME="Q_tvalid" SIGIS="undef"/>
   </EXTERNALPORTS>
 
-  <EXTERNALINTERFACES>
-    <BUSINTERFACE BUSNAME="External_Interface_I" NAME="I" TYPE="TARGET">
-      <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="2"/>
-      <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
-      <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
-      <PARAMETER NAME="TUSER_WIDTH" VALUE="0"/>
-      <PARAMETER NAME="HAS_TREADY" VALUE="1"/>
-      <PARAMETER NAME="HAS_TSTRB" VALUE="0"/>
-      <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
-      <PARAMETER NAME="HAS_TLAST" VALUE="0"/>
-      <PARAMETER NAME="FREQ_HZ" VALUE="32768000"/>
-      <PARAMETER NAME="PHASE" VALUE="0.0"/>
-      <PARAMETER NAME="CLK_DOMAIN" VALUE="/Clock_Gen/clk_wiz_32M768_clk_out1"/>
-      <PARAMETER NAME="LAYERED_METADATA" VALUE="undef"/>
-      <PARAMETER NAME="INSERT_VIP" VALUE="0"/>
-      <PORTMAPS>
-        <PORTMAP LOGICAL="TDATA" PHYSICAL="I_tdata"/>
-        <PORTMAP LOGICAL="TVALID" PHYSICAL="I_tvalid"/>
-      </PORTMAPS>
-    </BUSINTERFACE>
-    <BUSINTERFACE BUSNAME="External_Interface_Q" NAME="Q" TYPE="TARGET">
-      <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="2"/>
-      <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
-      <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
-      <PARAMETER NAME="TUSER_WIDTH" VALUE="0"/>
-      <PARAMETER NAME="HAS_TREADY" VALUE="1"/>
-      <PARAMETER NAME="HAS_TSTRB" VALUE="0"/>
-      <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
-      <PARAMETER NAME="HAS_TLAST" VALUE="0"/>
-      <PARAMETER NAME="FREQ_HZ" VALUE="32768000"/>
-      <PARAMETER NAME="PHASE" VALUE="0.0"/>
-      <PARAMETER NAME="CLK_DOMAIN" VALUE="/Clock_Gen/clk_wiz_32M768_clk_out1"/>
-      <PARAMETER NAME="LAYERED_METADATA" VALUE="undef"/>
-      <PARAMETER NAME="INSERT_VIP" VALUE="0"/>
-      <PORTMAPS>
-        <PORTMAP LOGICAL="TDATA" PHYSICAL="Q_tdata"/>
-        <PORTMAP LOGICAL="TVALID" PHYSICAL="Q_tvalid"/>
-      </PORTMAPS>
-    </BUSINTERFACE>
-  </EXTERNALINTERFACES>
+  <EXTERNALINTERFACES/>
 
   <MODULES>
     <MODULE COREREVISION="1" FULLNAME="/Gardner_Corrector_0" HWVERSION="1.0" INSTANCE="Gardner_Corrector_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="Gardner_Corrector" VLNV="xilinx.com:module_ref:Gardner_Corrector:1.0">
@@ -186,26 +131,10 @@
             <CONNECTION INSTANCE="External_Ports" PORT="clk_32M768"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="15" NAME="I_in_tdata" RIGHT="0" SIGIS="undef" SIGNAME="Interpolation_Gardner_IQ_Pre_0_I_in_tdata">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="gardner_loop_inst_0_imp" PORT="I_tdata"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="I_in_tvalid" SIGIS="undef" SIGNAME="Interpolation_Gardner_IQ_Pre_0_I_in_tvalid">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="gardner_loop_inst_0_imp" PORT="I_tvalid"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="15" NAME="Q_in_tdata" RIGHT="0" SIGIS="undef" SIGNAME="Interpolation_Gardner_IQ_Pre_0_Q_in_tdata">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="gardner_loop_inst_0_imp" PORT="Q_tdata"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="Q_in_tvalid" SIGIS="undef" SIGNAME="Interpolation_Gardner_IQ_Pre_0_Q_in_tvalid">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="gardner_loop_inst_0_imp" PORT="Q_tvalid"/>
-          </CONNECTIONS>
-        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="I_in_tdata" RIGHT="0" SIGIS="undef"/>
+        <PORT DIR="I" NAME="I_in_tvalid" SIGIS="undef"/>
+        <PORT DIR="I" LEFT="15" NAME="Q_in_tdata" RIGHT="0" SIGIS="undef"/>
+        <PORT DIR="I" NAME="Q_in_tvalid" SIGIS="undef"/>
         <PORT DIR="O" LEFT="15" NAME="I_out_tdata" RIGHT="0" SIGIS="undef" SIGNAME="Interpolation_Gardner_IQ_Pre_0_I_out_tdata">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Interpolation_fir_compiler_I" PORT="s_axis_data_tdata"/>
@@ -228,7 +157,7 @@
         </PORT>
       </PORTS>
       <BUSINTERFACES>
-        <BUSINTERFACE BUSNAME="External_Interface_I" NAME="I_in" TYPE="TARGET" VLNV="xilinx.com:interface:axis:1.0">
+        <BUSINTERFACE BUSNAME="__NOC__" NAME="I_in" TYPE="TARGET" VLNV="xilinx.com:interface:axis:1.0">
           <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="2"/>
           <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
           <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
@@ -266,7 +195,7 @@
             <PORTMAP LOGICAL="TVALID" PHYSICAL="I_out_tvalid"/>
           </PORTMAPS>
         </BUSINTERFACE>
-        <BUSINTERFACE BUSNAME="External_Interface_Q" NAME="Q_in" TYPE="TARGET" VLNV="xilinx.com:interface:axis:1.0">
+        <BUSINTERFACE BUSNAME="__NOC__" NAME="Q_in" TYPE="TARGET" VLNV="xilinx.com:interface:axis:1.0">
           <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="2"/>
           <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
           <PARAMETER NAME="TID_WIDTH" VALUE="0"/>

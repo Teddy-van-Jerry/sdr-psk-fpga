@@ -1,7 +1,7 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Thu Dec 28 03:57:54 2023
+// Date        : Thu Dec 28 13:59:03 2023
 // Host        : TVJ-PC running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               e:/Documents/Study/Verilog/SDR/sdr-psk-fpga/sdr-psk-fpga.gen/sources_1/bd/top/ip/top_Packetizer_0_0/top_Packetizer_0_0_sim_netlist.v
@@ -94,14 +94,14 @@ module top_Packetizer_0_0_Packetizer
     out_tuser,
     hdr_vld,
     pkt_sent,
-    clk,
-    rst_n,
-    in_tuser,
-    in_tlast,
-    in_tdata,
-    in_tvalid,
-    out_tready,
     MODE_CTRL,
+    rst_n,
+    in_tdata,
+    clk,
+    in_tvalid,
+    in_tlast,
+    in_tuser,
+    out_tready,
     payload_length);
   output in_tready;
   output [7:0]out_tdata;
@@ -110,21 +110,24 @@ module top_Packetizer_0_0_Packetizer
   output out_tuser;
   output hdr_vld;
   output pkt_sent;
-  input clk;
-  input rst_n;
-  input in_tuser;
-  input in_tlast;
-  input [7:0]in_tdata;
-  input in_tvalid;
-  input out_tready;
   input [3:0]MODE_CTRL;
+  input rst_n;
+  input [7:0]in_tdata;
+  input clk;
+  input in_tvalid;
+  input in_tlast;
+  input in_tuser;
+  input out_tready;
   input [15:0]payload_length;
 
   wire [3:0]MODE_CTRL;
   wire clk;
-  wire [9:1]hdr_cnt;
-  wire \hdr_cnt[0]_i_1_n_0 ;
+  wire [9:0]hdr_cnt;
+  wire \hdr_cnt[1]_i_1_n_0 ;
+  wire \hdr_cnt[4]_i_1_n_0 ;
   wire \hdr_cnt[5]_i_2_n_0 ;
+  wire \hdr_cnt[7]_i_1_n_0 ;
+  wire \hdr_cnt[8]_i_1_n_0 ;
   wire \hdr_cnt[9]_i_1_n_0 ;
   wire \hdr_cnt[9]_i_3_n_0 ;
   wire \hdr_cnt_reg_n_0_[0] ;
@@ -139,27 +142,29 @@ module top_Packetizer_0_0_Packetizer
   wire \hdr_cnt_reg_n_0_[9] ;
   wire hdr_vld;
   wire hdr_vld_i_1_n_0;
-  wire hdr_vld_i_2_n_0;
   wire [15:1]in9;
   wire [7:0]in_tdata;
   wire in_tlast;
   wire in_tready;
   wire in_tready_i_1_n_0;
   wire in_tready_i_2_n_0;
-  wire in_tready_i_3_n_0;
-  wire in_tready_i_4_n_0;
-  wire in_tready_i_5_n_0;
-  wire in_tready_i_6_n_0;
   wire in_tuser;
   wire in_tvalid;
   wire [7:0]out_tdata;
   wire \out_tdata[0]_i_1_n_0 ;
+  wire \out_tdata[0]_i_2_n_0 ;
   wire \out_tdata[1]_i_1_n_0 ;
+  wire \out_tdata[1]_i_2_n_0 ;
   wire \out_tdata[2]_i_1_n_0 ;
+  wire \out_tdata[2]_i_2_n_0 ;
   wire \out_tdata[3]_i_1_n_0 ;
+  wire \out_tdata[3]_i_2_n_0 ;
   wire \out_tdata[4]_i_1_n_0 ;
+  wire \out_tdata[4]_i_2_n_0 ;
   wire \out_tdata[5]_i_1_n_0 ;
+  wire \out_tdata[5]_i_2_n_0 ;
   wire \out_tdata[6]_i_1_n_0 ;
+  wire \out_tdata[6]_i_2_n_0 ;
   wire \out_tdata[7]_i_10_n_0 ;
   wire \out_tdata[7]_i_11_n_0 ;
   wire \out_tdata[7]_i_12_n_0 ;
@@ -167,24 +172,15 @@ module top_Packetizer_0_0_Packetizer
   wire \out_tdata[7]_i_14_n_0 ;
   wire \out_tdata[7]_i_15_n_0 ;
   wire \out_tdata[7]_i_16_n_0 ;
-  wire \out_tdata[7]_i_17_n_0 ;
-  wire \out_tdata[7]_i_18_n_0 ;
-  wire \out_tdata[7]_i_19_n_0 ;
   wire \out_tdata[7]_i_1_n_0 ;
-  wire \out_tdata[7]_i_20_n_0 ;
-  wire \out_tdata[7]_i_21_n_0 ;
-  wire \out_tdata[7]_i_22_n_0 ;
-  wire \out_tdata[7]_i_23_n_0 ;
-  wire \out_tdata[7]_i_24_n_0 ;
-  wire \out_tdata[7]_i_25_n_0 ;
   wire \out_tdata[7]_i_2_n_0 ;
   wire \out_tdata[7]_i_3_n_0 ;
   wire \out_tdata[7]_i_4_n_0 ;
   wire \out_tdata[7]_i_5_n_0 ;
-  wire \out_tdata[7]_i_6_n_0 ;
   wire \out_tdata[7]_i_7_n_0 ;
   wire \out_tdata[7]_i_8_n_0 ;
   wire \out_tdata[7]_i_9_n_0 ;
+  wire \out_tdata_reg[7]_i_6_n_0 ;
   wire out_tlast;
   wire out_tlast_i_1_n_0;
   wire out_tready;
@@ -193,9 +189,10 @@ module top_Packetizer_0_0_Packetizer
   wire out_tvalid;
   wire out_tvalid_i_1_n_0;
   wire out_tvalid_i_2_n_0;
+  wire out_tvalid_i_3_n_0;
+  wire out_tvalid_i_4_n_0;
   wire [15:0]p_0_in;
-  wire [15:1]payload_cnt;
-  wire \payload_cnt[0]_i_1_n_0 ;
+  wire [15:0]payload_cnt;
   wire \payload_cnt[15]_i_1_n_0 ;
   wire \payload_cnt[15]_i_3_n_0 ;
   wire \payload_cnt_reg[12]_i_2_n_0 ;
@@ -237,6 +234,7 @@ module top_Packetizer_0_0_Packetizer
   wire pkt_sent_i_2_n_0;
   wire rst_n;
   wire [3:0]state;
+  wire \state[1]_i_2_n_0 ;
   wire \state[3]_i_2_n_0 ;
   wire \state[3]_i_3_n_0 ;
   wire \state[3]_i_4_n_0 ;
@@ -285,135 +283,134 @@ module top_Packetizer_0_0_Packetizer
   wire [3:1]NLW_state_next1_carry__0_i_3_CO_UNCONNECTED;
   wire [3:0]NLW_state_next1_carry__0_i_3_O_UNCONNECTED;
 
-  (* SOFT_HLUTNM = "soft_lutpair9" *) 
+  (* SOFT_HLUTNM = "soft_lutpair6" *) 
   LUT2 #(
     .INIT(4'h2)) 
     \hdr_cnt[0]_i_1 
        (.I0(state[1]),
         .I1(\hdr_cnt_reg_n_0_[0] ),
-        .O(\hdr_cnt[0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair10" *) 
+        .O(hdr_cnt[0]));
+  (* SOFT_HLUTNM = "soft_lutpair8" *) 
   LUT3 #(
-    .INIT(8'h28)) 
+    .INIT(8'h60)) 
     \hdr_cnt[1]_i_1 
-       (.I0(state[1]),
-        .I1(\hdr_cnt_reg_n_0_[1] ),
-        .I2(\hdr_cnt_reg_n_0_[0] ),
-        .O(hdr_cnt[1]));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+       (.I0(\hdr_cnt_reg_n_0_[1] ),
+        .I1(\hdr_cnt_reg_n_0_[0] ),
+        .I2(state[1]),
+        .O(\hdr_cnt[1]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair4" *) 
   LUT4 #(
-    .INIT(16'h2888)) 
+    .INIT(16'h2A80)) 
     \hdr_cnt[2]_i_1 
        (.I0(state[1]),
-        .I1(\hdr_cnt_reg_n_0_[2] ),
-        .I2(\hdr_cnt_reg_n_0_[0] ),
-        .I3(\hdr_cnt_reg_n_0_[1] ),
+        .I1(\hdr_cnt_reg_n_0_[0] ),
+        .I2(\hdr_cnt_reg_n_0_[1] ),
+        .I3(\hdr_cnt_reg_n_0_[2] ),
         .O(hdr_cnt[2]));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  (* SOFT_HLUTNM = "soft_lutpair4" *) 
   LUT5 #(
-    .INIT(32'h28888888)) 
+    .INIT(32'h2AAA8000)) 
     \hdr_cnt[3]_i_1 
        (.I0(state[1]),
-        .I1(\hdr_cnt_reg_n_0_[3] ),
-        .I2(\hdr_cnt_reg_n_0_[1] ),
-        .I3(\hdr_cnt_reg_n_0_[0] ),
-        .I4(\hdr_cnt_reg_n_0_[2] ),
-        .O(hdr_cnt[3]));
-  LUT6 #(
-    .INIT(64'h2888888888888888)) 
-    \hdr_cnt[4]_i_1 
-       (.I0(state[1]),
-        .I1(\hdr_cnt_reg_n_0_[4] ),
-        .I2(\hdr_cnt_reg_n_0_[2] ),
-        .I3(\hdr_cnt_reg_n_0_[0] ),
-        .I4(\hdr_cnt_reg_n_0_[1] ),
-        .I5(\hdr_cnt_reg_n_0_[3] ),
-        .O(hdr_cnt[4]));
-  (* SOFT_HLUTNM = "soft_lutpair9" *) 
-  LUT3 #(
-    .INIT(8'h82)) 
-    \hdr_cnt[5]_i_1 
-       (.I0(state[1]),
-        .I1(\hdr_cnt_reg_n_0_[5] ),
-        .I2(\hdr_cnt[5]_i_2_n_0 ),
-        .O(hdr_cnt[5]));
-  (* SOFT_HLUTNM = "soft_lutpair6" *) 
-  LUT5 #(
-    .INIT(32'h7FFFFFFF)) 
-    \hdr_cnt[5]_i_2 
-       (.I0(\hdr_cnt_reg_n_0_[3] ),
         .I1(\hdr_cnt_reg_n_0_[1] ),
         .I2(\hdr_cnt_reg_n_0_[0] ),
         .I3(\hdr_cnt_reg_n_0_[2] ),
+        .I4(\hdr_cnt_reg_n_0_[3] ),
+        .O(hdr_cnt[3]));
+  LUT6 #(
+    .INIT(64'h7FFF800000000000)) 
+    \hdr_cnt[4]_i_1 
+       (.I0(\hdr_cnt_reg_n_0_[2] ),
+        .I1(\hdr_cnt_reg_n_0_[0] ),
+        .I2(\hdr_cnt_reg_n_0_[1] ),
+        .I3(\hdr_cnt_reg_n_0_[3] ),
         .I4(\hdr_cnt_reg_n_0_[4] ),
-        .O(\hdr_cnt[5]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair10" *) 
+        .I5(state[1]),
+        .O(\hdr_cnt[4]_i_1_n_0 ));
+  LUT5 #(
+    .INIT(32'h2AAA8000)) 
+    \hdr_cnt[5]_i_1 
+       (.I0(state[1]),
+        .I1(\hdr_cnt[5]_i_2_n_0 ),
+        .I2(\hdr_cnt_reg_n_0_[4] ),
+        .I3(\hdr_cnt_reg_n_0_[3] ),
+        .I4(\hdr_cnt_reg_n_0_[5] ),
+        .O(hdr_cnt[5]));
+  (* SOFT_HLUTNM = "soft_lutpair8" *) 
   LUT3 #(
-    .INIT(8'h82)) 
+    .INIT(8'h80)) 
+    \hdr_cnt[5]_i_2 
+       (.I0(\hdr_cnt_reg_n_0_[1] ),
+        .I1(\hdr_cnt_reg_n_0_[0] ),
+        .I2(\hdr_cnt_reg_n_0_[2] ),
+        .O(\hdr_cnt[5]_i_2_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair9" *) 
+  LUT3 #(
+    .INIT(8'h28)) 
     \hdr_cnt[6]_i_1 
        (.I0(state[1]),
-        .I1(\hdr_cnt_reg_n_0_[6] ),
-        .I2(\hdr_cnt[9]_i_3_n_0 ),
+        .I1(\hdr_cnt[9]_i_3_n_0 ),
+        .I2(\hdr_cnt_reg_n_0_[6] ),
         .O(hdr_cnt[6]));
-  (* SOFT_HLUTNM = "soft_lutpair4" *) 
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
   LUT4 #(
-    .INIT(16'h8828)) 
+    .INIT(16'h7800)) 
     \hdr_cnt[7]_i_1 
-       (.I0(state[1]),
+       (.I0(\hdr_cnt[9]_i_3_n_0 ),
+        .I1(\hdr_cnt_reg_n_0_[6] ),
+        .I2(\hdr_cnt_reg_n_0_[7] ),
+        .I3(state[1]),
+        .O(\hdr_cnt[7]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  LUT5 #(
+    .INIT(32'h7F800000)) 
+    \hdr_cnt[8]_i_1 
+       (.I0(\hdr_cnt[9]_i_3_n_0 ),
         .I1(\hdr_cnt_reg_n_0_[7] ),
         .I2(\hdr_cnt_reg_n_0_[6] ),
-        .I3(\hdr_cnt[9]_i_3_n_0 ),
-        .O(hdr_cnt[7]));
-  (* SOFT_HLUTNM = "soft_lutpair4" *) 
-  LUT5 #(
-    .INIT(32'h88882888)) 
-    \hdr_cnt[8]_i_1 
-       (.I0(state[1]),
-        .I1(\hdr_cnt_reg_n_0_[8] ),
-        .I2(\hdr_cnt_reg_n_0_[7] ),
-        .I3(\hdr_cnt_reg_n_0_[6] ),
-        .I4(\hdr_cnt[9]_i_3_n_0 ),
-        .O(hdr_cnt[8]));
+        .I3(\hdr_cnt_reg_n_0_[8] ),
+        .I4(state[1]),
+        .O(\hdr_cnt[8]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'h0000000000000014)) 
+    .INIT(64'h0000001000100000)) 
     \hdr_cnt[9]_i_1 
-       (.I0(\state_reg_n_0_[4] ),
-        .I1(state[0]),
-        .I2(state[1]),
-        .I3(in_tready_i_4_n_0),
-        .I4(state[2]),
-        .I5(state[3]),
+       (.I0(state[2]),
+        .I1(state[3]),
+        .I2(payload_length_symbs_0),
+        .I3(\state_reg_n_0_[4] ),
+        .I4(state[1]),
+        .I5(state[0]),
         .O(\hdr_cnt[9]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'h8888888828888888)) 
+    .INIT(64'h2AAAAAAA80000000)) 
     \hdr_cnt[9]_i_2 
        (.I0(state[1]),
-        .I1(\hdr_cnt_reg_n_0_[9] ),
+        .I1(\hdr_cnt_reg_n_0_[8] ),
         .I2(\hdr_cnt_reg_n_0_[6] ),
         .I3(\hdr_cnt_reg_n_0_[7] ),
-        .I4(\hdr_cnt_reg_n_0_[8] ),
-        .I5(\hdr_cnt[9]_i_3_n_0 ),
+        .I4(\hdr_cnt[9]_i_3_n_0 ),
+        .I5(\hdr_cnt_reg_n_0_[9] ),
         .O(hdr_cnt[9]));
   LUT6 #(
-    .INIT(64'h7FFFFFFFFFFFFFFF)) 
+    .INIT(64'h8000000000000000)) 
     \hdr_cnt[9]_i_3 
-       (.I0(\hdr_cnt_reg_n_0_[4] ),
-        .I1(\hdr_cnt_reg_n_0_[2] ),
-        .I2(\hdr_cnt_reg_n_0_[0] ),
-        .I3(\hdr_cnt_reg_n_0_[1] ),
-        .I4(\hdr_cnt_reg_n_0_[3] ),
+       (.I0(\hdr_cnt_reg_n_0_[3] ),
+        .I1(\hdr_cnt_reg_n_0_[4] ),
+        .I2(\hdr_cnt_reg_n_0_[1] ),
+        .I3(\hdr_cnt_reg_n_0_[0] ),
+        .I4(\hdr_cnt_reg_n_0_[2] ),
         .I5(\hdr_cnt_reg_n_0_[5] ),
         .O(\hdr_cnt[9]_i_3_n_0 ));
   FDRE \hdr_cnt_reg[0] 
        (.C(clk),
         .CE(\hdr_cnt[9]_i_1_n_0 ),
-        .D(\hdr_cnt[0]_i_1_n_0 ),
+        .D(hdr_cnt[0]),
         .Q(\hdr_cnt_reg_n_0_[0] ),
         .R(\state[4]_i_1_n_0 ));
   FDRE \hdr_cnt_reg[1] 
        (.C(clk),
         .CE(\hdr_cnt[9]_i_1_n_0 ),
-        .D(hdr_cnt[1]),
+        .D(\hdr_cnt[1]_i_1_n_0 ),
         .Q(\hdr_cnt_reg_n_0_[1] ),
         .R(\state[4]_i_1_n_0 ));
   FDRE \hdr_cnt_reg[2] 
@@ -431,7 +428,7 @@ module top_Packetizer_0_0_Packetizer
   FDRE \hdr_cnt_reg[4] 
        (.C(clk),
         .CE(\hdr_cnt[9]_i_1_n_0 ),
-        .D(hdr_cnt[4]),
+        .D(\hdr_cnt[4]_i_1_n_0 ),
         .Q(\hdr_cnt_reg_n_0_[4] ),
         .R(\state[4]_i_1_n_0 ));
   FDRE \hdr_cnt_reg[5] 
@@ -449,13 +446,13 @@ module top_Packetizer_0_0_Packetizer
   FDRE \hdr_cnt_reg[7] 
        (.C(clk),
         .CE(\hdr_cnt[9]_i_1_n_0 ),
-        .D(hdr_cnt[7]),
+        .D(\hdr_cnt[7]_i_1_n_0 ),
         .Q(\hdr_cnt_reg_n_0_[7] ),
         .R(\state[4]_i_1_n_0 ));
   FDRE \hdr_cnt_reg[8] 
        (.C(clk),
         .CE(\hdr_cnt[9]_i_1_n_0 ),
-        .D(hdr_cnt[8]),
+        .D(\hdr_cnt[8]_i_1_n_0 ),
         .Q(\hdr_cnt_reg_n_0_[8] ),
         .R(\state[4]_i_1_n_0 ));
   FDRE \hdr_cnt_reg[9] 
@@ -465,23 +462,13 @@ module top_Packetizer_0_0_Packetizer
         .Q(\hdr_cnt_reg_n_0_[9] ),
         .R(\state[4]_i_1_n_0 ));
   LUT4 #(
-    .INIT(16'h7340)) 
+    .INIT(16'hC0AA)) 
     hdr_vld_i_1
-       (.I0(in_tready_i_4_n_0),
-        .I1(rst_n),
-        .I2(hdr_vld_i_2_n_0),
-        .I3(hdr_vld),
+       (.I0(hdr_vld),
+        .I1(out_tvalid_i_4_n_0),
+        .I2(payload_length_symbs_0),
+        .I3(rst_n),
         .O(hdr_vld_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
-  LUT5 #(
-    .INIT(32'h00000010)) 
-    hdr_vld_i_2
-       (.I0(state[0]),
-        .I1(\state_reg_n_0_[4] ),
-        .I2(state[1]),
-        .I3(state[3]),
-        .I4(state[2]),
-        .O(hdr_vld_i_2_n_0));
   FDRE hdr_vld_reg
        (.C(clk),
         .CE(1'b1),
@@ -489,404 +476,371 @@ module top_Packetizer_0_0_Packetizer
         .Q(hdr_vld),
         .R(1'b0));
   LUT6 #(
-    .INIT(64'hFFFFFFFFF0FFF044)) 
+    .INIT(64'h00000000FFFF0010)) 
     in_tready_i_1
-       (.I0(in_tready_i_2_n_0),
-        .I1(in_tready_i_3_n_0),
-        .I2(out_tready),
-        .I3(in_tready_i_4_n_0),
-        .I4(in_tready_i_5_n_0),
-        .I5(in_tready_i_6_n_0),
+       (.I0(MODE_CTRL[1]),
+        .I1(MODE_CTRL[3]),
+        .I2(MODE_CTRL[2]),
+        .I3(MODE_CTRL[0]),
+        .I4(out_tready),
+        .I5(in_tready_i_2_n_0),
         .O(in_tready_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair7" *) 
-  LUT3 #(
-    .INIT(8'hFE)) 
+  LUT6 #(
+    .INIT(64'hAAAAAAA8AAA8A8A2)) 
     in_tready_i_2
-       (.I0(\state_reg_n_0_[4] ),
+       (.I0(payload_length_symbs_0),
         .I1(state[0]),
         .I2(state[1]),
-        .O(in_tready_i_2_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
-  LUT2 #(
-    .INIT(4'h2)) 
-    in_tready_i_3
-       (.I0(state[2]),
-        .I1(state[3]),
-        .O(in_tready_i_3_n_0));
-  LUT4 #(
-    .INIT(16'hFFEF)) 
-    in_tready_i_4
-       (.I0(MODE_CTRL[1]),
-        .I1(MODE_CTRL[0]),
-        .I2(MODE_CTRL[2]),
-        .I3(MODE_CTRL[3]),
-        .O(in_tready_i_4_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair7" *) 
-  LUT5 #(
-    .INIT(32'h00000014)) 
-    in_tready_i_5
-       (.I0(state[0]),
-        .I1(state[3]),
-        .I2(\state_reg_n_0_[4] ),
-        .I3(state[2]),
-        .I4(state[1]),
-        .O(in_tready_i_5_n_0));
-  LUT6 #(
-    .INIT(64'h0000000000000002)) 
-    in_tready_i_6
-       (.I0(state[0]),
-        .I1(state[1]),
-        .I2(\state_reg_n_0_[4] ),
-        .I3(in_tready_i_4_n_0),
+        .I3(\state_reg_n_0_[4] ),
         .I4(state[2]),
         .I5(state[3]),
-        .O(in_tready_i_6_n_0));
+        .O(in_tready_i_2_n_0));
   FDRE in_tready_reg
        (.C(clk),
         .CE(rst_n),
         .D(in_tready_i_1_n_0),
         .Q(in_tready),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair20" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \out_tdata[0]_i_1 
-       (.I0(\out_tdata[7]_i_8_n_0 ),
-        .I1(in_tdata[0]),
-        .O(\out_tdata[0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair20" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \out_tdata[1]_i_1 
-       (.I0(\out_tdata[7]_i_8_n_0 ),
-        .I1(in_tdata[1]),
-        .O(\out_tdata[1]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair21" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \out_tdata[2]_i_1 
-       (.I0(\out_tdata[7]_i_8_n_0 ),
-        .I1(in_tdata[2]),
-        .O(\out_tdata[2]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair21" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \out_tdata[3]_i_1 
-       (.I0(\out_tdata[7]_i_8_n_0 ),
-        .I1(in_tdata[3]),
-        .O(\out_tdata[3]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair22" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \out_tdata[4]_i_1 
-       (.I0(\out_tdata[7]_i_8_n_0 ),
-        .I1(in_tdata[4]),
-        .O(\out_tdata[4]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair22" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \out_tdata[5]_i_1 
-       (.I0(\out_tdata[7]_i_8_n_0 ),
-        .I1(in_tdata[5]),
-        .O(\out_tdata[5]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair23" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \out_tdata[6]_i_1 
-       (.I0(\out_tdata[7]_i_8_n_0 ),
-        .I1(in_tdata[6]),
-        .O(\out_tdata[6]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFFFFFE00000000)) 
+    .INIT(64'h0000AAAA3303AAAA)) 
+    \out_tdata[0]_i_1 
+       (.I0(in_tdata[0]),
+        .I1(\out_tdata[0]_i_2_n_0 ),
+        .I2(state[1]),
+        .I3(\out_tdata[7]_i_3_n_0 ),
+        .I4(payload_length_symbs_0),
+        .I5(state[0]),
+        .O(\out_tdata[0]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  LUT5 #(
+    .INIT(32'h55454555)) 
+    \out_tdata[0]_i_2 
+       (.I0(state[1]),
+        .I1(\state_reg_n_0_[4] ),
+        .I2(in_tdata[0]),
+        .I3(state[2]),
+        .I4(state[3]),
+        .O(\out_tdata[0]_i_2_n_0 ));
+  LUT6 #(
+    .INIT(64'h0000AAAA3303AAAA)) 
+    \out_tdata[1]_i_1 
+       (.I0(in_tdata[1]),
+        .I1(\out_tdata[1]_i_2_n_0 ),
+        .I2(state[1]),
+        .I3(\out_tdata[7]_i_3_n_0 ),
+        .I4(payload_length_symbs_0),
+        .I5(state[0]),
+        .O(\out_tdata[1]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  LUT5 #(
+    .INIT(32'h55454555)) 
+    \out_tdata[1]_i_2 
+       (.I0(state[1]),
+        .I1(\state_reg_n_0_[4] ),
+        .I2(in_tdata[1]),
+        .I3(state[2]),
+        .I4(state[3]),
+        .O(\out_tdata[1]_i_2_n_0 ));
+  LUT6 #(
+    .INIT(64'h0000AAAA3303AAAA)) 
+    \out_tdata[2]_i_1 
+       (.I0(in_tdata[2]),
+        .I1(\out_tdata[2]_i_2_n_0 ),
+        .I2(state[1]),
+        .I3(\out_tdata[7]_i_3_n_0 ),
+        .I4(payload_length_symbs_0),
+        .I5(state[0]),
+        .O(\out_tdata[2]_i_1_n_0 ));
+  LUT5 #(
+    .INIT(32'h55454555)) 
+    \out_tdata[2]_i_2 
+       (.I0(state[1]),
+        .I1(\state_reg_n_0_[4] ),
+        .I2(in_tdata[2]),
+        .I3(state[2]),
+        .I4(state[3]),
+        .O(\out_tdata[2]_i_2_n_0 ));
+  LUT6 #(
+    .INIT(64'h0000AAAA3303AAAA)) 
+    \out_tdata[3]_i_1 
+       (.I0(in_tdata[3]),
+        .I1(\out_tdata[3]_i_2_n_0 ),
+        .I2(state[1]),
+        .I3(\out_tdata[7]_i_3_n_0 ),
+        .I4(payload_length_symbs_0),
+        .I5(state[0]),
+        .O(\out_tdata[3]_i_1_n_0 ));
+  LUT5 #(
+    .INIT(32'h55454555)) 
+    \out_tdata[3]_i_2 
+       (.I0(state[1]),
+        .I1(\state_reg_n_0_[4] ),
+        .I2(in_tdata[3]),
+        .I3(state[2]),
+        .I4(state[3]),
+        .O(\out_tdata[3]_i_2_n_0 ));
+  LUT6 #(
+    .INIT(64'h0000AAAA3303AAAA)) 
+    \out_tdata[4]_i_1 
+       (.I0(in_tdata[4]),
+        .I1(\out_tdata[4]_i_2_n_0 ),
+        .I2(state[1]),
+        .I3(\out_tdata[7]_i_3_n_0 ),
+        .I4(payload_length_symbs_0),
+        .I5(state[0]),
+        .O(\out_tdata[4]_i_1_n_0 ));
+  LUT5 #(
+    .INIT(32'h55454555)) 
+    \out_tdata[4]_i_2 
+       (.I0(state[1]),
+        .I1(\state_reg_n_0_[4] ),
+        .I2(in_tdata[4]),
+        .I3(state[2]),
+        .I4(state[3]),
+        .O(\out_tdata[4]_i_2_n_0 ));
+  LUT6 #(
+    .INIT(64'h0000AAAA3303AAAA)) 
+    \out_tdata[5]_i_1 
+       (.I0(in_tdata[5]),
+        .I1(\out_tdata[5]_i_2_n_0 ),
+        .I2(state[1]),
+        .I3(\out_tdata[7]_i_3_n_0 ),
+        .I4(payload_length_symbs_0),
+        .I5(state[0]),
+        .O(\out_tdata[5]_i_1_n_0 ));
+  LUT5 #(
+    .INIT(32'h55454555)) 
+    \out_tdata[5]_i_2 
+       (.I0(state[1]),
+        .I1(\state_reg_n_0_[4] ),
+        .I2(in_tdata[5]),
+        .I3(state[2]),
+        .I4(state[3]),
+        .O(\out_tdata[5]_i_2_n_0 ));
+  LUT6 #(
+    .INIT(64'h0000AAAA3303AAAA)) 
+    \out_tdata[6]_i_1 
+       (.I0(in_tdata[6]),
+        .I1(\out_tdata[6]_i_2_n_0 ),
+        .I2(state[1]),
+        .I3(\out_tdata[7]_i_3_n_0 ),
+        .I4(payload_length_symbs_0),
+        .I5(state[0]),
+        .O(\out_tdata[6]_i_1_n_0 ));
+  LUT5 #(
+    .INIT(32'h55454555)) 
+    \out_tdata[6]_i_2 
+       (.I0(state[1]),
+        .I1(\state_reg_n_0_[4] ),
+        .I2(in_tdata[6]),
+        .I3(state[2]),
+        .I4(state[3]),
+        .O(\out_tdata[6]_i_2_n_0 ));
+  LUT6 #(
+    .INIT(64'h0000AAAA3303AAAA)) 
     \out_tdata[7]_i_1 
-       (.I0(\out_tdata[7]_i_3_n_0 ),
-        .I1(\out_tdata[7]_i_4_n_0 ),
-        .I2(\out_tdata[7]_i_5_n_0 ),
-        .I3(\out_tdata[7]_i_6_n_0 ),
-        .I4(\out_tdata[7]_i_7_n_0 ),
-        .I5(rst_n),
+       (.I0(in_tdata[7]),
+        .I1(\out_tdata[7]_i_2_n_0 ),
+        .I2(state[1]),
+        .I3(\out_tdata[7]_i_3_n_0 ),
+        .I4(payload_length_symbs_0),
+        .I5(state[0]),
         .O(\out_tdata[7]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair5" *) 
-  LUT3 #(
-    .INIT(8'hFD)) 
+  LUT6 #(
+    .INIT(64'h0000000000000007)) 
     \out_tdata[7]_i_10 
-       (.I0(\hdr_cnt_reg_n_0_[8] ),
-        .I1(\hdr_cnt_reg_n_0_[7] ),
-        .I2(\hdr_cnt_reg_n_0_[6] ),
+       (.I0(\hdr_cnt_reg_n_0_[4] ),
+        .I1(\hdr_cnt_reg_n_0_[3] ),
+        .I2(\hdr_cnt_reg_n_0_[5] ),
+        .I3(\hdr_cnt_reg_n_0_[9] ),
+        .I4(\hdr_cnt_reg_n_0_[6] ),
+        .I5(\hdr_cnt_reg_n_0_[7] ),
         .O(\out_tdata[7]_i_10_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFF200020002000)) 
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
     \out_tdata[7]_i_11 
-       (.I0(\out_tdata[7]_i_19_n_0 ),
-        .I1(\hdr_cnt_reg_n_0_[1] ),
-        .I2(payload_length[10]),
-        .I3(\hdr_cnt_reg_n_0_[0] ),
-        .I4(\out_tdata[7]_i_21_n_0 ),
-        .I5(\out_tdata[7]_i_13_n_0 ),
+       (.I0(payload_length[8]),
+        .I1(payload_length[9]),
+        .I2(\hdr_cnt_reg_n_0_[1] ),
+        .I3(payload_length[10]),
+        .I4(\hdr_cnt_reg_n_0_[0] ),
+        .I5(payload_length[11]),
         .O(\out_tdata[7]_i_11_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair8" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
     \out_tdata[7]_i_12 
-       (.I0(\hdr_cnt_reg_n_0_[3] ),
-        .I1(\hdr_cnt_reg_n_0_[4] ),
+       (.I0(payload_length[12]),
+        .I1(payload_length[13]),
+        .I2(\hdr_cnt_reg_n_0_[1] ),
+        .I3(payload_length[14]),
+        .I4(\hdr_cnt_reg_n_0_[0] ),
+        .I5(payload_length[15]),
         .O(\out_tdata[7]_i_12_n_0 ));
-  LUT5 #(
-    .INIT(32'h00010000)) 
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
     \out_tdata[7]_i_13 
-       (.I0(\hdr_cnt_reg_n_0_[9] ),
-        .I1(\hdr_cnt_reg_n_0_[0] ),
-        .I2(\hdr_cnt_reg_n_0_[6] ),
-        .I3(\hdr_cnt_reg_n_0_[7] ),
-        .I4(\hdr_cnt_reg_n_0_[8] ),
+       (.I0(payload_length[4]),
+        .I1(payload_length[5]),
+        .I2(\hdr_cnt_reg_n_0_[1] ),
+        .I3(payload_length[6]),
+        .I4(\hdr_cnt_reg_n_0_[0] ),
+        .I5(payload_length[7]),
         .O(\out_tdata[7]_i_13_n_0 ));
   LUT6 #(
-    .INIT(64'h000000A00C000000)) 
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
     \out_tdata[7]_i_14 
-       (.I0(payload_length[5]),
-        .I1(payload_length[11]),
-        .I2(\hdr_cnt_reg_n_0_[4] ),
-        .I3(\hdr_cnt_reg_n_0_[3] ),
-        .I4(\hdr_cnt_reg_n_0_[2] ),
-        .I5(\hdr_cnt_reg_n_0_[1] ),
+       (.I0(payload_length[0]),
+        .I1(payload_length[1]),
+        .I2(\hdr_cnt_reg_n_0_[1] ),
+        .I3(payload_length[2]),
+        .I4(\hdr_cnt_reg_n_0_[0] ),
+        .I5(payload_length[3]),
         .O(\out_tdata[7]_i_14_n_0 ));
-  LUT6 #(
-    .INIT(64'h0C000000000000A0)) 
+  LUT4 #(
+    .INIT(16'hFFFE)) 
     \out_tdata[7]_i_15 
-       (.I0(payload_length[7]),
-        .I1(payload_length[9]),
-        .I2(\hdr_cnt_reg_n_0_[4] ),
-        .I3(\hdr_cnt_reg_n_0_[3] ),
-        .I4(\hdr_cnt_reg_n_0_[2] ),
-        .I5(\hdr_cnt_reg_n_0_[1] ),
+       (.I0(\hdr_cnt_reg_n_0_[7] ),
+        .I1(\hdr_cnt_reg_n_0_[6] ),
+        .I2(\hdr_cnt_reg_n_0_[9] ),
+        .I3(\hdr_cnt_reg_n_0_[5] ),
         .O(\out_tdata[7]_i_15_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFFFFFFA8A8FFA8)) 
+    .INIT(64'h1000000001111111)) 
     \out_tdata[7]_i_16 
-       (.I0(\hdr_cnt_reg_n_0_[0] ),
-        .I1(\out_tdata[7]_i_22_n_0 ),
-        .I2(\out_tdata[7]_i_23_n_0 ),
-        .I3(\out_tdata[7]_i_24_n_0 ),
-        .I4(\out_tdata[7]_i_10_n_0 ),
-        .I5(\out_tdata[7]_i_25_n_0 ),
+       (.I0(\hdr_cnt_reg_n_0_[9] ),
+        .I1(\hdr_cnt_reg_n_0_[8] ),
+        .I2(\hdr_cnt_reg_n_0_[5] ),
+        .I3(\hdr_cnt_reg_n_0_[7] ),
+        .I4(\hdr_cnt_reg_n_0_[6] ),
+        .I5(\hdr_cnt_reg_n_0_[0] ),
         .O(\out_tdata[7]_i_16_n_0 ));
   LUT5 #(
-    .INIT(32'h00080000)) 
-    \out_tdata[7]_i_17 
-       (.I0(\hdr_cnt_reg_n_0_[0] ),
-        .I1(payload_length[6]),
-        .I2(\hdr_cnt_reg_n_0_[1] ),
-        .I3(\hdr_cnt_reg_n_0_[2] ),
-        .I4(\hdr_cnt_reg_n_0_[4] ),
-        .O(\out_tdata[7]_i_17_n_0 ));
-  LUT6 #(
-    .INIT(64'h0000000000000080)) 
-    \out_tdata[7]_i_18 
-       (.I0(\hdr_cnt_reg_n_0_[6] ),
-        .I1(\hdr_cnt_reg_n_0_[7] ),
-        .I2(\hdr_cnt_reg_n_0_[5] ),
-        .I3(\hdr_cnt_reg_n_0_[0] ),
-        .I4(\hdr_cnt_reg_n_0_[9] ),
-        .I5(\hdr_cnt_reg_n_0_[8] ),
-        .O(\out_tdata[7]_i_18_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair6" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \out_tdata[7]_i_19 
-       (.I0(\hdr_cnt_reg_n_0_[2] ),
-        .I1(\hdr_cnt_reg_n_0_[3] ),
-        .O(\out_tdata[7]_i_19_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair23" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
+    .INIT(32'h55454555)) 
     \out_tdata[7]_i_2 
-       (.I0(\out_tdata[7]_i_8_n_0 ),
-        .I1(in_tdata[7]),
+       (.I0(state[1]),
+        .I1(\state_reg_n_0_[4] ),
+        .I2(in_tdata[7]),
+        .I3(state[2]),
+        .I4(state[3]),
         .O(\out_tdata[7]_i_2_n_0 ));
   LUT6 #(
-    .INIT(64'h000C00000000A000)) 
-    \out_tdata[7]_i_20 
-       (.I0(payload_length[3]),
-        .I1(payload_length[13]),
-        .I2(\hdr_cnt_reg_n_0_[4] ),
-        .I3(\hdr_cnt_reg_n_0_[2] ),
-        .I4(\hdr_cnt_reg_n_0_[3] ),
-        .I5(\hdr_cnt_reg_n_0_[1] ),
-        .O(\out_tdata[7]_i_20_n_0 ));
-  LUT6 #(
-    .INIT(64'h0000A000000C0000)) 
-    \out_tdata[7]_i_21 
-       (.I0(payload_length[1]),
-        .I1(payload_length[15]),
-        .I2(\hdr_cnt_reg_n_0_[4] ),
-        .I3(\hdr_cnt_reg_n_0_[2] ),
-        .I4(\hdr_cnt_reg_n_0_[3] ),
-        .I5(\hdr_cnt_reg_n_0_[1] ),
-        .O(\out_tdata[7]_i_21_n_0 ));
-  LUT6 #(
-    .INIT(64'hF000000000008888)) 
-    \out_tdata[7]_i_22 
-       (.I0(payload_length[14]),
-        .I1(\hdr_cnt_reg_n_0_[3] ),
-        .I2(payload_length[0]),
-        .I3(\hdr_cnt_reg_n_0_[4] ),
-        .I4(\hdr_cnt_reg_n_0_[1] ),
-        .I5(\hdr_cnt_reg_n_0_[2] ),
-        .O(\out_tdata[7]_i_22_n_0 ));
-  LUT6 #(
-    .INIT(64'h00008888F0000000)) 
-    \out_tdata[7]_i_23 
-       (.I0(payload_length[12]),
-        .I1(\hdr_cnt_reg_n_0_[3] ),
-        .I2(payload_length[2]),
-        .I3(\hdr_cnt_reg_n_0_[4] ),
-        .I4(\hdr_cnt_reg_n_0_[2] ),
-        .I5(\hdr_cnt_reg_n_0_[1] ),
-        .O(\out_tdata[7]_i_23_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair8" *) 
-  LUT5 #(
-    .INIT(32'h00000014)) 
-    \out_tdata[7]_i_24 
-       (.I0(\hdr_cnt_reg_n_0_[4] ),
-        .I1(\hdr_cnt_reg_n_0_[0] ),
-        .I2(in_tuser),
-        .I3(\hdr_cnt_reg_n_0_[9] ),
-        .I4(\hdr_cnt_reg_n_0_[3] ),
-        .O(\out_tdata[7]_i_24_n_0 ));
-  LUT5 #(
-    .INIT(32'h00800000)) 
-    \out_tdata[7]_i_25 
-       (.I0(\hdr_cnt_reg_n_0_[4] ),
-        .I1(payload_length[4]),
-        .I2(\hdr_cnt_reg_n_0_[0] ),
-        .I3(\hdr_cnt_reg_n_0_[2] ),
-        .I4(\hdr_cnt_reg_n_0_[1] ),
-        .O(\out_tdata[7]_i_25_n_0 ));
-  LUT6 #(
-    .INIT(64'hCECE0E0A00000000)) 
+    .INIT(64'h00000000AAAAEEFE)) 
     \out_tdata[7]_i_3 
-       (.I0(\out_tdata[7]_i_9_n_0 ),
-        .I1(\hdr_cnt_reg_n_0_[0] ),
-        .I2(\hdr_cnt_reg_n_0_[5] ),
-        .I3(\out_tdata[7]_i_10_n_0 ),
-        .I4(\hdr_cnt_reg_n_0_[9] ),
-        .I5(out_tvalid_i_2_n_0),
+       (.I0(\out_tdata[7]_i_4_n_0 ),
+        .I1(\out_tdata[7]_i_5_n_0 ),
+        .I2(\out_tdata_reg[7]_i_6_n_0 ),
+        .I3(\hdr_cnt_reg_n_0_[3] ),
+        .I4(\out_tdata[7]_i_7_n_0 ),
+        .I5(\out_tdata[7]_i_8_n_0 ),
         .O(\out_tdata[7]_i_3_n_0 ));
-  LUT6 #(
-    .INIT(64'h0000EA00CC00EA00)) 
-    \out_tdata[7]_i_4 
-       (.I0(\out_tdata[7]_i_11_n_0 ),
-        .I1(\hdr_cnt_reg_n_0_[0] ),
-        .I2(\out_tdata[7]_i_12_n_0 ),
-        .I3(out_tvalid_i_2_n_0),
-        .I4(\hdr_cnt_reg_n_0_[5] ),
-        .I5(\hdr_cnt_reg_n_0_[6] ),
-        .O(\out_tdata[7]_i_4_n_0 ));
-  LUT6 #(
-    .INIT(64'hF000808000008080)) 
-    \out_tdata[7]_i_5 
-       (.I0(\out_tdata[7]_i_13_n_0 ),
-        .I1(\out_tdata[7]_i_14_n_0 ),
-        .I2(out_tvalid_i_2_n_0),
-        .I3(\hdr_cnt_reg_n_0_[8] ),
-        .I4(\hdr_cnt_reg_n_0_[5] ),
-        .I5(\hdr_cnt_reg_n_0_[0] ),
-        .O(\out_tdata[7]_i_5_n_0 ));
-  LUT6 #(
-    .INIT(64'h00F0808000008080)) 
-    \out_tdata[7]_i_6 
-       (.I0(\out_tdata[7]_i_13_n_0 ),
-        .I1(\out_tdata[7]_i_15_n_0 ),
-        .I2(out_tvalid_i_2_n_0),
-        .I3(\hdr_cnt_reg_n_0_[7] ),
-        .I4(\hdr_cnt_reg_n_0_[5] ),
-        .I5(\hdr_cnt_reg_n_0_[0] ),
-        .O(\out_tdata[7]_i_6_n_0 ));
   LUT5 #(
-    .INIT(32'hFF000E00)) 
+    .INIT(32'h1FF11111)) 
+    \out_tdata[7]_i_4 
+       (.I0(\hdr_cnt_reg_n_0_[9] ),
+        .I1(\hdr_cnt_reg_n_0_[8] ),
+        .I2(in_tuser),
+        .I3(\hdr_cnt_reg_n_0_[0] ),
+        .I4(\out_tdata[7]_i_9_n_0 ),
+        .O(\out_tdata[7]_i_4_n_0 ));
+  LUT5 #(
+    .INIT(32'hDFD55555)) 
+    \out_tdata[7]_i_5 
+       (.I0(\out_tdata[7]_i_10_n_0 ),
+        .I1(\out_tdata[7]_i_11_n_0 ),
+        .I2(\hdr_cnt_reg_n_0_[2] ),
+        .I3(\out_tdata[7]_i_12_n_0 ),
+        .I4(\hdr_cnt_reg_n_0_[3] ),
+        .O(\out_tdata[7]_i_5_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair6" *) 
+  LUT4 #(
+    .INIT(16'h01F9)) 
     \out_tdata[7]_i_7 
-       (.I0(\out_tdata[7]_i_16_n_0 ),
-        .I1(\out_tdata[7]_i_17_n_0 ),
-        .I2(\hdr_cnt_reg_n_0_[5] ),
-        .I3(out_tvalid_i_2_n_0),
-        .I4(\out_tdata[7]_i_18_n_0 ),
+       (.I0(\hdr_cnt_reg_n_0_[4] ),
+        .I1(\hdr_cnt_reg_n_0_[3] ),
+        .I2(\out_tdata[7]_i_15_n_0 ),
+        .I3(\hdr_cnt_reg_n_0_[0] ),
         .O(\out_tdata[7]_i_7_n_0 ));
-  LUT6 #(
-    .INIT(64'hFFFFFFFF00000110)) 
+  (* SOFT_HLUTNM = "soft_lutpair7" *) 
+  LUT4 #(
+    .INIT(16'hFFFE)) 
     \out_tdata[7]_i_8 
-       (.I0(state[0]),
+       (.I0(state[2]),
         .I1(\state_reg_n_0_[4] ),
         .I2(state[3]),
-        .I3(state[2]),
-        .I4(state[1]),
-        .I5(in_tready_i_4_n_0),
+        .I3(\out_tdata[7]_i_16_n_0 ),
         .O(\out_tdata[7]_i_8_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFF800080008000)) 
+    .INIT(64'h0000000000000001)) 
     \out_tdata[7]_i_9 
-       (.I0(\out_tdata[7]_i_19_n_0 ),
-        .I1(\hdr_cnt_reg_n_0_[1] ),
-        .I2(payload_length[8]),
-        .I3(\hdr_cnt_reg_n_0_[0] ),
-        .I4(\out_tdata[7]_i_20_n_0 ),
-        .I5(\out_tdata[7]_i_13_n_0 ),
+       (.I0(\hdr_cnt_reg_n_0_[5] ),
+        .I1(\hdr_cnt_reg_n_0_[9] ),
+        .I2(\hdr_cnt_reg_n_0_[6] ),
+        .I3(\hdr_cnt_reg_n_0_[7] ),
+        .I4(\hdr_cnt_reg_n_0_[4] ),
+        .I5(\hdr_cnt_reg_n_0_[3] ),
         .O(\out_tdata[7]_i_9_n_0 ));
-  FDSE \out_tdata_reg[0] 
+  FDRE \out_tdata_reg[0] 
        (.C(clk),
         .CE(rst_n),
         .D(\out_tdata[0]_i_1_n_0 ),
         .Q(out_tdata[0]),
-        .S(\out_tdata[7]_i_1_n_0 ));
-  FDSE \out_tdata_reg[1] 
+        .R(1'b0));
+  FDRE \out_tdata_reg[1] 
        (.C(clk),
         .CE(rst_n),
         .D(\out_tdata[1]_i_1_n_0 ),
         .Q(out_tdata[1]),
-        .S(\out_tdata[7]_i_1_n_0 ));
-  FDSE \out_tdata_reg[2] 
+        .R(1'b0));
+  FDRE \out_tdata_reg[2] 
        (.C(clk),
         .CE(rst_n),
         .D(\out_tdata[2]_i_1_n_0 ),
         .Q(out_tdata[2]),
-        .S(\out_tdata[7]_i_1_n_0 ));
-  FDSE \out_tdata_reg[3] 
+        .R(1'b0));
+  FDRE \out_tdata_reg[3] 
        (.C(clk),
         .CE(rst_n),
         .D(\out_tdata[3]_i_1_n_0 ),
         .Q(out_tdata[3]),
-        .S(\out_tdata[7]_i_1_n_0 ));
-  FDSE \out_tdata_reg[4] 
+        .R(1'b0));
+  FDRE \out_tdata_reg[4] 
        (.C(clk),
         .CE(rst_n),
         .D(\out_tdata[4]_i_1_n_0 ),
         .Q(out_tdata[4]),
-        .S(\out_tdata[7]_i_1_n_0 ));
-  FDSE \out_tdata_reg[5] 
+        .R(1'b0));
+  FDRE \out_tdata_reg[5] 
        (.C(clk),
         .CE(rst_n),
         .D(\out_tdata[5]_i_1_n_0 ),
         .Q(out_tdata[5]),
-        .S(\out_tdata[7]_i_1_n_0 ));
-  FDSE \out_tdata_reg[6] 
+        .R(1'b0));
+  FDRE \out_tdata_reg[6] 
        (.C(clk),
         .CE(rst_n),
         .D(\out_tdata[6]_i_1_n_0 ),
         .Q(out_tdata[6]),
-        .S(\out_tdata[7]_i_1_n_0 ));
-  FDSE \out_tdata_reg[7] 
+        .R(1'b0));
+  FDRE \out_tdata_reg[7] 
        (.C(clk),
         .CE(rst_n),
-        .D(\out_tdata[7]_i_2_n_0 ),
+        .D(\out_tdata[7]_i_1_n_0 ),
         .Q(out_tdata[7]),
-        .S(\out_tdata[7]_i_1_n_0 ));
-  LUT5 #(
-    .INIT(32'h88888B88)) 
+        .R(1'b0));
+  MUXF7 \out_tdata_reg[7]_i_6 
+       (.I0(\out_tdata[7]_i_13_n_0 ),
+        .I1(\out_tdata[7]_i_14_n_0 ),
+        .O(\out_tdata_reg[7]_i_6_n_0 ),
+        .S(\hdr_cnt_reg_n_0_[2] ));
+  LUT6 #(
+    .INIT(64'h0010FFFF00100000)) 
     out_tlast_i_1
-       (.I0(in_tlast),
-        .I1(in_tready_i_4_n_0),
-        .I2(state[2]),
-        .I3(state[3]),
-        .I4(in_tready_i_2_n_0),
+       (.I0(\state_reg_n_0_[4] ),
+        .I1(state[2]),
+        .I2(state[3]),
+        .I3(out_tvalid_i_2_n_0),
+        .I4(payload_length_symbs_0),
+        .I5(in_tlast),
         .O(out_tlast_i_1_n_0));
   FDRE out_tlast_reg
        (.C(clk),
@@ -894,15 +848,15 @@ module top_Packetizer_0_0_Packetizer
         .D(out_tlast_i_1_n_0),
         .Q(out_tlast),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
-  LUT5 #(
-    .INIT(32'hFF00EBEB)) 
+  LUT6 #(
+    .INIT(64'hFFFDFFFFFFFD0000)) 
     out_tuser_i_1
-       (.I0(in_tready_i_2_n_0),
-        .I1(state[3]),
-        .I2(state[2]),
-        .I3(in_tuser),
-        .I4(in_tready_i_4_n_0),
+       (.I0(out_tvalid_i_3_n_0),
+        .I1(state[0]),
+        .I2(state[1]),
+        .I3(\state_reg_n_0_[4] ),
+        .I4(payload_length_symbs_0),
+        .I5(in_tuser),
         .O(out_tuser_i_1_n_0));
   FDRE out_tuser_reg
        (.C(clk),
@@ -910,65 +864,81 @@ module top_Packetizer_0_0_Packetizer
         .D(out_tuser_i_1_n_0),
         .Q(out_tuser),
         .R(1'b0));
-  LUT3 #(
-    .INIT(8'hF8)) 
-    out_tvalid_i_1
-       (.I0(in_tvalid),
-        .I1(\out_tdata[7]_i_8_n_0 ),
-        .I2(out_tvalid_i_2_n_0),
-        .O(out_tvalid_i_1_n_0));
   LUT6 #(
-    .INIT(64'h0000000000000010)) 
+    .INIT(64'hFFFFFF001000FF00)) 
+    out_tvalid_i_1
+       (.I0(\state_reg_n_0_[4] ),
+        .I1(out_tvalid_i_2_n_0),
+        .I2(out_tvalid_i_3_n_0),
+        .I3(in_tvalid),
+        .I4(payload_length_symbs_0),
+        .I5(out_tvalid_i_4_n_0),
+        .O(out_tvalid_i_1_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair9" *) 
+  LUT2 #(
+    .INIT(4'hE)) 
     out_tvalid_i_2
        (.I0(state[0]),
-        .I1(\state_reg_n_0_[4] ),
-        .I2(state[1]),
-        .I3(in_tready_i_4_n_0),
-        .I4(state[2]),
-        .I5(state[3]),
+        .I1(state[1]),
         .O(out_tvalid_i_2_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  LUT2 #(
+    .INIT(4'h6)) 
+    out_tvalid_i_3
+       (.I0(state[2]),
+        .I1(state[3]),
+        .O(out_tvalid_i_3_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  LUT5 #(
+    .INIT(32'h00000004)) 
+    out_tvalid_i_4
+       (.I0(state[0]),
+        .I1(state[1]),
+        .I2(\state_reg_n_0_[4] ),
+        .I3(state[3]),
+        .I4(state[2]),
+        .O(out_tvalid_i_4_n_0));
   FDRE out_tvalid_reg
        (.C(clk),
         .CE(rst_n),
         .D(out_tvalid_i_1_n_0),
         .Q(out_tvalid),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair19" *) 
   LUT2 #(
     .INIT(4'h2)) 
     \payload_cnt[0]_i_1 
        (.I0(state[2]),
         .I1(\payload_cnt_reg_n_0_[0] ),
-        .O(\payload_cnt[0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair26" *) 
+        .O(payload_cnt[0]));
+  (* SOFT_HLUTNM = "soft_lutpair20" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \payload_cnt[10]_i_1 
        (.I0(state[2]),
         .I1(in9[10]),
         .O(payload_cnt[10]));
-  (* SOFT_HLUTNM = "soft_lutpair25" *) 
+  (* SOFT_HLUTNM = "soft_lutpair19" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \payload_cnt[11]_i_1 
        (.I0(state[2]),
         .I1(in9[11]),
         .O(payload_cnt[11]));
-  (* SOFT_HLUTNM = "soft_lutpair25" *) 
+  (* SOFT_HLUTNM = "soft_lutpair19" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \payload_cnt[12]_i_1 
        (.I0(state[2]),
         .I1(in9[12]),
         .O(payload_cnt[12]));
-  (* SOFT_HLUTNM = "soft_lutpair24" *) 
+  (* SOFT_HLUTNM = "soft_lutpair18" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \payload_cnt[13]_i_1 
        (.I0(state[2]),
         .I1(in9[13]),
         .O(payload_cnt[13]));
-  (* SOFT_HLUTNM = "soft_lutpair24" *) 
+  (* SOFT_HLUTNM = "soft_lutpair18" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \payload_cnt[14]_i_1 
@@ -976,16 +946,16 @@ module top_Packetizer_0_0_Packetizer
         .I1(in9[14]),
         .O(payload_cnt[14]));
   LUT6 #(
-    .INIT(64'hAAAAAAAAAAAAABAA)) 
+    .INIT(64'h000C008000000000)) 
     \payload_cnt[15]_i_1 
-       (.I0(in_tready_i_6_n_0),
-        .I1(in_tready_i_2_n_0),
-        .I2(\payload_cnt[15]_i_3_n_0 ),
-        .I3(state[2]),
-        .I4(state[3]),
-        .I5(in_tready_i_4_n_0),
+       (.I0(in_tvalid),
+        .I1(\payload_cnt[15]_i_3_n_0 ),
+        .I2(state[2]),
+        .I3(state[1]),
+        .I4(state[0]),
+        .I5(payload_length_symbs_0),
         .O(\payload_cnt[15]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair19" *) 
+  (* SOFT_HLUTNM = "soft_lutpair7" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \payload_cnt[15]_i_2 
@@ -994,68 +964,68 @@ module top_Packetizer_0_0_Packetizer
         .O(payload_cnt[15]));
   (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT2 #(
-    .INIT(4'h7)) 
+    .INIT(4'h1)) 
     \payload_cnt[15]_i_3 
-       (.I0(in_tvalid),
-        .I1(in_tready),
+       (.I0(state[3]),
+        .I1(\state_reg_n_0_[4] ),
         .O(\payload_cnt[15]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair30" *) 
+  (* SOFT_HLUTNM = "soft_lutpair24" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \payload_cnt[1]_i_1 
        (.I0(state[2]),
         .I1(in9[1]),
         .O(payload_cnt[1]));
-  (* SOFT_HLUTNM = "soft_lutpair30" *) 
+  (* SOFT_HLUTNM = "soft_lutpair24" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \payload_cnt[2]_i_1 
        (.I0(state[2]),
         .I1(in9[2]),
         .O(payload_cnt[2]));
-  (* SOFT_HLUTNM = "soft_lutpair29" *) 
+  (* SOFT_HLUTNM = "soft_lutpair23" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \payload_cnt[3]_i_1 
        (.I0(state[2]),
         .I1(in9[3]),
         .O(payload_cnt[3]));
-  (* SOFT_HLUTNM = "soft_lutpair29" *) 
+  (* SOFT_HLUTNM = "soft_lutpair23" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \payload_cnt[4]_i_1 
        (.I0(state[2]),
         .I1(in9[4]),
         .O(payload_cnt[4]));
-  (* SOFT_HLUTNM = "soft_lutpair28" *) 
+  (* SOFT_HLUTNM = "soft_lutpair22" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \payload_cnt[5]_i_1 
        (.I0(state[2]),
         .I1(in9[5]),
         .O(payload_cnt[5]));
-  (* SOFT_HLUTNM = "soft_lutpair28" *) 
+  (* SOFT_HLUTNM = "soft_lutpair22" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \payload_cnt[6]_i_1 
        (.I0(state[2]),
         .I1(in9[6]),
         .O(payload_cnt[6]));
-  (* SOFT_HLUTNM = "soft_lutpair27" *) 
+  (* SOFT_HLUTNM = "soft_lutpair21" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \payload_cnt[7]_i_1 
        (.I0(state[2]),
         .I1(in9[7]),
         .O(payload_cnt[7]));
-  (* SOFT_HLUTNM = "soft_lutpair27" *) 
+  (* SOFT_HLUTNM = "soft_lutpair21" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \payload_cnt[8]_i_1 
        (.I0(state[2]),
         .I1(in9[8]),
         .O(payload_cnt[8]));
-  (* SOFT_HLUTNM = "soft_lutpair26" *) 
+  (* SOFT_HLUTNM = "soft_lutpair20" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \payload_cnt[9]_i_1 
@@ -1065,7 +1035,7 @@ module top_Packetizer_0_0_Packetizer
   FDRE \payload_cnt_reg[0] 
        (.C(clk),
         .CE(\payload_cnt[15]_i_1_n_0 ),
-        .D(\payload_cnt[0]_i_1_n_0 ),
+        .D(payload_cnt[0]),
         .Q(\payload_cnt_reg_n_0_[0] ),
         .R(\state[4]_i_1_n_0 ));
   FDRE \payload_cnt_reg[10] 
@@ -1190,7 +1160,7 @@ module top_Packetizer_0_0_Packetizer
         .D(payload_cnt[9]),
         .Q(\payload_cnt_reg_n_0_[9] ),
         .R(\state[4]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair18" *) 
+  (* SOFT_HLUTNM = "soft_lutpair17" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \payload_length_symbs[0]_i_1 
@@ -1198,7 +1168,7 @@ module top_Packetizer_0_0_Packetizer
         .I1(in_tuser),
         .I2(payload_length[1]),
         .O(p_0_in[0]));
-  (* SOFT_HLUTNM = "soft_lutpair13" *) 
+  (* SOFT_HLUTNM = "soft_lutpair12" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \payload_length_symbs[10]_i_1 
@@ -1206,7 +1176,7 @@ module top_Packetizer_0_0_Packetizer
         .I1(in_tuser),
         .I2(payload_length[11]),
         .O(p_0_in[10]));
-  (* SOFT_HLUTNM = "soft_lutpair12" *) 
+  (* SOFT_HLUTNM = "soft_lutpair11" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \payload_length_symbs[11]_i_1 
@@ -1214,7 +1184,7 @@ module top_Packetizer_0_0_Packetizer
         .I1(in_tuser),
         .I2(payload_length[12]),
         .O(p_0_in[11]));
-  (* SOFT_HLUTNM = "soft_lutpair12" *) 
+  (* SOFT_HLUTNM = "soft_lutpair11" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \payload_length_symbs[12]_i_1 
@@ -1222,7 +1192,7 @@ module top_Packetizer_0_0_Packetizer
         .I1(in_tuser),
         .I2(payload_length[13]),
         .O(p_0_in[12]));
-  (* SOFT_HLUTNM = "soft_lutpair11" *) 
+  (* SOFT_HLUTNM = "soft_lutpair10" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \payload_length_symbs[13]_i_1 
@@ -1230,7 +1200,7 @@ module top_Packetizer_0_0_Packetizer
         .I1(in_tuser),
         .I2(payload_length[14]),
         .O(p_0_in[13]));
-  (* SOFT_HLUTNM = "soft_lutpair11" *) 
+  (* SOFT_HLUTNM = "soft_lutpair10" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \payload_length_symbs[14]_i_1 
@@ -1239,22 +1209,22 @@ module top_Packetizer_0_0_Packetizer
         .I2(payload_length[15]),
         .O(p_0_in[14]));
   LUT5 #(
-    .INIT(32'h00000020)) 
+    .INIT(32'h00040000)) 
     \payload_length_symbs[15]_i_1 
-       (.I0(rst_n),
-        .I1(MODE_CTRL[3]),
-        .I2(MODE_CTRL[2]),
-        .I3(MODE_CTRL[0]),
-        .I4(MODE_CTRL[1]),
+       (.I0(MODE_CTRL[0]),
+        .I1(MODE_CTRL[2]),
+        .I2(MODE_CTRL[3]),
+        .I3(MODE_CTRL[1]),
+        .I4(rst_n),
         .O(\payload_length_symbs[15]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair18" *) 
+  (* SOFT_HLUTNM = "soft_lutpair17" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \payload_length_symbs[15]_i_2 
-       (.I0(payload_length[15]),
-        .I1(in_tuser),
+       (.I0(in_tuser),
+        .I1(payload_length[15]),
         .O(p_0_in[15]));
-  (* SOFT_HLUTNM = "soft_lutpair17" *) 
+  (* SOFT_HLUTNM = "soft_lutpair16" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \payload_length_symbs[1]_i_1 
@@ -1262,7 +1232,7 @@ module top_Packetizer_0_0_Packetizer
         .I1(in_tuser),
         .I2(payload_length[2]),
         .O(p_0_in[1]));
-  (* SOFT_HLUTNM = "soft_lutpair17" *) 
+  (* SOFT_HLUTNM = "soft_lutpair16" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \payload_length_symbs[2]_i_1 
@@ -1270,7 +1240,7 @@ module top_Packetizer_0_0_Packetizer
         .I1(in_tuser),
         .I2(payload_length[3]),
         .O(p_0_in[2]));
-  (* SOFT_HLUTNM = "soft_lutpair16" *) 
+  (* SOFT_HLUTNM = "soft_lutpair15" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \payload_length_symbs[3]_i_1 
@@ -1278,7 +1248,7 @@ module top_Packetizer_0_0_Packetizer
         .I1(in_tuser),
         .I2(payload_length[4]),
         .O(p_0_in[3]));
-  (* SOFT_HLUTNM = "soft_lutpair16" *) 
+  (* SOFT_HLUTNM = "soft_lutpair15" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \payload_length_symbs[4]_i_1 
@@ -1286,7 +1256,7 @@ module top_Packetizer_0_0_Packetizer
         .I1(in_tuser),
         .I2(payload_length[5]),
         .O(p_0_in[4]));
-  (* SOFT_HLUTNM = "soft_lutpair15" *) 
+  (* SOFT_HLUTNM = "soft_lutpair14" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \payload_length_symbs[5]_i_1 
@@ -1294,7 +1264,7 @@ module top_Packetizer_0_0_Packetizer
         .I1(in_tuser),
         .I2(payload_length[6]),
         .O(p_0_in[5]));
-  (* SOFT_HLUTNM = "soft_lutpair15" *) 
+  (* SOFT_HLUTNM = "soft_lutpair14" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \payload_length_symbs[6]_i_1 
@@ -1302,7 +1272,7 @@ module top_Packetizer_0_0_Packetizer
         .I1(in_tuser),
         .I2(payload_length[7]),
         .O(p_0_in[6]));
-  (* SOFT_HLUTNM = "soft_lutpair14" *) 
+  (* SOFT_HLUTNM = "soft_lutpair13" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \payload_length_symbs[7]_i_1 
@@ -1310,7 +1280,7 @@ module top_Packetizer_0_0_Packetizer
         .I1(in_tuser),
         .I2(payload_length[8]),
         .O(p_0_in[7]));
-  (* SOFT_HLUTNM = "soft_lutpair14" *) 
+  (* SOFT_HLUTNM = "soft_lutpair13" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \payload_length_symbs[8]_i_1 
@@ -1318,7 +1288,7 @@ module top_Packetizer_0_0_Packetizer
         .I1(in_tuser),
         .I2(payload_length[9]),
         .O(p_0_in[8]));
-  (* SOFT_HLUTNM = "soft_lutpair13" *) 
+  (* SOFT_HLUTNM = "soft_lutpair12" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \payload_length_symbs[9]_i_1 
@@ -1423,23 +1393,23 @@ module top_Packetizer_0_0_Packetizer
         .Q(payload_length_symbs[9]),
         .R(1'b0));
   LUT5 #(
-    .INIT(32'h00008A80)) 
+    .INIT(32'hE2000000)) 
     pkt_sent_i_1
-       (.I0(rst_n),
-        .I1(\state_reg_n_0_[4] ),
-        .I2(pkt_sent_i_2_n_0),
-        .I3(pkt_sent),
-        .I4(in_tready_i_4_n_0),
+       (.I0(pkt_sent),
+        .I1(pkt_sent_i_2_n_0),
+        .I2(\state_reg_n_0_[4] ),
+        .I3(rst_n),
+        .I4(payload_length_symbs_0),
         .O(pkt_sent_i_1_n_0));
   LUT6 #(
-    .INIT(64'h0000000300000034)) 
+    .INIT(64'h0000001100110100)) 
     pkt_sent_i_2
-       (.I0(in_tvalid),
-        .I1(\state_reg_n_0_[4] ),
-        .I2(state[0]),
-        .I3(state[3]),
-        .I4(state[2]),
-        .I5(state[1]),
+       (.I0(state[3]),
+        .I1(state[2]),
+        .I2(in_tvalid),
+        .I3(\state_reg_n_0_[4] ),
+        .I4(state[1]),
+        .I5(state[0]),
         .O(pkt_sent_i_2_n_0));
   FDRE pkt_sent_reg
        (.C(clk),
@@ -1448,96 +1418,102 @@ module top_Packetizer_0_0_Packetizer
         .Q(pkt_sent),
         .R(1'b0));
   LUT5 #(
-    .INIT(32'h7F5F7F55)) 
+    .INIT(32'h5FDF5DDD)) 
     \state[0]_i_1 
        (.I0(state_next_n_0),
-        .I1(in_tready),
+        .I1(state[0]),
         .I2(in_tvalid),
-        .I3(state[0]),
+        .I3(in_tready),
         .I4(\state_reg_n_0_[4] ),
         .O(state_next__0[0]));
   LUT6 #(
-    .INIT(64'hF888000088880000)) 
+    .INIT(64'h8000AAAA80008000)) 
     \state[1]_i_1 
-       (.I0(\state[3]_i_3_n_0 ),
-        .I1(state[1]),
-        .I2(in_tvalid),
-        .I3(in_tready),
-        .I4(state_next_n_0),
-        .I5(state[0]),
+       (.I0(state_next_n_0),
+        .I1(in_tvalid),
+        .I2(in_tready),
+        .I3(state[0]),
+        .I4(\state[1]_i_2_n_0 ),
+        .I5(state[1]),
         .O(state_next__0[1]));
-  LUT6 #(
-    .INIT(64'h2200F20022002200)) 
-    \state[2]_i_1 
-       (.I0(state[2]),
-        .I1(state_next1_carry__0_n_2),
-        .I2(state[1]),
-        .I3(state_next_n_0),
-        .I4(\state[3]_i_3_n_0 ),
-        .I5(\state[3]_i_2_n_0 ),
-        .O(state_next__0[2]));
   LUT5 #(
-    .INIT(32'hFFFF0040)) 
+    .INIT(32'h00000020)) 
+    \state[1]_i_2 
+       (.I0(\hdr_cnt[9]_i_3_n_0 ),
+        .I1(\hdr_cnt_reg_n_0_[9] ),
+        .I2(\hdr_cnt_reg_n_0_[8] ),
+        .I3(\hdr_cnt_reg_n_0_[6] ),
+        .I4(\hdr_cnt_reg_n_0_[7] ),
+        .O(\state[1]_i_2_n_0 ));
+  LUT5 #(
+    .INIT(32'h02AA0202)) 
+    \state[2]_i_1 
+       (.I0(state_next_n_0),
+        .I1(\state[3]_i_2_n_0 ),
+        .I2(\state[3]_i_3_n_0 ),
+        .I3(state_next1_carry__0_n_2),
+        .I4(state[2]),
+        .O(state_next__0[2]));
+  LUT6 #(
+    .INIT(64'hAAAA08AA08AA08AA)) 
     \state[3]_i_1 
-       (.I0(\state[3]_i_2_n_0 ),
-        .I1(state[1]),
-        .I2(state_next_n_0),
-        .I3(\state[3]_i_3_n_0 ),
-        .I4(\state[3]_i_4_n_0 ),
+       (.I0(state_next_n_0),
+        .I1(\state[3]_i_2_n_0 ),
+        .I2(\state[3]_i_3_n_0 ),
+        .I3(\state[3]_i_4_n_0 ),
+        .I4(state[2]),
+        .I5(state_next1_carry__0_n_2),
         .O(state_next__0[3]));
   LUT6 #(
-    .INIT(64'hFFFFFFFFFFFFFFFE)) 
+    .INIT(64'h0000000000000004)) 
     \state[3]_i_2 
        (.I0(\state[3]_i_5_n_0 ),
         .I1(\state[3]_i_6_n_0 ),
-        .I2(payload_length_symbs[15]),
-        .I3(payload_length_symbs[14]),
-        .I4(payload_length_symbs[1]),
-        .I5(\state[3]_i_7_n_0 ),
+        .I2(\state[3]_i_7_n_0 ),
+        .I3(payload_length_symbs[5]),
+        .I4(payload_length_symbs[10]),
+        .I5(payload_length_symbs[8]),
         .O(\state[3]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair5" *) 
-  LUT5 #(
-    .INIT(32'hFFFFFFFB)) 
-    \state[3]_i_3 
-       (.I0(\hdr_cnt_reg_n_0_[9] ),
-        .I1(\hdr_cnt_reg_n_0_[8] ),
-        .I2(\hdr_cnt_reg_n_0_[7] ),
-        .I3(\hdr_cnt_reg_n_0_[6] ),
-        .I4(\hdr_cnt[9]_i_3_n_0 ),
-        .O(\state[3]_i_3_n_0 ));
   LUT6 #(
-    .INIT(64'h8FFF000088880000)) 
+    .INIT(64'hFFFFFDFFFFFFFFFF)) 
+    \state[3]_i_3 
+       (.I0(state[1]),
+        .I1(\hdr_cnt_reg_n_0_[7] ),
+        .I2(\hdr_cnt_reg_n_0_[6] ),
+        .I3(\hdr_cnt_reg_n_0_[8] ),
+        .I4(\hdr_cnt_reg_n_0_[9] ),
+        .I5(\hdr_cnt[9]_i_3_n_0 ),
+        .O(\state[3]_i_3_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair5" *) 
+  LUT2 #(
+    .INIT(4'hB)) 
     \state[3]_i_4 
-       (.I0(state_next1_carry__0_n_2),
-        .I1(state[2]),
-        .I2(in_tvalid),
-        .I3(in_tready),
-        .I4(state_next_n_0),
-        .I5(state[3]),
+       (.I0(in_tvalid),
+        .I1(state[3]),
         .O(\state[3]_i_4_n_0 ));
   LUT4 #(
     .INIT(16'hFFFE)) 
     \state[3]_i_5 
-       (.I0(payload_length_symbs[7]),
-        .I1(payload_length_symbs[6]),
-        .I2(payload_length_symbs[9]),
-        .I3(payload_length_symbs[8]),
+       (.I0(payload_length_symbs[3]),
+        .I1(payload_length_symbs[1]),
+        .I2(payload_length_symbs[15]),
+        .I3(payload_length_symbs[2]),
         .O(\state[3]_i_5_n_0 ));
   LUT4 #(
-    .INIT(16'hFFFE)) 
+    .INIT(16'h0001)) 
     \state[3]_i_6 
-       (.I0(payload_length_symbs[3]),
-        .I1(payload_length_symbs[2]),
-        .I2(payload_length_symbs[5]),
-        .I3(payload_length_symbs[4]),
+       (.I0(payload_length_symbs[9]),
+        .I1(payload_length_symbs[6]),
+        .I2(payload_length_symbs[11]),
+        .I3(payload_length_symbs[7]),
         .O(\state[3]_i_6_n_0 ));
   LUT4 #(
     .INIT(16'hFFFE)) 
     \state[3]_i_7 
-       (.I0(payload_length_symbs[11]),
-        .I1(payload_length_symbs[10]),
-        .I2(payload_length_symbs[13]),
-        .I3(payload_length_symbs[12]),
+       (.I0(payload_length_symbs[13]),
+        .I1(payload_length_symbs[12]),
+        .I2(payload_length_symbs[14]),
+        .I3(payload_length_symbs[4]),
         .O(\state[3]_i_7_n_0 ));
   LUT1 #(
     .INIT(2'h1)) 
@@ -1545,24 +1521,23 @@ module top_Packetizer_0_0_Packetizer
        (.I0(rst_n),
         .O(\state[4]_i_1_n_0 ));
   LUT4 #(
-    .INIT(16'h0004)) 
+    .INIT(16'h0010)) 
     \state[4]_i_2 
-       (.I0(MODE_CTRL[3]),
-        .I1(MODE_CTRL[2]),
-        .I2(MODE_CTRL[0]),
-        .I3(MODE_CTRL[1]),
+       (.I0(MODE_CTRL[1]),
+        .I1(MODE_CTRL[3]),
+        .I2(MODE_CTRL[2]),
+        .I3(MODE_CTRL[0]),
         .O(payload_length_symbs_0));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
-  LUT5 #(
-    .INIT(32'hC8008800)) 
+  (* SOFT_HLUTNM = "soft_lutpair5" *) 
+  LUT4 #(
+    .INIT(16'h8880)) 
     \state[4]_i_3 
-       (.I0(\state_reg_n_0_[4] ),
+       (.I0(state_next_n_0),
         .I1(in_tvalid),
-        .I2(in_tready),
-        .I3(state_next_n_0),
-        .I4(state[3]),
+        .I2(\state_reg_n_0_[4] ),
+        .I3(state[3]),
         .O(state_next__0[4]));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
   LUT5 #(
     .INIT(32'h00010116)) 
     state_next
@@ -1587,21 +1562,21 @@ module top_Packetizer_0_0_Packetizer
         .O(NLW_state_next1_carry__0_O_UNCONNECTED[3:0]),
         .S({1'b0,1'b0,state_next1_carry__0_i_1_n_0,state_next1_carry__0_i_2_n_0}));
   LUT3 #(
-    .INIT(8'h09)) 
+    .INIT(8'h41)) 
     state_next1_carry__0_i_1
-       (.I0(state_next2[15]),
+       (.I0(state_next2[16]),
         .I1(payload_length_symbs[15]),
-        .I2(state_next2[16]),
+        .I2(state_next2[15]),
         .O(state_next1_carry__0_i_1_n_0));
   LUT6 #(
     .INIT(64'h9009000000009009)) 
     state_next1_carry__0_i_2
-       (.I0(payload_length_symbs[14]),
-        .I1(state_next2[14]),
-        .I2(payload_length_symbs[13]),
-        .I3(state_next2[13]),
-        .I4(state_next2[12]),
-        .I5(payload_length_symbs[12]),
+       (.I0(state_next2[12]),
+        .I1(payload_length_symbs[12]),
+        .I2(state_next2[13]),
+        .I3(payload_length_symbs[13]),
+        .I4(payload_length_symbs[14]),
+        .I5(state_next2[14]),
         .O(state_next1_carry__0_i_2_n_0));
   CARRY4 state_next1_carry__0_i_3
        (.CI(state_next2_carry__2_n_0),
@@ -1613,42 +1588,42 @@ module top_Packetizer_0_0_Packetizer
   LUT6 #(
     .INIT(64'h9009000000009009)) 
     state_next1_carry_i_1
-       (.I0(payload_length_symbs[11]),
-        .I1(state_next2[11]),
-        .I2(payload_length_symbs[10]),
-        .I3(state_next2[10]),
-        .I4(state_next2[9]),
-        .I5(payload_length_symbs[9]),
+       (.I0(state_next2[9]),
+        .I1(payload_length_symbs[9]),
+        .I2(state_next2[10]),
+        .I3(payload_length_symbs[10]),
+        .I4(payload_length_symbs[11]),
+        .I5(state_next2[11]),
         .O(state_next1_carry_i_1_n_0));
   LUT6 #(
     .INIT(64'h9009000000009009)) 
     state_next1_carry_i_2
-       (.I0(payload_length_symbs[8]),
-        .I1(state_next2[8]),
-        .I2(payload_length_symbs[7]),
-        .I3(state_next2[7]),
-        .I4(state_next2[6]),
-        .I5(payload_length_symbs[6]),
+       (.I0(state_next2[6]),
+        .I1(payload_length_symbs[6]),
+        .I2(state_next2[7]),
+        .I3(payload_length_symbs[7]),
+        .I4(payload_length_symbs[8]),
+        .I5(state_next2[8]),
         .O(state_next1_carry_i_2_n_0));
   LUT6 #(
     .INIT(64'h9009000000009009)) 
     state_next1_carry_i_3
-       (.I0(payload_length_symbs[5]),
-        .I1(state_next2[5]),
-        .I2(payload_length_symbs[4]),
-        .I3(state_next2[4]),
-        .I4(state_next2[3]),
-        .I5(payload_length_symbs[3]),
+       (.I0(state_next2[3]),
+        .I1(payload_length_symbs[3]),
+        .I2(state_next2[4]),
+        .I3(payload_length_symbs[4]),
+        .I4(payload_length_symbs[5]),
+        .I5(state_next2[5]),
         .O(state_next1_carry_i_3_n_0));
   LUT6 #(
     .INIT(64'h9009000000009009)) 
     state_next1_carry_i_4
-       (.I0(payload_length_symbs[2]),
-        .I1(state_next2[2]),
-        .I2(payload_length_symbs[1]),
-        .I3(state_next2[1]),
-        .I4(state_next2[0]),
-        .I5(payload_length_symbs[0]),
+       (.I0(state_next2[0]),
+        .I1(payload_length_symbs[0]),
+        .I2(state_next2[1]),
+        .I3(payload_length_symbs[1]),
+        .I4(payload_length_symbs[2]),
+        .I5(state_next2[2]),
         .O(state_next1_carry_i_4_n_0));
   CARRY4 state_next2_carry
        (.CI(1'b0),

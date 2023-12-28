@@ -35,22 +35,6 @@
 						"TVALID": { "actual": "Q_out_tvalid"}
 					}
 				},
-				"/Interpolation/I": {
-					"interface": "xilinx.com:interface:axis:1.0",
-					"ports": {
-						"ACLK": { "actual": "clk_32M768"},
-						"TDATA": { "actual": "I_tdata"},
-						"TVALID": { "actual": "I_tvalid"}
-					}
-				},
-				"/Interpolation/Q": {
-					"interface": "xilinx.com:interface:axis:1.0",
-					"ports": {
-						"ACLK": { "actual": "clk_32M768"},
-						"TDATA": { "actual": "Q_tdata"},
-						"TVALID": { "actual": "Q_tvalid"}
-					}
-				},
 				"/Interpolation/fir_compiler_I/S_AXIS_DATA": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {

@@ -1,10 +1,10 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
--- Date        : Mon Dec 18 00:24:00 2023
+-- Date        : Thu Dec 28 23:20:45 2023
 -- Host        : TVJ-PC running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim -rename_top top_NCO_cos_sin_0_0 -prefix
---               top_NCO_cos_sin_0_0_ top_NCO_cos_sin_0_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim
+--               e:/Documents/Study/Verilog/SDR/sdr-psk-fpga/sdr-psk-fpga.gen/sources_1/bd/top/ip/top_NCO_cos_sin_0_0/top_NCO_cos_sin_0_0_sim_netlist.vhdl
 -- Design      : top_NCO_cos_sin_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -18,20 +18,33 @@ entity top_NCO_cos_sin_0_0_NCO_cos_sin is
   port (
     NCO_cos : out STD_LOGIC_VECTOR ( 11 downto 0 );
     NCO_sin : out STD_LOGIC_VECTOR ( 11 downto 0 );
+    NCO_vld : out STD_LOGIC;
     NCO_tdata : in STD_LOGIC_VECTOR ( 23 downto 0 );
-    clk : in STD_LOGIC
+    clk : in STD_LOGIC;
+    NCO_tvalid : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of top_NCO_cos_sin_0_0_NCO_cos_sin : entity is "NCO_cos_sin";
 end top_NCO_cos_sin_0_0_NCO_cos_sin;
 
 architecture STRUCTURE of top_NCO_cos_sin_0_0_NCO_cos_sin is
+  signal \NCO_cos[11]_i_1_n_0\ : STD_LOGIC;
 begin
+\NCO_cos[11]_i_1\: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => NCO_tvalid,
+      O => \NCO_cos[11]_i_1_n_0\
+    );
 \NCO_cos_reg[0]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
       CE => '1',
       D => NCO_tdata(0),
       Q => NCO_cos(0),
-      R => '0'
+      R => \NCO_cos[11]_i_1_n_0\
     );
 \NCO_cos_reg[10]\: unisim.vcomponents.FDRE
      port map (
@@ -39,7 +52,7 @@ begin
       CE => '1',
       D => NCO_tdata(10),
       Q => NCO_cos(10),
-      R => '0'
+      R => \NCO_cos[11]_i_1_n_0\
     );
 \NCO_cos_reg[11]\: unisim.vcomponents.FDRE
      port map (
@@ -47,7 +60,7 @@ begin
       CE => '1',
       D => NCO_tdata(11),
       Q => NCO_cos(11),
-      R => '0'
+      R => \NCO_cos[11]_i_1_n_0\
     );
 \NCO_cos_reg[1]\: unisim.vcomponents.FDRE
      port map (
@@ -55,7 +68,7 @@ begin
       CE => '1',
       D => NCO_tdata(1),
       Q => NCO_cos(1),
-      R => '0'
+      R => \NCO_cos[11]_i_1_n_0\
     );
 \NCO_cos_reg[2]\: unisim.vcomponents.FDRE
      port map (
@@ -63,7 +76,7 @@ begin
       CE => '1',
       D => NCO_tdata(2),
       Q => NCO_cos(2),
-      R => '0'
+      R => \NCO_cos[11]_i_1_n_0\
     );
 \NCO_cos_reg[3]\: unisim.vcomponents.FDRE
      port map (
@@ -71,7 +84,7 @@ begin
       CE => '1',
       D => NCO_tdata(3),
       Q => NCO_cos(3),
-      R => '0'
+      R => \NCO_cos[11]_i_1_n_0\
     );
 \NCO_cos_reg[4]\: unisim.vcomponents.FDRE
      port map (
@@ -79,7 +92,7 @@ begin
       CE => '1',
       D => NCO_tdata(4),
       Q => NCO_cos(4),
-      R => '0'
+      R => \NCO_cos[11]_i_1_n_0\
     );
 \NCO_cos_reg[5]\: unisim.vcomponents.FDRE
      port map (
@@ -87,7 +100,7 @@ begin
       CE => '1',
       D => NCO_tdata(5),
       Q => NCO_cos(5),
-      R => '0'
+      R => \NCO_cos[11]_i_1_n_0\
     );
 \NCO_cos_reg[6]\: unisim.vcomponents.FDRE
      port map (
@@ -95,7 +108,7 @@ begin
       CE => '1',
       D => NCO_tdata(6),
       Q => NCO_cos(6),
-      R => '0'
+      R => \NCO_cos[11]_i_1_n_0\
     );
 \NCO_cos_reg[7]\: unisim.vcomponents.FDRE
      port map (
@@ -103,7 +116,7 @@ begin
       CE => '1',
       D => NCO_tdata(7),
       Q => NCO_cos(7),
-      R => '0'
+      R => \NCO_cos[11]_i_1_n_0\
     );
 \NCO_cos_reg[8]\: unisim.vcomponents.FDRE
      port map (
@@ -111,7 +124,7 @@ begin
       CE => '1',
       D => NCO_tdata(8),
       Q => NCO_cos(8),
-      R => '0'
+      R => \NCO_cos[11]_i_1_n_0\
     );
 \NCO_cos_reg[9]\: unisim.vcomponents.FDRE
      port map (
@@ -119,7 +132,7 @@ begin
       CE => '1',
       D => NCO_tdata(9),
       Q => NCO_cos(9),
-      R => '0'
+      R => \NCO_cos[11]_i_1_n_0\
     );
 \NCO_sin_reg[0]\: unisim.vcomponents.FDRE
      port map (
@@ -127,7 +140,7 @@ begin
       CE => '1',
       D => NCO_tdata(12),
       Q => NCO_sin(0),
-      R => '0'
+      R => \NCO_cos[11]_i_1_n_0\
     );
 \NCO_sin_reg[10]\: unisim.vcomponents.FDRE
      port map (
@@ -135,7 +148,7 @@ begin
       CE => '1',
       D => NCO_tdata(22),
       Q => NCO_sin(10),
-      R => '0'
+      R => \NCO_cos[11]_i_1_n_0\
     );
 \NCO_sin_reg[11]\: unisim.vcomponents.FDRE
      port map (
@@ -143,7 +156,7 @@ begin
       CE => '1',
       D => NCO_tdata(23),
       Q => NCO_sin(11),
-      R => '0'
+      R => \NCO_cos[11]_i_1_n_0\
     );
 \NCO_sin_reg[1]\: unisim.vcomponents.FDRE
      port map (
@@ -151,7 +164,7 @@ begin
       CE => '1',
       D => NCO_tdata(13),
       Q => NCO_sin(1),
-      R => '0'
+      R => \NCO_cos[11]_i_1_n_0\
     );
 \NCO_sin_reg[2]\: unisim.vcomponents.FDRE
      port map (
@@ -159,7 +172,7 @@ begin
       CE => '1',
       D => NCO_tdata(14),
       Q => NCO_sin(2),
-      R => '0'
+      R => \NCO_cos[11]_i_1_n_0\
     );
 \NCO_sin_reg[3]\: unisim.vcomponents.FDRE
      port map (
@@ -167,7 +180,7 @@ begin
       CE => '1',
       D => NCO_tdata(15),
       Q => NCO_sin(3),
-      R => '0'
+      R => \NCO_cos[11]_i_1_n_0\
     );
 \NCO_sin_reg[4]\: unisim.vcomponents.FDRE
      port map (
@@ -175,7 +188,7 @@ begin
       CE => '1',
       D => NCO_tdata(16),
       Q => NCO_sin(4),
-      R => '0'
+      R => \NCO_cos[11]_i_1_n_0\
     );
 \NCO_sin_reg[5]\: unisim.vcomponents.FDRE
      port map (
@@ -183,7 +196,7 @@ begin
       CE => '1',
       D => NCO_tdata(17),
       Q => NCO_sin(5),
-      R => '0'
+      R => \NCO_cos[11]_i_1_n_0\
     );
 \NCO_sin_reg[6]\: unisim.vcomponents.FDRE
      port map (
@@ -191,7 +204,7 @@ begin
       CE => '1',
       D => NCO_tdata(18),
       Q => NCO_sin(6),
-      R => '0'
+      R => \NCO_cos[11]_i_1_n_0\
     );
 \NCO_sin_reg[7]\: unisim.vcomponents.FDRE
      port map (
@@ -199,7 +212,7 @@ begin
       CE => '1',
       D => NCO_tdata(19),
       Q => NCO_sin(7),
-      R => '0'
+      R => \NCO_cos[11]_i_1_n_0\
     );
 \NCO_sin_reg[8]\: unisim.vcomponents.FDRE
      port map (
@@ -207,7 +220,7 @@ begin
       CE => '1',
       D => NCO_tdata(20),
       Q => NCO_sin(8),
-      R => '0'
+      R => \NCO_cos[11]_i_1_n_0\
     );
 \NCO_sin_reg[9]\: unisim.vcomponents.FDRE
      port map (
@@ -215,6 +228,14 @@ begin
       CE => '1',
       D => NCO_tdata(21),
       Q => NCO_sin(9),
+      R => \NCO_cos[11]_i_1_n_0\
+    );
+NCO_vld_reg: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => '1',
+      D => NCO_tvalid,
+      Q => NCO_vld,
       R => '0'
     );
 end STRUCTURE;
@@ -228,7 +249,8 @@ entity top_NCO_cos_sin_0_0 is
     NCO_tdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
     NCO_tvalid : in STD_LOGIC;
     NCO_cos : out STD_LOGIC_VECTOR ( 11 downto 0 );
-    NCO_sin : out STD_LOGIC_VECTOR ( 11 downto 0 )
+    NCO_sin : out STD_LOGIC_VECTOR ( 11 downto 0 );
+    NCO_vld : out STD_LOGIC
   );
   attribute NotValidForBitStream : boolean;
   attribute NotValidForBitStream of top_NCO_cos_sin_0_0 : entity is true;
@@ -257,6 +279,8 @@ inst: entity work.top_NCO_cos_sin_0_0_NCO_cos_sin
       NCO_sin(11 downto 0) => NCO_sin(11 downto 0),
       NCO_tdata(23 downto 12) => NCO_tdata(27 downto 16),
       NCO_tdata(11 downto 0) => NCO_tdata(11 downto 0),
+      NCO_tvalid => NCO_tvalid,
+      NCO_vld => NCO_vld,
       clk => clk
     );
 end STRUCTURE;

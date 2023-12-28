@@ -1,7 +1,7 @@
 //Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-//Date        : Thu Dec 28 12:35:13 2023
+//Date        : Thu Dec 28 23:18:22 2023
 //Host        : TVJ-PC running 64-bit major release  (build 9200)
 //Command     : generate_target top.bd
 //Design      : top
@@ -459,12 +459,13 @@ module Rx_imp_KSVDXC
   wire [3:0]FEEDBACK_SHIFT_1;
   wire Flatten_Rx_1bit;
   wire [3:0]GARDNER_SHIFT_1;
+  wire I_tvalid_1;
   wire [3:0]MODE_CTRL_1;
   wire PSK_Detection_0_BPSK;
   wire [1:0]PSK_Detection_0_QPSK;
   wire [11:0]PSK_Signal_Extend_0_PSK_signal;
   wire PSK_Signal_Extend_0_is_bpsk_out;
-  wire Q_tvalid_1;
+  wire Q_tvalid_2;
   wire [7:0]RX_BD_WINDOW_1;
   wire [7:0]RX_PD_WINDOW_1;
   wire [15:0]RX_SD_THRESHOLD_1;
@@ -479,10 +480,9 @@ module Rx_imp_KSVDXC
   wire clk_1M024_1;
   wire clk_2M048_1;
   wire clk_32M768_1;
-  wire [15:0]costas_loop_0_I_tdata;
-  wire costas_loop_0_I_tvalid;
+  wire [15:0]costas_loop_0_I1_tdata;
   wire [11:0]costas_loop_0_NCO_cos;
-  wire [15:0]costas_loop_0_Q_tdata;
+  wire [15:0]costas_loop_0_Q1_tdata;
   wire [15:0]gardner_loop_0_I_1M;
   wire [15:0]gardner_loop_0_Q_1M;
   wire gardner_loop_0_clk_out;
@@ -585,11 +585,11 @@ module Rx_imp_KSVDXC
         .rst_32M768(rst_32M768_1));
   top_c_shift_ram_0_2 c_shift_ram_I
        (.CLK(Div_clk32M768_0_clk16M384),
-        .D(costas_loop_0_I_tdata),
+        .D(costas_loop_0_I1_tdata),
         .Q(c_shift_ram_I_Q));
   top_c_shift_ram_I_0 c_shift_ram_Q
        (.CLK(Div_clk32M768_0_clk16M384),
-        .D(costas_loop_0_Q_tdata),
+        .D(costas_loop_0_Q1_tdata),
         .Q(c_shift_ram_Q_Q));
   top_c_shift_ram_I_1 c_shift_ram_is_bpsk
        (.CLK(Div_clk32M768_0_clk16M384),
@@ -597,24 +597,23 @@ module Rx_imp_KSVDXC
         .Q(c_shift_ram_is_bpsk_Q));
   costas_loop_inst_0 costas_loop_0
        (.FEEDBACK_SHIFT(FEEDBACK_SHIFT_1),
-        .I_tdata(costas_loop_0_I_tdata),
-        .I_tvalid(costas_loop_0_I_tvalid),
-        .MODE_CTRL(MODE_CTRL_1),
+        .I_data(costas_loop_0_I1_tdata),
+        .I_valid(I_tvalid_1),
         .NCO_cos(costas_loop_0_NCO_cos),
         .PSK_signal(PSK_Signal_Extend_0_PSK_signal),
-        .Q_tdata(costas_loop_0_Q_tdata),
-        .Q_tvalid(Q_tvalid_1),
+        .Q_data(costas_loop_0_Q1_tdata),
+        .Q_valid(Q_tvalid_2),
         .clk_16M384(Div_clk32M768_0_clk16M384),
         .is_bpsk(PSK_Signal_Extend_0_is_bpsk_out),
         .rst_16M384(rst_16M386_1));
   gardner_loop_inst_0 gardner_loop_0
        (.GARDNER_SHIFT(GARDNER_SHIFT_1),
         .I_1M(gardner_loop_0_I_1M),
-        .I_tdata(costas_loop_0_I_tdata),
-        .I_tvalid(costas_loop_0_I_tvalid),
+        .I_tdata(costas_loop_0_I1_tdata),
+        .I_tvalid(I_tvalid_1),
         .Q_1M(gardner_loop_0_Q_1M),
-        .Q_tdata(costas_loop_0_Q_tdata),
-        .Q_tvalid(Q_tvalid_1),
+        .Q_tdata(costas_loop_0_Q1_tdata),
+        .Q_tvalid(Q_tvalid_2),
         .clk_32M768(clk_32M768_1),
         .clk_out(gardner_loop_0_clk_out),
         .is_bpsk(c_shift_ram_is_bpsk_Q),

@@ -252,7 +252,7 @@ um {} maximum {}} value 0} bitoffset {attribs {resolve_type generated dependency
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:508e541c</spirit:value>
+            <spirit:value>9:4f6e35cb</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -263,7 +263,7 @@ um {} maximum {}} value 0} bitoffset {attribs {resolve_type generated dependency
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:508e541c</spirit:value>
+            <spirit:value>9:4f6e35cb</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -279,11 +279,11 @@ um {} maximum {}} value 0} bitoffset {attribs {resolve_type generated dependency
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Dec 26 02:39:00 UTC 2023</spirit:value>
+            <spirit:value>Thu Dec 28 15:18:26 UTC 2023</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:508e541c</spirit:value>
+            <spirit:value>9:4f6e35cb</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -295,7 +295,7 @@ um {} maximum {}} value 0} bitoffset {attribs {resolve_type generated dependency
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:98be47d8</spirit:value>
+            <spirit:value>9:2659dd9f</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -311,11 +311,11 @@ um {} maximum {}} value 0} bitoffset {attribs {resolve_type generated dependency
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Dec 26 02:39:00 UTC 2023</spirit:value>
+            <spirit:value>Thu Dec 28 15:18:26 UTC 2023</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:98be47d8</spirit:value>
+            <spirit:value>9:2659dd9f</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -329,11 +329,11 @@ um {} maximum {}} value 0} bitoffset {attribs {resolve_type generated dependency
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Dec 26 02:39:18 UTC 2023</spirit:value>
+            <spirit:value>Thu Dec 28 15:20:46 UTC 2023</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:508e541c</spirit:value>
+            <spirit:value>9:4f6e35cb</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -413,6 +413,19 @@ um {} maximum {}} value 0} bitoffset {attribs {resolve_type generated dependency
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>reg signed</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>NCO_vld</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>reg</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>

@@ -64,13 +64,6 @@
 						"TVALID": { "actual": "I_tvalid"}
 					}
 				},
-				"/IQ_Connect/AXI_2x_I/O1": {
-					"interface": "xilinx.com:interface:axis:1.0",
-					"ports": {
-						"TDATA": { "actual": "O1_tdata"},
-						"TVALID": { "actual": "O1_tvalid"}
-					}
-				},
 				"/IQ_Connect/AXI_2x_I/O2": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
@@ -85,25 +78,11 @@
 						"TVALID": { "actual": "I_tvalid"}
 					}
 				},
-				"/IQ_Connect/AXI_2x_Q/O1": {
-					"interface": "xilinx.com:interface:axis:1.0",
-					"ports": {
-						"TDATA": { "actual": "O1_tdata"},
-						"TVALID": { "actual": "O1_tvalid"}
-					}
-				},
 				"/IQ_Connect/AXI_2x_Q/O2": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"TDATA": { "actual": "O2_tdata"},
 						"TVALID": { "actual": "O2_tvalid"}
-					}
-				},
-				"/IQ_Connect/I1": {
-					"interface": "xilinx.com:interface:axis:1.0",
-					"ports": {
-						"TDATA": { "actual": "I1_tdata"},
-						"TVALID": { "actual": "I1_tvalid"}
 					}
 				},
 				"/IQ_Connect/I2": {
@@ -118,13 +97,6 @@
 					"ports": {
 						"TDATA": { "actual": "IQ_tdata"},
 						"TVALID": { "actual": "IQ_tvalid"}
-					}
-				},
-				"/IQ_Connect/Q1": {
-					"interface": "xilinx.com:interface:axis:1.0",
-					"ports": {
-						"TDATA": { "actual": "Q1_tdata"},
-						"TVALID": { "actual": "Q1_tvalid"}
 					}
 				},
 				"/IQ_Connect/Q2": {

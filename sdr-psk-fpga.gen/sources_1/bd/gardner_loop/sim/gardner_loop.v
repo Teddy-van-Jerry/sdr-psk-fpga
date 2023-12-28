@@ -1,7 +1,7 @@
 //Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-//Date        : Wed Dec 27 20:47:38 2023
+//Date        : Thu Dec 28 20:54:13 2023
 //Host        : TVJ-PC running 64-bit major release  (build 9200)
 //Command     : generate_target gardner_loop.bd
 //Design      : gardner_loop
@@ -142,12 +142,12 @@ module gardner_loop
     rst_32M768);
   (* X_INTERFACE_INFO = "xilinx.com:signal:data:1.0 DATA.GARDNER_SHIFT DATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME DATA.GARDNER_SHIFT, LAYERED_METADATA undef" *) input [3:0]GARDNER_SHIFT;
   output [15:0]I_1M;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 I TDATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME I, CLK_DOMAIN gardner_loop_clk_32M768, FREQ_HZ 32768000, HAS_TKEEP 0, HAS_TLAST 0, HAS_TREADY 1, HAS_TSTRB 0, INSERT_VIP 0, LAYERED_METADATA undef, PHASE 0.0, TDATA_NUM_BYTES 2, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0" *) input [15:0]I_tdata;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 I TVALID" *) input I_tvalid;
+  input [15:0]I_tdata;
+  input I_tvalid;
   output [15:0]Q_1M;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 Q TDATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME Q, CLK_DOMAIN gardner_loop_clk_32M768, FREQ_HZ 32768000, HAS_TKEEP 0, HAS_TLAST 0, HAS_TREADY 1, HAS_TSTRB 0, INSERT_VIP 0, LAYERED_METADATA undef, PHASE 0.0, TDATA_NUM_BYTES 2, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0" *) input [15:0]Q_tdata;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 Q TVALID" *) input Q_tvalid;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.CLK_32M768 CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.CLK_32M768, ASSOCIATED_BUSIF I:Q, ASSOCIATED_RESET rst_32M768, CLK_DOMAIN gardner_loop_clk_32M768, FREQ_HZ 32768000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0" *) input clk_32M768;
+  input [15:0]Q_tdata;
+  input Q_tvalid;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.CLK_32M768 CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.CLK_32M768, ASSOCIATED_RESET rst_32M768, CLK_DOMAIN gardner_loop_clk_32M768, FREQ_HZ 32768000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0" *) input clk_32M768;
   output clk_out;
   (* X_INTERFACE_INFO = "xilinx.com:signal:data:1.0 DATA.ERROR_N DATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME DATA.ERROR_N, LAYERED_METADATA undef" *) output [15:0]error_n;
   (* X_INTERFACE_INFO = "xilinx.com:signal:data:1.0 DATA.IS_BPSK DATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME DATA.IS_BPSK, LAYERED_METADATA undef" *) input is_bpsk;
@@ -157,12 +157,12 @@ module gardner_loop
   wire [15:0]Gardner_Corrector_0_I_1M;
   wire [15:0]Gardner_Corrector_0_Q_1M;
   wire Gardner_Corrector_0_clk_out;
-  wire [15:0]I_1_TDATA;
-  wire I_1_TVALID;
+  wire [15:0]I_tdata_1;
+  wire I_tvalid_1;
   wire [15:0]Interpolation_Ix2_tdata;
   wire [15:0]Interpolation_Qx2_tdata;
-  wire [15:0]Q_1_TDATA;
-  wire Q_1_TVALID;
+  wire [15:0]Q_tdata_1;
+  wire Q_tvalid_1;
   wire [15:0]Timing_Error_error_n;
   wire clk_32d768_1;
   wire is_bpsk_1;
@@ -170,11 +170,11 @@ module gardner_loop
 
   assign GARDNER_SHIFT_1 = GARDNER_SHIFT[3:0];
   assign I_1M[15:0] = Gardner_Corrector_0_I_1M;
-  assign I_1_TDATA = I_tdata[15:0];
-  assign I_1_TVALID = I_tvalid;
+  assign I_tdata_1 = I_tdata[15:0];
+  assign I_tvalid_1 = I_tvalid;
   assign Q_1M[15:0] = Gardner_Corrector_0_Q_1M;
-  assign Q_1_TDATA = Q_tdata[15:0];
-  assign Q_1_TVALID = Q_tvalid;
+  assign Q_tdata_1 = Q_tdata[15:0];
+  assign Q_tvalid_1 = Q_tvalid;
   assign clk_32d768_1 = clk_32M768;
   assign clk_out = Gardner_Corrector_0_clk_out;
   assign error_n[15:0] = Timing_Error_error_n;
@@ -191,11 +191,11 @@ module gardner_loop
         .error_n(Timing_Error_error_n),
         .rst(rst_32M768_1));
   Interpolation_imp_I1S4YE Interpolation
-       (.I_tdata(I_1_TDATA),
-        .I_tvalid(I_1_TVALID),
+       (.I_tdata(I_tdata_1),
+        .I_tvalid(I_tvalid_1),
         .I_up2(Interpolation_Ix2_tdata),
-        .Q_tdata(Q_1_TDATA),
-        .Q_tvalid(Q_1_TVALID),
+        .Q_tdata(Q_tdata_1),
+        .Q_tvalid(Q_tvalid_1),
         .Q_up2(Interpolation_Qx2_tdata),
         .clk_32M768(clk_32d768_1));
   Timing_Error_imp_2RVXWT Timing_Error

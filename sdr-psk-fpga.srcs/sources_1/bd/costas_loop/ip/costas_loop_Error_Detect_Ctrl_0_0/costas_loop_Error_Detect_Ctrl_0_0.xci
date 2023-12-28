@@ -2,19 +2,17 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "costas_loop_Error_Detect_Ctrl_0_0",
-    "cell_name": "Error_Detect/Error_Detect_Ctrl_0",
+    "cell_name": "Error_Detect_Ctrl_0",
     "component_reference": "xilinx.com:module_ref:Error_Detect_Ctrl:1.0",
     "ip_revision": "1",
     "gen_directory": "../../../../../../sdr-psk-fpga.gen/sources_1/bd/costas_loop/ip/costas_loop_Error_Detect_Ctrl_0_0",
     "parameters": {
       "component_parameters": {
         "WIDTH": [ { "value": "16", "resolve_type": "user", "format": "long", "usage": "all" } ],
-        "DELAY": [ { "value": "2", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "Component_Name": [ { "value": "costas_loop_Error_Detect_Ctrl_0_0", "resolve_type": "user", "usage": "all" } ]
       },
       "model_parameters": {
-        "WIDTH": [ { "value": "16", "resolve_type": "generated", "format": "long", "usage": "all" } ],
-        "DELAY": [ { "value": "2", "resolve_type": "generated", "format": "long", "usage": "all" } ]
+        "WIDTH": [ { "value": "16", "resolve_type": "generated", "format": "long", "usage": "all" } ]
       },
       "project_parameters": {
         "ARCHITECTURE": [ { "value": "zynq" } ],
@@ -60,7 +58,8 @@
         "error_qpsk_tdata": [ { "direction": "in", "size_left": "15", "size_right": "0", "driver_value": "0" } ],
         "error_qpsk_tvalid": [ { "direction": "in" } ],
         "error_tdata": [ { "direction": "out", "size_left": "15", "size_right": "0" } ],
-        "error_tvalid": [ { "direction": "out" } ]
+        "error_tvalid": [ { "direction": "out" } ],
+        "is_bpsk_delayed": [ { "direction": "out" } ]
       },
       "interfaces": {
         "error": {

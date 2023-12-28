@@ -2,7 +2,7 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "costas_loop_NCO_cos_sin_0_0",
-    "cell_name": "NCO/NCO_cos_sin_0",
+    "cell_name": "NCO_cos_sin_0",
     "component_reference": "xilinx.com:module_ref:NCO_cos_sin:1.0",
     "ip_revision": "1",
     "gen_directory": "../../../../../../sdr-psk-fpga.gen/sources_1/bd/costas_loop/ip/costas_loop_NCO_cos_sin_0_0",
@@ -48,7 +48,8 @@
         "NCO_tdata": [ { "direction": "in", "size_left": "31", "size_right": "0", "driver_value": "0" } ],
         "NCO_tvalid": [ { "direction": "in" } ],
         "NCO_cos": [ { "direction": "out", "size_left": "11", "size_right": "0" } ],
-        "NCO_sin": [ { "direction": "out", "size_left": "11", "size_right": "0" } ]
+        "NCO_sin": [ { "direction": "out", "size_left": "11", "size_right": "0" } ],
+        "NCO_vld": [ { "direction": "out" } ]
       },
       "interfaces": {
         "NCO": {

@@ -59,7 +59,8 @@ module top_NCO_cos_sin_0_0 (
   NCO_tdata,
   NCO_tvalid,
   NCO_cos,
-  NCO_sin
+  NCO_sin,
+  NCO_vld
 );
 
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_BUSIF NCO, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, INSERT_VIP 0" *)
@@ -80,6 +81,7 @@ ype {name {attribs {resolve_type immediate dependency {} format string minimum {
 input wire NCO_tvalid;
 output wire [11 : 0] NCO_cos;
 output wire [11 : 0] NCO_sin;
+output wire NCO_vld;
 
   NCO_cos_sin #(
     .I_WIDTH(32),
@@ -89,6 +91,7 @@ output wire [11 : 0] NCO_sin;
     .NCO_tdata(NCO_tdata),
     .NCO_tvalid(NCO_tvalid),
     .NCO_cos(NCO_cos),
-    .NCO_sin(NCO_sin)
+    .NCO_sin(NCO_sin),
+    .NCO_vld(NCO_vld)
   );
 endmodule

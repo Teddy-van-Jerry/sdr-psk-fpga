@@ -1,10 +1,10 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
--- Date        : Thu Dec 28 10:49:27 2023
+-- Date        : Thu Dec 28 13:59:00 2023
 -- Host        : TVJ-PC running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim -rename_top top_Tx_Data_0_0 -prefix
---               top_Tx_Data_0_0_ top_Tx_Data_0_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim
+--               e:/Documents/Study/Verilog/SDR/sdr-psk-fpga/sdr-psk-fpga.gen/sources_1/bd/top/ip/top_Tx_Data_0_0/top_Tx_Data_0_0_sim_netlist.vhdl
 -- Design      : top_Tx_Data_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -19,6 +19,8 @@ entity top_Tx_Data_0_0_PN_Gen is
     pn : out STD_LOGIC;
     clk : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of top_Tx_Data_0_0_PN_Gen : entity is "PN_Gen";
 end top_Tx_Data_0_0_PN_Gen;
 
 architecture STRUCTURE of top_Tx_Data_0_0_PN_Gen is
@@ -240,12 +242,16 @@ entity top_Tx_Data_0_0_Tx_Data is
     MODE_CTRL : in STD_LOGIC_VECTOR ( 3 downto 0 );
     rst_n : in STD_LOGIC;
     pkt_sent : in STD_LOGIC;
-    clk : in STD_LOGIC
+    clk : in STD_LOGIC;
+    data_tready : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of top_Tx_Data_0_0_Tx_Data : entity is "Tx_Data";
 end top_Tx_Data_0_0_Tx_Data;
 
 architecture STRUCTURE of top_Tx_Data_0_0_Tx_Data is
   signal clear : STD_LOGIC;
+  signal \cnt[0]_i_4_n_0\ : STD_LOGIC;
   signal cnt_reg : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal \cnt_reg[0]_i_3_n_0\ : STD_LOGIC;
   signal \cnt_reg[0]_i_3_n_1\ : STD_LOGIC;
@@ -288,7 +294,23 @@ architecture STRUCTURE of top_Tx_Data_0_0_Tx_Data is
   signal \data_tlast0_inferred__0/i__carry_n_1\ : STD_LOGIC;
   signal \data_tlast0_inferred__0/i__carry_n_2\ : STD_LOGIC;
   signal \data_tlast0_inferred__0/i__carry_n_3\ : STD_LOGIC;
-  signal data_tlast1 : STD_LOGIC_VECTOR ( 16 downto 0 );
+  signal data_tlast1 : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal \data_tlast1_carry__0_n_0\ : STD_LOGIC;
+  signal \data_tlast1_carry__0_n_1\ : STD_LOGIC;
+  signal \data_tlast1_carry__0_n_2\ : STD_LOGIC;
+  signal \data_tlast1_carry__0_n_3\ : STD_LOGIC;
+  signal \data_tlast1_carry__1_n_0\ : STD_LOGIC;
+  signal \data_tlast1_carry__1_n_1\ : STD_LOGIC;
+  signal \data_tlast1_carry__1_n_2\ : STD_LOGIC;
+  signal \data_tlast1_carry__1_n_3\ : STD_LOGIC;
+  signal \data_tlast1_carry__2_n_1\ : STD_LOGIC;
+  signal \data_tlast1_carry__2_n_2\ : STD_LOGIC;
+  signal \data_tlast1_carry__2_n_3\ : STD_LOGIC;
+  signal data_tlast1_carry_i_1_n_0 : STD_LOGIC;
+  signal data_tlast1_carry_n_0 : STD_LOGIC;
+  signal data_tlast1_carry_n_1 : STD_LOGIC;
+  signal data_tlast1_carry_n_2 : STD_LOGIC;
+  signal data_tlast1_carry_n_3 : STD_LOGIC;
   signal data_tlast_i_1_n_0 : STD_LOGIC;
   signal data_tlast_i_2_n_0 : STD_LOGIC;
   signal data_tlast_i_3_n_0 : STD_LOGIC;
@@ -297,6 +319,8 @@ architecture STRUCTURE of top_Tx_Data_0_0_Tx_Data is
   signal data_tuser_i_1_n_0 : STD_LOGIC;
   signal data_tuser_i_2_n_0 : STD_LOGIC;
   signal \^data_tvalid\ : STD_LOGIC;
+  signal \data_tvalid0_inferred__0/i__carry__0_n_1\ : STD_LOGIC;
+  signal \data_tvalid0_inferred__0/i__carry__0_n_2\ : STD_LOGIC;
   signal \data_tvalid0_inferred__0/i__carry__0_n_3\ : STD_LOGIC;
   signal \data_tvalid0_inferred__0/i__carry_n_0\ : STD_LOGIC;
   signal \data_tvalid0_inferred__0/i__carry_n_1\ : STD_LOGIC;
@@ -306,9 +330,14 @@ architecture STRUCTURE of top_Tx_Data_0_0_Tx_Data is
   signal data_tvalid_i_2_n_0 : STD_LOGIC;
   signal \i__carry__0_i_1__0_n_0\ : STD_LOGIC;
   signal \i__carry__0_i_1_n_0\ : STD_LOGIC;
+  signal \i__carry__0_i_2__0_n_0\ : STD_LOGIC;
   signal \i__carry__0_i_2_n_0\ : STD_LOGIC;
-  signal \i__carry__0_i_3_n_2\ : STD_LOGIC;
-  signal \i__carry__0_i_3_n_3\ : STD_LOGIC;
+  signal \i__carry__0_i_3_n_0\ : STD_LOGIC;
+  signal \i__carry__0_i_4_n_2\ : STD_LOGIC;
+  signal \i__carry__0_i_4_n_3\ : STD_LOGIC;
+  signal \i__carry__0_i_4_n_5\ : STD_LOGIC;
+  signal \i__carry__0_i_4_n_6\ : STD_LOGIC;
+  signal \i__carry__0_i_4_n_7\ : STD_LOGIC;
   signal \i__carry_i_1__0_n_0\ : STD_LOGIC;
   signal \i__carry_i_1_n_0\ : STD_LOGIC;
   signal \i__carry_i_2__0_n_0\ : STD_LOGIC;
@@ -317,19 +346,31 @@ architecture STRUCTURE of top_Tx_Data_0_0_Tx_Data is
   signal \i__carry_i_3_n_0\ : STD_LOGIC;
   signal \i__carry_i_4__0_n_0\ : STD_LOGIC;
   signal \i__carry_i_4_n_0\ : STD_LOGIC;
-  signal \i__carry_i_5__0_n_0\ : STD_LOGIC;
-  signal \i__carry_i_5__0_n_1\ : STD_LOGIC;
-  signal \i__carry_i_5__0_n_2\ : STD_LOGIC;
-  signal \i__carry_i_5__0_n_3\ : STD_LOGIC;
   signal \i__carry_i_5_n_0\ : STD_LOGIC;
   signal \i__carry_i_6_n_0\ : STD_LOGIC;
-  signal \i__carry_i_6_n_1\ : STD_LOGIC;
-  signal \i__carry_i_6_n_2\ : STD_LOGIC;
-  signal \i__carry_i_6_n_3\ : STD_LOGIC;
   signal \i__carry_i_7_n_0\ : STD_LOGIC;
   signal \i__carry_i_7_n_1\ : STD_LOGIC;
   signal \i__carry_i_7_n_2\ : STD_LOGIC;
   signal \i__carry_i_7_n_3\ : STD_LOGIC;
+  signal \i__carry_i_7_n_4\ : STD_LOGIC;
+  signal \i__carry_i_7_n_5\ : STD_LOGIC;
+  signal \i__carry_i_7_n_6\ : STD_LOGIC;
+  signal \i__carry_i_7_n_7\ : STD_LOGIC;
+  signal \i__carry_i_8_n_0\ : STD_LOGIC;
+  signal \i__carry_i_8_n_1\ : STD_LOGIC;
+  signal \i__carry_i_8_n_2\ : STD_LOGIC;
+  signal \i__carry_i_8_n_3\ : STD_LOGIC;
+  signal \i__carry_i_8_n_4\ : STD_LOGIC;
+  signal \i__carry_i_8_n_5\ : STD_LOGIC;
+  signal \i__carry_i_8_n_6\ : STD_LOGIC;
+  signal \i__carry_i_9_n_0\ : STD_LOGIC;
+  signal \i__carry_i_9_n_1\ : STD_LOGIC;
+  signal \i__carry_i_9_n_2\ : STD_LOGIC;
+  signal \i__carry_i_9_n_3\ : STD_LOGIC;
+  signal \i__carry_i_9_n_4\ : STD_LOGIC;
+  signal \i__carry_i_9_n_5\ : STD_LOGIC;
+  signal \i__carry_i_9_n_6\ : STD_LOGIC;
+  signal \i__carry_i_9_n_7\ : STD_LOGIC;
   signal inst_PN_Gen_N4_n_0 : STD_LOGIC;
   signal mix_is_bpsk_i_1_n_0 : STD_LOGIC;
   signal mix_is_bpsk_i_2_n_0 : STD_LOGIC;
@@ -340,11 +381,13 @@ architecture STRUCTURE of top_Tx_Data_0_0_Tx_Data is
   signal \NLW_data_tlast0_inferred__0/i__carry_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \NLW_data_tlast0_inferred__0/i__carry__0_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 2 );
   signal \NLW_data_tlast0_inferred__0/i__carry__0_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
+  signal \NLW_data_tlast1_carry__2_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
   signal \NLW_data_tvalid0_inferred__0/i__carry_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
-  signal \NLW_data_tvalid0_inferred__0/i__carry__0_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 1 );
+  signal \NLW_data_tvalid0_inferred__0/i__carry__0_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
   signal \NLW_data_tvalid0_inferred__0/i__carry__0_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
-  signal \NLW_i__carry__0_i_3_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 2 to 2 );
-  signal \NLW_i__carry__0_i_3_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
+  signal \NLW_i__carry__0_i_4_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 2 );
+  signal \NLW_i__carry__0_i_4_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
+  signal \NLW_i__carry_i_8_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 0 to 0 );
   attribute ADDER_THRESHOLD : integer;
   attribute ADDER_THRESHOLD of \cnt_reg[0]_i_3\ : label is 11;
   attribute ADDER_THRESHOLD of \cnt_reg[12]_i_1\ : label is 11;
@@ -353,6 +396,10 @@ architecture STRUCTURE of top_Tx_Data_0_0_Tx_Data is
   attribute SOFT_HLUTNM : string;
   attribute SOFT_HLUTNM of \data_tdata[0]_i_1\ : label is "soft_lutpair2";
   attribute SOFT_HLUTNM of \data_tdata[7]_i_1\ : label is "soft_lutpair2";
+  attribute ADDER_THRESHOLD of data_tlast1_carry : label is 35;
+  attribute ADDER_THRESHOLD of \data_tlast1_carry__0\ : label is 35;
+  attribute ADDER_THRESHOLD of \data_tlast1_carry__1\ : label is 35;
+  attribute ADDER_THRESHOLD of \data_tlast1_carry__2\ : label is 35;
   attribute SOFT_HLUTNM of data_tlast_i_2 : label is "soft_lutpair1";
   attribute SOFT_HLUTNM of data_tlast_i_3 : label is "soft_lutpair1";
   attribute SOFT_HLUTNM of data_tuser_i_2 : label is "soft_lutpair0";
@@ -360,6 +407,10 @@ architecture STRUCTURE of top_Tx_Data_0_0_Tx_Data is
   attribute COMPARATOR_THRESHOLD : integer;
   attribute COMPARATOR_THRESHOLD of \data_tvalid0_inferred__0/i__carry\ : label is 11;
   attribute COMPARATOR_THRESHOLD of \data_tvalid0_inferred__0/i__carry__0\ : label is 11;
+  attribute ADDER_THRESHOLD of \i__carry__0_i_4\ : label is 35;
+  attribute ADDER_THRESHOLD of \i__carry_i_7\ : label is 35;
+  attribute ADDER_THRESHOLD of \i__carry_i_8\ : label is 35;
+  attribute ADDER_THRESHOLD of \i__carry_i_9\ : label is 35;
 begin
   data_tdata(1 downto 0) <= \^data_tdata\(1 downto 0);
   data_tlast <= \^data_tlast\;
@@ -373,21 +424,22 @@ begin
       I0 => MODE_CTRL(0),
       I1 => MODE_CTRL(1),
       I2 => pkt_sent,
-      I3 => \data_tvalid0_inferred__0/i__carry__0_n_3\,
+      I3 => \data_tvalid0_inferred__0/i__carry__0_n_1\,
       I4 => data_tvalid_i_2_n_0,
       I5 => rst_n,
       O => clear
     );
-\cnt[0]_i_2\: unisim.vcomponents.LUT5
+\cnt[0]_i_2\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"F0E0E0F0"
+      INIT => X"F000E000E000F000"
     )
         port map (
       I0 => MODE_CTRL(3),
       I1 => MODE_CTRL(2),
-      I2 => \data_tvalid0_inferred__0/i__carry__0_n_3\,
-      I3 => MODE_CTRL(1),
-      I4 => MODE_CTRL(0),
+      I2 => data_tready,
+      I3 => \data_tvalid0_inferred__0/i__carry__0_n_1\,
+      I4 => MODE_CTRL(1),
+      I5 => MODE_CTRL(0),
       O => sel
     );
 \cnt[0]_i_4\: unisim.vcomponents.LUT1
@@ -396,7 +448,7 @@ begin
     )
         port map (
       I0 => cnt_reg(0),
-      O => data_tlast1(0)
+      O => \cnt[0]_i_4_n_0\
     );
 \cnt_reg[0]\: unisim.vcomponents.FDRE
     generic map(
@@ -423,7 +475,7 @@ begin
       O(1) => \cnt_reg[0]_i_3_n_6\,
       O(0) => \cnt_reg[0]_i_3_n_7\,
       S(3 downto 1) => cnt_reg(3 downto 1),
-      S(0) => data_tlast1(0)
+      S(0) => \cnt[0]_i_4_n_0\
     );
 \cnt_reg[10]\: unisim.vcomponents.FDRE
     generic map(
@@ -684,7 +736,7 @@ begin
       S(3) => \i__carry_i_1__0_n_0\,
       S(2) => \i__carry_i_2_n_0\,
       S(1) => \i__carry_i_3__0_n_0\,
-      S(0) => \i__carry_i_4_n_0\
+      S(0) => \i__carry_i_4__0_n_0\
     );
 \data_tlast0_inferred__0/i__carry__0\: unisim.vcomponents.CARRY4
      port map (
@@ -696,8 +748,68 @@ begin
       DI(3 downto 0) => B"0000",
       O(3 downto 0) => \NLW_data_tlast0_inferred__0/i__carry__0_O_UNCONNECTED\(3 downto 0),
       S(3 downto 2) => B"00",
-      S(1) => \i__carry__0_i_1__0_n_0\,
-      S(0) => \i__carry__0_i_2_n_0\
+      S(1) => \i__carry__0_i_1_n_0\,
+      S(0) => \i__carry__0_i_2__0_n_0\
+    );
+data_tlast1_carry: unisim.vcomponents.CARRY4
+     port map (
+      CI => '0',
+      CO(3) => data_tlast1_carry_n_0,
+      CO(2) => data_tlast1_carry_n_1,
+      CO(1) => data_tlast1_carry_n_2,
+      CO(0) => data_tlast1_carry_n_3,
+      CYINIT => '0',
+      DI(3 downto 2) => B"00",
+      DI(1) => cnt_reg(1),
+      DI(0) => '0',
+      O(3 downto 0) => data_tlast1(3 downto 0),
+      S(3 downto 2) => cnt_reg(3 downto 2),
+      S(1) => data_tlast1_carry_i_1_n_0,
+      S(0) => cnt_reg(0)
+    );
+\data_tlast1_carry__0\: unisim.vcomponents.CARRY4
+     port map (
+      CI => data_tlast1_carry_n_0,
+      CO(3) => \data_tlast1_carry__0_n_0\,
+      CO(2) => \data_tlast1_carry__0_n_1\,
+      CO(1) => \data_tlast1_carry__0_n_2\,
+      CO(0) => \data_tlast1_carry__0_n_3\,
+      CYINIT => '0',
+      DI(3 downto 0) => B"0000",
+      O(3 downto 0) => data_tlast1(7 downto 4),
+      S(3 downto 0) => cnt_reg(7 downto 4)
+    );
+\data_tlast1_carry__1\: unisim.vcomponents.CARRY4
+     port map (
+      CI => \data_tlast1_carry__0_n_0\,
+      CO(3) => \data_tlast1_carry__1_n_0\,
+      CO(2) => \data_tlast1_carry__1_n_1\,
+      CO(1) => \data_tlast1_carry__1_n_2\,
+      CO(0) => \data_tlast1_carry__1_n_3\,
+      CYINIT => '0',
+      DI(3 downto 0) => B"0000",
+      O(3 downto 0) => data_tlast1(11 downto 8),
+      S(3 downto 0) => cnt_reg(11 downto 8)
+    );
+\data_tlast1_carry__2\: unisim.vcomponents.CARRY4
+     port map (
+      CI => \data_tlast1_carry__1_n_0\,
+      CO(3) => \NLW_data_tlast1_carry__2_CO_UNCONNECTED\(3),
+      CO(2) => \data_tlast1_carry__2_n_1\,
+      CO(1) => \data_tlast1_carry__2_n_2\,
+      CO(0) => \data_tlast1_carry__2_n_3\,
+      CYINIT => '0',
+      DI(3 downto 0) => B"0000",
+      O(3 downto 0) => data_tlast1(15 downto 12),
+      S(3 downto 0) => cnt_reg(15 downto 12)
+    );
+data_tlast1_carry_i_1: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => cnt_reg(1),
+      O => data_tlast1_carry_i_1_n_0
     );
 data_tlast_i_1: unisim.vcomponents.LUT6
     generic map(
@@ -706,7 +818,7 @@ data_tlast_i_1: unisim.vcomponents.LUT6
         port map (
       I0 => \^data_tlast\,
       I1 => \data_tlast0_inferred__0/i__carry__0_n_2\,
-      I2 => \data_tvalid0_inferred__0/i__carry__0_n_3\,
+      I2 => \data_tvalid0_inferred__0/i__carry__0_n_1\,
       I3 => data_tlast_i_2_n_0,
       I4 => data_tlast_i_3_n_0,
       I5 => rst_n,
@@ -750,7 +862,7 @@ data_tuser_i_1: unisim.vcomponents.LUT6
       I0 => \^data_tuser\,
       I1 => rst_n,
       I2 => data_tuser_i_2_n_0,
-      I3 => \data_tvalid0_inferred__0/i__carry__0_n_3\,
+      I3 => \data_tvalid0_inferred__0/i__carry__0_n_1\,
       I4 => mix_is_bpsk_reg_n_0,
       I5 => data_tuser0_out,
       O => data_tuser_i_1_n_0
@@ -794,24 +906,30 @@ data_tuser_reg: unisim.vcomponents.FDRE
       CO(1) => \data_tvalid0_inferred__0/i__carry_n_2\,
       CO(0) => \data_tvalid0_inferred__0/i__carry_n_3\,
       CYINIT => '0',
-      DI(3 downto 1) => B"000",
-      DI(0) => \i__carry_i_1_n_0\,
+      DI(3) => '0',
+      DI(2) => \i__carry_i_1_n_0\,
+      DI(1) => '0',
+      DI(0) => \i__carry_i_2__0_n_0\,
       O(3 downto 0) => \NLW_data_tvalid0_inferred__0/i__carry_O_UNCONNECTED\(3 downto 0),
-      S(3) => \i__carry_i_2__0_n_0\,
-      S(2) => \i__carry_i_3_n_0\,
-      S(1) => \i__carry_i_4__0_n_0\,
-      S(0) => \i__carry_i_5_n_0\
+      S(3) => \i__carry_i_3_n_0\,
+      S(2) => \i__carry_i_4_n_0\,
+      S(1) => \i__carry_i_5_n_0\,
+      S(0) => \i__carry_i_6_n_0\
     );
 \data_tvalid0_inferred__0/i__carry__0\: unisim.vcomponents.CARRY4
      port map (
       CI => \data_tvalid0_inferred__0/i__carry_n_0\,
-      CO(3 downto 1) => \NLW_data_tvalid0_inferred__0/i__carry__0_CO_UNCONNECTED\(3 downto 1),
+      CO(3) => \NLW_data_tvalid0_inferred__0/i__carry__0_CO_UNCONNECTED\(3),
+      CO(2) => \data_tvalid0_inferred__0/i__carry__0_n_1\,
+      CO(1) => \data_tvalid0_inferred__0/i__carry__0_n_2\,
       CO(0) => \data_tvalid0_inferred__0/i__carry__0_n_3\,
       CYINIT => '0',
       DI(3 downto 0) => B"0000",
       O(3 downto 0) => \NLW_data_tvalid0_inferred__0/i__carry__0_O_UNCONNECTED\(3 downto 0),
-      S(3 downto 1) => B"000",
-      S(0) => \i__carry__0_i_1_n_0\
+      S(3) => '0',
+      S(2) => \i__carry__0_i_1__0_n_0\,
+      S(1) => \i__carry__0_i_2_n_0\,
+      S(0) => \i__carry__0_i_3_n_0\
     );
 data_tvalid_i_1: unisim.vcomponents.LUT6
     generic map(
@@ -819,7 +937,7 @@ data_tvalid_i_1: unisim.vcomponents.LUT6
     )
         port map (
       I0 => \^data_tvalid\,
-      I1 => \data_tvalid0_inferred__0/i__carry__0_n_3\,
+      I1 => \data_tvalid0_inferred__0/i__carry__0_n_1\,
       I2 => MODE_CTRL(1),
       I3 => MODE_CTRL(0),
       I4 => data_tvalid_i_2_n_0,
@@ -843,13 +961,12 @@ data_tvalid_reg: unisim.vcomponents.FDRE
       Q => \^data_tvalid\,
       R => '0'
     );
-\i__carry__0_i_1\: unisim.vcomponents.LUT2
+\i__carry__0_i_1\: unisim.vcomponents.LUT1
     generic map(
       INIT => X"1"
     )
         port map (
-      I0 => cnt_reg(14),
-      I1 => cnt_reg(15),
+      I0 => data_tlast1(15),
       O => \i__carry__0_i_1_n_0\
     );
 \i__carry__0_i_1__0\: unisim.vcomponents.LUT2
@@ -857,11 +974,20 @@ data_tvalid_reg: unisim.vcomponents.FDRE
       INIT => X"1"
     )
         port map (
-      I0 => data_tlast1(15),
-      I1 => data_tlast1(16),
+      I0 => \i__carry__0_i_4_n_6\,
+      I1 => \i__carry__0_i_4_n_5\,
       O => \i__carry__0_i_1__0_n_0\
     );
-\i__carry__0_i_2\: unisim.vcomponents.LUT3
+\i__carry__0_i_2\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => \i__carry_i_9_n_4\,
+      I1 => \i__carry__0_i_4_n_7\,
+      O => \i__carry__0_i_2_n_0\
+    );
+\i__carry__0_i_2__0\: unisim.vcomponents.LUT3
     generic map(
       INIT => X"01"
     )
@@ -869,20 +995,30 @@ data_tvalid_reg: unisim.vcomponents.FDRE
       I0 => data_tlast1(14),
       I1 => data_tlast1(13),
       I2 => data_tlast1(12),
-      O => \i__carry__0_i_2_n_0\
+      O => \i__carry__0_i_2__0_n_0\
     );
-\i__carry__0_i_3\: unisim.vcomponents.CARRY4
+\i__carry__0_i_3\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => \i__carry_i_9_n_6\,
+      I1 => \i__carry_i_9_n_5\,
+      O => \i__carry__0_i_3_n_0\
+    );
+\i__carry__0_i_4\: unisim.vcomponents.CARRY4
      port map (
-      CI => \i__carry_i_5__0_n_0\,
-      CO(3) => data_tlast1(16),
-      CO(2) => \NLW_i__carry__0_i_3_CO_UNCONNECTED\(2),
-      CO(1) => \i__carry__0_i_3_n_2\,
-      CO(0) => \i__carry__0_i_3_n_3\,
+      CI => \i__carry_i_9_n_0\,
+      CO(3 downto 2) => \NLW_i__carry__0_i_4_CO_UNCONNECTED\(3 downto 2),
+      CO(1) => \i__carry__0_i_4_n_2\,
+      CO(0) => \i__carry__0_i_4_n_3\,
       CYINIT => '0',
       DI(3 downto 0) => B"0000",
-      O(3) => \NLW_i__carry__0_i_3_O_UNCONNECTED\(3),
-      O(2 downto 0) => data_tlast1(15 downto 13),
-      S(3) => '1',
+      O(3) => \NLW_i__carry__0_i_4_O_UNCONNECTED\(3),
+      O(2) => \i__carry__0_i_4_n_5\,
+      O(1) => \i__carry__0_i_4_n_6\,
+      O(0) => \i__carry__0_i_4_n_7\,
+      S(3) => '0',
       S(2 downto 0) => cnt_reg(15 downto 13)
     );
 \i__carry_i_1\: unisim.vcomponents.LUT3
@@ -890,8 +1026,8 @@ data_tvalid_reg: unisim.vcomponents.FDRE
       INIT => X"31"
     )
         port map (
-      I0 => cnt_reg(6),
-      I1 => cnt_reg(7),
+      I0 => \i__carry_i_7_n_6\,
+      I1 => \i__carry_i_7_n_5\,
       I2 => mix_is_bpsk_reg_n_0,
       O => \i__carry_i_1_n_0\
     );
@@ -921,8 +1057,8 @@ data_tvalid_reg: unisim.vcomponents.FDRE
       INIT => X"1"
     )
         port map (
-      I0 => cnt_reg(12),
-      I1 => cnt_reg(13),
+      I0 => \i__carry_i_8_n_6\,
+      I1 => \i__carry_i_8_n_5\,
       O => \i__carry_i_2__0_n_0\
     );
 \i__carry_i_3\: unisim.vcomponents.LUT2
@@ -930,8 +1066,8 @@ data_tvalid_reg: unisim.vcomponents.FDRE
       INIT => X"1"
     )
         port map (
-      I0 => cnt_reg(10),
-      I1 => cnt_reg(11),
+      I0 => \i__carry_i_7_n_4\,
+      I1 => \i__carry_i_9_n_7\,
       O => \i__carry_i_3_n_0\
     );
 \i__carry_i_3__0\: unisim.vcomponents.LUT3
@@ -946,68 +1082,86 @@ data_tvalid_reg: unisim.vcomponents.FDRE
     );
 \i__carry_i_4\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"02"
+      INIT => X"42"
     )
         port map (
-      I0 => cnt_reg(0),
-      I1 => data_tlast1(2),
-      I2 => data_tlast1(1),
+      I0 => \i__carry_i_7_n_6\,
+      I1 => mix_is_bpsk_reg_n_0,
+      I2 => \i__carry_i_7_n_5\,
       O => \i__carry_i_4_n_0\
     );
-\i__carry_i_4__0\: unisim.vcomponents.LUT2
+\i__carry_i_4__0\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"04"
+    )
+        port map (
+      I0 => data_tlast1(1),
+      I1 => data_tlast1(2),
+      I2 => data_tlast1(0),
+      O => \i__carry_i_4__0_n_0\
+    );
+\i__carry_i_5\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"1"
     )
         port map (
-      I0 => cnt_reg(8),
-      I1 => cnt_reg(9),
-      O => \i__carry_i_4__0_n_0\
-    );
-\i__carry_i_5\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"42"
-    )
-        port map (
-      I0 => cnt_reg(6),
-      I1 => mix_is_bpsk_reg_n_0,
-      I2 => cnt_reg(7),
+      I0 => \i__carry_i_8_n_4\,
+      I1 => \i__carry_i_7_n_7\,
       O => \i__carry_i_5_n_0\
     );
-\i__carry_i_5__0\: unisim.vcomponents.CARRY4
-     port map (
-      CI => \i__carry_i_6_n_0\,
-      CO(3) => \i__carry_i_5__0_n_0\,
-      CO(2) => \i__carry_i_5__0_n_1\,
-      CO(1) => \i__carry_i_5__0_n_2\,
-      CO(0) => \i__carry_i_5__0_n_3\,
-      CYINIT => '0',
-      DI(3 downto 0) => B"0000",
-      O(3 downto 0) => data_tlast1(12 downto 9),
-      S(3 downto 0) => cnt_reg(12 downto 9)
-    );
-\i__carry_i_6\: unisim.vcomponents.CARRY4
-     port map (
-      CI => \i__carry_i_7_n_0\,
-      CO(3) => \i__carry_i_6_n_0\,
-      CO(2) => \i__carry_i_6_n_1\,
-      CO(1) => \i__carry_i_6_n_2\,
-      CO(0) => \i__carry_i_6_n_3\,
-      CYINIT => '0',
-      DI(3 downto 0) => B"0000",
-      O(3 downto 0) => data_tlast1(8 downto 5),
-      S(3 downto 0) => cnt_reg(8 downto 5)
+\i__carry_i_6\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"2"
+    )
+        port map (
+      I0 => \i__carry_i_8_n_6\,
+      I1 => \i__carry_i_8_n_5\,
+      O => \i__carry_i_6_n_0\
     );
 \i__carry_i_7\: unisim.vcomponents.CARRY4
      port map (
-      CI => '0',
+      CI => \i__carry_i_8_n_0\,
       CO(3) => \i__carry_i_7_n_0\,
       CO(2) => \i__carry_i_7_n_1\,
       CO(1) => \i__carry_i_7_n_2\,
       CO(0) => \i__carry_i_7_n_3\,
+      CYINIT => '0',
+      DI(3 downto 0) => B"0000",
+      O(3) => \i__carry_i_7_n_4\,
+      O(2) => \i__carry_i_7_n_5\,
+      O(1) => \i__carry_i_7_n_6\,
+      O(0) => \i__carry_i_7_n_7\,
+      S(3 downto 0) => cnt_reg(8 downto 5)
+    );
+\i__carry_i_8\: unisim.vcomponents.CARRY4
+     port map (
+      CI => '0',
+      CO(3) => \i__carry_i_8_n_0\,
+      CO(2) => \i__carry_i_8_n_1\,
+      CO(1) => \i__carry_i_8_n_2\,
+      CO(0) => \i__carry_i_8_n_3\,
       CYINIT => cnt_reg(0),
       DI(3 downto 0) => B"0000",
-      O(3 downto 0) => data_tlast1(4 downto 1),
+      O(3) => \i__carry_i_8_n_4\,
+      O(2) => \i__carry_i_8_n_5\,
+      O(1) => \i__carry_i_8_n_6\,
+      O(0) => \NLW_i__carry_i_8_O_UNCONNECTED\(0),
       S(3 downto 0) => cnt_reg(4 downto 1)
+    );
+\i__carry_i_9\: unisim.vcomponents.CARRY4
+     port map (
+      CI => \i__carry_i_7_n_0\,
+      CO(3) => \i__carry_i_9_n_0\,
+      CO(2) => \i__carry_i_9_n_1\,
+      CO(1) => \i__carry_i_9_n_2\,
+      CO(0) => \i__carry_i_9_n_3\,
+      CYINIT => '0',
+      DI(3 downto 0) => B"0000",
+      O(3) => \i__carry_i_9_n_4\,
+      O(2) => \i__carry_i_9_n_5\,
+      O(1) => \i__carry_i_9_n_6\,
+      O(0) => \i__carry_i_9_n_7\,
+      S(3 downto 0) => cnt_reg(12 downto 9)
     );
 inst_PN_Gen_N4: entity work.\top_Tx_Data_0_0_PN_Gen__parameterized0\
      port map (
@@ -1031,7 +1185,7 @@ mix_is_bpsk_i_1: unisim.vcomponents.LUT6
       I0 => rst_n,
       I1 => mix_is_bpsk_reg_n_0,
       I2 => data_tvalid_i_2_n_0,
-      I3 => \data_tvalid0_inferred__0/i__carry__0_n_3\,
+      I3 => \data_tvalid0_inferred__0/i__carry__0_n_1\,
       I4 => pkt_sent,
       I5 => mix_is_bpsk_i_2_n_0,
       O => mix_is_bpsk_i_1_n_0
@@ -1139,6 +1293,7 @@ inst: entity work.top_Tx_Data_0_0_Tx_Data
       data_tdata(1) => \^data_tdata\(6),
       data_tdata(0) => \^data_tdata\(0),
       data_tlast => data_tlast,
+      data_tready => data_tready,
       data_tuser => data_tuser,
       data_tvalid => data_tvalid,
       pkt_sent => pkt_sent,
