@@ -7,7 +7,8 @@
       "name": "top",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
       "synth_flow_mode": "Hierarchical",
-      "tool_version": "2022.2"
+      "tool_version": "2022.2",
+      "validated": "true"
     },
     "design_tree": {
       "RF_Data_Converter": "",
@@ -77,58 +78,150 @@
         "type": "clk",
         "direction": "I",
         "parameters": {
+          "CLK_DOMAIN": {
+            "value": "top_PL_CLK_100MHz",
+            "value_src": "default"
+          },
           "FREQ_HZ": {
             "value": "100000000"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
           }
         }
       },
       "AD9361_TX_FRAME": {
         "type": "data",
-        "direction": "O"
+        "direction": "O",
+        "parameters": {
+          "LAYERED_METADATA": {
+            "value": "undef",
+            "value_src": "default"
+          }
+        }
       },
       "AD9361_P1_D": {
         "type": "data",
         "direction": "O",
         "left": "11",
-        "right": "0"
+        "right": "0",
+        "parameters": {
+          "LAYERED_METADATA": {
+            "value": "undef",
+            "value_src": "default"
+          }
+        }
       },
       "AD9361_FBCLK": {
         "type": "clk",
-        "direction": "O"
+        "direction": "O",
+        "parameters": {
+          "FREQ_HZ": {
+            "value": "100000000",
+            "value_src": "default"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
+          }
+        }
       },
       "AD9361_P0_D": {
         "type": "data",
         "direction": "I",
         "left": "11",
-        "right": "0"
+        "right": "0",
+        "parameters": {
+          "LAYERED_METADATA": {
+            "value": "undef",
+            "value_src": "default"
+          }
+        }
       },
       "AD9361_DATACLK": {
         "type": "clk",
         "direction": "I",
         "parameters": {
+          "CLK_DOMAIN": {
+            "value": "top_AD9361_DATACLK",
+            "value_src": "default"
+          },
           "FREQ_HZ": {
             "value": "30720000"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
           }
         }
       },
       "AD9361_RX_FRAME": {
         "type": "data",
-        "direction": "I"
+        "direction": "I",
+        "parameters": {
+          "LAYERED_METADATA": {
+            "value": "undef",
+            "value_src": "default"
+          }
+        }
       },
       "GPIO_TH1": {
         "type": "data",
-        "direction": "O"
+        "direction": "O",
+        "parameters": {
+          "LAYERED_METADATA": {
+            "value": "undef",
+            "value_src": "default"
+          }
+        }
       },
       "GPIO_TH2": {
         "type": "data",
-        "direction": "O"
+        "direction": "O",
+        "parameters": {
+          "LAYERED_METADATA": {
+            "value": "undef",
+            "value_src": "default"
+          }
+        }
       },
       "GPIO_TH3": {
         "direction": "O"
       },
       "GPIO_TH4": {
         "type": "data",
-        "direction": "O"
+        "direction": "O",
+        "parameters": {
+          "LAYERED_METADATA": {
+            "value": "undef",
+            "value_src": "default"
+          }
+        }
       }
     },
     "components": {
@@ -420,20 +513,62 @@
             "ports": {
               "clk_16M384": {
                 "type": "clk",
-                "direction": "I"
+                "direction": "I",
+                "parameters": {
+                  "ASSOCIATED_RESET": {
+                    "value": "rst_16M386:rst_16M384",
+                    "value_src": "strong"
+                  },
+                  "CLK_DOMAIN": {
+                    "value": "costas_loop_aclk_0",
+                    "value_src": "strong"
+                  },
+                  "FREQ_HZ": {
+                    "value": "16384000",
+                    "value_src": "strong"
+                  },
+                  "FREQ_TOLERANCE_HZ": {
+                    "value": "0",
+                    "value_src": "strong"
+                  },
+                  "INSERT_VIP": {
+                    "value": "0",
+                    "value_src": "strong"
+                  },
+                  "PHASE": {
+                    "value": "0.0",
+                    "value_src": "strong"
+                  }
+                }
               },
               "PSK_signal": {
                 "type": "data",
                 "direction": "I",
                 "left": "11",
-                "right": "0"
+                "right": "0",
+                "parameters": {
+                  "LAYERED_METADATA": {
+                    "value": "undef",
+                    "value_src": "strong"
+                  }
+                }
               },
               "is_bpsk": {
                 "direction": "I"
               },
               "rst_16M384": {
                 "type": "rst",
-                "direction": "I"
+                "direction": "I",
+                "parameters": {
+                  "INSERT_VIP": {
+                    "value": "0",
+                    "value_src": "strong"
+                  },
+                  "POLARITY": {
+                    "value": "ACTIVE_HIGH",
+                    "value_src": "const_prop"
+                  }
+                }
               },
               "NCO_cos": {
                 "direction": "O",
@@ -444,7 +579,13 @@
                 "type": "data",
                 "direction": "I",
                 "left": "3",
-                "right": "0"
+                "right": "0",
+                "parameters": {
+                  "LAYERED_METADATA": {
+                    "value": "undef",
+                    "value_src": "strong"
+                  }
+                }
               },
               "I_data": {
                 "direction": "O",
@@ -468,7 +609,7 @@
             "variant_info": {
               "costas_loop.bd": {
                 "scoped_diagram": "costas_loop_inst_0.bd",
-                "design_checksum": "0x23FFC9F0",
+                "design_checksum": "0x504FA1BA",
                 "ref_name": "costas_loop",
                 "ref_subinst_path": "top_costas_loop_0",
                 "ref_type": "Block Design",
@@ -680,11 +821,48 @@
             "ports": {
               "clk_32M768": {
                 "type": "clk",
-                "direction": "I"
+                "direction": "I",
+                "parameters": {
+                  "ASSOCIATED_RESET": {
+                    "value": "rst_32M768",
+                    "value_src": "strong"
+                  },
+                  "CLK_DOMAIN": {
+                    "value": "/Clock_Gen/clk_wiz_32M768_clk_out1",
+                    "value_src": "ip_prop"
+                  },
+                  "FREQ_HZ": {
+                    "value": "32768000",
+                    "value_src": "ip_prop"
+                  },
+                  "FREQ_TOLERANCE_HZ": {
+                    "value": "0",
+                    "value_src": "strong"
+                  },
+                  "INSERT_VIP": {
+                    "value": "0",
+                    "value_src": "strong"
+                  },
+                  "PHASE": {
+                    "value": "0.0",
+                    "value_src": "ip_prop"
+                  }
+                }
               },
               "is_bpsk": {
                 "type": "data",
-                "direction": "I"
+                "direction": "I",
+                "parameters": {
+                  "LAYERED_METADATA": {
+                    "value": [
+                      "xilinx.com:interface:datatypes:1.0 {",
+                      "DATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value data} bitwidth {attribs {resolve_type generated dependency data_bitwidth format long",
+                      "minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}} DATA_WIDTH 1",
+                      "}"
+                    ],
+                    "value_src": "ip_prop"
+                  }
+                }
               },
               "I_1M": {
                 "direction": "O",
@@ -701,19 +879,41 @@
               },
               "rst_32M768": {
                 "type": "rst",
-                "direction": "I"
+                "direction": "I",
+                "parameters": {
+                  "INSERT_VIP": {
+                    "value": "0",
+                    "value_src": "strong"
+                  },
+                  "POLARITY": {
+                    "value": "ACTIVE_HIGH",
+                    "value_src": "const_prop"
+                  }
+                }
               },
               "GARDNER_SHIFT": {
                 "type": "data",
                 "direction": "I",
                 "left": "3",
-                "right": "0"
+                "right": "0",
+                "parameters": {
+                  "LAYERED_METADATA": {
+                    "value": "undef",
+                    "value_src": "strong"
+                  }
+                }
               },
               "error_n": {
                 "type": "data",
                 "direction": "O",
                 "left": "15",
-                "right": "0"
+                "right": "0",
+                "parameters": {
+                  "LAYERED_METADATA": {
+                    "value": "undef",
+                    "value_src": "default"
+                  }
+                }
               },
               "I_tdata": {
                 "direction": "I",

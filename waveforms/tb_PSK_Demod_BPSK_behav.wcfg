@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.000000 us"></ZoomStartTime>
-      <ZoomEndTime time="15.000001 us"></ZoomEndTime>
-      <Cursor1Time time="0.236100 us"></Cursor1Time>
+      <ZoomStartTime time="32.500000 us"></ZoomStartTime>
+      <ZoomEndTime time="47.500001 us"></ZoomEndTime>
+      <Cursor1Time time="45.000000 us"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="303"></NameColumnWidth>
-      <ValueColumnWidth column_width="92"></ValueColumnWidth>
+      <ValueColumnWidth column_width="82"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="76" />
+   <WVObjectSize size="48" />
    <wvobject fp_name="/tb_PSK_Demod_BPSK/clk_32M768" type="logic">
       <obj_property name="ElementShortName">clk_32M768</obj_property>
       <obj_property name="ObjectShortName">clk_32M768</obj_property>
@@ -103,10 +103,28 @@
    <wvobject fp_name="/tb_PSK_Demod_BPSK/ADC_I" type="array">
       <obj_property name="ElementShortName">ADC_I[11:0]</obj_property>
       <obj_property name="ObjectShortName">ADC_I[11:0]</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+      <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+      <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+      <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_LINEAR</obj_property>
+      <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+      <obj_property name="AnalogHorizLine">0.000000</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_PSK_Demod_BPSK/ADC_Q" type="array">
       <obj_property name="ElementShortName">ADC_Q[11:0]</obj_property>
       <obj_property name="ObjectShortName">ADC_Q[11:0]</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+      <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+      <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+      <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_LINEAR</obj_property>
+      <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+      <obj_property name="AnalogHorizLine">0.000000</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_PSK_Demod_BPSK/BPSK" type="logic">
       <obj_property name="ElementShortName">BPSK</obj_property>
@@ -167,7 +185,6 @@
       <obj_property name="Detail_Data">/tb_PSK_Demod_BPSK/inst_Rx/costas_loop_0/Error_Detect/error.streamTooltipData</obj_property>
       <obj_property name="ElementShortName">error</obj_property>
       <obj_property name="ObjectShortName">error</obj_property>
-      <obj_property name="isExpanded"></obj_property>
    </wvobject>
    <wvobject fp_name="/tb_PSK_Demod_BPSK/inst_Rx/costas_loop_0/Error_Detect/Error_Detect_Ctrl_0_error_TDATA" type="array">
       <obj_property name="ElementShortName">Error_Detect_Ctrl_0_error_TDATA[15:0]</obj_property>
@@ -183,14 +200,28 @@
    <wvobject fp_name="/tb_PSK_Demod_BPSK/I_1M" type="array">
       <obj_property name="ElementShortName">I_1M[15:0]</obj_property>
       <obj_property name="ObjectShortName">I_1M[15:0]</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_FIXED</obj_property>
+      <obj_property name="AnalogYRangeMin">-512.000000</obj_property>
+      <obj_property name="AnalogYRRangeMax">512.000000</obj_property>
+      <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_LINEAR</obj_property>
+      <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+      <obj_property name="AnalogHorizLine">0.000000</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_PSK_Demod_BPSK/Q_1M" type="array">
       <obj_property name="ElementShortName">Q_1M[15:0]</obj_property>
       <obj_property name="ObjectShortName">Q_1M[15:0]</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_PSK_Demod_BPSK/NCO_cos" type="array">
       <obj_property name="ElementShortName">NCO_cos[11:0]</obj_property>
       <obj_property name="ObjectShortName">NCO_cos[11:0]</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_PSK_Demod_BPSK/QPSK" type="array">
       <obj_property name="ElementShortName">QPSK[1:0]</obj_property>
@@ -201,27 +232,31 @@
       <obj_property name="ElementShortName">QPSK_raw[1:0]</obj_property>
       <obj_property name="ObjectShortName">QPSK_raw[1:0]</obj_property>
       <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/tb_PSK_Demod_BPSK/QPSK_raw[1]" type="logic">
+         <obj_property name="ElementShortName">[1]</obj_property>
+         <obj_property name="ObjectShortName">[1]</obj_property>
+         <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_PSK_Demod_BPSK/QPSK_raw[0]" type="logic">
+         <obj_property name="ElementShortName">[0]</obj_property>
+         <obj_property name="ObjectShortName">[0]</obj_property>
+      </wvobject>
    </wvobject>
    <wvobject fp_name="/tb_PSK_Demod_BPSK/DAC_bits" type="array">
       <obj_property name="ElementShortName">DAC_bits[1:0]</obj_property>
       <obj_property name="ObjectShortName">DAC_bits[1:0]</obj_property>
       <obj_property name="isExpanded"></obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_PSK_Demod_BPSK/RX_BD_WINDOW" type="array">
-      <obj_property name="ElementShortName">RX_BD_WINDOW[7:0]</obj_property>
-      <obj_property name="ObjectShortName">RX_BD_WINDOW[7:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_PSK_Demod_BPSK/RX_PD_WINDOW" type="array">
-      <obj_property name="ElementShortName">RX_PD_WINDOW[7:0]</obj_property>
-      <obj_property name="ObjectShortName">RX_PD_WINDOW[7:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_PSK_Demod_BPSK/RX_SD_THRESHOLD" type="array">
-      <obj_property name="ElementShortName">RX_SD_THRESHOLD[15:0]</obj_property>
-      <obj_property name="ObjectShortName">RX_SD_THRESHOLD[15:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_PSK_Demod_BPSK/RX_SD_WINDOW" type="array">
-      <obj_property name="ElementShortName">RX_SD_WINDOW[7:0]</obj_property>
-      <obj_property name="ObjectShortName">RX_SD_WINDOW[7:0]</obj_property>
+      <wvobject fp_name="/tb_PSK_Demod_BPSK/DAC_bits[1]" type="logic">
+         <obj_property name="ElementShortName">[1]</obj_property>
+         <obj_property name="ObjectShortName">[1]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_PSK_Demod_BPSK/DAC_bits[0]" type="logic">
+         <obj_property name="ElementShortName">[0]</obj_property>
+         <obj_property name="ObjectShortName">[0]</obj_property>
+      </wvobject>
    </wvobject>
    <wvobject fp_name="/tb_PSK_Demod_BPSK/Rx_1bit" type="logic">
       <obj_property name="ElementShortName">Rx_1bit</obj_property>
@@ -258,101 +293,5 @@
    <wvobject fp_name="/tb_PSK_Demod_BPSK/MODE_MIX" type="array">
       <obj_property name="ElementShortName">MODE_MIX[3:0]</obj_property>
       <obj_property name="ObjectShortName">MODE_MIX[3:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_PSK_Demod_BPSK/inst_Rx/costas_loop_0/Error_Detect/Error_Detect_Ctrl_0/in_I_tdata" type="array">
-      <obj_property name="ElementShortName">in_I_tdata[15:0]</obj_property>
-      <obj_property name="ObjectShortName">in_I_tdata[15:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_PSK_Demod_BPSK/inst_Rx/costas_loop_0/Error_Detect/Error_Detect_Ctrl_0/in_I_tvalid" type="logic">
-      <obj_property name="ElementShortName">in_I_tvalid</obj_property>
-      <obj_property name="ObjectShortName">in_I_tvalid</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_PSK_Demod_BPSK/inst_Rx/costas_loop_0/Error_Detect/Error_Detect_Ctrl_0/in_Q_tdata" type="array">
-      <obj_property name="ElementShortName">in_Q_tdata[15:0]</obj_property>
-      <obj_property name="ObjectShortName">in_Q_tdata[15:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_PSK_Demod_BPSK/inst_Rx/costas_loop_0/Error_Detect/Error_Detect_Ctrl_0/in_Q_tvalid" type="logic">
-      <obj_property name="ElementShortName">in_Q_tvalid</obj_property>
-      <obj_property name="ObjectShortName">in_Q_tvalid</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_PSK_Demod_BPSK/inst_Rx/costas_loop_0/Error_Detect/Error_Detect_Ctrl_0/out_I_tdata" type="array">
-      <obj_property name="ElementShortName">out_I_tdata[15:0]</obj_property>
-      <obj_property name="ObjectShortName">out_I_tdata[15:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_PSK_Demod_BPSK/inst_Rx/costas_loop_0/Error_Detect/Error_Detect_Ctrl_0/out_I_tvalid" type="logic">
-      <obj_property name="ElementShortName">out_I_tvalid</obj_property>
-      <obj_property name="ObjectShortName">out_I_tvalid</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_PSK_Demod_BPSK/inst_Rx/costas_loop_0/Error_Detect/Error_Detect_Ctrl_0/out_Q_tdata" type="array">
-      <obj_property name="ElementShortName">out_Q_tdata[15:0]</obj_property>
-      <obj_property name="ObjectShortName">out_Q_tdata[15:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_PSK_Demod_BPSK/inst_Rx/costas_loop_0/Error_Detect/Error_Detect_Ctrl_0/out_Q_tvalid" type="logic">
-      <obj_property name="ElementShortName">out_Q_tvalid</obj_property>
-      <obj_property name="ObjectShortName">out_Q_tvalid</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_PSK_Demod_BPSK/inst_Rx/costas_loop_0/Error_Detect/Error_Detect_Ctrl_0/error_bpsk_tdata" type="array">
-      <obj_property name="ElementShortName">error_bpsk_tdata[15:0]</obj_property>
-      <obj_property name="ObjectShortName">error_bpsk_tdata[15:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_PSK_Demod_BPSK/inst_Rx/costas_loop_0/Error_Detect/Error_Detect_Ctrl_0/error_bpsk_tvalid" type="logic">
-      <obj_property name="ElementShortName">error_bpsk_tvalid</obj_property>
-      <obj_property name="ObjectShortName">error_bpsk_tvalid</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_PSK_Demod_BPSK/inst_Rx/costas_loop_0/Error_Detect/Error_Detect_Ctrl_0/error_qpsk_tdata" type="array">
-      <obj_property name="ElementShortName">error_qpsk_tdata[15:0]</obj_property>
-      <obj_property name="ObjectShortName">error_qpsk_tdata[15:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_PSK_Demod_BPSK/inst_Rx/costas_loop_0/Error_Detect/Error_Detect_Ctrl_0/error_qpsk_tvalid" type="logic">
-      <obj_property name="ElementShortName">error_qpsk_tvalid</obj_property>
-      <obj_property name="ObjectShortName">error_qpsk_tvalid</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_PSK_Demod_BPSK/inst_Rx/costas_loop_0/Error_Detect/Error_Detect_Ctrl_0/error_tdata" type="array">
-      <obj_property name="ElementShortName">error_tdata[15:0]</obj_property>
-      <obj_property name="ObjectShortName">error_tdata[15:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_PSK_Demod_BPSK/inst_Rx/costas_loop_0/Error_Detect/Error_Detect_Ctrl_0/error_tvalid" type="logic">
-      <obj_property name="ElementShortName">error_tvalid</obj_property>
-      <obj_property name="ObjectShortName">error_tvalid</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_PSK_Demod_BPSK/inst_Rx/costas_loop_0/Error_Detect/Error_Detect_Ctrl_0/is_bpsk_delayed" type="logic">
-      <obj_property name="ElementShortName">is_bpsk_delayed</obj_property>
-      <obj_property name="ObjectShortName">is_bpsk_delayed</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_PSK_Demod_BPSK/inst_Rx/costas_loop_0/NCO/NCO_vld" type="logic">
-      <obj_property name="ElementShortName">NCO_vld</obj_property>
-      <obj_property name="ObjectShortName">NCO_vld</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_PSK_Demod_BPSK/inst_Rx/costas_loop_0/NCO/feedback_tdata" type="array">
-      <obj_property name="ElementShortName">feedback_tdata[15:0]</obj_property>
-      <obj_property name="ObjectShortName">feedback_tdata[15:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_PSK_Demod_BPSK/inst_Rx/costas_loop_0/NCO/feedback_tvalid" type="logic">
-      <obj_property name="ElementShortName">feedback_tvalid</obj_property>
-      <obj_property name="ObjectShortName">feedback_tvalid</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_PSK_Demod_BPSK/inst_Rx/costas_loop_0/phase_detector_I/A" type="array">
-      <obj_property name="ElementShortName">A[11:0]</obj_property>
-      <obj_property name="ObjectShortName">A[11:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_PSK_Demod_BPSK/inst_Rx/costas_loop_0/phase_detector_I/B" type="array">
-      <obj_property name="ElementShortName">B[11:0]</obj_property>
-      <obj_property name="ObjectShortName">B[11:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_PSK_Demod_BPSK/inst_Rx/costas_loop_0/phase_detector_I/P" type="array">
-      <obj_property name="ElementShortName">P[15:0]</obj_property>
-      <obj_property name="ObjectShortName">P[15:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_PSK_Demod_BPSK/inst_Rx/costas_loop_0/phase_detector_Q/A" type="array">
-      <obj_property name="ElementShortName">A[11:0]</obj_property>
-      <obj_property name="ObjectShortName">A[11:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_PSK_Demod_BPSK/inst_Rx/costas_loop_0/phase_detector_Q/B" type="array">
-      <obj_property name="ElementShortName">B[11:0]</obj_property>
-      <obj_property name="ObjectShortName">B[11:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_PSK_Demod_BPSK/inst_Rx/costas_loop_0/phase_detector_Q/P" type="array">
-      <obj_property name="ElementShortName">P[15:0]</obj_property>
-      <obj_property name="ObjectShortName">P[15:0]</obj_property>
    </wvobject>
 </wave_config>

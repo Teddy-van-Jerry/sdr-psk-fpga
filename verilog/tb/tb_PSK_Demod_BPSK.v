@@ -16,7 +16,7 @@ module tb_PSK_Demod_BPSK;
   reg clk_2M048;
 
   // Tx wires
-  wire [11:0] DAC_I, DAC_Q;
+  wire signed [11:0] DAC_I, DAC_Q;
   wire  [1:0] DAC_bits;
   wire        DAC_vld;
   wire  [3:0] DELAY_CNT;
@@ -113,7 +113,7 @@ module tb_PSK_Demod_BPSK;
   // loopback
   assign ADC_I = DAC_vld ? (DAC_I / 2 + noise_I) : 0; // loopback with gain and noise
   assign ADC_Q = DAC_vld ? (DAC_Q / 2 + noise_Q) : 0; // loopback with gain and noise
-  assign FEEDBACK_SHIFT = 4'd3;
+  assign FEEDBACK_SHIFT = 4'd0;
   assign GARDNER_SHIFT = 4'd3;
   assign RX_BD_WINDOW = 8'd16;
   assign RX_PD_WINDOW = 8'd16;
@@ -149,8 +149,8 @@ module tb_PSK_Demod_BPSK;
   // random number
   always begin
     #2
-    noise_I <= $urandom_range(128);
-    noise_Q <= $urandom_range(128);
+    noise_I <= $urandom_range(32);
+    noise_Q <= $urandom_range(32);
   end
 
 endmodule

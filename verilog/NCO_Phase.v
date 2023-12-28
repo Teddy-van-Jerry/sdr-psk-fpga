@@ -33,7 +33,7 @@ module NCO_Phase # (
       end
       else begin
         phase_tdata <= FREE_FREQ;
-        phase_tvalid <= feedback_tvalid;
+        phase_tvalid <= 1'b1;
       end
     end
   end

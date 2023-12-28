@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Dec 28 23:18:31 2023" VIVADOVERSION="2022.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Dec 29 00:28:48 2023" VIVADOVERSION="2022.2">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z020" NAME="costas_loop_inst_0" PACKAGE="clg484" SPEEDGRADE="-1"/>
 
@@ -15,8 +15,8 @@
         <CONNECTION INSTANCE="LPF_LP_filter" PORT="aclk"/>
         <CONNECTION INSTANCE="LPF_c_shift_ram_0" PORT="CLK"/>
         <CONNECTION INSTANCE="NCO_NCO_DDS" PORT="aclk"/>
-        <CONNECTION INSTANCE="NCO_NCO_Phase_0" PORT="clk"/>
         <CONNECTION INSTANCE="NCO_NCO_cos_sin_0" PORT="clk"/>
+        <CONNECTION INSTANCE="NCO_NCO_Phase_0" PORT="clk"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" LEFT="11" NAME="PSK_signal" RIGHT="0" SIGIS="data" SIGNAME="External_Ports_PSK_signal">
@@ -1004,7 +1004,7 @@
         <PARAMETER NAME="C_XDEVICEFAMILY" VALUE="zynq"/>
         <PARAMETER NAME="C_VERBOSITY" VALUE="0"/>
         <PARAMETER NAME="C_WIDTH" VALUE="1"/>
-        <PARAMETER NAME="C_DEPTH" VALUE="4"/>
+        <PARAMETER NAME="C_DEPTH" VALUE="64"/>
         <PARAMETER NAME="C_ADDR_WIDTH" VALUE="4"/>
         <PARAMETER NAME="C_SHIFT_TYPE" VALUE="0"/>
         <PARAMETER NAME="C_OPT_GOAL" VALUE="0"/>
@@ -1029,7 +1029,7 @@
         <PARAMETER NAME="RegLastBit" VALUE="true"/>
         <PARAMETER NAME="CE" VALUE="false"/>
         <PARAMETER NAME="Width" VALUE="1"/>
-        <PARAMETER NAME="Depth" VALUE="4"/>
+        <PARAMETER NAME="Depth" VALUE="64"/>
         <PARAMETER NAME="DefaultDataRadix" VALUE="2"/>
         <PARAMETER NAME="DefaultData" VALUE="0"/>
         <PARAMETER NAME="ReadMifFile" VALUE="false"/>

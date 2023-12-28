@@ -14,7 +14,7 @@
         "RegLastBit": [ { "value": "true", "resolve_type": "user", "format": "bool", "enabled": false, "usage": "all" } ],
         "CE": [ { "value": "false", "resolve_type": "user", "format": "bool", "usage": "all" } ],
         "Width": [ { "value": "1", "value_src": "user", "value_permission": "bd_and_user", "resolve_type": "user", "format": "long", "usage": "all" } ],
-        "Depth": [ { "value": "256", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
+        "Depth": [ { "value": "64", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "DefaultDataRadix": [ { "value": "2", "resolve_type": "user", "usage": "all" } ],
         "DefaultData": [ { "value": "0", "resolve_type": "user", "usage": "all" } ],
         "ReadMifFile": [ { "value": "false", "resolve_type": "user", "format": "bool", "usage": "all" } ],
@@ -33,7 +33,7 @@
         "C_XDEVICEFAMILY": [ { "value": "zynq", "resolve_type": "generated", "usage": "all" } ],
         "C_VERBOSITY": [ { "value": "0", "resolve_type": "generated", "format": "long", "usage": "all" } ],
         "C_WIDTH": [ { "value": "1", "resolve_type": "generated", "format": "long", "usage": "all" } ],
-        "C_DEPTH": [ { "value": "256", "resolve_type": "generated", "format": "long", "usage": "all" } ],
+        "C_DEPTH": [ { "value": "64", "resolve_type": "generated", "format": "long", "usage": "all" } ],
         "C_ADDR_WIDTH": [ { "value": "4", "resolve_type": "generated", "format": "long", "usage": "all" } ],
         "C_SHIFT_TYPE": [ { "value": "0", "resolve_type": "generated", "format": "long", "usage": "all" } ],
         "C_OPT_GOAL": [ { "value": "0", "resolve_type": "generated", "format": "long", "usage": "all" } ],
@@ -102,9 +102,9 @@
             "ASSOCIATED_BUSIF": [ { "value": "q_intf:sinit_intf:sset_intf:d_intf:a_intf", "value_src": "constant", "value_permission": "bd", "usage": "all" } ],
             "ASSOCIATED_RESET": [ { "value": "SCLR", "value_src": "constant", "value_permission": "bd", "usage": "all" } ],
             "ASSOCIATED_CLKEN": [ { "value": "CE", "value_src": "constant", "value_permission": "bd", "usage": "all" } ],
-            "FREQ_HZ": [ { "value": "16384000", "value_src": "user_prop", "value_permission": "bd", "resolve_type": "user", "format": "long", "usage": "all" } ],
+            "FREQ_HZ": [ { "value": "16384000", "value_src": "default_prop", "value_permission": "bd", "resolve_type": "user", "format": "long", "usage": "all" } ],
             "FREQ_TOLERANCE_HZ": [ { "value": "0", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
-            "PHASE": [ { "value": "0.0", "value_permission": "bd", "resolve_type": "generated", "format": "float", "is_ips_inferred": true, "is_static_object": false } ],
+            "PHASE": [ { "value": "0.0", "value_src": "default_prop", "value_permission": "bd", "resolve_type": "generated", "format": "float", "is_ips_inferred": true, "is_static_object": false } ],
             "CLK_DOMAIN": [ { "value": "costas_loop_aclk_0", "value_src": "default_prop", "value_permission": "bd", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
             "ASSOCIATED_PORT": [ { "value": "", "value_permission": "bd", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
             "INSERT_VIP": [ { "value": "0", "resolve_type": "user", "format": "long", "usage": "simulation.rtl", "is_ips_inferred": true, "is_static_object": false } ]
@@ -162,7 +162,7 @@
           "abstraction_type": "xilinx.com:signal:data_rtl:1.0",
           "mode": "master",
           "parameters": {
-            "LAYERED_METADATA": [ { "value": "xilinx.com:interface:datatypes:1.0 {DATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value data} bitwidth {attribs {resolve_type generated dependency data_bitwidth format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}} DATA_WIDTH 1}", "value_permission": "bd", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ]
+            "LAYERED_METADATA": [ { "value": "xilinx.com:interface:datatypes:1.0 {DATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value data} bitwidth {attribs {resolve_type generated dependency data_bitwidth format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}} DATA_WIDTH 1}", "value_src": "propagated", "value_permission": "bd", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ]
           },
           "port_maps": {
             "DATA": [ { "physical_name": "Q" } ]
