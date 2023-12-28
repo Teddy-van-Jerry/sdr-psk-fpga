@@ -50,7 +50,7 @@ module bd_0696_wrapper
   input [0:0]probe22;
   input [11:0]probe3;
   input [11:0]probe4;
-  input [0:0]probe5;
+  input [11:0]probe5;
   input [15:0]probe6;
   input [15:0]probe7;
   input [11:0]probe8;
@@ -75,7 +75,7 @@ module bd_0696_wrapper
   wire [0:0]probe22;
   wire [11:0]probe3;
   wire [11:0]probe4;
-  wire [0:0]probe5;
+  wire [11:0]probe5;
   wire [15:0]probe6;
   wire [15:0]probe7;
   wire [11:0]probe8;

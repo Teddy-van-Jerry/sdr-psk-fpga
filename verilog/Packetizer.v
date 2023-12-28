@@ -136,7 +136,7 @@ module Packetizer # (
             hdr_vld <= 1'b1;
           end
           STATE_PLD: begin
-            if (in_trans) payload_cnt <= payload_cnt + 10'b1;
+            if (in_tvalid) payload_cnt <= payload_cnt + 10'b1;
             else ;
             in_tready <= 1'b1;
             out_tvalid <= in_tvalid;
@@ -212,7 +212,7 @@ module Packetizer # (
         else state_next <= STATE_PLD;
       end
       STATE_LAST: begin
-        if (in_trans) state_next <= STATE_WAIT;
+        if (in_tvalid) state_next <= STATE_WAIT;
         else state_next <= STATE_LAST;
       end
       STATE_WAIT: begin

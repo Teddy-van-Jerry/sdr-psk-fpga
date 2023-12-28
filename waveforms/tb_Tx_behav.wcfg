@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.000000 us"></ZoomStartTime>
-      <ZoomEndTime time="45.000001 us"></ZoomEndTime>
-      <Cursor1Time time="45.000000 us"></Cursor1Time>
+      <ZoomStartTime time="12,194.706 ns"></ZoomStartTime>
+      <ZoomEndTime time="12,585.822 ns"></ZoomEndTime>
+      <Cursor1Time time="12,480.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="203"></NameColumnWidth>
+      <NameColumnWidth column_width="193"></NameColumnWidth>
       <ValueColumnWidth column_width="72"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="58" />
+   <WVObjectSize size="67" />
    <wvobject fp_name="/tb_Tx/DAC_I" type="array">
       <obj_property name="ElementShortName">DAC_I[11:0]</obj_property>
       <obj_property name="ObjectShortName">DAC_I[11:0]</obj_property>
@@ -49,11 +49,65 @@
       <obj_property name="CustomSignalColor">#F0E68C</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_Tx/dut/Packetizer_0/inst/payload_cnt" type="array">
+      <obj_property name="ElementShortName">payload_cnt[15:0]</obj_property>
+      <obj_property name="ObjectShortName">payload_cnt[15:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_Tx/dut/Packetizer_0/pkt_sent" type="logic">
       <obj_property name="ElementShortName">pkt_sent</obj_property>
       <obj_property name="ObjectShortName">pkt_sent</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_Tx/dut/Tx_Data_0/inst/mix_is_bpsk" type="logic">
+      <obj_property name="ElementShortName">mix_is_bpsk</obj_property>
+      <obj_property name="ObjectShortName">mix_is_bpsk</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_Tx/dut/Tx_Data_0/inst/payload_length_symbs" type="array">
+      <obj_property name="ElementShortName">payload_length_symbs[15:0]</obj_property>
+      <obj_property name="ObjectShortName">payload_length_symbs[15:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_Tx/dut/Tx_Data_0/inst/cnt" type="array">
+      <obj_property name="ElementShortName">cnt[15:0]</obj_property>
+      <obj_property name="ObjectShortName">cnt[15:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_Tx/dut/Tx_Data_0/data_tdata" type="array">
+      <obj_property name="ElementShortName">data_tdata[7:0]</obj_property>
+      <obj_property name="ObjectShortName">data_tdata[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_Tx/dut/Tx_Data_0/data_tvalid" type="logic">
+      <obj_property name="ElementShortName">data_tvalid</obj_property>
+      <obj_property name="ObjectShortName">data_tvalid</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_Tx/dut/Tx_Data_0/data_tready" type="logic">
+      <obj_property name="ElementShortName">data_tready</obj_property>
+      <obj_property name="ObjectShortName">data_tready</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_Tx/dut/Tx_Data_0/data_tlast" type="logic">
+      <obj_property name="ElementShortName">data_tlast</obj_property>
+      <obj_property name="ObjectShortName">data_tlast</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_Tx/dut/Tx_Data_0/data_tuser" type="logic">
+      <obj_property name="ElementShortName">data_tuser</obj_property>
+      <obj_property name="ObjectShortName">data_tuser</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_Tx/dut/Packetizer_0/inst/hdr_cnt" type="array">
       <obj_property name="ElementShortName">hdr_cnt[9:0]</obj_property>
@@ -66,6 +120,7 @@
       <obj_property name="ObjectShortName">payload_cnt[15:0]</obj_property>
       <obj_property name="CustomSignalColor">#F0E68C</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_Tx/dut/Packetizer_0/in_tdata" type="array">
       <obj_property name="ElementShortName">in_tdata[7:0]</obj_property>
@@ -216,8 +271,8 @@
       <obj_property name="ObjectShortName">s_axis_tuser[0:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_Tx/dut/PSK_Modulation/PSK_Mod_0/inst/data_tdata" type="array">
-      <obj_property name="ElementShortName">data_tdata[1:0]</obj_property>
-      <obj_property name="ObjectShortName">data_tdata[1:0]</obj_property>
+      <obj_property name="ElementShortName">data_tdata[7:0]</obj_property>
+      <obj_property name="ObjectShortName">data_tdata[7:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_Tx/dut/PSK_Modulation/PSK_Mod_0/inst/data_tvalid" type="logic">
       <obj_property name="ElementShortName">data_tvalid</obj_property>

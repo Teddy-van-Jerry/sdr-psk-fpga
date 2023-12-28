@@ -1,7 +1,7 @@
 //Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-//Date        : Thu Dec 28 03:56:04 2023
+//Date        : Thu Dec 28 12:35:13 2023
 //Host        : TVJ-PC running 64-bit major release  (build 9200)
 //Command     : generate_target top.bd
 //Design      : top
@@ -1054,7 +1054,7 @@ module top
         .probe22(Rx_data_tvalid),
         .probe3(PSK_Mod_0_out_Q),
         .probe4(AD9361_1RT_FDD_0_AD9361_RX_DAT_I),
-        .probe5(AD9361_1RT_FDD_0_AD9361_RX_CLK),
+        .probe5(AD9361_1RT_FDD_0_AD9361_RX_DAT_Q),
         .probe6(Rx_I_16M),
         .probe7(Rx_Q_16M),
         .probe8(Rx_NCO_cos),

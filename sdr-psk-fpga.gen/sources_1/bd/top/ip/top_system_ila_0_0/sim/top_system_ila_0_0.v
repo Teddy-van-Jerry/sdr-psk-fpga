@@ -88,7 +88,7 @@ input wire [1 : 0] probe1;
 input wire [11 : 0] probe2;
 input wire [11 : 0] probe3;
 input wire [11 : 0] probe4;
-input wire [0 : 0] probe5;
+input wire [11 : 0] probe5;
 input wire [15 : 0] probe6;
 input wire [15 : 0] probe7;
 input wire [11 : 0] probe8;

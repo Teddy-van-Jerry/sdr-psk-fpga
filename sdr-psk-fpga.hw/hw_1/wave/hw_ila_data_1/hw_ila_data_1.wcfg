@@ -10,166 +10,214 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0"></ZoomStartTime>
-      <ZoomEndTime time="1,025"></ZoomEndTime>
-      <Cursor1Time time="387"></Cursor1Time>
+      <ZoomEndTime time="2,049"></ZoomEndTime>
+      <Cursor1Time time="403"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="315"></NameColumnWidth>
-      <ValueColumnWidth column_width="88"></ValueColumnWidth>
+      <NameColumnWidth column_width="326"></NameColumnWidth>
+      <ValueColumnWidth column_width="83"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="11" />
+   <WVObjectSize size="23" />
    <wave_markers>
    </wave_markers>
-   <wvobject fp_name="top_i/system_ila_0/inst/probe0_1" type="array">
-      <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="ElementShortName">top_i/system_ila_0/inst/probe0_1[11:0]</obj_property>
-      <obj_property name="ObjectShortName">probe0_1[11:0]</obj_property>
-      <obj_property name="label">PSK_Mod_0_out_I</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-      <obj_property name="CellHeight">100</obj_property>
-   </wvobject>
-   <wvobject fp_name="top_i/system_ila_0/inst/probe1_1" type="array">
-      <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="ElementShortName">top_i/system_ila_0/inst/probe1_1[11:0]</obj_property>
-      <obj_property name="ObjectShortName">probe1_1[11:0]</obj_property>
-      <obj_property name="label">PSK_Mod_0_out_Q</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-      <obj_property name="CellHeight">100</obj_property>
-   </wvobject>
-   <wvobject fp_name="top_i/system_ila_0/inst/probe2_1" type="logic">
-      <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="ElementShortName">top_i/system_ila_0/inst/probe2_1</obj_property>
-      <obj_property name="ObjectShortName">probe2_1</obj_property>
-      <obj_property name="label">Tx_out_vld</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-   </wvobject>
    <wvobject fp_name="top_i/system_ila_0/inst/probe4_1" type="array">
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="ElementShortName">top_i/system_ila_0/inst/probe4_1[11:0]</obj_property>
       <obj_property name="ObjectShortName">probe4_1[11:0]</obj_property>
-      <obj_property name="label">AD9361_1RT_FDD_0_AD9361_RX_DAT_I</obj_property>
       <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="label">AD9361_1RT_FDD_0_AD9361_RX_DAT_I</obj_property>
       <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
       <obj_property name="CellHeight">100</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
    </wvobject>
-   <wvobject fp_name="top_i/system_ila_0/inst/probe5_1" type="array">
+   <wvobject fp_name="top_i/system_ila_0/inst/probe8_1" type="array">
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="ElementShortName">top_i/system_ila_0/inst/probe5_1[11:0]</obj_property>
-      <obj_property name="ObjectShortName">probe5_1[11:0]</obj_property>
-      <obj_property name="label">AD9361_1RT_FDD_0_AD9361_RX_DAT_Q</obj_property>
+      <obj_property name="ElementShortName">top_i/system_ila_0/inst/probe8_1[11:0]</obj_property>
+      <obj_property name="ObjectShortName">probe8_1[11:0]</obj_property>
       <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="label">Rx_NCO_cos</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="top_i/system_ila_0/inst/probe5_1" type="logic">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">top_i/system_ila_0/inst/probe5_1</obj_property>
+      <obj_property name="ObjectShortName">probe5_1</obj_property>
+      <obj_property name="label">AD9361_1RT_FDD_0_AD9361_RX_CLK</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="top_i/system_ila_0/inst/probe14_1" type="logic">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">top_i/system_ila_0/inst/probe14_1</obj_property>
+      <obj_property name="ObjectShortName">probe14_1</obj_property>
+      <obj_property name="label">GPIO_TH4</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="top_i/system_ila_0/inst/probe2_1" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">top_i/system_ila_0/inst/probe2_1[11:0]</obj_property>
+      <obj_property name="ObjectShortName">probe2_1[11:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="label">PSK_Mod_0_out_I</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
       <obj_property name="CellHeight">100</obj_property>
    </wvobject>
    <wvobject fp_name="top_i/system_ila_0/inst/probe3_1" type="array">
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="ElementShortName">top_i/system_ila_0/inst/probe3_1[1:0]</obj_property>
-      <obj_property name="ObjectShortName">probe3_1[1:0]</obj_property>
-      <obj_property name="label">Tx_out_bits</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="ElementShortName">top_i/system_ila_0/inst/probe3_1[11:0]</obj_property>
+      <obj_property name="ObjectShortName">probe3_1[11:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="label">PSK_Mod_0_out_Q</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-      <obj_property name="isExpanded"></obj_property>
-      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-      <wvobject fp_name="top_i/system_ila_0/inst/probe3_1[1]" type="logic">
-         <obj_property name="ElementShortName">[1]</obj_property>
-         <obj_property name="ObjectShortName">[1]</obj_property>
-         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
-         <obj_property name="UseCustomSignalColor">true</obj_property>
-      </wvobject>
-      <wvobject fp_name="top_i/system_ila_0/inst/probe3_1[0]" type="logic">
-         <obj_property name="ElementShortName">[0]</obj_property>
-         <obj_property name="ObjectShortName">[0]</obj_property>
-         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
-         <obj_property name="UseCustomSignalColor">true</obj_property>
-      </wvobject>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
    </wvobject>
-   <wvobject fp_name="top_i/system_ila_0/inst/probe7_1" type="array">
+   <wvobject fp_name="top_i/system_ila_0/inst/probe13_1" type="logic">
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="ElementShortName">top_i/system_ila_0/inst/probe7_1[1:0]</obj_property>
-      <obj_property name="ObjectShortName">probe7_1[1:0]</obj_property>
-      <obj_property name="label">Rx_QPSK</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-      <obj_property name="isExpanded"></obj_property>
-      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-      <wvobject fp_name="top_i/system_ila_0/inst/probe7_1[1]" type="logic">
-         <obj_property name="ElementShortName">[1]</obj_property>
-         <obj_property name="ObjectShortName">[1]</obj_property>
-         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
-         <obj_property name="UseCustomSignalColor">true</obj_property>
-      </wvobject>
-      <wvobject fp_name="top_i/system_ila_0/inst/probe7_1[0]" type="logic">
-         <obj_property name="ElementShortName">[0]</obj_property>
-         <obj_property name="ObjectShortName">[0]</obj_property>
-         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
-         <obj_property name="UseCustomSignalColor">true</obj_property>
-      </wvobject>
-   </wvobject>
-   <wvobject fp_name="top_i/system_ila_0/inst/probe6_1" type="logic">
-      <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="ElementShortName">top_i/system_ila_0/inst/probe6_1</obj_property>
-      <obj_property name="ObjectShortName">probe6_1</obj_property>
+      <obj_property name="ElementShortName">top_i/system_ila_0/inst/probe13_1</obj_property>
+      <obj_property name="ObjectShortName">probe13_1</obj_property>
       <obj_property name="label">Rx_BPSK</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject fp_name="top_i/system_ila_0/inst/probe8_1" type="array">
+   <wvobject fp_name="top_i/system_ila_0/inst/probe19_1" type="array">
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="ElementShortName">top_i/system_ila_0/inst/probe8_1[15:0]</obj_property>
-      <obj_property name="ObjectShortName">probe8_1[15:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-      <obj_property name="label">Rx_I_data</obj_property>
-      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-      <obj_property name="CellHeight">100</obj_property>
+      <obj_property name="ElementShortName">top_i/system_ila_0/inst/probe19_1[7:0]</obj_property>
+      <obj_property name="ObjectShortName">probe19_1[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="label">Rx_data_tdata</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
-      <obj_property name="AnalogYRangeMin">0.000000</obj_property>
-      <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
-      <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_LINEAR</obj_property>
-      <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
-      <obj_property name="AnalogHorizLine">0.000000</obj_property>
-   </wvobject>
-   <wvobject fp_name="top_i/system_ila_0/inst/probe9_1" type="array">
-      <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="ElementShortName">top_i/system_ila_0/inst/probe9_1[15:0]</obj_property>
-      <obj_property name="ObjectShortName">probe9_1[15:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-      <obj_property name="label">Rx_Q_data</obj_property>
-      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-      <obj_property name="CellHeight">100</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="AnalogYRangeMin">0.000000</obj_property>
-      <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
-      <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_LINEAR</obj_property>
-      <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
-      <obj_property name="AnalogHorizLine">0.000000</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
    <wvobject fp_name="top_i/system_ila_0/inst/probe10_1" type="array">
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="ElementShortName">top_i/system_ila_0/inst/probe10_1[11:0]</obj_property>
-      <obj_property name="ObjectShortName">probe10_1[11:0]</obj_property>
+      <obj_property name="ElementShortName">top_i/system_ila_0/inst/probe10_1[15:0]</obj_property>
+      <obj_property name="ObjectShortName">probe10_1[15:0]</obj_property>
       <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-      <obj_property name="label">Rx_NCO_cos</obj_property>
+      <obj_property name="label">Rx_I_1M</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="top_i/system_ila_0/inst/probe6_1" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">top_i/system_ila_0/inst/probe6_1[15:0]</obj_property>
+      <obj_property name="ObjectShortName">probe6_1[15:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="label">Rx_I_16M</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
       <obj_property name="CellHeight">100</obj_property>
-      <obj_property name="AnalogYRangeMin">0.000000</obj_property>
-      <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
-      <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_LINEAR</obj_property>
-      <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
-      <obj_property name="AnalogHorizLine">0.000000</obj_property>
+   </wvobject>
+   <wvobject fp_name="top_i/system_ila_0/inst/probe11_1" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">top_i/system_ila_0/inst/probe11_1[15:0]</obj_property>
+      <obj_property name="ObjectShortName">probe11_1[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="label">Rx_Q_1M</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="top_i/system_ila_0/inst/probe7_1" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">top_i/system_ila_0/inst/probe7_1[15:0]</obj_property>
+      <obj_property name="ObjectShortName">probe7_1[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="label">Rx_Q_16M</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="top_i/system_ila_0/inst/probe12_1" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">top_i/system_ila_0/inst/probe12_1[1:0]</obj_property>
+      <obj_property name="ObjectShortName">probe12_1[1:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="label">Rx_QPSK</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="top_i/system_ila_0/inst/probe9_1" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">top_i/system_ila_0/inst/probe9_1[1:0]</obj_property>
+      <obj_property name="ObjectShortName">probe9_1[1:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="label">Rx_QPSK_raw</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject fp_name="top_i/system_ila_0/inst/probe20_1" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">top_i/system_ila_0/inst/probe20_1</obj_property>
+      <obj_property name="ObjectShortName">probe20_1</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="top_i/system_ila_0/inst/probe21_1" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">top_i/system_ila_0/inst/probe21_1</obj_property>
+      <obj_property name="ObjectShortName">probe21_1</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="top_i/system_ila_0/inst/probe22_1" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">top_i/system_ila_0/inst/probe22_1</obj_property>
+      <obj_property name="ObjectShortName">probe22_1</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="top_i/system_ila_0/inst/probe1_1" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">top_i/system_ila_0/inst/probe1_1[1:0]</obj_property>
+      <obj_property name="ObjectShortName">probe1_1[1:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="label">Tx_DAC_bits</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject fp_name="top_i/system_ila_0/inst/probe0_1" type="logic">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">top_i/system_ila_0/inst/probe0_1</obj_property>
+      <obj_property name="ObjectShortName">probe0_1</obj_property>
+      <obj_property name="label">Tx_DAC_vld</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="top_i/system_ila_0/inst/probe15_1" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">top_i/system_ila_0/inst/probe15_1[7:0]</obj_property>
+      <obj_property name="ObjectShortName">probe15_1[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="label">Tx_data_tdata</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="top_i/system_ila_0/inst/probe16_1" type="logic">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">top_i/system_ila_0/inst/probe16_1</obj_property>
+      <obj_property name="ObjectShortName">probe16_1</obj_property>
+      <obj_property name="label">Tx_data_tlast</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="top_i/system_ila_0/inst/probe17_1" type="logic">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">top_i/system_ila_0/inst/probe17_1</obj_property>
+      <obj_property name="ObjectShortName">probe17_1</obj_property>
+      <obj_property name="label">Tx_data_tuser</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="top_i/system_ila_0/inst/probe18_1" type="logic">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">top_i/system_ila_0/inst/probe18_1</obj_property>
+      <obj_property name="ObjectShortName">probe18_1</obj_property>
+      <obj_property name="label">Tx_data_tvalid</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
 </wave_config>

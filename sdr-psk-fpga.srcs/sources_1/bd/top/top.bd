@@ -57,8 +57,8 @@
         },
         "Bits_Flatten_0": "",
         "axis_data_fifo_0": "",
-        "Tx_Data_0": "",
-        "Packetizer_0": ""
+        "Packetizer_0": "",
+        "Tx_Data_0": ""
       },
       "system_ila_0": "",
       "Const_Config": {
@@ -298,7 +298,21 @@
           "AD9361_RX_DAT_Q": {
             "direction": "O",
             "left": "11",
-            "right": "0"
+            "right": "0",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "30720000",
+                "value_src": "user_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "default_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "top_AD9361_1RT_FDD_0_0_AD9361_RX_CLK",
+                "value_src": "default_prop"
+              }
+            }
           },
           "AD9361_RX_CLK": {
             "type": "clk",
@@ -1674,7 +1688,21 @@
               "DAC_Q": {
                 "direction": "I",
                 "left": "11",
-                "right": "0"
+                "right": "0",
+                "parameters": {
+                  "FREQ_HZ": {
+                    "value": "30720000",
+                    "value_src": "user_prop"
+                  },
+                  "PHASE": {
+                    "value": "0.0",
+                    "value_src": "default_prop"
+                  },
+                  "CLK_DOMAIN": {
+                    "value": "top_AD9361_1RT_FDD_0_0_AD9361_RX_CLK",
+                    "value_src": "default_prop"
+                  }
+                }
               },
               "is_bpsk": {
                 "direction": "I"
@@ -3363,117 +3391,6 @@
             "xci_path": "ip\\top_axis_data_fifo_0_2\\top_axis_data_fifo_0_2.xci",
             "inst_hier_path": "Tx/axis_data_fifo_0"
           },
-          "Tx_Data_0": {
-            "vlnv": "xilinx.com:module_ref:Tx_Data:1.0",
-            "xci_name": "top_Tx_Data_0_0",
-            "xci_path": "ip\\top_Tx_Data_0_0\\top_Tx_Data_0_0.xci",
-            "inst_hier_path": "Tx/Tx_Data_0",
-            "reference_info": {
-              "ref_type": "hdl",
-              "ref_name": "Tx_Data",
-              "boundary_crc": "0x0"
-            },
-            "interface_ports": {
-              "data": {
-                "mode": "Master",
-                "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
-                "vlnv": "xilinx.com:interface:axis_rtl:1.0",
-                "parameters": {
-                  "TDATA_NUM_BYTES": {
-                    "value": "1",
-                    "value_src": "auto"
-                  },
-                  "TDEST_WIDTH": {
-                    "value": "0",
-                    "value_src": "constant"
-                  },
-                  "TID_WIDTH": {
-                    "value": "0",
-                    "value_src": "constant"
-                  },
-                  "TUSER_WIDTH": {
-                    "value": "1",
-                    "value_src": "constant"
-                  },
-                  "HAS_TREADY": {
-                    "value": "1",
-                    "value_src": "constant"
-                  },
-                  "HAS_TSTRB": {
-                    "value": "0",
-                    "value_src": "constant"
-                  },
-                  "HAS_TKEEP": {
-                    "value": "0",
-                    "value_src": "constant"
-                  },
-                  "HAS_TLAST": {
-                    "value": "1",
-                    "value_src": "constant"
-                  }
-                },
-                "port_maps": {
-                  "TDATA": {
-                    "physical_name": "data_tdata",
-                    "direction": "O",
-                    "left": "7",
-                    "right": "0"
-                  },
-                  "TLAST": {
-                    "physical_name": "data_tlast",
-                    "direction": "O"
-                  },
-                  "TUSER": {
-                    "physical_name": "data_tuser",
-                    "direction": "O"
-                  },
-                  "TVALID": {
-                    "physical_name": "data_tvalid",
-                    "direction": "O"
-                  },
-                  "TREADY": {
-                    "physical_name": "data_tready",
-                    "direction": "I"
-                  }
-                }
-              }
-            },
-            "ports": {
-              "clk": {
-                "type": "clk",
-                "direction": "I",
-                "parameters": {
-                  "ASSOCIATED_BUSIF": {
-                    "value": "data",
-                    "value_src": "constant"
-                  }
-                }
-              },
-              "rst_n": {
-                "type": "rst",
-                "direction": "I",
-                "parameters": {
-                  "POLARITY": {
-                    "value": "ACTIVE_LOW",
-                    "value_src": "constant"
-                  }
-                }
-              },
-              "MODE_CTRL": {
-                "direction": "I",
-                "left": "3",
-                "right": "0"
-              },
-              "pkt_sent": {
-                "direction": "I"
-              },
-              "payload_length": {
-                "direction": "O",
-                "left": "15",
-                "right": "0"
-              }
-            }
-          },
           "Packetizer_0": {
             "vlnv": "xilinx.com:module_ref:Packetizer:1.0",
             "xci_name": "top_Packetizer_0_0",
@@ -3650,6 +3567,117 @@
                 "direction": "O"
               }
             }
+          },
+          "Tx_Data_0": {
+            "vlnv": "xilinx.com:module_ref:Tx_Data:1.0",
+            "xci_name": "top_Tx_Data_0_0",
+            "xci_path": "ip\\top_Tx_Data_0_0\\top_Tx_Data_0_0.xci",
+            "inst_hier_path": "Tx/Tx_Data_0",
+            "reference_info": {
+              "ref_type": "hdl",
+              "ref_name": "Tx_Data",
+              "boundary_crc": "0x0"
+            },
+            "interface_ports": {
+              "data": {
+                "mode": "Master",
+                "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
+                "vlnv": "xilinx.com:interface:axis_rtl:1.0",
+                "parameters": {
+                  "TDATA_NUM_BYTES": {
+                    "value": "1",
+                    "value_src": "auto"
+                  },
+                  "TDEST_WIDTH": {
+                    "value": "0",
+                    "value_src": "constant"
+                  },
+                  "TID_WIDTH": {
+                    "value": "0",
+                    "value_src": "constant"
+                  },
+                  "TUSER_WIDTH": {
+                    "value": "1",
+                    "value_src": "constant"
+                  },
+                  "HAS_TREADY": {
+                    "value": "1",
+                    "value_src": "constant"
+                  },
+                  "HAS_TSTRB": {
+                    "value": "0",
+                    "value_src": "constant"
+                  },
+                  "HAS_TKEEP": {
+                    "value": "0",
+                    "value_src": "constant"
+                  },
+                  "HAS_TLAST": {
+                    "value": "1",
+                    "value_src": "constant"
+                  }
+                },
+                "port_maps": {
+                  "TDATA": {
+                    "physical_name": "data_tdata",
+                    "direction": "O",
+                    "left": "7",
+                    "right": "0"
+                  },
+                  "TLAST": {
+                    "physical_name": "data_tlast",
+                    "direction": "O"
+                  },
+                  "TUSER": {
+                    "physical_name": "data_tuser",
+                    "direction": "O"
+                  },
+                  "TVALID": {
+                    "physical_name": "data_tvalid",
+                    "direction": "O"
+                  },
+                  "TREADY": {
+                    "physical_name": "data_tready",
+                    "direction": "I"
+                  }
+                }
+              }
+            },
+            "ports": {
+              "clk": {
+                "type": "clk",
+                "direction": "I",
+                "parameters": {
+                  "ASSOCIATED_BUSIF": {
+                    "value": "data",
+                    "value_src": "constant"
+                  }
+                }
+              },
+              "rst_n": {
+                "type": "rst",
+                "direction": "I",
+                "parameters": {
+                  "POLARITY": {
+                    "value": "ACTIVE_LOW",
+                    "value_src": "constant"
+                  }
+                }
+              },
+              "MODE_CTRL": {
+                "direction": "I",
+                "left": "3",
+                "right": "0"
+              },
+              "pkt_sent": {
+                "direction": "I"
+              },
+              "payload_length": {
+                "direction": "O",
+                "left": "15",
+                "right": "0"
+              }
+            }
           }
         },
         "interface_nets": {
@@ -3694,8 +3722,8 @@
           "MODE_CTRL_1": {
             "ports": [
               "MODE_CTRL",
-              "Tx_Data_0/MODE_CTRL",
-              "Packetizer_0/MODE_CTRL"
+              "Packetizer_0/MODE_CTRL",
+              "Tx_Data_0/MODE_CTRL"
             ]
           },
           "PSK_Mod_0_out_I": {
@@ -3788,8 +3816,8 @@
               "PSK_Modulation/clk_1M024",
               "Bits_Flatten_0/clk_in",
               "axis_data_fifo_0/s_axis_aclk",
-              "Tx_Data_0/clk",
-              "Packetizer_0/clk"
+              "Packetizer_0/clk",
+              "Tx_Data_0/clk"
             ]
           },
           "clk_2M048_1": {
@@ -3809,8 +3837,8 @@
               "rst_n_1M024",
               "PSK_Modulation/rst_n_1M024",
               "axis_data_fifo_0/s_axis_aresetn",
-              "Tx_Data_0/rst_n",
-              "Packetizer_0/rst_n"
+              "Packetizer_0/rst_n",
+              "Tx_Data_0/rst_n"
             ]
           }
         }
@@ -3864,6 +3892,9 @@
             "value": "12"
           },
           "C_PROBE4_WIDTH": {
+            "value": "12"
+          },
+          "C_PROBE5_WIDTH": {
             "value": "12"
           },
           "C_PROBE6_WIDTH": {
@@ -4145,8 +4176,7 @@
       "AD9361_1RT_FDD_0_AD9361_RX_CLK": {
         "ports": [
           "RF_Data_Converter/AD9361_RX_CLK",
-          "RF_Data_Converter/AD9361_TX_CLK",
-          "system_ila_0/probe5"
+          "RF_Data_Converter/AD9361_TX_CLK"
         ]
       },
       "AD9361_1RT_FDD_0_AD9361_RX_DAT_I": {
@@ -4159,7 +4189,8 @@
       "AD9361_1RT_FDD_0_AD9361_RX_DAT_Q": {
         "ports": [
           "RF_Data_Converter/AD9361_RX_DAT_Q",
-          "Rx/ADC_Q"
+          "Rx/ADC_Q",
+          "system_ila_0/probe5"
         ]
       },
       "AD9361_1RT_FDD_0_AD9361_TX_FRAME": {

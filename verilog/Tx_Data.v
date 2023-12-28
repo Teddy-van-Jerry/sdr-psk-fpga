@@ -26,6 +26,8 @@ module Tx_Data # (
   localparam MODE_QPSK = 4'b0010;
   localparam MODE_MIX  = 4'b0100;
 
+  wire [15:0] payload_length_symbs;
+
   reg [15:0] cnt = 0;
   reg        mix_is_bpsk;
 
@@ -57,11 +59,11 @@ module Tx_Data # (
       end
       else begin // including MODE_CTRL == MODE_MIX
         data_tdata <= { {BITS-1{pn_5}}, mix_is_bpsk ? pn_5 : pn_4 };
-        if (cnt < payload_length) begin // <- TODO: make payload_length into payload_length_symbs
+        if (cnt + 16'd1 < payload_length_symbs + 16'd4) begin
           data_tvalid <= 1'b1;
-          data_tlast <= cnt + 1 == payload_length;
+          data_tlast <= cnt + 16'd2 == payload_length_symbs + 16'd4; // because the last symbol has index "cnt + 1"
           data_tuser <= mix_is_bpsk;
-          cnt <= cnt + 1;
+          if (data_tready) cnt <= cnt + 1;
         end
         else begin
           data_tvalid <= 1'b0;
@@ -82,4 +84,5 @@ module Tx_Data # (
   end
 
   assign payload_length = 16'd128;
+  assign payload_length_symbs = mix_is_bpsk ? payload_length : payload_length >> 1;
 endmodule

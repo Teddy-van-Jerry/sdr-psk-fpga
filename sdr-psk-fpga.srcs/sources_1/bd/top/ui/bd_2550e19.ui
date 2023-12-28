@@ -1,7 +1,7 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"0.910487",
-   "Default View_TopLeft":"-213,-130",
+   "Default View_ScaleFactor":"0.571504",
+   "Default View_TopLeft":"-212,-252",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
 #  -string -flagsOSRD
@@ -25,8 +25,8 @@ preplace portBus data_tdata -pg 1 -lvl 5 -x 1530 -y 90 -defaultsOSRD
 preplace inst PSK_Modulation -pg 1 -lvl 4 -x 1330 -y 280 -defaultsOSRD
 preplace inst Bits_Flatten_0 -pg 1 -lvl 4 -x 1330 -y 490 -defaultsOSRD
 preplace inst axis_data_fifo_0 -pg 1 -lvl 2 -x 560 -y 180 -defaultsOSRD
-preplace inst Tx_Data_0 -pg 1 -lvl 1 -x 200 -y 170 -defaultsOSRD
 preplace inst Packetizer_0 -pg 1 -lvl 3 -x 940 -y 230 -defaultsOSRD
+preplace inst Tx_Data_0 -pg 1 -lvl 1 -x 200 -y 170 -defaultsOSRD
 preplace netloc Bits_Flatten_0_out 1 4 1 N 490
 preplace netloc DELAY_CNT_1 1 0 4 NJ 340 N 340 N 340 N
 preplace netloc Div_clk32M768_0_clk16M384 1 0 4 NJ 430 NJ 430 710 130 1160
@@ -37,6 +37,7 @@ preplace netloc PSK_Modulation_out_bits 1 4 1 N 310
 preplace netloc PSK_Modulation_out_vld 1 4 1 1500 120n
 preplace netloc Packetizer_0_out_tdata 1 3 1 1120 210n
 preplace netloc Packetizer_0_out_tuser 1 3 1 1130 230n
+preplace netloc Packetizer_0_pkt_sent 1 0 4 30 330 NJ 330 NJ 330 1110
 preplace netloc TX_PHASE_CONFIG_1 1 0 4 NJ 370 NJ 370 N 370 1170
 preplace netloc Tx_Data_0_data_tdata 1 1 4 370 10 N 10 N 10 1510
 preplace netloc Tx_Data_0_data_tlast 1 1 4 380 20 N 20 N 20 1500
@@ -47,10 +48,9 @@ preplace netloc clk_1M024 1 0 4 20J 50 410J 40 730 120 1140
 preplace netloc clk_2M048_1 1 0 4 NJ 500 NJ 500 N 500 N
 preplace netloc proc_sys_reset_16M384_mb_reset 1 0 4 NJ 400 NJ 400 N 400 1150
 preplace netloc s_axis_aresetn_1 1 0 4 30 60 400J 60 690 110 1170
-preplace netloc Packetizer_0_pkt_sent 1 0 4 30 330 NJ 330 NJ 330 1110
-preplace netloc data_1 1 3 1 1150 190n
 preplace netloc Tx_Data_0_data 1 1 1 N 120
 preplace netloc axis_data_fifo_0_M_AXIS 1 2 1 700 180n
+preplace netloc data_1 1 3 1 1150 190n
 levelinfo -pg 1 -10 200 560 940 1330 1530
 pagesize -pg 1 -db -bbox -sgen -220 0 1680 610
 "
