@@ -3,45 +3,15 @@
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
 // Date        : Wed Dec 27 15:23:56 2023
 // Host        : TVJ-PC running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim
-//               e:/Documents/Study/Verilog/SDR/sdr-psk-fpga/sdr-psk-fpga.gen/sources_1/bd/top/ip/top_Bits_Flatten_0_0/top_Bits_Flatten_0_0_sim_netlist.v
-// Design      : top_Bits_Flatten_0_0
+// Command     : write_verilog -force -mode funcsim -rename_top top_Bits_Flatten_0_0 -prefix
+//               top_Bits_Flatten_0_0_ top_Bits_Flatten_0_1_sim_netlist.v
+// Design      : top_Bits_Flatten_0_1
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
 // Device      : xc7z020clg484-1
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CHECK_LICENSE_TYPE = "top_Bits_Flatten_0_0,Bits_Flatten,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
-(* X_CORE_INFO = "Bits_Flatten,Vivado 2022.2" *) 
-(* NotValidForBitStream *)
-module top_Bits_Flatten_0_0
-   (bypass,
-    clk_in,
-    clk_out,
-    I,
-    O);
-  input bypass;
-  input clk_in;
-  input clk_out;
-  input [7:0]I;
-  output O;
-
-  wire [7:0]I;
-  wire O;
-  wire bypass;
-  wire clk_in;
-  wire clk_out;
-
-  top_Bits_Flatten_0_0_Bits_Flatten inst
-       (.I(I[1:0]),
-        .O(O),
-        .bypass(bypass),
-        .clk_in(clk_in),
-        .clk_out(clk_out));
-endmodule
-
-(* ORIG_REF_NAME = "Bits_Flatten" *) 
 module top_Bits_Flatten_0_0_Bits_Flatten
    (O,
     clk_in,
@@ -102,6 +72,35 @@ module top_Bits_Flatten_0_0_Bits_Flatten
         .D(\cnt[0]_i_1_n_0 ),
         .Q(\cnt_reg_n_0_[0] ),
         .R(1'b0));
+endmodule
+
+(* CHECK_LICENSE_TYPE = "top_Bits_Flatten_0_1,Bits_Flatten,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
+(* X_CORE_INFO = "Bits_Flatten,Vivado 2022.2" *) 
+(* NotValidForBitStream *)
+module top_Bits_Flatten_0_0
+   (bypass,
+    clk_in,
+    clk_out,
+    I,
+    O);
+  input bypass;
+  input clk_in;
+  input clk_out;
+  input [7:0]I;
+  output O;
+
+  wire [7:0]I;
+  wire O;
+  wire bypass;
+  wire clk_in;
+  wire clk_out;
+
+  top_Bits_Flatten_0_0_Bits_Flatten inst
+       (.I(I[1:0]),
+        .O(O),
+        .bypass(bypass),
+        .clk_in(clk_in),
+        .clk_out(clk_out));
 endmodule
 `ifndef GLBL
 `define GLBL

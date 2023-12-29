@@ -42,21 +42,21 @@ module Depacketizer # (
   localparam STATE_LAST = 5'b10000;
 
   reg [MAX_WINDOW_WIDTH-1:0] BD_WAIT_CC;
-  reg [MAX_WINDOW_WIDTH-1:0] cnt_TRN;
-  reg [ 4:0] cnt_HDR; // 32 bits
-  reg [15:0] cnt_PLD;
-  reg  [4:0] state, state_next;
+  reg [MAX_WINDOW_WIDTH-1:0] cnt_TRN = 0;
+  reg [ 4:0] cnt_HDR = 0; // 32 bits
+  reg [15:0] cnt_PLD = 0;
+  reg  [4:0] state = STATE_IDLE, state_next;
 
-  reg     [15:0] payload_length;
-  reg     [15:0] payload_length_symbs;
-  reg      [7:0] MCS; // modulation and coding scheme (only BPSK and QPSK now)
-  reg      [7:0] signature; // <- currently not used
-  reg            BD_sgn_reg;
-  reg [BITS-1:0] data_tdata_reg;
-  reg            data_tvalid_reg;
-  reg            data_tlast_reg;
-  reg            is_bpsk_reg;
-  reg      [1:0] out_QPSK;
+  reg     [15:0] payload_length = 128;
+  reg     [15:0] payload_length_symbs = 128;
+  reg      [7:0] MCS = 0; // modulation and coding scheme (only BPSK and QPSK now)
+  reg      [7:0] signature = 0; // <- currently not used
+  reg            BD_sgn_reg = 0;
+  reg [BITS-1:0] data_tdata_reg = 0;
+  reg            data_tvalid_reg = 0;
+  reg            data_tlast_reg = 0;
+  reg            is_bpsk_reg = 1;
+  reg      [1:0] out_QPSK = 0;
 
   wire in_BPSK;
   assign in_BPSK = in_QPSK[1];
@@ -89,7 +89,7 @@ module Depacketizer # (
         data_tdata  <= data_tdata_reg;
         data_tvalid <= data_tvalid_reg;
         data_tlast  <= data_tlast_reg;
-        is_bpsk     <= is_bpsk;
+        is_bpsk     <= is_bpsk_reg;
         out_QPSK[1] <= in_QPSK[1] + BD_sgn_reg;
         out_QPSK[0] <= in_QPSK[0] + BD_sgn_reg;
       end
@@ -123,6 +123,10 @@ module Depacketizer # (
           cnt_TRN <= 0;
           cnt_HDR <= 0;
           cnt_PLD <= 0;
+          /* AXIS o1 */ data_tdata_reg  <= 0;
+          /* AXIS o2 */ data_tvalid_reg <= 1'b0;
+          /* AXIS o3 */ data_tlast_reg  <= 1'b0;
+          /* AXIS o4 */ is_bpsk_reg     <= 1'b1;
         end
         STATE_TRN: begin
           if (data_tready) begin
@@ -168,7 +172,7 @@ module Depacketizer # (
             5'd26: signature[5] <= in_BPSK + BD_sgn_reg;
             5'd27: signature[4] <= in_BPSK + BD_sgn_reg;
             // 5'd28: signature[3] <= in_BPSK + BD_sgn_reg;
-            5'd29: signature[2] <= in_BPSK + BD_sgn_reg;
+            // 5'd29: signature[2] <= in_BPSK + BD_sgn_reg;
             5'd30: signature[1] <= in_BPSK + BD_sgn_reg;
             5'd31: signature[0] <= in_BPSK + BD_sgn_reg;
             5'd28: begin // set is_bpsk 3 CCs ahead
@@ -177,6 +181,10 @@ module Depacketizer # (
               // BPSK: MCS[7] == 1
               // QPSK: MCS[7] == 0
               /* AXIS o4 */ is_bpsk_reg <= MCS[7]; // Now change the modulation scheme
+            end
+            5'd29: begin
+              signature[2] <= in_BPSK;
+              payload_length_symbs <= is_bpsk_reg ? payload_length : payload_length >> 1;
             end
             default: begin
               // nothing here, as I have considered all states

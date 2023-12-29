@@ -1,73 +1,15 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
--- Date        : Wed Dec 27 15:23:57 2023
+-- Date        : Fri Dec 29 07:26:31 2023
 -- Host        : TVJ-PC running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim
---               e:/Documents/Study/Verilog/SDR/sdr-psk-fpga/sdr-psk-fpga.gen/sources_1/bd/top/ip/top_Depacketizer_0_0/top_Depacketizer_0_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top top_Depacketizer_0_0 -prefix
+--               top_Depacketizer_0_0_ top_Depacketizer_0_0_sim_netlist.vhdl
 -- Design      : top_Depacketizer_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
 -- Device      : xc7z020clg484-1
 -- --------------------------------------------------------------------------------
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-library UNISIM;
-use UNISIM.VCOMPONENTS.ALL;
-entity top_Depacketizer_0_0_Depacketizer is
-  port (
-    is_bpsk : out STD_LOGIC;
-    MODE_CTRL : in STD_LOGIC_VECTOR ( 3 downto 0 )
-  );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of top_Depacketizer_0_0_Depacketizer : entity is "Depacketizer";
-end top_Depacketizer_0_0_Depacketizer;
-
-architecture STRUCTURE of top_Depacketizer_0_0_Depacketizer is
-  signal \__4/i__n_0\ : STD_LOGIC;
-  signal is_bpsk_reg_i_1_n_0 : STD_LOGIC;
-  attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \__4/i_\ : label is "soft_lutpair0";
-  attribute XILINX_LEGACY_PRIM : string;
-  attribute XILINX_LEGACY_PRIM of is_bpsk_reg : label is "LD";
-  attribute XILINX_TRANSFORM_PINMAP : string;
-  attribute XILINX_TRANSFORM_PINMAP of is_bpsk_reg : label is "VCC:GE GND:CLR";
-  attribute SOFT_HLUTNM of is_bpsk_reg_i_1 : label is "soft_lutpair0";
-begin
-\__4/i_\: unisim.vcomponents.LUT4
-    generic map(
-      INIT => X"FEFF"
-    )
-        port map (
-      I0 => MODE_CTRL(3),
-      I1 => MODE_CTRL(1),
-      I2 => MODE_CTRL(0),
-      I3 => MODE_CTRL(2),
-      O => \__4/i__n_0\
-    );
-is_bpsk_reg: unisim.vcomponents.LDCE
-    generic map(
-      INIT => '0'
-    )
-        port map (
-      CLR => '0',
-      D => is_bpsk_reg_i_1_n_0,
-      G => \__4/i__n_0\,
-      GE => '1',
-      Q => is_bpsk
-    );
-is_bpsk_reg_i_1: unisim.vcomponents.LUT4
-    generic map(
-      INIT => X"FFFB"
-    )
-        port map (
-      I0 => MODE_CTRL(3),
-      I1 => MODE_CTRL(1),
-      I2 => MODE_CTRL(2),
-      I3 => MODE_CTRL(0),
-      O => is_bpsk_reg_i_1_n_0
-    );
-end STRUCTURE;
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
@@ -111,7 +53,7 @@ architecture STRUCTURE of top_Depacketizer_0_0 is
   signal \<const0>\ : STD_LOGIC;
   signal \^data_tdata\ : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal \^data_tready\ : STD_LOGIC;
-  signal \^is_bpsk\ : STD_LOGIC;
+  signal \^data_tuser\ : STD_LOGIC;
   attribute X_INTERFACE_INFO : string;
   attribute X_INTERFACE_INFO of clk : signal is "xilinx.com:signal:clock:1.0 clk CLK";
   attribute X_INTERFACE_PARAMETER : string;
@@ -136,11 +78,11 @@ begin
   data_tdata(2) <= \<const0>\;
   data_tdata(1 downto 0) <= \^data_tdata\(1 downto 0);
   data_tlast <= \<const0>\;
-  data_tuser <= \^is_bpsk\;
+  data_tuser <= \^data_tuser\;
   disassert_BD <= \<const0>\;
   disassert_PD <= \<const0>\;
   in_ready <= \^data_tready\;
-  is_bpsk <= \^is_bpsk\;
+  is_bpsk <= \^data_tuser\;
 BPSK_INST_0: unisim.vcomponents.LUT5
     generic map(
       INIT => X"00000208"
@@ -180,9 +122,15 @@ data_tvalid_INST_0: unisim.vcomponents.LUT4
       I3 => MODE_CTRL(3),
       O => data_tvalid
     );
-inst: entity work.top_Depacketizer_0_0_Depacketizer
-     port map (
-      MODE_CTRL(3 downto 0) => MODE_CTRL(3 downto 0),
-      is_bpsk => \^is_bpsk\
+is_bpsk_INST_0: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"FFFB"
+    )
+        port map (
+      I0 => MODE_CTRL(3),
+      I1 => MODE_CTRL(1),
+      I2 => MODE_CTRL(2),
+      I3 => MODE_CTRL(0),
+      O => \^data_tuser\
     );
 end STRUCTURE;

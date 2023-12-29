@@ -1,7 +1,7 @@
 //Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-//Date        : Fri Dec 29 00:28:44 2023
+//Date        : Fri Dec 29 08:05:38 2023
 //Host        : TVJ-PC running 64-bit major release  (build 9200)
 //Command     : generate_target costas_loop_inst_0_wrapper.bd
 //Design      : costas_loop_inst_0_wrapper
@@ -18,6 +18,8 @@ module costas_loop_inst_0_wrapper
     Q_data,
     Q_valid,
     clk_16M384,
+    error_tdata,
+    feedback_tdata,
     is_bpsk,
     rst_16M384);
   input [3:0]FEEDBACK_SHIFT;
@@ -28,6 +30,8 @@ module costas_loop_inst_0_wrapper
   output [15:0]Q_data;
   output Q_valid;
   input clk_16M384;
+  output [15:0]error_tdata;
+  output [15:0]feedback_tdata;
   input is_bpsk;
   input rst_16M384;
 
@@ -39,6 +43,8 @@ module costas_loop_inst_0_wrapper
   wire [15:0]Q_data;
   wire Q_valid;
   wire clk_16M384;
+  wire [15:0]error_tdata;
+  wire [15:0]feedback_tdata;
   wire is_bpsk;
   wire rst_16M384;
 
@@ -51,6 +57,8 @@ module costas_loop_inst_0_wrapper
         .Q_data(Q_data),
         .Q_valid(Q_valid),
         .clk_16M384(clk_16M384),
+        .error_tdata(error_tdata),
+        .feedback_tdata(feedback_tdata),
         .is_bpsk(is_bpsk),
         .rst_16M384(rst_16M384));
 endmodule

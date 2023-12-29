@@ -1,10 +1,10 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Tue Dec 26 10:42:14 2023
+// Date        : Tue Dec 26 10:42:13 2023
 // Host        : TVJ-PC running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim
-//               e:/Documents/Study/Verilog/SDR/sdr-psk-fpga/sdr-psk-fpga.gen/sources_1/bd/top/ip/top_Rx_PD_0_0/top_Rx_PD_0_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top top_Rx_PD_0_0 -prefix
+//               top_Rx_PD_0_0_ top_Rx_PD_0_0_sim_netlist.v
 // Design      : top_Rx_PD_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -12,44 +12,6 @@
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CHECK_LICENSE_TYPE = "top_Rx_PD_0_0,Rx_PD,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
-(* X_CORE_INFO = "Rx_PD,Vivado 2022.2" *) 
-(* NotValidForBitStream *)
-module top_Rx_PD_0_0
-   (clk,
-    rst,
-    RX_PD_WINDOW,
-    BPSK,
-    disassert_PD,
-    SD_flag,
-    PD_flag);
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_RESET rst, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, INSERT_VIP 0" *) input clk;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 rst RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME rst, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *) input rst;
-  input [7:0]RX_PD_WINDOW;
-  input BPSK;
-  input disassert_PD;
-  input SD_flag;
-  output PD_flag;
-
-  wire BPSK;
-  wire PD_flag;
-  wire [7:0]RX_PD_WINDOW;
-  wire SD_flag;
-  wire clk;
-  wire disassert_PD;
-  wire rst;
-
-  top_Rx_PD_0_0_Rx_PD inst
-       (.BPSK(BPSK),
-        .PD_flag(PD_flag),
-        .RX_PD_WINDOW(RX_PD_WINDOW),
-        .SD_flag(SD_flag),
-        .clk(clk),
-        .disassert_PD(disassert_PD),
-        .rst(rst));
-endmodule
-
-(* ORIG_REF_NAME = "Rx_PD" *) 
 module top_Rx_PD_0_0_Rx_PD
    (PD_flag,
     clk,
@@ -327,6 +289,43 @@ module top_Rx_PD_0_0_Rx_PD
         .D(p_0_in[7]),
         .Q(cnt_reg[7]),
         .R(\cnt[7]_i_1_n_0 ));
+endmodule
+
+(* CHECK_LICENSE_TYPE = "top_Rx_PD_0_0,Rx_PD,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
+(* X_CORE_INFO = "Rx_PD,Vivado 2022.2" *) 
+(* NotValidForBitStream *)
+module top_Rx_PD_0_0
+   (clk,
+    rst,
+    RX_PD_WINDOW,
+    BPSK,
+    disassert_PD,
+    SD_flag,
+    PD_flag);
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_RESET rst, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, INSERT_VIP 0" *) input clk;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 rst RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME rst, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *) input rst;
+  input [7:0]RX_PD_WINDOW;
+  input BPSK;
+  input disassert_PD;
+  input SD_flag;
+  output PD_flag;
+
+  wire BPSK;
+  wire PD_flag;
+  wire [7:0]RX_PD_WINDOW;
+  wire SD_flag;
+  wire clk;
+  wire disassert_PD;
+  wire rst;
+
+  top_Rx_PD_0_0_Rx_PD inst
+       (.BPSK(BPSK),
+        .PD_flag(PD_flag),
+        .RX_PD_WINDOW(RX_PD_WINDOW),
+        .SD_flag(SD_flag),
+        .clk(clk),
+        .disassert_PD(disassert_PD),
+        .rst(rst));
 endmodule
 `ifndef GLBL
 `define GLBL

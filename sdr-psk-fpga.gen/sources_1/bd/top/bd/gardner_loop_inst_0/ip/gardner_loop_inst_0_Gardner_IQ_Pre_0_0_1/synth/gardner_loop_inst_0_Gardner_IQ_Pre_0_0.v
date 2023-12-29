@@ -52,7 +52,7 @@
 
 (* X_CORE_INFO = "Gardner_IQ_Pre,Vivado 2022.2" *)
 (* CHECK_LICENSE_TYPE = "gardner_loop_inst_0_Gardner_IQ_Pre_0_0,Gardner_IQ_Pre,{}" *)
-(* CORE_GENERATION_INFO = "gardner_loop_inst_0_Gardner_IQ_Pre_0_0,Gardner_IQ_Pre,{x_ipProduct=Vivado 2022.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=Gardner_IQ_Pre,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,WIDTH=16,SHIFT=2}" *)
+(* CORE_GENERATION_INFO = "gardner_loop_inst_0_Gardner_IQ_Pre_0_0,Gardner_IQ_Pre,{x_ipProduct=Vivado 2022.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=Gardner_IQ_Pre,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,WIDTH=16,SHIFT=0}" *)
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module gardner_loop_inst_0_Gardner_IQ_Pre_0_0 (
@@ -93,7 +93,7 @@ output wire Q_out_tvalid;
 
   Gardner_IQ_Pre #(
     .WIDTH(16),
-    .SHIFT(2)
+    .SHIFT(0)
   ) inst (
     .clk(clk),
     .I_in_tdata(I_in_tdata),

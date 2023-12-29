@@ -18,10 +18,10 @@
       },
       "Timing_Error": {
         "c_shift_ram_I1": "",
-        "Gardner_Timing_Error_0": "",
         "c_shift_ram_I2": "",
         "c_shift_ram_Q1": "",
-        "c_shift_ram_Q2": ""
+        "c_shift_ram_Q2": "",
+        "Gardner_Timing_Error_0": ""
       },
       "Gardner_Corrector_0": ""
     },
@@ -331,6 +331,11 @@
             "xci_name": "gardner_loop_Gardner_IQ_Pre_0_0",
             "xci_path": "ip\\gardner_loop_Gardner_IQ_Pre_0_0\\gardner_loop_Gardner_IQ_Pre_0_0.xci",
             "inst_hier_path": "Interpolation/Gardner_IQ_Pre_0",
+            "parameters": {
+              "SHIFT": {
+                "value": "0"
+              }
+            },
             "reference_info": {
               "ref_type": "hdl",
               "ref_name": "Gardner_IQ_Pre",
@@ -685,6 +690,24 @@
             "xci_path": "ip\\gardner_loop_c_shift_ram_0_0\\gardner_loop_c_shift_ram_0_0.xci",
             "inst_hier_path": "Timing_Error/c_shift_ram_I1"
           },
+          "c_shift_ram_I2": {
+            "vlnv": "xilinx.com:ip:c_shift_ram:12.0",
+            "xci_name": "gardner_loop_c_shift_ram_I1_1",
+            "xci_path": "ip\\gardner_loop_c_shift_ram_I1_1\\gardner_loop_c_shift_ram_I1_1.xci",
+            "inst_hier_path": "Timing_Error/c_shift_ram_I2"
+          },
+          "c_shift_ram_Q1": {
+            "vlnv": "xilinx.com:ip:c_shift_ram:12.0",
+            "xci_name": "gardner_loop_c_shift_ram_I1_0",
+            "xci_path": "ip\\gardner_loop_c_shift_ram_I1_0\\gardner_loop_c_shift_ram_I1_0.xci",
+            "inst_hier_path": "Timing_Error/c_shift_ram_Q1"
+          },
+          "c_shift_ram_Q2": {
+            "vlnv": "xilinx.com:ip:c_shift_ram:12.0",
+            "xci_name": "gardner_loop_c_shift_ram_Q1_0",
+            "xci_path": "ip\\gardner_loop_c_shift_ram_Q1_0\\gardner_loop_c_shift_ram_Q1_0.xci",
+            "inst_hier_path": "Timing_Error/c_shift_ram_Q2"
+          },
           "Gardner_Timing_Error_0": {
             "vlnv": "xilinx.com:module_ref:Gardner_Timing_Error:1.0",
             "xci_name": "gardner_loop_Gardner_Timing_Error_0_0",
@@ -799,24 +822,6 @@
                 "right": "0"
               }
             }
-          },
-          "c_shift_ram_I2": {
-            "vlnv": "xilinx.com:ip:c_shift_ram:12.0",
-            "xci_name": "gardner_loop_c_shift_ram_I1_1",
-            "xci_path": "ip\\gardner_loop_c_shift_ram_I1_1\\gardner_loop_c_shift_ram_I1_1.xci",
-            "inst_hier_path": "Timing_Error/c_shift_ram_I2"
-          },
-          "c_shift_ram_Q1": {
-            "vlnv": "xilinx.com:ip:c_shift_ram:12.0",
-            "xci_name": "gardner_loop_c_shift_ram_I1_0",
-            "xci_path": "ip\\gardner_loop_c_shift_ram_I1_0\\gardner_loop_c_shift_ram_I1_0.xci",
-            "inst_hier_path": "Timing_Error/c_shift_ram_Q1"
-          },
-          "c_shift_ram_Q2": {
-            "vlnv": "xilinx.com:ip:c_shift_ram:12.0",
-            "xci_name": "gardner_loop_c_shift_ram_Q1_0",
-            "xci_path": "ip\\gardner_loop_c_shift_ram_Q1_0\\gardner_loop_c_shift_ram_Q1_0.xci",
-            "inst_hier_path": "Timing_Error/c_shift_ram_Q2"
           }
         },
         "nets": {
@@ -829,8 +834,8 @@
           "Interpolation_Ix2_tdata": {
             "ports": [
               "I",
-              "Gardner_Timing_Error_0/I_d32",
-              "c_shift_ram_I1/D"
+              "c_shift_ram_I1/D",
+              "Gardner_Timing_Error_0/I_d32"
             ]
           },
           "Interpolation_Qx2_tdata": {
@@ -872,8 +877,8 @@
               "c_shift_ram_Q1/CLK",
               "c_shift_ram_I2/CLK",
               "c_shift_ram_Q2/CLK",
-              "Gardner_Timing_Error_0/clk",
-              "c_shift_ram_I1/CLK"
+              "c_shift_ram_I1/CLK",
+              "Gardner_Timing_Error_0/clk"
             ]
           },
           "is_bpsk_1": {
@@ -1030,8 +1035,8 @@
       "Timing_Error_error_n": {
         "ports": [
           "Timing_Error/error_n",
-          "Gardner_Corrector_0/error_n",
-          "error_n"
+          "error_n",
+          "Gardner_Corrector_0/error_n"
         ]
       },
       "clk_32d768_1": {

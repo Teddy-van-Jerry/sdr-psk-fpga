@@ -2,56 +2,10 @@
 <Root MajorVersion="0" MinorVersion="40">
   <CompositeFile CompositeFileTopName="gardner_loop" CanBeSetAsTop="false" CanDisplayChildGraph="true">
     <Description>Composite Fileset</Description>
-    <Generation Name="SYNTHESIS" State="STALE" Timestamp="1703768053"/>
-    <Generation Name="IMPLEMENTATION" State="STALE" Timestamp="1703768053"/>
-    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1703768054"/>
-    <Generation Name="HW_HANDOFF" State="GENERATED" Timestamp="1703768054"/>
-    <FileCollection Name="SOURCES" Type="SOURCES">
-      <File Name="synth\gardner_loop.v" Type="Verilog">
-        <Properties IsEditable="false" IsVisible="true" IsNetlistSimulation="false" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
-        <Library Name="xil_defaultlib"/>
-        <UsedIn Val="SYNTHESIS"/>
-        <UsedIn Val="IMPLEMENTATION"/>
-        <ProcessingOrder Val="NORMAL"/>
-      </File>
-      <File Name="sim\gardner_loop.v" Type="Verilog">
-        <Properties IsEditable="false" IsVisible="true" IsNetlistSimulation="false" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
-        <Library Name="xil_defaultlib"/>
-        <UsedIn Val="SIMULATION"/>
-        <ProcessingOrder Val="NORMAL"/>
-      </File>
-      <File Name="gardner_loop_ooc.xdc" Type="XDC">
-        <Properties IsEditable="false" IsVisible="true" IsNetlistSimulation="false" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
-        <Library Name="xil_defaultlib"/>
-        <UsedIn Val="SYNTHESIS"/>
-        <UsedIn Val="IMPLEMENTATION"/>
-        <UsedIn Val="OUT_OF_CONTEXT"/>
-        <ProcessingOrder Val="NORMAL"/>
-      </File>
-      <File Name="hw_handoff\gardner_loop.hwh" Type="HwHandoff">
-        <Properties IsEditable="false" IsVisible="true" IsNetlistSimulation="false" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
-        <Library Name="xil_defaultlib"/>
-        <UsedIn Val="HW_HANDOFF"/>
-        <ProcessingOrder Val="NORMAL"/>
-      </File>
-      <File Name="gardner_loop.bda">
-        <Properties IsEditable="false" IsVisible="true" IsNetlistSimulation="false" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
-        <Library Name="xil_defaultlib"/>
-        <UsedIn Val="HW_HANDOFF"/>
-        <ProcessingOrder Val="NORMAL"/>
-      </File>
-      <File Name="synth\gardner_loop.hwdef">
-        <Properties IsEditable="false" IsVisible="true" IsNetlistSimulation="false" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
-        <Library Name="xil_defaultlib"/>
-        <UsedIn Val="HW_HANDOFF"/>
-        <ProcessingOrder Val="NORMAL"/>
-      </File>
-      <File Name="sim\gardner_loop.protoinst">
-        <Properties IsEditable="false" IsVisible="true" IsNetlistSimulation="false" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
-        <Library Name="xil_defaultlib"/>
-        <UsedIn Val="SIMULATION"/>
-        <ProcessingOrder Val="NORMAL"/>
-      </File>
-    </FileCollection>
+    <Generation Name="SYNTHESIS" State="STALE" Timestamp="1703791515"/>
+    <Generation Name="IMPLEMENTATION" State="STALE" Timestamp="1703791515"/>
+    <Generation Name="SIMULATION" State="STALE" Timestamp="1703791515"/>
+    <Generation Name="HW_HANDOFF" State="STALE" Timestamp="1703791515"/>
+    <FileCollection Name="SOURCES" Type="SOURCES"/>
   </CompositeFile>
 </Root>

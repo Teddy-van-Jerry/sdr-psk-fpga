@@ -71,7 +71,8 @@ module costas_loop_Error_Detect_Ctrl_0_0 (
   error_qpsk_tdata,
   error_qpsk_tvalid,
   error_tdata,
-  error_tvalid
+  error_tvalid,
+  is_bpsk_delayed
 );
 
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_BUSIF error:error_bpsk:error_qpsk:in_I:in_Q:out_I:out_Q, ASSOCIATED_RESET rst, FREQ_HZ 16384000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN costas_loop_aclk_0, INSERT_VIP 0" *)
@@ -116,10 +117,10 @@ output wire [15 : 0] error_tdata;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME error, TDATA_NUM_BYTES 2, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 16384000, PHASE 0.0, CLK_DOMAIN costas_loop_aclk_0, LAYERED_METADATA undef, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 error TVALID" *)
 output wire error_tvalid;
+output wire is_bpsk_delayed;
 
   Error_Detect_Ctrl #(
-    .WIDTH(16),
-    .DELAY(2)
+    .WIDTH(16)
   ) inst (
     .clk(clk),
     .rst(rst),
@@ -137,6 +138,7 @@ output wire error_tvalid;
     .error_qpsk_tdata(error_qpsk_tdata),
     .error_qpsk_tvalid(error_qpsk_tvalid),
     .error_tdata(error_tdata),
-    .error_tvalid(error_tvalid)
+    .error_tvalid(error_tvalid),
+    .is_bpsk_delayed(is_bpsk_delayed)
   );
 endmodule

@@ -3,15 +3,6 @@
 	"modules": {
 		"costas_loop_inst_0": {
 			"proto_instances": {
-				"/Error_Detect/Error_Detect_Ctrl_0/error": {
-					"interface": "xilinx.com:interface:axis:1.0",
-					"ports": {
-						"ACLK": { "actual": "clk"},
-						"ARESET": { "actual": "rst"},
-						"TDATA": { "actual": "error_tdata"},
-						"TVALID": { "actual": "error_tvalid"}
-					}
-				},
 				"/Error_Detect/Error_Detect_Ctrl_0/in_I": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
@@ -28,15 +19,6 @@
 						"ARESET": { "actual": "rst"},
 						"TDATA": { "actual": "in_Q_tdata"},
 						"TVALID": { "actual": "in_Q_tvalid"}
-					}
-				},
-				"/Error_Detect/error": {
-					"interface": "xilinx.com:interface:axis:1.0",
-					"ports": {
-						"ACLK": { "actual": "clk_16M384"},
-						"ARESET": { "actual": "rst_16M384"},
-						"TDATA": { "actual": "error_tdata"},
-						"TVALID": { "actual": "error_tvalid"}
 					}
 				},
 				"/Error_Detect/in_I": {
@@ -200,15 +182,6 @@
 						"ACLK": { "actual": "aclk"},
 						"TDATA": { "actual": "m_axis_data_tdata"},
 						"TVALID": { "actual": "m_axis_data_tvalid"}
-					}
-				},
-				"/loop_filter/S_AXIS_DATA": {
-					"interface": "xilinx.com:interface:axis:1.0",
-					"ports": {
-						"ACLK": { "actual": "aclk"},
-						"TDATA": { "actual": "s_axis_data_tdata"},
-						"TREADY": { "actual": "s_axis_data_tready"},
-						"TVALID": { "actual": "s_axis_data_tvalid"}
 					}
 				}
 			}

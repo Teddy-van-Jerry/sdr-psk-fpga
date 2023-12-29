@@ -1,10 +1,10 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
--- Date        : Tue Dec 26 10:42:22 2023
+-- Date        : Tue Dec 26 10:42:20 2023
 -- Host        : TVJ-PC running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim
---               e:/Documents/Study/Verilog/SDR/sdr-psk-fpga/sdr-psk-fpga.gen/sources_1/bd/top/ip/top_proc_sys_reset_16M384_1/top_proc_sys_reset_16M384_1_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top top_proc_sys_reset_16M384_1 -prefix
+--               top_proc_sys_reset_16M384_1_ top_proc_sys_reset_16M384_1_sim_netlist.vhdl
 -- Design      : top_proc_sys_reset_16M384_1
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -25,8 +25,6 @@ entity top_proc_sys_reset_16M384_1_cdc_sync is
     aux_reset_in : in STD_LOGIC;
     slowest_sync_clk : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of top_proc_sys_reset_16M384_1_cdc_sync : entity is "cdc_sync";
 end top_proc_sys_reset_16M384_1_cdc_sync;
 
 architecture STRUCTURE of top_proc_sys_reset_16M384_1_cdc_sync is
@@ -247,8 +245,6 @@ entity top_proc_sys_reset_16M384_1_upcnt_n is
     seq_cnt_en : in STD_LOGIC;
     slowest_sync_clk : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of top_proc_sys_reset_16M384_1_upcnt_n : entity is "upcnt_n";
 end top_proc_sys_reset_16M384_1_upcnt_n;
 
 architecture STRUCTURE of top_proc_sys_reset_16M384_1_upcnt_n is
@@ -413,8 +409,6 @@ entity top_proc_sys_reset_16M384_1_lpf is
     ext_reset_in : in STD_LOGIC;
     aux_reset_in : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of top_proc_sys_reset_16M384_1_lpf : entity is "lpf";
 end top_proc_sys_reset_16M384_1_lpf;
 
 architecture STRUCTURE of top_proc_sys_reset_16M384_1_lpf is
@@ -603,8 +597,6 @@ entity top_proc_sys_reset_16M384_1_sequence_psr is
     lpf_int : in STD_LOGIC;
     slowest_sync_clk : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of top_proc_sys_reset_16M384_1_sequence_psr : entity is "sequence_psr";
 end top_proc_sys_reset_16M384_1_sequence_psr;
 
 architecture STRUCTURE of top_proc_sys_reset_16M384_1_sequence_psr is
@@ -943,8 +935,6 @@ entity top_proc_sys_reset_16M384_1_proc_sys_reset is
   attribute C_NUM_PERP_ARESETN of top_proc_sys_reset_16M384_1_proc_sys_reset : entity is 1;
   attribute C_NUM_PERP_RST : integer;
   attribute C_NUM_PERP_RST of top_proc_sys_reset_16M384_1_proc_sys_reset : entity is 1;
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of top_proc_sys_reset_16M384_1_proc_sys_reset : entity is "proc_sys_reset";
 end top_proc_sys_reset_16M384_1_proc_sys_reset;
 
 architecture STRUCTURE of top_proc_sys_reset_16M384_1_proc_sys_reset is

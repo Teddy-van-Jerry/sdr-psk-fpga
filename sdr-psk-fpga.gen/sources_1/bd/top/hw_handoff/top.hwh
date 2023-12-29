@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Dec 29 00:28:48 2023" VIVADOVERSION="2022.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Dec 29 08:05:41 2023" VIVADOVERSION="2022.2">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z020" NAME="top" PACKAGE="clg484" SPEEDGRADE="-1"/>
 
@@ -291,12 +291,12 @@
         <PORT DIR="O" LEFT="0" NAME="bus_struct_reset" POLARITY="ACTIVE_HIGH" RIGHT="0" SIGIS="rst" SIGNAME="Clock_Gen_Reset_Gen_proc_sys_reset_32M768_bus_struct_reset">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Rx_gardner_loop_0" PORT="rst_32M768"/>
-            <CONNECTION INSTANCE="Rx_PSK_Detection_0" PORT="rst"/>
             <CONNECTION INSTANCE="Rx_SPB_Detection_Rx_PD_0" PORT="rst"/>
             <CONNECTION INSTANCE="Rx_SPB_Detection_Rx_BD_0" PORT="rst"/>
             <CONNECTION INSTANCE="Rx_SPB_Detection_Rx_SD_0" PORT="rst"/>
-            <CONNECTION INSTANCE="Rx_Depacketizer_0" PORT="rst"/>
             <CONNECTION INSTANCE="Rx_Flatten_Not_Gate_0" PORT="i"/>
+            <CONNECTION INSTANCE="Rx_PSK_Detection_0" PORT="rst"/>
+            <CONNECTION INSTANCE="Rx_Depacketizer_0" PORT="rst"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="0" NAME="peripheral_reset" POLARITY="ACTIVE_HIGH" RIGHT="0" SIGIS="rst"/>
@@ -1531,10 +1531,10 @@
         </PORT>
         <PORT CLKFREQUENCY="32768000" DIR="O" NAME="clk_32M768" SIGIS="clk" SIGNAME="Clock_Gen_clk_wiz_32M768_clk_32M768">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="Clock_Gen_Div_clk32M768_0" PORT="clk32M768"/>
             <CONNECTION INSTANCE="Clock_Gen_Reset_Gen_proc_sys_reset_32M768" PORT="slowest_sync_clk"/>
             <CONNECTION INSTANCE="Rx_gardner_loop_0" PORT="clk_32M768"/>
             <CONNECTION INSTANCE="system_ila_0" PORT="clk"/>
+            <CONNECTION INSTANCE="Clock_Gen_Div_clk32M768_0" PORT="clk32M768"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="locked" SIGIS="undef" SIGNAME="Clock_Gen_clk_wiz_32M768_locked">
@@ -1568,7 +1568,7 @@
       <DOCUMENTS/>
       <PARAMETERS>
         <PARAMETER NAME="CONST_WIDTH" VALUE="4"/>
-        <PARAMETER NAME="CONST_VAL" VALUE="0x1"/>
+        <PARAMETER NAME="CONST_VAL" VALUE="0x0"/>
         <PARAMETER NAME="Component_Name" VALUE="top_xlconstant_2_0"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
@@ -1602,7 +1602,7 @@
       <DOCUMENTS/>
       <PARAMETERS>
         <PARAMETER NAME="CONST_WIDTH" VALUE="4"/>
-        <PARAMETER NAME="CONST_VAL" VALUE="0x1"/>
+        <PARAMETER NAME="CONST_VAL" VALUE="0x2"/>
         <PARAMETER NAME="Component_Name" VALUE="top_xlconstant_3_0"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
@@ -2384,8 +2384,8 @@
         </PORT>
         <PORT DIR="O" NAME="PD_flag" SIGIS="undef" SIGNAME="Rx_SPB_Detection_Rx_PD_0_PD_flag">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="Rx_SPB_Detection_Rx_BD_0" PORT="PD_flag"/>
             <CONNECTION INSTANCE="Rx_Depacketizer_0" PORT="PD_flag"/>
+            <CONNECTION INSTANCE="Rx_SPB_Detection_Rx_BD_0" PORT="PD_flag"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -2442,8 +2442,8 @@
         </PORT>
         <PORT DIR="O" NAME="SD_flag" SIGIS="undef" SIGNAME="Rx_SPB_Detection_Rx_SD_0_SD_flag">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="Rx_SPB_Detection_Rx_PD_0" PORT="SD_flag"/>
             <CONNECTION INSTANCE="Rx_Depacketizer_0" PORT="SD_flag"/>
+            <CONNECTION INSTANCE="Rx_SPB_Detection_Rx_PD_0" PORT="SD_flag"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -2773,6 +2773,16 @@
             <CONNECTION INSTANCE="Rx_gardner_loop_0" PORT="Q_tvalid"/>
           </CONNECTIONS>
         </PORT>
+        <PORT DIR="O" LEFT="15" NAME="error_tdata" RIGHT="0" SIGIS="undef" SIGNAME="Rx_costas_loop_0_error_tdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="system_ila_0" PORT="probe23"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="feedback_tdata" RIGHT="0" SIGIS="undef" SIGNAME="Rx_costas_loop_0_feedback_tdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="system_ila_0" PORT="probe24"/>
+          </CONNECTIONS>
+        </PORT>
       </PORTS>
       <BUSINTERFACES/>
     </MODULE>
@@ -2799,28 +2809,28 @@
         </PORT>
         <PORT DIR="O" LEFT="15" NAME="I_1M" RIGHT="0" SIGIS="undef" SIGNAME="Rx_gardner_loop_0_I_1M">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="Rx_PSK_Detection_0" PORT="I_tdata"/>
             <CONNECTION INSTANCE="system_ila_0" PORT="probe10"/>
             <CONNECTION INSTANCE="Rx_SPB_Detection_Rx_SD_0" PORT="I_tdata"/>
+            <CONNECTION INSTANCE="Rx_PSK_Detection_0" PORT="I_tdata"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="15" NAME="Q_1M" RIGHT="0" SIGIS="undef" SIGNAME="Rx_gardner_loop_0_Q_1M">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="Rx_PSK_Detection_0" PORT="Q_tdata"/>
             <CONNECTION INSTANCE="system_ila_0" PORT="probe11"/>
             <CONNECTION INSTANCE="Rx_SPB_Detection_Rx_SD_0" PORT="Q_tdata"/>
+            <CONNECTION INSTANCE="Rx_PSK_Detection_0" PORT="Q_tdata"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="clk_out" SIGIS="undef" SIGNAME="Rx_gardner_loop_0_clk_out">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="Rx_PSK_Detection_0" PORT="clk"/>
             <CONNECTION INSTANCE="Rx_SPB_Detection_Rx_PD_0" PORT="clk"/>
             <CONNECTION INSTANCE="Rx_SPB_Detection_Rx_BD_0" PORT="clk"/>
             <CONNECTION INSTANCE="Rx_SPB_Detection_Rx_SD_0" PORT="clk"/>
-            <CONNECTION INSTANCE="Rx_Depacketizer_0" PORT="clk"/>
             <CONNECTION INSTANCE="External_Ports" PORT="GPIO_TH4"/>
             <CONNECTION INSTANCE="system_ila_0" PORT="probe14"/>
             <CONNECTION INSTANCE="Rx_Flatten_axis_data_fifo_0" PORT="s_axis_aclk"/>
+            <CONNECTION INSTANCE="Rx_PSK_Detection_0" PORT="clk"/>
+            <CONNECTION INSTANCE="Rx_Depacketizer_0" PORT="clk"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="rst_32M768" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="Clock_Gen_Reset_Gen_proc_sys_reset_32M768_bus_struct_reset">
@@ -2868,8 +2878,8 @@
       <PORTS>
         <PORT DIR="O" LEFT="0" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="Rx_xlconstant_one_dout">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="Rx_PSK_Detection_0" PORT="Q_tvalid"/>
             <CONNECTION INSTANCE="Rx_PSK_Detection_0" PORT="I_tvalid"/>
+            <CONNECTION INSTANCE="Rx_PSK_Detection_0" PORT="Q_tvalid"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -3032,14 +3042,14 @@
         </PORT>
         <PORT DIR="O" LEFT="11" NAME="out_I" RIGHT="0" SIGIS="undef" SIGNAME="Tx_PSK_Modulation_PSK_Mod_0_out_I">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="RF_Data_Converter" PORT="AD9361_TX_DAT_I"/>
             <CONNECTION INSTANCE="system_ila_0" PORT="probe2"/>
+            <CONNECTION INSTANCE="RF_Data_Converter" PORT="AD9361_TX_DAT_I"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="11" NAME="out_Q" RIGHT="0" SIGIS="undef" SIGNAME="Tx_PSK_Modulation_PSK_Mod_0_out_Q">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="RF_Data_Converter" PORT="AD9361_TX_DAT_Q"/>
             <CONNECTION INSTANCE="system_ila_0" PORT="probe3"/>
+            <CONNECTION INSTANCE="RF_Data_Converter" PORT="AD9361_TX_DAT_Q"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="out_vld" SIGIS="undef" SIGNAME="Tx_PSK_Modulation_PSK_Mod_0_out_vld">
@@ -6436,28 +6446,28 @@
         <PARAMETER NAME="C_PROBE22_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_PROBE21_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_PROBE20_WIDTH" VALUE="1"/>
-        <PARAMETER NAME="C_PROBE19_WIDTH" VALUE="8"/>
+        <PARAMETER NAME="C_PROBE19_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_PROBE18_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_PROBE17_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_PROBE16_WIDTH" VALUE="1"/>
-        <PARAMETER NAME="C_PROBE15_WIDTH" VALUE="8"/>
+        <PARAMETER NAME="C_PROBE15_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_PROBE14_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_PROBE13_WIDTH" VALUE="1"/>
-        <PARAMETER NAME="C_PROBE12_WIDTH" VALUE="2"/>
-        <PARAMETER NAME="C_PROBE11_WIDTH" VALUE="16"/>
-        <PARAMETER NAME="C_PROBE10_WIDTH" VALUE="16"/>
-        <PARAMETER NAME="C_PROBE9_WIDTH" VALUE="2"/>
-        <PARAMETER NAME="C_PROBE8_WIDTH" VALUE="12"/>
-        <PARAMETER NAME="C_PROBE7_WIDTH" VALUE="16"/>
-        <PARAMETER NAME="C_PROBE6_WIDTH" VALUE="16"/>
-        <PARAMETER NAME="C_PROBE5_WIDTH" VALUE="12"/>
-        <PARAMETER NAME="C_PROBE4_WIDTH" VALUE="12"/>
-        <PARAMETER NAME="C_PROBE3_WIDTH" VALUE="12"/>
-        <PARAMETER NAME="C_PROBE2_WIDTH" VALUE="12"/>
-        <PARAMETER NAME="C_PROBE1_WIDTH" VALUE="2"/>
+        <PARAMETER NAME="C_PROBE12_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_PROBE11_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_PROBE10_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_PROBE9_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_PROBE8_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_PROBE7_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_PROBE6_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_PROBE5_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_PROBE4_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_PROBE3_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_PROBE2_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_PROBE1_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_PROBE0_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_DATA_DEPTH" VALUE="2048"/>
-        <PARAMETER NAME="C_NUM_OF_PROBES" VALUE="23"/>
+        <PARAMETER NAME="C_NUM_OF_PROBES" VALUE="25"/>
         <PARAMETER NAME="C_XLNX_HW_PROBE_INFO" VALUE="DEFAULT"/>
         <PARAMETER NAME="Component_Name" VALUE="top_system_ila_0_0"/>
         <PARAMETER NAME="C_PROBE70_WIDTH" VALUE="1"/>
@@ -7721,7 +7731,7 @@
         <PARAMETER NAME="C_SLOT_15_AXIS_TID_WIDTH" VALUE="AUTO"/>
         <PARAMETER NAME="C_SLOT_15_AXIS_TUSER_WIDTH" VALUE="AUTO"/>
         <PARAMETER NAME="C_SLOT_15_AXIS_TDEST_WIDTH" VALUE="AUTO"/>
-        <PARAMETER NAME="C_PROBE_WIDTH_PROPAGATION" VALUE="MANUAL"/>
+        <PARAMETER NAME="C_PROBE_WIDTH_PROPAGATION" VALUE="AUTO"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
@@ -7843,6 +7853,16 @@
         <PORT DIR="I" LEFT="0" NAME="probe22" RIGHT="0" SIGIS="undef" SIGNAME="Rx_Depacketizer_0_data_tvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Rx_Depacketizer_0" PORT="data_tvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="probe23" RIGHT="0" SIGIS="undef" SIGNAME="Rx_costas_loop_0_error_tdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Rx_costas_loop_0" PORT="error_tdata"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="probe24" RIGHT="0" SIGIS="undef" SIGNAME="Rx_costas_loop_0_feedback_tdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Rx_costas_loop_0" PORT="feedback_tdata"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>

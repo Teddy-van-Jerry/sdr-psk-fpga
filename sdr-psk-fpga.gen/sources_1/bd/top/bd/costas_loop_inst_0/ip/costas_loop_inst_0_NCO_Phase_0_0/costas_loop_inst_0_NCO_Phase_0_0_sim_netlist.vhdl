@@ -3,8 +3,8 @@
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
 -- Date        : Fri Dec 29 00:30:26 2023
 -- Host        : TVJ-PC running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim
---               e:/Documents/Study/Verilog/SDR/sdr-psk-fpga/sdr-psk-fpga.gen/sources_1/bd/top/bd/costas_loop_inst_0/ip/costas_loop_inst_0_NCO_Phase_0_0/costas_loop_inst_0_NCO_Phase_0_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top costas_loop_inst_0_NCO_Phase_0_0 -prefix
+--               costas_loop_inst_0_NCO_Phase_0_0_ costas_loop_inst_0_NCO_Phase_0_0_sim_netlist.vhdl
 -- Design      : costas_loop_inst_0_NCO_Phase_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -23,8 +23,6 @@ entity costas_loop_inst_0_NCO_Phase_0_0_NCO_Phase is
     feedback_tdata : in STD_LOGIC_VECTOR ( 15 downto 0 );
     FEEDBACK_SHIFT : in STD_LOGIC_VECTOR ( 3 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of costas_loop_inst_0_NCO_Phase_0_0_NCO_Phase : entity is "NCO_Phase";
 end costas_loop_inst_0_NCO_Phase_0_0_NCO_Phase;
 
 architecture STRUCTURE of costas_loop_inst_0_NCO_Phase_0_0_NCO_Phase is

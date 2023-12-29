@@ -1,10 +1,10 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
--- Date        : Tue Dec 26 10:44:19 2023
+-- Date        : Tue Dec 26 10:44:18 2023
 -- Host        : TVJ-PC running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim
---               e:/Documents/Study/Verilog/SDR/sdr-psk-fpga/sdr-psk-fpga.gen/sources_1/bd/top/ip/top_Rx_BD_0_0/top_Rx_BD_0_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top top_Rx_BD_0_0 -prefix
+--               top_Rx_BD_0_0_ top_Rx_BD_0_0_sim_netlist.vhdl
 -- Design      : top_Rx_BD_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -26,8 +26,6 @@ entity top_Rx_BD_0_0_Rx_BD is
     PD_flag : in STD_LOGIC;
     disassert_BD : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of top_Rx_BD_0_0_Rx_BD : entity is "Rx_BD";
 end top_Rx_BD_0_0_Rx_BD;
 
 architecture STRUCTURE of top_Rx_BD_0_0_Rx_BD is

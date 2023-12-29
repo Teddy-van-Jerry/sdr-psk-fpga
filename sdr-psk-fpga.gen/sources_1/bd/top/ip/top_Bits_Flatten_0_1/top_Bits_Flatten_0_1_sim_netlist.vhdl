@@ -1,10 +1,10 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
--- Date        : Wed Dec 27 15:23:57 2023
+-- Date        : Wed Dec 27 15:23:56 2023
 -- Host        : TVJ-PC running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim
---               e:/Documents/Study/Verilog/SDR/sdr-psk-fpga/sdr-psk-fpga.gen/sources_1/bd/top/ip/top_Bits_Flatten_0_1/top_Bits_Flatten_0_1_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top top_Bits_Flatten_0_1 -prefix
+--               top_Bits_Flatten_0_1_ top_Bits_Flatten_0_1_sim_netlist.vhdl
 -- Design      : top_Bits_Flatten_0_1
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -22,8 +22,6 @@ entity top_Bits_Flatten_0_1_Bits_Flatten is
     bypass : in STD_LOGIC;
     I : in STD_LOGIC_VECTOR ( 1 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of top_Bits_Flatten_0_1_Bits_Flatten : entity is "Bits_Flatten";
 end top_Bits_Flatten_0_1_Bits_Flatten;
 
 architecture STRUCTURE of top_Bits_Flatten_0_1_Bits_Flatten is

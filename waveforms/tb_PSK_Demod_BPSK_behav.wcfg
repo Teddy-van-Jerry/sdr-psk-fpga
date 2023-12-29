@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="32.500000 us"></ZoomStartTime>
-      <ZoomEndTime time="47.500001 us"></ZoomEndTime>
-      <Cursor1Time time="45.000000 us"></Cursor1Time>
+      <ZoomStartTime time="0.000000 us"></ZoomStartTime>
+      <ZoomEndTime time="15.000001 us"></ZoomEndTime>
+      <Cursor1Time time="7.588000 us"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="303"></NameColumnWidth>
-      <ValueColumnWidth column_width="82"></ValueColumnWidth>
+      <NameColumnWidth column_width="288"></NameColumnWidth>
+      <ValueColumnWidth column_width="72"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="48" />
+   <WVObjectSize size="54" />
    <wvobject fp_name="/tb_PSK_Demod_BPSK/clk_32M768" type="logic">
       <obj_property name="ElementShortName">clk_32M768</obj_property>
       <obj_property name="ObjectShortName">clk_32M768</obj_property>
@@ -51,10 +51,28 @@
    <wvobject fp_name="/tb_PSK_Demod_BPSK/DAC_I" type="array">
       <obj_property name="ElementShortName">DAC_I[11:0]</obj_property>
       <obj_property name="ObjectShortName">DAC_I[11:0]</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
+      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+      <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+      <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+      <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_LINEAR</obj_property>
+      <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+      <obj_property name="AnalogHorizLine">0.000000</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_PSK_Demod_BPSK/DAC_Q" type="array">
       <obj_property name="ElementShortName">DAC_Q[11:0]</obj_property>
       <obj_property name="ObjectShortName">DAC_Q[11:0]</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
+      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+      <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+      <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+      <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_LINEAR</obj_property>
+      <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+      <obj_property name="AnalogHorizLine">0.000000</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_PSK_Demod_BPSK/DAC_vld" type="logic">
       <obj_property name="ElementShortName">DAC_vld</obj_property>
@@ -148,6 +166,12 @@
       <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
       <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
       <obj_property name="CellHeight">100</obj_property>
+      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+      <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+      <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+      <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_LINEAR</obj_property>
+      <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+      <obj_property name="AnalogHorizLine">0.000000</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_PSK_Demod_BPSK/Q_16M" type="array">
       <obj_property name="ElementShortName">Q_16M[15:0]</obj_property>
@@ -155,6 +179,12 @@
       <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
       <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
       <obj_property name="CellHeight">100</obj_property>
+      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+      <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+      <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+      <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_LINEAR</obj_property>
+      <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+      <obj_property name="AnalogHorizLine">0.000000</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_PSK_Demod_BPSK/inst_Rx/costas_loop_0/Error_Detect/Error_Detect_Ctrl_0/error_bpsk_tdata" type="array">
       <obj_property name="ElementShortName">error_bpsk_tdata[15:0]</obj_property>
@@ -162,6 +192,12 @@
       <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
       <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
       <obj_property name="CellHeight">100</obj_property>
+      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+      <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+      <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+      <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_LINEAR</obj_property>
+      <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+      <obj_property name="AnalogHorizLine">0.000000</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_PSK_Demod_BPSK/inst_Rx/costas_loop_0/Error_Detect/Error_Detect_Ctrl_0/error_qpsk_tdata" type="array">
       <obj_property name="ElementShortName">error_qpsk_tdata[15:0]</obj_property>
@@ -169,6 +205,29 @@
       <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
       <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
       <obj_property name="CellHeight">100</obj_property>
+      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+      <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+      <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+      <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_LINEAR</obj_property>
+      <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+      <obj_property name="AnalogHorizLine">0.000000</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_PSK_Demod_BPSK/inst_Rx/costas_loop_0/NCO/feedback_tdata" type="array">
+      <obj_property name="ElementShortName">feedback_tdata[15:0]</obj_property>
+      <obj_property name="ObjectShortName">feedback_tdata[15:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
+      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+      <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+      <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+      <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_LINEAR</obj_property>
+      <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+      <obj_property name="AnalogHorizLine">0.000000</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_PSK_Demod_BPSK/inst_Rx/costas_loop_0/NCO/FEEDBACK_SHIFT_1" type="array">
+      <obj_property name="ElementShortName">FEEDBACK_SHIFT_1[3:0]</obj_property>
+      <obj_property name="ObjectShortName">FEEDBACK_SHIFT_1[3:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_PSK_Demod_BPSK/inst_Rx/costas_loop_0/Error_Detect/error" type="protoinst">
       <obj_property name="children_use_element_short_name">true</obj_property>
@@ -216,12 +275,19 @@
       <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
       <obj_property name="CellHeight">100</obj_property>
       <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+      <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+      <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+      <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_LINEAR</obj_property>
+      <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+      <obj_property name="AnalogHorizLine">0.000000</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_PSK_Demod_BPSK/NCO_cos" type="array">
       <obj_property name="ElementShortName">NCO_cos[11:0]</obj_property>
       <obj_property name="ObjectShortName">NCO_cos[11:0]</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
       <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_PSK_Demod_BPSK/QPSK" type="array">
       <obj_property name="ElementShortName">QPSK[1:0]</obj_property>
@@ -232,31 +298,11 @@
       <obj_property name="ElementShortName">QPSK_raw[1:0]</obj_property>
       <obj_property name="ObjectShortName">QPSK_raw[1:0]</obj_property>
       <obj_property name="isExpanded"></obj_property>
-      <wvobject fp_name="/tb_PSK_Demod_BPSK/QPSK_raw[1]" type="logic">
-         <obj_property name="ElementShortName">[1]</obj_property>
-         <obj_property name="ObjectShortName">[1]</obj_property>
-         <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
-         <obj_property name="UseCustomSignalColor">true</obj_property>
-      </wvobject>
-      <wvobject fp_name="/tb_PSK_Demod_BPSK/QPSK_raw[0]" type="logic">
-         <obj_property name="ElementShortName">[0]</obj_property>
-         <obj_property name="ObjectShortName">[0]</obj_property>
-      </wvobject>
    </wvobject>
    <wvobject fp_name="/tb_PSK_Demod_BPSK/DAC_bits" type="array">
       <obj_property name="ElementShortName">DAC_bits[1:0]</obj_property>
       <obj_property name="ObjectShortName">DAC_bits[1:0]</obj_property>
       <obj_property name="isExpanded"></obj_property>
-      <wvobject fp_name="/tb_PSK_Demod_BPSK/DAC_bits[1]" type="logic">
-         <obj_property name="ElementShortName">[1]</obj_property>
-         <obj_property name="ObjectShortName">[1]</obj_property>
-         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
-         <obj_property name="UseCustomSignalColor">true</obj_property>
-      </wvobject>
-      <wvobject fp_name="/tb_PSK_Demod_BPSK/DAC_bits[0]" type="logic">
-         <obj_property name="ElementShortName">[0]</obj_property>
-         <obj_property name="ObjectShortName">[0]</obj_property>
-      </wvobject>
    </wvobject>
    <wvobject fp_name="/tb_PSK_Demod_BPSK/Rx_1bit" type="logic">
       <obj_property name="ElementShortName">Rx_1bit</obj_property>
@@ -265,6 +311,22 @@
    <wvobject fp_name="/tb_PSK_Demod_BPSK/clk_1M_out" type="logic">
       <obj_property name="ElementShortName">clk_1M_out</obj_property>
       <obj_property name="ObjectShortName">clk_1M_out</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_PSK_Demod_BPSK/inst_Rx/Depacketizer_0/inst/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_PSK_Demod_BPSK/inst_Rx/Depacketizer_0/inst/rst" type="logic">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_PSK_Demod_BPSK/inst_Rx/Depacketizer_0/inst/state" type="array">
+      <obj_property name="ElementShortName">state[4:0]</obj_property>
+      <obj_property name="ObjectShortName">state[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_PSK_Demod_BPSK/inst_Rx/Depacketizer_0/inst/is_bpsk_reg" type="logic">
+      <obj_property name="ElementShortName">is_bpsk_reg</obj_property>
+      <obj_property name="ObjectShortName">is_bpsk_reg</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_PSK_Demod_BPSK/Rx_tdata" type="array">
       <obj_property name="ElementShortName">Rx_tdata[7:0]</obj_property>

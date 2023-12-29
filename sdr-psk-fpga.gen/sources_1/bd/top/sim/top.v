@@ -1,7 +1,7 @@
 //Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-//Date        : Fri Dec 29 00:28:38 2023
+//Date        : Fri Dec 29 08:05:33 2023
 //Host        : TVJ-PC running 64-bit major release  (build 9200)
 //Command     : generate_target top.bd
 //Design      : top
@@ -149,7 +149,7 @@ module Flatten_imp_1HVGDJ4
   input [7:0]data_tdata;
   input data_tlast;
   output data_tready;
-  input [0:0]data_tuser;
+  input data_tuser;
   input data_tvalid;
   input rst_32M768;
 
@@ -157,7 +157,7 @@ module Flatten_imp_1HVGDJ4
   wire [7:0]Conn1_TDATA;
   wire Conn1_TLAST;
   wire Conn1_TREADY;
-  wire [0:0]Conn1_TUSER;
+  wire Conn1_TUSER;
   wire Conn1_TVALID;
   wire Not_Gate_0_o;
   wire [7:0]axis_data_fifo_0_m_axis_tdata;
@@ -170,7 +170,7 @@ module Flatten_imp_1HVGDJ4
 
   assign Conn1_TDATA = data_tdata[7:0];
   assign Conn1_TLAST = data_tlast;
-  assign Conn1_TUSER = data_tuser[0];
+  assign Conn1_TUSER = data_tuser;
   assign Conn1_TVALID = data_tvalid;
   assign Rx_1bit = Bits_Flatten_0_O;
   assign clk_1M024_1 = clk_1M024;
@@ -410,6 +410,8 @@ module Rx_imp_KSVDXC
     data_tlast,
     data_tuser,
     data_tvalid,
+    error_tdata,
+    feedback_tdata,
     rst_16M384,
     rst_32M768);
   input [11:0]ADC_I;
@@ -440,6 +442,8 @@ module Rx_imp_KSVDXC
   output data_tlast;
   output data_tuser;
   output data_tvalid;
+  output [15:0]error_tdata;
+  output [15:0]feedback_tdata;
   input rst_16M384;
   input rst_32M768;
 
@@ -483,6 +487,8 @@ module Rx_imp_KSVDXC
   wire [15:0]costas_loop_0_I1_tdata;
   wire [11:0]costas_loop_0_NCO_cos;
   wire [15:0]costas_loop_0_Q1_tdata;
+  wire [15:0]costas_loop_0_error_tdata;
+  wire [15:0]costas_loop_0_feedback_tdata;
   wire [15:0]gardner_loop_0_I_1M;
   wire [15:0]gardner_loop_0_Q_1M;
   wire gardner_loop_0_clk_out;
@@ -518,6 +524,8 @@ module Rx_imp_KSVDXC
   assign data_tlast = Depacketizer_0_data_tlast;
   assign data_tuser = Depacketizer_0_data_tuser;
   assign data_tvalid = Depacketizer_0_data_tvalid;
+  assign error_tdata[15:0] = costas_loop_0_error_tdata;
+  assign feedback_tdata[15:0] = costas_loop_0_feedback_tdata;
   assign rst_16M386_1 = rst_16M384;
   assign rst_32M768_1 = rst_32M768;
   top_Depacketizer_0_0 Depacketizer_0
@@ -604,6 +612,8 @@ module Rx_imp_KSVDXC
         .Q_data(costas_loop_0_Q1_tdata),
         .Q_valid(Q_tvalid_2),
         .clk_16M384(Div_clk32M768_0_clk16M384),
+        .error_tdata(costas_loop_0_error_tdata),
+        .feedback_tdata(costas_loop_0_feedback_tdata),
         .is_bpsk(PSK_Signal_Extend_0_is_bpsk_out),
         .rst_16M384(rst_16M386_1));
   gardner_loop_inst_0 gardner_loop_0
@@ -864,7 +874,7 @@ module Tx_imp_1IUYQQO
         .s_axis_tvalid(Tx_Data_0_data_tvalid));
 endmodule
 
-(* CORE_GENERATION_INFO = "top,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=top,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=84,numReposBlks=68,numNonXlnxBlks=0,numHierBlks=16,maxHierDepth=3,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=24,numPkgbdBlks=2,bdsource=USER,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "top.hwdef" *) 
+(* CORE_GENERATION_INFO = "top,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=top,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=85,numReposBlks=69,numNonXlnxBlks=0,numHierBlks=16,maxHierDepth=3,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=25,numPkgbdBlks=2,bdsource=USER,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "top.hwdef" *) 
 module top
    (AD9361_DATACLK,
     AD9361_FBCLK,
@@ -927,6 +937,8 @@ module top
   wire Rx_data_tlast;
   wire Rx_data_tuser;
   wire Rx_data_tvalid;
+  wire [15:0]Rx_error_tdata;
+  wire [15:0]Rx_feedback_tdata;
   wire [1:0]Tx_DAC_bits;
   wire Tx_DAC_vld;
   wire Tx_Tx_1bit;
@@ -1013,6 +1025,8 @@ module top
         .data_tlast(Rx_data_tlast),
         .data_tuser(Rx_data_tuser),
         .data_tvalid(Rx_data_tvalid),
+        .error_tdata(Rx_error_tdata),
+        .feedback_tdata(Rx_feedback_tdata),
         .rst_16M384(proc_sys_reset_16M384_mb_reset),
         .rst_32M768(Clock_Gen_rst_32M768));
   Tx_imp_1IUYQQO Tx
@@ -1051,6 +1065,8 @@ module top
         .probe20(Rx_data_tlast),
         .probe21(Rx_data_tuser),
         .probe22(Rx_data_tvalid),
+        .probe23(Rx_error_tdata),
+        .probe24(Rx_feedback_tdata),
         .probe3(PSK_Mod_0_out_Q),
         .probe4(AD9361_1RT_FDD_0_AD9361_RX_DAT_I),
         .probe5(AD9361_1RT_FDD_0_AD9361_RX_DAT_Q),

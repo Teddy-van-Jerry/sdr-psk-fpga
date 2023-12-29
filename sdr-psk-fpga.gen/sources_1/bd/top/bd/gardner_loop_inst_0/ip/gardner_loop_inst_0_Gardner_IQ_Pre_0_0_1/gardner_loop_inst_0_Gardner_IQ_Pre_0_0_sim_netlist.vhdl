@@ -1,7 +1,7 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
--- Date        : Tue Dec 26 10:42:12 2023
+-- Date        : Fri Dec 29 03:35:07 2023
 -- Host        : TVJ-PC running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim -rename_top gardner_loop_inst_0_Gardner_IQ_Pre_0_0 -prefix
 --               gardner_loop_inst_0_Gardner_IQ_Pre_0_0_ gardner_loop_inst_0_Gardner_IQ_Pre_0_0_sim_netlist.vhdl
@@ -16,21 +16,21 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity gardner_loop_inst_0_Gardner_IQ_Pre_0_0_Gardner_IQ_Pre is
   port (
-    I_out_tdata : out STD_LOGIC_VECTOR ( 13 downto 0 );
+    I_out_tdata : out STD_LOGIC_VECTOR ( 15 downto 0 );
     I_out_tvalid : out STD_LOGIC;
-    Q_out_tdata : out STD_LOGIC_VECTOR ( 13 downto 0 );
+    Q_out_tdata : out STD_LOGIC_VECTOR ( 15 downto 0 );
     Q_out_tvalid : out STD_LOGIC;
-    I_in_tdata : in STD_LOGIC_VECTOR ( 13 downto 0 );
+    I_in_tdata : in STD_LOGIC_VECTOR ( 15 downto 0 );
     clk : in STD_LOGIC;
     I_in_tvalid : in STD_LOGIC;
-    Q_in_tdata : in STD_LOGIC_VECTOR ( 13 downto 0 );
+    Q_in_tdata : in STD_LOGIC_VECTOR ( 15 downto 0 );
     Q_in_tvalid : in STD_LOGIC
   );
 end gardner_loop_inst_0_Gardner_IQ_Pre_0_0_Gardner_IQ_Pre;
 
 architecture STRUCTURE of gardner_loop_inst_0_Gardner_IQ_Pre_0_0_Gardner_IQ_Pre is
+  signal \I_out_tdata[15]_i_1_n_0\ : STD_LOGIC;
   signal \Q_out_tdata[15]_i_1_n_0\ : STD_LOGIC;
-  signal p_0_in : STD_LOGIC;
 begin
 \I_out_tdata[15]_i_1\: unisim.vcomponents.LUT1
     generic map(
@@ -38,7 +38,7 @@ begin
     )
         port map (
       I0 => I_in_tvalid,
-      O => p_0_in
+      O => \I_out_tdata[15]_i_1_n_0\
     );
 \I_out_tdata_reg[0]\: unisim.vcomponents.FDRE
      port map (
@@ -46,7 +46,7 @@ begin
       CE => '1',
       D => I_in_tdata(0),
       Q => I_out_tdata(0),
-      R => p_0_in
+      R => \I_out_tdata[15]_i_1_n_0\
     );
 \I_out_tdata_reg[10]\: unisim.vcomponents.FDRE
      port map (
@@ -54,7 +54,7 @@ begin
       CE => '1',
       D => I_in_tdata(10),
       Q => I_out_tdata(10),
-      R => p_0_in
+      R => \I_out_tdata[15]_i_1_n_0\
     );
 \I_out_tdata_reg[11]\: unisim.vcomponents.FDRE
      port map (
@@ -62,7 +62,7 @@ begin
       CE => '1',
       D => I_in_tdata(11),
       Q => I_out_tdata(11),
-      R => p_0_in
+      R => \I_out_tdata[15]_i_1_n_0\
     );
 \I_out_tdata_reg[12]\: unisim.vcomponents.FDRE
      port map (
@@ -70,15 +70,31 @@ begin
       CE => '1',
       D => I_in_tdata(12),
       Q => I_out_tdata(12),
-      R => p_0_in
+      R => \I_out_tdata[15]_i_1_n_0\
     );
-\I_out_tdata_reg[15]\: unisim.vcomponents.FDRE
+\I_out_tdata_reg[13]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
       CE => '1',
       D => I_in_tdata(13),
       Q => I_out_tdata(13),
-      R => p_0_in
+      R => \I_out_tdata[15]_i_1_n_0\
+    );
+\I_out_tdata_reg[14]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => '1',
+      D => I_in_tdata(14),
+      Q => I_out_tdata(14),
+      R => \I_out_tdata[15]_i_1_n_0\
+    );
+\I_out_tdata_reg[15]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => '1',
+      D => I_in_tdata(15),
+      Q => I_out_tdata(15),
+      R => \I_out_tdata[15]_i_1_n_0\
     );
 \I_out_tdata_reg[1]\: unisim.vcomponents.FDRE
      port map (
@@ -86,7 +102,7 @@ begin
       CE => '1',
       D => I_in_tdata(1),
       Q => I_out_tdata(1),
-      R => p_0_in
+      R => \I_out_tdata[15]_i_1_n_0\
     );
 \I_out_tdata_reg[2]\: unisim.vcomponents.FDRE
      port map (
@@ -94,7 +110,7 @@ begin
       CE => '1',
       D => I_in_tdata(2),
       Q => I_out_tdata(2),
-      R => p_0_in
+      R => \I_out_tdata[15]_i_1_n_0\
     );
 \I_out_tdata_reg[3]\: unisim.vcomponents.FDRE
      port map (
@@ -102,7 +118,7 @@ begin
       CE => '1',
       D => I_in_tdata(3),
       Q => I_out_tdata(3),
-      R => p_0_in
+      R => \I_out_tdata[15]_i_1_n_0\
     );
 \I_out_tdata_reg[4]\: unisim.vcomponents.FDRE
      port map (
@@ -110,7 +126,7 @@ begin
       CE => '1',
       D => I_in_tdata(4),
       Q => I_out_tdata(4),
-      R => p_0_in
+      R => \I_out_tdata[15]_i_1_n_0\
     );
 \I_out_tdata_reg[5]\: unisim.vcomponents.FDRE
      port map (
@@ -118,7 +134,7 @@ begin
       CE => '1',
       D => I_in_tdata(5),
       Q => I_out_tdata(5),
-      R => p_0_in
+      R => \I_out_tdata[15]_i_1_n_0\
     );
 \I_out_tdata_reg[6]\: unisim.vcomponents.FDRE
      port map (
@@ -126,7 +142,7 @@ begin
       CE => '1',
       D => I_in_tdata(6),
       Q => I_out_tdata(6),
-      R => p_0_in
+      R => \I_out_tdata[15]_i_1_n_0\
     );
 \I_out_tdata_reg[7]\: unisim.vcomponents.FDRE
      port map (
@@ -134,7 +150,7 @@ begin
       CE => '1',
       D => I_in_tdata(7),
       Q => I_out_tdata(7),
-      R => p_0_in
+      R => \I_out_tdata[15]_i_1_n_0\
     );
 \I_out_tdata_reg[8]\: unisim.vcomponents.FDRE
      port map (
@@ -142,7 +158,7 @@ begin
       CE => '1',
       D => I_in_tdata(8),
       Q => I_out_tdata(8),
-      R => p_0_in
+      R => \I_out_tdata[15]_i_1_n_0\
     );
 \I_out_tdata_reg[9]\: unisim.vcomponents.FDRE
      port map (
@@ -150,7 +166,7 @@ begin
       CE => '1',
       D => I_in_tdata(9),
       Q => I_out_tdata(9),
-      R => p_0_in
+      R => \I_out_tdata[15]_i_1_n_0\
     );
 I_out_tvalid_reg: unisim.vcomponents.FDRE
      port map (
@@ -200,12 +216,28 @@ I_out_tvalid_reg: unisim.vcomponents.FDRE
       Q => Q_out_tdata(12),
       R => \Q_out_tdata[15]_i_1_n_0\
     );
-\Q_out_tdata_reg[15]\: unisim.vcomponents.FDRE
+\Q_out_tdata_reg[13]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
       CE => '1',
       D => Q_in_tdata(13),
       Q => Q_out_tdata(13),
+      R => \Q_out_tdata[15]_i_1_n_0\
+    );
+\Q_out_tdata_reg[14]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => '1',
+      D => Q_in_tdata(14),
+      Q => Q_out_tdata(14),
+      R => \Q_out_tdata[15]_i_1_n_0\
+    );
+\Q_out_tdata_reg[15]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => '1',
+      D => Q_in_tdata(15),
+      Q => Q_out_tdata(15),
       R => \Q_out_tdata[15]_i_1_n_0\
     );
 \Q_out_tdata_reg[1]\: unisim.vcomponents.FDRE
@@ -318,8 +350,6 @@ entity gardner_loop_inst_0_Gardner_IQ_Pre_0_0 is
 end gardner_loop_inst_0_Gardner_IQ_Pre_0_0;
 
 architecture STRUCTURE of gardner_loop_inst_0_Gardner_IQ_Pre_0_0 is
-  signal \^i_out_tdata\ : STD_LOGIC_VECTOR ( 14 downto 0 );
-  signal \^q_out_tdata\ : STD_LOGIC_VECTOR ( 14 downto 0 );
   attribute X_INTERFACE_INFO : string;
   attribute X_INTERFACE_INFO of I_in_tvalid : signal is "xilinx.com:interface:axis:1.0 I_in TVALID";
   attribute X_INTERFACE_PARAMETER : string;
@@ -337,25 +367,15 @@ architecture STRUCTURE of gardner_loop_inst_0_Gardner_IQ_Pre_0_0 is
   attribute X_INTERFACE_INFO of Q_in_tdata : signal is "xilinx.com:interface:axis:1.0 Q_in TDATA";
   attribute X_INTERFACE_INFO of Q_out_tdata : signal is "xilinx.com:interface:axis:1.0 Q_out TDATA";
 begin
-  I_out_tdata(15) <= \^i_out_tdata\(14);
-  I_out_tdata(14) <= \^i_out_tdata\(14);
-  I_out_tdata(13) <= \^i_out_tdata\(14);
-  I_out_tdata(12 downto 0) <= \^i_out_tdata\(12 downto 0);
-  Q_out_tdata(15) <= \^q_out_tdata\(14);
-  Q_out_tdata(14) <= \^q_out_tdata\(14);
-  Q_out_tdata(13) <= \^q_out_tdata\(14);
-  Q_out_tdata(12 downto 0) <= \^q_out_tdata\(12 downto 0);
 inst: entity work.gardner_loop_inst_0_Gardner_IQ_Pre_0_0_Gardner_IQ_Pre
      port map (
-      I_in_tdata(13 downto 0) => I_in_tdata(15 downto 2),
+      I_in_tdata(15 downto 0) => I_in_tdata(15 downto 0),
       I_in_tvalid => I_in_tvalid,
-      I_out_tdata(13) => \^i_out_tdata\(14),
-      I_out_tdata(12 downto 0) => \^i_out_tdata\(12 downto 0),
+      I_out_tdata(15 downto 0) => I_out_tdata(15 downto 0),
       I_out_tvalid => I_out_tvalid,
-      Q_in_tdata(13 downto 0) => Q_in_tdata(15 downto 2),
+      Q_in_tdata(15 downto 0) => Q_in_tdata(15 downto 0),
       Q_in_tvalid => Q_in_tvalid,
-      Q_out_tdata(13) => \^q_out_tdata\(14),
-      Q_out_tdata(12 downto 0) => \^q_out_tdata\(12 downto 0),
+      Q_out_tdata(15 downto 0) => Q_out_tdata(15 downto 0),
       Q_out_tvalid => Q_out_tvalid,
       clk => clk
     );

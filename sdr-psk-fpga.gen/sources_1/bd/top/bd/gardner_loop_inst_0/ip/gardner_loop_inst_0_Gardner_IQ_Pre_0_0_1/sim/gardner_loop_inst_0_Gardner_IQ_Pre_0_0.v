@@ -92,7 +92,7 @@ output wire Q_out_tvalid;
 
   Gardner_IQ_Pre #(
     .WIDTH(16),
-    .SHIFT(2)
+    .SHIFT(0)
   ) inst (
     .clk(clk),
     .I_in_tdata(I_in_tdata),

@@ -1,7 +1,7 @@
 //Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-//Date        : Fri Dec 29 00:28:44 2023
+//Date        : Fri Dec 29 08:05:38 2023
 //Host        : TVJ-PC running 64-bit major release  (build 9200)
 //Command     : generate_target costas_loop_inst_0.bd
 //Design      : costas_loop_inst_0
@@ -33,8 +33,8 @@ module Error_Detect_imp_1JXVF2
   wire AXI_2x_I_O2_TVALID;
   wire [15:0]AXI_2x_Q_O2_TDATA;
   wire AXI_2x_Q_O2_TVALID;
-  wire [15:0]Error_Detect_Ctrl_0_error_TDATA;
-  wire Error_Detect_Ctrl_0_error_TVALID;
+  wire [15:0]Error_Detect_Ctrl_0_error_tdata;
+  wire Error_Detect_Ctrl_0_error_tvalid;
   wire [15:0]Error_Detect_Ctrl_0_out_I_tdata;
   wire [15:0]Error_Detect_Ctrl_0_out_Q_tdata;
   wire [15:0]Error_Detect_QPSK_S;
@@ -49,8 +49,8 @@ module Error_Detect_imp_1JXVF2
   assign AXI_2x_Q_O2_TDATA = in_Q_tdata[15:0];
   assign AXI_2x_Q_O2_TVALID = in_Q_tvalid;
   assign aclk_0_1 = clk_16M384;
-  assign error_tdata[15:0] = Error_Detect_Ctrl_0_error_TDATA;
-  assign error_tvalid = Error_Detect_Ctrl_0_error_TVALID;
+  assign error_tdata[15:0] = Error_Detect_Ctrl_0_error_tdata;
+  assign error_tvalid = Error_Detect_Ctrl_0_error_tvalid;
   assign is_bpsk_1 = is_bpsk;
   assign rst_16M386_1 = rst_16M384;
   costas_loop_inst_0_Error_Detect_BPSK_0 Error_Detect_BPSK
@@ -64,8 +64,8 @@ module Error_Detect_imp_1JXVF2
         .error_bpsk_tvalid(xlconstant_valid_one_dout),
         .error_qpsk_tdata(Error_Detect_QPSK_S),
         .error_qpsk_tvalid(xlconstant_valid_one_dout),
-        .error_tdata(Error_Detect_Ctrl_0_error_TDATA),
-        .error_tvalid(Error_Detect_Ctrl_0_error_TVALID),
+        .error_tdata(Error_Detect_Ctrl_0_error_tdata),
+        .error_tvalid(Error_Detect_Ctrl_0_error_tvalid),
         .in_I_tdata(AXI_2x_I_O2_TDATA),
         .in_I_tvalid(AXI_2x_I_O2_TVALID),
         .in_Q_tdata(AXI_2x_Q_O2_TDATA),
@@ -75,8 +75,8 @@ module Error_Detect_imp_1JXVF2
         .out_Q_tdata(Error_Detect_Ctrl_0_out_Q_tdata),
         .rst(rst_16M386_1));
   costas_loop_inst_0_Error_Detect_QPSK_0 Error_Detect_QPSK
-       (.A(Error_Detect_Ctrl_0_out_Q_tdata),
-        .B(Error_Detect_Ctrl_0_out_I_tdata),
+       (.A(Error_Detect_Ctrl_0_out_I_tdata),
+        .B(Error_Detect_Ctrl_0_out_Q_tdata),
         .CLK(aclk_0_1),
         .S(Error_Detect_QPSK_S));
   costas_loop_inst_0_xlconstant_one_0 xlconstant_one
@@ -159,29 +159,38 @@ module LPF_imp_6VU62K
     IQ_tvalid,
     NCO_vld,
     Q,
-    clk_16M384);
+    clk_16M384,
+    is_bpsk);
   input [15:0]I;
   output [79:0]IQ_tdata;
   output IQ_tvalid;
   input [0:0]NCO_vld;
   input [15:0]Q;
   input clk_16M384;
+  input is_bpsk;
 
   wire [0:0]D_1;
+  wire [15:0]Inverse_0_O;
+  wire [15:0]Q_1;
   wire aclk_0_1;
   wire [0:0]c_shift_ram_0_Q;
   wire [79:0]fir_compiler_I_M_AXIS_DATA_TDATA;
   wire fir_compiler_I_M_AXIS_DATA_TVALID;
+  wire is_bpsk_1;
   wire [15:0]phase_detector_I_P;
-  wire [15:0]phase_detector_Q_P;
   wire [31:0]xlconcat_0_dout;
 
   assign D_1 = NCO_vld[0];
   assign IQ_tdata[79:0] = fir_compiler_I_M_AXIS_DATA_TDATA;
   assign IQ_tvalid = fir_compiler_I_M_AXIS_DATA_TVALID;
+  assign Q_1 = Q[15:0];
   assign aclk_0_1 = clk_16M384;
+  assign is_bpsk_1 = is_bpsk;
   assign phase_detector_I_P = I[15:0];
-  assign phase_detector_Q_P = Q[15:0];
+  costas_loop_inst_0_Inverse_0_0 Inverse_0
+       (.I(Q_1),
+        .O(Inverse_0_O),
+        .is_bpsk(is_bpsk_1));
   costas_loop_inst_0_LP_filter_0 LP_filter
        (.aclk(aclk_0_1),
         .m_axis_data_tdata(fir_compiler_I_M_AXIS_DATA_TDATA),
@@ -194,7 +203,7 @@ module LPF_imp_6VU62K
         .Q(c_shift_ram_0_Q));
   costas_loop_inst_0_xlconcat_0_0 xlconcat_0
        (.In0(phase_detector_I_P),
-        .In1(phase_detector_Q_P),
+        .In1(Inverse_0_O),
         .dout(xlconcat_0_dout));
 endmodule
 
@@ -206,6 +215,7 @@ module NCO_imp_UABGQB
     clk_16M384,
     feedback_tdata,
     feedback_tvalid,
+    is_bpsk,
     rst_16M384);
   input [3:0]FEEDBACK_SHIFT;
   output [11:0]NCO_cos;
@@ -214,6 +224,7 @@ module NCO_imp_UABGQB
   input clk_16M384;
   input [15:0]feedback_tdata;
   input feedback_tvalid;
+  input is_bpsk;
   input rst_16M384;
 
   wire [3:0]FEEDBACK_SHIFT_1;
@@ -227,6 +238,7 @@ module NCO_imp_UABGQB
   wire aclk_0_1;
   wire [15:0]feedback_1_TDATA;
   wire feedback_1_TVALID;
+  wire is_bpsk_1;
   wire rst_16M384_1;
 
   assign FEEDBACK_SHIFT_1 = FEEDBACK_SHIFT[3:0];
@@ -236,6 +248,7 @@ module NCO_imp_UABGQB
   assign aclk_0_1 = clk_16M384;
   assign feedback_1_TDATA = feedback_tdata[15:0];
   assign feedback_1_TVALID = feedback_tvalid;
+  assign is_bpsk_1 = is_bpsk;
   assign rst_16M384_1 = rst_16M384;
   costas_loop_inst_0_NCO_DDS_0 NCO_DDS
        (.aclk(aclk_0_1),
@@ -260,7 +273,7 @@ module NCO_imp_UABGQB
         .clk(aclk_0_1));
 endmodule
 
-(* CORE_GENERATION_INFO = "costas_loop_inst_0,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=costas_loop_inst_0,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=20,numReposBlks=16,numNonXlnxBlks=0,numHierBlks=4,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=6,numPkgbdBlks=0,bdsource=E_/Documents/Study/Verilog/SDR/sdr-psk-fpga/sdr-psk-fpga.srcs/sources_1/bd/costas_loop/costas_loop.bd,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "costas_loop_inst_0.hwdef" *) 
+(* CORE_GENERATION_INFO = "costas_loop_inst_0,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=costas_loop_inst_0,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=21,numReposBlks=17,numNonXlnxBlks=0,numHierBlks=4,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=7,numPkgbdBlks=0,bdsource=E_/Documents/Study/Verilog/SDR/sdr-psk-fpga/sdr-psk-fpga.srcs/sources_1/bd/costas_loop/costas_loop.bd,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "costas_loop_inst_0.hwdef" *) 
 module costas_loop_inst_0
    (FEEDBACK_SHIFT,
     I_data,
@@ -270,6 +283,8 @@ module costas_loop_inst_0
     Q_data,
     Q_valid,
     clk_16M384,
+    error_tdata,
+    feedback_tdata,
     is_bpsk,
     rst_16M384);
   (* X_INTERFACE_INFO = "xilinx.com:signal:data:1.0 DATA.FEEDBACK_SHIFT DATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME DATA.FEEDBACK_SHIFT, LAYERED_METADATA undef" *) input [3:0]FEEDBACK_SHIFT;
@@ -280,6 +295,8 @@ module costas_loop_inst_0
   output [15:0]Q_data;
   output Q_valid;
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.CLK_16M384 CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.CLK_16M384, ASSOCIATED_RESET rst_16M386:rst_16M384, CLK_DOMAIN costas_loop_aclk_0, FREQ_HZ 16384000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0" *) input clk_16M384;
+  output [15:0]error_tdata;
+  output [15:0]feedback_tdata;
   input is_bpsk;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.RST_16M384 RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.RST_16M384, INSERT_VIP 0, POLARITY ACTIVE_HIGH" *) input rst_16M384;
 
@@ -287,8 +304,8 @@ module costas_loop_inst_0
   wire AXI_2x_I_O2_TVALID;
   wire [15:0]AXI_2x_Q_O2_TDATA;
   wire AXI_2x_Q_O2_TVALID;
-  wire [15:0]Error_Detect_Ctrl_0_error_TDATA;
-  wire Error_Detect_Ctrl_0_error_TVALID;
+  wire [15:0]Error_Detect_error_tdata;
+  wire Error_Detect_error_tvalid;
   wire [3:0]FEEDBACK_SHIFT_1;
   wire [15:0]IQ_Connect_I1_tdata;
   wire IQ_Connect_I1_tvalid;
@@ -302,8 +319,8 @@ module costas_loop_inst_0
   wire [79:0]fir_compiler_I_M_AXIS_DATA_TDATA;
   wire fir_compiler_I_M_AXIS_DATA_TVALID;
   wire is_bpsk_1;
-  wire [15:0]loop_filter_M_AXIS_DATA_TDATA;
   wire loop_filter_M_AXIS_DATA_TVALID;
+  wire [15:0]loop_filter_m_axis_data_tdata;
   wire [15:0]phase_detector_I_P;
   wire [15:0]phase_detector_Q_P;
   wire rst_16M386_1;
@@ -316,12 +333,14 @@ module costas_loop_inst_0
   assign Q_data[15:0] = IQ_Connect_Q1_tdata;
   assign Q_valid = IQ_Connect_Q1_tvalid;
   assign aclk_0_1 = clk_16M384;
+  assign error_tdata[15:0] = Error_Detect_error_tdata;
+  assign feedback_tdata[15:0] = loop_filter_m_axis_data_tdata;
   assign is_bpsk_1 = is_bpsk;
   assign rst_16M386_1 = rst_16M384;
   Error_Detect_imp_1JXVF2 Error_Detect
        (.clk_16M384(aclk_0_1),
-        .error_tdata(Error_Detect_Ctrl_0_error_TDATA),
-        .error_tvalid(Error_Detect_Ctrl_0_error_TVALID),
+        .error_tdata(Error_Detect_error_tdata),
+        .error_tvalid(Error_Detect_error_tvalid),
         .in_I_tdata(AXI_2x_I_O2_TDATA),
         .in_I_tvalid(AXI_2x_I_O2_TVALID),
         .in_Q_tdata(AXI_2x_Q_O2_TDATA),
@@ -345,22 +364,24 @@ module costas_loop_inst_0
         .IQ_tvalid(fir_compiler_I_M_AXIS_DATA_TVALID),
         .NCO_vld(NCO_NCO_vld),
         .Q(phase_detector_Q_P),
-        .clk_16M384(aclk_0_1));
+        .clk_16M384(aclk_0_1),
+        .is_bpsk(is_bpsk_1));
   NCO_imp_UABGQB NCO
        (.FEEDBACK_SHIFT(FEEDBACK_SHIFT_1),
         .NCO_cos(NCO_cos_sin_0_NCO_cos),
         .NCO_sin(NCO_cos_sin_0_NCO_sin),
         .NCO_vld(NCO_NCO_vld),
         .clk_16M384(aclk_0_1),
-        .feedback_tdata(loop_filter_M_AXIS_DATA_TDATA),
+        .feedback_tdata(loop_filter_m_axis_data_tdata),
         .feedback_tvalid(loop_filter_M_AXIS_DATA_TVALID),
+        .is_bpsk(is_bpsk_1),
         .rst_16M384(rst_16M386_1));
   costas_loop_inst_0_loop_filter_0 loop_filter
        (.aclk(aclk_0_1),
-        .m_axis_data_tdata(loop_filter_M_AXIS_DATA_TDATA),
+        .m_axis_data_tdata(loop_filter_m_axis_data_tdata),
         .m_axis_data_tvalid(loop_filter_M_AXIS_DATA_TVALID),
-        .s_axis_data_tdata(Error_Detect_Ctrl_0_error_TDATA),
-        .s_axis_data_tvalid(Error_Detect_Ctrl_0_error_TVALID));
+        .s_axis_data_tdata(Error_Detect_error_tdata),
+        .s_axis_data_tvalid(Error_Detect_error_tvalid));
   costas_loop_inst_0_phase_detector_I_0 phase_detector_I
        (.A(PSK_signal_1),
         .B(NCO_cos_sin_0_NCO_cos),

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Dec 29 00:28:48 2023" VIVADOVERSION="2022.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Dec 29 08:05:41 2023" VIVADOVERSION="2022.2">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z020" NAME="costas_loop_inst_0" PACKAGE="clg484" SPEEDGRADE="-1"/>
 
@@ -15,8 +15,8 @@
         <CONNECTION INSTANCE="LPF_LP_filter" PORT="aclk"/>
         <CONNECTION INSTANCE="LPF_c_shift_ram_0" PORT="CLK"/>
         <CONNECTION INSTANCE="NCO_NCO_DDS" PORT="aclk"/>
-        <CONNECTION INSTANCE="NCO_NCO_cos_sin_0" PORT="clk"/>
         <CONNECTION INSTANCE="NCO_NCO_Phase_0" PORT="clk"/>
+        <CONNECTION INSTANCE="NCO_NCO_cos_sin_0" PORT="clk"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" LEFT="11" NAME="PSK_signal" RIGHT="0" SIGIS="data" SIGNAME="External_Ports_PSK_signal">
@@ -28,6 +28,7 @@
     <PORT DIR="I" NAME="is_bpsk" SIGIS="undef" SIGNAME="External_Ports_is_bpsk">
       <CONNECTIONS>
         <CONNECTION INSTANCE="Error_Detect_Error_Detect_Ctrl_0" PORT="is_bpsk"/>
+        <CONNECTION INSTANCE="LPF_Inverse_0" PORT="is_bpsk"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" NAME="rst_16M384" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_rst_16M384">
@@ -64,6 +65,16 @@
     <PORT DIR="O" NAME="Q_valid" SIGIS="undef" SIGNAME="IQ_Connect_AXI_2x_Q_O1_tvalid">
       <CONNECTIONS>
         <CONNECTION INSTANCE="IQ_Connect_AXI_2x_Q" PORT="O1_tvalid"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="15" NAME="error_tdata" RIGHT="0" SIGIS="undef" SIGNAME="Error_Detect_Error_Detect_Ctrl_0_error_tdata">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Error_Detect_Error_Detect_Ctrl_0" PORT="error_tdata"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="15" NAME="feedback_tdata" RIGHT="0" SIGIS="undef" SIGNAME="loop_filter_m_axis_data_tdata">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="loop_filter" PORT="m_axis_data_tdata"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>
@@ -189,14 +200,14 @@
         <PORT DIR="O" LEFT="15" NAME="out_I_tdata" RIGHT="0" SIGIS="undef" SIGNAME="Error_Detect_Error_Detect_Ctrl_0_out_I_tdata">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Error_Detect_Error_Detect_BPSK" PORT="A"/>
-            <CONNECTION INSTANCE="Error_Detect_Error_Detect_QPSK" PORT="B"/>
+            <CONNECTION INSTANCE="Error_Detect_Error_Detect_QPSK" PORT="A"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="out_I_tvalid" SIGIS="undef"/>
         <PORT DIR="O" LEFT="15" NAME="out_Q_tdata" RIGHT="0" SIGIS="undef" SIGNAME="Error_Detect_Error_Detect_Ctrl_0_out_Q_tdata">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Error_Detect_Error_Detect_BPSK" PORT="B"/>
-            <CONNECTION INSTANCE="Error_Detect_Error_Detect_QPSK" PORT="A"/>
+            <CONNECTION INSTANCE="Error_Detect_Error_Detect_QPSK" PORT="B"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="out_Q_tvalid" SIGIS="undef"/>
@@ -223,6 +234,7 @@
         <PORT DIR="O" LEFT="15" NAME="error_tdata" RIGHT="0" SIGIS="undef" SIGNAME="Error_Detect_Error_Detect_Ctrl_0_error_tdata">
           <CONNECTIONS>
             <CONNECTION INSTANCE="loop_filter" PORT="s_axis_data_tdata"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="error_tdata"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="error_tvalid" SIGIS="undef" SIGNAME="Error_Detect_Error_Detect_Ctrl_0_error_tvalid">
@@ -233,7 +245,7 @@
         <PORT DIR="O" NAME="is_bpsk_delayed" SIGIS="undef"/>
       </PORTS>
       <BUSINTERFACES>
-        <BUSINTERFACE BUSNAME="Error_Detect_Error_Detect_Ctrl_0_error" NAME="error" TYPE="INITIATOR" VLNV="xilinx.com:interface:axis:1.0">
+        <BUSINTERFACE BUSNAME="__NOC__" NAME="error" TYPE="INITIATOR" VLNV="xilinx.com:interface:axis:1.0">
           <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="2"/>
           <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
           <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
@@ -428,14 +440,14 @@
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
-        <PORT DIR="I" LEFT="15" NAME="A" RIGHT="0" SIGIS="data" SIGNAME="Error_Detect_Error_Detect_Ctrl_0_out_Q_tdata">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="Error_Detect_Error_Detect_Ctrl_0" PORT="out_Q_tdata"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="15" NAME="B" RIGHT="0" SIGIS="data" SIGNAME="Error_Detect_Error_Detect_Ctrl_0_out_I_tdata">
+        <PORT DIR="I" LEFT="15" NAME="A" RIGHT="0" SIGIS="data" SIGNAME="Error_Detect_Error_Detect_Ctrl_0_out_I_tdata">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Error_Detect_Error_Detect_Ctrl_0" PORT="out_I_tdata"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="B" RIGHT="0" SIGIS="data" SIGNAME="Error_Detect_Error_Detect_Ctrl_0_out_Q_tdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Error_Detect_Error_Detect_Ctrl_0" PORT="out_Q_tdata"/>
           </CONNECTIONS>
         </PORT>
         <PORT CLKFREQUENCY="16384000" DIR="I" NAME="CLK" SIGIS="clk" SIGNAME="External_Ports_clk_16M384">
@@ -767,6 +779,32 @@
           </PORTMAPS>
         </BUSINTERFACE>
       </BUSINTERFACES>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/LPF/Inverse_0" HWVERSION="1.0" INSTANCE="LPF_Inverse_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="Inverse" VLNV="xilinx.com:module_ref:Inverse:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="WIDTH" VALUE="16"/>
+        <PARAMETER NAME="Component_Name" VALUE="costas_loop_inst_0_Inverse_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" NAME="is_bpsk" SIGIS="undef" SIGNAME="External_Ports_is_bpsk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="is_bpsk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="I" RIGHT="0" SIGIS="undef" SIGNAME="phase_detector_Q_P">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="phase_detector_Q" PORT="P"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="O" RIGHT="0" SIGIS="undef" SIGNAME="LPF_Inverse_0_O">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="LPF_xlconcat_0" PORT="In1"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
     </MODULE>
     <MODULE COREREVISION="18" FULLNAME="/LPF/LP_filter" HWVERSION="7.2" INSTANCE="LPF_LP_filter" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="fir_compiler" VLNV="xilinx.com:ip:fir_compiler:7.2">
       <DOCUMENTS>
@@ -1206,9 +1244,9 @@
             <CONNECTION INSTANCE="phase_detector_I" PORT="P"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="15" NAME="In1" RIGHT="0" SIGIS="undef" SIGNAME="phase_detector_Q_P">
+        <PORT DIR="I" LEFT="15" NAME="In1" RIGHT="0" SIGIS="undef" SIGNAME="LPF_Inverse_0_O">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="phase_detector_Q" PORT="P"/>
+            <CONNECTION INSTANCE="LPF_Inverse_0" PORT="O"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="31" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="LPF_xlconcat_0_dout">
@@ -1773,14 +1811,15 @@
             <CONNECTION INSTANCE="NCO_NCO_Phase_0" PORT="feedback_tvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="15" NAME="m_axis_data_tdata" RIGHT="0" SIGIS="undef" SIGNAME="NCO_NCO_Phase_0_feedback_tdata">
+        <PORT DIR="O" LEFT="15" NAME="m_axis_data_tdata" RIGHT="0" SIGIS="undef" SIGNAME="loop_filter_m_axis_data_tdata">
           <CONNECTIONS>
             <CONNECTION INSTANCE="NCO_NCO_Phase_0" PORT="feedback_tdata"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="feedback_tdata"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
       <BUSINTERFACES>
-        <BUSINTERFACE BUSNAME="Error_Detect_Error_Detect_Ctrl_0_error" NAME="S_AXIS_DATA" TYPE="TARGET" VLNV="xilinx.com:interface:axis:1.0">
+        <BUSINTERFACE BUSNAME="__NOC__" NAME="S_AXIS_DATA" TYPE="TARGET" VLNV="xilinx.com:interface:axis:1.0">
           <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="2"/>
           <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
           <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
@@ -1959,7 +1998,7 @@
         </PORT>
         <PORT DIR="O" LEFT="15" NAME="P" RIGHT="0" SIGIS="data" SIGNAME="phase_detector_Q_P">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="LPF_xlconcat_0" PORT="In1"/>
+            <CONNECTION INSTANCE="LPF_Inverse_0" PORT="I"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>

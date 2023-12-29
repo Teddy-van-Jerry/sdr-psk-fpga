@@ -46,8 +46,8 @@ module Error_Detect_Ctrl # (
         out_Q_tdata <= in_Q_tvalid ? in_Q_tdata : 0;
       end
       else begin // QPSK
-        out_I_tdata <= in_I_tvalid ? (in_Q_tdata[WIDTH-1] ? -in_I_tdata : in_I_tdata) : 0;
-        out_Q_tdata <= in_Q_tvalid ? (in_I_tdata[WIDTH-1] ? -in_Q_tdata : in_Q_tdata) : 0;
+        out_I_tdata <= in_I_tvalid ? (in_Q_tdata[WIDTH-1] ? -in_I_tdata : in_I_tdata) >>> 6 : 0;
+        out_Q_tdata <= in_Q_tvalid ? (in_I_tdata[WIDTH-1] ? -in_Q_tdata : in_Q_tdata) >>> 6 : 0;
       end
       out_I_tvalid <= 1'b1;
       out_Q_tvalid <= 1'b1;

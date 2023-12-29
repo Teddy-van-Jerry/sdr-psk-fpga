@@ -1,10 +1,10 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Wed Dec 27 15:23:57 2023
+// Date        : Fri Dec 29 07:26:31 2023
 // Host        : TVJ-PC running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim
-//               e:/Documents/Study/Verilog/SDR/sdr-psk-fpga/sdr-psk-fpga.gen/sources_1/bd/top/ip/top_Depacketizer_0_0/top_Depacketizer_0_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top top_Depacketizer_0_0 -prefix
+//               top_Depacketizer_0_0_ top_Depacketizer_0_0_sim_netlist.v
 // Design      : top_Depacketizer_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -61,9 +61,9 @@ module top_Depacketizer_0_0
   wire [3:0]MODE_CTRL;
   wire [1:0]\^data_tdata ;
   wire data_tready;
+  wire data_tuser;
   wire data_tvalid;
   wire [1:0]in_QPSK;
-  wire is_bpsk;
 
   assign BPSK = \^data_tdata [1];
   assign QPSK[1:0] = \^data_tdata [1:0];
@@ -75,10 +75,10 @@ module top_Depacketizer_0_0
   assign data_tdata[2] = \<const0> ;
   assign data_tdata[1:0] = \^data_tdata [1:0];
   assign data_tlast = \<const0> ;
-  assign data_tuser = is_bpsk;
   assign disassert_BD = \<const0> ;
   assign disassert_PD = \<const0> ;
   assign in_ready = data_tready;
+  assign is_bpsk = data_tuser;
   LUT5 #(
     .INIT(32'h00000208)) 
     BPSK_INST_0
@@ -107,51 +107,14 @@ module top_Depacketizer_0_0
         .I2(MODE_CTRL[1]),
         .I3(MODE_CTRL[3]),
         .O(data_tvalid));
-  top_Depacketizer_0_0_Depacketizer inst
-       (.MODE_CTRL(MODE_CTRL),
-        .is_bpsk(is_bpsk));
-endmodule
-
-(* ORIG_REF_NAME = "Depacketizer" *) 
-module top_Depacketizer_0_0_Depacketizer
-   (is_bpsk,
-    MODE_CTRL);
-  output is_bpsk;
-  input [3:0]MODE_CTRL;
-
-  wire [3:0]MODE_CTRL;
-  wire \__4/i__n_0 ;
-  wire is_bpsk;
-  wire is_bpsk_reg_i_1_n_0;
-
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
-  LUT4 #(
-    .INIT(16'hFEFF)) 
-    \__4/i_ 
-       (.I0(MODE_CTRL[3]),
-        .I1(MODE_CTRL[1]),
-        .I2(MODE_CTRL[0]),
-        .I3(MODE_CTRL[2]),
-        .O(\__4/i__n_0 ));
-  (* XILINX_LEGACY_PRIM = "LD" *) 
-  (* XILINX_TRANSFORM_PINMAP = "VCC:GE GND:CLR" *) 
-  LDCE #(
-    .INIT(1'b0)) 
-    is_bpsk_reg
-       (.CLR(1'b0),
-        .D(is_bpsk_reg_i_1_n_0),
-        .G(\__4/i__n_0 ),
-        .GE(1'b1),
-        .Q(is_bpsk));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
   LUT4 #(
     .INIT(16'hFFFB)) 
-    is_bpsk_reg_i_1
+    is_bpsk_INST_0
        (.I0(MODE_CTRL[3]),
         .I1(MODE_CTRL[1]),
         .I2(MODE_CTRL[2]),
         .I3(MODE_CTRL[0]),
-        .O(is_bpsk_reg_i_1_n_0));
+        .O(data_tuser));
 endmodule
 `ifndef GLBL
 `define GLBL

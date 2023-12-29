@@ -1,11 +1,11 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
--- Date        : Wed Dec 27 15:23:57 2023
+-- Date        : Wed Dec 27 15:23:56 2023
 -- Host        : TVJ-PC running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim
---               e:/Documents/Study/Verilog/SDR/sdr-psk-fpga/sdr-psk-fpga.gen/sources_1/bd/top/ip/top_Bits_Flatten_0_0/top_Bits_Flatten_0_0_sim_netlist.vhdl
--- Design      : top_Bits_Flatten_0_0
+-- Command     : write_vhdl -force -mode funcsim -rename_top top_Bits_Flatten_0_0 -prefix
+--               top_Bits_Flatten_0_0_ top_Bits_Flatten_0_1_sim_netlist.vhdl
+-- Design      : top_Bits_Flatten_0_1
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
 -- Device      : xc7z020clg484-1
@@ -22,8 +22,6 @@ entity top_Bits_Flatten_0_0_Bits_Flatten is
     bypass : in STD_LOGIC;
     I : in STD_LOGIC_VECTOR ( 1 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of top_Bits_Flatten_0_0_Bits_Flatten : entity is "Bits_Flatten";
 end top_Bits_Flatten_0_0_Bits_Flatten;
 
 architecture STRUCTURE of top_Bits_Flatten_0_0_Bits_Flatten is
@@ -99,7 +97,7 @@ entity top_Bits_Flatten_0_0 is
   attribute NotValidForBitStream : boolean;
   attribute NotValidForBitStream of top_Bits_Flatten_0_0 : entity is true;
   attribute CHECK_LICENSE_TYPE : string;
-  attribute CHECK_LICENSE_TYPE of top_Bits_Flatten_0_0 : entity is "top_Bits_Flatten_0_0,Bits_Flatten,{}";
+  attribute CHECK_LICENSE_TYPE of top_Bits_Flatten_0_0 : entity is "top_Bits_Flatten_0_1,Bits_Flatten,{}";
   attribute DowngradeIPIdentifiedWarnings : string;
   attribute DowngradeIPIdentifiedWarnings of top_Bits_Flatten_0_0 : entity is "yes";
   attribute IP_DEFINITION_SOURCE : string;

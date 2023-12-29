@@ -24,6 +24,8 @@ module bd_0696_wrapper
     probe20,
     probe21,
     probe22,
+    probe23,
+    probe24,
     probe3,
     probe4,
     probe5,
@@ -48,6 +50,8 @@ module bd_0696_wrapper
   input [0:0]probe20;
   input [0:0]probe21;
   input [0:0]probe22;
+  input [15:0]probe23;
+  input [15:0]probe24;
   input [11:0]probe3;
   input [11:0]probe4;
   input [11:0]probe5;
@@ -73,6 +77,8 @@ module bd_0696_wrapper
   wire [0:0]probe20;
   wire [0:0]probe21;
   wire [0:0]probe22;
+  wire [15:0]probe23;
+  wire [15:0]probe24;
   wire [11:0]probe3;
   wire [11:0]probe4;
   wire [11:0]probe5;
@@ -99,6 +105,8 @@ module bd_0696_wrapper
         .probe20(probe20),
         .probe21(probe21),
         .probe22(probe22),
+        .probe23(probe23),
+        .probe24(probe24),
         .probe3(probe3),
         .probe4(probe4),
         .probe5(probe5),

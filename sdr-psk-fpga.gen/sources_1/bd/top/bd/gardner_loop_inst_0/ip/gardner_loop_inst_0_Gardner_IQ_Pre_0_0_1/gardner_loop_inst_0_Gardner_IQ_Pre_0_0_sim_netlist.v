@@ -1,7 +1,7 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Tue Dec 26 10:42:12 2023
+// Date        : Fri Dec 29 03:35:07 2023
 // Host        : TVJ-PC running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim -rename_top gardner_loop_inst_0_Gardner_IQ_Pre_0_0 -prefix
 //               gardner_loop_inst_0_Gardner_IQ_Pre_0_0_ gardner_loop_inst_0_Gardner_IQ_Pre_0_0_sim_netlist.v
@@ -22,117 +22,129 @@ module gardner_loop_inst_0_Gardner_IQ_Pre_0_0_Gardner_IQ_Pre
     I_in_tvalid,
     Q_in_tdata,
     Q_in_tvalid);
-  output [13:0]I_out_tdata;
+  output [15:0]I_out_tdata;
   output I_out_tvalid;
-  output [13:0]Q_out_tdata;
+  output [15:0]Q_out_tdata;
   output Q_out_tvalid;
-  input [13:0]I_in_tdata;
+  input [15:0]I_in_tdata;
   input clk;
   input I_in_tvalid;
-  input [13:0]Q_in_tdata;
+  input [15:0]Q_in_tdata;
   input Q_in_tvalid;
 
-  wire [13:0]I_in_tdata;
+  wire [15:0]I_in_tdata;
   wire I_in_tvalid;
-  wire [13:0]I_out_tdata;
+  wire [15:0]I_out_tdata;
+  wire \I_out_tdata[15]_i_1_n_0 ;
   wire I_out_tvalid;
-  wire [13:0]Q_in_tdata;
+  wire [15:0]Q_in_tdata;
   wire Q_in_tvalid;
-  wire [13:0]Q_out_tdata;
+  wire [15:0]Q_out_tdata;
   wire \Q_out_tdata[15]_i_1_n_0 ;
   wire Q_out_tvalid;
   wire clk;
-  wire p_0_in;
 
   LUT1 #(
     .INIT(2'h1)) 
     \I_out_tdata[15]_i_1 
        (.I0(I_in_tvalid),
-        .O(p_0_in));
+        .O(\I_out_tdata[15]_i_1_n_0 ));
   FDRE \I_out_tdata_reg[0] 
        (.C(clk),
         .CE(1'b1),
         .D(I_in_tdata[0]),
         .Q(I_out_tdata[0]),
-        .R(p_0_in));
+        .R(\I_out_tdata[15]_i_1_n_0 ));
   FDRE \I_out_tdata_reg[10] 
        (.C(clk),
         .CE(1'b1),
         .D(I_in_tdata[10]),
         .Q(I_out_tdata[10]),
-        .R(p_0_in));
+        .R(\I_out_tdata[15]_i_1_n_0 ));
   FDRE \I_out_tdata_reg[11] 
        (.C(clk),
         .CE(1'b1),
         .D(I_in_tdata[11]),
         .Q(I_out_tdata[11]),
-        .R(p_0_in));
+        .R(\I_out_tdata[15]_i_1_n_0 ));
   FDRE \I_out_tdata_reg[12] 
        (.C(clk),
         .CE(1'b1),
         .D(I_in_tdata[12]),
         .Q(I_out_tdata[12]),
-        .R(p_0_in));
-  FDRE \I_out_tdata_reg[15] 
+        .R(\I_out_tdata[15]_i_1_n_0 ));
+  FDRE \I_out_tdata_reg[13] 
        (.C(clk),
         .CE(1'b1),
         .D(I_in_tdata[13]),
         .Q(I_out_tdata[13]),
-        .R(p_0_in));
+        .R(\I_out_tdata[15]_i_1_n_0 ));
+  FDRE \I_out_tdata_reg[14] 
+       (.C(clk),
+        .CE(1'b1),
+        .D(I_in_tdata[14]),
+        .Q(I_out_tdata[14]),
+        .R(\I_out_tdata[15]_i_1_n_0 ));
+  FDRE \I_out_tdata_reg[15] 
+       (.C(clk),
+        .CE(1'b1),
+        .D(I_in_tdata[15]),
+        .Q(I_out_tdata[15]),
+        .R(\I_out_tdata[15]_i_1_n_0 ));
   FDRE \I_out_tdata_reg[1] 
        (.C(clk),
         .CE(1'b1),
         .D(I_in_tdata[1]),
         .Q(I_out_tdata[1]),
-        .R(p_0_in));
+        .R(\I_out_tdata[15]_i_1_n_0 ));
   FDRE \I_out_tdata_reg[2] 
        (.C(clk),
         .CE(1'b1),
         .D(I_in_tdata[2]),
         .Q(I_out_tdata[2]),
-        .R(p_0_in));
+        .R(\I_out_tdata[15]_i_1_n_0 ));
   FDRE \I_out_tdata_reg[3] 
        (.C(clk),
         .CE(1'b1),
         .D(I_in_tdata[3]),
         .Q(I_out_tdata[3]),
-        .R(p_0_in));
+        .R(\I_out_tdata[15]_i_1_n_0 ));
   FDRE \I_out_tdata_reg[4] 
        (.C(clk),
         .CE(1'b1),
         .D(I_in_tdata[4]),
         .Q(I_out_tdata[4]),
-        .R(p_0_in));
+        .R(\I_out_tdata[15]_i_1_n_0 ));
   FDRE \I_out_tdata_reg[5] 
        (.C(clk),
         .CE(1'b1),
         .D(I_in_tdata[5]),
         .Q(I_out_tdata[5]),
-        .R(p_0_in));
+        .R(\I_out_tdata[15]_i_1_n_0 ));
   FDRE \I_out_tdata_reg[6] 
        (.C(clk),
         .CE(1'b1),
         .D(I_in_tdata[6]),
         .Q(I_out_tdata[6]),
-        .R(p_0_in));
+        .R(\I_out_tdata[15]_i_1_n_0 ));
   FDRE \I_out_tdata_reg[7] 
        (.C(clk),
         .CE(1'b1),
         .D(I_in_tdata[7]),
         .Q(I_out_tdata[7]),
-        .R(p_0_in));
+        .R(\I_out_tdata[15]_i_1_n_0 ));
   FDRE \I_out_tdata_reg[8] 
        (.C(clk),
         .CE(1'b1),
         .D(I_in_tdata[8]),
         .Q(I_out_tdata[8]),
-        .R(p_0_in));
+        .R(\I_out_tdata[15]_i_1_n_0 ));
   FDRE \I_out_tdata_reg[9] 
        (.C(clk),
         .CE(1'b1),
         .D(I_in_tdata[9]),
         .Q(I_out_tdata[9]),
-        .R(p_0_in));
+        .R(\I_out_tdata[15]_i_1_n_0 ));
   FDRE I_out_tvalid_reg
        (.C(clk),
         .CE(1'b1),
@@ -168,11 +180,23 @@ module gardner_loop_inst_0_Gardner_IQ_Pre_0_0_Gardner_IQ_Pre
         .D(Q_in_tdata[12]),
         .Q(Q_out_tdata[12]),
         .R(\Q_out_tdata[15]_i_1_n_0 ));
-  FDRE \Q_out_tdata_reg[15] 
+  FDRE \Q_out_tdata_reg[13] 
        (.C(clk),
         .CE(1'b1),
         .D(Q_in_tdata[13]),
         .Q(Q_out_tdata[13]),
+        .R(\Q_out_tdata[15]_i_1_n_0 ));
+  FDRE \Q_out_tdata_reg[14] 
+       (.C(clk),
+        .CE(1'b1),
+        .D(Q_in_tdata[14]),
+        .Q(Q_out_tdata[14]),
+        .R(\Q_out_tdata[15]_i_1_n_0 ));
+  FDRE \Q_out_tdata_reg[15] 
+       (.C(clk),
+        .CE(1'b1),
+        .D(Q_in_tdata[15]),
+        .Q(Q_out_tdata[15]),
         .R(\Q_out_tdata[15]_i_1_n_0 ));
   FDRE \Q_out_tdata_reg[1] 
        (.C(clk),
@@ -261,30 +285,22 @@ module gardner_loop_inst_0_Gardner_IQ_Pre_0_0
 
   wire [15:0]I_in_tdata;
   wire I_in_tvalid;
-  wire [14:0]\^I_out_tdata ;
+  wire [15:0]I_out_tdata;
   wire I_out_tvalid;
   wire [15:0]Q_in_tdata;
   wire Q_in_tvalid;
-  wire [14:0]\^Q_out_tdata ;
+  wire [15:0]Q_out_tdata;
   wire Q_out_tvalid;
   wire clk;
 
-  assign I_out_tdata[15] = \^I_out_tdata [14];
-  assign I_out_tdata[14] = \^I_out_tdata [14];
-  assign I_out_tdata[13] = \^I_out_tdata [14];
-  assign I_out_tdata[12:0] = \^I_out_tdata [12:0];
-  assign Q_out_tdata[15] = \^Q_out_tdata [14];
-  assign Q_out_tdata[14] = \^Q_out_tdata [14];
-  assign Q_out_tdata[13] = \^Q_out_tdata [14];
-  assign Q_out_tdata[12:0] = \^Q_out_tdata [12:0];
   gardner_loop_inst_0_Gardner_IQ_Pre_0_0_Gardner_IQ_Pre inst
-       (.I_in_tdata(I_in_tdata[15:2]),
+       (.I_in_tdata(I_in_tdata),
         .I_in_tvalid(I_in_tvalid),
-        .I_out_tdata({\^I_out_tdata [14],\^I_out_tdata [12:0]}),
+        .I_out_tdata(I_out_tdata),
         .I_out_tvalid(I_out_tvalid),
-        .Q_in_tdata(Q_in_tdata[15:2]),
+        .Q_in_tdata(Q_in_tdata),
         .Q_in_tvalid(Q_in_tvalid),
-        .Q_out_tdata({\^Q_out_tdata [14],\^Q_out_tdata [12:0]}),
+        .Q_out_tdata(Q_out_tdata),
         .Q_out_tvalid(Q_out_tvalid),
         .clk(clk));
 endmodule

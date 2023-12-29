@@ -15,7 +15,7 @@ module Rx_SD # (
   // output flag
   output                        SD_flag
 );
-  reg [MAX_WINDOW_WIDTH-1:0] cnt;
+  reg [MAX_WINDOW_WIDTH-1:0] cnt = 0;
   wire [WIDTH-1:0] I_abs, Q_abs;
 
   Abs # (

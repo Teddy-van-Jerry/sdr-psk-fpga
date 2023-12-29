@@ -2,19 +2,19 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "gardner_loop_Gardner_IQ_Pre_0_0",
-    "cell_name": "Interpolation/Gardner_IQ_Pre_0",
+    "cell_name": "Gardner_IQ_Pre_0",
     "component_reference": "xilinx.com:module_ref:Gardner_IQ_Pre:1.0",
     "ip_revision": "1",
     "gen_directory": "../../../../../../sdr-psk-fpga.gen/sources_1/bd/gardner_loop/ip/gardner_loop_Gardner_IQ_Pre_0_0",
     "parameters": {
       "component_parameters": {
         "WIDTH": [ { "value": "16", "resolve_type": "user", "format": "long", "usage": "all" } ],
-        "SHIFT": [ { "value": "2", "resolve_type": "user", "format": "long", "usage": "all" } ],
+        "SHIFT": [ { "value": "0", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "Component_Name": [ { "value": "gardner_loop_Gardner_IQ_Pre_0_0", "resolve_type": "user", "usage": "all" } ]
       },
       "model_parameters": {
         "WIDTH": [ { "value": "16", "resolve_type": "generated", "format": "long", "usage": "all" } ],
-        "SHIFT": [ { "value": "2", "resolve_type": "generated", "format": "long", "usage": "all" } ]
+        "SHIFT": [ { "value": "0", "resolve_type": "generated", "format": "long", "usage": "all" } ]
       },
       "project_parameters": {
         "ARCHITECTURE": [ { "value": "zynq" } ],

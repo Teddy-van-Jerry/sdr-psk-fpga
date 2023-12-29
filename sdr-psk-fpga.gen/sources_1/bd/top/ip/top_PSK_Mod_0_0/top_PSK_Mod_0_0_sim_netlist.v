@@ -3,8 +3,8 @@
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
 // Date        : Thu Dec 28 03:41:09 2023
 // Host        : TVJ-PC running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim
-//               e:/Documents/Study/Verilog/SDR/sdr-psk-fpga/sdr-psk-fpga.gen/sources_1/bd/top/ip/top_PSK_Mod_0_0/top_PSK_Mod_0_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top top_PSK_Mod_0_0 -prefix
+//               top_PSK_Mod_0_0_ top_PSK_Mod_0_0_sim_netlist.v
 // Design      : top_PSK_Mod_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -12,84 +12,6 @@
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CHECK_LICENSE_TYPE = "top_PSK_Mod_0_0,PSK_Mod,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
-(* X_CORE_INFO = "PSK_Mod,Vivado 2022.2" *) 
-(* NotValidForBitStream *)
-module top_PSK_Mod_0_0
-   (clk_16M384,
-    rst_16M384,
-    data_tdata,
-    data_tvalid,
-    data_tready,
-    data_tlast,
-    data_tuser,
-    carrier_I,
-    carrier_Q,
-    DELAY_CNT,
-    out_I,
-    out_Q,
-    out_vld,
-    out_last,
-    out_is_bpsk,
-    out_bits,
-    out_clk_1M024);
-  input clk_16M384;
-  input rst_16M384;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 data TDATA" *) input [7:0]data_tdata;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 data TVALID" *) input data_tvalid;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 data TREADY" *) output data_tready;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 data TLAST" *) input data_tlast;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 data TUSER" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME data, TDATA_NUM_BYTES 1, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 1, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 1, FREQ_HZ 100000000, PHASE 0.0, LAYERED_METADATA undef, INSERT_VIP 0" *) input data_tuser;
-  input [11:0]carrier_I;
-  input [11:0]carrier_Q;
-  input [3:0]DELAY_CNT;
-  output [11:0]out_I;
-  output [11:0]out_Q;
-  output out_vld;
-  output out_last;
-  output out_is_bpsk;
-  output [1:0]out_bits;
-  output out_clk_1M024;
-
-  wire [3:0]DELAY_CNT;
-  wire [11:0]carrier_I;
-  wire [11:0]carrier_Q;
-  wire clk_16M384;
-  wire [7:0]data_tdata;
-  wire data_tlast;
-  wire data_tready;
-  wire data_tuser;
-  wire data_tvalid;
-  wire [11:0]out_I;
-  wire [11:0]out_Q;
-  wire [1:0]out_bits;
-  wire out_clk_1M024;
-  wire out_is_bpsk;
-  wire out_last;
-  wire out_vld;
-  wire rst_16M384;
-
-  top_PSK_Mod_0_0_PSK_Mod inst
-       (.DELAY_CNT(DELAY_CNT),
-        .carrier_I(carrier_I),
-        .carrier_Q(carrier_Q),
-        .clk_16M384(clk_16M384),
-        .data_tdata(data_tdata[1:0]),
-        .data_tlast(data_tlast),
-        .data_tready(data_tready),
-        .data_tuser(data_tuser),
-        .data_tvalid(data_tvalid),
-        .\out_I_reg[11]_0 (out_I),
-        .\out_Q_reg[11]_0 (out_Q),
-        .out_bits(out_bits),
-        .out_clk_1M024(out_clk_1M024),
-        .out_is_bpsk(out_is_bpsk),
-        .out_last(out_last),
-        .out_vld(out_vld),
-        .rst_16M384(rst_16M384));
-endmodule
-
-(* ORIG_REF_NAME = "PSK_Mod" *) 
 module top_PSK_Mod_0_0_PSK_Mod
    (out_clk_1M024,
     data_tready,
@@ -1254,6 +1176,83 @@ module top_PSK_Mod_0_0_PSK_Mod
         .D(data_tvalid),
         .Q(vld_buf),
         .R(1'b0));
+endmodule
+
+(* CHECK_LICENSE_TYPE = "top_PSK_Mod_0_0,PSK_Mod,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
+(* X_CORE_INFO = "PSK_Mod,Vivado 2022.2" *) 
+(* NotValidForBitStream *)
+module top_PSK_Mod_0_0
+   (clk_16M384,
+    rst_16M384,
+    data_tdata,
+    data_tvalid,
+    data_tready,
+    data_tlast,
+    data_tuser,
+    carrier_I,
+    carrier_Q,
+    DELAY_CNT,
+    out_I,
+    out_Q,
+    out_vld,
+    out_last,
+    out_is_bpsk,
+    out_bits,
+    out_clk_1M024);
+  input clk_16M384;
+  input rst_16M384;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 data TDATA" *) input [7:0]data_tdata;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 data TVALID" *) input data_tvalid;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 data TREADY" *) output data_tready;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 data TLAST" *) input data_tlast;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 data TUSER" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME data, TDATA_NUM_BYTES 1, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 1, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 1, FREQ_HZ 100000000, PHASE 0.0, LAYERED_METADATA undef, INSERT_VIP 0" *) input data_tuser;
+  input [11:0]carrier_I;
+  input [11:0]carrier_Q;
+  input [3:0]DELAY_CNT;
+  output [11:0]out_I;
+  output [11:0]out_Q;
+  output out_vld;
+  output out_last;
+  output out_is_bpsk;
+  output [1:0]out_bits;
+  output out_clk_1M024;
+
+  wire [3:0]DELAY_CNT;
+  wire [11:0]carrier_I;
+  wire [11:0]carrier_Q;
+  wire clk_16M384;
+  wire [7:0]data_tdata;
+  wire data_tlast;
+  wire data_tready;
+  wire data_tuser;
+  wire data_tvalid;
+  wire [11:0]out_I;
+  wire [11:0]out_Q;
+  wire [1:0]out_bits;
+  wire out_clk_1M024;
+  wire out_is_bpsk;
+  wire out_last;
+  wire out_vld;
+  wire rst_16M384;
+
+  top_PSK_Mod_0_0_PSK_Mod inst
+       (.DELAY_CNT(DELAY_CNT),
+        .carrier_I(carrier_I),
+        .carrier_Q(carrier_Q),
+        .clk_16M384(clk_16M384),
+        .data_tdata(data_tdata[1:0]),
+        .data_tlast(data_tlast),
+        .data_tready(data_tready),
+        .data_tuser(data_tuser),
+        .data_tvalid(data_tvalid),
+        .\out_I_reg[11]_0 (out_I),
+        .\out_Q_reg[11]_0 (out_Q),
+        .out_bits(out_bits),
+        .out_clk_1M024(out_clk_1M024),
+        .out_is_bpsk(out_is_bpsk),
+        .out_last(out_last),
+        .out_vld(out_vld),
+        .rst_16M384(rst_16M384));
 endmodule
 `ifndef GLBL
 `define GLBL
