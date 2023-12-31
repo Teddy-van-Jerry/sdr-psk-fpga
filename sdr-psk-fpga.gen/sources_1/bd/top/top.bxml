@@ -2,10 +2,10 @@
 <Root MajorVersion="0" MinorVersion="40">
   <CompositeFile CompositeFileTopName="top" CanBeSetAsTop="false" CanDisplayChildGraph="true">
     <Description>Composite Fileset</Description>
-    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1703808341"/>
-    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1703808341"/>
-    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1703808341"/>
-    <Generation Name="HW_HANDOFF" State="GENERATED" Timestamp="1703808341"/>
+    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1704010870"/>
+    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1704010870"/>
+    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1704010870"/>
+    <Generation Name="HW_HANDOFF" State="GENERATED" Timestamp="1704010870"/>
     <FileCollection Name="SOURCES" Type="SOURCES">
       <File Name="synth\top.v" Type="Verilog">
         <Properties IsEditable="false" IsVisible="true" IsNetlistSimulation="false" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
@@ -92,9 +92,8 @@
           <File Name="..\..\..\..\verilog\Error_Detect_Ctrl.v"/>
           <File Name="..\..\..\..\verilog\AXI_2x.v"/>
           <File Name="..\..\..\..\verilog\Truncate_IQ.v"/>
-          <File Name="..\..\..\..\verilog\NCO_cos_sin.v"/>
           <File Name="..\..\..\..\verilog\NCO_Phase.v"/>
-          <File Name="..\..\..\..\verilog\Inverse.v"/>
+          <File Name="..\..\..\..\verilog\NCO_cos_sin.v"/>
           <File Name="..\..\..\..\sdr-psk-fpga.srcs\sources_1\bd\costas_loop\costas_loop.bd"/>
         </FileCollection>
       </ModuleReference>

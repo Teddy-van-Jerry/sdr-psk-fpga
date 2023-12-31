@@ -1,7 +1,7 @@
 //Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-//Date        : Fri Dec 29 08:05:38 2023
+//Date        : Sun Dec 31 16:21:09 2023
 //Host        : TVJ-PC running 64-bit major release  (build 9200)
 //Command     : generate_target costas_loop_inst_0.bd
 //Design      : costas_loop_inst_0
@@ -159,24 +159,20 @@ module LPF_imp_6VU62K
     IQ_tvalid,
     NCO_vld,
     Q,
-    clk_16M384,
-    is_bpsk);
+    clk_16M384);
   input [15:0]I;
   output [79:0]IQ_tdata;
   output IQ_tvalid;
   input [0:0]NCO_vld;
   input [15:0]Q;
   input clk_16M384;
-  input is_bpsk;
 
   wire [0:0]D_1;
-  wire [15:0]Inverse_0_O;
   wire [15:0]Q_1;
   wire aclk_0_1;
   wire [0:0]c_shift_ram_0_Q;
   wire [79:0]fir_compiler_I_M_AXIS_DATA_TDATA;
   wire fir_compiler_I_M_AXIS_DATA_TVALID;
-  wire is_bpsk_1;
   wire [15:0]phase_detector_I_P;
   wire [31:0]xlconcat_0_dout;
 
@@ -185,12 +181,7 @@ module LPF_imp_6VU62K
   assign IQ_tvalid = fir_compiler_I_M_AXIS_DATA_TVALID;
   assign Q_1 = Q[15:0];
   assign aclk_0_1 = clk_16M384;
-  assign is_bpsk_1 = is_bpsk;
   assign phase_detector_I_P = I[15:0];
-  costas_loop_inst_0_Inverse_0_0 Inverse_0
-       (.I(Q_1),
-        .O(Inverse_0_O),
-        .is_bpsk(is_bpsk_1));
   costas_loop_inst_0_LP_filter_0 LP_filter
        (.aclk(aclk_0_1),
         .m_axis_data_tdata(fir_compiler_I_M_AXIS_DATA_TDATA),
@@ -203,7 +194,7 @@ module LPF_imp_6VU62K
         .Q(c_shift_ram_0_Q));
   costas_loop_inst_0_xlconcat_0_0 xlconcat_0
        (.In0(phase_detector_I_P),
-        .In1(Inverse_0_O),
+        .In1(Q_1),
         .dout(xlconcat_0_dout));
 endmodule
 
@@ -273,7 +264,7 @@ module NCO_imp_UABGQB
         .clk(aclk_0_1));
 endmodule
 
-(* CORE_GENERATION_INFO = "costas_loop_inst_0,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=costas_loop_inst_0,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=21,numReposBlks=17,numNonXlnxBlks=0,numHierBlks=4,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=7,numPkgbdBlks=0,bdsource=E_/Documents/Study/Verilog/SDR/sdr-psk-fpga/sdr-psk-fpga.srcs/sources_1/bd/costas_loop/costas_loop.bd,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "costas_loop_inst_0.hwdef" *) 
+(* CORE_GENERATION_INFO = "costas_loop_inst_0,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=costas_loop_inst_0,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=20,numReposBlks=16,numNonXlnxBlks=0,numHierBlks=4,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=6,numPkgbdBlks=0,bdsource=E_/Documents/Study/Verilog/SDR/sdr-psk-fpga/sdr-psk-fpga.srcs/sources_1/bd/costas_loop/costas_loop.bd,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "costas_loop_inst_0.hwdef" *) 
 module costas_loop_inst_0
    (FEEDBACK_SHIFT,
     I_data,
@@ -311,9 +302,9 @@ module costas_loop_inst_0
   wire IQ_Connect_I1_tvalid;
   wire [15:0]IQ_Connect_Q1_tdata;
   wire IQ_Connect_Q1_tvalid;
+  wire [11:0]NCO_NCO_sin;
   wire NCO_NCO_vld;
   wire [11:0]NCO_cos_sin_0_NCO_cos;
-  wire [11:0]NCO_cos_sin_0_NCO_sin;
   wire [11:0]PSK_signal_1;
   wire aclk_0_1;
   wire [79:0]fir_compiler_I_M_AXIS_DATA_TDATA;
@@ -364,12 +355,11 @@ module costas_loop_inst_0
         .IQ_tvalid(fir_compiler_I_M_AXIS_DATA_TVALID),
         .NCO_vld(NCO_NCO_vld),
         .Q(phase_detector_Q_P),
-        .clk_16M384(aclk_0_1),
-        .is_bpsk(is_bpsk_1));
+        .clk_16M384(aclk_0_1));
   NCO_imp_UABGQB NCO
        (.FEEDBACK_SHIFT(FEEDBACK_SHIFT_1),
         .NCO_cos(NCO_cos_sin_0_NCO_cos),
-        .NCO_sin(NCO_cos_sin_0_NCO_sin),
+        .NCO_sin(NCO_NCO_sin),
         .NCO_vld(NCO_NCO_vld),
         .clk_16M384(aclk_0_1),
         .feedback_tdata(loop_filter_m_axis_data_tdata),
@@ -384,12 +374,12 @@ module costas_loop_inst_0
         .s_axis_data_tvalid(Error_Detect_error_tvalid));
   costas_loop_inst_0_phase_detector_I_0 phase_detector_I
        (.A(PSK_signal_1),
-        .B(NCO_cos_sin_0_NCO_cos),
+        .B(NCO_NCO_sin),
         .CLK(aclk_0_1),
         .P(phase_detector_I_P));
   costas_loop_inst_0_phase_detector_Q_0 phase_detector_Q
        (.A(PSK_signal_1),
-        .B(NCO_cos_sin_0_NCO_sin),
+        .B(NCO_cos_sin_0_NCO_cos),
         .CLK(aclk_0_1),
         .P(phase_detector_Q_P));
 endmodule

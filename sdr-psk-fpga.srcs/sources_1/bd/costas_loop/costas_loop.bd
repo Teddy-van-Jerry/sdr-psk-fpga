@@ -28,8 +28,7 @@
       "LPF": {
         "xlconcat_0": "",
         "LP_filter": "",
-        "c_shift_ram_0": "",
-        "Inverse_0": ""
+        "c_shift_ram_0": ""
       },
       "NCO": {
         "NCO_DDS": "",
@@ -1627,9 +1626,6 @@
             "direction": "I",
             "left": "0",
             "right": "0"
-          },
-          "is_bpsk": {
-            "direction": "I"
           }
         },
         "components": {
@@ -1743,64 +1739,6 @@
                 "value": "1"
               }
             }
-          },
-          "Inverse_0": {
-            "vlnv": "xilinx.com:module_ref:Inverse:1.0",
-            "xci_name": "costas_loop_Inverse_0_0",
-            "xci_path": "ip\\costas_loop_Inverse_0_0\\costas_loop_Inverse_0_0.xci",
-            "inst_hier_path": "LPF/Inverse_0",
-            "reference_info": {
-              "ref_type": "hdl",
-              "ref_name": "Inverse",
-              "boundary_crc": "0x0"
-            },
-            "ports": {
-              "is_bpsk": {
-                "direction": "I"
-              },
-              "I": {
-                "direction": "I",
-                "left": "15",
-                "right": "0",
-                "parameters": {
-                  "LAYERED_METADATA": {
-                    "value": [
-                      "xilinx.com:interface:datatypes:1.0 {",
-                      "DATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value data} bitwidth {attribs {resolve_type generated dependency bitwidth format long minimum",
-                      "{} maximum {}} value 16} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type generated dependency signed format",
-                      "bool minimum {} maximum {}} value TRUE}}}} DATA_WIDTH 16",
-                      "}"
-                    ],
-                    "value_src": "ip_prop"
-                  }
-                }
-              },
-              "O": {
-                "direction": "O",
-                "left": "15",
-                "right": "0",
-                "parameters": {
-                  "LAYERED_METADATA": {
-                    "value": [
-                      "xilinx.com:interface:datatypes:1.0 {",
-                      "DATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value data} bitwidth {attribs {resolve_type generated dependency bitwidth format long minimum",
-                      "{} maximum {}} value 16} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type generated dependency signed format",
-                      "bool minimum {} maximum {}} value TRUE}}}} DATA_WIDTH 16",
-                      "}"
-                    ],
-                    "value_src": "ip_prop"
-                  },
-                  "PortType": {
-                    "value": "data",
-                    "value_src": "ip_prop"
-                  },
-                  "PortType.PROP_SRC": {
-                    "value": "false",
-                    "value_src": "ip_prop"
-                  }
-                }
-              }
-            }
           }
         },
         "interface_nets": {
@@ -1818,16 +1756,10 @@
               "c_shift_ram_0/D"
             ]
           },
-          "Inverse_0_O": {
-            "ports": [
-              "Inverse_0/O",
-              "xlconcat_0/In1"
-            ]
-          },
           "Q_1": {
             "ports": [
               "Q",
-              "Inverse_0/I"
+              "xlconcat_0/In1"
             ]
           },
           "aclk_0_1": {
@@ -1841,12 +1773,6 @@
             "ports": [
               "c_shift_ram_0/Q",
               "LP_filter/s_axis_data_tvalid"
-            ]
-          },
-          "is_bpsk_1": {
-            "ports": [
-              "is_bpsk",
-              "Inverse_0/is_bpsk"
             ]
           },
           "phase_detector_I_P": {
@@ -2454,6 +2380,12 @@
           "Q_valid"
         ]
       },
+      "NCO_NCO_sin": {
+        "ports": [
+          "NCO/NCO_sin",
+          "phase_detector_I/B"
+        ]
+      },
       "NCO_NCO_vld": {
         "ports": [
           "NCO/NCO_vld",
@@ -2463,13 +2395,7 @@
       "NCO_cos_sin_0_NCO_cos": {
         "ports": [
           "NCO/NCO_cos",
-          "phase_detector_I/B",
-          "NCO_cos"
-        ]
-      },
-      "NCO_cos_sin_0_NCO_sin": {
-        "ports": [
-          "NCO/NCO_sin",
+          "NCO_cos",
           "phase_detector_Q/B"
         ]
       },
@@ -2495,8 +2421,7 @@
         "ports": [
           "is_bpsk",
           "Error_Detect/is_bpsk",
-          "NCO/is_bpsk",
-          "LPF/is_bpsk"
+          "NCO/is_bpsk"
         ]
       },
       "loop_filter_m_axis_data_tdata": {

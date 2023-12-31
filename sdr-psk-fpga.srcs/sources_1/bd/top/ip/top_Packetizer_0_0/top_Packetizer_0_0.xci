@@ -2,7 +2,7 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "top_Packetizer_0_0",
-    "cell_name": "Tx/Packetizer_0",
+    "cell_name": "Packetizer_0",
     "component_reference": "xilinx.com:module_ref:Packetizer:1.0",
     "ip_revision": "1",
     "gen_directory": "../../../../../../sdr-psk-fpga.gen/sources_1/bd/top/ip/top_Packetizer_0_0",
@@ -46,21 +46,21 @@
         "rst_n": [ { "direction": "in" } ],
         "MODE_CTRL": [ { "direction": "in", "size_left": "3", "size_right": "0" } ],
         "payload_length": [ { "direction": "in", "size_left": "15", "size_right": "0" } ],
-        "in_tdata": [ { "direction": "in", "size_left": "7", "size_right": "0", "driver_value": "0" } ],
-        "in_tvalid": [ { "direction": "in" } ],
-        "in_tready": [ { "direction": "out" } ],
-        "in_tlast": [ { "direction": "in", "driver_value": "0" } ],
-        "in_tuser": [ { "direction": "in", "driver_value": "0" } ],
-        "out_tdata": [ { "direction": "out", "size_left": "7", "size_right": "0" } ],
-        "out_tvalid": [ { "direction": "out" } ],
-        "out_tready": [ { "direction": "in", "driver_value": "1" } ],
-        "out_tlast": [ { "direction": "out" } ],
-        "out_tuser": [ { "direction": "out" } ],
+        "I_tdata": [ { "direction": "in", "size_left": "7", "size_right": "0", "driver_value": "0" } ],
+        "I_tvalid": [ { "direction": "in" } ],
+        "I_tready": [ { "direction": "out" } ],
+        "I_tlast": [ { "direction": "in", "driver_value": "0" } ],
+        "I_tuser": [ { "direction": "in", "driver_value": "0" } ],
+        "O_tdata": [ { "direction": "out", "size_left": "7", "size_right": "0" } ],
+        "O_tvalid": [ { "direction": "out" } ],
+        "O_tready": [ { "direction": "in", "driver_value": "1" } ],
+        "O_tlast": [ { "direction": "out" } ],
+        "O_tuser": [ { "direction": "out" } ],
         "hdr_vld": [ { "direction": "out" } ],
         "pkt_sent": [ { "direction": "out" } ]
       },
       "interfaces": {
-        "in": {
+        "I": {
           "vlnv": "xilinx.com:interface:axis:1.0",
           "abstraction_type": "xilinx.com:interface:axis_rtl:1.0",
           "mode": "slave",
@@ -80,14 +80,14 @@
             "INSERT_VIP": [ { "value": "0", "resolve_type": "user", "format": "long", "usage": "simulation.rtl", "is_ips_inferred": true, "is_static_object": false } ]
           },
           "port_maps": {
-            "TDATA": [ { "physical_name": "in_tdata" } ],
-            "TLAST": [ { "physical_name": "in_tlast" } ],
-            "TUSER": [ { "physical_name": "in_tuser" } ],
-            "TVALID": [ { "physical_name": "in_tvalid" } ],
-            "TREADY": [ { "physical_name": "in_tready" } ]
+            "TDATA": [ { "physical_name": "I_tdata" } ],
+            "TLAST": [ { "physical_name": "I_tlast" } ],
+            "TUSER": [ { "physical_name": "I_tuser" } ],
+            "TVALID": [ { "physical_name": "I_tvalid" } ],
+            "TREADY": [ { "physical_name": "I_tready" } ]
           }
         },
-        "out": {
+        "O": {
           "vlnv": "xilinx.com:interface:axis:1.0",
           "abstraction_type": "xilinx.com:interface:axis_rtl:1.0",
           "mode": "master",
@@ -107,11 +107,11 @@
             "INSERT_VIP": [ { "value": "0", "resolve_type": "user", "format": "long", "usage": "simulation.rtl", "is_ips_inferred": true, "is_static_object": false } ]
           },
           "port_maps": {
-            "TDATA": [ { "physical_name": "out_tdata" } ],
-            "TLAST": [ { "physical_name": "out_tlast" } ],
-            "TUSER": [ { "physical_name": "out_tuser" } ],
-            "TVALID": [ { "physical_name": "out_tvalid" } ],
-            "TREADY": [ { "physical_name": "out_tready" } ]
+            "TDATA": [ { "physical_name": "O_tdata" } ],
+            "TLAST": [ { "physical_name": "O_tlast" } ],
+            "TUSER": [ { "physical_name": "O_tuser" } ],
+            "TVALID": [ { "physical_name": "O_tvalid" } ],
+            "TREADY": [ { "physical_name": "O_tready" } ]
           }
         },
         "rst_n": {
@@ -131,7 +131,7 @@
           "abstraction_type": "xilinx.com:signal:clock_rtl:1.0",
           "mode": "slave",
           "parameters": {
-            "ASSOCIATED_BUSIF": [ { "value": "in:out", "value_src": "constant", "value_permission": "bd_and_user", "usage": "all" } ],
+            "ASSOCIATED_BUSIF": [ { "value": "I:O", "value_src": "constant", "value_permission": "bd_and_user", "usage": "all" } ],
             "FREQ_HZ": [ { "value": "100000000", "value_permission": "bd_and_user", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
             "FREQ_TOLERANCE_HZ": [ { "value": "0", "value_permission": "bd_and_user", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
             "PHASE": [ { "value": "0.0", "value_permission": "bd_and_user", "resolve_type": "generated", "format": "float", "is_ips_inferred": true, "is_static_object": false } ],

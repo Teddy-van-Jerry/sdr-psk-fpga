@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Dec 29 08:05:41 2023" VIVADOVERSION="2022.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sun Dec 31 16:21:09 2023" VIVADOVERSION="2022.2">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z020" NAME="costas_loop_inst_0" PACKAGE="clg484" SPEEDGRADE="-1"/>
 
@@ -28,7 +28,6 @@
     <PORT DIR="I" NAME="is_bpsk" SIGIS="undef" SIGNAME="External_Ports_is_bpsk">
       <CONNECTIONS>
         <CONNECTION INSTANCE="Error_Detect_Error_Detect_Ctrl_0" PORT="is_bpsk"/>
-        <CONNECTION INSTANCE="LPF_Inverse_0" PORT="is_bpsk"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" NAME="rst_16M384" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_rst_16M384">
@@ -780,32 +779,6 @@
         </BUSINTERFACE>
       </BUSINTERFACES>
     </MODULE>
-    <MODULE COREREVISION="1" FULLNAME="/LPF/Inverse_0" HWVERSION="1.0" INSTANCE="LPF_Inverse_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="Inverse" VLNV="xilinx.com:module_ref:Inverse:1.0">
-      <DOCUMENTS/>
-      <PARAMETERS>
-        <PARAMETER NAME="WIDTH" VALUE="16"/>
-        <PARAMETER NAME="Component_Name" VALUE="costas_loop_inst_0_Inverse_0_0"/>
-        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
-      </PARAMETERS>
-      <PORTS>
-        <PORT DIR="I" NAME="is_bpsk" SIGIS="undef" SIGNAME="External_Ports_is_bpsk">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="is_bpsk"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="15" NAME="I" RIGHT="0" SIGIS="undef" SIGNAME="phase_detector_Q_P">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="phase_detector_Q" PORT="P"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="15" NAME="O" RIGHT="0" SIGIS="undef" SIGNAME="LPF_Inverse_0_O">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="LPF_xlconcat_0" PORT="In1"/>
-          </CONNECTIONS>
-        </PORT>
-      </PORTS>
-      <BUSINTERFACES/>
-    </MODULE>
     <MODULE COREREVISION="18" FULLNAME="/LPF/LP_filter" HWVERSION="7.2" INSTANCE="LPF_LP_filter" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="fir_compiler" VLNV="xilinx.com:ip:fir_compiler:7.2">
       <DOCUMENTS>
         <DOCUMENT SOURCE="http://www.xilinx.com/cgi-bin/docs/ipdoc?c=fir_compiler;v=v7_2;d=pg149-fir-compiler.pdf"/>
@@ -1244,9 +1217,9 @@
             <CONNECTION INSTANCE="phase_detector_I" PORT="P"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="15" NAME="In1" RIGHT="0" SIGIS="undef" SIGNAME="LPF_Inverse_0_O">
+        <PORT DIR="I" LEFT="15" NAME="In1" RIGHT="0" SIGIS="undef" SIGNAME="phase_detector_Q_P">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="LPF_Inverse_0" PORT="O"/>
+            <CONNECTION INSTANCE="phase_detector_Q" PORT="P"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="31" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="LPF_xlconcat_0_dout">
@@ -1594,13 +1567,13 @@
         </PORT>
         <PORT DIR="O" LEFT="11" NAME="NCO_cos" RIGHT="0" SIGIS="undef" SIGNAME="NCO_NCO_cos_sin_0_NCO_cos">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="phase_detector_I" PORT="B"/>
             <CONNECTION INSTANCE="External_Ports" PORT="NCO_cos"/>
+            <CONNECTION INSTANCE="phase_detector_Q" PORT="B"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="11" NAME="NCO_sin" RIGHT="0" SIGIS="undef" SIGNAME="NCO_NCO_cos_sin_0_NCO_sin">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="phase_detector_Q" PORT="B"/>
+            <CONNECTION INSTANCE="phase_detector_I" PORT="B"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="NCO_vld" SIGIS="undef" SIGNAME="NCO_NCO_cos_sin_0_NCO_vld">
@@ -1919,9 +1892,9 @@
             <CONNECTION INSTANCE="External_Ports" PORT="PSK_signal"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="11" NAME="B" RIGHT="0" SIGIS="data" SIGNAME="NCO_NCO_cos_sin_0_NCO_cos">
+        <PORT DIR="I" LEFT="11" NAME="B" RIGHT="0" SIGIS="data" SIGNAME="NCO_NCO_cos_sin_0_NCO_sin">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="NCO_NCO_cos_sin_0" PORT="NCO_cos"/>
+            <CONNECTION INSTANCE="NCO_NCO_cos_sin_0" PORT="NCO_sin"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="15" NAME="P" RIGHT="0" SIGIS="data" SIGNAME="phase_detector_I_P">
@@ -1991,14 +1964,14 @@
             <CONNECTION INSTANCE="External_Ports" PORT="PSK_signal"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="11" NAME="B" RIGHT="0" SIGIS="data" SIGNAME="NCO_NCO_cos_sin_0_NCO_sin">
+        <PORT DIR="I" LEFT="11" NAME="B" RIGHT="0" SIGIS="data" SIGNAME="NCO_NCO_cos_sin_0_NCO_cos">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="NCO_NCO_cos_sin_0" PORT="NCO_sin"/>
+            <CONNECTION INSTANCE="NCO_NCO_cos_sin_0" PORT="NCO_cos"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="15" NAME="P" RIGHT="0" SIGIS="data" SIGNAME="phase_detector_Q_P">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="LPF_Inverse_0" PORT="I"/>
+            <CONNECTION INSTANCE="LPF_xlconcat_0" PORT="In1"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>

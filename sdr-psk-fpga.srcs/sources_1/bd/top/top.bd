@@ -495,7 +495,7 @@
             "variant_info": {
               "costas_loop.bd": {
                 "scoped_diagram": "costas_loop_inst_0.bd",
-                "design_checksum": "0x596BF173",
+                "design_checksum": "0xBB017BEC",
                 "ref_name": "costas_loop",
                 "ref_subinst_path": "top_costas_loop_0",
                 "ref_type": "Block Design",
@@ -3156,7 +3156,7 @@
               "boundary_crc": "0x0"
             },
             "interface_ports": {
-              "in": {
+              "I": {
                 "mode": "Slave",
                 "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
                 "vlnv": "xilinx.com:interface:axis_rtl:1.0",
@@ -3196,30 +3196,30 @@
                 },
                 "port_maps": {
                   "TDATA": {
-                    "physical_name": "in_tdata",
+                    "physical_name": "I_tdata",
                     "direction": "I",
                     "left": "7",
                     "right": "0"
                   },
                   "TLAST": {
-                    "physical_name": "in_tlast",
+                    "physical_name": "I_tlast",
                     "direction": "I"
                   },
                   "TUSER": {
-                    "physical_name": "in_tuser",
+                    "physical_name": "I_tuser",
                     "direction": "I"
                   },
                   "TVALID": {
-                    "physical_name": "in_tvalid",
+                    "physical_name": "I_tvalid",
                     "direction": "I"
                   },
                   "TREADY": {
-                    "physical_name": "in_tready",
+                    "physical_name": "I_tready",
                     "direction": "O"
                   }
                 }
               },
-              "out": {
+              "O": {
                 "mode": "Master",
                 "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
                 "vlnv": "xilinx.com:interface:axis_rtl:1.0",
@@ -3259,25 +3259,25 @@
                 },
                 "port_maps": {
                   "TDATA": {
-                    "physical_name": "out_tdata",
+                    "physical_name": "O_tdata",
                     "direction": "O",
                     "left": "7",
                     "right": "0"
                   },
                   "TLAST": {
-                    "physical_name": "out_tlast",
+                    "physical_name": "O_tlast",
                     "direction": "O"
                   },
                   "TUSER": {
-                    "physical_name": "out_tuser",
+                    "physical_name": "O_tuser",
                     "direction": "O"
                   },
                   "TVALID": {
-                    "physical_name": "out_tvalid",
+                    "physical_name": "O_tvalid",
                     "direction": "O"
                   },
                   "TREADY": {
-                    "physical_name": "out_tready",
+                    "physical_name": "O_tready",
                     "direction": "I"
                   }
                 }
@@ -3289,7 +3289,7 @@
                 "direction": "I",
                 "parameters": {
                   "ASSOCIATED_BUSIF": {
-                    "value": "in:out",
+                    "value": "I:O",
                     "value_src": "constant"
                   }
                 }
@@ -3333,13 +3333,13 @@
           "axis_data_fifo_0_M_AXIS": {
             "interface_ports": [
               "axis_data_fifo_0/M_AXIS",
-              "Packetizer_0/in"
+              "Packetizer_0/I"
             ]
           },
           "data_1": {
             "interface_ports": [
               "PSK_Modulation/data",
-              "Packetizer_0/out"
+              "Packetizer_0/O"
             ]
           }
         },
@@ -3395,14 +3395,14 @@
           },
           "Packetizer_0_out_tdata": {
             "ports": [
-              "Packetizer_0/out_tdata",
+              "Packetizer_0/O_tdata",
               "PSK_Modulation/data_tdata",
               "Bits_Flatten_0/I"
             ]
           },
           "Packetizer_0_out_tuser": {
             "ports": [
-              "Packetizer_0/out_tuser",
+              "Packetizer_0/O_tuser",
               "PSK_Modulation/data_tuser",
               "Bits_Flatten_0/bypass"
             ]

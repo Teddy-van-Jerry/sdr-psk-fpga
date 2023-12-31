@@ -1,7 +1,7 @@
 //Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-//Date        : Fri Dec 29 08:05:33 2023
+//Date        : Sun Dec 31 16:21:05 2023
 //Host        : TVJ-PC running 64-bit major release  (build 9200)
 //Command     : generate_target top.bd
 //Design      : top
@@ -833,18 +833,18 @@ module Tx_imp_1IUYQQO
         .rst_16M384(proc_sys_reset_16M384_mb_reset),
         .rst_n_1M024(s_axis_aresetn_1));
   top_Packetizer_0_0 Packetizer_0
-       (.MODE_CTRL(MODE_CTRL_1),
+       (.I_tdata(axis_data_fifo_0_M_AXIS_TDATA),
+        .I_tlast(axis_data_fifo_0_M_AXIS_TLAST),
+        .I_tready(axis_data_fifo_0_M_AXIS_TREADY),
+        .I_tuser(axis_data_fifo_0_M_AXIS_TUSER),
+        .I_tvalid(axis_data_fifo_0_M_AXIS_TVALID),
+        .MODE_CTRL(MODE_CTRL_1),
+        .O_tdata(Packetizer_0_out_tdata),
+        .O_tlast(data_1_TLAST),
+        .O_tready(data_1_TREADY),
+        .O_tuser(Packetizer_0_out_tuser),
+        .O_tvalid(data_1_TVALID),
         .clk(clk_1M024),
-        .in_tdata(axis_data_fifo_0_M_AXIS_TDATA),
-        .in_tlast(axis_data_fifo_0_M_AXIS_TLAST),
-        .in_tready(axis_data_fifo_0_M_AXIS_TREADY),
-        .in_tuser(axis_data_fifo_0_M_AXIS_TUSER),
-        .in_tvalid(axis_data_fifo_0_M_AXIS_TVALID),
-        .out_tdata(Packetizer_0_out_tdata),
-        .out_tlast(data_1_TLAST),
-        .out_tready(data_1_TREADY),
-        .out_tuser(Packetizer_0_out_tuser),
-        .out_tvalid(data_1_TVALID),
         .payload_length(Tx_Data_0_payload_length),
         .pkt_sent(Packetizer_0_pkt_sent),
         .rst_n(s_axis_aresetn_1));
@@ -874,7 +874,7 @@ module Tx_imp_1IUYQQO
         .s_axis_tvalid(Tx_Data_0_data_tvalid));
 endmodule
 
-(* CORE_GENERATION_INFO = "top,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=top,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=85,numReposBlks=69,numNonXlnxBlks=0,numHierBlks=16,maxHierDepth=3,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=25,numPkgbdBlks=2,bdsource=USER,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "top.hwdef" *) 
+(* CORE_GENERATION_INFO = "top,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=top,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=84,numReposBlks=68,numNonXlnxBlks=0,numHierBlks=16,maxHierDepth=3,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=24,numPkgbdBlks=2,bdsource=USER,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "top.hwdef" *) 
 module top
    (AD9361_DATACLK,
     AD9361_FBCLK,

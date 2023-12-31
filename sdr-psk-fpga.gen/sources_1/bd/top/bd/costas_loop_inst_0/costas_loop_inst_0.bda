@@ -28,15 +28,15 @@
       <data key="VT">VR</data>
     </node>
     <node id="n1">
+      <data key="VM">costas_loop_inst_0</data>
+      <data key="VT">BC</data>
+    </node>
+    <node id="n2">
       <data key="TU">active</data>
       <data key="VH">2</data>
       <data key="VT">PM</data>
     </node>
-    <node id="n2">
-      <data key="VM">costas_loop_inst_0</data>
-      <data key="VT">BC</data>
-    </node>
-    <edge id="e0" source="n2" target="n0"/>
-    <edge id="e1" source="n0" target="n1"/>
+    <edge id="e0" source="n1" target="n0"/>
+    <edge id="e1" source="n0" target="n2"/>
   </graph>
 </graphml>

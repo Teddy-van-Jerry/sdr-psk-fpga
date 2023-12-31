@@ -59,21 +59,21 @@ module top_Packetizer_0_0 (
   rst_n,
   MODE_CTRL,
   payload_length,
-  in_tdata,
-  in_tvalid,
-  in_tready,
-  in_tlast,
-  in_tuser,
-  out_tdata,
-  out_tvalid,
-  out_tready,
-  out_tlast,
-  out_tuser,
+  I_tdata,
+  I_tvalid,
+  I_tready,
+  I_tlast,
+  I_tuser,
+  O_tdata,
+  O_tvalid,
+  O_tready,
+  O_tlast,
+  O_tuser,
   hdr_vld,
   pkt_sent
 );
 
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_BUSIF in:out, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, INSERT_VIP 0" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_BUSIF I:O, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *)
 input wire clk;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME rst_n, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
@@ -81,28 +81,28 @@ input wire clk;
 input wire rst_n;
 input wire [3 : 0] MODE_CTRL;
 input wire [15 : 0] payload_length;
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 in TDATA" *)
-input wire [7 : 0] in_tdata;
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 in TVALID" *)
-input wire in_tvalid;
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 in TREADY" *)
-output wire in_tready;
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 in TLAST" *)
-input wire in_tlast;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME in, TDATA_NUM_BYTES 1, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 1, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 1, FREQ_HZ 100000000, PHASE 0.0, LAYERED_METADATA undef, INSERT_VIP 0" *)
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 in TUSER" *)
-input wire in_tuser;
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 out TDATA" *)
-output wire [7 : 0] out_tdata;
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 out TVALID" *)
-output wire out_tvalid;
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 out TREADY" *)
-input wire out_tready;
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 out TLAST" *)
-output wire out_tlast;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME out, TDATA_NUM_BYTES 1, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 1, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 1, FREQ_HZ 100000000, PHASE 0.0, LAYERED_METADATA undef, INSERT_VIP 0" *)
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 out TUSER" *)
-output wire out_tuser;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 I TDATA" *)
+input wire [7 : 0] I_tdata;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 I TVALID" *)
+input wire I_tvalid;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 I TREADY" *)
+output wire I_tready;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 I TLAST" *)
+input wire I_tlast;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME I, TDATA_NUM_BYTES 1, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 1, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 1, FREQ_HZ 100000000, PHASE 0.0, LAYERED_METADATA undef, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 I TUSER" *)
+input wire I_tuser;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 O TDATA" *)
+output wire [7 : 0] O_tdata;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 O TVALID" *)
+output wire O_tvalid;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 O TREADY" *)
+input wire O_tready;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 O TLAST" *)
+output wire O_tlast;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME O, TDATA_NUM_BYTES 1, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 1, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 1, FREQ_HZ 100000000, PHASE 0.0, LAYERED_METADATA undef, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 O TUSER" *)
+output wire O_tuser;
 output wire hdr_vld;
 output wire pkt_sent;
 
@@ -113,16 +113,16 @@ output wire pkt_sent;
     .rst_n(rst_n),
     .MODE_CTRL(MODE_CTRL),
     .payload_length(payload_length),
-    .in_tdata(in_tdata),
-    .in_tvalid(in_tvalid),
-    .in_tready(in_tready),
-    .in_tlast(in_tlast),
-    .in_tuser(in_tuser),
-    .out_tdata(out_tdata),
-    .out_tvalid(out_tvalid),
-    .out_tready(out_tready),
-    .out_tlast(out_tlast),
-    .out_tuser(out_tuser),
+    .I_tdata(I_tdata),
+    .I_tvalid(I_tvalid),
+    .I_tready(I_tready),
+    .I_tlast(I_tlast),
+    .I_tuser(I_tuser),
+    .O_tdata(O_tdata),
+    .O_tvalid(O_tvalid),
+    .O_tready(O_tready),
+    .O_tlast(O_tlast),
+    .O_tuser(O_tuser),
     .hdr_vld(hdr_vld),
     .pkt_sent(pkt_sent)
   );

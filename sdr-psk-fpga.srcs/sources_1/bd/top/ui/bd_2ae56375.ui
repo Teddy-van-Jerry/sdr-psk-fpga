@@ -1,7 +1,7 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"0.478817",
-   "Default View_TopLeft":"278,-265",
+   "Default View_ScaleFactor":"0.587692",
+   "Default View_TopLeft":"-174,-271",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
 #  -string -flagsOSRD
@@ -60,6 +60,8 @@ preplace netloc Rx_data_tdata 1 3 2 1630 640 2420
 preplace netloc Rx_data_tlast 1 3 2 1640 650 2410
 preplace netloc Rx_data_tuser 1 3 2 1650 660 2400
 preplace netloc Rx_data_tvalid 1 3 2 1660 670 2390
+preplace netloc Rx_error_tdata 1 3 2 1670 680 2380
+preplace netloc Rx_feedback_tdata 1 3 2 1690 690 2370
 preplace netloc Tx_DAC_bits 1 2 1 840 520n
 preplace netloc Tx_DAC_vld 1 2 1 830 510n
 preplace netloc Tx_Tx_1bit 1 2 3 810J 60 NJ 60 2490J
@@ -72,8 +74,6 @@ preplace netloc clk_32M768_1 1 1 3 380 370 NJ 370N 1760J
 preplace netloc clk_wiz_128M_clk_200M 1 1 2 NJ 140 820J
 preplace netloc proc_sys_reset_16M384_mb_reset 1 1 3 440 80 NJ 80 1840J
 preplace netloc xlconstant_MODE_CTRL_dout 1 1 3 420 50 NJ 50 1850J
-preplace netloc Rx_error_tdata 1 3 2 1670 680 2380
-preplace netloc Rx_feedback_tdata 1 3 2 1690 690 2370
 levelinfo -pg 1 0 160 620 1250 2190 2580
 pagesize -pg 1 -db -bbox -sgen -180 -70 2760 1490
 "

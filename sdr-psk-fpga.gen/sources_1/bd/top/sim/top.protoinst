@@ -99,26 +99,26 @@
 						"TVALID": { "actual": "m_axis_data_tvalid"}
 					}
 				},
-				"/Tx/Packetizer_0/in": {
+				"/Tx/Packetizer_0/I": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "clk"},
-						"TDATA": { "actual": "in_tdata"},
-						"TLAST": { "actual": "in_tlast"},
-						"TREADY": { "actual": "in_tready"},
-						"TUSER": { "actual": "in_tuser"},
-						"TVALID": { "actual": "in_tvalid"}
+						"TDATA": { "actual": "I_tdata"},
+						"TLAST": { "actual": "I_tlast"},
+						"TREADY": { "actual": "I_tready"},
+						"TUSER": { "actual": "I_tuser"},
+						"TVALID": { "actual": "I_tvalid"}
 					}
 				},
-				"/Tx/Packetizer_0/out": {
+				"/Tx/Packetizer_0/O": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "clk"},
-						"TDATA": { "actual": "out_tdata"},
-						"TLAST": { "actual": "out_tlast"},
-						"TREADY": { "actual": "out_tready"},
-						"TUSER": { "actual": "out_tuser"},
-						"TVALID": { "actual": "out_tvalid"}
+						"TDATA": { "actual": "O_tdata"},
+						"TLAST": { "actual": "O_tlast"},
+						"TREADY": { "actual": "O_tready"},
+						"TUSER": { "actual": "O_tuser"},
+						"TVALID": { "actual": "O_tvalid"}
 					}
 				},
 				"/Tx/Tx_Data_0/data": {

@@ -1,31 +1,27 @@
 {
    "ActiveEmotionalView":"Default View",
    "Default View_ScaleFactor":"1.25",
-   "Default View_TopLeft":"-262,-144",
+   "Default View_TopLeft":"-441,-138",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
 #  -string -flagsOSRD
-preplace port IQ -pg 1 -lvl 4 -x 690 -y 160 -defaultsOSRD
+preplace port IQ -pg 1 -lvl 4 -x 700 -y 160 -defaultsOSRD
 preplace port port-id_clk_16M384 -pg 1 -lvl 0 -x -140 -y 230 -defaultsOSRD
-preplace port port-id_is_bpsk -pg 1 -lvl 0 -x -140 -y 100 -defaultsOSRD
 preplace portBus I -pg 1 -lvl 0 -x -140 -y 40 -defaultsOSRD
 preplace portBus Q -pg 1 -lvl 0 -x -140 -y 70 -defaultsOSRD
 preplace portBus NCO_vld -pg 1 -lvl 0 -x -140 -y 170 -defaultsOSRD
-preplace inst xlconcat_0 -pg 1 -lvl 2 -x 210 -y 60 -defaultsOSRD
-preplace inst LP_filter -pg 1 -lvl 3 -x 500 -y 270 -defaultsOSRD
-preplace inst c_shift_ram_0 -pg 1 -lvl 2 -x 210 -y 180 -defaultsOSRD
-preplace inst Inverse_0 -pg 1 -lvl 1 -x 0 -y 110 -defaultsOSRD
-preplace netloc D_1 1 0 2 -120 180 110
-preplace netloc aclk_0_1 1 0 3 NJ 230 110 300 NJ
-preplace netloc c_shift_ram_0_Q 1 2 1 310 180n
-preplace netloc phase_detector_I_P 1 0 2 NJ 40 110
-preplace netloc xlconcat_0_dout 1 2 1 320 60n
-preplace netloc Inverse_0_O 1 1 1 110 70n
-preplace netloc Q_1 1 0 1 -120 70n
-preplace netloc is_bpsk_1 1 0 1 N 100
-preplace netloc fir_compiler_I_M_AXIS_DATA 1 3 1 670 160n
-levelinfo -pg 1 -140 0 210 500 690
-pagesize -pg 1 -db -bbox -sgen -280 -70 760 360
+preplace inst xlconcat_0 -pg 1 -lvl 2 -x 220 -y 60 -defaultsOSRD
+preplace inst LP_filter -pg 1 -lvl 3 -x 510 -y 270 -defaultsOSRD
+preplace inst c_shift_ram_0 -pg 1 -lvl 2 -x 220 -y 180 -defaultsOSRD
+preplace netloc D_1 1 0 2 N 170 N
+preplace netloc aclk_0_1 1 0 3 NJ 230 20 300 NJ
+preplace netloc c_shift_ram_0_Q 1 2 1 320 180n
+preplace netloc phase_detector_I_P 1 0 2 NJ 40 20
+preplace netloc xlconcat_0_dout 1 2 1 330 60n
+preplace netloc Q_1 1 0 2 NJ 70 N
+preplace netloc fir_compiler_I_M_AXIS_DATA 1 3 1 680 160n
+levelinfo -pg 1 -140 0 220 510 700
+pagesize -pg 1 -db -bbox -sgen -280 -70 770 360
 "
 }
 0

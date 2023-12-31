@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.000000 us"></ZoomStartTime>
-      <ZoomEndTime time="15.000001 us"></ZoomEndTime>
-      <Cursor1Time time="7.588000 us"></Cursor1Time>
+      <ZoomStartTime time="2.500000 us"></ZoomStartTime>
+      <ZoomEndTime time="17.500000 us"></ZoomEndTime>
+      <Cursor1Time time="8.442000 us"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="288"></NameColumnWidth>
+      <NameColumnWidth column_width="283"></NameColumnWidth>
       <ValueColumnWidth column_width="72"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="54" />
+   <WVObjectSize size="52" />
    <wvobject fp_name="/tb_PSK_Demod_BPSK/clk_32M768" type="logic">
       <obj_property name="ElementShortName">clk_32M768</obj_property>
       <obj_property name="ObjectShortName">clk_32M768</obj_property>
@@ -229,29 +229,6 @@
       <obj_property name="ElementShortName">FEEDBACK_SHIFT_1[3:0]</obj_property>
       <obj_property name="ObjectShortName">FEEDBACK_SHIFT_1[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_PSK_Demod_BPSK/inst_Rx/costas_loop_0/Error_Detect/error" type="protoinst">
-      <obj_property name="children_use_element_short_name">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
-      <obj_property name="EnumTransactionColorTable">fff,fff=blank</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-      <obj_property name="CustomSignalColor">#00E600</obj_property>
-      <obj_property name="Render_Data">/tb_PSK_Demod_BPSK/inst_Rx/costas_loop_0/Error_Detect/error.streamWaveData</obj_property>
-      <obj_property name="Number_Overlay">2</obj_property>
-      <obj_property name="Overlay_Object_0">/tb_PSK_Demod_BPSK/inst_Rx/costas_loop_0/Error_Detect/error.linkStarve</obj_property>
-      <obj_property name="Overlay_Color_0">#99E600</obj_property>
-      <obj_property name="Overlay_Object_1">/tb_PSK_Demod_BPSK/inst_Rx/costas_loop_0/Error_Detect/error.linkStall</obj_property>
-      <obj_property name="Overlay_Color_1">#E64C00</obj_property>
-      <obj_property name="Detail_Data">/tb_PSK_Demod_BPSK/inst_Rx/costas_loop_0/Error_Detect/error.streamTooltipData</obj_property>
-      <obj_property name="ElementShortName">error</obj_property>
-      <obj_property name="ObjectShortName">error</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_PSK_Demod_BPSK/inst_Rx/costas_loop_0/Error_Detect/Error_Detect_Ctrl_0_error_TDATA" type="array">
-      <obj_property name="ElementShortName">Error_Detect_Ctrl_0_error_TDATA[15:0]</obj_property>
-      <obj_property name="ObjectShortName">Error_Detect_Ctrl_0_error_TDATA[15:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-      <obj_property name="CellHeight">100</obj_property>
-   </wvobject>
    <wvobject fp_name="/tb_PSK_Demod_BPSK/inst_Rx/costas_loop_0/Error_Detect/Error_Detect_Ctrl_0/inst/is_bpsk" type="logic">
       <obj_property name="ElementShortName">is_bpsk</obj_property>
       <obj_property name="ObjectShortName">is_bpsk</obj_property>
@@ -262,7 +239,7 @@
       <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
       <obj_property name="CellHeight">100</obj_property>
       <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_FIXED</obj_property>
+      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
       <obj_property name="AnalogYRangeMin">-512.000000</obj_property>
       <obj_property name="AnalogYRRangeMax">512.000000</obj_property>
       <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_LINEAR</obj_property>
