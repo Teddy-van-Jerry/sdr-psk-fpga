@@ -30,7 +30,7 @@ module tb_PSK_Demod_BPSK;
 
   // configuration parameters (constants)
   assign DELAY_CNT = 4'd8;
-  assign MODE_CTRL = MODE_QPSK;
+  assign MODE_CTRL = MODE_BPSK;
   assign TX_PHASE_CONFIG = 16'd8190; // 8192 for 4.196 MHz
 
   // module instantiation
@@ -150,7 +150,7 @@ module tb_PSK_Demod_BPSK;
 
   // random number
   always begin
-    #2
+    #4
     noise_I <= $urandom_range(32);
     noise_Q <= $urandom_range(32);
   end

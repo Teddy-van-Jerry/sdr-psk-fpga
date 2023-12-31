@@ -42,8 +42,8 @@ module Error_Detect_Ctrl # (
     else begin
       is_bpsk_delayed <= is_bpsk;
       if (is_bpsk) begin // BPSK
-        out_I_tdata <= in_I_tvalid ? in_I_tdata : 0;
-        out_Q_tdata <= in_Q_tvalid ? in_Q_tdata : 0;
+        out_I_tdata <= in_I_tvalid ? in_I_tdata + in_Q_tdata : 0;
+        out_Q_tdata <= in_Q_tvalid ? in_I_tdata - in_Q_tdata : 0;
       end
       else begin // QPSK
         out_I_tdata <= in_I_tvalid ? (in_Q_tdata[WIDTH-1] ? -in_I_tdata : in_I_tdata) >>> 6 : 0;

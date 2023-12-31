@@ -52,7 +52,7 @@ module Gardner_Corrector # (
         end
         STATE_SAMPLE: begin
           clk_out <= 1;
-          cnt <= cnt - INCREMENT_INIT; // this will remain a small number (smaller than 1CC in 32.768M clock)
+          cnt <= cnt - (INCREMENT_INIT - CNT_ADD); // this will remain a small number (smaller than 1CC in 32.768M clock)
           // sample output
           I_1M <= I_32M;
           Q_1M <= Q_32M;

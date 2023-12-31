@@ -21,8 +21,8 @@
         "SPB_Detection": {
           "xlconstant_one": "",
           "Rx_PD_0": "",
-          "Rx_BD_0": "",
-          "Rx_SD_0": ""
+          "Rx_SD_0": "",
+          "Rx_BD_0": ""
         },
         "Flatten": {
           "axis_data_fifo_0": "",
@@ -30,9 +30,9 @@
           "Not_Gate_0": "",
           "Bits_Flatten_0": ""
         },
-        "PSK_Detection_0": "",
         "PSK_Signal_Extend_0": "",
-        "Depacketizer_0": ""
+        "Depacketizer_0": "",
+        "PSK_Detection_0": ""
       },
       "Clock_Gen": {
         "clk_wiz_128M": "",
@@ -816,61 +816,6 @@
                   }
                 }
               },
-              "Rx_BD_0": {
-                "vlnv": "xilinx.com:module_ref:Rx_BD:1.0",
-                "xci_name": "top_Rx_BD_0_0",
-                "xci_path": "ip\\top_Rx_BD_0_0\\top_Rx_BD_0_0.xci",
-                "inst_hier_path": "Rx/SPB_Detection/Rx_BD_0",
-                "reference_info": {
-                  "ref_type": "hdl",
-                  "ref_name": "Rx_BD",
-                  "boundary_crc": "0x0"
-                },
-                "ports": {
-                  "clk": {
-                    "type": "clk",
-                    "direction": "I",
-                    "parameters": {
-                      "ASSOCIATED_RESET": {
-                        "value": "rst",
-                        "value_src": "constant"
-                      }
-                    }
-                  },
-                  "rst": {
-                    "type": "rst",
-                    "direction": "I",
-                    "parameters": {
-                      "POLARITY": {
-                        "value": "ACTIVE_HIGH"
-                      }
-                    }
-                  },
-                  "RX_BD_WINDOW": {
-                    "direction": "I",
-                    "left": "7",
-                    "right": "0"
-                  },
-                  "BPSK": {
-                    "direction": "I"
-                  },
-                  "disassert_BD": {
-                    "direction": "I"
-                  },
-                  "PD_flag": {
-                    "direction": "I"
-                  },
-                  "BD_init": {
-                    "direction": "O"
-                  },
-                  "BD_flag": {
-                    "direction": "O"
-                  },
-                  "BD_sgn": {
-                    "direction": "O"
-                  }
-                }
-              },
               "Rx_SD_0": {
                 "vlnv": "xilinx.com:module_ref:Rx_SD:1.0",
                 "xci_name": "top_Rx_SD_0_0",
@@ -1023,6 +968,61 @@
                     "direction": "O"
                   }
                 }
+              },
+              "Rx_BD_0": {
+                "vlnv": "xilinx.com:module_ref:Rx_BD:1.0",
+                "xci_name": "top_Rx_BD_0_0",
+                "xci_path": "ip\\top_Rx_BD_0_0\\top_Rx_BD_0_0.xci",
+                "inst_hier_path": "Rx/SPB_Detection/Rx_BD_0",
+                "reference_info": {
+                  "ref_type": "hdl",
+                  "ref_name": "Rx_BD",
+                  "boundary_crc": "0x0"
+                },
+                "ports": {
+                  "clk": {
+                    "type": "clk",
+                    "direction": "I",
+                    "parameters": {
+                      "ASSOCIATED_RESET": {
+                        "value": "rst",
+                        "value_src": "constant"
+                      }
+                    }
+                  },
+                  "rst": {
+                    "type": "rst",
+                    "direction": "I",
+                    "parameters": {
+                      "POLARITY": {
+                        "value": "ACTIVE_HIGH"
+                      }
+                    }
+                  },
+                  "RX_BD_WINDOW": {
+                    "direction": "I",
+                    "left": "7",
+                    "right": "0"
+                  },
+                  "BPSK": {
+                    "direction": "I"
+                  },
+                  "disassert_BD": {
+                    "direction": "I"
+                  },
+                  "PD_flag": {
+                    "direction": "I"
+                  },
+                  "BD_init": {
+                    "direction": "O"
+                  },
+                  "BD_flag": {
+                    "direction": "O"
+                  },
+                  "BD_sgn": {
+                    "direction": "O"
+                  }
+                }
               }
             },
             "nets": {
@@ -1099,8 +1099,8 @@
                 "ports": [
                   "clk",
                   "Rx_PD_0/clk",
-                  "Rx_BD_0/clk",
-                  "Rx_SD_0/clk"
+                  "Rx_SD_0/clk",
+                  "Rx_BD_0/clk"
                 ]
               },
               "disassert_BD_1": {
@@ -1119,8 +1119,8 @@
                 "ports": [
                   "rst_32M768",
                   "Rx_PD_0/rst",
-                  "Rx_BD_0/rst",
-                  "Rx_SD_0/rst"
+                  "Rx_SD_0/rst",
+                  "Rx_BD_0/rst"
                 ]
               },
               "xlconstant_one_dout": {
@@ -1298,163 +1298,6 @@
                   "xlconstant_one/dout",
                   "axis_data_fifo_0/m_axis_tready"
                 ]
-              }
-            }
-          },
-          "PSK_Detection_0": {
-            "vlnv": "xilinx.com:module_ref:PSK_Detection:1.0",
-            "xci_name": "top_PSK_Detection_0_0",
-            "xci_path": "ip\\top_PSK_Detection_0_0\\top_PSK_Detection_0_0.xci",
-            "inst_hier_path": "Rx/PSK_Detection_0",
-            "reference_info": {
-              "ref_type": "hdl",
-              "ref_name": "PSK_Detection",
-              "boundary_crc": "0x0"
-            },
-            "interface_ports": {
-              "I": {
-                "mode": "Slave",
-                "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
-                "vlnv": "xilinx.com:interface:axis_rtl:1.0",
-                "parameters": {
-                  "TDATA_NUM_BYTES": {
-                    "value": "2",
-                    "value_src": "auto"
-                  },
-                  "TDEST_WIDTH": {
-                    "value": "0",
-                    "value_src": "constant"
-                  },
-                  "TID_WIDTH": {
-                    "value": "0",
-                    "value_src": "constant"
-                  },
-                  "TUSER_WIDTH": {
-                    "value": "0",
-                    "value_src": "constant"
-                  },
-                  "HAS_TREADY": {
-                    "value": "0",
-                    "value_src": "constant"
-                  },
-                  "HAS_TSTRB": {
-                    "value": "0",
-                    "value_src": "constant"
-                  },
-                  "HAS_TKEEP": {
-                    "value": "0",
-                    "value_src": "constant"
-                  },
-                  "HAS_TLAST": {
-                    "value": "0",
-                    "value_src": "constant"
-                  }
-                },
-                "port_maps": {
-                  "TDATA": {
-                    "physical_name": "I_tdata",
-                    "direction": "I",
-                    "left": "15",
-                    "right": "0"
-                  },
-                  "TVALID": {
-                    "physical_name": "I_tvalid",
-                    "direction": "I"
-                  }
-                }
-              },
-              "Q": {
-                "mode": "Slave",
-                "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
-                "vlnv": "xilinx.com:interface:axis_rtl:1.0",
-                "parameters": {
-                  "TDATA_NUM_BYTES": {
-                    "value": "2",
-                    "value_src": "auto"
-                  },
-                  "TDEST_WIDTH": {
-                    "value": "0",
-                    "value_src": "constant"
-                  },
-                  "TID_WIDTH": {
-                    "value": "0",
-                    "value_src": "constant"
-                  },
-                  "TUSER_WIDTH": {
-                    "value": "0",
-                    "value_src": "constant"
-                  },
-                  "HAS_TREADY": {
-                    "value": "0",
-                    "value_src": "constant"
-                  },
-                  "HAS_TSTRB": {
-                    "value": "0",
-                    "value_src": "constant"
-                  },
-                  "HAS_TKEEP": {
-                    "value": "0",
-                    "value_src": "constant"
-                  },
-                  "HAS_TLAST": {
-                    "value": "0",
-                    "value_src": "constant"
-                  }
-                },
-                "port_maps": {
-                  "TDATA": {
-                    "physical_name": "Q_tdata",
-                    "direction": "I",
-                    "left": "15",
-                    "right": "0"
-                  },
-                  "TVALID": {
-                    "physical_name": "Q_tvalid",
-                    "direction": "I"
-                  }
-                }
-              }
-            },
-            "ports": {
-              "clk": {
-                "type": "clk",
-                "direction": "I",
-                "parameters": {
-                  "ASSOCIATED_BUSIF": {
-                    "value": "I:Q",
-                    "value_src": "constant"
-                  },
-                  "ASSOCIATED_RESET": {
-                    "value": "rst",
-                    "value_src": "constant"
-                  },
-                  "FREQ_HZ": {
-                    "value": "16384000"
-                  },
-                  "CLK_DOMAIN": {
-                    "value": "/Clock_Gen/clk_wiz_32M768_clk_out1"
-                  }
-                }
-              },
-              "rst": {
-                "type": "rst",
-                "direction": "I",
-                "parameters": {
-                  "POLARITY": {
-                    "value": "ACTIVE_HIGH"
-                  }
-                }
-              },
-              "BPSK": {
-                "direction": "O"
-              },
-              "QPSK": {
-                "direction": "O",
-                "left": "1",
-                "right": "0"
-              },
-              "vld": {
-                "direction": "O"
               }
             }
           },
@@ -1659,6 +1502,175 @@
                 "direction": "O"
               },
               "disassert_PD": {
+                "direction": "O"
+              }
+            }
+          },
+          "PSK_Detection_0": {
+            "vlnv": "xilinx.com:module_ref:PSK_Detection:1.0",
+            "xci_name": "top_PSK_Detection_0_0",
+            "xci_path": "ip\\top_PSK_Detection_0_0\\top_PSK_Detection_0_0.xci",
+            "inst_hier_path": "Rx/PSK_Detection_0",
+            "reference_info": {
+              "ref_type": "hdl",
+              "ref_name": "PSK_Detection",
+              "boundary_crc": "0x0"
+            },
+            "interface_ports": {
+              "I": {
+                "mode": "Slave",
+                "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
+                "vlnv": "xilinx.com:interface:axis_rtl:1.0",
+                "parameters": {
+                  "TDATA_NUM_BYTES": {
+                    "value": "2",
+                    "value_src": "auto"
+                  },
+                  "TDEST_WIDTH": {
+                    "value": "0",
+                    "value_src": "constant"
+                  },
+                  "TID_WIDTH": {
+                    "value": "0",
+                    "value_src": "constant"
+                  },
+                  "TUSER_WIDTH": {
+                    "value": "0",
+                    "value_src": "constant"
+                  },
+                  "HAS_TREADY": {
+                    "value": "0",
+                    "value_src": "constant"
+                  },
+                  "HAS_TSTRB": {
+                    "value": "0",
+                    "value_src": "constant"
+                  },
+                  "HAS_TKEEP": {
+                    "value": "0",
+                    "value_src": "constant"
+                  },
+                  "HAS_TLAST": {
+                    "value": "0",
+                    "value_src": "constant"
+                  },
+                  "FREQ_HZ": {
+                    "value": "16384000"
+                  },
+                  "CLK_DOMAIN": {
+                    "value": "/Clock_Gen/clk_wiz_32M768_clk_out1"
+                  }
+                },
+                "port_maps": {
+                  "TDATA": {
+                    "physical_name": "I_tdata",
+                    "direction": "I",
+                    "left": "15",
+                    "right": "0"
+                  },
+                  "TVALID": {
+                    "physical_name": "I_tvalid",
+                    "direction": "I"
+                  }
+                }
+              },
+              "Q": {
+                "mode": "Slave",
+                "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
+                "vlnv": "xilinx.com:interface:axis_rtl:1.0",
+                "parameters": {
+                  "TDATA_NUM_BYTES": {
+                    "value": "2",
+                    "value_src": "auto"
+                  },
+                  "TDEST_WIDTH": {
+                    "value": "0",
+                    "value_src": "constant"
+                  },
+                  "TID_WIDTH": {
+                    "value": "0",
+                    "value_src": "constant"
+                  },
+                  "TUSER_WIDTH": {
+                    "value": "0",
+                    "value_src": "constant"
+                  },
+                  "HAS_TREADY": {
+                    "value": "0",
+                    "value_src": "constant"
+                  },
+                  "HAS_TSTRB": {
+                    "value": "0",
+                    "value_src": "constant"
+                  },
+                  "HAS_TKEEP": {
+                    "value": "0",
+                    "value_src": "constant"
+                  },
+                  "HAS_TLAST": {
+                    "value": "0",
+                    "value_src": "constant"
+                  },
+                  "FREQ_HZ": {
+                    "value": "16384000"
+                  },
+                  "CLK_DOMAIN": {
+                    "value": "/Clock_Gen/clk_wiz_32M768_clk_out1"
+                  }
+                },
+                "port_maps": {
+                  "TDATA": {
+                    "physical_name": "Q_tdata",
+                    "direction": "I",
+                    "left": "15",
+                    "right": "0"
+                  },
+                  "TVALID": {
+                    "physical_name": "Q_tvalid",
+                    "direction": "I"
+                  }
+                }
+              }
+            },
+            "ports": {
+              "clk": {
+                "type": "clk",
+                "direction": "I",
+                "parameters": {
+                  "ASSOCIATED_BUSIF": {
+                    "value": "I:Q",
+                    "value_src": "constant"
+                  },
+                  "ASSOCIATED_RESET": {
+                    "value": "rst",
+                    "value_src": "constant"
+                  },
+                  "FREQ_HZ": {
+                    "value": "16384000"
+                  },
+                  "CLK_DOMAIN": {
+                    "value": "/Clock_Gen/clk_wiz_32M768_clk_out1"
+                  }
+                }
+              },
+              "rst": {
+                "type": "rst",
+                "direction": "I",
+                "parameters": {
+                  "POLARITY": {
+                    "value": "ACTIVE_HIGH"
+                  }
+                }
+              },
+              "BPSK": {
+                "direction": "O"
+              },
+              "QPSK": {
+                "direction": "O",
+                "left": "1",
+                "right": "0"
+              },
+              "vld": {
                 "direction": "O"
               }
             }
@@ -1955,8 +1967,8 @@
               "SPB_Detection/clk",
               "clk_1M_out",
               "Flatten/clk_out",
-              "PSK_Detection_0/clk",
-              "Depacketizer_0/clk"
+              "Depacketizer_0/clk",
+              "PSK_Detection_0/clk"
             ]
           },
           "rst_16M386_1": {
@@ -1971,8 +1983,8 @@
               "gardner_loop_0/rst_32M768",
               "SPB_Detection/rst_32M768",
               "Flatten/rst_32M768",
-              "PSK_Detection_0/rst",
-              "Depacketizer_0/rst"
+              "Depacketizer_0/rst",
+              "PSK_Detection_0/rst"
             ]
           },
           "xlconstant_one_dout": {

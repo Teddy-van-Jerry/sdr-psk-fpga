@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sun Dec 31 16:21:09 2023" VIVADOVERSION="2022.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon Jan  1 00:18:52 2024" VIVADOVERSION="2022.2">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z020" NAME="top" PACKAGE="clg484" SPEEDGRADE="-1"/>
 
@@ -292,11 +292,11 @@
           <CONNECTIONS>
             <CONNECTION INSTANCE="Rx_gardner_loop_0" PORT="rst_32M768"/>
             <CONNECTION INSTANCE="Rx_SPB_Detection_Rx_PD_0" PORT="rst"/>
-            <CONNECTION INSTANCE="Rx_SPB_Detection_Rx_BD_0" PORT="rst"/>
             <CONNECTION INSTANCE="Rx_SPB_Detection_Rx_SD_0" PORT="rst"/>
+            <CONNECTION INSTANCE="Rx_SPB_Detection_Rx_BD_0" PORT="rst"/>
             <CONNECTION INSTANCE="Rx_Flatten_Not_Gate_0" PORT="i"/>
-            <CONNECTION INSTANCE="Rx_PSK_Detection_0" PORT="rst"/>
             <CONNECTION INSTANCE="Rx_Depacketizer_0" PORT="rst"/>
+            <CONNECTION INSTANCE="Rx_PSK_Detection_0" PORT="rst"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="0" NAME="peripheral_reset" POLARITY="ACTIVE_HIGH" RIGHT="0" SIGIS="rst"/>
@@ -2824,13 +2824,13 @@
         <PORT DIR="O" NAME="clk_out" SIGIS="undef" SIGNAME="Rx_gardner_loop_0_clk_out">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Rx_SPB_Detection_Rx_PD_0" PORT="clk"/>
-            <CONNECTION INSTANCE="Rx_SPB_Detection_Rx_BD_0" PORT="clk"/>
             <CONNECTION INSTANCE="Rx_SPB_Detection_Rx_SD_0" PORT="clk"/>
+            <CONNECTION INSTANCE="Rx_SPB_Detection_Rx_BD_0" PORT="clk"/>
             <CONNECTION INSTANCE="External_Ports" PORT="GPIO_TH4"/>
             <CONNECTION INSTANCE="system_ila_0" PORT="probe14"/>
             <CONNECTION INSTANCE="Rx_Flatten_axis_data_fifo_0" PORT="s_axis_aclk"/>
-            <CONNECTION INSTANCE="Rx_PSK_Detection_0" PORT="clk"/>
             <CONNECTION INSTANCE="Rx_Depacketizer_0" PORT="clk"/>
+            <CONNECTION INSTANCE="Rx_PSK_Detection_0" PORT="clk"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="rst_32M768" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="Clock_Gen_Reset_Gen_proc_sys_reset_32M768_bus_struct_reset">

@@ -32,9 +32,9 @@ module Rx_BD # (
   // BPSK_reg  | 1 0 1 0 1 0 1 1 0 1 0 1 0 1
   // BPSK_diff | 1 1 1 1 1 1 0 1 1 1 1 1 1 1
   // ~~~~~~~~~~~~~~~~~~~~~~~ ^ ~~~~~~~~~~~~~~~~~~~
-  // BD_init   | 0 0 0 0 0 0 0 1 1 1 1 1 1 1
-  //                           ______________
-  //             _____________/               BD_init
+  // BD_init   | 0 0 0 0 0 0 0 1 0 0 0 0 0 0
+  //                           _
+  //             _____________/ \____________ BD_init
   // cnt       | 0 0 0 0 0 0 0 1 2 3 4 4 4 4
   // BD_flag   | 0 0 0 0 0 0 0 0 0 0 0 1 1 1
   //                                   ______
@@ -46,37 +46,48 @@ module Rx_BD # (
   // * BD_flag is asserted with (RX_BD_WINDOW+1) CC delay.
 
   always @ (posedge clk) begin
-    if (rst | disassert_BD | ~PD_flag) begin
+    if (rst) begin
       cnt <= 0;
       BD_flag <= 0;
       BD_init <= 0;
-      BPSK_reg <= 0;
       BD_sgn <= 0;
+      BPSK_reg <= 0;
     end
     else begin
       BPSK_reg <= BPSK;
-      if (BPSK_diff == 1'b0) begin // transition point
-        BD_init <= 1;
-        cnt <= 1; // the only way for 'cnt' to go beyond 0
-        BD_sgn <= BPSK;
+      if (disassert_BD | ~PD_flag) begin
+        cnt <= 0;
+        BD_flag <= 0;
+        BD_init <= 0;
+        BD_sgn <= 0;
       end
       else begin
-        BD_init <= 0;
-        if (cnt > 0) begin
-          if (cnt < RX_BD_WINDOW) begin
-            cnt <= cnt + 1;
+        if (BPSK_diff == 1'b0) begin // transition point
+          if (~BD_flag) begin
+            BD_init <= 1;
+            cnt <= 1; // the only way for 'cnt' to go beyond 0
+            BD_sgn <= BPSK;
           end
-          else begin
-            cnt <= 0;
-            BD_init <= 0;
-          end
+          else ;
         end
-        else ; // cnt == 0
+        else begin
+          BD_init <= 0;
+          if (cnt > 0) begin
+            if (cnt < RX_BD_WINDOW) begin
+              cnt <= cnt + 1;
+            end
+            else begin
+              cnt <= 0;
+              BD_init <= 0;
+            end
+          end
+          else ; // cnt == 0
+        end
+        if (cnt >= RX_BD_WINDOW) begin
+          BD_flag <= 1;
+        end
+        else ; // we do not disassert it automatically
       end
-      if (cnt >= RX_BD_WINDOW) begin
-        BD_flag <= 1;
-      end
-      else ; // we do not disassert it automatically
     end
   end
 endmodule
