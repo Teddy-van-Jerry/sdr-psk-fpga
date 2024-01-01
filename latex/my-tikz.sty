@@ -1,0 +1,179 @@
+\RequirePackage{tikz}
+\RequirePackage{pgfplots}
+\pgfplotsset{
+compat=newest,
+/pgfplots/legend image code/.code={%
+        \draw[mark repeat=2,mark phase=2,#1] 
+            plot coordinates {
+(0cm,0cm)
+(0.15cm,0cm)        %% default is (0.3cm,0cm)
+(0.3cm,0cm)         %% default is (0.6cm,0cm)
+            };
+    },}
+\usetikzlibrary{fadings,calc,shapes.geometric,patterns,positioning,backgrounds,decorations.pathreplacing,arrows.meta,shapes.arrows,fit,intersections,arrows,matrix}
+
+\definecolor{myblued}{RGB}{0,114,189}
+\definecolor{myred}{RGB}{217,83,25}
+\definecolor{mygreen}{RGB}{32,134,48}
+\definecolor{myyellow}{RGB}{237,137,32}
+\definecolor{mypurple}{RGB}{126,47,142}
+\definecolor{myblues}{RGB}{77,190,238}
+\pgfplotscreateplotcyclelist{sim}{
+  {myred, very thick, mark=diamond, mark size=2},
+  {myblued, very thick, mark=o, mark size=1.5},
+  {myyellow, very thick, mark=triangle, mark size=2},
+  {mygreen, very thick, mark=square, mark size=1.5},
+  {mypurple, very thick, mark=asterisk, mark size=2},
+  {myblues, very thick, mark=pentagon, mark size=3},
+  {gray, very thick, mark=+, mark size=3}
+}
+\pgfplotscreateplotcyclelist{sim-thick}{
+  {myred, thick, mark=diamond, mark size=2},
+  {myblued, thick, mark=o, mark size=1.5},
+  {myyellow, thick, mark=triangle, mark size=2},
+  {mygreen, thick, mark=square, mark size=1.5},
+  {mypurple, thick, mark=asterisk, mark size=2},
+  {myblues, thick, mark=pentagon, mark size=3},
+  {gray, thick, mark=+, mark size=3}
+}
+\pgfplotscreateplotcyclelist{sim-semithick}{
+  {myred, semithick, mark=diamond, mark size=2},
+  {myblued, semithick, mark=o, mark size=1.5},
+  {myyellow, semithick, mark=triangle, mark size=2},
+  {mygreen, semithick, mark=square, mark size=1.5},
+  {mypurple, semithick, mark=asterisk, mark size=2},
+  {myblues, thick, mark=pentagon, mark size=3},
+  {gray, thick, mark=+, mark size=3}
+}
+
+\pgfplotscreateplotcyclelist{sim-onlymarks}{
+  {myred, thick, mark=diamond, mark size=2.8, only marks},
+  {myblued, thick, mark=o, mark size=2, only marks},
+  {myyellow, thick, mark=triangle, mark size=3, only marks},
+  {mygreen, thick, mark=square, mark size=2, only marks},
+  {mypurple, thick, mark=asterisk, mark size=3, only marks},
+  {myblues, thick, mark=pentagon, mark size=3, only marks},
+  {gray, thick, mark=+, mark size=3, only marks}
+}
+
+\newenvironment{customlegend}[1][]{%
+  \begingroup
+  \csname pgfplots@init@cleared@structures\endcsname
+  \pgfplotsset{#1}%
+}{%
+  \csname pgfplots@createlegend\endcsname
+  \endgroup
+}%
+\def\addlegendimage{\csname pgfplots@addlegendimage\endcsname}
+
+\newcommand{\addlegendimageintext}[1]{%
+  \tikz {
+    \begin{customlegend}[
+      legend entries={\empty},
+      legend style={
+        draw=none,
+        inner sep=0pt,
+        column sep=0pt,
+        nodes={inner sep=0pt}}]
+    \addlegendimage{#1}
+    \end{customlegend}
+  }%
+}
+
+\pgfmathsetmacro{\jumpswap}{1}
+\tikzset{
+  % set up keys for radius, position, swap
+  jump radius/.estore in=\jumpradius,
+  jump pos/.estore in=\jumppos,
+  jump swap/.code={\pgfmathsetmacro{\jumpswap}{\jumpswap*-1}},
+  jump radius=0.8mm,
+  jump pos=0.5,
+  % set up styles for the various to-paths
+  -u-/.style={% straight line
+    to path={
+      let \p1=(\tikztostart),\p2=(\tikztotarget),\n1={atan2(\y2-\y1,\x2-\x1)} in
+      (\p1) -- ($($(\p1)!\jumppos!(\p2)$)!\jumpradius!(\p1)$)
+      arc[start angle=\n1+180,delta angle=-180*\jumpswap,radius=\jumpradius] -- (\p2)}
+  },
+  -u|/.style={% -| path with jump on horizontal leg
+    to path={
+      let \p1=(\tikztostart),\p2=(\tikztostart-|\tikztotarget), \n1={atan2(\y2-\y1,\x2-\x1)} in
+      (\p1) -- ($($(\p1)!\jumppos!(\p2)$)!\jumpradius!(\p1)$)
+      arc[start angle=\n1+180,delta angle=-180*\jumpswap,radius=\jumpradius] --(\p2) -- (\tikztotarget)}
+  },
+  |u-/.style={% |- path with jump on vertical leg
+    to path={
+      let \p1=(\tikztostart),\p2=(\tikztostart|-\tikztotarget), \n1={atan2(\y2-\y1,\x2-\x1)} in
+      (\p1) -- ($($(\p1)!\jumppos!(\p2)$)!\jumpradius!(\p1)$)
+      arc[start angle=\n1+180,delta angle=-180*\jumpswap,radius=\jumpradius] -- (\p2) -- (\tikztotarget)}
+  },
+  -|u/.style={% -| path with jump on vertical leg
+    to path={
+      let \p1=(\tikztostart-|\tikztotarget),\p2=(\tikztotarget), \n1={atan2(\y2-\y1,\x2-\x1)} in
+      (\tikztostart) -- (\p1) -- ($($(\p1)!\jumppos!(\p2)$)!\jumpradius!(\p1)$)
+      arc[start angle=\n1+180,delta angle=-180*\jumpswap,radius=\jumpradius] -- (\p2)}
+  },
+  |-u/.style={% |- path with jump on horizontal leg
+    to path={
+      let \p1=(\tikztostart|-\tikztotarget),\p2=(\tikztotarget), \n1={atan2(\y2-\y1,\x2-\x1)} in
+      (\tikztostart) -- (\p1) -- ($($(\p1)!\jumppos!(\p2)$)!\jumpradius!(\p1)$)
+      arc[start angle=\n1+180,delta angle=-180*\jumpswap,radius=\jumpradius] -- (\p2)}
+  },
+  % define the jump style, set it to use straight line by default
+  jump/.style={-u-,#1},
+  jump/.default={}
+}
+
+% similar to env "pgfonlayer", but the latest contents are typeset on
+% lowest bottom (on reversed order)
+
+\let\pgfonlayerreversed\pgfonlayer
+\let\endpgfonlayerreversed\endpgfonlayer
+
+\RequirePackage{xpatch}
+\xpatchcmd\pgfonlayerreversed
+  {\expandafter\box\csname pgf@layerbox@#1\endcsname\begingroup}
+  {\begingroup}
+  {}{\fail}
+
+\xpatchcmd\endpgfonlayerreversed
+  {\endgroup}
+  {\endgroup\expandafter\box\csname pgf@layerbox@\pgfonlayer@name\endcsname}
+  {}{\fail}
+
+
+\tikzset{
+  on background layer reversed/.style={%
+    execute at begin scope={%
+      \pgfonlayerreversed{background}%
+      \let\tikz@options=\pgfutil@empty
+      \tikzset{every on background layer/.try,#1}%
+      \tikz@options
+    },
+    execute at end scope={\endpgfonlayerreversed}
+  }
+}
+
+
+\def\StartDrawOnBottomOfLayerStack{%
+  \scope\relax
+  % patch \path variants to auto insert "\scoped[on lowest layer]"
+  % currently \node, \pic, \coordinate, and \matrix are patched
+  \let\tikz@path@overlay\tikz@path@overlay@autoscoped
+  \let\tikz@path@overlayed\tikz@path@overlayed@autoscoped
+}
+
+\def\EndDrawOnTopOfLayerStack{%
+  \endscope
+}
+
+\def\tikz@path@overlay@autoscoped#1{%
+  \let\tikz@signal@path=\tikz@signal@path% for detection at begin of matrix cell
+  \pgfutil@ifnextchar<%
+    {\tikz@path@overlayed{#1}}
+    {\scoped[on background layer reversed] \path #1}}%
+\def\tikz@path@overlayed@autoscoped#1<#2>{%
+  \scoped[on background layer reversed] \path<#2> #1}%
+
+\newcommand\notsotiny{\@setfontsize\notsotiny\@vipt\@viipt}
+
