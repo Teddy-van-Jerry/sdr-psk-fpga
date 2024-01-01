@@ -1,0 +1,34 @@
+\begin{tikzpicture}[
+  , thick
+  , axis/.style = {
+    , -latex
+  }
+  , n/.style = {
+    , circle
+    , fill = myblued
+    , inner sep = 0pt
+    , minimum size = 4pt
+  }
+  , l/.style = {
+    , dotted
+  }
+  , ll/.style = {
+    , dashed
+    , myred
+    , shorten < = -8pt
+    , shorten > = -8pt
+  }
+  , outer sep = 0
+  , inner sep = 2pt
+]
+  \draw [axis] (-1.5, 0) -- (1.5, 0) [right] node {$I\,(\cos)$};
+  \draw [axis] (0, -1.5) -- (0, 1.5) [above] node {$Q\,(\sin)$};
+  \draw [l] (-1, 1) -- (1, 1);
+  \draw [l] (1, -1) -- (-1, -1);
+  \draw [l] (1, -1) -- (1, 1);
+  \draw [l] (-1, 1) -- (-1, -1);
+  \node [n, label={right:\ttfamily\bfseries00}] at (1, 1) {};
+  \node [n, label={below:\ttfamily\bfseries01}] at (1, -1) {};
+  \node [n, label={left:\ttfamily\bfseries11}] at (-1, -1) {};
+  \node [n, label={above:\ttfamily\bfseries10}] at (-1, 1) {};
+\end{tikzpicture}%
