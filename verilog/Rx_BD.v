@@ -33,13 +33,15 @@ module Rx_BD # (
   // BPSK_diff | 1 1 1 1 1 1 0 1 1 1 1 1 1 1
   // ~~~~~~~~~~~~~~~~~~~~~~~ ^ ~~~~~~~~~~~~~~~~~~~
   // BD_init   | 0 0 0 0 0 0 0 1 0 0 0 0 0 0
-  //                           _
-  //             _____________/ \____________ BD_init
+  //                           ______________
+  //             _____________/               BD_init
   // cnt       | 0 0 0 0 0 0 0 1 2 3 4 4 4 4
   // BD_flag   | 0 0 0 0 0 0 0 0 0 0 0 1 1 1
   //                                   ______
   //             _____________________/       BD_flag
-  // BD_sgn    | 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+  // BD_sgn    | 0 0 0 0 0 0 0 1 1 1 1 1 1 1
+  //                           ______________ BD_sgn
+  //             _____________/
   //                          ^-------------- BD_sgn_vld
   // 
   // * BD_init is asserted with               1  CC delay;
@@ -73,7 +75,7 @@ module Rx_BD # (
         else begin
           BD_init <= 0;
           if (cnt > 0) begin
-            if (cnt < RX_BD_WINDOW) begin
+            if (cnt < RX_BD_WINDOW - 1) begin
               cnt <= cnt + 1;
             end
             else begin
@@ -83,7 +85,7 @@ module Rx_BD # (
           end
           else ; // cnt == 0
         end
-        if (cnt >= RX_BD_WINDOW) begin
+        if (cnt >= RX_BD_WINDOW - 1) begin
           BD_flag <= 1;
         end
         else ; // we do not disassert it automatically

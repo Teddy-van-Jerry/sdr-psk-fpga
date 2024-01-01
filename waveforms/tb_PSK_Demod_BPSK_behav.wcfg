@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.000000 us"></ZoomStartTime>
-      <ZoomEndTime time="35.000001 us"></ZoomEndTime>
-      <Cursor1Time time="35.000000 us"></Cursor1Time>
+      <ZoomStartTime time="46.852000 us"></ZoomStartTime>
+      <ZoomEndTime time="60.807724 us"></ZoomEndTime>
+      <Cursor1Time time="58.674141 us"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="238"></NameColumnWidth>
+      <NameColumnWidth column_width="218"></NameColumnWidth>
       <ValueColumnWidth column_width="72"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="65" />
+   <WVObjectSize size="64" />
    <wvobject fp_name="/tb_PSK_Demod_BPSK/clk_32M768" type="logic">
       <obj_property name="ElementShortName">clk_32M768</obj_property>
       <obj_property name="ObjectShortName">clk_32M768</obj_property>
@@ -278,84 +278,6 @@
       <obj_property name="ElementShortName">is_bpsk</obj_property>
       <obj_property name="ObjectShortName">is_bpsk</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_PSK_Demod_BPSK/inst_Rx/gardner_loop_0/Timing_Error/Gardner_Timing_Error_0/I" type="array">
-      <obj_property name="ElementShortName">I[15:0]</obj_property>
-      <obj_property name="ObjectShortName">I[15:0]</obj_property>
-      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-      <obj_property name="CellHeight">100</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
-      <obj_property name="AnalogYRangeMin">0.000000</obj_property>
-      <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
-      <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_LINEAR</obj_property>
-      <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
-      <obj_property name="AnalogHorizLine">0.000000</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_PSK_Demod_BPSK/inst_Rx/gardner_loop_0/Timing_Error/Gardner_Timing_Error_0/I_d16" type="array">
-      <obj_property name="ElementShortName">I_d16[15:0]</obj_property>
-      <obj_property name="ObjectShortName">I_d16[15:0]</obj_property>
-      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-      <obj_property name="CellHeight">100</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
-      <obj_property name="AnalogYRangeMin">0.000000</obj_property>
-      <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
-      <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_LINEAR</obj_property>
-      <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
-      <obj_property name="AnalogHorizLine">0.000000</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_PSK_Demod_BPSK/inst_Rx/gardner_loop_0/Timing_Error/Gardner_Timing_Error_0/I_d32" type="array">
-      <obj_property name="ElementShortName">I_d32[15:0]</obj_property>
-      <obj_property name="ObjectShortName">I_d32[15:0]</obj_property>
-      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-      <obj_property name="CellHeight">100</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
-      <obj_property name="AnalogYRangeMin">0.000000</obj_property>
-      <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
-      <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_LINEAR</obj_property>
-      <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
-      <obj_property name="AnalogHorizLine">0.000000</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_PSK_Demod_BPSK/inst_Rx/gardner_loop_0/Timing_Error/Gardner_Timing_Error_0/Q" type="array">
-      <obj_property name="ElementShortName">Q[15:0]</obj_property>
-      <obj_property name="ObjectShortName">Q[15:0]</obj_property>
-      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-      <obj_property name="CellHeight">100</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
-      <obj_property name="AnalogYRangeMin">0.000000</obj_property>
-      <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
-      <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_LINEAR</obj_property>
-      <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
-      <obj_property name="AnalogHorizLine">0.000000</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_PSK_Demod_BPSK/inst_Rx/gardner_loop_0/Timing_Error/Gardner_Timing_Error_0/Q_d16" type="array">
-      <obj_property name="ElementShortName">Q_d16[15:0]</obj_property>
-      <obj_property name="ObjectShortName">Q_d16[15:0]</obj_property>
-      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-      <obj_property name="CellHeight">100</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
-      <obj_property name="AnalogYRangeMin">0.000000</obj_property>
-      <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
-      <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_LINEAR</obj_property>
-      <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
-      <obj_property name="AnalogHorizLine">0.000000</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_PSK_Demod_BPSK/inst_Rx/gardner_loop_0/Timing_Error/Gardner_Timing_Error_0/Q_d32" type="array">
-      <obj_property name="ElementShortName">Q_d32[15:0]</obj_property>
-      <obj_property name="ObjectShortName">Q_d32[15:0]</obj_property>
-      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-      <obj_property name="CellHeight">100</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
-      <obj_property name="AnalogYRangeMin">0.000000</obj_property>
-      <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
-      <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_LINEAR</obj_property>
-      <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
-      <obj_property name="AnalogHorizLine">0.000000</obj_property>
-   </wvobject>
    <wvobject fp_name="/tb_PSK_Demod_BPSK/I_1M" type="array">
       <obj_property name="ElementShortName">I_1M[15:0]</obj_property>
       <obj_property name="ObjectShortName">I_1M[15:0]</obj_property>
@@ -432,10 +354,18 @@
       <obj_property name="ObjectShortName">QPSK_raw[1:0]</obj_property>
       <obj_property name="isExpanded"></obj_property>
    </wvobject>
+   <wvobject fp_name="/tb_PSK_Demod_BPSK/inst_Rx/SPB_Detection/Rx_BD_0/inst/BPSK_diff" type="logic">
+      <obj_property name="ElementShortName">BPSK_diff</obj_property>
+      <obj_property name="ObjectShortName">BPSK_diff</obj_property>
+   </wvobject>
    <wvobject fp_name="/tb_PSK_Demod_BPSK/DAC_bits" type="array">
       <obj_property name="ElementShortName">DAC_bits[1:0]</obj_property>
       <obj_property name="ObjectShortName">DAC_bits[1:0]</obj_property>
       <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_PSK_Demod_BPSK/Tx_1bit" type="logic">
+      <obj_property name="ElementShortName">Tx_1bit</obj_property>
+      <obj_property name="ObjectShortName">Tx_1bit</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_PSK_Demod_BPSK/Rx_1bit" type="logic">
       <obj_property name="ElementShortName">Rx_1bit</obj_property>
@@ -446,8 +376,17 @@
       <obj_property name="ObjectShortName">clk_1M_out</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_PSK_Demod_BPSK/inst_Rx/Depacketizer_0/inst/state" type="array">
-      <obj_property name="ElementShortName">state[4:0]</obj_property>
-      <obj_property name="ObjectShortName">state[4:0]</obj_property>
+      <obj_property name="ElementShortName">state[5:0]</obj_property>
+      <obj_property name="ObjectShortName">state[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_PSK_Demod_BPSK/inst_Rx/SPB_Detection/BD_sgn" type="logic">
+      <obj_property name="ElementShortName">BD_sgn</obj_property>
+      <obj_property name="ObjectShortName">BD_sgn</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_PSK_Demod_BPSK/inst_Rx/SPB_Detection/Rx_BD_0/inst/cnt" type="array">
+      <obj_property name="ElementShortName">cnt[7:0]</obj_property>
+      <obj_property name="ObjectShortName">cnt[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_PSK_Demod_BPSK/inst_Rx/Depacketizer_0/inst/is_bpsk_reg" type="logic">
       <obj_property name="ElementShortName">is_bpsk_reg</obj_property>
@@ -468,6 +407,11 @@
    <wvobject fp_name="/tb_PSK_Demod_BPSK/Rx_tvalid" type="logic">
       <obj_property name="ElementShortName">Rx_tvalid</obj_property>
       <obj_property name="ObjectShortName">Rx_tvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_PSK_Demod_BPSK/inst_Rx/Depacketizer_0/inst/state" type="array">
+      <obj_property name="ElementShortName">state[5:0]</obj_property>
+      <obj_property name="ObjectShortName">state[5:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_PSK_Demod_BPSK/inst_Rx/SPB_Detection/BD_flag" type="logic">
       <obj_property name="ElementShortName">BD_flag</obj_property>

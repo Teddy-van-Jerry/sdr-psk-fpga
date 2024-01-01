@@ -36,17 +36,18 @@ module Depacketizer # (
   localparam MODE_QPSK = 4'b0010;
   localparam MODE_MIX  = 4'b0100;
 
-  localparam STATE_IDLE = 5'b00001;
-  localparam STATE_TRN  = 5'b00010;
-  localparam STATE_HDR  = 5'b00100;
-  localparam STATE_PLD  = 5'b01000;
-  localparam STATE_LAST = 5'b10000;
+  localparam STATE_IDLE = 6'b000001;
+  localparam STATE_TRN  = 6'b000010;
+  localparam STATE_HDR  = 6'b000100;
+  localparam STATE_PLD  = 6'b001000;
+  localparam STATE_LAST = 6'b010000;
+  localparam STATE_WAIT = 6'b100000;
 
   reg [MAX_WINDOW_WIDTH-1:0] BD_WAIT_CC;
   reg [MAX_WINDOW_WIDTH-1:0] cnt_TRN = 0;
-  reg [ 4:0] cnt_HDR = 0; // 32 bits
+  reg [ 5:0] cnt_HDR = 0; // 64 bits
   reg [15:0] cnt_PLD = 0;
-  reg  [4:0] state = STATE_IDLE, state_next;
+  reg  [5:0] state = STATE_IDLE, state_next;
 
   reg     [15:0] payload_length = 128;
   reg     [15:0] payload_length_symbs = 128;
@@ -91,18 +92,18 @@ module Depacketizer # (
         data_tvalid <= data_tvalid_reg;
         data_tlast  <= data_tlast_reg;
         is_bpsk     <= is_bpsk_reg;
-        out_QPSK[1] <= in_QPSK[1] + BD_sgn_reg;
-        out_QPSK[0] <= in_QPSK[0] + BD_sgn_reg;
-        out_BPSK    <= in_BPSK    + BD_sgn_reg;
+        out_QPSK[1] <= in_QPSK[1] ~^ BD_sgn_reg;
+        out_QPSK[0] <= in_QPSK[0] ~^ BD_sgn_reg;
+        out_BPSK    <= in_BPSK    ~^ BD_sgn_reg;
       end
       default: begin
         data_tdata  <= data_tdata_reg;
         data_tvalid <= data_tvalid_reg;
         data_tlast  <= data_tlast_reg;
         is_bpsk     <= is_bpsk_reg;
-        out_QPSK[1] <= in_QPSK[1] + BD_sgn_reg;
-        out_QPSK[0] <= in_QPSK[0] + BD_sgn_reg;
-        out_BPSK    <= in_BPSK    + BD_sgn_reg;
+        out_QPSK[1] <= in_QPSK[1] ~^ BD_sgn_reg;
+        out_QPSK[0] <= in_QPSK[0] ~^ BD_sgn_reg;
+        out_BPSK    <= in_BPSK    ~^ BD_sgn_reg;
       end
     endcase
   end
@@ -121,6 +122,7 @@ module Depacketizer # (
       BD_sgn_reg <= 1'b0;
     end
     else begin
+      state <= state_next;
       case (state)
         STATE_IDLE: begin
           cnt_TRN <= 0;
@@ -146,51 +148,51 @@ module Depacketizer # (
           if (data_tready) begin
             /* counter */ cnt_HDR <= cnt_HDR + 1;
             case (cnt_HDR)
-            5'd00: MCS[7] <= in_BPSK + BD_sgn_reg;
-            5'd01: MCS[6] <= in_BPSK + BD_sgn_reg;
-            5'd02: MCS[5] <= in_BPSK + BD_sgn_reg;
-            5'd03: MCS[4] <= in_BPSK + BD_sgn_reg;
-            5'd04: MCS[3] <= in_BPSK + BD_sgn_reg;
-            5'd05: MCS[2] <= in_BPSK + BD_sgn_reg;
-            5'd06: MCS[1] <= in_BPSK + BD_sgn_reg;
-            5'd07: MCS[0] <= in_BPSK + BD_sgn_reg;
-            5'd08: payload_length[15] <= in_BPSK + BD_sgn_reg;
-            5'd09: payload_length[14] <= in_BPSK + BD_sgn_reg;
-            5'd10: payload_length[13] <= in_BPSK + BD_sgn_reg;
-            5'd11: payload_length[12] <= in_BPSK + BD_sgn_reg;
-            5'd12: payload_length[11] <= in_BPSK + BD_sgn_reg;
-            5'd13: payload_length[10] <= in_BPSK + BD_sgn_reg;
-            5'd14: payload_length[ 9] <= in_BPSK + BD_sgn_reg;
-            5'd15: payload_length[ 8] <= in_BPSK + BD_sgn_reg;
-            5'd16: payload_length[ 7] <= in_BPSK + BD_sgn_reg;
-            5'd17: payload_length[ 6] <= in_BPSK + BD_sgn_reg;
-            5'd18: payload_length[ 5] <= in_BPSK + BD_sgn_reg;
-            5'd19: payload_length[ 4] <= in_BPSK + BD_sgn_reg;
-            5'd20: payload_length[ 3] <= in_BPSK + BD_sgn_reg;
-            5'd21: payload_length[ 2] <= in_BPSK + BD_sgn_reg;
-            5'd22: payload_length[ 1] <= in_BPSK + BD_sgn_reg;
-            5'd23: payload_length[ 0] <= in_BPSK + BD_sgn_reg;
-            5'd24: signature[7] <= in_BPSK + BD_sgn_reg;
-            5'd25: signature[6] <= in_BPSK + BD_sgn_reg;
-            5'd26: signature[5] <= in_BPSK + BD_sgn_reg;
-            5'd27: signature[4] <= in_BPSK + BD_sgn_reg;
-            // 5'd28: signature[3] <= in_BPSK + BD_sgn_reg;
-            // 5'd29: signature[2] <= in_BPSK + BD_sgn_reg;
-            5'd30: signature[1] <= in_BPSK + BD_sgn_reg;
-            5'd31: signature[0] <= in_BPSK + BD_sgn_reg;
-            5'd28: begin // set is_bpsk 3 CCs ahead
+            6'd00: MCS[7] <= in_BPSK ~^ BD_sgn_reg;
+            6'd01: MCS[6] <= in_BPSK ~^ BD_sgn_reg;
+            6'd02: MCS[5] <= in_BPSK ~^ BD_sgn_reg;
+            6'd03: MCS[4] <= in_BPSK ~^ BD_sgn_reg;
+            6'd04: MCS[3] <= in_BPSK ~^ BD_sgn_reg;
+            6'd05: MCS[2] <= in_BPSK ~^ BD_sgn_reg;
+            6'd06: MCS[1] <= in_BPSK ~^ BD_sgn_reg;
+            6'd07: MCS[0] <= in_BPSK ~^ BD_sgn_reg;
+            6'd08: payload_length[15] <= in_BPSK ~^ BD_sgn_reg;
+            6'd09: payload_length[14] <= in_BPSK ~^ BD_sgn_reg;
+            6'd10: payload_length[13] <= in_BPSK ~^ BD_sgn_reg;
+            6'd11: payload_length[12] <= in_BPSK ~^ BD_sgn_reg;
+            6'd12: payload_length[11] <= in_BPSK ~^ BD_sgn_reg;
+            6'd13: payload_length[10] <= in_BPSK ~^ BD_sgn_reg;
+            6'd14: payload_length[ 9] <= in_BPSK ~^ BD_sgn_reg;
+            6'd15: payload_length[ 8] <= in_BPSK ~^ BD_sgn_reg;
+            6'd16: payload_length[ 7] <= in_BPSK ~^ BD_sgn_reg;
+            6'd17: payload_length[ 6] <= in_BPSK ~^ BD_sgn_reg;
+            6'd18: payload_length[ 5] <= in_BPSK ~^ BD_sgn_reg;
+            6'd19: payload_length[ 4] <= in_BPSK ~^ BD_sgn_reg;
+            6'd20: payload_length[ 3] <= in_BPSK ~^ BD_sgn_reg;
+            6'd21: payload_length[ 2] <= in_BPSK ~^ BD_sgn_reg;
+            6'd22: payload_length[ 1] <= in_BPSK ~^ BD_sgn_reg;
+            6'd23: payload_length[ 0] <= in_BPSK ~^ BD_sgn_reg;
+            6'd24: signature[7] <= in_BPSK ~^ BD_sgn_reg;
+            6'd25: signature[6] <= in_BPSK ~^ BD_sgn_reg;
+            6'd26: signature[5] <= in_BPSK ~^ BD_sgn_reg;
+            6'd27: signature[4] <= in_BPSK ~^ BD_sgn_reg;
+            6/ 5'd28: signature[3] <= in_BPSK ~^ BD_sgn_reg;
+            6/ 5'd29: signature[2] <= in_BPSK ~^ BD_sgn_reg;
+            6'd30: signature[1] <= in_BPSK ~^ BD_sgn_reg;
+            6'd31: signature[0] <= in_BPSK ~^ BD_sgn_reg;
+            6'd28: begin // set is_bpsk 3 CCs ahead
               signature[3] <= in_BPSK;
               // consider BD_sgn_reg == 0:
               // BPSK: MCS[7] == 1
               // QPSK: MCS[7] == 0
               /* AXIS o4 */ is_bpsk_reg <= MCS[5]; // Now change the modulation scheme
             end
-            5'd29: begin
+            6'd29: begin
               signature[2] <= in_BPSK;
               payload_length_symbs <= is_bpsk_reg ? payload_length : payload_length >> 1;
             end
             default: begin
-              // nothing here, as I have considered all states
+              // the remaining 32 symbols will just be ignored
             end
             endcase
           end
@@ -233,6 +235,12 @@ module Depacketizer # (
           /* AXIS o3 */ data_tlast_reg  <= 1'b1;
           /* AXIS o4 */ // is_bpsk already set in STATE_HDR
         end
+        STATE_WAIT: begin
+          /* AXIS o1 */ data_tdata_reg  <= 0;
+          /* AXIS o2 */ data_tvalid_reg <= 1'b0;
+          /* AXIS o3 */ data_tlast_reg  <= 1'b0;
+          /* AXIS o4 */
+        end
         default: begin
           /* AXIS o1 */ data_tdata_reg  <= 0;
           /* AXIS o2 */ data_tvalid_reg <= 1'b0;
@@ -248,7 +256,7 @@ module Depacketizer # (
     case (state)
     STATE_IDLE: begin
       if (BD_flag) begin
-        state_next <= STATE_HDR;
+        state_next <= STATE_TRN;
       end
       else begin
         state_next <= STATE_IDLE;
@@ -263,7 +271,7 @@ module Depacketizer # (
       end
     end
     STATE_HDR: begin
-      if (cnt_HDR == 5'd31) begin
+      if (cnt_HDR == 6'd63) begin
         case (payload_length_symbs)
         16'd0  : state_next <= STATE_IDLE; // no payload
         16'd1  : state_next <= STATE_LAST; // only one payload symbol
@@ -286,11 +294,16 @@ module Depacketizer # (
       // actually no need to check data_tvalid,
       // as it is asserted 1'b1 in STATE_LAST.
       if (data_tready) begin // successfully transferred the last symbol
-        state_next <= STATE_IDLE;
+        state_next <= STATE_WAIT;
       end
       else begin
         state_next <= STATE_LAST;
       end
+    end
+    STATE_WAIT: begin
+      // Wait for another clock before going to IDLE.
+      // This is to wait PD_flag to be deasserted.
+      state_next <= STATE_IDLE;
     end
     default: begin
       state_next <= STATE_IDLE;

@@ -2,10 +2,10 @@
 <Root MajorVersion="0" MinorVersion="40">
   <CompositeFile CompositeFileTopName="costas_loop_inst_0" CanBeSetAsTop="false" CanDisplayChildGraph="true">
     <Description>Composite Fileset</Description>
-    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1704091861"/>
-    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1704091861"/>
-    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1704091861"/>
-    <Generation Name="HW_HANDOFF" State="GENERATED" Timestamp="1704091861"/>
+    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1704111991"/>
+    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1704111991"/>
+    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1704111991"/>
+    <Generation Name="HW_HANDOFF" State="GENERATED" Timestamp="1704111991"/>
     <FileCollection Name="SOURCES" Type="SOURCES">
       <File Name="synth\costas_loop_inst_0.v" Type="Verilog">
         <Properties IsEditable="false" IsVisible="true" IsNetlistSimulation="false" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
