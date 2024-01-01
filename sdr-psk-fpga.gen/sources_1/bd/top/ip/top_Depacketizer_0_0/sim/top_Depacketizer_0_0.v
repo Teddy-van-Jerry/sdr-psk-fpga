@@ -64,6 +64,7 @@ module top_Depacketizer_0_0 (
   BD_flag,
   BD_sgn,
   in_QPSK,
+  in_BPSK,
   in_ready,
   data_tdata,
   data_tvalid,
@@ -90,6 +91,7 @@ input wire PD_flag;
 input wire BD_flag;
 input wire BD_sgn;
 input wire [1 : 0] in_QPSK;
+input wire in_BPSK;
 output wire in_ready;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 data TDATA" *)
 output wire [7 : 0] data_tdata;
@@ -122,6 +124,7 @@ output wire disassert_PD;
     .BD_flag(BD_flag),
     .BD_sgn(BD_sgn),
     .in_QPSK(in_QPSK),
+    .in_BPSK(in_BPSK),
     .in_ready(in_ready),
     .data_tdata(data_tdata),
     .data_tvalid(data_tvalid),

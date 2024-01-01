@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon Jan  1 00:18:52 2024" VIVADOVERSION="2022.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon Jan  1 14:51:01 2024" VIVADOVERSION="2022.2">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z020" NAME="costas_loop_inst_0" PACKAGE="clg484" SPEEDGRADE="-1"/>
 
@@ -1212,14 +1212,14 @@
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
-        <PORT DIR="I" LEFT="15" NAME="In0" RIGHT="0" SIGIS="undef" SIGNAME="phase_detector_I_P">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="phase_detector_I" PORT="P"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="15" NAME="In1" RIGHT="0" SIGIS="undef" SIGNAME="phase_detector_Q_P">
+        <PORT DIR="I" LEFT="15" NAME="In0" RIGHT="0" SIGIS="undef" SIGNAME="phase_detector_Q_P">
           <CONNECTIONS>
             <CONNECTION INSTANCE="phase_detector_Q" PORT="P"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="In1" RIGHT="0" SIGIS="undef" SIGNAME="phase_detector_I_P">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="phase_detector_I" PORT="P"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="31" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="LPF_xlconcat_0_dout">
@@ -1568,12 +1568,12 @@
         <PORT DIR="O" LEFT="11" NAME="NCO_cos" RIGHT="0" SIGIS="undef" SIGNAME="NCO_NCO_cos_sin_0_NCO_cos">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="NCO_cos"/>
-            <CONNECTION INSTANCE="phase_detector_Q" PORT="B"/>
+            <CONNECTION INSTANCE="phase_detector_I" PORT="B"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="11" NAME="NCO_sin" RIGHT="0" SIGIS="undef" SIGNAME="NCO_NCO_cos_sin_0_NCO_sin">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="phase_detector_I" PORT="B"/>
+            <CONNECTION INSTANCE="phase_detector_Q" PORT="B"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="NCO_vld" SIGIS="undef" SIGNAME="NCO_NCO_cos_sin_0_NCO_vld">
@@ -1892,14 +1892,14 @@
             <CONNECTION INSTANCE="External_Ports" PORT="PSK_signal"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="11" NAME="B" RIGHT="0" SIGIS="data" SIGNAME="NCO_NCO_cos_sin_0_NCO_sin">
+        <PORT DIR="I" LEFT="11" NAME="B" RIGHT="0" SIGIS="data" SIGNAME="NCO_NCO_cos_sin_0_NCO_cos">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="NCO_NCO_cos_sin_0" PORT="NCO_sin"/>
+            <CONNECTION INSTANCE="NCO_NCO_cos_sin_0" PORT="NCO_cos"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="15" NAME="P" RIGHT="0" SIGIS="data" SIGNAME="phase_detector_I_P">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="LPF_xlconcat_0" PORT="In0"/>
+            <CONNECTION INSTANCE="LPF_xlconcat_0" PORT="In1"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -1964,14 +1964,14 @@
             <CONNECTION INSTANCE="External_Ports" PORT="PSK_signal"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="11" NAME="B" RIGHT="0" SIGIS="data" SIGNAME="NCO_NCO_cos_sin_0_NCO_cos">
+        <PORT DIR="I" LEFT="11" NAME="B" RIGHT="0" SIGIS="data" SIGNAME="NCO_NCO_cos_sin_0_NCO_sin">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="NCO_NCO_cos_sin_0" PORT="NCO_cos"/>
+            <CONNECTION INSTANCE="NCO_NCO_cos_sin_0" PORT="NCO_sin"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="15" NAME="P" RIGHT="0" SIGIS="data" SIGNAME="phase_detector_Q_P">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="LPF_xlconcat_0" PORT="In1"/>
+            <CONNECTION INSTANCE="LPF_xlconcat_0" PORT="In0"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>

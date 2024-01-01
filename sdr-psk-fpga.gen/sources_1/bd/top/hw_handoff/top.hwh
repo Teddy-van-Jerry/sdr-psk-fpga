@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon Jan  1 00:18:52 2024" VIVADOVERSION="2022.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon Jan  1 14:51:02 2024" VIVADOVERSION="2022.2">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z020" NAME="top" PACKAGE="clg484" SPEEDGRADE="-1"/>
 
@@ -85,8 +85,8 @@
             <CONNECTION INSTANCE="Rx_PSK_Signal_Extend_0" PORT="clk"/>
             <CONNECTION INSTANCE="Tx_PSK_Modulation_dds_compiler_carrier" PORT="aclk"/>
             <CONNECTION INSTANCE="Tx_PSK_Modulation_axis_data_fifo_0" PORT="m_axis_aclk"/>
-            <CONNECTION INSTANCE="Tx_PSK_Modulation_PSK_Mod_0" PORT="clk_16M384"/>
             <CONNECTION INSTANCE="Tx_PSK_Modulation_NCO_cos_sin_0" PORT="clk"/>
+            <CONNECTION INSTANCE="Tx_PSK_Modulation_PSK_Mod_0" PORT="clk_16M384"/>
             <CONNECTION INSTANCE="Clock_Gen_Reset_Gen_proc_sys_reset_16M384" PORT="slowest_sync_clk"/>
           </CONNECTIONS>
         </PORT>
@@ -295,8 +295,8 @@
             <CONNECTION INSTANCE="Rx_SPB_Detection_Rx_SD_0" PORT="rst"/>
             <CONNECTION INSTANCE="Rx_SPB_Detection_Rx_BD_0" PORT="rst"/>
             <CONNECTION INSTANCE="Rx_Flatten_Not_Gate_0" PORT="i"/>
-            <CONNECTION INSTANCE="Rx_Depacketizer_0" PORT="rst"/>
             <CONNECTION INSTANCE="Rx_PSK_Detection_0" PORT="rst"/>
+            <CONNECTION INSTANCE="Rx_Depacketizer_0" PORT="rst"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="0" NAME="peripheral_reset" POLARITY="ACTIVE_HIGH" RIGHT="0" SIGIS="rst"/>
@@ -1835,6 +1835,11 @@
             <CONNECTION INSTANCE="Rx_PSK_Detection_0" PORT="QPSK"/>
           </CONNECTIONS>
         </PORT>
+        <PORT DIR="I" NAME="in_BPSK" SIGIS="undef" SIGNAME="Rx_PSK_Detection_0_BPSK">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Rx_PSK_Detection_0" PORT="BPSK"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT DIR="O" NAME="in_ready" SIGIS="undef"/>
         <PORT DIR="O" LEFT="7" NAME="data_tdata" RIGHT="0" SIGIS="undef" SIGNAME="Rx_Depacketizer_0_data_tdata">
           <CONNECTIONS>
@@ -2195,6 +2200,7 @@
           <CONNECTIONS>
             <CONNECTION INSTANCE="Rx_SPB_Detection_Rx_PD_0" PORT="BPSK"/>
             <CONNECTION INSTANCE="Rx_SPB_Detection_Rx_BD_0" PORT="BPSK"/>
+            <CONNECTION INSTANCE="Rx_Depacketizer_0" PORT="in_BPSK"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="1" NAME="QPSK" RIGHT="0" SIGIS="undef" SIGNAME="Rx_PSK_Detection_0_QPSK">
@@ -2829,8 +2835,8 @@
             <CONNECTION INSTANCE="External_Ports" PORT="GPIO_TH4"/>
             <CONNECTION INSTANCE="system_ila_0" PORT="probe14"/>
             <CONNECTION INSTANCE="Rx_Flatten_axis_data_fifo_0" PORT="s_axis_aclk"/>
-            <CONNECTION INSTANCE="Rx_Depacketizer_0" PORT="clk"/>
             <CONNECTION INSTANCE="Rx_PSK_Detection_0" PORT="clk"/>
+            <CONNECTION INSTANCE="Rx_Depacketizer_0" PORT="clk"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="rst_32M768" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="Clock_Gen_Reset_Gen_proc_sys_reset_32M768_bus_struct_reset">

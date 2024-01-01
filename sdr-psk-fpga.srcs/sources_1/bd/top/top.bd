@@ -31,8 +31,8 @@
           "Bits_Flatten_0": ""
         },
         "PSK_Signal_Extend_0": "",
-        "Depacketizer_0": "",
-        "PSK_Detection_0": ""
+        "PSK_Detection_0": "",
+        "Depacketizer_0": ""
       },
       "Clock_Gen": {
         "clk_wiz_128M": "",
@@ -51,8 +51,8 @@
           "dds_compiler_carrier": "",
           "axis_data_fifo_0": "",
           "xlconstant_one": "",
-          "PSK_Mod_0": "",
-          "NCO_cos_sin_0": ""
+          "NCO_cos_sin_0": "",
+          "PSK_Mod_0": ""
         },
         "Bits_Flatten_0": "",
         "axis_data_fifo_0": "",
@@ -495,7 +495,7 @@
             "variant_info": {
               "costas_loop.bd": {
                 "scoped_diagram": "costas_loop_inst_0.bd",
-                "design_checksum": "0xBB017BEC",
+                "design_checksum": "0x8BEB6778",
                 "ref_name": "costas_loop",
                 "ref_subinst_path": "top_costas_loop_0",
                 "ref_type": "Block Design",
@@ -1358,154 +1358,6 @@
               }
             }
           },
-          "Depacketizer_0": {
-            "vlnv": "xilinx.com:module_ref:Depacketizer:1.0",
-            "xci_name": "top_Depacketizer_0_0",
-            "xci_path": "ip\\top_Depacketizer_0_0\\top_Depacketizer_0_0.xci",
-            "inst_hier_path": "Rx/Depacketizer_0",
-            "reference_info": {
-              "ref_type": "hdl",
-              "ref_name": "Depacketizer",
-              "boundary_crc": "0x0"
-            },
-            "interface_ports": {
-              "data": {
-                "mode": "Master",
-                "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
-                "vlnv": "xilinx.com:interface:axis_rtl:1.0",
-                "parameters": {
-                  "TDATA_NUM_BYTES": {
-                    "value": "1",
-                    "value_src": "auto"
-                  },
-                  "TDEST_WIDTH": {
-                    "value": "0",
-                    "value_src": "constant"
-                  },
-                  "TID_WIDTH": {
-                    "value": "0",
-                    "value_src": "constant"
-                  },
-                  "TUSER_WIDTH": {
-                    "value": "1",
-                    "value_src": "constant"
-                  },
-                  "HAS_TREADY": {
-                    "value": "1",
-                    "value_src": "constant"
-                  },
-                  "HAS_TSTRB": {
-                    "value": "0",
-                    "value_src": "constant"
-                  },
-                  "HAS_TKEEP": {
-                    "value": "0",
-                    "value_src": "constant"
-                  },
-                  "HAS_TLAST": {
-                    "value": "1",
-                    "value_src": "constant"
-                  }
-                },
-                "port_maps": {
-                  "TDATA": {
-                    "physical_name": "data_tdata",
-                    "direction": "O",
-                    "left": "7",
-                    "right": "0"
-                  },
-                  "TLAST": {
-                    "physical_name": "data_tlast",
-                    "direction": "O"
-                  },
-                  "TUSER": {
-                    "physical_name": "data_tuser",
-                    "direction": "O"
-                  },
-                  "TVALID": {
-                    "physical_name": "data_tvalid",
-                    "direction": "O"
-                  },
-                  "TREADY": {
-                    "physical_name": "data_tready",
-                    "direction": "I"
-                  }
-                }
-              }
-            },
-            "ports": {
-              "clk": {
-                "type": "clk",
-                "direction": "I",
-                "parameters": {
-                  "ASSOCIATED_BUSIF": {
-                    "value": "data",
-                    "value_src": "constant"
-                  },
-                  "ASSOCIATED_RESET": {
-                    "value": "rst",
-                    "value_src": "constant"
-                  }
-                }
-              },
-              "rst": {
-                "type": "rst",
-                "direction": "I",
-                "parameters": {
-                  "POLARITY": {
-                    "value": "ACTIVE_HIGH"
-                  }
-                }
-              },
-              "RX_BD_WINDOW": {
-                "direction": "I",
-                "left": "7",
-                "right": "0"
-              },
-              "MODE_CTRL": {
-                "direction": "I",
-                "left": "3",
-                "right": "0"
-              },
-              "SD_flag": {
-                "direction": "I"
-              },
-              "PD_flag": {
-                "direction": "I"
-              },
-              "BD_flag": {
-                "direction": "I"
-              },
-              "BD_sgn": {
-                "direction": "I"
-              },
-              "in_QPSK": {
-                "direction": "I",
-                "left": "1",
-                "right": "0"
-              },
-              "in_ready": {
-                "direction": "O"
-              },
-              "QPSK": {
-                "direction": "O",
-                "left": "1",
-                "right": "0"
-              },
-              "BPSK": {
-                "direction": "O"
-              },
-              "is_bpsk": {
-                "direction": "O"
-              },
-              "disassert_BD": {
-                "direction": "O"
-              },
-              "disassert_PD": {
-                "direction": "O"
-              }
-            }
-          },
           "PSK_Detection_0": {
             "vlnv": "xilinx.com:module_ref:PSK_Detection:1.0",
             "xci_name": "top_PSK_Detection_0_0",
@@ -1674,6 +1526,157 @@
                 "direction": "O"
               }
             }
+          },
+          "Depacketizer_0": {
+            "vlnv": "xilinx.com:module_ref:Depacketizer:1.0",
+            "xci_name": "top_Depacketizer_0_0",
+            "xci_path": "ip\\top_Depacketizer_0_0\\top_Depacketizer_0_0.xci",
+            "inst_hier_path": "Rx/Depacketizer_0",
+            "reference_info": {
+              "ref_type": "hdl",
+              "ref_name": "Depacketizer",
+              "boundary_crc": "0x0"
+            },
+            "interface_ports": {
+              "data": {
+                "mode": "Master",
+                "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
+                "vlnv": "xilinx.com:interface:axis_rtl:1.0",
+                "parameters": {
+                  "TDATA_NUM_BYTES": {
+                    "value": "1",
+                    "value_src": "auto"
+                  },
+                  "TDEST_WIDTH": {
+                    "value": "0",
+                    "value_src": "constant"
+                  },
+                  "TID_WIDTH": {
+                    "value": "0",
+                    "value_src": "constant"
+                  },
+                  "TUSER_WIDTH": {
+                    "value": "1",
+                    "value_src": "constant"
+                  },
+                  "HAS_TREADY": {
+                    "value": "1",
+                    "value_src": "constant"
+                  },
+                  "HAS_TSTRB": {
+                    "value": "0",
+                    "value_src": "constant"
+                  },
+                  "HAS_TKEEP": {
+                    "value": "0",
+                    "value_src": "constant"
+                  },
+                  "HAS_TLAST": {
+                    "value": "1",
+                    "value_src": "constant"
+                  }
+                },
+                "port_maps": {
+                  "TDATA": {
+                    "physical_name": "data_tdata",
+                    "direction": "O",
+                    "left": "7",
+                    "right": "0"
+                  },
+                  "TLAST": {
+                    "physical_name": "data_tlast",
+                    "direction": "O"
+                  },
+                  "TUSER": {
+                    "physical_name": "data_tuser",
+                    "direction": "O"
+                  },
+                  "TVALID": {
+                    "physical_name": "data_tvalid",
+                    "direction": "O"
+                  },
+                  "TREADY": {
+                    "physical_name": "data_tready",
+                    "direction": "I"
+                  }
+                }
+              }
+            },
+            "ports": {
+              "clk": {
+                "type": "clk",
+                "direction": "I",
+                "parameters": {
+                  "ASSOCIATED_BUSIF": {
+                    "value": "data",
+                    "value_src": "constant"
+                  },
+                  "ASSOCIATED_RESET": {
+                    "value": "rst",
+                    "value_src": "constant"
+                  }
+                }
+              },
+              "rst": {
+                "type": "rst",
+                "direction": "I",
+                "parameters": {
+                  "POLARITY": {
+                    "value": "ACTIVE_HIGH"
+                  }
+                }
+              },
+              "RX_BD_WINDOW": {
+                "direction": "I",
+                "left": "7",
+                "right": "0"
+              },
+              "MODE_CTRL": {
+                "direction": "I",
+                "left": "3",
+                "right": "0"
+              },
+              "SD_flag": {
+                "direction": "I"
+              },
+              "PD_flag": {
+                "direction": "I"
+              },
+              "BD_flag": {
+                "direction": "I"
+              },
+              "BD_sgn": {
+                "direction": "I"
+              },
+              "in_QPSK": {
+                "direction": "I",
+                "left": "1",
+                "right": "0"
+              },
+              "in_BPSK": {
+                "direction": "I"
+              },
+              "in_ready": {
+                "direction": "O"
+              },
+              "QPSK": {
+                "direction": "O",
+                "left": "1",
+                "right": "0"
+              },
+              "BPSK": {
+                "direction": "O"
+              },
+              "is_bpsk": {
+                "direction": "O"
+              },
+              "disassert_BD": {
+                "direction": "O"
+              },
+              "disassert_PD": {
+                "direction": "O"
+              }
+            }
           }
         },
         "interface_nets": {
@@ -1799,7 +1802,8 @@
             "ports": [
               "PSK_Detection_0/BPSK",
               "BPSK_raw",
-              "SPB_Detection/BPSK"
+              "SPB_Detection/BPSK",
+              "Depacketizer_0/in_BPSK"
             ]
           },
           "PSK_Detection_0_QPSK": {
@@ -1967,8 +1971,8 @@
               "SPB_Detection/clk",
               "clk_1M_out",
               "Flatten/clk_out",
-              "Depacketizer_0/clk",
-              "PSK_Detection_0/clk"
+              "PSK_Detection_0/clk",
+              "Depacketizer_0/clk"
             ]
           },
           "rst_16M386_1": {
@@ -1983,8 +1987,8 @@
               "gardner_loop_0/rst_32M768",
               "SPB_Detection/rst_32M768",
               "Flatten/rst_32M768",
-              "Depacketizer_0/rst",
-              "PSK_Detection_0/rst"
+              "PSK_Detection_0/rst",
+              "Depacketizer_0/rst"
             ]
           },
           "xlconstant_one_dout": {
@@ -2651,6 +2655,128 @@
                 "xci_path": "ip\\top_xlconstant_0_4\\top_xlconstant_0_4.xci",
                 "inst_hier_path": "Tx/PSK_Modulation/xlconstant_one"
               },
+              "NCO_cos_sin_0": {
+                "vlnv": "xilinx.com:module_ref:NCO_cos_sin:1.0",
+                "xci_name": "top_NCO_cos_sin_0_0",
+                "xci_path": "ip\\top_NCO_cos_sin_0_0\\top_NCO_cos_sin_0_0.xci",
+                "inst_hier_path": "Tx/PSK_Modulation/NCO_cos_sin_0",
+                "parameters": {
+                  "O_WIDTH": {
+                    "value": "12"
+                  }
+                },
+                "reference_info": {
+                  "ref_type": "hdl",
+                  "ref_name": "NCO_cos_sin",
+                  "boundary_crc": "0x0"
+                },
+                "interface_ports": {
+                  "NCO": {
+                    "mode": "Slave",
+                    "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
+                    "vlnv": "xilinx.com:interface:axis_rtl:1.0",
+                    "parameters": {
+                      "TDATA_NUM_BYTES": {
+                        "value": "4",
+                        "value_src": "auto"
+                      },
+                      "TDEST_WIDTH": {
+                        "value": "0",
+                        "value_src": "constant"
+                      },
+                      "TID_WIDTH": {
+                        "value": "0",
+                        "value_src": "constant"
+                      },
+                      "TUSER_WIDTH": {
+                        "value": "0",
+                        "value_src": "constant"
+                      },
+                      "HAS_TREADY": {
+                        "value": "0",
+                        "value_src": "constant"
+                      },
+                      "HAS_TSTRB": {
+                        "value": "0",
+                        "value_src": "constant"
+                      },
+                      "HAS_TKEEP": {
+                        "value": "0",
+                        "value_src": "constant"
+                      },
+                      "HAS_TLAST": {
+                        "value": "0",
+                        "value_src": "constant"
+                      },
+                      "LAYERED_METADATA": {
+                        "value": [
+                          "xilinx.com:interface:datatypes:1.0 {",
+                          "TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {}",
+                          "maximum {}} value 28} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} array_type {name {attribs {resolve_type immediate dependency {} format string",
+                          "minimum {} maximum {}} value chan} size {attribs {resolve_type generated dependency chan_size format long minimum {} maximum {}} value 1} stride {attribs {resolve_type generated dependency chan_stride",
+                          "format long minimum {} maximum {}} value 32} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic",
+                          "dependency {} format long minimum {} maximum {}} value 28} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} struct {field_cosine {name {attribs",
+                          "{resolve_type immediate dependency {} format string minimum {} maximum {}} value cosine} enabled {attribs {resolve_type generated dependency cosine_enabled format bool minimum {} maximum {}} value",
+                          "true} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency cosine_width format long minimum",
+                          "{} maximum {}} value 12} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} real {fixed {fractwidth {attribs {resolve_type generated dependency",
+                          "cosine_fractwidth format long minimum {} maximum {}} value 11} signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true}}}}} field_sine {name {attribs",
+                          "{resolve_type immediate dependency {} format string minimum {} maximum {}} value sine} enabled {attribs {resolve_type generated dependency sine_enabled format bool minimum {} maximum {}} value true}",
+                          "datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency sine_width format long minimum {}",
+                          "maximum {}} value 12} bitoffset {attribs {resolve_type generated dependency sine_offset format long minimum {} maximum {}} value 16} real {fixed {fractwidth {attribs {resolve_type generated dependency",
+                          "sine_fractwidth format long minimum {} maximum {}} value 11} signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true}}}}}}}}}} TDATA_WIDTH 32 TUSER",
+                          "{datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}}",
+                          "value 0} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} struct {field_chanid {name {attribs {resolve_type immediate dependency {} format string",
+                          "minimum {} maximum {}} value chanid} enabled {attribs {resolve_type generated dependency chanid_enabled format bool minimum {} maximum {}} value false} datatype {name {attribs {resolve_type immediate",
+                          "dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency chanid_width format long minimum {} maximum {}} value 0} bitoffset {attribs",
+                          "{resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}}",
+                          "field_user {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value user} enabled {attribs {resolve_type generated dependency user_enabled format bool minimum {}",
+                          "maximum {}} value false} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency user_width",
+                          "format long minimum {} maximum {}} value 0} bitoffset {attribs {resolve_type generated dependency user_offset format long minimum {} maximum {}} value 0}}}}}} TUSER_WIDTH 0",
+                          "}"
+                        ],
+                        "value_src": "ip_prop"
+                      }
+                    },
+                    "port_maps": {
+                      "TDATA": {
+                        "physical_name": "NCO_tdata",
+                        "direction": "I",
+                        "left": "31",
+                        "right": "0"
+                      },
+                      "TVALID": {
+                        "physical_name": "NCO_tvalid",
+                        "direction": "I"
+                      }
+                    }
+                  }
+                },
+                "ports": {
+                  "clk": {
+                    "type": "clk",
+                    "direction": "I",
+                    "parameters": {
+                      "ASSOCIATED_BUSIF": {
+                        "value": "NCO",
+                        "value_src": "constant"
+                      }
+                    }
+                  },
+                  "NCO_cos": {
+                    "direction": "O",
+                    "left": "11",
+                    "right": "0"
+                  },
+                  "NCO_sin": {
+                    "direction": "O",
+                    "left": "11",
+                    "right": "0"
+                  },
+                  "NCO_vld": {
+                    "direction": "O"
+                  }
+                }
+              },
               "PSK_Mod_0": {
                 "vlnv": "xilinx.com:module_ref:PSK_Mod:1.0",
                 "xci_name": "top_PSK_Mod_0_0",
@@ -2782,128 +2908,6 @@
                     "direction": "O"
                   }
                 }
-              },
-              "NCO_cos_sin_0": {
-                "vlnv": "xilinx.com:module_ref:NCO_cos_sin:1.0",
-                "xci_name": "top_NCO_cos_sin_0_0",
-                "xci_path": "ip\\top_NCO_cos_sin_0_0\\top_NCO_cos_sin_0_0.xci",
-                "inst_hier_path": "Tx/PSK_Modulation/NCO_cos_sin_0",
-                "parameters": {
-                  "O_WIDTH": {
-                    "value": "12"
-                  }
-                },
-                "reference_info": {
-                  "ref_type": "hdl",
-                  "ref_name": "NCO_cos_sin",
-                  "boundary_crc": "0x0"
-                },
-                "interface_ports": {
-                  "NCO": {
-                    "mode": "Slave",
-                    "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
-                    "vlnv": "xilinx.com:interface:axis_rtl:1.0",
-                    "parameters": {
-                      "TDATA_NUM_BYTES": {
-                        "value": "4",
-                        "value_src": "auto"
-                      },
-                      "TDEST_WIDTH": {
-                        "value": "0",
-                        "value_src": "constant"
-                      },
-                      "TID_WIDTH": {
-                        "value": "0",
-                        "value_src": "constant"
-                      },
-                      "TUSER_WIDTH": {
-                        "value": "0",
-                        "value_src": "constant"
-                      },
-                      "HAS_TREADY": {
-                        "value": "0",
-                        "value_src": "constant"
-                      },
-                      "HAS_TSTRB": {
-                        "value": "0",
-                        "value_src": "constant"
-                      },
-                      "HAS_TKEEP": {
-                        "value": "0",
-                        "value_src": "constant"
-                      },
-                      "HAS_TLAST": {
-                        "value": "0",
-                        "value_src": "constant"
-                      },
-                      "LAYERED_METADATA": {
-                        "value": [
-                          "xilinx.com:interface:datatypes:1.0 {",
-                          "TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {}",
-                          "maximum {}} value 28} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} array_type {name {attribs {resolve_type immediate dependency {} format string",
-                          "minimum {} maximum {}} value chan} size {attribs {resolve_type generated dependency chan_size format long minimum {} maximum {}} value 1} stride {attribs {resolve_type generated dependency chan_stride",
-                          "format long minimum {} maximum {}} value 32} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic",
-                          "dependency {} format long minimum {} maximum {}} value 28} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} struct {field_cosine {name {attribs",
-                          "{resolve_type immediate dependency {} format string minimum {} maximum {}} value cosine} enabled {attribs {resolve_type generated dependency cosine_enabled format bool minimum {} maximum {}} value",
-                          "true} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency cosine_width format long minimum",
-                          "{} maximum {}} value 12} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} real {fixed {fractwidth {attribs {resolve_type generated dependency",
-                          "cosine_fractwidth format long minimum {} maximum {}} value 11} signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true}}}}} field_sine {name {attribs",
-                          "{resolve_type immediate dependency {} format string minimum {} maximum {}} value sine} enabled {attribs {resolve_type generated dependency sine_enabled format bool minimum {} maximum {}} value true}",
-                          "datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency sine_width format long minimum {}",
-                          "maximum {}} value 12} bitoffset {attribs {resolve_type generated dependency sine_offset format long minimum {} maximum {}} value 16} real {fixed {fractwidth {attribs {resolve_type generated dependency",
-                          "sine_fractwidth format long minimum {} maximum {}} value 11} signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true}}}}}}}}}} TDATA_WIDTH 32 TUSER",
-                          "{datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}}",
-                          "value 0} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} struct {field_chanid {name {attribs {resolve_type immediate dependency {} format string",
-                          "minimum {} maximum {}} value chanid} enabled {attribs {resolve_type generated dependency chanid_enabled format bool minimum {} maximum {}} value false} datatype {name {attribs {resolve_type immediate",
-                          "dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency chanid_width format long minimum {} maximum {}} value 0} bitoffset {attribs",
-                          "{resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}}",
-                          "field_user {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value user} enabled {attribs {resolve_type generated dependency user_enabled format bool minimum {}",
-                          "maximum {}} value false} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency user_width",
-                          "format long minimum {} maximum {}} value 0} bitoffset {attribs {resolve_type generated dependency user_offset format long minimum {} maximum {}} value 0}}}}}} TUSER_WIDTH 0",
-                          "}"
-                        ],
-                        "value_src": "ip_prop"
-                      }
-                    },
-                    "port_maps": {
-                      "TDATA": {
-                        "physical_name": "NCO_tdata",
-                        "direction": "I",
-                        "left": "31",
-                        "right": "0"
-                      },
-                      "TVALID": {
-                        "physical_name": "NCO_tvalid",
-                        "direction": "I"
-                      }
-                    }
-                  }
-                },
-                "ports": {
-                  "clk": {
-                    "type": "clk",
-                    "direction": "I",
-                    "parameters": {
-                      "ASSOCIATED_BUSIF": {
-                        "value": "NCO",
-                        "value_src": "constant"
-                      }
-                    }
-                  },
-                  "NCO_cos": {
-                    "direction": "O",
-                    "left": "11",
-                    "right": "0"
-                  },
-                  "NCO_sin": {
-                    "direction": "O",
-                    "left": "11",
-                    "right": "0"
-                  },
-                  "NCO_vld": {
-                    "direction": "O"
-                  }
-                }
               }
             },
             "interface_nets": {
@@ -2938,8 +2942,8 @@
                   "clk_16M384",
                   "dds_compiler_carrier/aclk",
                   "axis_data_fifo_0/m_axis_aclk",
-                  "PSK_Mod_0/clk_16M384",
-                  "NCO_cos_sin_0/clk"
+                  "NCO_cos_sin_0/clk",
+                  "PSK_Mod_0/clk_16M384"
                 ]
               },
               "NCO_cos_sin_0_NCO_cos": {

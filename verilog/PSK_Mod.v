@@ -87,8 +87,18 @@ module PSK_Mod #(
           //    :     |
           //  1 *.....|
           //          |
-          out_I <= data_I_buf ? carrier_I : -carrier_I;
-          out_Q <= data_I_buf ? carrier_Q : -carrier_Q;
+          case (data_I_buf)
+            1'b0: begin
+              out_I <= carrier_0;
+              out_Q <= carrier_1;
+            end
+            1'b1: begin
+              out_I <= carrier_2;
+              out_Q <= carrier_3;
+            end
+          endcase
+          // out_I <= data_I_buf ? -carrier_I : carrier_I;
+          // out_Q <= data_I_buf ? -carrier_Q : carrier_Q;
         end
         else begin
           //      QPSK Constellation

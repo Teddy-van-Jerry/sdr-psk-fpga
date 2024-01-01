@@ -12,8 +12,9 @@ module Depacketizer # (
   input                         PD_flag,
   input                         BD_flag,
   input                         BD_sgn,
-  // input I/Q symbol signal (QPSK, including BPSK)
+  // input I/Q symbol signal (QPSK and BPSK)
   input                   [1:0] in_QPSK,
+  input                         in_BPSK,
   output                        in_ready, // not used currently, can be converted for AXI interface
   // output AXIS signal
   output reg      [BYTES*8-1:0] data_tdata,
@@ -57,9 +58,7 @@ module Depacketizer # (
   reg            data_tlast_reg = 0;
   reg            is_bpsk_reg = 1;
   reg      [1:0] out_QPSK = 0;
-
-  wire in_BPSK;
-  assign in_BPSK = in_QPSK[1];
+  reg            out_BPSK = 0;
 
   always @ (*) begin
     BD_WAIT_CC <= 30 - RX_BD_WINDOW; // minus an additional CC
@@ -73,6 +72,7 @@ module Depacketizer # (
         //       Therefore, to make it work, differential encoding should be used at source.
         out_QPSK[1] <= in_QPSK[1];
         out_QPSK[0] <= in_QPSK[0];
+        out_BPSK    <= in_BPSK;
       end
       MODE_QPSK: begin
         data_tdata  <= { {BITS-2{1'b0}}, in_QPSK };
@@ -83,6 +83,7 @@ module Depacketizer # (
         //       Therefore, to make it work, differential encoding should be used at source.
         out_QPSK[1] <= in_QPSK[1];
         out_QPSK[0] <= in_QPSK[0];
+        out_BPSK    <= in_BPSK;
       end
       MODE_MIX: begin
         // This is the mode that activates the depacketizer.
@@ -92,6 +93,7 @@ module Depacketizer # (
         is_bpsk     <= is_bpsk_reg;
         out_QPSK[1] <= in_QPSK[1] + BD_sgn_reg;
         out_QPSK[0] <= in_QPSK[0] + BD_sgn_reg;
+        out_BPSK    <= in_BPSK    + BD_sgn_reg;
       end
       default: begin
         data_tdata  <= data_tdata_reg;
@@ -100,6 +102,7 @@ module Depacketizer # (
         is_bpsk     <= is_bpsk_reg;
         out_QPSK[1] <= in_QPSK[1] + BD_sgn_reg;
         out_QPSK[0] <= in_QPSK[0] + BD_sgn_reg;
+        out_BPSK    <= in_BPSK    + BD_sgn_reg;
       end
     endcase
   end
@@ -180,7 +183,7 @@ module Depacketizer # (
               // consider BD_sgn_reg == 0:
               // BPSK: MCS[7] == 1
               // QPSK: MCS[7] == 0
-              /* AXIS o4 */ is_bpsk_reg <= MCS[7]; // Now change the modulation scheme
+              /* AXIS o4 */ is_bpsk_reg <= MCS[5]; // Now change the modulation scheme
             end
             5'd29: begin
               signature[2] <= in_BPSK;
@@ -199,7 +202,12 @@ module Depacketizer # (
         STATE_PLD: begin
           if (data_tready) begin
             /* counter */ cnt_PLD <= cnt_PLD + 1;
-            /* AXIS o1 */ data_tdata_reg <= { {BITS-2{1'b0}}, out_QPSK };
+            if (is_bpsk_reg) begin
+              /* AXIS o1 */ data_tdata_reg <= { {BITS-2{1'b0}}, {2{out_BPSK}} };
+            end
+            else begin
+              /* AXIS o1 */ data_tdata_reg <= { {BITS-2{1'b0}}, out_QPSK };
+            end
           end
           else begin
             /* AXIS o1 */ data_tdata_reg <= 0;
@@ -211,7 +219,12 @@ module Depacketizer # (
         STATE_LAST: begin
           if (data_tready) begin
             /* counter */ cnt_PLD <= cnt_PLD + 1;
-            /* AXIS o1 */ data_tdata_reg <= { {BITS-2{1'b0}}, out_QPSK };
+            if (is_bpsk_reg) begin
+              /* AXIS o1 */ data_tdata_reg <= { {BITS-2{1'b0}}, {2{out_BPSK}} };
+            end
+            else begin
+              /* AXIS o1 */ data_tdata_reg <= { {BITS-2{1'b0}}, out_QPSK };
+            end
           end
           else begin
             /* AXIS o1 */ data_tdata_reg <= 0;

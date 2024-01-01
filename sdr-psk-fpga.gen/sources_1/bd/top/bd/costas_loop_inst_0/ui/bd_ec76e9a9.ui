@@ -1,2 +1,33 @@
-0
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"1.25",
+   "Default View_TopLeft":"-364,-218",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
+#  -string -flagsOSRD
+preplace port feedback -pg 1 -lvl 0 -x -120 -y 50 -defaultsOSRD
+preplace port port-id_clk_16M384 -pg 1 -lvl 0 -x -120 -y 20 -defaultsOSRD
+preplace port port-id_rst_16M384 -pg 1 -lvl 0 -x -120 -y 80 -defaultsOSRD
+preplace port port-id_NCO_vld -pg 1 -lvl 4 -x 810 -y 120 -defaultsOSRD
+preplace port port-id_is_bpsk -pg 1 -lvl 0 -x -120 -y 180 -defaultsOSRD
+preplace portBus NCO_cos -pg 1 -lvl 4 -x 810 -y 90 -defaultsOSRD
+preplace portBus NCO_sin -pg 1 -lvl 4 -x 810 -y 150 -defaultsOSRD
+preplace portBus FEEDBACK_SHIFT -pg 1 -lvl 0 -x -120 -y 110 -defaultsOSRD
+preplace inst NCO_DDS -pg 1 -lvl 2 -x 380 -y 100 -defaultsOSRD
+preplace inst NCO_Phase_0 -pg 1 -lvl 1 -x 80 -y 90 -defaultsOSRD
+preplace inst NCO_cos_sin_0 -pg 1 -lvl 3 -x 650 -y 110 -defaultsOSRD
+preplace netloc FEEDBACK_SHIFT_1 1 0 1 -100 110n
+preplace netloc NCO_cos_sin_0_NCO_cos 1 3 1 NJ 90
+preplace netloc NCO_cos_sin_0_NCO_sin 1 3 1 780J 110n
+preplace netloc NCO_cos_sin_0_NCO_vld 1 3 1 790 120n
+preplace netloc aclk_0_1 1 0 3 -90J 0 230 170 520
+preplace netloc is_bpsk_1 1 0 1 NJ 180
+preplace netloc rst_16M384_1 1 0 1 -100J 80n
+preplace netloc NCO_M_AXIS_DATA 1 2 1 N 100
+preplace netloc NCO_Phase_0_phase 1 1 1 N 90
+preplace netloc feedback_1 1 0 1 -100 50n
+levelinfo -pg 1 -120 80 380 650 810
+pagesize -pg 1 -db -bbox -sgen -310 -30 960 220
+"
+}
 

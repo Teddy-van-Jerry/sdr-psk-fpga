@@ -1,7 +1,7 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
--- Date        : Thu Dec 28 03:41:09 2023
+-- Date        : Mon Jan  1 14:38:43 2024
 -- Host        : TVJ-PC running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim -rename_top top_PSK_Mod_0_0 -prefix
 --               top_PSK_Mod_0_0_ top_PSK_Mod_0_0_sim_netlist.vhdl
@@ -354,9 +354,9 @@ last_buf_reg: unisim.vcomponents.FDRE
       INIT => X"B8"
     )
         port map (
-      I0 => carrier_I(10),
+      I0 => carrier_2(10),
       I1 => data_buf(1),
-      I2 => carrier_2(10),
+      I2 => carrier_I(10),
       O => \out_I[10]_i_3_n_0\
     );
 \out_I[11]_i_1\: unisim.vcomponents.LUT2
@@ -426,9 +426,9 @@ last_buf_reg: unisim.vcomponents.FDRE
       INIT => X"B8"
     )
         port map (
-      I0 => carrier_I(11),
+      I0 => carrier_2(11),
       I1 => data_buf(1),
-      I2 => carrier_2(11),
+      I2 => carrier_I(11),
       O => \out_I[11]_i_5_n_0\
     );
 \out_I[11]_i_8\: unisim.vcomponents.LUT1
@@ -465,9 +465,9 @@ last_buf_reg: unisim.vcomponents.FDRE
       INIT => X"B8"
     )
         port map (
-      I0 => carrier_I(1),
+      I0 => carrier_2(1),
       I1 => data_buf(1),
-      I2 => carrier_2(1),
+      I2 => carrier_I(1),
       O => \out_I[1]_i_3_n_0\
     );
 \out_I[2]_i_2\: unisim.vcomponents.LUT6
@@ -488,9 +488,9 @@ last_buf_reg: unisim.vcomponents.FDRE
       INIT => X"B8"
     )
         port map (
-      I0 => carrier_I(2),
+      I0 => carrier_2(2),
       I1 => data_buf(1),
-      I2 => carrier_2(2),
+      I2 => carrier_I(2),
       O => \out_I[2]_i_3_n_0\
     );
 \out_I[3]_i_2\: unisim.vcomponents.LUT6
@@ -511,9 +511,9 @@ last_buf_reg: unisim.vcomponents.FDRE
       INIT => X"B8"
     )
         port map (
-      I0 => carrier_I(3),
+      I0 => carrier_2(3),
       I1 => data_buf(1),
-      I2 => carrier_2(3),
+      I2 => carrier_I(3),
       O => \out_I[3]_i_3_n_0\
     );
 \out_I[4]_i_10\: unisim.vcomponents.LUT1
@@ -582,9 +582,9 @@ last_buf_reg: unisim.vcomponents.FDRE
       INIT => X"B8"
     )
         port map (
-      I0 => carrier_I(4),
+      I0 => carrier_2(4),
       I1 => data_buf(1),
-      I2 => carrier_2(4),
+      I2 => carrier_I(4),
       O => \out_I[4]_i_3_n_0\
     );
 \out_I[4]_i_6\: unisim.vcomponents.LUT1
@@ -637,9 +637,9 @@ last_buf_reg: unisim.vcomponents.FDRE
       INIT => X"B8"
     )
         port map (
-      I0 => carrier_I(5),
+      I0 => carrier_2(5),
       I1 => data_buf(1),
-      I2 => carrier_2(5),
+      I2 => carrier_I(5),
       O => \out_I[5]_i_3_n_0\
     );
 \out_I[6]_i_2\: unisim.vcomponents.LUT6
@@ -660,9 +660,9 @@ last_buf_reg: unisim.vcomponents.FDRE
       INIT => X"B8"
     )
         port map (
-      I0 => carrier_I(6),
+      I0 => carrier_2(6),
       I1 => data_buf(1),
-      I2 => carrier_2(6),
+      I2 => carrier_I(6),
       O => \out_I[6]_i_3_n_0\
     );
 \out_I[7]_i_2\: unisim.vcomponents.LUT6
@@ -683,9 +683,9 @@ last_buf_reg: unisim.vcomponents.FDRE
       INIT => X"B8"
     )
         port map (
-      I0 => carrier_I(7),
+      I0 => carrier_2(7),
       I1 => data_buf(1),
-      I2 => carrier_2(7),
+      I2 => carrier_I(7),
       O => \out_I[7]_i_3_n_0\
     );
 \out_I[8]_i_10\: unisim.vcomponents.LUT1
@@ -738,9 +738,9 @@ last_buf_reg: unisim.vcomponents.FDRE
       INIT => X"B8"
     )
         port map (
-      I0 => carrier_I(8),
+      I0 => carrier_2(8),
       I1 => data_buf(1),
-      I2 => carrier_2(8),
+      I2 => carrier_I(8),
       O => \out_I[8]_i_3_n_0\
     );
 \out_I[8]_i_6\: unisim.vcomponents.LUT1
@@ -793,9 +793,9 @@ last_buf_reg: unisim.vcomponents.FDRE
       INIT => X"B8"
     )
         port map (
-      I0 => carrier_I(9),
+      I0 => carrier_2(9),
       I1 => data_buf(1),
-      I2 => carrier_2(9),
+      I2 => carrier_I(9),
       O => \out_I[9]_i_3_n_0\
     );
 \out_I_reg[0]\: unisim.vcomponents.FDRE
@@ -1083,9 +1083,9 @@ last_buf_reg: unisim.vcomponents.FDRE
       INIT => X"B8"
     )
         port map (
-      I0 => carrier_Q(10),
+      I0 => carrier_3(10),
       I1 => data_buf(1),
-      I2 => carrier_3(10),
+      I2 => carrier_Q(10),
       O => \out_Q[10]_i_3_n_0\
     );
 \out_Q[11]_i_2\: unisim.vcomponents.LUT6
@@ -1106,9 +1106,9 @@ last_buf_reg: unisim.vcomponents.FDRE
       INIT => X"B8"
     )
         port map (
-      I0 => carrier_Q(11),
+      I0 => carrier_3(11),
       I1 => data_buf(1),
-      I2 => carrier_3(11),
+      I2 => carrier_Q(11),
       O => \out_Q[11]_i_3_n_0\
     );
 \out_Q[1]_i_2\: unisim.vcomponents.LUT6
@@ -1129,9 +1129,9 @@ last_buf_reg: unisim.vcomponents.FDRE
       INIT => X"B8"
     )
         port map (
-      I0 => carrier_Q(1),
+      I0 => carrier_3(1),
       I1 => data_buf(1),
-      I2 => carrier_3(1),
+      I2 => carrier_Q(1),
       O => \out_Q[1]_i_3_n_0\
     );
 \out_Q[2]_i_2\: unisim.vcomponents.LUT6
@@ -1152,9 +1152,9 @@ last_buf_reg: unisim.vcomponents.FDRE
       INIT => X"B8"
     )
         port map (
-      I0 => carrier_Q(2),
+      I0 => carrier_3(2),
       I1 => data_buf(1),
-      I2 => carrier_3(2),
+      I2 => carrier_Q(2),
       O => \out_Q[2]_i_3_n_0\
     );
 \out_Q[3]_i_2\: unisim.vcomponents.LUT6
@@ -1175,9 +1175,9 @@ last_buf_reg: unisim.vcomponents.FDRE
       INIT => X"B8"
     )
         port map (
-      I0 => carrier_Q(3),
+      I0 => carrier_3(3),
       I1 => data_buf(1),
-      I2 => carrier_3(3),
+      I2 => carrier_Q(3),
       O => \out_Q[3]_i_3_n_0\
     );
 \out_Q[4]_i_2\: unisim.vcomponents.LUT6
@@ -1198,9 +1198,9 @@ last_buf_reg: unisim.vcomponents.FDRE
       INIT => X"B8"
     )
         port map (
-      I0 => carrier_Q(4),
+      I0 => carrier_3(4),
       I1 => data_buf(1),
-      I2 => carrier_3(4),
+      I2 => carrier_Q(4),
       O => \out_Q[4]_i_3_n_0\
     );
 \out_Q[5]_i_2\: unisim.vcomponents.LUT6
@@ -1221,9 +1221,9 @@ last_buf_reg: unisim.vcomponents.FDRE
       INIT => X"B8"
     )
         port map (
-      I0 => carrier_Q(5),
+      I0 => carrier_3(5),
       I1 => data_buf(1),
-      I2 => carrier_3(5),
+      I2 => carrier_Q(5),
       O => \out_Q[5]_i_3_n_0\
     );
 \out_Q[6]_i_2\: unisim.vcomponents.LUT6
@@ -1244,9 +1244,9 @@ last_buf_reg: unisim.vcomponents.FDRE
       INIT => X"B8"
     )
         port map (
-      I0 => carrier_Q(6),
+      I0 => carrier_3(6),
       I1 => data_buf(1),
-      I2 => carrier_3(6),
+      I2 => carrier_Q(6),
       O => \out_Q[6]_i_3_n_0\
     );
 \out_Q[7]_i_2\: unisim.vcomponents.LUT6
@@ -1267,9 +1267,9 @@ last_buf_reg: unisim.vcomponents.FDRE
       INIT => X"B8"
     )
         port map (
-      I0 => carrier_Q(7),
+      I0 => carrier_3(7),
       I1 => data_buf(1),
-      I2 => carrier_3(7),
+      I2 => carrier_Q(7),
       O => \out_Q[7]_i_3_n_0\
     );
 \out_Q[8]_i_2\: unisim.vcomponents.LUT6
@@ -1290,9 +1290,9 @@ last_buf_reg: unisim.vcomponents.FDRE
       INIT => X"B8"
     )
         port map (
-      I0 => carrier_Q(8),
+      I0 => carrier_3(8),
       I1 => data_buf(1),
-      I2 => carrier_3(8),
+      I2 => carrier_Q(8),
       O => \out_Q[8]_i_3_n_0\
     );
 \out_Q[9]_i_2\: unisim.vcomponents.LUT6
@@ -1313,9 +1313,9 @@ last_buf_reg: unisim.vcomponents.FDRE
       INIT => X"B8"
     )
         port map (
-      I0 => carrier_Q(9),
+      I0 => carrier_3(9),
       I1 => data_buf(1),
-      I2 => carrier_3(9),
+      I2 => carrier_Q(9),
       O => \out_Q[9]_i_3_n_0\
     );
 \out_Q_reg[0]\: unisim.vcomponents.FDRE

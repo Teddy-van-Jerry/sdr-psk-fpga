@@ -1756,10 +1756,16 @@
               "c_shift_ram_0/D"
             ]
           },
+          "I_1": {
+            "ports": [
+              "I",
+              "xlconcat_0/In1"
+            ]
+          },
           "Q_1": {
             "ports": [
               "Q",
-              "xlconcat_0/In1"
+              "xlconcat_0/In0"
             ]
           },
           "aclk_0_1": {
@@ -1773,12 +1779,6 @@
             "ports": [
               "c_shift_ram_0/Q",
               "LP_filter/s_axis_data_tvalid"
-            ]
-          },
-          "phase_detector_I_P": {
-            "ports": [
-              "I",
-              "xlconcat_0/In0"
             ]
           },
           "xlconcat_0_dout": {
@@ -2383,7 +2383,7 @@
       "NCO_NCO_sin": {
         "ports": [
           "NCO/NCO_sin",
-          "phase_detector_I/B"
+          "phase_detector_Q/B"
         ]
       },
       "NCO_NCO_vld": {
@@ -2396,7 +2396,7 @@
         "ports": [
           "NCO/NCO_cos",
           "NCO_cos",
-          "phase_detector_Q/B"
+          "phase_detector_I/B"
         ]
       },
       "PSK_signal_1": {

@@ -1,7 +1,7 @@
 //Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-//Date        : Mon Jan  1 00:18:52 2024
+//Date        : Mon Jan  1 14:50:59 2024
 //Host        : TVJ-PC running 64-bit major release  (build 9200)
 //Command     : generate_target costas_loop_inst_0.bd
 //Design      : costas_loop_inst_0
@@ -168,20 +168,20 @@ module LPF_imp_6VU62K
   input clk_16M384;
 
   wire [0:0]D_1;
+  wire [15:0]I_1;
   wire [15:0]Q_1;
   wire aclk_0_1;
   wire [0:0]c_shift_ram_0_Q;
   wire [79:0]fir_compiler_I_M_AXIS_DATA_TDATA;
   wire fir_compiler_I_M_AXIS_DATA_TVALID;
-  wire [15:0]phase_detector_I_P;
   wire [31:0]xlconcat_0_dout;
 
   assign D_1 = NCO_vld[0];
   assign IQ_tdata[79:0] = fir_compiler_I_M_AXIS_DATA_TDATA;
   assign IQ_tvalid = fir_compiler_I_M_AXIS_DATA_TVALID;
+  assign I_1 = I[15:0];
   assign Q_1 = Q[15:0];
   assign aclk_0_1 = clk_16M384;
-  assign phase_detector_I_P = I[15:0];
   costas_loop_inst_0_LP_filter_0 LP_filter
        (.aclk(aclk_0_1),
         .m_axis_data_tdata(fir_compiler_I_M_AXIS_DATA_TDATA),
@@ -193,8 +193,8 @@ module LPF_imp_6VU62K
         .D(D_1),
         .Q(c_shift_ram_0_Q));
   costas_loop_inst_0_xlconcat_0_0 xlconcat_0
-       (.In0(phase_detector_I_P),
-        .In1(Q_1),
+       (.In0(Q_1),
+        .In1(I_1),
         .dout(xlconcat_0_dout));
 endmodule
 
@@ -374,12 +374,12 @@ module costas_loop_inst_0
         .s_axis_data_tvalid(Error_Detect_error_tvalid));
   costas_loop_inst_0_phase_detector_I_0 phase_detector_I
        (.A(PSK_signal_1),
-        .B(NCO_NCO_sin),
+        .B(NCO_cos_sin_0_NCO_cos),
         .CLK(aclk_0_1),
         .P(phase_detector_I_P));
   costas_loop_inst_0_phase_detector_Q_0 phase_detector_Q
        (.A(PSK_signal_1),
-        .B(NCO_cos_sin_0_NCO_cos),
+        .B(NCO_NCO_sin),
         .CLK(aclk_0_1),
         .P(phase_detector_Q_P));
 endmodule

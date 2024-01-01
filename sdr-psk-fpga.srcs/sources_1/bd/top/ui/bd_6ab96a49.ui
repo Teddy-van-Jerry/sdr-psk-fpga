@@ -19,8 +19,8 @@ preplace portBus TX_PHASE_CONFIG -pg 1 -lvl 0 -x -30 -y 210 -defaultsOSRD
 preplace inst dds_compiler_carrier -pg 1 -lvl 1 -x 210 -y 220 -defaultsOSRD
 preplace inst axis_data_fifo_0 -pg 1 -lvl 1 -x 210 -y 380 -defaultsOSRD
 preplace inst xlconstant_one -pg 1 -lvl 1 -x 210 -y 60 -defaultsOSRD -orient R180
-preplace inst PSK_Mod_0 -pg 1 -lvl 3 -x 870 -y 170 -defaultsOSRD
 preplace inst NCO_cos_sin_0 -pg 1 -lvl 2 -x 540 -y 170 -defaultsOSRD
+preplace inst PSK_Mod_0 -pg 1 -lvl 3 -x 870 -y 170 -defaultsOSRD
 preplace netloc DELAY_CNT_1 1 0 3 NJ 120 380J 80 690
 preplace netloc Div_clk32M768_0_clk16M384 1 0 3 20 130 390J 70 710J
 preplace netloc NCO_cos_sin_0_NCO_cos 1 2 1 680 150n

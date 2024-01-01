@@ -1,10 +1,10 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Fri Dec 29 07:26:31 2023
+// Date        : Mon Jan  1 01:32:39 2024
 // Host        : TVJ-PC running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim -rename_top top_Depacketizer_0_0 -prefix
-//               top_Depacketizer_0_0_ top_Depacketizer_0_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim
+//               e:/Documents/Study/Verilog/SDR/sdr-psk-fpga/sdr-psk-fpga.gen/sources_1/bd/top/ip/top_Depacketizer_0_0/top_Depacketizer_0_0_sim_netlist.v
 // Design      : top_Depacketizer_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -25,6 +25,7 @@ module top_Depacketizer_0_0
     BD_flag,
     BD_sgn,
     in_QPSK,
+    in_BPSK,
     in_ready,
     data_tdata,
     data_tvalid,
@@ -45,6 +46,7 @@ module top_Depacketizer_0_0
   input BD_flag;
   input BD_sgn;
   input [1:0]in_QPSK;
+  input in_BPSK;
   output in_ready;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 data TDATA" *) output [7:0]data_tdata;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 data TVALID" *) output data_tvalid;

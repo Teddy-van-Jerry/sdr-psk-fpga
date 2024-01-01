@@ -1,10 +1,10 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Sun Dec 31 16:17:02 2023
+// Date        : Sun Dec 31 16:17:01 2023
 // Host        : TVJ-PC running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim
-//               e:/Documents/Study/Verilog/SDR/sdr-psk-fpga/sdr-psk-fpga.gen/sources_1/bd/top/ip/top_Packetizer_0_0/top_Packetizer_0_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top top_Packetizer_0_0 -prefix
+//               top_Packetizer_0_0_ top_Packetizer_0_0_sim_netlist.v
 // Design      : top_Packetizer_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -12,80 +12,6 @@
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CHECK_LICENSE_TYPE = "top_Packetizer_0_0,Packetizer,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
-(* X_CORE_INFO = "Packetizer,Vivado 2022.2" *) 
-(* NotValidForBitStream *)
-module top_Packetizer_0_0
-   (clk,
-    rst_n,
-    MODE_CTRL,
-    payload_length,
-    I_tdata,
-    I_tvalid,
-    I_tready,
-    I_tlast,
-    I_tuser,
-    O_tdata,
-    O_tvalid,
-    O_tready,
-    O_tlast,
-    O_tuser,
-    hdr_vld,
-    pkt_sent);
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_BUSIF I:O, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, INSERT_VIP 0" *) input clk;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 rst_n RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME rst_n, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) (* X_INTERFACE_PAREMETER = "POLARITY ACTIVE_LOW" *) input rst_n;
-  input [3:0]MODE_CTRL;
-  input [15:0]payload_length;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 I TDATA" *) input [7:0]I_tdata;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 I TVALID" *) input I_tvalid;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 I TREADY" *) output I_tready;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 I TLAST" *) input I_tlast;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 I TUSER" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME I, TDATA_NUM_BYTES 1, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 1, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 1, FREQ_HZ 100000000, PHASE 0.0, LAYERED_METADATA undef, INSERT_VIP 0" *) input I_tuser;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 O TDATA" *) output [7:0]O_tdata;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 O TVALID" *) output O_tvalid;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 O TREADY" *) input O_tready;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 O TLAST" *) output O_tlast;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 O TUSER" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME O, TDATA_NUM_BYTES 1, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 1, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 1, FREQ_HZ 100000000, PHASE 0.0, LAYERED_METADATA undef, INSERT_VIP 0" *) output O_tuser;
-  output hdr_vld;
-  output pkt_sent;
-
-  wire [7:0]I_tdata;
-  wire I_tlast;
-  wire I_tready;
-  wire I_tuser;
-  wire I_tvalid;
-  wire [3:0]MODE_CTRL;
-  wire [7:0]O_tdata;
-  wire O_tlast;
-  wire O_tready;
-  wire O_tuser;
-  wire O_tvalid;
-  wire clk;
-  wire hdr_vld;
-  wire [15:0]payload_length;
-  wire pkt_sent;
-  wire rst_n;
-
-  top_Packetizer_0_0_Packetizer inst
-       (.I_tdata(I_tdata),
-        .I_tlast(I_tlast),
-        .I_tready(I_tready),
-        .I_tuser(I_tuser),
-        .I_tvalid(I_tvalid),
-        .MODE_CTRL(MODE_CTRL),
-        .O_tdata(O_tdata),
-        .O_tlast(O_tlast),
-        .O_tready(O_tready),
-        .O_tuser(O_tuser),
-        .O_tvalid(O_tvalid),
-        .clk(clk),
-        .hdr_vld(hdr_vld),
-        .payload_length(payload_length),
-        .pkt_sent(pkt_sent),
-        .rst_n(rst_n));
-endmodule
-
-(* ORIG_REF_NAME = "Packetizer" *) 
 module top_Packetizer_0_0_Packetizer
    (I_tready,
     O_tdata,
@@ -1693,6 +1619,79 @@ module top_Packetizer_0_0_Packetizer
         .D(state_next__0[4]),
         .Q(\state_reg_n_0_[4] ),
         .R(\state[4]_i_1_n_0 ));
+endmodule
+
+(* CHECK_LICENSE_TYPE = "top_Packetizer_0_0,Packetizer,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
+(* X_CORE_INFO = "Packetizer,Vivado 2022.2" *) 
+(* NotValidForBitStream *)
+module top_Packetizer_0_0
+   (clk,
+    rst_n,
+    MODE_CTRL,
+    payload_length,
+    I_tdata,
+    I_tvalid,
+    I_tready,
+    I_tlast,
+    I_tuser,
+    O_tdata,
+    O_tvalid,
+    O_tready,
+    O_tlast,
+    O_tuser,
+    hdr_vld,
+    pkt_sent);
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_BUSIF I:O, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, INSERT_VIP 0" *) input clk;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 rst_n RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME rst_n, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) (* X_INTERFACE_PAREMETER = "POLARITY ACTIVE_LOW" *) input rst_n;
+  input [3:0]MODE_CTRL;
+  input [15:0]payload_length;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 I TDATA" *) input [7:0]I_tdata;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 I TVALID" *) input I_tvalid;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 I TREADY" *) output I_tready;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 I TLAST" *) input I_tlast;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 I TUSER" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME I, TDATA_NUM_BYTES 1, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 1, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 1, FREQ_HZ 100000000, PHASE 0.0, LAYERED_METADATA undef, INSERT_VIP 0" *) input I_tuser;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 O TDATA" *) output [7:0]O_tdata;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 O TVALID" *) output O_tvalid;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 O TREADY" *) input O_tready;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 O TLAST" *) output O_tlast;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 O TUSER" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME O, TDATA_NUM_BYTES 1, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 1, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 1, FREQ_HZ 100000000, PHASE 0.0, LAYERED_METADATA undef, INSERT_VIP 0" *) output O_tuser;
+  output hdr_vld;
+  output pkt_sent;
+
+  wire [7:0]I_tdata;
+  wire I_tlast;
+  wire I_tready;
+  wire I_tuser;
+  wire I_tvalid;
+  wire [3:0]MODE_CTRL;
+  wire [7:0]O_tdata;
+  wire O_tlast;
+  wire O_tready;
+  wire O_tuser;
+  wire O_tvalid;
+  wire clk;
+  wire hdr_vld;
+  wire [15:0]payload_length;
+  wire pkt_sent;
+  wire rst_n;
+
+  top_Packetizer_0_0_Packetizer inst
+       (.I_tdata(I_tdata),
+        .I_tlast(I_tlast),
+        .I_tready(I_tready),
+        .I_tuser(I_tuser),
+        .I_tvalid(I_tvalid),
+        .MODE_CTRL(MODE_CTRL),
+        .O_tdata(O_tdata),
+        .O_tlast(O_tlast),
+        .O_tready(O_tready),
+        .O_tuser(O_tuser),
+        .O_tvalid(O_tvalid),
+        .clk(clk),
+        .hdr_vld(hdr_vld),
+        .payload_length(payload_length),
+        .pkt_sent(pkt_sent),
+        .rst_n(rst_n));
 endmodule
 `ifndef GLBL
 `define GLBL
