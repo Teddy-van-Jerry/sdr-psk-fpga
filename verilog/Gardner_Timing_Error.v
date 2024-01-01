@@ -24,11 +24,11 @@ module Gardner_Timing_Error # (
 
   wire I_sgn_n = I[WIDTH-1];
   wire I_d32_sgn_n = I_d32[WIDTH-1];
-  wire I_sgn_x2;
+  wire [1:0] I_sgn_x2;
   // reg [1:0] I_sgn_diff;
   wire Q_sgn_n = Q[WIDTH-1];
   wire Q_d32_sgn_n = Q_d32[WIDTH-1];
-  wire Q_sgn_x2;
+  wire [1:0] Q_sgn_x2;
   // reg [1:0] Q_sgn_diff;
 
   reg signed [WIDTH-1:0] I_error_n, Q_error_n;
@@ -52,22 +52,22 @@ module Gardner_Timing_Error # (
   always @ (posedge clk) begin
     case (I_sgn_x2)
       2'b01 :  // I_sgn_diff <= SGN_DIFF_P; // 1 - 0
-        I_error_n <= -I_d16;
-      2'b10 :  // I_sgn_diff <= SGN_DIFF_N; // 0 - 1
         I_error_n <= I_d16;
+      2'b10 :  // I_sgn_diff <= SGN_DIFF_N; // 0 - 1
+        I_error_n <= -I_d16;
       default: // I_sgn_diff <= SGN_DIFF_0; // x - x
         I_error_n <= 0;
     endcase
     case (Q_sgn_x2)
       2'b01 :  // Q_sgn_diff <= SGN_DIFF_P; // 1 - 0
-        Q_error_n <= -Q_d16;
-      2'b10 :  // Q_sgn_diff <= SGN_DIFF_N; // 0 - 1
         Q_error_n <= Q_d16;
+      2'b10 :  // Q_sgn_diff <= SGN_DIFF_N; // 0 - 1
+        Q_error_n <= -Q_d16;
       default: // Q_sgn_diff <= SGN_DIFF_0; // x - x
         Q_error_n <= 0;
     endcase
   end
 
-  // BPSK only uses the I channel
-  assign error_n = is_bpsk ? I_error_n : (I_error_n >>> 1) + (Q_error_n >>> 1);
+  // In our transmission case, I and Q should be the same, so we still add them up.
+  assign error_n = (I_error_n >>> 1) + (Q_error_n >>> 1);
 endmodule
