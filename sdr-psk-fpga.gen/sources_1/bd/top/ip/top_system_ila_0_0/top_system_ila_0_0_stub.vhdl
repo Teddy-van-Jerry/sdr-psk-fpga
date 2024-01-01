@@ -1,10 +1,10 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
--- Date        : Sun Dec 31 15:06:17 2023
+-- Date        : Tue Jan  2 01:22:35 2024
 -- Host        : TVJ-PC running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode synth_stub -rename_top top_system_ila_0_0 -prefix
---               top_system_ila_0_0_ top_system_ila_0_0_stub.vhdl
+-- Command     : write_vhdl -force -mode synth_stub
+--               e:/Documents/Study/Verilog/SDR/sdr-psk-fpga/sdr-psk-fpga.gen/sources_1/bd/top/ip/top_system_ila_0_0/top_system_ila_0_0_stub.vhdl
 -- Design      : top_system_ila_0_0
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7z020clg484-1
@@ -39,7 +39,11 @@ entity top_system_ila_0_0 is
     probe21 : in STD_LOGIC_VECTOR ( 0 to 0 );
     probe22 : in STD_LOGIC_VECTOR ( 0 to 0 );
     probe23 : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    probe24 : in STD_LOGIC_VECTOR ( 15 downto 0 )
+    probe24 : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    probe25 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    probe26 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    probe27 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    probe28 : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
 
 end top_system_ila_0_0;
@@ -48,7 +52,7 @@ architecture stub of top_system_ila_0_0 is
 attribute syn_black_box : boolean;
 attribute black_box_pad_pin : string;
 attribute syn_black_box of stub : architecture is true;
-attribute black_box_pad_pin of stub : architecture is "clk,probe0[0:0],probe1[1:0],probe2[11:0],probe3[11:0],probe4[11:0],probe5[11:0],probe6[15:0],probe7[15:0],probe8[11:0],probe9[1:0],probe10[15:0],probe11[15:0],probe12[1:0],probe13[0:0],probe14[0:0],probe15[7:0],probe16[0:0],probe17[0:0],probe18[0:0],probe19[7:0],probe20[0:0],probe21[0:0],probe22[0:0],probe23[15:0],probe24[15:0]";
+attribute black_box_pad_pin of stub : architecture is "clk,probe0[0:0],probe1[1:0],probe2[11:0],probe3[11:0],probe4[11:0],probe5[11:0],probe6[15:0],probe7[15:0],probe8[11:0],probe9[1:0],probe10[15:0],probe11[15:0],probe12[1:0],probe13[0:0],probe14[0:0],probe15[7:0],probe16[0:0],probe17[0:0],probe18[0:0],probe19[7:0],probe20[0:0],probe21[0:0],probe22[0:0],probe23[15:0],probe24[15:0],probe25[0:0],probe26[0:0],probe27[0:0],probe28[0:0]";
 attribute X_CORE_INFO : string;
 attribute X_CORE_INFO of stub : architecture is "bd_0696,Vivado 2022.2";
 begin

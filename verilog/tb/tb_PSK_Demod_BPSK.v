@@ -22,6 +22,7 @@ module tb_PSK_Demod_BPSK;
   wire  [3:0] DELAY_CNT;
   wire  [3:0] MODE_CTRL;
   wire        Tx_1bit;
+  wire        Tx_vld;
   wire [15:0] TX_PHASE_CONFIG; // maximum 15 bits
   wire  [7:0] Tx_tdata;
   wire        Tx_tlast;
@@ -48,6 +49,7 @@ module tb_PSK_Demod_BPSK;
     .MODE_CTRL(MODE_CTRL),
     .TX_PHASE_CONFIG(TX_PHASE_CONFIG),
     .Tx_1bit(Tx_1bit),
+    .Tx_vld(Tx_vld),
     .data_tdata(Tx_tdata),
     .data_tlast(Tx_tlast),
     .data_tuser(Tx_tuser),
@@ -97,6 +99,7 @@ module tb_PSK_Demod_BPSK;
     .RX_SD_THRESHOLD(RX_SD_THRESHOLD),
     .RX_SD_WINDOW(RX_SD_WINDOW),
     .Rx_1bit(Rx_1bit),
+    .Rx_vld(Rx_vld),
     .clk_16M384(clk_16M384),
     .clk_1M024(clk_1M024),
     .clk_1M_out(clk_1M_out),

@@ -2,7 +2,7 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "top_Bits_Flatten_0_1",
-    "cell_name": "Rx/Flatten/Bits_Flatten_0",
+    "cell_name": "Bits_Flatten_0",
     "component_reference": "xilinx.com:module_ref:Bits_Flatten:1.0",
     "ip_revision": "1",
     "gen_directory": "../../../../../../sdr-psk-fpga.gen/sources_1/bd/top/ip/top_Bits_Flatten_0_1",
@@ -50,7 +50,9 @@
         "clk_in": [ { "direction": "in" } ],
         "clk_out": [ { "direction": "in" } ],
         "I": [ { "direction": "in", "size_left": "7", "size_right": "0" } ],
-        "O": [ { "direction": "out" } ]
+        "I_vld": [ { "direction": "in" } ],
+        "O": [ { "direction": "out" } ],
+        "O_vld": [ { "direction": "out" } ]
       }
     }
   }

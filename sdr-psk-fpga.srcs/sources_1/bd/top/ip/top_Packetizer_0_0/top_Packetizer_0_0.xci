@@ -57,6 +57,7 @@
         "O_tlast": [ { "direction": "out" } ],
         "O_tuser": [ { "direction": "out" } ],
         "hdr_vld": [ { "direction": "out" } ],
+        "pld_vld": [ { "direction": "out" } ],
         "pkt_sent": [ { "direction": "out" } ]
       },
       "interfaces": {

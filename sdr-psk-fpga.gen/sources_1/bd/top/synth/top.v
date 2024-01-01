@@ -1,7 +1,7 @@
 //Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-//Date        : Mon Jan  1 20:26:24 2024
+//Date        : Tue Jan  2 01:19:48 2024
 //Host        : TVJ-PC running 64-bit major release  (build 9200)
 //Command     : generate_target top.bd
 //Design      : top
@@ -133,6 +133,7 @@ endmodule
 
 module Flatten_imp_1HVGDJ4
    (Rx_1bit,
+    Rx_vld,
     clk_1M024,
     clk_2M048,
     clk_out,
@@ -143,6 +144,7 @@ module Flatten_imp_1HVGDJ4
     data_tvalid,
     rst_32M768);
   output Rx_1bit;
+  output Rx_vld;
   input clk_1M024;
   input clk_2M048;
   input clk_out;
@@ -154,6 +156,7 @@ module Flatten_imp_1HVGDJ4
   input rst_32M768;
 
   wire Bits_Flatten_0_O;
+  wire Bits_Flatten_0_O_vld;
   wire [7:0]Conn1_TDATA;
   wire Conn1_TLAST;
   wire Conn1_TREADY;
@@ -162,6 +165,7 @@ module Flatten_imp_1HVGDJ4
   wire Not_Gate_0_o;
   wire [7:0]axis_data_fifo_0_m_axis_tdata;
   wire [0:0]axis_data_fifo_0_m_axis_tuser;
+  wire axis_data_fifo_0_m_axis_tvalid;
   wire clk_1M024_1;
   wire clk_2M048_1;
   wire clk_out_1;
@@ -173,6 +177,7 @@ module Flatten_imp_1HVGDJ4
   assign Conn1_TUSER = data_tuser;
   assign Conn1_TVALID = data_tvalid;
   assign Rx_1bit = Bits_Flatten_0_O;
+  assign Rx_vld = Bits_Flatten_0_O_vld;
   assign clk_1M024_1 = clk_1M024;
   assign clk_2M048_1 = clk_2M048;
   assign clk_out_1 = clk_out;
@@ -180,7 +185,9 @@ module Flatten_imp_1HVGDJ4
   assign rst_32M768_1 = rst_32M768;
   top_Bits_Flatten_0_1 Bits_Flatten_0
        (.I(axis_data_fifo_0_m_axis_tdata),
+        .I_vld(axis_data_fifo_0_m_axis_tvalid),
         .O(Bits_Flatten_0_O),
+        .O_vld(Bits_Flatten_0_O_vld),
         .bypass(axis_data_fifo_0_m_axis_tuser),
         .clk_in(clk_1M024_1),
         .clk_out(clk_2M048_1));
@@ -192,6 +199,7 @@ module Flatten_imp_1HVGDJ4
         .m_axis_tdata(axis_data_fifo_0_m_axis_tdata),
         .m_axis_tready(xlconstant_one_dout),
         .m_axis_tuser(axis_data_fifo_0_m_axis_tuser),
+        .m_axis_tvalid(axis_data_fifo_0_m_axis_tvalid),
         .s_axis_aclk(clk_out_1),
         .s_axis_aresetn(Not_Gate_0_o),
         .s_axis_tdata(Conn1_TDATA),
@@ -401,6 +409,7 @@ module Rx_imp_KSVDXC
     RX_SD_THRESHOLD,
     RX_SD_WINDOW,
     Rx_1bit,
+    Rx_vld,
     clk_16M384,
     clk_1M024,
     clk_1M_out,
@@ -433,6 +442,7 @@ module Rx_imp_KSVDXC
   input [15:0]RX_SD_THRESHOLD;
   input [7:0]RX_SD_WINDOW;
   output Rx_1bit;
+  output Rx_vld;
   input clk_16M384;
   input clk_1M024;
   output clk_1M_out;
@@ -462,6 +472,7 @@ module Rx_imp_KSVDXC
   wire Div_clk32M768_0_clk16M384;
   wire [3:0]FEEDBACK_SHIFT_1;
   wire Flatten_Rx_1bit;
+  wire Flatten_Rx_vld;
   wire [3:0]GARDNER_SHIFT_1;
   wire I_tvalid_1;
   wire [3:0]MODE_CTRL_1;
@@ -516,6 +527,7 @@ module Rx_imp_KSVDXC
   assign RX_SD_THRESHOLD_1 = RX_SD_THRESHOLD[15:0];
   assign RX_SD_WINDOW_1 = RX_SD_WINDOW[7:0];
   assign Rx_1bit = Flatten_Rx_1bit;
+  assign Rx_vld = Flatten_Rx_vld;
   assign clk_1M024_1 = clk_1M024;
   assign clk_1M_out = gardner_loop_0_clk_out;
   assign clk_2M048_1 = clk_2M048;
@@ -551,6 +563,7 @@ module Rx_imp_KSVDXC
         .rst(rst_32M768_1));
   Flatten_imp_1HVGDJ4 Flatten
        (.Rx_1bit(Flatten_Rx_1bit),
+        .Rx_vld(Flatten_Rx_vld),
         .clk_1M024(clk_1M024_1),
         .clk_2M048(clk_2M048_1),
         .clk_out(gardner_loop_0_clk_out),
@@ -737,6 +750,7 @@ module Tx_imp_1IUYQQO
     MODE_CTRL,
     TX_PHASE_CONFIG,
     Tx_1bit,
+    Tx_vld,
     clk_16M384,
     clk_1M024,
     clk_2M048,
@@ -754,6 +768,7 @@ module Tx_imp_1IUYQQO
   input [3:0]MODE_CTRL;
   input [15:0]TX_PHASE_CONFIG;
   output Tx_1bit;
+  output Tx_vld;
   input clk_16M384;
   input clk_1M024;
   input clk_2M048;
@@ -764,6 +779,7 @@ module Tx_imp_1IUYQQO
   input rst_16M384;
   input [0:0]rst_n_1M024;
 
+  wire Bits_Flatten_0_O_vld;
   wire Bits_Flatten_0_out;
   wire [3:0]DELAY_CNT_1;
   wire Div_clk32M768_0_clk16M384;
@@ -775,6 +791,7 @@ module Tx_imp_1IUYQQO
   wire [7:0]Packetizer_0_out_tdata;
   wire Packetizer_0_out_tuser;
   wire Packetizer_0_pkt_sent;
+  wire Packetizer_0_pld_vld;
   wire [15:0]TX_PHASE_CONFIG_1;
   wire Tx_Data_0_data_TREADY;
   wire [7:0]Tx_Data_0_data_tdata;
@@ -804,6 +821,7 @@ module Tx_imp_1IUYQQO
   assign MODE_CTRL_1 = MODE_CTRL[3:0];
   assign TX_PHASE_CONFIG_1 = TX_PHASE_CONFIG[15:0];
   assign Tx_1bit = Bits_Flatten_0_out;
+  assign Tx_vld = Bits_Flatten_0_O_vld;
   assign clk_2M048_1 = clk_2M048;
   assign data_tdata[7:0] = Tx_Data_0_data_tdata;
   assign data_tlast = Tx_Data_0_data_tlast;
@@ -813,7 +831,9 @@ module Tx_imp_1IUYQQO
   assign s_axis_aresetn_1 = rst_n_1M024[0];
   top_Bits_Flatten_0_0 Bits_Flatten_0
        (.I(Packetizer_0_out_tdata),
+        .I_vld(Packetizer_0_pld_vld),
         .O(Bits_Flatten_0_out),
+        .O_vld(Bits_Flatten_0_O_vld),
         .bypass(Packetizer_0_out_tuser),
         .clk_in(clk_1M024),
         .clk_out(clk_2M048_1));
@@ -848,6 +868,7 @@ module Tx_imp_1IUYQQO
         .clk(clk_1M024),
         .payload_length(Tx_Data_0_payload_length),
         .pkt_sent(Packetizer_0_pkt_sent),
+        .pld_vld(Packetizer_0_pld_vld),
         .rst_n(s_axis_aresetn_1));
   top_Tx_Data_0_0 Tx_Data_0
        (.MODE_CTRL(MODE_CTRL_1),
@@ -933,6 +954,7 @@ module top
   wire [15:0]Rx_Q_16M;
   wire [15:0]Rx_Q_1M;
   wire Rx_Rx_1bit;
+  wire Rx_Rx_vld;
   wire Rx_clk_1M_out;
   wire [7:0]Rx_data_tdata;
   wire Rx_data_tlast;
@@ -943,6 +965,7 @@ module top
   wire [1:0]Tx_DAC_bits;
   wire Tx_DAC_vld;
   wire Tx_Tx_1bit;
+  wire Tx_Tx_vld;
   wire [7:0]Tx_data_tdata;
   wire Tx_data_tlast;
   wire Tx_data_tuser;
@@ -1017,6 +1040,7 @@ module top
         .RX_SD_THRESHOLD(Const_Config_RX_SD_THRESHOLD),
         .RX_SD_WINDOW(RX_SD_WINDOW_1),
         .Rx_1bit(Rx_Rx_1bit),
+        .Rx_vld(Rx_Rx_vld),
         .clk_16M384(Div_clk32M768_0_clk16M384),
         .clk_1M024(Clock_Gen_clk1M024),
         .clk_1M_out(Rx_clk_1M_out),
@@ -1039,6 +1063,7 @@ module top
         .MODE_CTRL(xlconstant_MODE_CTRL_dout),
         .TX_PHASE_CONFIG(Const_Config_TX_PHASE_CONFIG),
         .Tx_1bit(Tx_Tx_1bit),
+        .Tx_vld(Tx_Tx_vld),
         .clk_16M384(Div_clk32M768_0_clk16M384),
         .clk_1M024(Clock_Gen_clk1M024),
         .clk_2M048(clk_2M048_1),
@@ -1068,6 +1093,10 @@ module top
         .probe22(Rx_data_tvalid),
         .probe23(Rx_error_tdata),
         .probe24(Rx_feedback_tdata),
+        .probe25(Tx_Tx_1bit),
+        .probe26(Tx_Tx_vld),
+        .probe27(Rx_Rx_1bit),
+        .probe28(Rx_Rx_vld),
         .probe3(PSK_Mod_0_out_Q),
         .probe4(AD9361_1RT_FDD_0_AD9361_RX_DAT_I),
         .probe5(AD9361_1RT_FDD_0_AD9361_RX_DAT_Q),

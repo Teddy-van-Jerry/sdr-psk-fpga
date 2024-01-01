@@ -70,6 +70,7 @@ module top_Packetizer_0_0 (
   O_tlast,
   O_tuser,
   hdr_vld,
+  pld_vld,
   pkt_sent
 );
 
@@ -104,6 +105,7 @@ output wire O_tlast;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 O TUSER" *)
 output wire O_tuser;
 output wire hdr_vld;
+output wire pld_vld;
 output wire pkt_sent;
 
   Packetizer #(
@@ -124,6 +126,7 @@ output wire pkt_sent;
     .O_tlast(O_tlast),
     .O_tuser(O_tuser),
     .hdr_vld(hdr_vld),
+    .pld_vld(pld_vld),
     .pkt_sent(pkt_sent)
   );
 endmodule

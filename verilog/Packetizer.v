@@ -33,6 +33,7 @@ module Packetizer # (
   output reg               O_tuser, // is_bpsk
   // other signals
   output reg               hdr_vld,
+  output reg               pld_vld,
   output reg               pkt_sent
 );
   localparam BITS = BYTES * 8;
@@ -66,6 +67,7 @@ module Packetizer # (
             O_tuser <= 1'b1; // BPSK by default
             O_tlast <= 1'b0;
             hdr_vld <= 1'b0;
+            pld_vld <= 1'b0;
             hdr_cnt <= 10'b0;
             payload_cnt <= 16'b0;
             pkt_sent <= 1'b0;
@@ -135,6 +137,7 @@ module Packetizer # (
             O_tlast <= 1'b0;
             O_tuser <= 1'b1; // header is always BPSK
             hdr_vld <= 1'b1;
+            pld_vld <= 1'b0;
           end
           STATE_PLD: begin
             if (I_tvalid) payload_cnt <= payload_cnt + 10'b1;
@@ -145,6 +148,7 @@ module Packetizer # (
             O_tlast <= 1'b0;
             O_tuser <= 1'b0;
             hdr_vld <= 1'b0;
+            pld_vld <= 1'b1;
           end
           STATE_LAST: begin
             I_tready <= 1'b1;
@@ -153,6 +157,7 @@ module Packetizer # (
             O_tlast <= 1'b1;
             O_tuser <= 1'b0;
             hdr_vld <= 1'b0;
+            pld_vld <= 1'b1;
           end
           STATE_WAIT: begin
             I_tready <= 1'b1; // consume the FIFO until it is empty
@@ -161,6 +166,7 @@ module Packetizer # (
             O_tlast <= 1'b0;
             O_tuser <= 1'b1; // BPSK by default
             hdr_vld <= 1'b0;
+            pld_vld <= 1'b0;
             // I will mark the packet has been successfully sent when the FIFO is fully consumed!
             if (!I_tvalid) pkt_sent <= 1'b1;
             else ;
@@ -172,6 +178,7 @@ module Packetizer # (
             O_tlast <= 1'b0;
             O_tuser <= 1'b1; // BPSK by default
             hdr_vld <= 1'b0;
+            pld_vld <= 1'b0;
           end
         endcase
         // right shift payload_length by 1 if not is_bpsk (QPSK)
@@ -185,6 +192,7 @@ module Packetizer # (
         O_tlast <= I_tlast;
         O_tuser <= I_tuser;
         hdr_vld <= 1'b0;
+        pld_vld <= 1'b1;
         pkt_sent <= 1'b0;
       end
     end
@@ -193,6 +201,7 @@ module Packetizer # (
       hdr_cnt <= 10'b0;
       payload_cnt <= 16'b0;
       pkt_sent <= 1'b0;
+      pld_vld <= 1'b0;
     end
   end
 

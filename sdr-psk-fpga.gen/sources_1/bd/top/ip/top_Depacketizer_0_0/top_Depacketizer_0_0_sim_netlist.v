@@ -1,7 +1,7 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Mon Jan  1 20:28:20 2024
+// Date        : Tue Jan  2 01:09:49 2024
 // Host        : TVJ-PC running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               e:/Documents/Study/Verilog/SDR/sdr-psk-fpga/sdr-psk-fpga.gen/sources_1/bd/top/ip/top_Depacketizer_0_0/top_Depacketizer_0_0_sim_netlist.v
@@ -118,8 +118,8 @@ module top_Depacketizer_0_0_Depacketizer
     clk,
     in_BPSK,
     BD_flag,
-    in_QPSK,
     data_tready,
+    in_QPSK,
     RX_BD_WINDOW,
     BD_sgn);
   output data_tlast;
@@ -131,17 +131,18 @@ module top_Depacketizer_0_0_Depacketizer
   input clk;
   input in_BPSK;
   input BD_flag;
-  input [1:0]in_QPSK;
   input data_tready;
+  input [1:0]in_QPSK;
   input [7:0]RX_BD_WINDOW;
   input BD_sgn;
 
   wire BD_flag;
   wire BD_sgn;
+  wire BD_sgn_reg;
   wire BD_sgn_reg_i_1_n_0;
-  wire BD_sgn_reg_i_2_n_0;
   wire BD_sgn_reg_reg_n_0;
   wire \MCS[5]_i_1_n_0 ;
+  wire \MCS[5]_i_2_n_0 ;
   wire \MCS_reg_n_0_[5] ;
   wire [3:0]MODE_CTRL;
   wire [1:0]QPSK;
@@ -155,13 +156,14 @@ module top_Depacketizer_0_0_Depacketizer
   wire \cnt_HDR[4]_i_1_n_0 ;
   wire \cnt_HDR[5]_i_2_n_0 ;
   wire \cnt_HDR[5]_i_3_n_0 ;
+  wire \cnt_HDR[5]_i_4_n_0 ;
   wire \cnt_HDR_reg_n_0_[0] ;
   wire \cnt_HDR_reg_n_0_[1] ;
   wire \cnt_HDR_reg_n_0_[2] ;
   wire \cnt_HDR_reg_n_0_[3] ;
   wire \cnt_HDR_reg_n_0_[4] ;
   wire \cnt_HDR_reg_n_0_[5] ;
-  wire cnt_PLD;
+  wire [15:0]cnt_PLD;
   wire cnt_PLD0_carry__0_n_0;
   wire cnt_PLD0_carry__0_n_1;
   wire cnt_PLD0_carry__0_n_2;
@@ -192,36 +194,20 @@ module top_Depacketizer_0_0_Depacketizer
   wire \cnt_PLD[7]_i_1_n_0 ;
   wire \cnt_PLD[8]_i_1_n_0 ;
   wire \cnt_PLD[9]_i_1_n_0 ;
-  wire \cnt_PLD_reg_n_0_[0] ;
-  wire \cnt_PLD_reg_n_0_[10] ;
-  wire \cnt_PLD_reg_n_0_[11] ;
-  wire \cnt_PLD_reg_n_0_[12] ;
-  wire \cnt_PLD_reg_n_0_[13] ;
-  wire \cnt_PLD_reg_n_0_[14] ;
-  wire \cnt_PLD_reg_n_0_[15] ;
-  wire \cnt_PLD_reg_n_0_[1] ;
-  wire \cnt_PLD_reg_n_0_[2] ;
-  wire \cnt_PLD_reg_n_0_[3] ;
-  wire \cnt_PLD_reg_n_0_[4] ;
-  wire \cnt_PLD_reg_n_0_[5] ;
-  wire \cnt_PLD_reg_n_0_[6] ;
-  wire \cnt_PLD_reg_n_0_[7] ;
-  wire \cnt_PLD_reg_n_0_[8] ;
-  wire \cnt_PLD_reg_n_0_[9] ;
-  wire [7:1]cnt_TRN;
+  wire cnt_PLD_1;
+  wire [7:0]cnt_TRN;
   wire \cnt_TRN[0]_i_1_n_0 ;
+  wire \cnt_TRN[1]_i_1_n_0 ;
+  wire \cnt_TRN[2]_i_1_n_0 ;
+  wire \cnt_TRN[3]_i_1_n_0 ;
+  wire \cnt_TRN[4]_i_1_n_0 ;
+  wire \cnt_TRN[5]_i_1_n_0 ;
+  wire \cnt_TRN[6]_i_1_n_0 ;
+  wire \cnt_TRN[7]_i_2_n_0 ;
   wire \cnt_TRN[7]_i_3_n_0 ;
+  wire \cnt_TRN[7]_i_4_n_0 ;
   wire cnt_TRN_0;
-  wire \cnt_TRN_reg_n_0_[0] ;
-  wire \cnt_TRN_reg_n_0_[1] ;
-  wire \cnt_TRN_reg_n_0_[2] ;
-  wire \cnt_TRN_reg_n_0_[3] ;
-  wire \cnt_TRN_reg_n_0_[4] ;
-  wire \cnt_TRN_reg_n_0_[5] ;
-  wire \cnt_TRN_reg_n_0_[6] ;
-  wire \cnt_TRN_reg_n_0_[7] ;
-  wire \data_tdata_reg[0]_i_1_n_0 ;
-  wire \data_tdata_reg[1]_i_1_n_0 ;
+  wire [1:0]data_tdata_reg;
   wire \data_tdata_reg[1]_i_2_n_0 ;
   wire \data_tdata_reg[1]_i_3_n_0 ;
   wire \data_tdata_reg_reg_n_0_[0] ;
@@ -248,6 +234,8 @@ module top_Depacketizer_0_0_Depacketizer
   wire is_bpsk_reg_i_1_n_0;
   wire is_bpsk_reg_i_2_n_0;
   wire is_bpsk_reg_i_3_n_0;
+  wire is_bpsk_reg_i_4_n_0;
+  wire is_bpsk_reg_i_5_n_0;
   wire is_bpsk_reg_reg_n_0;
   wire [7:7]p_7_in;
   wire [15:0]payload_length;
@@ -256,13 +244,13 @@ module top_Depacketizer_0_0_Depacketizer
   wire \payload_length[11]_i_1_n_0 ;
   wire \payload_length[11]_i_3_n_0 ;
   wire \payload_length[11]_i_4_n_0 ;
-  wire \payload_length[11]_i_5_n_0 ;
   wire \payload_length[12]_i_1_n_0 ;
   wire \payload_length[13]_i_1_n_0 ;
   wire \payload_length[14]_i_1_n_0 ;
   wire \payload_length[15]_i_1_n_0 ;
   wire \payload_length[15]_i_2_n_0 ;
   wire \payload_length[15]_i_3_n_0 ;
+  wire \payload_length[15]_i_4_n_0 ;
   wire \payload_length[1]_i_1_n_0 ;
   wire \payload_length[2]_i_1_n_0 ;
   wire \payload_length[3]_i_1_n_0 ;
@@ -272,9 +260,9 @@ module top_Depacketizer_0_0_Depacketizer
   wire \payload_length[6]_i_1_n_0 ;
   wire \payload_length[7]_i_1_n_0 ;
   wire \payload_length[7]_i_2_n_0 ;
+  wire \payload_length[7]_i_3_n_0 ;
   wire \payload_length[8]_i_1_n_0 ;
   wire \payload_length[9]_i_1_n_0 ;
-  wire \payload_length[9]_i_2_n_0 ;
   wire \payload_length_symbs[0]_i_1_n_0 ;
   wire \payload_length_symbs[10]_i_1_n_0 ;
   wire \payload_length_symbs[11]_i_1_n_0 ;
@@ -310,9 +298,10 @@ module top_Depacketizer_0_0_Depacketizer
   wire \payload_length_symbs_reg_n_0_[8] ;
   wire \payload_length_symbs_reg_n_0_[9] ;
   wire rst;
-  wire [4:0]state;
+  wire [5:0]state;
   wire \state[0]_i_2_n_0 ;
   wire \state[1]_i_2_n_0 ;
+  wire \state[2]_i_10_n_0 ;
   wire \state[2]_i_2_n_0 ;
   wire \state[2]_i_3_n_0 ;
   wire \state[2]_i_4_n_0 ;
@@ -367,7 +356,7 @@ module top_Depacketizer_0_0_Depacketizer
   wire \state_next2_inferred__0/i__carry_n_5 ;
   wire \state_next2_inferred__0/i__carry_n_6 ;
   wire \state_next2_inferred__0/i__carry_n_7 ;
-  wire [4:0]state_next__0;
+  wire [5:0]state_next__0;
   wire state_next_n_0;
   wire [3:2]NLW_cnt_PLD0_carry__2_CO_UNCONNECTED;
   wire [3:3]NLW_cnt_PLD0_carry__2_O_UNCONNECTED;
@@ -377,24 +366,24 @@ module top_Depacketizer_0_0_Depacketizer
   wire [3:2]\NLW_state_next1_inferred__0/i__carry__0_CO_UNCONNECTED ;
   wire [3:0]\NLW_state_next1_inferred__0/i__carry__0_O_UNCONNECTED ;
 
-  LUT6 #(
-    .INIT(64'hEFFFFFFF20000000)) 
+  (* SOFT_HLUTNM = "soft_lutpair21" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
     BD_sgn_reg_i_1
        (.I0(BD_sgn),
-        .I1(state[0]),
-        .I2(state[1]),
-        .I3(data_tready),
-        .I4(BD_sgn_reg_i_2_n_0),
-        .I5(BD_sgn_reg_reg_n_0),
+        .I1(BD_sgn_reg),
+        .I2(BD_sgn_reg_reg_n_0),
         .O(BD_sgn_reg_i_1_n_0));
   (* SOFT_HLUTNM = "soft_lutpair2" *) 
-  LUT3 #(
-    .INIT(8'h01)) 
+  LUT5 #(
+    .INIT(32'h00200000)) 
     BD_sgn_reg_i_2
-       (.I0(state[4]),
-        .I1(state[3]),
-        .I2(state[2]),
-        .O(BD_sgn_reg_i_2_n_0));
+       (.I0(data_tready),
+        .I1(state[0]),
+        .I2(state[1]),
+        .I3(state[5]),
+        .I4(\cnt_TRN[7]_i_3_n_0 ),
+        .O(BD_sgn_reg));
   FDRE #(
     .INIT(1'b0)) 
     BD_sgn_reg_reg
@@ -418,11 +407,18 @@ module top_Depacketizer_0_0_Depacketizer
     \MCS[5]_i_1 
        (.I0(p_7_in),
         .I1(\cnt_HDR_reg_n_0_[3] ),
-        .I2(\payload_length[9]_i_2_n_0 ),
+        .I2(\MCS[5]_i_2_n_0 ),
         .I3(\cnt_HDR_reg_n_0_[2] ),
         .I4(\payload_length[11]_i_4_n_0 ),
         .I5(\MCS_reg_n_0_[5] ),
         .O(\MCS[5]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair32" *) 
+  LUT2 #(
+    .INIT(4'h2)) 
+    \MCS[5]_i_2 
+       (.I0(\cnt_HDR_reg_n_0_[1] ),
+        .I1(\cnt_HDR_reg_n_0_[0] ),
+        .O(\MCS[5]_i_2_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
     \MCS_reg[5] 
@@ -441,7 +437,7 @@ module top_Depacketizer_0_0_Depacketizer
         .I4(MODE_CTRL[0]),
         .I5(in_QPSK[0]),
         .O(QPSK[0]));
-  (* SOFT_HLUTNM = "soft_lutpair21" *) 
+  (* SOFT_HLUTNM = "soft_lutpair22" *) 
   LUT2 #(
     .INIT(4'h2)) 
     \cnt_HDR[0]_i_1 
@@ -450,11 +446,11 @@ module top_Depacketizer_0_0_Depacketizer
         .O(\cnt_HDR[0]_i_1_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair9" *) 
   LUT3 #(
-    .INIT(8'h60)) 
+    .INIT(8'h28)) 
     \cnt_HDR[1]_i_1 
-       (.I0(\cnt_HDR_reg_n_0_[1] ),
-        .I1(\cnt_HDR_reg_n_0_[0] ),
-        .I2(state[2]),
+       (.I0(state[2]),
+        .I1(\cnt_HDR_reg_n_0_[1] ),
+        .I2(\cnt_HDR_reg_n_0_[0] ),
         .O(\cnt_HDR[1]_i_1_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair9" *) 
   LUT4 #(
@@ -486,32 +482,39 @@ module top_Depacketizer_0_0_Depacketizer
         .I5(\cnt_HDR_reg_n_0_[2] ),
         .O(\cnt_HDR[4]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'h0000000000030200)) 
+    .INIT(64'h0003000002000000)) 
     \cnt_HDR[5]_i_1 
        (.I0(data_tready),
         .I1(state[4]),
         .I2(state[3]),
         .I3(state[2]),
-        .I4(state[0]),
-        .I5(state[1]),
+        .I4(\cnt_HDR[5]_i_3_n_0 ),
+        .I5(state[0]),
         .O(cnt_HDR));
   LUT6 #(
-    .INIT(64'h8888288888888888)) 
+    .INIT(64'h8888888828888888)) 
     \cnt_HDR[5]_i_2 
        (.I0(state[2]),
         .I1(\cnt_HDR_reg_n_0_[5] ),
-        .I2(\cnt_HDR_reg_n_0_[2] ),
-        .I3(\cnt_HDR_reg_n_0_[3] ),
-        .I4(\cnt_HDR[5]_i_3_n_0 ),
-        .I5(\cnt_HDR_reg_n_0_[4] ),
+        .I2(\cnt_HDR_reg_n_0_[4] ),
+        .I3(\cnt_HDR_reg_n_0_[2] ),
+        .I4(\cnt_HDR_reg_n_0_[3] ),
+        .I5(\cnt_HDR[5]_i_4_n_0 ),
         .O(\cnt_HDR[5]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair21" *) 
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  LUT2 #(
+    .INIT(4'h1)) 
+    \cnt_HDR[5]_i_3 
+       (.I0(state[1]),
+        .I1(state[5]),
+        .O(\cnt_HDR[5]_i_3_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair22" *) 
   LUT2 #(
     .INIT(4'h7)) 
-    \cnt_HDR[5]_i_3 
+    \cnt_HDR[5]_i_4 
        (.I0(\cnt_HDR_reg_n_0_[0] ),
         .I1(\cnt_HDR_reg_n_0_[1] ),
-        .O(\cnt_HDR[5]_i_3_n_0 ));
+        .O(\cnt_HDR[5]_i_4_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
     \cnt_HDR_reg[0] 
@@ -564,10 +567,10 @@ module top_Depacketizer_0_0_Depacketizer
   CARRY4 cnt_PLD0_carry
        (.CI(1'b0),
         .CO({cnt_PLD0_carry_n_0,cnt_PLD0_carry_n_1,cnt_PLD0_carry_n_2,cnt_PLD0_carry_n_3}),
-        .CYINIT(\cnt_PLD_reg_n_0_[0] ),
+        .CYINIT(cnt_PLD[0]),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O(in14[4:1]),
-        .S({\cnt_PLD_reg_n_0_[4] ,\cnt_PLD_reg_n_0_[3] ,\cnt_PLD_reg_n_0_[2] ,\cnt_PLD_reg_n_0_[1] }));
+        .S(cnt_PLD[4:1]));
   (* ADDER_THRESHOLD = "35" *) 
   CARRY4 cnt_PLD0_carry__0
        (.CI(cnt_PLD0_carry_n_0),
@@ -575,7 +578,7 @@ module top_Depacketizer_0_0_Depacketizer
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O(in14[8:5]),
-        .S({\cnt_PLD_reg_n_0_[8] ,\cnt_PLD_reg_n_0_[7] ,\cnt_PLD_reg_n_0_[6] ,\cnt_PLD_reg_n_0_[5] }));
+        .S(cnt_PLD[8:5]));
   (* ADDER_THRESHOLD = "35" *) 
   CARRY4 cnt_PLD0_carry__1
        (.CI(cnt_PLD0_carry__0_n_0),
@@ -583,7 +586,7 @@ module top_Depacketizer_0_0_Depacketizer
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O(in14[12:9]),
-        .S({\cnt_PLD_reg_n_0_[12] ,\cnt_PLD_reg_n_0_[11] ,\cnt_PLD_reg_n_0_[10] ,\cnt_PLD_reg_n_0_[9] }));
+        .S(cnt_PLD[12:9]));
   (* ADDER_THRESHOLD = "35" *) 
   CARRY4 cnt_PLD0_carry__2
        (.CI(cnt_PLD0_carry__1_n_0),
@@ -591,42 +594,43 @@ module top_Depacketizer_0_0_Depacketizer
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O({NLW_cnt_PLD0_carry__2_O_UNCONNECTED[3],in14[15:13]}),
-        .S({1'b0,\cnt_PLD_reg_n_0_[15] ,\cnt_PLD_reg_n_0_[14] ,\cnt_PLD_reg_n_0_[13] }));
+        .S({1'b0,cnt_PLD[15:13]}));
+  (* SOFT_HLUTNM = "soft_lutpair31" *) 
   LUT2 #(
     .INIT(4'h1)) 
     \cnt_PLD[0]_i_1 
-       (.I0(\cnt_PLD_reg_n_0_[0] ),
+       (.I0(cnt_PLD[0]),
         .I1(state[0]),
         .O(\cnt_PLD[0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair27" *) 
+  (* SOFT_HLUTNM = "soft_lutpair28" *) 
   LUT2 #(
     .INIT(4'h2)) 
     \cnt_PLD[10]_i_1 
        (.I0(in14[10]),
         .I1(state[0]),
         .O(\cnt_PLD[10]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair27" *) 
+  (* SOFT_HLUTNM = "soft_lutpair29" *) 
   LUT2 #(
     .INIT(4'h2)) 
     \cnt_PLD[11]_i_1 
        (.I0(in14[11]),
         .I1(state[0]),
         .O(\cnt_PLD[11]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair28" *) 
+  (* SOFT_HLUTNM = "soft_lutpair29" *) 
   LUT2 #(
     .INIT(4'h2)) 
     \cnt_PLD[12]_i_1 
        (.I0(in14[12]),
         .I1(state[0]),
         .O(\cnt_PLD[12]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair28" *) 
+  (* SOFT_HLUTNM = "soft_lutpair30" *) 
   LUT2 #(
     .INIT(4'h2)) 
     \cnt_PLD[13]_i_1 
        (.I0(in14[13]),
         .I1(state[0]),
         .O(\cnt_PLD[13]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair29" *) 
+  (* SOFT_HLUTNM = "soft_lutpair30" *) 
   LUT2 #(
     .INIT(4'h2)) 
     \cnt_PLD[14]_i_1 
@@ -634,79 +638,79 @@ module top_Depacketizer_0_0_Depacketizer
         .I1(state[0]),
         .O(\cnt_PLD[14]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'h0000000000020230)) 
+    .INIT(64'h00000000004040A0)) 
     \cnt_PLD[15]_i_1 
-       (.I0(data_tready),
-        .I1(state[1]),
-        .I2(state[0]),
+       (.I0(state[0]),
+        .I1(data_tready),
+        .I2(\cnt_HDR[5]_i_3_n_0 ),
         .I3(state[4]),
         .I4(state[3]),
         .I5(state[2]),
-        .O(cnt_PLD));
-  (* SOFT_HLUTNM = "soft_lutpair29" *) 
+        .O(cnt_PLD_1));
+  (* SOFT_HLUTNM = "soft_lutpair31" *) 
   LUT2 #(
     .INIT(4'h2)) 
     \cnt_PLD[15]_i_2 
        (.I0(in14[15]),
         .I1(state[0]),
         .O(\cnt_PLD[15]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair12" *) 
+  (* SOFT_HLUTNM = "soft_lutpair24" *) 
   LUT2 #(
     .INIT(4'h2)) 
     \cnt_PLD[1]_i_1 
        (.I0(in14[1]),
         .I1(state[0]),
         .O(\cnt_PLD[1]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair23" *) 
+  (* SOFT_HLUTNM = "soft_lutpair24" *) 
   LUT2 #(
     .INIT(4'h2)) 
     \cnt_PLD[2]_i_1 
        (.I0(in14[2]),
         .I1(state[0]),
         .O(\cnt_PLD[2]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair23" *) 
+  (* SOFT_HLUTNM = "soft_lutpair25" *) 
   LUT2 #(
     .INIT(4'h2)) 
     \cnt_PLD[3]_i_1 
        (.I0(in14[3]),
         .I1(state[0]),
         .O(\cnt_PLD[3]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair24" *) 
+  (* SOFT_HLUTNM = "soft_lutpair25" *) 
   LUT2 #(
     .INIT(4'h2)) 
     \cnt_PLD[4]_i_1 
        (.I0(in14[4]),
         .I1(state[0]),
         .O(\cnt_PLD[4]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair24" *) 
+  (* SOFT_HLUTNM = "soft_lutpair26" *) 
   LUT2 #(
     .INIT(4'h2)) 
     \cnt_PLD[5]_i_1 
        (.I0(in14[5]),
         .I1(state[0]),
         .O(\cnt_PLD[5]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair25" *) 
+  (* SOFT_HLUTNM = "soft_lutpair26" *) 
   LUT2 #(
     .INIT(4'h2)) 
     \cnt_PLD[6]_i_1 
        (.I0(in14[6]),
         .I1(state[0]),
         .O(\cnt_PLD[6]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair25" *) 
+  (* SOFT_HLUTNM = "soft_lutpair27" *) 
   LUT2 #(
     .INIT(4'h2)) 
     \cnt_PLD[7]_i_1 
        (.I0(in14[7]),
         .I1(state[0]),
         .O(\cnt_PLD[7]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair26" *) 
+  (* SOFT_HLUTNM = "soft_lutpair27" *) 
   LUT2 #(
     .INIT(4'h2)) 
     \cnt_PLD[8]_i_1 
        (.I0(in14[8]),
         .I1(state[0]),
         .O(\cnt_PLD[8]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair26" *) 
+  (* SOFT_HLUTNM = "soft_lutpair28" *) 
   LUT2 #(
     .INIT(4'h2)) 
     \cnt_PLD[9]_i_1 
@@ -717,285 +721,292 @@ module top_Depacketizer_0_0_Depacketizer
     .INIT(1'b0)) 
     \cnt_PLD_reg[0] 
        (.C(clk),
-        .CE(cnt_PLD),
+        .CE(cnt_PLD_1),
         .D(\cnt_PLD[0]_i_1_n_0 ),
-        .Q(\cnt_PLD_reg_n_0_[0] ),
+        .Q(cnt_PLD[0]),
         .R(rst));
   FDRE #(
     .INIT(1'b0)) 
     \cnt_PLD_reg[10] 
        (.C(clk),
-        .CE(cnt_PLD),
+        .CE(cnt_PLD_1),
         .D(\cnt_PLD[10]_i_1_n_0 ),
-        .Q(\cnt_PLD_reg_n_0_[10] ),
+        .Q(cnt_PLD[10]),
         .R(rst));
   FDRE #(
     .INIT(1'b0)) 
     \cnt_PLD_reg[11] 
        (.C(clk),
-        .CE(cnt_PLD),
+        .CE(cnt_PLD_1),
         .D(\cnt_PLD[11]_i_1_n_0 ),
-        .Q(\cnt_PLD_reg_n_0_[11] ),
+        .Q(cnt_PLD[11]),
         .R(rst));
   FDRE #(
     .INIT(1'b0)) 
     \cnt_PLD_reg[12] 
        (.C(clk),
-        .CE(cnt_PLD),
+        .CE(cnt_PLD_1),
         .D(\cnt_PLD[12]_i_1_n_0 ),
-        .Q(\cnt_PLD_reg_n_0_[12] ),
+        .Q(cnt_PLD[12]),
         .R(rst));
   FDRE #(
     .INIT(1'b0)) 
     \cnt_PLD_reg[13] 
        (.C(clk),
-        .CE(cnt_PLD),
+        .CE(cnt_PLD_1),
         .D(\cnt_PLD[13]_i_1_n_0 ),
-        .Q(\cnt_PLD_reg_n_0_[13] ),
+        .Q(cnt_PLD[13]),
         .R(rst));
   FDRE #(
     .INIT(1'b0)) 
     \cnt_PLD_reg[14] 
        (.C(clk),
-        .CE(cnt_PLD),
+        .CE(cnt_PLD_1),
         .D(\cnt_PLD[14]_i_1_n_0 ),
-        .Q(\cnt_PLD_reg_n_0_[14] ),
+        .Q(cnt_PLD[14]),
         .R(rst));
   FDRE #(
     .INIT(1'b0)) 
     \cnt_PLD_reg[15] 
        (.C(clk),
-        .CE(cnt_PLD),
+        .CE(cnt_PLD_1),
         .D(\cnt_PLD[15]_i_2_n_0 ),
-        .Q(\cnt_PLD_reg_n_0_[15] ),
+        .Q(cnt_PLD[15]),
         .R(rst));
   FDRE #(
     .INIT(1'b0)) 
     \cnt_PLD_reg[1] 
        (.C(clk),
-        .CE(cnt_PLD),
+        .CE(cnt_PLD_1),
         .D(\cnt_PLD[1]_i_1_n_0 ),
-        .Q(\cnt_PLD_reg_n_0_[1] ),
+        .Q(cnt_PLD[1]),
         .R(rst));
   FDRE #(
     .INIT(1'b0)) 
     \cnt_PLD_reg[2] 
        (.C(clk),
-        .CE(cnt_PLD),
+        .CE(cnt_PLD_1),
         .D(\cnt_PLD[2]_i_1_n_0 ),
-        .Q(\cnt_PLD_reg_n_0_[2] ),
+        .Q(cnt_PLD[2]),
         .R(rst));
   FDRE #(
     .INIT(1'b0)) 
     \cnt_PLD_reg[3] 
        (.C(clk),
-        .CE(cnt_PLD),
+        .CE(cnt_PLD_1),
         .D(\cnt_PLD[3]_i_1_n_0 ),
-        .Q(\cnt_PLD_reg_n_0_[3] ),
+        .Q(cnt_PLD[3]),
         .R(rst));
   FDRE #(
     .INIT(1'b0)) 
     \cnt_PLD_reg[4] 
        (.C(clk),
-        .CE(cnt_PLD),
+        .CE(cnt_PLD_1),
         .D(\cnt_PLD[4]_i_1_n_0 ),
-        .Q(\cnt_PLD_reg_n_0_[4] ),
+        .Q(cnt_PLD[4]),
         .R(rst));
   FDRE #(
     .INIT(1'b0)) 
     \cnt_PLD_reg[5] 
        (.C(clk),
-        .CE(cnt_PLD),
+        .CE(cnt_PLD_1),
         .D(\cnt_PLD[5]_i_1_n_0 ),
-        .Q(\cnt_PLD_reg_n_0_[5] ),
+        .Q(cnt_PLD[5]),
         .R(rst));
   FDRE #(
     .INIT(1'b0)) 
     \cnt_PLD_reg[6] 
        (.C(clk),
-        .CE(cnt_PLD),
+        .CE(cnt_PLD_1),
         .D(\cnt_PLD[6]_i_1_n_0 ),
-        .Q(\cnt_PLD_reg_n_0_[6] ),
+        .Q(cnt_PLD[6]),
         .R(rst));
   FDRE #(
     .INIT(1'b0)) 
     \cnt_PLD_reg[7] 
        (.C(clk),
-        .CE(cnt_PLD),
+        .CE(cnt_PLD_1),
         .D(\cnt_PLD[7]_i_1_n_0 ),
-        .Q(\cnt_PLD_reg_n_0_[7] ),
+        .Q(cnt_PLD[7]),
         .R(rst));
   FDRE #(
     .INIT(1'b0)) 
     \cnt_PLD_reg[8] 
        (.C(clk),
-        .CE(cnt_PLD),
+        .CE(cnt_PLD_1),
         .D(\cnt_PLD[8]_i_1_n_0 ),
-        .Q(\cnt_PLD_reg_n_0_[8] ),
+        .Q(cnt_PLD[8]),
         .R(rst));
   FDRE #(
     .INIT(1'b0)) 
     \cnt_PLD_reg[9] 
        (.C(clk),
-        .CE(cnt_PLD),
+        .CE(cnt_PLD_1),
         .D(\cnt_PLD[9]_i_1_n_0 ),
-        .Q(\cnt_PLD_reg_n_0_[9] ),
+        .Q(cnt_PLD[9]),
         .R(rst));
-  (* SOFT_HLUTNM = "soft_lutpair22" *) 
+  (* SOFT_HLUTNM = "soft_lutpair23" *) 
   LUT2 #(
     .INIT(4'h2)) 
     \cnt_TRN[0]_i_1 
        (.I0(state[1]),
-        .I1(\cnt_TRN_reg_n_0_[0] ),
+        .I1(cnt_TRN[0]),
         .O(\cnt_TRN[0]_i_1_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair10" *) 
   LUT3 #(
     .INIT(8'h28)) 
     \cnt_TRN[1]_i_1 
        (.I0(state[1]),
-        .I1(\cnt_TRN_reg_n_0_[1] ),
-        .I2(\cnt_TRN_reg_n_0_[0] ),
-        .O(cnt_TRN[1]));
+        .I1(cnt_TRN[1]),
+        .I2(cnt_TRN[0]),
+        .O(\cnt_TRN[1]_i_1_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair10" *) 
   LUT4 #(
     .INIT(16'h2888)) 
     \cnt_TRN[2]_i_1 
        (.I0(state[1]),
-        .I1(\cnt_TRN_reg_n_0_[2] ),
-        .I2(\cnt_TRN_reg_n_0_[0] ),
-        .I3(\cnt_TRN_reg_n_0_[1] ),
-        .O(cnt_TRN[2]));
+        .I1(cnt_TRN[2]),
+        .I2(cnt_TRN[0]),
+        .I3(cnt_TRN[1]),
+        .O(\cnt_TRN[2]_i_1_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair8" *) 
   LUT5 #(
     .INIT(32'h28888888)) 
     \cnt_TRN[3]_i_1 
        (.I0(state[1]),
-        .I1(\cnt_TRN_reg_n_0_[3] ),
-        .I2(\cnt_TRN_reg_n_0_[1] ),
-        .I3(\cnt_TRN_reg_n_0_[0] ),
-        .I4(\cnt_TRN_reg_n_0_[2] ),
-        .O(cnt_TRN[3]));
+        .I1(cnt_TRN[3]),
+        .I2(cnt_TRN[1]),
+        .I3(cnt_TRN[0]),
+        .I4(cnt_TRN[2]),
+        .O(\cnt_TRN[3]_i_1_n_0 ));
   LUT6 #(
     .INIT(64'h2888888888888888)) 
     \cnt_TRN[4]_i_1 
        (.I0(state[1]),
-        .I1(\cnt_TRN_reg_n_0_[4] ),
-        .I2(\cnt_TRN_reg_n_0_[2] ),
-        .I3(\cnt_TRN_reg_n_0_[0] ),
-        .I4(\cnt_TRN_reg_n_0_[1] ),
-        .I5(\cnt_TRN_reg_n_0_[3] ),
-        .O(cnt_TRN[4]));
+        .I1(cnt_TRN[4]),
+        .I2(cnt_TRN[2]),
+        .I3(cnt_TRN[0]),
+        .I4(cnt_TRN[1]),
+        .I5(cnt_TRN[3]),
+        .O(\cnt_TRN[4]_i_1_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair7" *) 
   LUT4 #(
     .INIT(16'h2888)) 
     \cnt_TRN[5]_i_1 
        (.I0(state[1]),
-        .I1(\cnt_TRN_reg_n_0_[5] ),
-        .I2(\cnt_TRN[7]_i_3_n_0 ),
-        .I3(\cnt_TRN_reg_n_0_[4] ),
-        .O(cnt_TRN[5]));
+        .I1(cnt_TRN[5]),
+        .I2(\cnt_TRN[7]_i_4_n_0 ),
+        .I3(cnt_TRN[4]),
+        .O(\cnt_TRN[5]_i_1_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair7" *) 
   LUT5 #(
     .INIT(32'h28888888)) 
     \cnt_TRN[6]_i_1 
        (.I0(state[1]),
-        .I1(\cnt_TRN_reg_n_0_[6] ),
-        .I2(\cnt_TRN_reg_n_0_[5] ),
-        .I3(\cnt_TRN_reg_n_0_[4] ),
-        .I4(\cnt_TRN[7]_i_3_n_0 ),
-        .O(cnt_TRN[6]));
-  LUT6 #(
-    .INIT(64'h0000000200030000)) 
+        .I1(cnt_TRN[6]),
+        .I2(cnt_TRN[5]),
+        .I3(cnt_TRN[4]),
+        .I4(\cnt_TRN[7]_i_4_n_0 ),
+        .O(\cnt_TRN[6]_i_1_n_0 ));
+  LUT5 #(
+    .INIT(32'h000C0800)) 
     \cnt_TRN[7]_i_1 
        (.I0(data_tready),
-        .I1(state[4]),
-        .I2(state[3]),
-        .I3(state[2]),
+        .I1(\cnt_TRN[7]_i_3_n_0 ),
+        .I2(state[5]),
+        .I3(state[1]),
         .I4(state[0]),
-        .I5(state[1]),
         .O(cnt_TRN_0));
   LUT6 #(
     .INIT(64'h2888888888888888)) 
     \cnt_TRN[7]_i_2 
        (.I0(state[1]),
-        .I1(\cnt_TRN_reg_n_0_[7] ),
-        .I2(\cnt_TRN_reg_n_0_[4] ),
-        .I3(\cnt_TRN_reg_n_0_[5] ),
-        .I4(\cnt_TRN_reg_n_0_[6] ),
-        .I5(\cnt_TRN[7]_i_3_n_0 ),
-        .O(cnt_TRN[7]));
+        .I1(cnt_TRN[7]),
+        .I2(cnt_TRN[4]),
+        .I3(cnt_TRN[5]),
+        .I4(cnt_TRN[6]),
+        .I5(\cnt_TRN[7]_i_4_n_0 ),
+        .O(\cnt_TRN[7]_i_2_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair11" *) 
+  LUT3 #(
+    .INIT(8'h01)) 
+    \cnt_TRN[7]_i_3 
+       (.I0(state[4]),
+        .I1(state[3]),
+        .I2(state[2]),
+        .O(\cnt_TRN[7]_i_3_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair8" *) 
   LUT4 #(
     .INIT(16'h8000)) 
-    \cnt_TRN[7]_i_3 
-       (.I0(\cnt_TRN_reg_n_0_[2] ),
-        .I1(\cnt_TRN_reg_n_0_[0] ),
-        .I2(\cnt_TRN_reg_n_0_[1] ),
-        .I3(\cnt_TRN_reg_n_0_[3] ),
-        .O(\cnt_TRN[7]_i_3_n_0 ));
+    \cnt_TRN[7]_i_4 
+       (.I0(cnt_TRN[2]),
+        .I1(cnt_TRN[0]),
+        .I2(cnt_TRN[1]),
+        .I3(cnt_TRN[3]),
+        .O(\cnt_TRN[7]_i_4_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
     \cnt_TRN_reg[0] 
        (.C(clk),
         .CE(cnt_TRN_0),
         .D(\cnt_TRN[0]_i_1_n_0 ),
-        .Q(\cnt_TRN_reg_n_0_[0] ),
+        .Q(cnt_TRN[0]),
         .R(rst));
   FDRE #(
     .INIT(1'b0)) 
     \cnt_TRN_reg[1] 
        (.C(clk),
         .CE(cnt_TRN_0),
-        .D(cnt_TRN[1]),
-        .Q(\cnt_TRN_reg_n_0_[1] ),
+        .D(\cnt_TRN[1]_i_1_n_0 ),
+        .Q(cnt_TRN[1]),
         .R(rst));
   FDRE #(
     .INIT(1'b0)) 
     \cnt_TRN_reg[2] 
        (.C(clk),
         .CE(cnt_TRN_0),
-        .D(cnt_TRN[2]),
-        .Q(\cnt_TRN_reg_n_0_[2] ),
+        .D(\cnt_TRN[2]_i_1_n_0 ),
+        .Q(cnt_TRN[2]),
         .R(rst));
   FDRE #(
     .INIT(1'b0)) 
     \cnt_TRN_reg[3] 
        (.C(clk),
         .CE(cnt_TRN_0),
-        .D(cnt_TRN[3]),
-        .Q(\cnt_TRN_reg_n_0_[3] ),
+        .D(\cnt_TRN[3]_i_1_n_0 ),
+        .Q(cnt_TRN[3]),
         .R(rst));
   FDRE #(
     .INIT(1'b0)) 
     \cnt_TRN_reg[4] 
        (.C(clk),
         .CE(cnt_TRN_0),
-        .D(cnt_TRN[4]),
-        .Q(\cnt_TRN_reg_n_0_[4] ),
+        .D(\cnt_TRN[4]_i_1_n_0 ),
+        .Q(cnt_TRN[4]),
         .R(rst));
   FDRE #(
     .INIT(1'b0)) 
     \cnt_TRN_reg[5] 
        (.C(clk),
         .CE(cnt_TRN_0),
-        .D(cnt_TRN[5]),
-        .Q(\cnt_TRN_reg_n_0_[5] ),
+        .D(\cnt_TRN[5]_i_1_n_0 ),
+        .Q(cnt_TRN[5]),
         .R(rst));
   FDRE #(
     .INIT(1'b0)) 
     \cnt_TRN_reg[6] 
        (.C(clk),
         .CE(cnt_TRN_0),
-        .D(cnt_TRN[6]),
-        .Q(\cnt_TRN_reg_n_0_[6] ),
+        .D(\cnt_TRN[6]_i_1_n_0 ),
+        .Q(cnt_TRN[6]),
         .R(rst));
   FDRE #(
     .INIT(1'b0)) 
     \cnt_TRN_reg[7] 
        (.C(clk),
         .CE(cnt_TRN_0),
-        .D(cnt_TRN[7]),
-        .Q(\cnt_TRN_reg_n_0_[7] ),
+        .D(\cnt_TRN[7]_i_2_n_0 ),
+        .Q(cnt_TRN[7]),
         .R(rst));
   LUT6 #(
     .INIT(64'hB0B0B0404040B040)) 
@@ -1006,7 +1017,7 @@ module top_Depacketizer_0_0_Depacketizer
         .I3(in_QPSK[0]),
         .I4(is_bpsk_reg_reg_n_0),
         .I5(in_BPSK),
-        .O(\data_tdata_reg[0]_i_1_n_0 ));
+        .O(data_tdata_reg[0]));
   LUT6 #(
     .INIT(64'hB0B0B0404040B040)) 
     \data_tdata_reg[1]_i_1 
@@ -1016,7 +1027,7 @@ module top_Depacketizer_0_0_Depacketizer
         .I3(in_QPSK[1]),
         .I4(is_bpsk_reg_reg_n_0),
         .I5(in_BPSK),
-        .O(\data_tdata_reg[1]_i_1_n_0 ));
+        .O(data_tdata_reg[1]));
   (* SOFT_HLUTNM = "soft_lutpair6" *) 
   LUT4 #(
     .INIT(16'hFEEF)) 
@@ -1027,21 +1038,21 @@ module top_Depacketizer_0_0_Depacketizer
         .I3(MODE_CTRL[0]),
         .O(\data_tdata_reg[1]_i_2_n_0 ));
   LUT6 #(
-    .INIT(64'h0000001400000000)) 
+    .INIT(64'h0000000014000000)) 
     \data_tdata_reg[1]_i_3 
        (.I0(state[2]),
         .I1(state[3]),
         .I2(state[4]),
-        .I3(state[0]),
-        .I4(state[1]),
-        .I5(data_tready),
+        .I3(\cnt_HDR[5]_i_3_n_0 ),
+        .I4(data_tready),
+        .I5(state[0]),
         .O(\data_tdata_reg[1]_i_3_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
     \data_tdata_reg_reg[0] 
        (.C(clk),
         .CE(1'b1),
-        .D(\data_tdata_reg[0]_i_1_n_0 ),
+        .D(data_tdata_reg[0]),
         .Q(\data_tdata_reg_reg_n_0_[0] ),
         .R(rst));
   FDRE #(
@@ -1049,18 +1060,18 @@ module top_Depacketizer_0_0_Depacketizer
     \data_tdata_reg_reg[1] 
        (.C(clk),
         .CE(1'b1),
-        .D(\data_tdata_reg[1]_i_1_n_0 ),
+        .D(data_tdata_reg[1]),
         .Q(\data_tdata_reg_reg_n_0_[1] ),
         .R(rst));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
-  LUT5 #(
-    .INIT(32'h00000004)) 
+  LUT6 #(
+    .INIT(64'h0000000000000002)) 
     data_tlast_reg_i_1
-       (.I0(state[2]),
-        .I1(state[4]),
-        .I2(state[3]),
-        .I3(state[1]),
-        .I4(state[0]),
+       (.I0(state[4]),
+        .I1(state[3]),
+        .I2(state[0]),
+        .I3(state[2]),
+        .I4(state[5]),
+        .I5(state[1]),
         .O(data_tlast_reg));
   FDRE #(
     .INIT(1'b0)) 
@@ -1079,15 +1090,15 @@ module top_Depacketizer_0_0_Depacketizer
         .I3(MODE_CTRL[2]),
         .I4(MODE_CTRL[3]),
         .O(data_tvalid));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
-  LUT5 #(
-    .INIT(32'h00000014)) 
+  LUT6 #(
+    .INIT(64'h0000000100010000)) 
     data_tvalid_reg_i_1
-       (.I0(state[2]),
-        .I1(state[3]),
-        .I2(state[4]),
-        .I3(state[1]),
-        .I4(state[0]),
+       (.I0(state[0]),
+        .I1(state[1]),
+        .I2(state[5]),
+        .I3(state[2]),
+        .I4(state[3]),
+        .I5(state[4]),
         .O(data_tvalid_reg));
   FDRE #(
     .INIT(1'b0)) 
@@ -1134,7 +1145,7 @@ module top_Depacketizer_0_0_Depacketizer
   LUT1 #(
     .INIT(2'h1)) 
     i__carry_i_1
-       (.I0(\cnt_PLD_reg_n_0_[1] ),
+       (.I0(cnt_PLD[1]),
         .O(i__carry_i_1_n_0));
   LUT6 #(
     .INIT(64'h9009000000009009)) 
@@ -1186,33 +1197,52 @@ module top_Depacketizer_0_0_Depacketizer
         .I4(is_bpsk_reg_reg_n_0),
         .O(data_tuser));
   LUT6 #(
-    .INIT(64'hFEFEFFFFFEFE3C00)) 
+    .INIT(64'hFEFEFEFFFEFEFE00)) 
     is_bpsk_reg_i_1
-       (.I0(\MCS_reg_n_0_[5] ),
-        .I1(state[1]),
-        .I2(state[0]),
-        .I3(BD_sgn_reg_i_2_n_0),
-        .I4(is_bpsk_reg_i_2_n_0),
+       (.I0(state[1]),
+        .I1(state[0]),
+        .I2(\MCS_reg_n_0_[5] ),
+        .I3(is_bpsk_reg_i_2_n_0),
+        .I4(is_bpsk_reg_i_3_n_0),
         .I5(is_bpsk_reg_reg_n_0),
         .O(is_bpsk_reg_i_1_n_0));
   LUT6 #(
-    .INIT(64'h0200000000000000)) 
+    .INIT(64'h0000000000000004)) 
     is_bpsk_reg_i_2
-       (.I0(is_bpsk_reg_i_3_n_0),
-        .I1(\cnt_HDR_reg_n_0_[1] ),
-        .I2(\cnt_HDR_reg_n_0_[0] ),
-        .I3(\cnt_HDR_reg_n_0_[3] ),
-        .I4(\cnt_HDR_reg_n_0_[2] ),
-        .I5(\payload_length[11]_i_5_n_0 ),
+       (.I0(state[0]),
+        .I1(state[1]),
+        .I2(state[5]),
+        .I3(state[2]),
+        .I4(state[3]),
+        .I5(state[4]),
         .O(is_bpsk_reg_i_2_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
-  LUT3 #(
-    .INIT(8'h40)) 
+  LUT6 #(
+    .INIT(64'hFFFFFFFF02000000)) 
     is_bpsk_reg_i_3
-       (.I0(\cnt_HDR_reg_n_0_[5] ),
-        .I1(state[2]),
-        .I2(\cnt_HDR_reg_n_0_[4] ),
+       (.I0(\payload_length[15]_i_4_n_0 ),
+        .I1(\cnt_HDR_reg_n_0_[5] ),
+        .I2(\payload_length[11]_i_3_n_0 ),
+        .I3(\payload_length[7]_i_3_n_0 ),
+        .I4(is_bpsk_reg_i_4_n_0),
+        .I5(is_bpsk_reg_i_5_n_0),
         .O(is_bpsk_reg_i_3_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair32" *) 
+  LUT2 #(
+    .INIT(4'h1)) 
+    is_bpsk_reg_i_4
+       (.I0(\cnt_HDR_reg_n_0_[0] ),
+        .I1(\cnt_HDR_reg_n_0_[1] ),
+        .O(is_bpsk_reg_i_4_n_0));
+  LUT6 #(
+    .INIT(64'h0000000000000002)) 
+    is_bpsk_reg_i_5
+       (.I0(state[0]),
+        .I1(state[1]),
+        .I2(state[5]),
+        .I3(state[2]),
+        .I4(state[3]),
+        .I5(state[4]),
+        .O(is_bpsk_reg_i_5_n_0));
   FDSE #(
     .INIT(1'b1)) 
     is_bpsk_reg_reg
@@ -1251,6 +1281,7 @@ module top_Depacketizer_0_0_Depacketizer
         .I4(\payload_length[11]_i_4_n_0 ),
         .I5(payload_length[11]),
         .O(\payload_length[11]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair21" *) 
   LUT2 #(
     .INIT(4'h9)) 
     \payload_length[11]_i_2 
@@ -1265,23 +1296,14 @@ module top_Depacketizer_0_0_Depacketizer
         .O(\payload_length[11]_i_3_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair1" *) 
   LUT5 #(
-    .INIT(32'h00040000)) 
+    .INIT(32'h00000400)) 
     \payload_length[11]_i_4 
        (.I0(\cnt_HDR_reg_n_0_[4] ),
         .I1(state[2]),
-        .I2(\cnt_HDR_reg_n_0_[5] ),
-        .I3(rst),
-        .I4(\payload_length[11]_i_5_n_0 ),
+        .I2(rst),
+        .I3(\payload_length[15]_i_4_n_0 ),
+        .I4(\cnt_HDR_reg_n_0_[5] ),
         .O(\payload_length[11]_i_4_n_0 ));
-  LUT5 #(
-    .INIT(32'h00010000)) 
-    \payload_length[11]_i_5 
-       (.I0(state[4]),
-        .I1(state[3]),
-        .I2(state[0]),
-        .I3(state[1]),
-        .I4(data_tready),
-        .O(\payload_length[11]_i_5_n_0 ));
   LUT6 #(
     .INIT(64'h9FFFFFFF90000000)) 
     \payload_length[12]_i_1 
@@ -1323,25 +1345,32 @@ module top_Depacketizer_0_0_Depacketizer
         .I5(payload_length[15]),
         .O(\payload_length[15]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'h0010000000000000)) 
+    .INIT(64'h0000040000000000)) 
     \payload_length[15]_i_2 
        (.I0(\cnt_HDR_reg_n_0_[2] ),
-        .I1(\cnt_HDR_reg_n_0_[4] ),
-        .I2(state[2]),
-        .I3(\cnt_HDR_reg_n_0_[5] ),
-        .I4(\payload_length[15]_i_3_n_0 ),
+        .I1(\payload_length[15]_i_3_n_0 ),
+        .I2(rst),
+        .I3(\payload_length[15]_i_4_n_0 ),
+        .I4(\cnt_HDR_reg_n_0_[5] ),
         .I5(\cnt_HDR_reg_n_0_[3] ),
         .O(\payload_length[15]_i_2_n_0 ));
-  LUT6 #(
-    .INIT(64'h0000000000000002)) 
+  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  LUT2 #(
+    .INIT(4'h2)) 
     \payload_length[15]_i_3 
-       (.I0(data_tready),
-        .I1(state[1]),
-        .I2(state[0]),
-        .I3(state[3]),
-        .I4(state[4]),
-        .I5(rst),
+       (.I0(state[2]),
+        .I1(\cnt_HDR_reg_n_0_[4] ),
         .O(\payload_length[15]_i_3_n_0 ));
+  LUT6 #(
+    .INIT(64'h0000000000010000)) 
+    \payload_length[15]_i_4 
+       (.I0(state[4]),
+        .I1(state[3]),
+        .I2(state[1]),
+        .I3(state[5]),
+        .I4(data_tready),
+        .I5(state[0]),
+        .O(\payload_length[15]_i_4_n_0 ));
   LUT6 #(
     .INIT(64'hFF9FFFFF00900000)) 
     \payload_length[1]_i_1 
@@ -1373,13 +1402,13 @@ module top_Depacketizer_0_0_Depacketizer
         .I5(payload_length[3]),
         .O(\payload_length[3]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'h0000400000000000)) 
+    .INIT(64'h0010000000000000)) 
     \payload_length[3]_i_2 
        (.I0(\cnt_HDR_reg_n_0_[3] ),
-        .I1(\payload_length[15]_i_3_n_0 ),
-        .I2(\cnt_HDR_reg_n_0_[4] ),
-        .I3(state[2]),
-        .I4(\cnt_HDR_reg_n_0_[5] ),
+        .I1(rst),
+        .I2(\payload_length[15]_i_4_n_0 ),
+        .I3(\cnt_HDR_reg_n_0_[5] ),
+        .I4(\payload_length[7]_i_3_n_0 ),
         .I5(\cnt_HDR_reg_n_0_[2] ),
         .O(\payload_length[3]_i_2_n_0 ));
   LUT6 #(
@@ -1423,15 +1452,22 @@ module top_Depacketizer_0_0_Depacketizer
         .I5(payload_length[7]),
         .O(\payload_length[7]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'h0000000000004000)) 
+    .INIT(64'h0000000000100000)) 
     \payload_length[7]_i_2 
        (.I0(\cnt_HDR_reg_n_0_[3] ),
-        .I1(\payload_length[15]_i_3_n_0 ),
-        .I2(\cnt_HDR_reg_n_0_[4] ),
-        .I3(state[2]),
-        .I4(\cnt_HDR_reg_n_0_[5] ),
+        .I1(rst),
+        .I2(\payload_length[15]_i_4_n_0 ),
+        .I3(\cnt_HDR_reg_n_0_[5] ),
+        .I4(\payload_length[7]_i_3_n_0 ),
         .I5(\cnt_HDR_reg_n_0_[2] ),
         .O(\payload_length[7]_i_2_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  LUT2 #(
+    .INIT(4'h8)) 
+    \payload_length[7]_i_3 
+       (.I0(state[2]),
+        .I1(\cnt_HDR_reg_n_0_[4] ),
+        .O(\payload_length[7]_i_3_n_0 ));
   LUT6 #(
     .INIT(64'hFFFFBFFF00008000)) 
     \payload_length[8]_i_1 
@@ -1439,25 +1475,19 @@ module top_Depacketizer_0_0_Depacketizer
         .I1(\payload_length[11]_i_4_n_0 ),
         .I2(\cnt_HDR_reg_n_0_[2] ),
         .I3(\cnt_HDR_reg_n_0_[3] ),
-        .I4(\cnt_HDR[5]_i_3_n_0 ),
+        .I4(\cnt_HDR[5]_i_4_n_0 ),
         .I5(payload_length[8]),
         .O(\payload_length[8]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hBFFFFFFF80000000)) 
+    .INIT(64'hFFEFFFFF00200000)) 
     \payload_length[9]_i_1 
        (.I0(p_7_in),
-        .I1(\cnt_HDR_reg_n_0_[2] ),
-        .I2(\cnt_HDR_reg_n_0_[3] ),
-        .I3(\payload_length[9]_i_2_n_0 ),
+        .I1(\payload_length[11]_i_3_n_0 ),
+        .I2(\cnt_HDR_reg_n_0_[1] ),
+        .I3(\cnt_HDR_reg_n_0_[0] ),
         .I4(\payload_length[11]_i_4_n_0 ),
         .I5(payload_length[9]),
         .O(\payload_length[9]_i_1_n_0 ));
-  LUT2 #(
-    .INIT(4'h2)) 
-    \payload_length[9]_i_2 
-       (.I0(\cnt_HDR_reg_n_0_[1] ),
-        .I1(\cnt_HDR_reg_n_0_[0] ),
-        .O(\payload_length[9]_i_2_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
     \payload_length_reg[0] 
@@ -1652,13 +1682,13 @@ module top_Depacketizer_0_0_Depacketizer
         .O(\payload_length_symbs[15]_i_2_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair1" *) 
   LUT5 #(
-    .INIT(32'h00004000)) 
+    .INIT(32'h04000000)) 
     \payload_length_symbs[15]_i_3 
        (.I0(rst),
-        .I1(\payload_length[11]_i_5_n_0 ),
-        .I2(\cnt_HDR_reg_n_0_[4] ),
-        .I3(state[2]),
-        .I4(\cnt_HDR_reg_n_0_[5] ),
+        .I1(\payload_length[15]_i_4_n_0 ),
+        .I2(\cnt_HDR_reg_n_0_[5] ),
+        .I3(\cnt_HDR_reg_n_0_[4] ),
+        .I4(state[2]),
         .O(\payload_length_symbs[15]_i_3_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair19" *) 
   LUT3 #(
@@ -1861,22 +1891,24 @@ module top_Depacketizer_0_0_Depacketizer
         .Q(\payload_length_symbs_reg_n_0_[9] ),
         .R(1'b0));
   LUT6 #(
-    .INIT(64'hFFFFFFFF44444F44)) 
+    .INIT(64'hFFFF2F22FFFFFFFF)) 
     \state[0]_i_1 
-       (.I0(BD_flag),
-        .I1(state[0]),
-        .I2(\payload_length_symbs_reg_n_0_[0] ),
-        .I3(\state[3]_i_2_n_0 ),
-        .I4(\state[4]_i_4_n_0 ),
-        .I5(\state[0]_i_2_n_0 ),
+       (.I0(\state[0]_i_2_n_0 ),
+        .I1(\state[3]_i_2_n_0 ),
+        .I2(BD_flag),
+        .I3(state[0]),
+        .I4(state[5]),
+        .I5(state_next_n_0),
         .O(state_next__0[0]));
-  (* SOFT_HLUTNM = "soft_lutpair11" *) 
-  LUT3 #(
-    .INIT(8'h8F)) 
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  LUT5 #(
+    .INIT(32'h00004000)) 
     \state[0]_i_2 
-       (.I0(data_tready),
-        .I1(state[4]),
-        .I2(state_next_n_0),
+       (.I0(\state[2]_i_6_n_0 ),
+        .I1(\cnt_HDR_reg_n_0_[5] ),
+        .I2(state[2]),
+        .I3(\cnt_HDR_reg_n_0_[4] ),
+        .I4(\payload_length_symbs_reg_n_0_[0] ),
         .O(\state[0]_i_2_n_0 ));
   LUT6 #(
     .INIT(64'hEAEAEAEAEAEAEAAA)) 
@@ -1884,9 +1916,9 @@ module top_Depacketizer_0_0_Depacketizer
        (.I0(\state[1]_i_2_n_0 ),
         .I1(state_next_n_0),
         .I2(state[1]),
-        .I3(\state[2]_i_2_n_0 ),
-        .I4(\state[2]_i_3_n_0 ),
-        .I5(\state[2]_i_4_n_0 ),
+        .I3(\state[2]_i_3_n_0 ),
+        .I4(\state[2]_i_4_n_0 ),
+        .I5(\state[2]_i_5_n_0 ),
         .O(state_next__0[1]));
   (* SOFT_HLUTNM = "soft_lutpair12" *) 
   LUT3 #(
@@ -1897,118 +1929,127 @@ module top_Depacketizer_0_0_Depacketizer
         .I2(state_next_n_0),
         .O(\state[1]_i_2_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFFFFFF01000000)) 
+    .INIT(64'hAAABAAAAAAAAAAAA)) 
     \state[2]_i_1 
        (.I0(\state[2]_i_2_n_0 ),
         .I1(\state[2]_i_3_n_0 ),
         .I2(\state[2]_i_4_n_0 ),
-        .I3(state_next_n_0),
-        .I4(state[1]),
-        .I5(\state[2]_i_5_n_0 ),
+        .I3(\state[2]_i_5_n_0 ),
+        .I4(state_next_n_0),
+        .I5(state[1]),
         .O(state_next__0[2]));
-  LUT6 #(
-    .INIT(64'hFFFFFFFFF79E9EF7)) 
+  (* SOFT_HLUTNM = "soft_lutpair23" *) 
+  LUT2 #(
+    .INIT(4'h9)) 
+    \state[2]_i_10 
+       (.I0(cnt_TRN[0]),
+        .I1(RX_BD_WINDOW[0]),
+        .O(\state[2]_i_10_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  LUT5 #(
+    .INIT(32'hDF000000)) 
     \state[2]_i_2 
-       (.I0(\cnt_TRN_reg_n_0_[3] ),
-        .I1(RX_BD_WINDOW[3]),
-        .I2(\state[2]_i_6_n_0 ),
-        .I3(\cnt_TRN_reg_n_0_[4] ),
-        .I4(RX_BD_WINDOW[4]),
-        .I5(\state[2]_i_7_n_0 ),
+       (.I0(\cnt_HDR_reg_n_0_[4] ),
+        .I1(\state[2]_i_6_n_0 ),
+        .I2(\cnt_HDR_reg_n_0_[5] ),
+        .I3(state_next_n_0),
+        .I4(state[2]),
         .O(\state[2]_i_2_n_0 ));
   LUT6 #(
-    .INIT(64'hFD0202FDFFFFFFFF)) 
+    .INIT(64'hFFFFFFFFF79E9EF7)) 
     \state[2]_i_3 
-       (.I0(\state[2]_i_8_n_0 ),
+       (.I0(cnt_TRN[3]),
+        .I1(RX_BD_WINDOW[3]),
+        .I2(\state[2]_i_7_n_0 ),
+        .I3(cnt_TRN[4]),
+        .I4(RX_BD_WINDOW[4]),
+        .I5(\state[2]_i_8_n_0 ),
+        .O(\state[2]_i_3_n_0 ));
+  LUT6 #(
+    .INIT(64'hFD0202FDFFFFFFFF)) 
+    \state[2]_i_4 
+       (.I0(\state[2]_i_9_n_0 ),
         .I1(RX_BD_WINDOW[5]),
         .I2(RX_BD_WINDOW[6]),
         .I3(RX_BD_WINDOW[7]),
-        .I4(\cnt_TRN_reg_n_0_[7] ),
-        .I5(\state[2]_i_9_n_0 ),
-        .O(\state[2]_i_3_n_0 ));
+        .I4(cnt_TRN[7]),
+        .I5(\state[2]_i_10_n_0 ),
+        .O(\state[2]_i_4_n_0 ));
   LUT5 #(
     .INIT(32'hEF7979EF)) 
-    \state[2]_i_4 
-       (.I0(\cnt_TRN_reg_n_0_[5] ),
-        .I1(RX_BD_WINDOW[5]),
-        .I2(\state[2]_i_8_n_0 ),
-        .I3(RX_BD_WINDOW[6]),
-        .I4(\cnt_TRN_reg_n_0_[6] ),
-        .O(\state[2]_i_4_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
-  LUT5 #(
-    .INIT(32'h88808888)) 
     \state[2]_i_5 
-       (.I0(state[2]),
-        .I1(state_next_n_0),
-        .I2(\cnt_HDR_reg_n_0_[5] ),
-        .I3(\state[4]_i_5_n_0 ),
-        .I4(\cnt_HDR_reg_n_0_[4] ),
+       (.I0(cnt_TRN[5]),
+        .I1(RX_BD_WINDOW[5]),
+        .I2(\state[2]_i_9_n_0 ),
+        .I3(RX_BD_WINDOW[6]),
+        .I4(cnt_TRN[6]),
         .O(\state[2]_i_5_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair4" *) 
+  LUT4 #(
+    .INIT(16'h7FFF)) 
+    \state[2]_i_6 
+       (.I0(\cnt_HDR_reg_n_0_[1] ),
+        .I1(\cnt_HDR_reg_n_0_[0] ),
+        .I2(\cnt_HDR_reg_n_0_[3] ),
+        .I3(\cnt_HDR_reg_n_0_[2] ),
+        .O(\state[2]_i_6_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair5" *) 
   LUT3 #(
     .INIT(8'h7F)) 
-    \state[2]_i_6 
+    \state[2]_i_7 
        (.I0(RX_BD_WINDOW[1]),
         .I1(RX_BD_WINDOW[0]),
         .I2(RX_BD_WINDOW[2]),
-        .O(\state[2]_i_6_n_0 ));
+        .O(\state[2]_i_7_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair5" *) 
   LUT5 #(
     .INIT(32'h6FF9F99F)) 
-    \state[2]_i_7 
+    \state[2]_i_8 
        (.I0(RX_BD_WINDOW[2]),
-        .I1(\cnt_TRN_reg_n_0_[2] ),
+        .I1(cnt_TRN[2]),
         .I2(RX_BD_WINDOW[0]),
         .I3(RX_BD_WINDOW[1]),
-        .I4(\cnt_TRN_reg_n_0_[1] ),
-        .O(\state[2]_i_7_n_0 ));
+        .I4(cnt_TRN[1]),
+        .O(\state[2]_i_8_n_0 ));
   LUT5 #(
     .INIT(32'h7FFFFFFF)) 
-    \state[2]_i_8 
+    \state[2]_i_9 
        (.I0(RX_BD_WINDOW[3]),
         .I1(RX_BD_WINDOW[1]),
         .I2(RX_BD_WINDOW[0]),
         .I3(RX_BD_WINDOW[2]),
         .I4(RX_BD_WINDOW[4]),
-        .O(\state[2]_i_8_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair22" *) 
-  LUT2 #(
-    .INIT(4'h9)) 
-    \state[2]_i_9 
-       (.I0(\cnt_TRN_reg_n_0_[0] ),
-        .I1(RX_BD_WINDOW[0]),
         .O(\state[2]_i_9_n_0 ));
   LUT5 #(
     .INIT(32'hF2002200)) 
     \state[3]_i_1 
        (.I0(state[3]),
         .I1(\state_next1_inferred__0/i__carry__0_n_2 ),
-        .I2(\state[3]_i_2_n_0 ),
+        .I2(\state[4]_i_4_n_0 ),
         .I3(state_next_n_0),
-        .I4(\state[4]_i_4_n_0 ),
+        .I4(\state[3]_i_2_n_0 ),
         .O(state_next__0[3]));
   LUT6 #(
-    .INIT(64'h0000000008000000)) 
+    .INIT(64'hFFFFFFFFFFFFFFFE)) 
     \state[3]_i_2 
-       (.I0(\cnt_HDR_reg_n_0_[4] ),
-        .I1(state[2]),
-        .I2(\cnt_HDR_reg_n_0_[5] ),
-        .I3(\cnt_HDR_reg_n_0_[2] ),
-        .I4(\cnt_HDR_reg_n_0_[3] ),
-        .I5(\cnt_HDR[5]_i_3_n_0 ),
+       (.I0(\state[4]_i_8_n_0 ),
+        .I1(\state[4]_i_7_n_0 ),
+        .I2(\payload_length_symbs_reg_n_0_[15] ),
+        .I3(\payload_length_symbs_reg_n_0_[14] ),
+        .I4(\payload_length_symbs_reg_n_0_[1] ),
+        .I5(\state[4]_i_5_n_0 ),
         .O(\state[3]_i_2_n_0 ));
   LUT6 #(
-    .INIT(64'hFF80FF80FFFFFF80)) 
+    .INIT(64'hFFF8F0F0F8F8F0F0)) 
     \state[4]_i_1 
-       (.I0(state_next_n_0),
-        .I1(\state_next1_inferred__0/i__carry__0_n_2 ),
-        .I2(state[3]),
-        .I3(\state[4]_i_2_n_0 ),
-        .I4(\state[4]_i_3_n_0 ),
+       (.I0(\state_next1_inferred__0/i__carry__0_n_2 ),
+        .I1(state[3]),
+        .I2(\state[4]_i_2_n_0 ),
+        .I3(\state[4]_i_3_n_0 ),
+        .I4(state_next_n_0),
         .I5(\state[4]_i_4_n_0 ),
         .O(state_next__0[4]));
-  (* SOFT_HLUTNM = "soft_lutpair11" *) 
+  (* SOFT_HLUTNM = "soft_lutpair12" *) 
   LUT3 #(
     .INIT(8'h40)) 
     \state[4]_i_2 
@@ -2016,42 +2057,39 @@ module top_Depacketizer_0_0_Depacketizer
         .I1(state[4]),
         .I2(state_next_n_0),
         .O(\state[4]_i_2_n_0 ));
-  LUT6 #(
-    .INIT(64'h0000008000000000)) 
+  LUT5 #(
+    .INIT(32'h00000002)) 
     \state[4]_i_3 
-       (.I0(state_next_n_0),
-        .I1(\cnt_HDR_reg_n_0_[4] ),
-        .I2(state[2]),
-        .I3(\cnt_HDR_reg_n_0_[5] ),
-        .I4(\state[4]_i_5_n_0 ),
-        .I5(\payload_length_symbs_reg_n_0_[0] ),
+       (.I0(\payload_length_symbs_reg_n_0_[0] ),
+        .I1(\state[4]_i_5_n_0 ),
+        .I2(\state[4]_i_6_n_0 ),
+        .I3(\state[4]_i_7_n_0 ),
+        .I4(\state[4]_i_8_n_0 ),
         .O(\state[4]_i_3_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFFFFFFFFFFFFFE)) 
+    .INIT(64'h0080000000000000)) 
     \state[4]_i_4 
-       (.I0(\state[4]_i_6_n_0 ),
-        .I1(\state[4]_i_7_n_0 ),
-        .I2(\payload_length_symbs_reg_n_0_[15] ),
-        .I3(\payload_length_symbs_reg_n_0_[14] ),
-        .I4(\payload_length_symbs_reg_n_0_[1] ),
-        .I5(\state[4]_i_8_n_0 ),
+       (.I0(\cnt_HDR_reg_n_0_[4] ),
+        .I1(state[2]),
+        .I2(\cnt_HDR_reg_n_0_[5] ),
+        .I3(\cnt_HDR[5]_i_4_n_0 ),
+        .I4(\cnt_HDR_reg_n_0_[3] ),
+        .I5(\cnt_HDR_reg_n_0_[2] ),
         .O(\state[4]_i_4_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair4" *) 
-  LUT4 #(
-    .INIT(16'h7FFF)) 
-    \state[4]_i_5 
-       (.I0(\cnt_HDR_reg_n_0_[1] ),
-        .I1(\cnt_HDR_reg_n_0_[0] ),
-        .I2(\cnt_HDR_reg_n_0_[3] ),
-        .I3(\cnt_HDR_reg_n_0_[2] ),
-        .O(\state[4]_i_5_n_0 ));
   LUT4 #(
     .INIT(16'hFFFE)) 
+    \state[4]_i_5 
+       (.I0(\payload_length_symbs_reg_n_0_[11] ),
+        .I1(\payload_length_symbs_reg_n_0_[10] ),
+        .I2(\payload_length_symbs_reg_n_0_[13] ),
+        .I3(\payload_length_symbs_reg_n_0_[12] ),
+        .O(\state[4]_i_5_n_0 ));
+  LUT3 #(
+    .INIT(8'hFE)) 
     \state[4]_i_6 
-       (.I0(\payload_length_symbs_reg_n_0_[7] ),
-        .I1(\payload_length_symbs_reg_n_0_[6] ),
-        .I2(\payload_length_symbs_reg_n_0_[9] ),
-        .I3(\payload_length_symbs_reg_n_0_[8] ),
+       (.I0(\payload_length_symbs_reg_n_0_[15] ),
+        .I1(\payload_length_symbs_reg_n_0_[14] ),
+        .I2(\payload_length_symbs_reg_n_0_[1] ),
         .O(\state[4]_i_6_n_0 ));
   LUT4 #(
     .INIT(16'hFFFE)) 
@@ -2064,20 +2102,28 @@ module top_Depacketizer_0_0_Depacketizer
   LUT4 #(
     .INIT(16'hFFFE)) 
     \state[4]_i_8 
-       (.I0(\payload_length_symbs_reg_n_0_[11] ),
-        .I1(\payload_length_symbs_reg_n_0_[10] ),
-        .I2(\payload_length_symbs_reg_n_0_[13] ),
-        .I3(\payload_length_symbs_reg_n_0_[12] ),
+       (.I0(\payload_length_symbs_reg_n_0_[7] ),
+        .I1(\payload_length_symbs_reg_n_0_[6] ),
+        .I2(\payload_length_symbs_reg_n_0_[9] ),
+        .I3(\payload_length_symbs_reg_n_0_[8] ),
         .O(\state[4]_i_8_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
-  LUT5 #(
-    .INIT(32'h00010116)) 
+  (* SOFT_HLUTNM = "soft_lutpair11" *) 
+  LUT3 #(
+    .INIT(8'h80)) 
+    \state[5]_i_1 
+       (.I0(data_tready),
+        .I1(state[4]),
+        .I2(state_next_n_0),
+        .O(state_next__0[5]));
+  LUT6 #(
+    .INIT(64'h0000000100010116)) 
     state_next
        (.I0(state[0]),
         .I1(state[1]),
         .I2(state[2]),
         .I3(state[3]),
         .I4(state[4]),
+        .I5(state[5]),
         .O(state_next_n_0));
   CARRY4 \state_next1_inferred__0/i__carry 
        (.CI(1'b0),
@@ -2097,31 +2143,31 @@ module top_Depacketizer_0_0_Depacketizer
        (.CI(1'b0),
         .CO({\state_next2_inferred__0/i__carry_n_0 ,\state_next2_inferred__0/i__carry_n_1 ,\state_next2_inferred__0/i__carry_n_2 ,\state_next2_inferred__0/i__carry_n_3 }),
         .CYINIT(1'b0),
-        .DI({1'b0,1'b0,\cnt_PLD_reg_n_0_[1] ,1'b0}),
+        .DI({1'b0,1'b0,cnt_PLD[1],1'b0}),
         .O({\state_next2_inferred__0/i__carry_n_4 ,\state_next2_inferred__0/i__carry_n_5 ,\state_next2_inferred__0/i__carry_n_6 ,\state_next2_inferred__0/i__carry_n_7 }),
-        .S({\cnt_PLD_reg_n_0_[3] ,\cnt_PLD_reg_n_0_[2] ,i__carry_i_1_n_0,\cnt_PLD_reg_n_0_[0] }));
+        .S({cnt_PLD[3:2],i__carry_i_1_n_0,cnt_PLD[0]}));
   CARRY4 \state_next2_inferred__0/i__carry__0 
        (.CI(\state_next2_inferred__0/i__carry_n_0 ),
         .CO({\state_next2_inferred__0/i__carry__0_n_0 ,\state_next2_inferred__0/i__carry__0_n_1 ,\state_next2_inferred__0/i__carry__0_n_2 ,\state_next2_inferred__0/i__carry__0_n_3 }),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O({\state_next2_inferred__0/i__carry__0_n_4 ,\state_next2_inferred__0/i__carry__0_n_5 ,\state_next2_inferred__0/i__carry__0_n_6 ,\state_next2_inferred__0/i__carry__0_n_7 }),
-        .S({\cnt_PLD_reg_n_0_[7] ,\cnt_PLD_reg_n_0_[6] ,\cnt_PLD_reg_n_0_[5] ,\cnt_PLD_reg_n_0_[4] }));
+        .S(cnt_PLD[7:4]));
   CARRY4 \state_next2_inferred__0/i__carry__1 
        (.CI(\state_next2_inferred__0/i__carry__0_n_0 ),
         .CO({\state_next2_inferred__0/i__carry__1_n_0 ,\state_next2_inferred__0/i__carry__1_n_1 ,\state_next2_inferred__0/i__carry__1_n_2 ,\state_next2_inferred__0/i__carry__1_n_3 }),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O({\state_next2_inferred__0/i__carry__1_n_4 ,\state_next2_inferred__0/i__carry__1_n_5 ,\state_next2_inferred__0/i__carry__1_n_6 ,\state_next2_inferred__0/i__carry__1_n_7 }),
-        .S({\cnt_PLD_reg_n_0_[11] ,\cnt_PLD_reg_n_0_[10] ,\cnt_PLD_reg_n_0_[9] ,\cnt_PLD_reg_n_0_[8] }));
+        .S(cnt_PLD[11:8]));
   CARRY4 \state_next2_inferred__0/i__carry__2 
        (.CI(\state_next2_inferred__0/i__carry__1_n_0 ),
         .CO({\state_next2_inferred__0/i__carry__2_n_0 ,\state_next2_inferred__0/i__carry__2_n_1 ,\state_next2_inferred__0/i__carry__2_n_2 ,\state_next2_inferred__0/i__carry__2_n_3 }),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O({\state_next2_inferred__0/i__carry__2_n_4 ,\state_next2_inferred__0/i__carry__2_n_5 ,\state_next2_inferred__0/i__carry__2_n_6 ,\state_next2_inferred__0/i__carry__2_n_7 }),
-        .S({\cnt_PLD_reg_n_0_[15] ,\cnt_PLD_reg_n_0_[14] ,\cnt_PLD_reg_n_0_[13] ,\cnt_PLD_reg_n_0_[12] }));
-  (* FSM_ENCODED_STATES = "STATE_TRN:00010,STATE_HDR:00100,STATE_PLD:01000,STATE_LAST:10000,STATE_IDLE:00001" *) 
+        .S(cnt_PLD[15:12]));
+  (* FSM_ENCODED_STATES = "STATE_TRN:000010,STATE_HDR:000100,STATE_IDLE:000001,STATE_PLD:001000,STATE_LAST:010000,STATE_WAIT:100000" *) 
   FDSE #(
     .INIT(1'b1)) 
     \state_reg[0] 
@@ -2130,7 +2176,7 @@ module top_Depacketizer_0_0_Depacketizer
         .D(state_next__0[0]),
         .Q(state[0]),
         .S(rst));
-  (* FSM_ENCODED_STATES = "STATE_TRN:00010,STATE_HDR:00100,STATE_PLD:01000,STATE_LAST:10000,STATE_IDLE:00001" *) 
+  (* FSM_ENCODED_STATES = "STATE_TRN:000010,STATE_HDR:000100,STATE_IDLE:000001,STATE_PLD:001000,STATE_LAST:010000,STATE_WAIT:100000" *) 
   FDRE #(
     .INIT(1'b0)) 
     \state_reg[1] 
@@ -2139,7 +2185,7 @@ module top_Depacketizer_0_0_Depacketizer
         .D(state_next__0[1]),
         .Q(state[1]),
         .R(rst));
-  (* FSM_ENCODED_STATES = "STATE_TRN:00010,STATE_HDR:00100,STATE_PLD:01000,STATE_LAST:10000,STATE_IDLE:00001" *) 
+  (* FSM_ENCODED_STATES = "STATE_TRN:000010,STATE_HDR:000100,STATE_IDLE:000001,STATE_PLD:001000,STATE_LAST:010000,STATE_WAIT:100000" *) 
   FDRE #(
     .INIT(1'b0)) 
     \state_reg[2] 
@@ -2148,7 +2194,7 @@ module top_Depacketizer_0_0_Depacketizer
         .D(state_next__0[2]),
         .Q(state[2]),
         .R(rst));
-  (* FSM_ENCODED_STATES = "STATE_TRN:00010,STATE_HDR:00100,STATE_PLD:01000,STATE_LAST:10000,STATE_IDLE:00001" *) 
+  (* FSM_ENCODED_STATES = "STATE_TRN:000010,STATE_HDR:000100,STATE_IDLE:000001,STATE_PLD:001000,STATE_LAST:010000,STATE_WAIT:100000" *) 
   FDRE #(
     .INIT(1'b0)) 
     \state_reg[3] 
@@ -2157,7 +2203,7 @@ module top_Depacketizer_0_0_Depacketizer
         .D(state_next__0[3]),
         .Q(state[3]),
         .R(rst));
-  (* FSM_ENCODED_STATES = "STATE_TRN:00010,STATE_HDR:00100,STATE_PLD:01000,STATE_LAST:10000,STATE_IDLE:00001" *) 
+  (* FSM_ENCODED_STATES = "STATE_TRN:000010,STATE_HDR:000100,STATE_IDLE:000001,STATE_PLD:001000,STATE_LAST:010000,STATE_WAIT:100000" *) 
   FDRE #(
     .INIT(1'b0)) 
     \state_reg[4] 
@@ -2165,6 +2211,15 @@ module top_Depacketizer_0_0_Depacketizer
         .CE(1'b1),
         .D(state_next__0[4]),
         .Q(state[4]),
+        .R(rst));
+  (* FSM_ENCODED_STATES = "STATE_TRN:000010,STATE_HDR:000100,STATE_IDLE:000001,STATE_PLD:001000,STATE_LAST:010000,STATE_WAIT:100000" *) 
+  FDRE #(
+    .INIT(1'b0)) 
+    \state_reg[5] 
+       (.C(clk),
+        .CE(1'b1),
+        .D(state_next__0[5]),
+        .Q(state[5]),
         .R(rst));
 endmodule
 `ifndef GLBL

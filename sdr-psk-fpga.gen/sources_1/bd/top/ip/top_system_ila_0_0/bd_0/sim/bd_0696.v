@@ -6,7 +6,7 @@
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "bd_0696,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=bd_0696,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=1,numReposBlks=1,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=SBD,synth_mode=Global}" *) (* HW_HANDOFF = "top_system_ila_0_0.hwdef" *) 
+(* CORE_GENERATION_INFO = "bd_0696,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=bd_0696,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=1,numReposBlks=1,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=SBD,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "top_system_ila_0_0.hwdef" *) 
 module bd_0696
    (clk,
     probe0,
@@ -27,6 +27,10 @@ module bd_0696
     probe22,
     probe23,
     probe24,
+    probe25,
+    probe26,
+    probe27,
+    probe28,
     probe3,
     probe4,
     probe5,
@@ -53,6 +57,10 @@ module bd_0696
   input [0:0]probe22;
   input [15:0]probe23;
   input [15:0]probe24;
+  input [0:0]probe25;
+  input [0:0]probe26;
+  input [0:0]probe27;
+  input [0:0]probe28;
   input [11:0]probe3;
   input [11:0]probe4;
   input [11:0]probe5;
@@ -79,6 +87,10 @@ module bd_0696
   wire [0:0]probe22_1;
   wire [15:0]probe23_1;
   wire [15:0]probe24_1;
+  wire [0:0]probe25_1;
+  wire [0:0]probe26_1;
+  wire [0:0]probe27_1;
+  wire [0:0]probe28_1;
   wire [11:0]probe2_1;
   wire [11:0]probe3_1;
   wire [11:0]probe4_1;
@@ -106,6 +118,10 @@ module bd_0696
   assign probe22_1 = probe22[0];
   assign probe23_1 = probe23[15:0];
   assign probe24_1 = probe24[15:0];
+  assign probe25_1 = probe25[0];
+  assign probe26_1 = probe26[0];
+  assign probe27_1 = probe27[0];
+  assign probe28_1 = probe28[0];
   assign probe2_1 = probe2[11:0];
   assign probe3_1 = probe3[11:0];
   assign probe4_1 = probe4[11:0];
@@ -134,6 +150,10 @@ module bd_0696
         .probe22(probe22_1),
         .probe23(probe23_1),
         .probe24(probe24_1),
+        .probe25(probe25_1),
+        .probe26(probe26_1),
+        .probe27(probe27_1),
+        .probe28(probe28_1),
         .probe3(probe3_1),
         .probe4(probe4_1),
         .probe5(probe5_1),

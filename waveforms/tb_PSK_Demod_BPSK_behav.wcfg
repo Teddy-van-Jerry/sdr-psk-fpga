@@ -11,12 +11,12 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="46.852000 us"></ZoomStartTime>
-      <ZoomEndTime time="60.807724 us"></ZoomEndTime>
-      <Cursor1Time time="58.674141 us"></Cursor1Time>
+      <ZoomStartTime time="0.000000 us"></ZoomStartTime>
+      <ZoomEndTime time="85.000000 us"></ZoomEndTime>
+      <Cursor1Time time="55.840000 us"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="218"></NameColumnWidth>
+      <NameColumnWidth column_width="188"></NameColumnWidth>
       <ValueColumnWidth column_width="72"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="64" />
@@ -105,10 +105,6 @@
    <wvobject fp_name="/tb_PSK_Demod_BPSK/Tx_1bit" type="logic">
       <obj_property name="ElementShortName">Tx_1bit</obj_property>
       <obj_property name="ObjectShortName">Tx_1bit</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_PSK_Demod_BPSK/TX_PHASE_CONFIG" type="array">
-      <obj_property name="ElementShortName">TX_PHASE_CONFIG[15:0]</obj_property>
-      <obj_property name="ObjectShortName">TX_PHASE_CONFIG[15:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_PSK_Demod_BPSK/Tx_tdata" type="array">
       <obj_property name="ElementShortName">Tx_tdata[7:0]</obj_property>
@@ -354,10 +350,6 @@
       <obj_property name="ObjectShortName">QPSK_raw[1:0]</obj_property>
       <obj_property name="isExpanded"></obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_PSK_Demod_BPSK/inst_Rx/SPB_Detection/Rx_BD_0/inst/BPSK_diff" type="logic">
-      <obj_property name="ElementShortName">BPSK_diff</obj_property>
-      <obj_property name="ObjectShortName">BPSK_diff</obj_property>
-   </wvobject>
    <wvobject fp_name="/tb_PSK_Demod_BPSK/DAC_bits" type="array">
       <obj_property name="ElementShortName">DAC_bits[1:0]</obj_property>
       <obj_property name="ObjectShortName">DAC_bits[1:0]</obj_property>
@@ -367,9 +359,17 @@
       <obj_property name="ElementShortName">Tx_1bit</obj_property>
       <obj_property name="ObjectShortName">Tx_1bit</obj_property>
    </wvobject>
+   <wvobject fp_name="/tb_PSK_Demod_BPSK/Tx_vld" type="logic">
+      <obj_property name="ElementShortName">Tx_vld</obj_property>
+      <obj_property name="ObjectShortName">Tx_vld</obj_property>
+   </wvobject>
    <wvobject fp_name="/tb_PSK_Demod_BPSK/Rx_1bit" type="logic">
       <obj_property name="ElementShortName">Rx_1bit</obj_property>
       <obj_property name="ObjectShortName">Rx_1bit</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_PSK_Demod_BPSK/Rx_vld" type="logic">
+      <obj_property name="ElementShortName">Rx_vld</obj_property>
+      <obj_property name="ObjectShortName">Rx_vld</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_PSK_Demod_BPSK/clk_1M_out" type="logic">
       <obj_property name="ElementShortName">clk_1M_out</obj_property>

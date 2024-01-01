@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x6799F6DE23D617A7",
+      "boundary_crc": "0x5D107495DA1E6489",
       "design_src": "SBD",
       "device": "xc7z020clg484-1",
       "name": "bd_0696",
@@ -165,6 +165,26 @@
         "direction": "I",
         "left": "15",
         "right": "0"
+      },
+      "probe25": {
+        "direction": "I",
+        "left": "0",
+        "right": "0"
+      },
+      "probe26": {
+        "direction": "I",
+        "left": "0",
+        "right": "0"
+      },
+      "probe27": {
+        "direction": "I",
+        "left": "0",
+        "right": "0"
+      },
+      "probe28": {
+        "direction": "I",
+        "left": "0",
+        "right": "0"
       }
     },
     "components": {
@@ -184,7 +204,7 @@
             "value": "FALSE"
           },
           "C_DATA_DEPTH": {
-            "value": "2048"
+            "value": "4096"
           },
           "C_EN_STRG_QUAL": {
             "value": "0"
@@ -202,7 +222,7 @@
             "value": "Native"
           },
           "C_NUM_OF_PROBES": {
-            "value": "25"
+            "value": "29"
           },
           "C_PROBE0_MU_CNT": {
             "value": "1"
@@ -356,6 +376,42 @@
           },
           "C_PROBE24_WIDTH": {
             "value": "16"
+          },
+          "C_PROBE25_MU_CNT": {
+            "value": "1"
+          },
+          "C_PROBE25_TYPE": {
+            "value": "0"
+          },
+          "C_PROBE25_WIDTH": {
+            "value": "1"
+          },
+          "C_PROBE26_MU_CNT": {
+            "value": "1"
+          },
+          "C_PROBE26_TYPE": {
+            "value": "0"
+          },
+          "C_PROBE26_WIDTH": {
+            "value": "1"
+          },
+          "C_PROBE27_MU_CNT": {
+            "value": "1"
+          },
+          "C_PROBE27_TYPE": {
+            "value": "0"
+          },
+          "C_PROBE27_WIDTH": {
+            "value": "1"
+          },
+          "C_PROBE28_MU_CNT": {
+            "value": "1"
+          },
+          "C_PROBE28_TYPE": {
+            "value": "0"
+          },
+          "C_PROBE28_WIDTH": {
+            "value": "1"
           },
           "C_PROBE2_MU_CNT": {
             "value": "1"
@@ -551,6 +607,30 @@
         "ports": [
           "probe24",
           "ila_lib/probe24"
+        ]
+      },
+      "probe25_1": {
+        "ports": [
+          "probe25",
+          "ila_lib/probe25"
+        ]
+      },
+      "probe26_1": {
+        "ports": [
+          "probe26",
+          "ila_lib/probe26"
+        ]
+      },
+      "probe27_1": {
+        "ports": [
+          "probe27",
+          "ila_lib/probe27"
+        ]
+      },
+      "probe28_1": {
+        "ports": [
+          "probe28",
+          "ila_lib/probe28"
         ]
       },
       "probe2_1": {

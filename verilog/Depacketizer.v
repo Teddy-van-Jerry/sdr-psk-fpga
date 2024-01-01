@@ -176,8 +176,8 @@ module Depacketizer # (
             6'd25: signature[6] <= in_BPSK ~^ BD_sgn_reg;
             6'd26: signature[5] <= in_BPSK ~^ BD_sgn_reg;
             6'd27: signature[4] <= in_BPSK ~^ BD_sgn_reg;
-            6/ 5'd28: signature[3] <= in_BPSK ~^ BD_sgn_reg;
-            6/ 5'd29: signature[2] <= in_BPSK ~^ BD_sgn_reg;
+            // 6'd28: signature[3] <= in_BPSK ~^ BD_sgn_reg;
+            // 6'd29: signature[2] <= in_BPSK ~^ BD_sgn_reg;
             6'd30: signature[1] <= in_BPSK ~^ BD_sgn_reg;
             6'd31: signature[0] <= in_BPSK ~^ BD_sgn_reg;
             6'd28: begin // set is_bpsk 3 CCs ahead

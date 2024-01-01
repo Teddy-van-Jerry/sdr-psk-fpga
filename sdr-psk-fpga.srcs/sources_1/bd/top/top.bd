@@ -54,10 +54,10 @@
           "NCO_cos_sin_0": "",
           "PSK_Mod_0": ""
         },
-        "Bits_Flatten_0": "",
         "axis_data_fifo_0": "",
         "Tx_Data_0": "",
-        "Packetizer_0": ""
+        "Packetizer_0": "",
+        "Bits_Flatten_0": ""
       },
       "system_ila_0": "",
       "Const_Config": {
@@ -362,6 +362,9 @@
             "direction": "O",
             "left": "15",
             "right": "0"
+          },
+          "Rx_vld": {
+            "direction": "O"
           }
         },
         "components": {
@@ -1156,6 +1159,9 @@
               },
               "Rx_1bit": {
                 "direction": "O"
+              },
+              "Rx_vld": {
+                "direction": "O"
               }
             },
             "components": {
@@ -1229,7 +1235,13 @@
                     "left": "7",
                     "right": "0"
                   },
+                  "I_vld": {
+                    "direction": "I"
+                  },
                   "O": {
+                    "direction": "O"
+                  },
+                  "O_vld": {
                     "direction": "O"
                   }
                 }
@@ -1250,6 +1262,12 @@
                   "Rx_1bit"
                 ]
               },
+              "Bits_Flatten_0_O_vld": {
+                "ports": [
+                  "Bits_Flatten_0/O_vld",
+                  "Rx_vld"
+                ]
+              },
               "Not_Gate_0_o": {
                 "ports": [
                   "Not_Gate_0/o",
@@ -1266,6 +1284,12 @@
                 "ports": [
                   "axis_data_fifo_0/m_axis_tuser",
                   "Bits_Flatten_0/bypass"
+                ]
+              },
+              "axis_data_fifo_0_m_axis_tvalid": {
+                "ports": [
+                  "axis_data_fifo_0/m_axis_tvalid",
+                  "Bits_Flatten_0/I_vld"
                 ]
               },
               "clk_1M024_1": {
@@ -1778,6 +1802,12 @@
             "ports": [
               "Flatten/Rx_1bit",
               "Rx_1bit"
+            ]
+          },
+          "Flatten_Rx_vld": {
+            "ports": [
+              "Flatten/Rx_vld",
+              "Rx_vld"
             ]
           },
           "GARDNER_SHIFT_1": {
@@ -2516,6 +2546,9 @@
           },
           "data_tvalid": {
             "direction": "O"
+          },
+          "Tx_vld": {
+            "direction": "O"
           }
         },
         "components": {
@@ -3014,36 +3047,6 @@
               }
             }
           },
-          "Bits_Flatten_0": {
-            "vlnv": "xilinx.com:module_ref:Bits_Flatten:1.0",
-            "xci_name": "top_Bits_Flatten_0_0",
-            "xci_path": "ip\\top_Bits_Flatten_0_0\\top_Bits_Flatten_0_0.xci",
-            "inst_hier_path": "Tx/Bits_Flatten_0",
-            "reference_info": {
-              "ref_type": "hdl",
-              "ref_name": "Bits_Flatten",
-              "boundary_crc": "0x0"
-            },
-            "ports": {
-              "bypass": {
-                "direction": "I"
-              },
-              "clk_in": {
-                "direction": "I"
-              },
-              "clk_out": {
-                "direction": "I"
-              },
-              "I": {
-                "direction": "I",
-                "left": "7",
-                "right": "0"
-              },
-              "O": {
-                "direction": "O"
-              }
-            }
-          },
           "axis_data_fifo_0": {
             "vlnv": "xilinx.com:ip:axis_data_fifo:2.0",
             "xci_name": "top_axis_data_fifo_0_2",
@@ -3333,7 +3336,46 @@
               "hdr_vld": {
                 "direction": "O"
               },
+              "pld_vld": {
+                "direction": "O"
+              },
               "pkt_sent": {
+                "direction": "O"
+              }
+            }
+          },
+          "Bits_Flatten_0": {
+            "vlnv": "xilinx.com:module_ref:Bits_Flatten:1.0",
+            "xci_name": "top_Bits_Flatten_0_0",
+            "xci_path": "ip\\top_Bits_Flatten_0_0\\top_Bits_Flatten_0_0.xci",
+            "inst_hier_path": "Tx/Bits_Flatten_0",
+            "reference_info": {
+              "ref_type": "hdl",
+              "ref_name": "Bits_Flatten",
+              "boundary_crc": "0x0"
+            },
+            "ports": {
+              "bypass": {
+                "direction": "I"
+              },
+              "clk_in": {
+                "direction": "I"
+              },
+              "clk_out": {
+                "direction": "I"
+              },
+              "I": {
+                "direction": "I",
+                "left": "7",
+                "right": "0"
+              },
+              "I_vld": {
+                "direction": "I"
+              },
+              "O": {
+                "direction": "O"
+              },
+              "O_vld": {
                 "direction": "O"
               }
             }
@@ -3360,6 +3402,12 @@
           }
         },
         "nets": {
+          "Bits_Flatten_0_O_vld": {
+            "ports": [
+              "Bits_Flatten_0/O_vld",
+              "Tx_vld"
+            ]
+          },
           "Bits_Flatten_0_out": {
             "ports": [
               "Bits_Flatten_0/O",
@@ -3429,6 +3477,12 @@
               "Tx_Data_0/pkt_sent"
             ]
           },
+          "Packetizer_0_pld_vld": {
+            "ports": [
+              "Packetizer_0/pld_vld",
+              "Bits_Flatten_0/I_vld"
+            ]
+          },
           "TX_PHASE_CONFIG_1": {
             "ports": [
               "TX_PHASE_CONFIG",
@@ -3473,10 +3527,10 @@
             "ports": [
               "clk_1M024",
               "PSK_Modulation/clk_1M024",
-              "Bits_Flatten_0/clk_in",
               "axis_data_fifo_0/s_axis_aclk",
               "Tx_Data_0/clk",
-              "Packetizer_0/clk"
+              "Packetizer_0/clk",
+              "Bits_Flatten_0/clk_in"
             ]
           },
           "clk_2M048_1": {
@@ -3509,7 +3563,7 @@
         "inst_hier_path": "system_ila_0",
         "parameters": {
           "C_DATA_DEPTH": {
-            "value": "2048"
+            "value": "4096"
           },
           "C_INPUT_PIPE_STAGES": {
             "value": "2"
@@ -3521,7 +3575,7 @@
             "value": "2"
           },
           "C_NUM_OF_PROBES": {
-            "value": "25"
+            "value": "29"
           },
           "C_PROBE10_TYPE": {
             "value": "0"
@@ -4116,7 +4170,14 @@
       "Rx_Rx_1bit": {
         "ports": [
           "Rx/Rx_1bit",
-          "GPIO_TH2"
+          "GPIO_TH2",
+          "system_ila_0/probe27"
+        ]
+      },
+      "Rx_Rx_vld": {
+        "ports": [
+          "Rx/Rx_vld",
+          "system_ila_0/probe28"
         ]
       },
       "Rx_clk_1M_out": {
@@ -4177,7 +4238,14 @@
       "Tx_Tx_1bit": {
         "ports": [
           "Tx/Tx_1bit",
-          "GPIO_TH1"
+          "GPIO_TH1",
+          "system_ila_0/probe25"
+        ]
+      },
+      "Tx_Tx_vld": {
+        "ports": [
+          "Tx/Tx_vld",
+          "system_ila_0/probe26"
         ]
       },
       "Tx_data_tdata": {

@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2023 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2024 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -79,7 +79,11 @@ module top_system_ila_0_0 (
   probe21,
   probe22,
   probe23,
-  probe24
+  probe24,
+  probe25,
+  probe26,
+  probe27,
+  probe28
 );
 
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.clk, FREQ_HZ 32768000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /Clock_Gen/clk_wiz_32M768_clk_out1, INSERT_VIP 0" *)
@@ -110,6 +114,10 @@ input wire [0 : 0] probe21;
 input wire [0 : 0] probe22;
 input wire [15 : 0] probe23;
 input wire [15 : 0] probe24;
+input wire [0 : 0] probe25;
+input wire [0 : 0] probe26;
+input wire [0 : 0] probe27;
+input wire [0 : 0] probe28;
 
   bd_0696 inst (
     .clk(clk),
@@ -137,6 +145,10 @@ input wire [15 : 0] probe24;
     .probe21(probe21),
     .probe22(probe22),
     .probe23(probe23),
-    .probe24(probe24)
+    .probe24(probe24),
+    .probe25(probe25),
+    .probe26(probe26),
+    .probe27(probe27),
+    .probe28(probe28)
   );
 endmodule

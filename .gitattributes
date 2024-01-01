@@ -3,4 +3,5 @@ constraints/lt_zynq_V200.xdc linguist-vendored
 **/xgui/*.tcl linguist-generated
 *.gen/** linguist-generated
 *.ip_user_files/** linguist-generated
+*_ooc.xdc linguist-generated
 latex/** linguist-documentation

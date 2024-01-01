@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2023 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2024 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -60,14 +60,18 @@ module top_Bits_Flatten_0_0 (
   clk_in,
   clk_out,
   I,
-  O
+  I_vld,
+  O,
+  O_vld
 );
 
 input wire bypass;
 input wire clk_in;
 input wire clk_out;
 input wire [7 : 0] I;
+input wire I_vld;
 output wire O;
+output wire O_vld;
 
   Bits_Flatten #(
     .N(2),
@@ -78,6 +82,8 @@ output wire O;
     .clk_in(clk_in),
     .clk_out(clk_out),
     .I(I),
-    .O(O)
+    .I_vld(I_vld),
+    .O(O),
+    .O_vld(O_vld)
   );
 endmodule
