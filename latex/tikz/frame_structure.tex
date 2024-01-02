@@ -1,0 +1,35 @@
+\begin{tikzpicture}[
+  , thick
+  , inner sep = 0
+  , outer sep = 0
+  , n/.style = {
+    , draw
+    , fill = #1!15
+    , minimum height = 12pt
+  }
+  , node distance = -.5\pgflinewidth
+  , font = \small\sffamily
+  , dl/.style = {
+    , semithick
+    , densely dotted
+  }
+]
+  \node [n = myblued, minimum width = 18pt] (TRN-1) {$\mathbf{D}$};
+  \node [n = myblued, minimum width = 18pt, right = of TRN-1] (TRN-2) {$\mathbf{D}$};
+  \node [n = myblued, minimum width = 18pt, right = of TRN-2] (TRN-3) {$\dots$};
+  \node [n = myblued, minimum width = 18pt, right = of TRN-3] (TRN-4) {$\mathbf{D}$};
+  \node [n = mygreen, minimum width = 18pt, right = of TRN-4] (TRN-5) {$\overline{\mathbf{D}}$};
+  \node [n = myred, minimum width = 36pt, right = of TRN-5] (HDR) {HDR};
+  \node [n = myyellow, minimum width = 128pt, right = of HDR] (PLD) {PLD};
+  \node [above = 2pt of TRN-1.north west, anchor = south west] {\scriptsize\ttfamily\textcolor{myblued}{0101010101...0101}\textcolor{mygreen}{1010}};
+  \draw [decorate, decoration = {brace, mirror, raise = 2pt, amplitude = 4pt}] (TRN-1.south west) -- (TRN-5.south east) node [below = 11pt, midway, align = center] {TRN\\[-1pt]\notsotiny(7\,+\,1)\;\texttimes\;32\;=\;256\,bits};
+
+  \node [n = mypurple, below = 8pt of HDR.south west, anchor = north west, minimum width = 25pt] (MCS) {MCS};
+  \node [n = myblues, minimum width = 50pt, right = of MCS] (length) {\smash{Length}\vphantom{MCS}};
+  \node [n = gray, minimum width = 75pt, right = of length] (reserved) {Reserved};
+  \draw [dl] (HDR.south west) -- (MCS.north west);
+  \draw [dl] (HDR.south east) -- (reserved.north east);
+  \node [below = 2pt of MCS, font = \sffamily\notsotiny] {8\,bits};
+  \node [below = 2pt of length, font = \sffamily\notsotiny] {16\,bits};
+  \node [below = 2pt of reserved, font = \sffamily\notsotiny] {40\,bits};
+\end{tikzpicture}%
