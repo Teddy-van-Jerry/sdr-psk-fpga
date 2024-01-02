@@ -2,7 +2,7 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "gardner_loop_inst_0_fir_compiler_Q_0",
-    "cell_name": "Interpolation/fir_compiler_Q",
+    "cell_name": "Rx/gardner_loop_0/Interpolation/fir_compiler_Q",
     "component_reference": "xilinx.com:ip:fir_compiler:7.2",
     "ip_revision": "18",
     "gen_directory": ".",

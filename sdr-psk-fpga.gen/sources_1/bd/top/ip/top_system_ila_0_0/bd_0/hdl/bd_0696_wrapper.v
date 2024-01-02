@@ -30,7 +30,9 @@ module bd_0696_wrapper
     probe26,
     probe27,
     probe28,
+    probe29,
     probe3,
+    probe30,
     probe4,
     probe5,
     probe6,
@@ -60,7 +62,9 @@ module bd_0696_wrapper
   input [0:0]probe26;
   input [0:0]probe27;
   input [0:0]probe28;
+  input [15:0]probe29;
   input [11:0]probe3;
+  input [15:0]probe30;
   input [11:0]probe4;
   input [11:0]probe5;
   input [15:0]probe6;
@@ -91,7 +95,9 @@ module bd_0696_wrapper
   wire [0:0]probe26;
   wire [0:0]probe27;
   wire [0:0]probe28;
+  wire [15:0]probe29;
   wire [11:0]probe3;
+  wire [15:0]probe30;
   wire [11:0]probe4;
   wire [11:0]probe5;
   wire [15:0]probe6;
@@ -123,7 +129,9 @@ module bd_0696_wrapper
         .probe26(probe26),
         .probe27(probe27),
         .probe28(probe28),
+        .probe29(probe29),
         .probe3(probe3),
+        .probe30(probe30),
         .probe4(probe4),
         .probe5(probe5),
         .probe6(probe6),

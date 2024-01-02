@@ -2,7 +2,7 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "gardner_loop_inst_0_c_shift_ram_I2_0",
-    "cell_name": "Timing_Error/c_shift_ram_I2",
+    "cell_name": "Rx/gardner_loop_0/Timing_Error/c_shift_ram_I2",
     "component_reference": "xilinx.com:ip:c_shift_ram:12.0",
     "ip_revision": "14",
     "gen_directory": ".",

@@ -1,7 +1,7 @@
 //Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-//Date        : Tue Jan  2 01:19:53 2024
+//Date        : Tue Jan  2 11:19:32 2024
 //Host        : TVJ-PC running 64-bit major release  (build 9200)
 //Command     : generate_target gardner_loop_inst_0.bd
 //Design      : gardner_loop_inst_0
@@ -138,6 +138,7 @@ module gardner_loop_inst_0
     clk_32M768,
     clk_out,
     error_n,
+    increment,
     is_bpsk,
     rst_32M768);
   (* X_INTERFACE_INFO = "xilinx.com:signal:data:1.0 DATA.GARDNER_SHIFT DATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME DATA.GARDNER_SHIFT, LAYERED_METADATA undef" *) input [3:0]GARDNER_SHIFT;
@@ -150,6 +151,7 @@ module gardner_loop_inst_0
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.CLK_32M768 CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.CLK_32M768, ASSOCIATED_RESET rst_32M768, CLK_DOMAIN /Clock_Gen/clk_wiz_32M768_clk_out1, FREQ_HZ 32768000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0" *) input clk_32M768;
   output clk_out;
   (* X_INTERFACE_INFO = "xilinx.com:signal:data:1.0 DATA.ERROR_N DATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME DATA.ERROR_N, LAYERED_METADATA undef" *) output [15:0]error_n;
+  output [15:0]increment;
   (* X_INTERFACE_INFO = "xilinx.com:signal:data:1.0 DATA.IS_BPSK DATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME DATA.IS_BPSK, LAYERED_METADATA xilinx.com:interface:datatypes:1.0 {DATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value data} bitwidth {attribs {resolve_type generated dependency data_bitwidth format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}} DATA_WIDTH 1}" *) input is_bpsk;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.RST_32M768 RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.RST_32M768, INSERT_VIP 0, POLARITY ACTIVE_HIGH" *) input rst_32M768;
 
@@ -157,6 +159,7 @@ module gardner_loop_inst_0
   wire [15:0]Gardner_Corrector_0_I_1M;
   wire [15:0]Gardner_Corrector_0_Q_1M;
   wire Gardner_Corrector_0_clk_out;
+  wire [15:0]Gardner_Corrector_0_increment;
   wire [15:0]I_tdata_1;
   wire I_tvalid_1;
   wire [15:0]Interpolation_Ix2_tdata;
@@ -178,6 +181,7 @@ module gardner_loop_inst_0
   assign clk_32d768_1 = clk_32M768;
   assign clk_out = Gardner_Corrector_0_clk_out;
   assign error_n[15:0] = Timing_Error_error_n;
+  assign increment[15:0] = Gardner_Corrector_0_increment;
   assign is_bpsk_1 = is_bpsk;
   assign rst_32M768_1 = rst_32M768;
   gardner_loop_inst_0_Gardner_Corrector_0_0 Gardner_Corrector_0
@@ -189,6 +193,7 @@ module gardner_loop_inst_0
         .clk(clk_32d768_1),
         .clk_out(Gardner_Corrector_0_clk_out),
         .error_n(Timing_Error_error_n),
+        .increment(Gardner_Corrector_0_increment),
         .rst(rst_32M768_1));
   Interpolation_imp_QSKKLE Interpolation
        (.I_tdata(I_tdata_1),

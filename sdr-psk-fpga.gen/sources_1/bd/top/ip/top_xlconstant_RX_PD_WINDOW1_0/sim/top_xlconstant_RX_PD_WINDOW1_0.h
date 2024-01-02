@@ -57,7 +57,7 @@
 #include "systemc.h"
 class top_xlconstant_RX_PD_WINDOW1_0 : public sc_module {
   public:
-xlconstant_v1_1_7<8,8> mod;
+xlconstant_v1_1_7<8,16> mod;
   sc_out< sc_bv<8> > dout;
 top_xlconstant_RX_PD_WINDOW1_0 (sc_core::sc_module_name name);
   };

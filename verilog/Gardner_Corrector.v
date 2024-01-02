@@ -18,12 +18,13 @@ module Gardner_Corrector # (
   input      signed [WIDTH-1:0] Q_32M,
   // error negative input
   input      signed [WIDTH-1:0] error_n,
+  // increment output
+  output reg signed [WIDTH-1:0] increment,
   // 1.024M symbol output
   output reg signed [WIDTH-1:0] I_1M,
   output reg signed [WIDTH-1:0] Q_1M,
   output reg                    clk_out
 );
-  reg signed [WIDTH-1:0] increment;
   reg signed [WIDTH-1:0] cnt;
   localparam signed [WIDTH-1:0] INCREMENT_INIT = { 4'b0010, {WIDTH-4{1'b0}} };
   localparam signed [WIDTH-1:0] CNT_ADD = INCREMENT_INIT >> 5; // 1/32

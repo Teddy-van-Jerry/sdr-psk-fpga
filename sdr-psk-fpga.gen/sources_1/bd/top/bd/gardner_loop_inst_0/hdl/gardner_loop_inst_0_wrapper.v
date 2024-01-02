@@ -1,7 +1,7 @@
 //Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-//Date        : Tue Jan  2 01:19:53 2024
+//Date        : Tue Jan  2 11:19:33 2024
 //Host        : TVJ-PC running 64-bit major release  (build 9200)
 //Command     : generate_target gardner_loop_inst_0_wrapper.bd
 //Design      : gardner_loop_inst_0_wrapper
@@ -20,6 +20,7 @@ module gardner_loop_inst_0_wrapper
     clk_32M768,
     clk_out,
     error_n,
+    increment,
     is_bpsk,
     rst_32M768);
   input [3:0]GARDNER_SHIFT;
@@ -32,6 +33,7 @@ module gardner_loop_inst_0_wrapper
   input clk_32M768;
   output clk_out;
   output [15:0]error_n;
+  output [15:0]increment;
   input is_bpsk;
   input rst_32M768;
 
@@ -45,6 +47,7 @@ module gardner_loop_inst_0_wrapper
   wire clk_32M768;
   wire clk_out;
   wire [15:0]error_n;
+  wire [15:0]increment;
   wire is_bpsk;
   wire rst_32M768;
 
@@ -59,6 +62,7 @@ module gardner_loop_inst_0_wrapper
         .clk_32M768(clk_32M768),
         .clk_out(clk_out),
         .error_n(error_n),
+        .increment(increment),
         .is_bpsk(is_bpsk),
         .rst_32M768(rst_32M768));
 endmodule

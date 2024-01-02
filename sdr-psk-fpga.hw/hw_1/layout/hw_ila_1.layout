@@ -1,26 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?><LayoutPersistence>
     <DockingManager activeFrame="ILA_WAVE_1" frameState="6" maximizedFrame="ILA_WAVE_1" version="7">
         <Bounds height="1098" width="1938" x="-9" y="-9"/>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="44261" dockedHeight="166" dockedWidth="798" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="VIO_PROBES_9">
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="8450" dockedHeight="166" dockedWidth="798" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="VIO_PROBES_9">
             <UndockedBounds height="707" width="13" x="464" y="185"/>
-            <DockPreviousState dockId="44261" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="44261" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+            <DockPreviousState dockId="8450" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="8450" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="29931" dockedHeight="166" dockedWidth="798" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_TRIGGER_9">
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="2809" dockedHeight="166" dockedWidth="798" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_TRIGGER_9">
             <UndockedBounds height="707" width="1" x="728" y="185"/>
-            <DockPreviousState dockId="29931" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="29931" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+            <DockPreviousState dockId="2809" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="2809" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="18654" dockedHeight="166" dockedWidth="798" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_TRIGGER_8">
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="7568" dockedHeight="166" dockedWidth="798" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_TRIGGER_8">
             <UndockedBounds height="707" width="15" x="751" y="185"/>
-            <DockPreviousState dockId="18654" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="18654" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+            <DockPreviousState dockId="7568" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="7568" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="0" autohideWidth="0" available="1" canMode="15" currentDockSide="2" currentMode="2" dockId="38289" dockedHeight="122" dockedWidth="647" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_TRIGGER_1">
-            <DockPreviousState dockId="38289" fcId="0" index="0" mode="2" rootId="0" side="2" type="close">
-                <DockParentState ccId="0" dockId="0" orientation="0">
-                    <DockChild dockId="38289"/>
-                    <DockChild dockId="43622"/>
+        <DockContext autohideHeight="0" autohideWidth="0" available="1" canMode="15" currentDockSide="8" currentMode="4" dockId="38289" dockedHeight="135" dockedWidth="930" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_TRIGGER_1">
+            <DockPreviousState dockId="38289" fcId="24295" index="0" mode="4" rootId="2" side="8" type="close">
+                <Bounds height="814" width="1813" x="0" y="0"/>
+                <DockChild dockId="38289"/>
+                <DockChild dockId="59488"/>
+                <DockParentState ccId="24141" dockId="24295" orientation="1">
+                    <DockChild dockId="1687"/>
+                    <DockChild dockId="24295"/>
+                    <DockChild dockId="-1"/>
                 </DockParentState>
             </DockPreviousState>
             <DockPreviousState dockId="38289" fcId="24295" index="0" mode="4" rootId="2" side="8" type="autohide">
@@ -46,96 +50,100 @@
                 </DockParentState>
             </DockPreviousState>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="29879" dockedHeight="166" dockedWidth="403" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_STATUS_3">
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="63333" dockedHeight="166" dockedWidth="403" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_STATUS_3">
             <UndockedBounds height="707" width="13" x="754" y="185"/>
-            <DockPreviousState dockId="29879" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="29879" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+            <DockPreviousState dockId="63333" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="63333" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="29520" dockedHeight="166" dockedWidth="403" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_STATUS_2">
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="52520" dockedHeight="166" dockedWidth="403" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_STATUS_2">
             <UndockedBounds height="707" width="14" x="759" y="185"/>
-            <DockPreviousState dockId="29520" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="29520" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+            <DockPreviousState dockId="52520" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="52520" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="0" autohideWidth="0" available="1" canMode="15" currentDockSide="8" currentMode="2" dockId="37078" dockedHeight="122" dockedWidth="656" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_STATUS_1">
-            <DockPreviousState dockId="37078" fcId="0" index="0" mode="2" rootId="0" side="8" type="close">
-                <DockParentState ccId="0" dockId="0" orientation="0">
-                    <DockChild dockId="34543"/>
-                    <DockChild dockId="37078"/>
+        <DockContext autohideHeight="0" autohideWidth="0" available="1" canMode="15" currentDockSide="8" currentMode="4" dockId="57209" dockedHeight="135" dockedWidth="856" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_STATUS_1">
+            <DockPreviousState dockId="57209" fcId="1687" index="0" mode="4" rootId="2" side="8" type="close">
+                <Bounds height="814" width="1813" x="0" y="0"/>
+                <DockChild dockId="34543"/>
+                <DockChild dockId="57209"/>
+                <DockParentState ccId="24141" dockId="1687" orientation="1">
+                    <DockChild dockId="1687"/>
+                    <DockChild dockId="24295"/>
+                    <DockChild dockId="-1"/>
                 </DockParentState>
             </DockPreviousState>
-            <DockPreviousState dockId="37078" fcId="1687" index="0" mode="4" rootId="2" side="8" type="autohide">
-                <Bounds height="785" width="1542" x="0" y="0"/>
+            <DockPreviousState dockId="27978" fcId="1687" index="0" mode="4" rootId="2" side="8" type="autohide">
+                <Bounds height="785" width="1436" x="0" y="0"/>
                 <DockChild dockId="34543"/>
-                <DockChild dockId="37078"/>
-                <DockParentState ccId="7593" dockId="1687" orientation="1">
+                <DockChild dockId="27978"/>
+                <DockParentState ccId="16609" dockId="1687" orientation="1">
                     <DockChild dockId="1687"/>
                     <DockChild dockId="-1"/>
                 </DockParentState>
             </DockPreviousState>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="35561" dockedHeight="166" dockedWidth="798" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_TRIGGER_3">
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="49582" dockedHeight="166" dockedWidth="798" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_TRIGGER_3">
             <UndockedBounds height="707" width="21" x="766" y="185"/>
-            <DockPreviousState dockId="35561" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="35561" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+            <DockPreviousState dockId="49582" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="49582" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="52938" dockedHeight="166" dockedWidth="798" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_TRIGGER_2">
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="24669" dockedHeight="166" dockedWidth="798" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_TRIGGER_2">
             <UndockedBounds height="707" width="23" x="774" y="185"/>
-            <DockPreviousState dockId="52938" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="52938" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+            <DockPreviousState dockId="24669" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="24669" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="1384" dockedHeight="166" dockedWidth="798" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_TRIGGER_5">
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="19146" dockedHeight="166" dockedWidth="798" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_TRIGGER_5">
             <UndockedBounds height="707" width="26" x="783" y="185"/>
-            <DockPreviousState dockId="1384" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="1384" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+            <DockPreviousState dockId="19146" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="19146" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="34381" dockedHeight="166" dockedWidth="798" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_TRIGGER_4">
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="3668" dockedHeight="166" dockedWidth="798" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_TRIGGER_4">
             <UndockedBounds height="707" width="29" x="792" y="185"/>
-            <DockPreviousState dockId="34381" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="34381" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+            <DockPreviousState dockId="3668" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="3668" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="40279" dockedHeight="166" dockedWidth="798" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_TRIGGER_7">
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="45719" dockedHeight="166" dockedWidth="798" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_TRIGGER_7">
             <UndockedBounds height="707" width="33" x="802" y="185"/>
-            <DockPreviousState dockId="40279" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="40279" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+            <DockPreviousState dockId="45719" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="45719" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="8600" dockedHeight="166" dockedWidth="798" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_TRIGGER_6">
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="6058" dockedHeight="166" dockedWidth="798" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_TRIGGER_6">
             <UndockedBounds height="707" width="38" x="813" y="185"/>
-            <DockPreviousState dockId="8600" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="8600" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+            <DockPreviousState dockId="6058" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="6058" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="21935" dockedHeight="166" dockedWidth="403" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_STATUS_9">
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="50698" dockedHeight="166" dockedWidth="403" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_STATUS_9">
             <UndockedBounds height="707" width="26" x="825" y="185"/>
-            <DockPreviousState dockId="21935" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="21935" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+            <DockPreviousState dockId="50698" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="50698" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="27177" dockedHeight="166" dockedWidth="403" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_STATUS_8">
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="16300" dockedHeight="166" dockedWidth="403" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_STATUS_8">
             <UndockedBounds height="707" width="29" x="836" y="185"/>
-            <DockPreviousState dockId="27177" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="27177" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+            <DockPreviousState dockId="16300" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="16300" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="65445" dockedHeight="200" dockedWidth="445" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="HBM_PLOT_10">
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="32331" dockedHeight="200" dockedWidth="445" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="HBM_PLOT_10">
             <UndockedBounds height="707" width="34" x="848" y="185"/>
-            <DockPreviousState dockId="65445" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="65445" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+            <DockPreviousState dockId="32331" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="32331" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="60566" dockedHeight="166" dockedWidth="403" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_STATUS_7">
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="26063" dockedHeight="166" dockedWidth="403" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_STATUS_7">
             <UndockedBounds height="707" width="34" x="861" y="185"/>
-            <DockPreviousState dockId="60566" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="60566" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+            <DockPreviousState dockId="26063" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="26063" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="40044" dockedHeight="166" dockedWidth="403" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_STATUS_6">
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="55772" dockedHeight="166" dockedWidth="403" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_STATUS_6">
             <UndockedBounds height="707" width="38" x="875" y="185"/>
-            <DockPreviousState dockId="40044" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="40044" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+            <DockPreviousState dockId="55772" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="55772" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="11609" dockedHeight="166" dockedWidth="403" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_STATUS_5">
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="64832" dockedHeight="166" dockedWidth="403" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_STATUS_5">
             <UndockedBounds height="707" width="42" x="891" y="185"/>
-            <DockPreviousState dockId="11609" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="11609" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+            <DockPreviousState dockId="64832" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="64832" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="2" currentMode="4" dockId="7981" dockedHeight="345" dockedWidth="579" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_WAVE_10">
-            <DockPreviousState dockId="7981" fcId="60115" index="0" mode="4" rootId="2" side="2" type="close">
-                <Bounds height="530" width="1108" x="0" y="0"/>
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="2" currentMode="1" dockId="7981" dockedHeight="345" dockedWidth="579" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_WAVE_10">
+            <DockPreviousState dockId="7981" fcId="60115" index="0" mode="1" rootId="2" side="2" type="close">
+                <Bounds height="814" width="1813" x="0" y="0"/>
                 <DockChild dockId="7981"/>
                 <DockChild dockId="35233"/>
                 <DockChild dockId="23803"/>
@@ -145,14 +153,14 @@
                 <DockChild dockId="36773"/>
                 <DockChild dockId="5890"/>
                 <DockChild dockId="46184"/>
-                <DockChild dockId="46897"/>
                 <DockParentState ccId="38445" dockId="60115" orientation="0">
-                    <DockChild dockId="-1"/>
+                    <DockChild dockId="17844"/>
+                    <DockChild dockId="24141"/>
                     <DockChild dockId="60115"/>
                 </DockParentState>
             </DockPreviousState>
             <DockPreviousState dockId="7981" fcId="60115" index="0" mode="4" rootId="2" side="2" type="available">
-                <Bounds height="730" width="1108" x="0" y="0"/>
+                <Bounds height="785" width="1513" x="0" y="0"/>
                 <DockChild dockId="7981"/>
                 <DockChild dockId="35233"/>
                 <DockChild dockId="23803"/>
@@ -169,107 +177,111 @@
                 </DockParentState>
             </DockPreviousState>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="59429" dockedHeight="166" dockedWidth="403" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_STATUS_4">
-            <DockPreviousState dockId="59429" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="59429" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="53985" dockedHeight="166" dockedWidth="403" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_STATUS_4">
+            <DockPreviousState dockId="53985" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="53985" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="64899" dockedHeight="166" dockedWidth="403" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_STATUS_10">
-            <DockPreviousState dockId="64899" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="64899" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="34059" dockedHeight="166" dockedWidth="403" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_STATUS_10">
+            <DockPreviousState dockId="34059" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="34059" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="36836" dockedHeight="166" dockedWidth="403" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_SETTINGS_6">
-            <DockPreviousState dockId="36836" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="36836" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="61862" dockedHeight="166" dockedWidth="403" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_SETTINGS_6">
+            <DockPreviousState dockId="61862" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="61862" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="52719" dockedHeight="166" dockedWidth="403" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_SETTINGS_5">
-            <DockPreviousState dockId="52719" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="52719" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="61588" dockedHeight="166" dockedWidth="403" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_SETTINGS_5">
+            <DockPreviousState dockId="61588" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="61588" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="3282" dockedHeight="200" dockedWidth="445" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="HBM_PLOT_1">
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="25444" dockedHeight="200" dockedWidth="445" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="HBM_PLOT_1">
             <UndockedBounds height="707" width="50" x="908" y="185"/>
-            <DockPreviousState dockId="3282" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="3282" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+            <DockPreviousState dockId="25444" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="25444" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="17082" dockedHeight="166" dockedWidth="403" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_SETTINGS_4">
-            <DockPreviousState dockId="17082" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="17082" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="62169" dockedHeight="166" dockedWidth="403" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_SETTINGS_4">
+            <DockPreviousState dockId="62169" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="62169" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="29593" dockedHeight="166" dockedWidth="403" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_SETTINGS_3">
-            <DockPreviousState dockId="29593" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="29593" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="20602" dockedHeight="166" dockedWidth="403" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_SETTINGS_3">
+            <DockPreviousState dockId="20602" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="20602" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="2134" dockedHeight="166" dockedWidth="403" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_SETTINGS_9">
-            <DockPreviousState dockId="2134" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="2134" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="5754" dockedHeight="166" dockedWidth="403" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_SETTINGS_9">
+            <DockPreviousState dockId="5754" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="5754" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="14849" dockedHeight="166" dockedWidth="403" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_SETTINGS_8">
-            <DockPreviousState dockId="14849" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="14849" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="48561" dockedHeight="166" dockedWidth="403" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_SETTINGS_8">
+            <DockPreviousState dockId="48561" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="48561" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="52463" dockedHeight="166" dockedWidth="403" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_SETTINGS_7">
-            <DockPreviousState dockId="52463" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="52463" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="28192" dockedHeight="166" dockedWidth="403" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_SETTINGS_7">
+            <DockPreviousState dockId="28192" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="28192" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="8964" dockedHeight="166" dockedWidth="798" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="VIO_PROBES_3">
-            <DockPreviousState dockId="8964" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="8964" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="47012" dockedHeight="166" dockedWidth="798" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="VIO_PROBES_3">
+            <DockPreviousState dockId="47012" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="47012" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="21345" dockedHeight="166" dockedWidth="798" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="VIO_PROBES_4">
-            <DockPreviousState dockId="21345" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="21345" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="56304" dockedHeight="166" dockedWidth="798" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="VIO_PROBES_4">
+            <DockPreviousState dockId="56304" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="56304" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="0" autohideWidth="0" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="12659" dockedHeight="166" dockedWidth="798" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="VIO_PROBES_1">
-            <DockPreviousState dockId="12659" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="12659" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+        <DockContext autohideHeight="0" autohideWidth="0" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="6224" dockedHeight="166" dockedWidth="798" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="VIO_PROBES_1">
+            <DockPreviousState dockId="6224" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="6224" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="42434" dockedHeight="166" dockedWidth="798" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="VIO_PROBES_2">
-            <DockPreviousState dockId="42434" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="42434" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="36880" dockedHeight="166" dockedWidth="798" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="VIO_PROBES_2">
+            <DockPreviousState dockId="36880" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="36880" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="42988" dockedHeight="166" dockedWidth="798" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="VIO_PROBES_10">
-            <DockPreviousState dockId="42988" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="42988" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="29585" dockedHeight="166" dockedWidth="798" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="VIO_PROBES_10">
+            <DockPreviousState dockId="29585" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="29585" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="6545" dockedHeight="166" dockedWidth="403" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_SETTINGS_2">
-            <DockPreviousState dockId="6545" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="6545" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="32221" dockedHeight="166" dockedWidth="403" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_SETTINGS_2">
+            <DockPreviousState dockId="32221" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="32221" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="19153" dockedHeight="166" dockedWidth="798" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="VIO_PROBES_7">
-            <DockPreviousState dockId="19153" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="19153" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="49645" dockedHeight="166" dockedWidth="798" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="VIO_PROBES_7">
+            <DockPreviousState dockId="49645" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="49645" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="0" autohideWidth="0" available="1" canMode="15" currentDockSide="8" currentMode="2" dockId="34543" dockedHeight="122" dockedWidth="656" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_SETTINGS_1">
-            <DockPreviousState dockId="34543" fcId="0" index="0" mode="2" rootId="0" side="8" type="close">
-                <DockParentState ccId="0" dockId="0" orientation="0">
-                    <DockChild dockId="34543"/>
-                    <DockChild dockId="37078"/>
+        <DockContext autohideHeight="0" autohideWidth="0" available="1" canMode="15" currentDockSide="8" currentMode="4" dockId="34543" dockedHeight="135" dockedWidth="856" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_SETTINGS_1">
+            <DockPreviousState dockId="34543" fcId="1687" index="0" mode="4" rootId="2" side="8" type="close">
+                <Bounds height="814" width="1813" x="0" y="0"/>
+                <DockChild dockId="34543"/>
+                <DockChild dockId="57209"/>
+                <DockParentState ccId="24141" dockId="1687" orientation="1">
+                    <DockChild dockId="1687"/>
+                    <DockChild dockId="24295"/>
+                    <DockChild dockId="-1"/>
                 </DockParentState>
             </DockPreviousState>
             <DockPreviousState dockId="34543" fcId="1687" index="0" mode="4" rootId="2" side="8" type="autohide">
-                <Bounds height="785" width="1542" x="0" y="0"/>
+                <Bounds height="785" width="1436" x="0" y="0"/>
                 <DockChild dockId="34543"/>
-                <DockChild dockId="37078"/>
-                <DockParentState ccId="7593" dockId="1687" orientation="1">
+                <DockChild dockId="27978"/>
+                <DockParentState ccId="16609" dockId="1687" orientation="1">
                     <DockChild dockId="1687"/>
                     <DockChild dockId="-1"/>
                 </DockParentState>
             </DockPreviousState>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="15544" dockedHeight="166" dockedWidth="798" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="VIO_PROBES_8">
-            <DockPreviousState dockId="15544" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="15544" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="27050" dockedHeight="166" dockedWidth="798" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="VIO_PROBES_8">
+            <DockPreviousState dockId="27050" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="27050" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="35085" dockedHeight="166" dockedWidth="798" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="VIO_PROBES_5">
-            <DockPreviousState dockId="35085" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="35085" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="12228" dockedHeight="166" dockedWidth="798" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="VIO_PROBES_5">
+            <DockPreviousState dockId="12228" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="12228" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="54302" dockedHeight="166" dockedWidth="798" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="VIO_PROBES_6">
-            <DockPreviousState dockId="54302" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="54302" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="36310" dockedHeight="166" dockedWidth="798" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="VIO_PROBES_6">
+            <DockPreviousState dockId="36310" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="36310" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="2" currentMode="4" dockId="35233" dockedHeight="345" dockedWidth="579" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_WAVE_5">
-            <DockPreviousState dockId="35233" fcId="60115" index="0" mode="4" rootId="2" side="2" type="close">
-                <Bounds height="530" width="1108" x="0" y="0"/>
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="2" currentMode="1" dockId="35233" dockedHeight="345" dockedWidth="579" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_WAVE_5">
+            <DockPreviousState dockId="35233" fcId="60115" index="0" mode="1" rootId="2" side="2" type="close">
+                <Bounds height="814" width="1813" x="0" y="0"/>
                 <DockChild dockId="7981"/>
                 <DockChild dockId="35233"/>
                 <DockChild dockId="23803"/>
@@ -279,14 +291,14 @@
                 <DockChild dockId="36773"/>
                 <DockChild dockId="5890"/>
                 <DockChild dockId="46184"/>
-                <DockChild dockId="46897"/>
                 <DockParentState ccId="38445" dockId="60115" orientation="0">
-                    <DockChild dockId="-1"/>
+                    <DockChild dockId="17844"/>
+                    <DockChild dockId="24141"/>
                     <DockChild dockId="60115"/>
                 </DockParentState>
             </DockPreviousState>
             <DockPreviousState dockId="35233" fcId="60115" index="0" mode="4" rootId="2" side="2" type="available">
-                <Bounds height="730" width="1108" x="0" y="0"/>
+                <Bounds height="785" width="1513" x="0" y="0"/>
                 <DockChild dockId="35233"/>
                 <DockChild dockId="23803"/>
                 <DockChild dockId="42224"/>
@@ -302,13 +314,13 @@
                 </DockParentState>
             </DockPreviousState>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="17877" dockedHeight="166" dockedWidth="798" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_CAPTURE_9">
-            <DockPreviousState dockId="17877" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="17877" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="5244" dockedHeight="166" dockedWidth="798" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_CAPTURE_9">
+            <DockPreviousState dockId="5244" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="5244" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="2" currentMode="4" dockId="23803" dockedHeight="345" dockedWidth="579" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_WAVE_6">
-            <DockPreviousState dockId="23803" fcId="60115" index="0" mode="4" rootId="2" side="2" type="close">
-                <Bounds height="530" width="1108" x="0" y="0"/>
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="2" currentMode="1" dockId="23803" dockedHeight="345" dockedWidth="579" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_WAVE_6">
+            <DockPreviousState dockId="23803" fcId="60115" index="0" mode="1" rootId="2" side="2" type="close">
+                <Bounds height="814" width="1813" x="0" y="0"/>
                 <DockChild dockId="7981"/>
                 <DockChild dockId="35233"/>
                 <DockChild dockId="23803"/>
@@ -318,14 +330,14 @@
                 <DockChild dockId="36773"/>
                 <DockChild dockId="5890"/>
                 <DockChild dockId="46184"/>
-                <DockChild dockId="46897"/>
                 <DockParentState ccId="38445" dockId="60115" orientation="0">
-                    <DockChild dockId="-1"/>
+                    <DockChild dockId="17844"/>
+                    <DockChild dockId="24141"/>
                     <DockChild dockId="60115"/>
                 </DockParentState>
             </DockPreviousState>
             <DockPreviousState dockId="23803" fcId="60115" index="0" mode="4" rootId="2" side="2" type="available">
-                <Bounds height="730" width="1108" x="0" y="0"/>
+                <Bounds height="785" width="1513" x="0" y="0"/>
                 <DockChild dockId="23803"/>
                 <DockChild dockId="42224"/>
                 <DockChild dockId="7197"/>
@@ -340,13 +352,13 @@
                 </DockParentState>
             </DockPreviousState>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="7043" dockedHeight="166" dockedWidth="798" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_CAPTURE_8">
-            <DockPreviousState dockId="7043" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="7043" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="6722" dockedHeight="166" dockedWidth="798" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_CAPTURE_8">
+            <DockPreviousState dockId="6722" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="6722" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="2" currentMode="4" dockId="42224" dockedHeight="345" dockedWidth="579" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_WAVE_7">
-            <DockPreviousState dockId="42224" fcId="60115" index="0" mode="4" rootId="2" side="2" type="close">
-                <Bounds height="530" width="1108" x="0" y="0"/>
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="2" currentMode="1" dockId="42224" dockedHeight="345" dockedWidth="579" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_WAVE_7">
+            <DockPreviousState dockId="42224" fcId="60115" index="0" mode="1" rootId="2" side="2" type="close">
+                <Bounds height="814" width="1813" x="0" y="0"/>
                 <DockChild dockId="7981"/>
                 <DockChild dockId="35233"/>
                 <DockChild dockId="23803"/>
@@ -356,14 +368,14 @@
                 <DockChild dockId="36773"/>
                 <DockChild dockId="5890"/>
                 <DockChild dockId="46184"/>
-                <DockChild dockId="46897"/>
                 <DockParentState ccId="38445" dockId="60115" orientation="0">
-                    <DockChild dockId="-1"/>
+                    <DockChild dockId="17844"/>
+                    <DockChild dockId="24141"/>
                     <DockChild dockId="60115"/>
                 </DockParentState>
             </DockPreviousState>
             <DockPreviousState dockId="42224" fcId="60115" index="0" mode="4" rootId="2" side="2" type="available">
-                <Bounds height="730" width="1108" x="0" y="0"/>
+                <Bounds height="785" width="1513" x="0" y="0"/>
                 <DockChild dockId="42224"/>
                 <DockChild dockId="7197"/>
                 <DockChild dockId="13572"/>
@@ -377,17 +389,17 @@
                 </DockParentState>
             </DockPreviousState>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="18820" dockedHeight="166" dockedWidth="798" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_CAPTURE_7">
-            <DockPreviousState dockId="18820" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="18820" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="57094" dockedHeight="166" dockedWidth="798" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_CAPTURE_7">
+            <DockPreviousState dockId="57094" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="57094" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="46491" dockedHeight="166" dockedWidth="798" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_CAPTURE_6">
-            <DockPreviousState dockId="46491" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="46491" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="23654" dockedHeight="166" dockedWidth="798" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_CAPTURE_6">
+            <DockPreviousState dockId="23654" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="23654" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="2" currentMode="4" dockId="7197" dockedHeight="345" dockedWidth="579" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_WAVE_8">
-            <DockPreviousState dockId="7197" fcId="60115" index="0" mode="4" rootId="2" side="2" type="close">
-                <Bounds height="530" width="1108" x="0" y="0"/>
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="2" currentMode="1" dockId="7197" dockedHeight="345" dockedWidth="579" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_WAVE_8">
+            <DockPreviousState dockId="7197" fcId="60115" index="0" mode="1" rootId="2" side="2" type="close">
+                <Bounds height="814" width="1813" x="0" y="0"/>
                 <DockChild dockId="7981"/>
                 <DockChild dockId="35233"/>
                 <DockChild dockId="23803"/>
@@ -397,14 +409,14 @@
                 <DockChild dockId="36773"/>
                 <DockChild dockId="5890"/>
                 <DockChild dockId="46184"/>
-                <DockChild dockId="46897"/>
                 <DockParentState ccId="38445" dockId="60115" orientation="0">
-                    <DockChild dockId="-1"/>
+                    <DockChild dockId="17844"/>
+                    <DockChild dockId="24141"/>
                     <DockChild dockId="60115"/>
                 </DockParentState>
             </DockPreviousState>
             <DockPreviousState dockId="7197" fcId="60115" index="0" mode="4" rootId="2" side="2" type="available">
-                <Bounds height="730" width="1108" x="0" y="0"/>
+                <Bounds height="785" width="1513" x="0" y="0"/>
                 <DockChild dockId="7197"/>
                 <DockChild dockId="13572"/>
                 <DockChild dockId="36773"/>
@@ -417,13 +429,13 @@
                 </DockParentState>
             </DockPreviousState>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="48717" dockedHeight="166" dockedWidth="798" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_CAPTURE_5">
-            <DockPreviousState dockId="48717" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="48717" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="44591" dockedHeight="166" dockedWidth="798" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_CAPTURE_5">
+            <DockPreviousState dockId="44591" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="44591" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="2" currentMode="4" dockId="13572" dockedHeight="345" dockedWidth="579" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_WAVE_9">
-            <DockPreviousState dockId="13572" fcId="60115" index="0" mode="4" rootId="2" side="2" type="close">
-                <Bounds height="530" width="1108" x="0" y="0"/>
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="2" currentMode="1" dockId="13572" dockedHeight="345" dockedWidth="579" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_WAVE_9">
+            <DockPreviousState dockId="13572" fcId="60115" index="0" mode="1" rootId="2" side="2" type="close">
+                <Bounds height="814" width="1813" x="0" y="0"/>
                 <DockChild dockId="7981"/>
                 <DockChild dockId="35233"/>
                 <DockChild dockId="23803"/>
@@ -433,14 +445,14 @@
                 <DockChild dockId="36773"/>
                 <DockChild dockId="5890"/>
                 <DockChild dockId="46184"/>
-                <DockChild dockId="46897"/>
                 <DockParentState ccId="38445" dockId="60115" orientation="0">
-                    <DockChild dockId="-1"/>
+                    <DockChild dockId="17844"/>
+                    <DockChild dockId="24141"/>
                     <DockChild dockId="60115"/>
                 </DockParentState>
             </DockPreviousState>
             <DockPreviousState dockId="13572" fcId="60115" index="0" mode="4" rootId="2" side="2" type="available">
-                <Bounds height="730" width="1108" x="0" y="0"/>
+                <Bounds height="785" width="1513" x="0" y="0"/>
                 <DockChild dockId="13572"/>
                 <DockChild dockId="36773"/>
                 <DockChild dockId="5890"/>
@@ -452,23 +464,27 @@
                 </DockParentState>
             </DockPreviousState>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="2084" dockedHeight="166" dockedWidth="798" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_CAPTURE_4">
-            <DockPreviousState dockId="2084" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="2084" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="50576" dockedHeight="166" dockedWidth="798" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_CAPTURE_4">
+            <DockPreviousState dockId="50576" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="50576" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="10475" dockedHeight="166" dockedWidth="798" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_CAPTURE_3">
-            <DockPreviousState dockId="10475" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="10475" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="6452" dockedHeight="166" dockedWidth="798" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_CAPTURE_3">
+            <DockPreviousState dockId="6452" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="6452" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="41380" dockedHeight="166" dockedWidth="798" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_CAPTURE_2">
-            <DockPreviousState dockId="41380" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="41380" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="20334" dockedHeight="166" dockedWidth="798" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_CAPTURE_2">
+            <DockPreviousState dockId="20334" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="20334" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="0" autohideWidth="0" available="1" canMode="15" currentDockSide="2" currentMode="2" dockId="43622" dockedHeight="122" dockedWidth="647" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_CAPTURE_1">
-            <DockPreviousState dockId="43622" fcId="0" index="0" mode="2" rootId="0" side="2" type="close">
-                <DockParentState ccId="0" dockId="0" orientation="0">
-                    <DockChild dockId="38289"/>
-                    <DockChild dockId="43622"/>
+        <DockContext autohideHeight="0" autohideWidth="0" available="1" canMode="15" currentDockSide="8" currentMode="4" dockId="59488" dockedHeight="135" dockedWidth="930" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_CAPTURE_1">
+            <DockPreviousState dockId="59488" fcId="24295" index="0" mode="4" rootId="2" side="8" type="close">
+                <Bounds height="814" width="1813" x="0" y="0"/>
+                <DockChild dockId="38289"/>
+                <DockChild dockId="59488"/>
+                <DockParentState ccId="24141" dockId="24295" orientation="1">
+                    <DockChild dockId="1687"/>
+                    <DockChild dockId="24295"/>
+                    <DockChild dockId="-1"/>
                 </DockParentState>
             </DockPreviousState>
             <DockPreviousState dockId="43622" fcId="24295" index="0" mode="4" rootId="2" side="8" type="autohide">
@@ -494,77 +510,69 @@
                 </DockParentState>
             </DockPreviousState>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="26760" dockedHeight="200" dockedWidth="445" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="HBM_PLOT_8">
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="15054" dockedHeight="200" dockedWidth="445" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="HBM_PLOT_8">
             <UndockedBounds height="707" width="56" x="928" y="185"/>
-            <DockPreviousState dockId="26760" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="26760" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+            <DockPreviousState dockId="15054" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="15054" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="28357" dockedHeight="166" dockedWidth="403" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_SETTINGS_10">
-            <DockPreviousState dockId="28357" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="28357" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="43527" dockedHeight="166" dockedWidth="403" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_SETTINGS_10">
+            <DockPreviousState dockId="43527" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="43527" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="29426" dockedHeight="200" dockedWidth="445" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="HBM_PLOT_9">
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="35870" dockedHeight="200" dockedWidth="445" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="HBM_PLOT_9">
             <UndockedBounds height="707" width="63" x="952" y="185"/>
-            <DockPreviousState dockId="29426" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="29426" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+            <DockPreviousState dockId="35870" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="35870" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="60731" dockedHeight="166" dockedWidth="798" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_TRIGGER_10">
-            <DockPreviousState dockId="60731" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="60731" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="55706" dockedHeight="166" dockedWidth="798" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_TRIGGER_10">
+            <DockPreviousState dockId="55706" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="55706" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="31107" dockedHeight="200" dockedWidth="445" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="HBM_PLOT_6">
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="18451" dockedHeight="200" dockedWidth="445" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="HBM_PLOT_6">
             <UndockedBounds height="707" width="72" x="981" y="185"/>
-            <DockPreviousState dockId="31107" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="31107" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+            <DockPreviousState dockId="18451" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="18451" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="3478" dockedHeight="200" dockedWidth="445" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="HBM_PLOT_7">
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="23171" dockedHeight="200" dockedWidth="445" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="HBM_PLOT_7">
             <UndockedBounds height="707" width="84" x="1015" y="185"/>
-            <DockPreviousState dockId="3478" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="3478" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+            <DockPreviousState dockId="23171" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="23171" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="18274" dockedHeight="200" dockedWidth="445" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="HBM_PLOT_4">
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="33163" dockedHeight="200" dockedWidth="445" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="HBM_PLOT_4">
             <UndockedBounds height="707" width="99" x="1059" y="185"/>
-            <DockPreviousState dockId="18274" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="18274" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+            <DockPreviousState dockId="33163" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="33163" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="38979" dockedHeight="200" dockedWidth="445" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="HBM_PLOT_5">
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="56838" dockedHeight="200" dockedWidth="445" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="HBM_PLOT_5">
             <UndockedBounds height="707" width="119" x="1117" y="185"/>
-            <DockPreviousState dockId="38979" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="38979" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+            <DockPreviousState dockId="56838" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="56838" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="30519" dockedHeight="200" dockedWidth="445" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="HBM_PLOT_2">
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="30750" dockedHeight="200" dockedWidth="445" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="HBM_PLOT_2">
             <UndockedBounds height="707" width="148" x="1198" y="185"/>
-            <DockPreviousState dockId="30519" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="30519" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+            <DockPreviousState dockId="30750" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="30750" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="9569" dockedHeight="200" dockedWidth="445" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="HBM_PLOT_3">
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="18597" dockedHeight="200" dockedWidth="445" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="HBM_PLOT_3">
             <UndockedBounds height="707" width="194" x="1320" y="185"/>
-            <DockPreviousState dockId="9569" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="9569" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+            <DockPreviousState dockId="18597" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="18597" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="0" autohideWidth="0" available="1" canMode="15" currentDockSide="2" currentMode="4" dockId="46897" dockedHeight="686" dockedWidth="1186" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_WAVE_1">
-            <UndockedBounds height="741" width="1096" x="72" y="89"/>
-            <DockPreviousState dockId="46897" fcId="60115" index="0" mode="4" rootId="2" side="2" type="close">
-                <Bounds height="530" width="1108" x="0" y="0"/>
-                <DockChild dockId="7981"/>
-                <DockChild dockId="35233"/>
-                <DockChild dockId="23803"/>
-                <DockChild dockId="42224"/>
-                <DockChild dockId="7197"/>
-                <DockChild dockId="13572"/>
-                <DockChild dockId="36773"/>
-                <DockChild dockId="5890"/>
-                <DockChild dockId="46184"/>
-                <DockChild dockId="46897"/>
-                <DockParentState ccId="38445" dockId="60115" orientation="0">
-                    <DockChild dockId="-1"/>
+        <DockContext autohideHeight="0" autohideWidth="0" available="1" canMode="15" currentDockSide="1" currentMode="4" dockId="55967" dockedHeight="580" dockedWidth="912" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_WAVE_1">
+            <UndockedBounds height="741" width="1071" x="365" y="87"/>
+            <DockPreviousState dockId="55967" fcId="17844" index="0" mode="4" rootId="2" side="1" type="close">
+                <Bounds height="814" width="1813" x="0" y="0"/>
+                <DockChild dockId="55967"/>
+                <DockParentState ccId="38445" dockId="17844" orientation="0">
+                    <DockChild dockId="17844"/>
+                    <DockChild dockId="24141"/>
                     <DockChild dockId="60115"/>
                 </DockParentState>
             </DockPreviousState>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="2" currentMode="4" dockId="36773" dockedHeight="345" dockedWidth="579" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_WAVE_2">
-            <DockPreviousState dockId="36773" fcId="60115" index="0" mode="4" rootId="2" side="2" type="close">
-                <Bounds height="530" width="1108" x="0" y="0"/>
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="2" currentMode="1" dockId="36773" dockedHeight="345" dockedWidth="579" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_WAVE_2">
+            <DockPreviousState dockId="36773" fcId="60115" index="0" mode="1" rootId="2" side="2" type="close">
+                <Bounds height="814" width="1813" x="0" y="0"/>
                 <DockChild dockId="7981"/>
                 <DockChild dockId="35233"/>
                 <DockChild dockId="23803"/>
@@ -574,14 +582,14 @@
                 <DockChild dockId="36773"/>
                 <DockChild dockId="5890"/>
                 <DockChild dockId="46184"/>
-                <DockChild dockId="46897"/>
                 <DockParentState ccId="38445" dockId="60115" orientation="0">
-                    <DockChild dockId="-1"/>
+                    <DockChild dockId="17844"/>
+                    <DockChild dockId="24141"/>
                     <DockChild dockId="60115"/>
                 </DockParentState>
             </DockPreviousState>
             <DockPreviousState dockId="36773" fcId="60115" index="0" mode="4" rootId="2" side="2" type="available">
-                <Bounds height="730" width="1108" x="0" y="0"/>
+                <Bounds height="785" width="1513" x="0" y="0"/>
                 <DockChild dockId="36773"/>
                 <DockChild dockId="5890"/>
                 <DockChild dockId="46184"/>
@@ -592,9 +600,9 @@
                 </DockParentState>
             </DockPreviousState>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="2" currentMode="4" dockId="5890" dockedHeight="345" dockedWidth="579" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_WAVE_3">
-            <DockPreviousState dockId="5890" fcId="60115" index="0" mode="4" rootId="2" side="2" type="close">
-                <Bounds height="530" width="1108" x="0" y="0"/>
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="2" currentMode="1" dockId="5890" dockedHeight="345" dockedWidth="579" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_WAVE_3">
+            <DockPreviousState dockId="5890" fcId="60115" index="0" mode="1" rootId="2" side="2" type="close">
+                <Bounds height="814" width="1813" x="0" y="0"/>
                 <DockChild dockId="7981"/>
                 <DockChild dockId="35233"/>
                 <DockChild dockId="23803"/>
@@ -604,14 +612,14 @@
                 <DockChild dockId="36773"/>
                 <DockChild dockId="5890"/>
                 <DockChild dockId="46184"/>
-                <DockChild dockId="46897"/>
                 <DockParentState ccId="38445" dockId="60115" orientation="0">
-                    <DockChild dockId="-1"/>
+                    <DockChild dockId="17844"/>
+                    <DockChild dockId="24141"/>
                     <DockChild dockId="60115"/>
                 </DockParentState>
             </DockPreviousState>
             <DockPreviousState dockId="5890" fcId="60115" index="0" mode="4" rootId="2" side="2" type="available">
-                <Bounds height="730" width="1108" x="0" y="0"/>
+                <Bounds height="785" width="1513" x="0" y="0"/>
                 <DockChild dockId="5890"/>
                 <DockChild dockId="46184"/>
                 <DockChild dockId="46897"/>
@@ -621,9 +629,9 @@
                 </DockParentState>
             </DockPreviousState>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="2" currentMode="4" dockId="46184" dockedHeight="345" dockedWidth="579" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_WAVE_4">
-            <DockPreviousState dockId="46184" fcId="60115" index="0" mode="4" rootId="2" side="2" type="close">
-                <Bounds height="530" width="1108" x="0" y="0"/>
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="2" currentMode="1" dockId="46184" dockedHeight="345" dockedWidth="579" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_WAVE_4">
+            <DockPreviousState dockId="46184" fcId="60115" index="0" mode="1" rootId="2" side="2" type="close">
+                <Bounds height="814" width="1813" x="0" y="0"/>
                 <DockChild dockId="7981"/>
                 <DockChild dockId="35233"/>
                 <DockChild dockId="23803"/>
@@ -633,14 +641,14 @@
                 <DockChild dockId="36773"/>
                 <DockChild dockId="5890"/>
                 <DockChild dockId="46184"/>
-                <DockChild dockId="46897"/>
                 <DockParentState ccId="38445" dockId="60115" orientation="0">
-                    <DockChild dockId="-1"/>
+                    <DockChild dockId="17844"/>
+                    <DockChild dockId="24141"/>
                     <DockChild dockId="60115"/>
                 </DockParentState>
             </DockPreviousState>
             <DockPreviousState dockId="46184" fcId="60115" index="0" mode="4" rootId="2" side="2" type="available">
-                <Bounds height="730" width="1108" x="0" y="0"/>
+                <Bounds height="785" width="1513" x="0" y="0"/>
                 <DockChild dockId="46184"/>
                 <DockChild dockId="46897"/>
                 <DockParentState ccId="38445" dockId="60115" orientation="0">
@@ -649,52 +657,65 @@
                 </DockParentState>
             </DockPreviousState>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="23806" dockedHeight="166" dockedWidth="403" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="XADC_PLOT_10">
-            <DockPreviousState dockId="23806" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="23806" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="2119" dockedHeight="166" dockedWidth="403" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="XADC_PLOT_10">
+            <DockPreviousState dockId="2119" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="2119" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="56378" dockedHeight="166" dockedWidth="403" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="XADC_PLOT_6">
-            <DockPreviousState dockId="56378" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="56378" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="51588" dockedHeight="166" dockedWidth="403" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="XADC_PLOT_6">
+            <DockPreviousState dockId="51588" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="51588" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="36110" dockedHeight="166" dockedWidth="403" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="XADC_PLOT_5">
-            <DockPreviousState dockId="36110" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="36110" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="58657" dockedHeight="166" dockedWidth="403" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="XADC_PLOT_5">
+            <DockPreviousState dockId="58657" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="58657" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="21741" dockedHeight="166" dockedWidth="798" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_CAPTURE_10">
-            <DockPreviousState dockId="21741" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="21741" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="57168" dockedHeight="166" dockedWidth="798" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="ILA_CAPTURE_10">
+            <DockPreviousState dockId="57168" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="57168" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="28284" dockedHeight="166" dockedWidth="403" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="XADC_PLOT_4">
-            <DockPreviousState dockId="28284" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="28284" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="687" dockedHeight="166" dockedWidth="403" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="XADC_PLOT_4">
+            <DockPreviousState dockId="687" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="687" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="62287" dockedHeight="166" dockedWidth="403" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="XADC_PLOT_3">
-            <DockPreviousState dockId="62287" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="62287" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="37166" dockedHeight="166" dockedWidth="403" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="XADC_PLOT_3">
+            <DockPreviousState dockId="37166" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="37166" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="53426" dockedHeight="166" dockedWidth="403" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="XADC_PLOT_2">
-            <DockPreviousState dockId="53426" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="53426" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="45527" dockedHeight="166" dockedWidth="403" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="XADC_PLOT_2">
+            <DockPreviousState dockId="45527" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="45527" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="7366" dockedHeight="166" dockedWidth="403" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="XADC_PLOT_1">
-            <DockPreviousState dockId="7366" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="7366" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="26410" dockedHeight="166" dockedWidth="403" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="XADC_PLOT_1">
+            <DockPreviousState dockId="26410" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="26410" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="13740" dockedHeight="166" dockedWidth="403" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="XADC_PLOT_9">
-            <DockPreviousState dockId="13740" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="13740" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="14676" dockedHeight="166" dockedWidth="403" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="XADC_PLOT_9">
+            <DockPreviousState dockId="14676" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="14676" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="4531" dockedHeight="166" dockedWidth="403" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="XADC_PLOT_8">
-            <DockPreviousState dockId="4531" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="4531" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="5161" dockedHeight="166" dockedWidth="403" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="XADC_PLOT_8">
+            <DockPreviousState dockId="5161" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="5161" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
-        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="24487" dockedHeight="166" dockedWidth="403" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="XADC_PLOT_7">
-            <DockPreviousState dockId="24487" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
-            <DockPreviousState dockId="24487" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
+        <DockContext autohideHeight="200" autohideWidth="200" available="1" canMode="15" currentDockSide="4" currentMode="1" dockId="37479" dockedHeight="166" dockedWidth="403" initAutohideHeight="200" initAutohideWidth="200" initIndex="0" initMode="4" initPosition="0" initSide="4" key="XADC_PLOT_7">
+            <DockPreviousState dockId="37479" fcId="0" index="0" mode="1" rootId="0" side="0" type="close"/>
+            <DockPreviousState dockId="37479" fcId="0" index="0" mode="1" rootId="0" side="0" type="available"/>
         </DockContext>
         <ContainerContainer dockId="38445" initiallyEven="0" orientation="0" proportionLayout="0">
-            <Workspace acceptDockableFrame="0"/>
+            <FrameContainer dockId="17844" preferredHeight="624" preferredWidth="920" selectedIndex="0">
+                <DockableFrame key="ILA_WAVE_1"/>
+            </FrameContainer>
+            <ContainerContainer dockId="24141" initiallyEven="0" orientation="1" preferredHeight="179" preferredWidth="1586" proportionLayout="0">
+                <FrameContainer dockId="1687" preferredHeight="360" preferredWidth="864" selectedIndex="1">
+                    <DockableFrame key="ILA_SETTINGS_1"/>
+                    <DockableFrame key="ILA_STATUS_1"/>
+                </FrameContainer>
+                <FrameContainer dockId="24295" preferredHeight="166" preferredWidth="938" selectedIndex="0">
+                    <DockableFrame key="ILA_TRIGGER_1"/>
+                    <DockableFrame key="ILA_CAPTURE_1"/>
+                </FrameContainer>
+                <Workspace acceptDockableFrame="0"/>
+            </ContainerContainer>
             <FrameContainer dockId="60115" preferredHeight="389" preferredWidth="587" selectedIndex="0">
                 <DockableFrame key="ILA_WAVE_10"/>
                 <DockableFrame key="ILA_WAVE_5"/>
@@ -705,30 +726,11 @@
                 <DockableFrame key="ILA_WAVE_2"/>
                 <DockableFrame key="ILA_WAVE_3"/>
                 <DockableFrame key="ILA_WAVE_4"/>
-                <DockableFrame key="ILA_WAVE_1"/>
             </FrameContainer>
         </ContainerContainer>
         <AutoHideContainer side="3"/>
-        <AutoHideContainer side="7">
-            <SidePaneGroup selectedIndex="1">
-                <SidePaneItem>
-                    <DockableFrame key="ILA_SETTINGS_1"/>
-                </SidePaneItem>
-                <SidePaneItem>
-                    <DockableFrame key="ILA_STATUS_1"/>
-                </SidePaneItem>
-            </SidePaneGroup>
-        </AutoHideContainer>
-        <AutoHideContainer side="5">
-            <SidePaneGroup selectedIndex="0">
-                <SidePaneItem>
-                    <DockableFrame key="ILA_TRIGGER_1"/>
-                </SidePaneItem>
-                <SidePaneItem>
-                    <DockableFrame key="ILA_CAPTURE_1"/>
-                </SidePaneItem>
-            </SidePaneGroup>
-        </AutoHideContainer>
+        <AutoHideContainer side="7"/>
+        <AutoHideContainer side="5"/>
         <AutoHideContainer side="1"/>
     </DockingManager>
 </LayoutPersistence>

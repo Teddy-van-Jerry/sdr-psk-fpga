@@ -83,7 +83,9 @@ module top_system_ila_0_0 (
   probe25,
   probe26,
   probe27,
-  probe28
+  probe28,
+  probe29,
+  probe30
 );
 
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.clk, FREQ_HZ 32768000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /Clock_Gen/clk_wiz_32M768_clk_out1, INSERT_VIP 0" *)
@@ -118,6 +120,8 @@ input wire [0 : 0] probe25;
 input wire [0 : 0] probe26;
 input wire [0 : 0] probe27;
 input wire [0 : 0] probe28;
+input wire [15 : 0] probe29;
+input wire [15 : 0] probe30;
 
   bd_0696 inst (
     .clk(clk),
@@ -149,6 +153,8 @@ input wire [0 : 0] probe28;
     .probe25(probe25),
     .probe26(probe26),
     .probe27(probe27),
-    .probe28(probe28)
+    .probe28(probe28),
+    .probe29(probe29),
+    .probe30(probe30)
   );
 endmodule

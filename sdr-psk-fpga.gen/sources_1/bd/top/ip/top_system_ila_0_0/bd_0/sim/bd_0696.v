@@ -31,7 +31,9 @@ module bd_0696
     probe26,
     probe27,
     probe28,
+    probe29,
     probe3,
+    probe30,
     probe4,
     probe5,
     probe6,
@@ -61,7 +63,9 @@ module bd_0696
   input [0:0]probe26;
   input [0:0]probe27;
   input [0:0]probe28;
+  input [15:0]probe29;
   input [11:0]probe3;
+  input [15:0]probe30;
   input [11:0]probe4;
   input [11:0]probe5;
   input [15:0]probe6;
@@ -91,7 +95,9 @@ module bd_0696
   wire [0:0]probe26_1;
   wire [0:0]probe27_1;
   wire [0:0]probe28_1;
+  wire [15:0]probe29_1;
   wire [11:0]probe2_1;
+  wire [15:0]probe30_1;
   wire [11:0]probe3_1;
   wire [11:0]probe4_1;
   wire [11:0]probe5_1;
@@ -122,7 +128,9 @@ module bd_0696
   assign probe26_1 = probe26[0];
   assign probe27_1 = probe27[0];
   assign probe28_1 = probe28[0];
+  assign probe29_1 = probe29[15:0];
   assign probe2_1 = probe2[11:0];
+  assign probe30_1 = probe30[15:0];
   assign probe3_1 = probe3[11:0];
   assign probe4_1 = probe4[11:0];
   assign probe5_1 = probe5[11:0];
@@ -154,7 +162,9 @@ module bd_0696
         .probe26(probe26_1),
         .probe27(probe27_1),
         .probe28(probe28_1),
+        .probe29(probe29_1),
         .probe3(probe3_1),
+        .probe30(probe30_1),
         .probe4(probe4_1),
         .probe5(probe5_1),
         .probe6(probe6_1),

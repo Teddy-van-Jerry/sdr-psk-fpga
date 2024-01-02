@@ -2,7 +2,7 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "costas_loop_inst_0_NCO_cos_sin_0_0",
-    "cell_name": "Rx/costas_loop_0/NCO/NCO_cos_sin_0",
+    "cell_name": "NCO/NCO_cos_sin_0",
     "component_reference": "xilinx.com:module_ref:NCO_cos_sin:1.0",
     "ip_revision": "1",
     "gen_directory": ".",

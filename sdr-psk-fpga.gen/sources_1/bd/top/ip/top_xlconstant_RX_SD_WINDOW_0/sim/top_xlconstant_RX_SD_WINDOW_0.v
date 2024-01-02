@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2023 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2024 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -61,7 +61,7 @@ output wire [7 : 0] dout;
 
   xlconstant_v1_1_7_xlconstant #(
     .CONST_WIDTH(8),
-    .CONST_VAL(8'H08)
+    .CONST_VAL(8'H10)
   ) inst (
     .dout(dout)
   );

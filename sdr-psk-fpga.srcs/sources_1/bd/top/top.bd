@@ -365,6 +365,16 @@
           },
           "Rx_vld": {
             "direction": "O"
+          },
+          "gardner_error": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "gardner_increment": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
           }
         },
         "components": {
@@ -662,6 +672,11 @@
               },
               "Q_tvalid": {
                 "direction": "I"
+              },
+              "increment": {
+                "direction": "O",
+                "left": "15",
+                "right": "0"
               }
             },
             "post_compiled_compname": "gardner_loop_inst_0",
@@ -669,7 +684,7 @@
             "variant_info": {
               "gardner_loop.bd": {
                 "scoped_diagram": "gardner_loop_inst_0.bd",
-                "design_checksum": "0x39DCC377",
+                "design_checksum": "0xE95EC60B",
                 "ref_name": "gardner_loop",
                 "ref_subinst_path": "top_gardner_loop_0",
                 "ref_type": "Block Design",
@@ -1429,12 +1444,6 @@
                   "HAS_TLAST": {
                     "value": "0",
                     "value_src": "constant"
-                  },
-                  "FREQ_HZ": {
-                    "value": "16384000"
-                  },
-                  "CLK_DOMAIN": {
-                    "value": "/Clock_Gen/clk_wiz_32M768_clk_out1"
                   }
                 },
                 "port_maps": {
@@ -1486,12 +1495,6 @@
                   "HAS_TLAST": {
                     "value": "0",
                     "value_src": "constant"
-                  },
-                  "FREQ_HZ": {
-                    "value": "16384000"
-                  },
-                  "CLK_DOMAIN": {
-                    "value": "/Clock_Gen/clk_wiz_32M768_clk_out1"
                   }
                 },
                 "port_maps": {
@@ -2003,6 +2006,18 @@
               "Flatten/clk_out",
               "PSK_Detection_0/clk",
               "Depacketizer_0/clk"
+            ]
+          },
+          "gardner_loop_0_error_n": {
+            "ports": [
+              "gardner_loop_0/error_n",
+              "gardner_error"
+            ]
+          },
+          "gardner_loop_0_increment": {
+            "ports": [
+              "gardner_loop_0/increment",
+              "gardner_increment"
             ]
           },
           "rst_16M386_1": {
@@ -3575,7 +3590,7 @@
             "value": "2"
           },
           "C_NUM_OF_PROBES": {
-            "value": "29"
+            "value": "31"
           },
           "C_PROBE10_TYPE": {
             "value": "0"
@@ -3684,7 +3699,7 @@
             "inst_hier_path": "Const_Config/xlconstant_MODE_CTRL",
             "parameters": {
               "CONST_VAL": {
-                "value": "2"
+                "value": "4"
               },
               "CONST_WIDTH": {
                 "value": "4"
@@ -3698,7 +3713,7 @@
             "inst_hier_path": "Const_Config/xlconstant_GARDNER_SHIFT",
             "parameters": {
               "CONST_VAL": {
-                "value": "4"
+                "value": "3"
               },
               "CONST_WIDTH": {
                 "value": "4"
@@ -3712,7 +3727,7 @@
             "inst_hier_path": "Const_Config/xlconstant_RX_SD_THRESHOLD",
             "parameters": {
               "CONST_VAL": {
-                "value": "1024"
+                "value": "128"
               },
               "CONST_WIDTH": {
                 "value": "16"
@@ -3726,7 +3741,7 @@
             "inst_hier_path": "Const_Config/xlconstant_RX_SD_WINDOW",
             "parameters": {
               "CONST_VAL": {
-                "value": "8"
+                "value": "16"
               },
               "CONST_WIDTH": {
                 "value": "8"
@@ -3740,7 +3755,7 @@
             "inst_hier_path": "Const_Config/xlconstant_RX_PD_WINDOW1",
             "parameters": {
               "CONST_VAL": {
-                "value": "8"
+                "value": "16"
               },
               "CONST_WIDTH": {
                 "value": "8"
@@ -3754,7 +3769,7 @@
             "inst_hier_path": "Const_Config/xlconstant_RX_BD_WINDOW",
             "parameters": {
               "CONST_VAL": {
-                "value": "8"
+                "value": "16"
               },
               "CONST_WIDTH": {
                 "value": "8"
@@ -4221,6 +4236,18 @@
         "ports": [
           "Rx/feedback_tdata",
           "system_ila_0/probe24"
+        ]
+      },
+      "Rx_gardner_error": {
+        "ports": [
+          "Rx/gardner_error",
+          "system_ila_0/probe29"
+        ]
+      },
+      "Rx_gardner_increment": {
+        "ports": [
+          "Rx/gardner_increment",
+          "system_ila_0/probe30"
         ]
       },
       "Tx_DAC_bits": {

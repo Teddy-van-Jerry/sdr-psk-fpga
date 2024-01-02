@@ -27,38 +27,38 @@
       <data key="VT">BC</data>
     </node>
     <node id="n1">
-      <data key="VH">5</data>
-      <data key="VM">gardner_loop_inst_0</data>
-      <data key="VT">VR</data>
-    </node>
-    <node id="n2">
-      <data key="VM">/Rx/costas_loop_0</data>
-      <data key="VT">BC</data>
-    </node>
-    <node id="n3">
-      <data key="VM">/Rx/gardner_loop_0</data>
-      <data key="VT">BC</data>
-    </node>
-    <node id="n4">
-      <data key="TU">active</data>
-      <data key="VH">30</data>
-      <data key="VT">PM</data>
-    </node>
-    <node id="n5">
-      <data key="VH">2</data>
-      <data key="VM">top</data>
-      <data key="VT">VR</data>
-    </node>
-    <node id="n6">
       <data key="VH">3</data>
       <data key="VM">costas_loop_inst_0</data>
       <data key="VT">VR</data>
     </node>
-    <edge id="e0" source="n0" target="n5"/>
-    <edge id="e1" source="n2" target="n6"/>
-    <edge id="e2" source="n3" target="n1"/>
-    <edge id="e3" source="n5" target="n4"/>
-    <edge id="e4" source="n6" target="n4"/>
-    <edge id="e5" source="n1" target="n4"/>
+    <node id="n2">
+      <data key="VH">5</data>
+      <data key="VM">gardner_loop_inst_0</data>
+      <data key="VT">VR</data>
+    </node>
+    <node id="n3">
+      <data key="VH">2</data>
+      <data key="VM">top</data>
+      <data key="VT">VR</data>
+    </node>
+    <node id="n4">
+      <data key="VM">/Rx/gardner_loop_0</data>
+      <data key="VT">BC</data>
+    </node>
+    <node id="n5">
+      <data key="VM">/Rx/costas_loop_0</data>
+      <data key="VT">BC</data>
+    </node>
+    <node id="n6">
+      <data key="TU">active</data>
+      <data key="VH">30</data>
+      <data key="VT">PM</data>
+    </node>
+    <edge id="e0" source="n0" target="n3"/>
+    <edge id="e1" source="n5" target="n1"/>
+    <edge id="e2" source="n4" target="n2"/>
+    <edge id="e3" source="n3" target="n6"/>
+    <edge id="e4" source="n1" target="n6"/>
+    <edge id="e5" source="n2" target="n6"/>
   </graph>
 </graphml>

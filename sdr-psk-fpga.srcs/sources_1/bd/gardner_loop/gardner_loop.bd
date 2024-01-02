@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xC79F38B5BCEBD447",
+      "boundary_crc": "0x51529847B0BF89C7",
       "device": "xc7z020clg484-1",
       "gen_directory": "../../../../sdr-psk-fpga.gen/sources_1/bd/gardner_loop",
       "name": "gardner_loop",
@@ -130,6 +130,11 @@
       },
       "Q_tvalid": {
         "direction": "I"
+      },
+      "increment": {
+        "direction": "O",
+        "left": "15",
+        "right": "0"
       }
     },
     "components": {
@@ -953,6 +958,11 @@
             "left": "15",
             "right": "0"
           },
+          "increment": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
           "I_1M": {
             "direction": "O",
             "left": "15",
@@ -992,6 +1002,12 @@
         "ports": [
           "Gardner_Corrector_0/clk_out",
           "clk_out"
+        ]
+      },
+      "Gardner_Corrector_0_increment": {
+        "ports": [
+          "Gardner_Corrector_0/increment",
+          "increment"
         ]
       },
       "I_tdata_1": {

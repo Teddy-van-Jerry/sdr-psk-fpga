@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2023 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2024 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -62,6 +62,7 @@ module gardner_loop_inst_0_Gardner_Corrector_0_0 (
   I_32M,
   Q_32M,
   error_n,
+  increment,
   I_1M,
   Q_1M,
   clk_out
@@ -77,6 +78,7 @@ input wire [3 : 0] GARDNER_SHIFT;
 input wire [15 : 0] I_32M;
 input wire [15 : 0] Q_32M;
 input wire [15 : 0] error_n;
+output wire [15 : 0] increment;
 output wire [15 : 0] I_1M;
 output wire [15 : 0] Q_1M;
 output wire clk_out;
@@ -90,6 +92,7 @@ output wire clk_out;
     .I_32M(I_32M),
     .Q_32M(Q_32M),
     .error_n(error_n),
+    .increment(increment),
     .I_1M(I_1M),
     .Q_1M(Q_1M),
     .clk_out(clk_out)

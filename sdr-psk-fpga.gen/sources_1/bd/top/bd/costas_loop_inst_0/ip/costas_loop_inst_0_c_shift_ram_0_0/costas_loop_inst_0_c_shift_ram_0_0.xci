@@ -2,7 +2,7 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "costas_loop_inst_0_c_shift_ram_0_0",
-    "cell_name": "Rx/costas_loop_0/LPF/c_shift_ram_0",
+    "cell_name": "LPF/c_shift_ram_0",
     "component_reference": "xilinx.com:ip:c_shift_ram:12.0",
     "ip_revision": "14",
     "gen_directory": ".",

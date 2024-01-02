@@ -2,7 +2,7 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "gardner_loop_inst_0_Gardner_Timing_Error_0_0",
-    "cell_name": "Timing_Error/Gardner_Timing_Error_0",
+    "cell_name": "Rx/gardner_loop_0/Timing_Error/Gardner_Timing_Error_0",
     "component_reference": "xilinx.com:module_ref:Gardner_Timing_Error:1.0",
     "ip_revision": "1",
     "gen_directory": ".",

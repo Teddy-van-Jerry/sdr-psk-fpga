@@ -1,7 +1,7 @@
 //Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-//Date        : Tue Jan  2 01:19:48 2024
+//Date        : Tue Jan  2 11:19:28 2024
 //Host        : TVJ-PC running 64-bit major release  (build 9200)
 //Command     : generate_target top.bd
 //Design      : top
@@ -421,6 +421,8 @@ module Rx_imp_KSVDXC
     data_tvalid,
     error_tdata,
     feedback_tdata,
+    gardner_error,
+    gardner_increment,
     rst_16M384,
     rst_32M768);
   input [11:0]ADC_I;
@@ -454,6 +456,8 @@ module Rx_imp_KSVDXC
   output data_tvalid;
   output [15:0]error_tdata;
   output [15:0]feedback_tdata;
+  output [15:0]gardner_error;
+  output [15:0]gardner_increment;
   input rst_16M384;
   input rst_32M768;
 
@@ -503,6 +507,8 @@ module Rx_imp_KSVDXC
   wire [15:0]gardner_loop_0_I_1M;
   wire [15:0]gardner_loop_0_Q_1M;
   wire gardner_loop_0_clk_out;
+  wire [15:0]gardner_loop_0_error_n;
+  wire [15:0]gardner_loop_0_increment;
   wire rst_16M386_1;
   wire rst_32M768_1;
   wire [0:0]xlconstant_one_dout;
@@ -538,6 +544,8 @@ module Rx_imp_KSVDXC
   assign data_tvalid = Depacketizer_0_data_tvalid;
   assign error_tdata[15:0] = costas_loop_0_error_tdata;
   assign feedback_tdata[15:0] = costas_loop_0_feedback_tdata;
+  assign gardner_error[15:0] = gardner_loop_0_error_n;
+  assign gardner_increment[15:0] = gardner_loop_0_increment;
   assign rst_16M386_1 = rst_16M384;
   assign rst_32M768_1 = rst_32M768;
   top_Depacketizer_0_0 Depacketizer_0
@@ -640,6 +648,8 @@ module Rx_imp_KSVDXC
         .Q_tvalid(Q_tvalid_2),
         .clk_32M768(clk_32M768_1),
         .clk_out(gardner_loop_0_clk_out),
+        .error_n(gardner_loop_0_error_n),
+        .increment(gardner_loop_0_increment),
         .is_bpsk(c_shift_ram_is_bpsk_Q),
         .rst_32M768(rst_32M768_1));
   top_xlconstant_0_2 xlconstant_one
@@ -962,6 +972,8 @@ module top
   wire Rx_data_tvalid;
   wire [15:0]Rx_error_tdata;
   wire [15:0]Rx_feedback_tdata;
+  wire [15:0]Rx_gardner_error;
+  wire [15:0]Rx_gardner_increment;
   wire [1:0]Tx_DAC_bits;
   wire Tx_DAC_vld;
   wire Tx_Tx_1bit;
@@ -1052,6 +1064,8 @@ module top
         .data_tvalid(Rx_data_tvalid),
         .error_tdata(Rx_error_tdata),
         .feedback_tdata(Rx_feedback_tdata),
+        .gardner_error(Rx_gardner_error),
+        .gardner_increment(Rx_gardner_increment),
         .rst_16M384(proc_sys_reset_16M384_mb_reset),
         .rst_32M768(Clock_Gen_rst_32M768));
   Tx_imp_1IUYQQO Tx
@@ -1097,7 +1111,9 @@ module top
         .probe26(Tx_Tx_vld),
         .probe27(Rx_Rx_1bit),
         .probe28(Rx_Rx_vld),
+        .probe29(Rx_gardner_error),
         .probe3(PSK_Mod_0_out_Q),
+        .probe30(Rx_gardner_increment),
         .probe4(AD9361_1RT_FDD_0_AD9361_RX_DAT_I),
         .probe5(AD9361_1RT_FDD_0_AD9361_RX_DAT_Q),
         .probe6(Rx_I_16M),

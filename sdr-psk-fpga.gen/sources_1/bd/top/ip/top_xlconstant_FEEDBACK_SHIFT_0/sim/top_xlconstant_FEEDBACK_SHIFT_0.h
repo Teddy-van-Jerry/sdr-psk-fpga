@@ -57,7 +57,7 @@
 #include "systemc.h"
 class top_xlconstant_FEEDBACK_SHIFT_0 : public sc_module {
   public:
-xlconstant_v1_1_7<4,4> mod;
+xlconstant_v1_1_7<4,3> mod;
   sc_out< sc_bv<4> > dout;
 top_xlconstant_FEEDBACK_SHIFT_0 (sc_core::sc_module_name name);
   };

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Jan  2 01:19:53 2024" VIVADOVERSION="2022.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Jan  2 11:19:35 2024" VIVADOVERSION="2022.2">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z020" NAME="gardner_loop_inst_0" PACKAGE="clg484" SPEEDGRADE="-1"/>
 
@@ -56,6 +56,11 @@
     <PORT DIR="I" NAME="I_tvalid" SIGIS="undef"/>
     <PORT DIR="I" LEFT="15" NAME="Q_tdata" RIGHT="0" SIGIS="undef"/>
     <PORT DIR="I" NAME="Q_tvalid" SIGIS="undef"/>
+    <PORT DIR="O" LEFT="15" NAME="increment" RIGHT="0" SIGIS="undef" SIGNAME="Gardner_Corrector_0_increment">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Gardner_Corrector_0" PORT="increment"/>
+      </CONNECTIONS>
+    </PORT>
   </EXTERNALPORTS>
 
   <EXTERNALINTERFACES/>
@@ -97,6 +102,11 @@
         <PORT DIR="I" LEFT="15" NAME="error_n" RIGHT="0" SIGIS="undef" SIGNAME="Timing_Error_Gardner_Timing_Error_0_error_n">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Timing_Error_Gardner_Timing_Error_0" PORT="error_n"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="increment" RIGHT="0" SIGIS="undef" SIGNAME="Gardner_Corrector_0_increment">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="increment"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="15" NAME="I_1M" RIGHT="0" SIGIS="undef" SIGNAME="Gardner_Corrector_0_I_1M">

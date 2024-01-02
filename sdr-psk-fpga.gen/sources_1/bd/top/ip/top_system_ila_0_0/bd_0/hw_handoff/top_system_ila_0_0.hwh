@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Jan  2 01:19:51 2024" VIVADOVERSION="2022.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Jan  2 11:19:31 2024" VIVADOVERSION="2022.2">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z020" NAME="bd_0696" PACKAGE="clg484" SPEEDGRADE="-1"/>
 
@@ -154,6 +154,16 @@
         <CONNECTION INSTANCE="ila_lib" PORT="probe28"/>
       </CONNECTIONS>
     </PORT>
+    <PORT DIR="I" LEFT="15" NAME="probe29" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_probe29">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="ila_lib" PORT="probe29"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" LEFT="15" NAME="probe30" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_probe30">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="ila_lib" PORT="probe30"/>
+      </CONNECTIONS>
+    </PORT>
   </EXTERNALPORTS>
 
   <EXTERNALINTERFACES/>
@@ -179,7 +189,7 @@
         <PARAMETER NAME="C_SLOT_0_AXI_PROTOCOL" VALUE="AXI4"/>
         <PARAMETER NAME="C_NUM_MONITOR_SLOTS" VALUE="1"/>
         <PARAMETER NAME="C_ENABLE_ILA_AXI_MON" VALUE="0"/>
-        <PARAMETER NAME="C_NUM_OF_PROBES" VALUE="29"/>
+        <PARAMETER NAME="C_NUM_OF_PROBES" VALUE="31"/>
         <PARAMETER NAME="C_DATA_DEPTH" VALUE="4096"/>
         <PARAMETER NAME="C_MAJOR_VERSION" VALUE="2022"/>
         <PARAMETER NAME="C_MINOR_VERSION" VALUE="2"/>
@@ -232,8 +242,8 @@
         <PARAMETER NAME="C_PROBE26_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_PROBE27_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_PROBE28_WIDTH" VALUE="1"/>
-        <PARAMETER NAME="C_PROBE29_WIDTH" VALUE="1"/>
-        <PARAMETER NAME="C_PROBE30_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_PROBE29_WIDTH" VALUE="16"/>
+        <PARAMETER NAME="C_PROBE30_WIDTH" VALUE="16"/>
         <PARAMETER NAME="C_PROBE31_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_PROBE32_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_PROBE33_WIDTH" VALUE="1"/>
@@ -3447,6 +3457,16 @@
         <PORT DIR="I" LEFT="0" NAME="probe28" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_probe28">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="probe28"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="probe29" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_probe29">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="probe29"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="probe30" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_probe30">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="probe30"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
