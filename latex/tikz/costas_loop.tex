@@ -1,0 +1,142 @@
+\begin{tikzpicture}[
+  , thick
+  , font = \small\sffamily
+  , node distance = 8mm and 5mm
+  , 1bit/.style = {
+    , semithick
+  }
+  , n/.style = {
+    , draw
+    , minimum height = 5mm
+    , fill = #1!15
+  }
+  , n/.default = myblued
+  , LPF/.style = {
+    , n = myyellow
+    , minimum width = 6mm
+  }
+  , arr/.style = {
+    , -latex
+  }
+  , arr r/.style = {
+    , latex-
+  }
+  , port/.style = {
+    , n = gray
+    , signal
+    , signal to = east
+    , minimum height = 2mm
+  }
+  , port label/.style = {
+    , font = \notsotiny\sffamily
+    , align = center
+    , below = 1mm
+  }
+  , mul add base/.style = {
+    , draw = black
+    , circle
+    , minimum width = 3mm
+    , fill = none
+  }
+  , add/.style = {
+    , mul add base
+    , append after command = {
+      \pgfextra
+        \draw [-, black] (\tikzlastnode.north) -- (\tikzlastnode.south);
+        \draw [-, black] (\tikzlastnode.east)  -- (\tikzlastnode.west);
+      \endpgfextra
+    }
+  }
+  , sub/.style = {
+    , mul add base
+    , append after command = {
+      \pgfextra
+        \draw [-, black] (\tikzlastnode.north) -- (\tikzlastnode.south);
+        \draw [-, black] (\tikzlastnode.east)  -- (\tikzlastnode.west);
+        \node [above left = 0mm and 0mm of \tikzlastnode.north, inner sep = 0] {\notsotiny\resizebox*{\widthof{+}}{\heightof{-}}{-}};
+        \node [above right = 0mm and 0mm of \tikzlastnode.east, inner sep = 0] {\notsotiny+};
+      \endpgfextra
+    }
+  }
+  , mul/.style = {
+    , mul add base
+    , append after command = {
+      \pgfextra
+        \draw [-, black] (\tikzlastnode.north west) -- (\tikzlastnode.south east);
+        \draw [-, black] (\tikzlastnode.north east) -- (\tikzlastnode.south west);
+      \endpgfextra
+    }
+  }
+  , null node/.style = {
+    , inner sep = 0
+    , outer sep = 0
+    , minimum width = 0
+    , 
+  }
+  , joint/.style = {
+    , circle
+    , minimum height = 0.8mm
+    , inner sep = 0
+    , fill = #1
+    , draw = #1
+  }
+  , joint/.default = black
+  , mux/.style = {
+    , n = mygreen
+    , trapezium
+    , trapezium angle = 60
+    , shape border rotate = 90
+    , minimum height = 3.8mm
+    , anchor = south
+  }
+]
+  \node (nco) [n] {NCO};
+  \node (loop-filter) [LPF, right = of nco] {};
+
+  \node (lpf-I) [LPF, above = of loop-filter] {};
+  \node (lpf-Q) [LPF, below = of loop-filter] {};
+
+  \node (mul-I) [mul, xshift = -7mm] at (nco |- lpf-I) {};
+  \node (mul-Q) [mul, xshift = -7mm] at (nco |- lpf-Q) {};
+
+  \node (in-j) [joint, left = 8mm of nco] {};
+  
+  \draw [arr] (loop-filter) -- (nco);
+  \draw [arr] ([yshift = +1mm]nco.west) -| (mul-I) node [midway, right, yshift = +7mm] {$\cos$};
+  \draw [arr] ([yshift = -1mm]nco.west) -| (mul-Q) node [midway, right, yshift = -7mm] {$\sin$};
+
+  % input port
+  \draw (in-j) -- ++ (-6mm, 0) node [port] {}
+                               node (in-psk) [port label] {PSK\\strm.};
+
+  % mux
+  \draw [arr r] (loop-filter.east) -- ++ (5mm, 0) node (mux) [mux, right] {}
+                                                  node [font = \notsotiny\sffamily, above right = .5mm and 1.2mm, inner sep = 0] {0}
+                                                  node [font = \notsotiny\sffamily, below right = .5mm and 1.2mm, inner sep = 0] {1};
+  \draw [1bit, shorten < = -.1mm] (mux.north) |- ([yshift = 5mm] in-psk |- mul-I.north) node [port] {}
+                                                                                        node [port label] {is\_bpsk};
+
+  % error output
+  \node [sub, right = of mux.east, yshift = +2.2mm] (sub-QPSK) {};
+  \draw [arr] (sub-QPSK) -- (sub-QPSK.west -| mux.east);
+  \node [mul, right = of mux.east, yshift = -2.2mm] (mul-BPSK) {};
+  \draw [arr] (mul-BPSK) -- (mul-BPSK.west -| mux.east);
+
+
+  % loop filter tooltip
+  \draw [thin, shorten < = .5mm] (loop-filter.south west) -- ++ (-2mm, -2mm)
+                                                          -- ++ (-2mm, 0) node [left, font = \notsotiny\sffamily, inner sep = .5mm] {Loop Filter};
+
+  \foreach \x in {I, Q} {
+    \draw [arr] (mul-\x) -- (lpf-\x);
+    \draw [arr] (in-j) |- (mul-\x);
+  }
+  % LPF: draw symbol and add label
+  \foreach \x in {loop-filter, lpf-I, lpf-Q} {
+    \draw ([xshift = -2.2mm, yshift = 1.5mm]\x.center) -- ++ (1.7mm, 0)
+                                                       -- ++ (1mm, -3mm)
+                                                       -- ++ (1.7mm, 0);
+    \node [below = .5mm of \x, font = \notsotiny\sffamily, inner ysep = 0] {LPF};
+  }
+
+\end{tikzpicture}%

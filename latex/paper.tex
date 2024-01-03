@@ -21,7 +21,7 @@
 \usepackage[noadjust]{cite}
 \usepackage{circuitikz}
 \usepackage{siunitx}
-\usepackage{url}
+\usepackage{minted}
 \usepackage[colorlinks,urlcolor=black,linkcolor=blue,citecolor=blue]{hyperref}
 
 \usetikzlibrary{svg.path,shapes.symbols,shapes.misc}
@@ -77,7 +77,7 @@
 
   \author{%
     Wuqiong~Zhao{\hspace{.1em}\textsuperscript{\orcidicon{0000-0002-9550-7423}}},~\IEEEmembership{Student Member, IEEE}
-    \thanks{Date of publication 2 January 2024; date of current version 2 January 2024.
+    \thanks{Date of publication 4 January 2024; date of current version 4 January 2024.
       The author would like to thank Lecturer Dan Yang for the guidance and help in the course of the experiment.
       The author would also like to thank AI tools including GitHub Copilot and Claude.AI for their help in preparing this paper.}
     \thanks{Wuqiong Zhao is with Southeast University, Nanjing 211189, China. (e-mail: wqzhao@seu.edu.cn, website: \url{https://wqzhao.org}).}
@@ -125,9 +125,39 @@
         \label{fig:system_overview}
       \end{figure}
 
+      \textbf{Clock Generator}.
       All reset signals are generated using Processor System Reset Modules \cite{xilinx:pg164},
       which can provide synchronized power-up reset signals.
+
+      \textbf{RF Data Converter}.
+      This block is contains analog-to-digital converter (ADC) and digital-to-analog converter (DAC),
+      enabled by a vendored AD9361 module.
+
+      \textbf{Tx Signal Generator}.
+
+      \textbf{Rx Processor}.
+
+      \textbf{System ILA}.
       The system integrated logic analyzer (system ILA) \cite{xilinx:pg261} is used to observe the internal signals.
+
+      \textbf{Constant Configurations}.
+      Several parameters can be configured in this block.
+      Most importantly, the mode control constants (\texttt{MODE\_CTRL}) are shown in Table~\ref{tab:mode_ctrl}.
+      \begin{table}[htbp]
+        \caption{Mode Control Constants}
+        \label{tab:mode_ctrl}
+        \renewcommand{\arraystretch}{1.2}
+        \rowcolors{1}{white}{gray!15}
+        \begin{tabularx}{\linewidth}{cYYYc}
+          \toprule\tabvertspace
+          \textbf{Mode} & \textbf{Localparam} & \textbf{Value} & \textbf{\ttfamily is\_bpsk} & \textbf{Packet} \\
+          \tabvertspace\midrule
+            BPSK & \texttt{MODE\_BPSK} & \texttt{4\textquotesingle b0001} (1) & \texttt{1\textquotesingle b1} & No \\
+            QPSK & \texttt{MODE\_QPSK} & \texttt{4\textquotesingle b0010} (2) & \texttt{1\textquotesingle b0} & No \\
+            Mixed & \texttt{MODE\_MIX~~} & \texttt{4\textquotesingle b0100} (4) & variable & Yes \\
+          \bottomrule
+        \end{tabularx}
+      \end{table}
 
     \subsection{BPSK/QPSK Modulation}
 
@@ -141,7 +171,8 @@
         \label{fig:constellation}
       \end{figure}
 
-  \section{Transmitter}
+    \IEEEpubidadjcol
+    \section{Transmitter}
 
     \subsection{Carrier NCO}
 
@@ -155,7 +186,35 @@
       In this experiment, the transmitted signal are pseudo-random noise (PN) sequences.
       Typically, we implement the PN generator with $N=4$ and $N=5$. % mention the structure here
 
-  \IEEEpubidadjcol
+      \newpage
+      The Verilog code for the module \texttt{PN\_Gen} is shown below.
+      \begin{minted}[frame=lines,fontsize=\scriptsize,highlightlines={11,18}]{verilog}
+module PN_Gen # (parameter N = 5) (
+  input      clk,
+  output reg pn
+);
+  reg [N-1:0] PN_buf = 1; wire rst;
+  generate
+  if (N == 5)
+    always @ (posedge clk)
+      if (rst) begin PN_buf <= 5'd1; pn <= 0; end
+      else begin
+        PN_buf <= { PN_buf[3:0], PN_buf[4] ^ PN_buf[2] };
+        pn <= PN_buf[4];
+      end
+  else if (N == 4)
+    always @ (posedge clk)
+      if (rst) begin PN_buf <= 4'd1; pn <= 0; end
+      else begin
+        PN_buf <= { PN_buf[2:0], PN_buf[3] + PN_buf[2] };
+        pn <= PN_buf[3];
+      end
+  else ; // NOT implemented yet!
+  endgenerate
+  assign rst = !(|PN_buf);  // reset when PN_buf is all 0
+endmodule
+      \end{minted}
+
   \section{Receiver}
 
     \subsection{Overview}
@@ -163,6 +222,25 @@
     \subsection{Carrier Synchronization Using Costas Loop}
 
       Costas loop \cite{simon1977optimum}.
+
+      \begin{figure}[htbp]
+        \centering
+        \input{tikz/costas_loop}
+        \caption{Costas loop for carrier synchronization with BPSK/QPSK support.}
+      \end{figure}
+
+      \begin{minted}[frame=lines,fontsize=\scriptsize]{verilog}
+if (is_bpsk) begin // BPSK
+  out_I_tdata <= in_I_tvalid ? in_I_tdata + in_Q_tdata : 0;
+  out_Q_tdata <= in_Q_tvalid ? in_I_tdata - in_Q_tdata : 0;
+end
+else begin // QPSK
+  out_I_tdata <= in_I_tvalid ? (in_Q_tdata[WIDTH-1] ?
+    -in_I_tdata : in_I_tdata) >>> 6 : 0;
+  out_Q_tdata <= in_Q_tvalid ? (in_I_tdata[WIDTH-1] ?
+    -in_Q_tdata : in_Q_tdata) >>> 6 : 0;
+end
+      \end{minted}
 
     \subsection{Symbol Synchronization Using Gardner Loop}
 
@@ -217,7 +295,7 @@
 
     \textbf{Header (HDR)}.
     The header field is used to provide packet information,
-    including the modulation and coding scheme (MCS) and the packet length (Length).
+    including the modulation and coding scheme (MCS) and the packet length (Length) in bits.
     The remaining bits are reserved for future use.
     The MCS field currently only determines the use of BPSK or QPSK.
     The MCSs for BPSK and QPSK are defined as `01010101' and `10101010' respectively.
@@ -238,7 +316,17 @@
 
       \subsubsection{Boundary Detection (BD)}
 
-  \section{Experiment Results}
+  \section{Simulation Results}
+
+    \subsection{Transmitter}
+
+    \subsection{BPSK-Mode Receiver}
+
+    \subsection{QPSK-Mode Receiver}
+
+    \subsection{Mixed-Mode Receiver}
+
+  \section{Experiment Results on SDR}
 
     The design is implemented in Vivado 2022.2.
     The experiment results are observed via a system ILA in Vivado,
@@ -251,6 +339,10 @@
 
       \textbf{Frame structure design}.
       CRC and/or checksums can be added to the frame structure.
+
+      \textbf{Changing parameters on the fly}.
+      AXI peripheral \cite{xilinx:pg127} can be used to change the parameters in the \texttt{Constant\_Config} on the fly,
+      if the board allows.
 
     \subsection{Possible Extensions Beyond the Experiment}
 
@@ -268,7 +360,7 @@
 
   \appendices
 
-  \section{Block Diagram}
+  \section{Block Diagrams}
 
   \bibliographystyle{IEEEtran}
   \bibliography{IEEEabrv, ref}

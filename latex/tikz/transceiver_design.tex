@@ -6,6 +6,57 @@
     , align = center
   }
   , font = \small\sffamily
+  , lightning bolt to/.style={to path={
+    let \p1=(\tikztostart), \p2=(\tikztotarget), \n1={veclen(\y2-\y1,\x2-\x1)} in
+      (\p1) -- ($($(\p1)!0.6!(\p2)$)!\n1*.08!-90:(\p2)$) -- ($(\p1)!0.55!(\p2)$) --
+      (\p2) -- ($($(\p1)!0.4!(\p2)$)!\n1*.08!90:(\p2)$) -- ($(\p1)!0.45!(\p2)$) -- 
+      cycle (\p2)% Move to end point
+    }}
+  , null node/.style = {
+    , inner sep = 0
+    , outer sep = 0
+  }
+  , arr/.style = {
+    , -latex
+  }
+  , arr r/.style = {
+    , latex-
+  }
+  , node distance = 1mm and 5mm
 ]
-  \node [n] {RF Data\\Converter};
+  \node (RF) [n] {RF Data\\Converter};
+
+  \node (Rx-p) [n, right = 9mm of RF] {Rx\\Processor};
+  \node (Tx-p) [n, left = 9mm of RF] {Tx Signal\\Generator};
+
+  \draw [arr] (Tx-p) -- (RF) node [midway, above] {\scriptsize16\,MHz};
+  \draw [arr] (RF) -- (Rx-p) node [midway, above] {\scriptsize16\,MHz};
+  \draw [arr] (Rx-p.east) -- ++ (6mm, 0) node [above right = 0 and -6mm] {\scriptsize1\,MHz};
+  \draw [arr r] (Tx-p.west) -- ++ (-6mm, 0) node [above left = 0 and -6mm] {\scriptsize1\,MHz};
+
+  \draw ([xshift = 1.5mm]RF.north west) -- ++ (0, 4mm) -- ++ (-1mm, 2mm) -- ++ (2mm, 0) node (Tx) [null node] {} -- ++ (-1mm, -2mm);
+  \draw ([xshift = -1.5mm]RF.north east) -- ++ (0, 4mm) -- ++ (1mm, 2mm) -- ++ (-2mm, 0) node (Rx) [null node] {} -- ++ (1mm, -2mm);
+
+  \fill [myyellow] ([xshift = 1mm, yshift = -1mm]Tx.center) to [lightning bolt to] ([xshift = -1mm]Rx);
+  \node [above = of Tx, xshift = -1mm] {Tx};
+  \node [above = of Rx, xshift = +1mm] {Rx};
+
+  % \node (clk) [n, below = 4mm of RF] {Clk.\ Gen.};
+  % % \draw [arr] (RF) -- (clk);
+  % \draw [arr] (clk) -| ([xshift = -3mm]Rx-p.south);
+  % \draw [arr] (clk) -| ([xshift = +3mm]Tx-p.south);
+
+  % \node (cfg) [n, below = 4mm of clk] {Constant\\Config.};
+  % \draw [arr] (cfg) -| ([xshift = 3mm]Rx-p.south);
+  % \draw [arr] (cfg) -| ([xshift = -3mm]Tx-p.south);
+
+  \node (clk) [n, below = 5mm of RF, xshift = -10mm] {Clk.\\Gen.\vphantom{g}};
+  \node (cfg) [n, below = 5mm of RF, xshift = 7mm] {Constant\\Config.};
+  \draw [arr] (clk.north) -- ++ (0, 2mm) -| ([xshift = 3mm]Tx-p.south);
+  \draw [arr] (cfg.south) -- ++ (0, -2mm) -| ([xshift = 3mm]Rx-p.south);
+  \draw [arr] (clk.north) -- ++ (0, 2mm) -| ([xshift = -3mm]Rx-p.south);
+  \draw [arr] (cfg.south) -- ++ (0, -2mm) -| ([xshift = -3mm]Tx-p.south);
+
+  \node [n, above = 4mm of Rx-p.north east, anchor = south east] {System ILA};
+
 \end{tikzpicture}%
