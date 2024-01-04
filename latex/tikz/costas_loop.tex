@@ -132,6 +132,7 @@
   \draw (mul-BPSK) -- (mul-BPSK -| err-detect-ctrl.west) node [above left, font xs, inner sep = .5mm] {Q};
   \draw ([xshift = -3.5mm] sub-QPSK-| err-detect-ctrl.west) node [joint] {} to[jump, jump pos = .55] ++ (0, -8mm) -| (mul-BPSK);
   \draw ([xshift = -6.5mm] mul-BPSK-| err-detect-ctrl.west) node [joint] {} to[jump, jump pos = .55, jump swap] ++ (0, +8mm) -| (sub-QPSK);
+  \draw [1bit] ([xshift = -4.5mm]err-detect-ctrl.north) |- ([yshift = 4mm] err-detect-ctrl.north -| mux.north) node [joint, scale = .5] {};
   \node (err-detect) [fit = (err-detect-ctrl) (mux), draw, dashed, myred] {};
   \node [myred, anchor = north west, inner xsep = 0] at (err-detect.south west) {Error Detector};
 
@@ -144,7 +145,7 @@
     \draw [arr] (lpf-\x) -| (err-detect-ctrl) node (out-\x) [midway, joint] {};
     \draw (out-\x) -- ++ (5mm, 0) node [port, right, label={right:\x}] {};
   }
-  
+
   % LPF: draw symbol and add label
   \foreach \x in {loop-filter, lpf-I, lpf-Q} {
     \draw ([xshift = -2.2mm, yshift = 1.5mm]\x.center) -- ++ (1.7mm, 0)
