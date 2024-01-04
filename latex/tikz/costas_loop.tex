@@ -5,6 +5,9 @@
   , 1bit/.style = {
     , semithick
   }
+  , font xs/.style = {
+    , font = \notsotiny\sffamily
+  }
   , n/.style = {
     , draw
     , minimum height = 5mm
@@ -28,7 +31,7 @@
     , minimum height = 2mm
   }
   , port label/.style = {
-    , font = \notsotiny\sffamily
+    , font xs
     , align = center
     , below = 1mm
   }
@@ -111,10 +114,11 @@
 
   % mux
   \draw [arr r] (loop-filter.east) -- ++ (5mm, 0) node (mux) [mux, right] {}
-                                                  node [font = \notsotiny\sffamily, above right = .5mm and 1.2mm, inner sep = 0] {0}
-                                                  node [font = \notsotiny\sffamily, below right = .5mm and 1.2mm, inner sep = 0] {1};
-  \draw [1bit, shorten < = -.1mm] (mux.north) |- ([yshift = 5mm] in-psk |- mul-I.north) node [port] {}
-                                                                                        node [port label] {is\_bpsk};
+                                                  node [font xs, above right = .5mm and 1.2mm, inner sep = 0] {0}
+                                                  node [font xs, below right = .5mm and 1.2mm, inner sep = 0] {1};
+  \draw [1bit, shorten < = -.1mm] (mux.north)
+    to [jump, jump pos = .595, |u-, jump swap] ([yshift = 5mm] in-psk |- mul-I.north) node [port] {}
+                                                                                      node [port label] {is\_bpsk};
 
   % error output
   \node [sub, right = of mux.east, yshift = +2.2mm] (sub-QPSK) {};
@@ -122,21 +126,30 @@
   \node [mul, right = of mux.east, yshift = -2.2mm] (mul-BPSK) {};
   \draw [arr] (mul-BPSK) -- (mul-BPSK.west -| mux.east);
 
+  % error detector
+  \node (err-detect-ctrl) [n = myred, align = center, anchor = west] at ([xshift = 10mm] mul-BPSK.east |- loop-filter.east) {Error\\Detector\\Control};
+  \draw (sub-QPSK) -- (sub-QPSK -| err-detect-ctrl.west) node [above left, font xs, inner sep = .5mm, align = center] {\hphantom{Q}\\I};
+  \draw (mul-BPSK) -- (mul-BPSK -| err-detect-ctrl.west) node [above left, font xs, inner sep = .5mm] {Q};
+  \draw ([xshift = -3.5mm] sub-QPSK-| err-detect-ctrl.west) node [joint] {} to[jump, jump pos = .55] ++ (0, -8mm) -| (mul-BPSK);
+  \draw ([xshift = -6.5mm] mul-BPSK-| err-detect-ctrl.west) node [joint] {} to[jump, jump pos = .55, jump swap] ++ (0, +8mm) -| (sub-QPSK);
+  \node (err-detect) [fit = (err-detect-ctrl) (mux), draw, dashed, myred] {};
+  \node [myred, anchor = north west, inner xsep = 0] at (err-detect.south west) {Error Detector};
 
   % loop filter tooltip
   \draw [thin, shorten < = .5mm] (loop-filter.south west) -- ++ (-2mm, -2mm)
-                                                          -- ++ (-2mm, 0) node [left, font = \notsotiny\sffamily, inner sep = .5mm] {Loop Filter};
-
+                                                          -- ++ (-2mm, 0) node [left, font xs, inner sep = .5mm] {Loop Filter};
   \foreach \x in {I, Q} {
     \draw [arr] (mul-\x) -- (lpf-\x);
     \draw [arr] (in-j) |- (mul-\x);
+    \draw [arr] (lpf-\x) -| (err-detect-ctrl) node (out-\x) [midway, joint] {};
+    \draw (out-\x) -- ++ (5mm, 0) node [port, right, label={right:\x}] {};
   }
+  
   % LPF: draw symbol and add label
   \foreach \x in {loop-filter, lpf-I, lpf-Q} {
     \draw ([xshift = -2.2mm, yshift = 1.5mm]\x.center) -- ++ (1.7mm, 0)
                                                        -- ++ (1mm, -3mm)
                                                        -- ++ (1.7mm, 0);
-    \node [below = .5mm of \x, font = \notsotiny\sffamily, inner ysep = 0] {LPF};
+    \node [below = .5mm of \x, font xs, inner ysep = 0] {LPF};
   }
-
 \end{tikzpicture}%
