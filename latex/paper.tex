@@ -342,6 +342,15 @@ end
     and 4 general-purpose input/output (GPIO) pins are used to output some 1-bit signals,
     including the 1-bit Tx and Rx data stream and their corresponding clock.
 
+    \begin{figure*}[t]
+      \centering
+      \subfloat[BPSK packet data (duration: \qty{200}{\micro\second}).\label{subfig:scope_bpsk}]{\input{tikz/scope/BPSK}}\\
+      \subfloat[QPSK packet data (duration: \qty{100}{\micro\second}).\label{subfig:scope_qpsk}]{\input{tikz/scope/QPSK}}\\
+      \subfloat[Symbol timing clock and BPSK data at Rx (duration: \qty{50}{\micro\second}).\label{subfig:scope_timing}]{\input{tikz/scope/timing}}
+      \caption{Two-channel oscilloscope results.}
+      \label{fig:scope}
+    \end{figure*}
+
   \section{Discussions}
 
     \subsection{Possible Enhancement}

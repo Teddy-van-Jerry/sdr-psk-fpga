@@ -1,0 +1,36 @@
+\begin{tikzpicture}[
+  , font = \sffamily
+]
+  \begin{axis}[
+    , width = \linewidth
+    , height = 10mm
+    , scale only axis = true
+    , enlarge x limits = false
+    , axis line style = { draw = none }
+    , ticks = none
+    , thick
+  ]
+    \addplot [
+      , color = myred
+      , mark = none
+    ] table [
+      , col sep = comma
+      , skip first n = 2
+      , x index = 0
+      , y index = 1
+    ] {../scope/BPSK.csv};
+    \addplot [
+      , color = myblued
+      , mark = none
+      , y filter/.code = {\pgfmathparse{\pgfmathresult-45}}
+    ] table [
+      , col sep = comma
+      , skip first n = 2
+      , x index = 0
+      , y index = 2
+    ] {../scope/BPSK.csv};
+
+    \node [anchor = north west, myred] at (rel axis cs:0,1) {Tx};
+    \node [anchor = south west, myblued] at (rel axis cs:0,0) {Rx};
+  \end{axis}
+\end{tikzpicture}%
