@@ -1,0 +1,126 @@
+\begin{tikzpicture}[
+  , thick
+  , font = \small\sffamily
+  , node distance = 8mm and 5mm
+  , 1bit/.style = {
+    , semithick
+  }
+  , font xs/.style = {
+    , font = \notsotiny\sffamily
+  }
+  , n/.style = {
+    , draw
+    , minimum height = 5mm
+    , fill = #1!15
+  }
+  , n/.default = myblued
+  , IFIR/.style = {
+    , n = myyellow
+    , minimum width = 6mm
+  }
+  , arr/.style = {
+    , -latex
+  }
+  , arr r/.style = {
+    , latex-
+  }
+  , port/.style = {
+    , n = gray
+    , signal
+    , signal to = east
+    , minimum height = 2mm
+  }
+  , port label/.style = {
+    , font xs
+    , align = center
+    , below = 1mm
+  }
+  , mul add base/.style = {
+    , draw = black
+    , circle
+    , minimum width = 3mm
+    , fill = none
+  }
+  , add/.style = {
+    , mul add base
+    , append after command = {
+      \pgfextra
+        \draw [-, black] (\tikzlastnode.north) -- (\tikzlastnode.south);
+        \draw [-, black] (\tikzlastnode.east)  -- (\tikzlastnode.west);
+      \endpgfextra
+    }
+  }
+  , sub/.style = {
+    , mul add base
+    , append after command = {
+      \pgfextra
+        \draw [-, black] (\tikzlastnode.north) -- (\tikzlastnode.south);
+        \draw [-, black] (\tikzlastnode.east)  -- (\tikzlastnode.west);
+        \if#11\relax
+          \node [above left = 0mm and 0mm of \tikzlastnode.north, inner sep = 0] {\notsotiny+};
+        \else
+          \node [below left = 0mm and 0mm of \tikzlastnode.south, inner sep = 0] {\notsotiny+};
+        \fi
+        \node [above left = 0mm and 0mm of \tikzlastnode.west, inner sep = 0] {\notsotiny\resizebox*{\widthof{+}}{\heightof{-}}{-}};
+      \endpgfextra
+    }
+  }
+  , sub/.default = 0
+  , mul/.style = {
+    , mul add base
+    , append after command = {
+      \pgfextra
+        \draw [-, black] (\tikzlastnode.north west) -- (\tikzlastnode.south east);
+        \draw [-, black] (\tikzlastnode.north east) -- (\tikzlastnode.south west);
+      \endpgfextra
+    }
+  }
+  , null node/.style = {
+    , inner sep = 0
+    , outer sep = 0
+    , minimum width = 0
+    , 
+  }
+  , joint/.style = {
+    , circle
+    , minimum height = 0.8mm
+    , inner sep = 0
+    , fill = #1
+    , draw = #1
+  }
+  , joint/.default = black
+  , mux/.style = {
+    , n = mygreen
+    , trapezium
+    , trapezium angle = 60
+    , shape border rotate = 90
+    , minimum height = 3.8mm
+    , anchor = south
+  }
+]
+  \node (ifir-I) [IFIR] {\smash{\raisebox{.2mm}{$\uparrow$}2}\vphantom{2}};
+  \node (ifir-Q) [IFIR, below = of ifir-I] {\smash{\raisebox{.2mm}{$\uparrow$}2}\vphantom{2}};
+
+  \foreach \x in {I, Q} {
+    \draw (ifir-\x.west) -- ++ (-3mm, 0) node [port, left = -.5mm, label={left:\x}] (in-\x) {};
+    \node [below = .5mm of ifir-\x, font xs, inner ysep = 0] {IFIR};
+    \draw [arr] (ifir-\x.east) -- ++ (7mm, 0) node (D1-\x) [n, right] {16D};
+    \draw [arr] (D1-\x.east) -- ++ (5mm, 0) node (D2-\x) [n, right] {16D};
+    \draw [arr] (D2-\x.east) -- ++ (3mm, 0) node (sub-\x) [sub = \if\x I1\else0\fi, right] {};
+    \draw [arr] (sub-\x.east) -- ++ (1.5mm, 0) node (mul-\x) [mul, right] {};
+    \draw ([xshift = 3mm]ifir-\x.east) node (joint-\x) [joint] {} node [\if\x Ibelow\else above\fi, scale = .6, xshift = 1.5mm] {$y_\x(r)$} -- ++ (0, \if\x I+\else-\fi5mm) -| (sub-\x.north) {} node (y-\x) [joint, midway] {};
+    \draw ([xshift = 1.5mm]D1-\x.east) node [joint] {} -- ++ (0, \if\x I-\else+\fi5mm) -| (mul-\x.\if\x Isouth\else north\fi) {} node [midway, scale = .6, \if\x Iabove left\else below left\fi, inner ysep = .5mm] {$y_\x(r-\tfrac12)$};
+  }
+  \node (add) [add, right = .5mm of $(mul-I.east)!.5!(mul-Q.east)$] {};
+  \draw [arr] (add.east) -- ++ (3mm, 0) node [n = myred, align = center, right] (t) {Timing\\Correct.};
+  \foreach \x in {I, Q} {
+    \draw [arr] (mul-\x) -| (add);
+    \draw [arr] (y-\x) -| (t);
+  }
+  \draw ([yshift = +2mm]t.east) -- ++ (3mm, 0) node (out-I) [port, right, label = {above:\scriptsize I\_1M}] {};
+  \draw ([yshift = -2mm]t.east) -- ++ (3mm, 0) node (out-Q) [port, right, label = {below:\scriptsize Q\_1M}] {};
+  \draw ([xshift = 4mm]t.south) |- ([yshift = -5mm] out-Q |- t.south) node [port, label = {below:\scriptsize clk\_1M}] {};
+
+  \node (err-detect) [draw, dashed, mygreen, fit = (add)(joint-I)(joint-Q), inner ysep = 6mm] {};
+  \node [mygreen, anchor = north, inner ysep = 0, yshift = -.5mm] at (err-detect.south) {Timing Error Detector};
+\end{tikzpicture}%

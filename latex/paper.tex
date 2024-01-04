@@ -55,6 +55,14 @@
 \DeclareMathOperator*{\argmint}{\widetilde{\arg\min}}
 \DeclareMathOperator*{\uargmin}{\mathrm{u}\arg\min}
 
+\setlength{\fboxsep}{0pt}
+\setminted{
+  , frame = lines
+  , fontsize = \scriptsize
+  , bgcolor = gray!3
+  , framesep = 2.5pt
+}
+
 \markboth{Southeast University Software-Defined Radio Experiment Course, January 2024}{W. Zhao: Dual-Mode PSK Transceiver on SDR With FPGA}
 \IEEEpubid{
   \begin{tabular}[t]{c}
@@ -188,7 +196,7 @@
 
       \newpage
       The Verilog code for the module \texttt{PN\_Gen} is shown below.
-      \begin{minted}[frame=lines,fontsize=\scriptsize,highlightlines={11,18}]{verilog}
+      \begin{minted}[highlightlines={11,18}]{verilog}
 module PN_Gen # (parameter N = 5) (
   input      clk,
   output reg pn
@@ -229,7 +237,7 @@ endmodule
         \caption{Costas loop for carrier synchronization with BPSK/QPSK support.}
       \end{figure}
 
-      \begin{minted}[frame=lines,fontsize=\scriptsize]{verilog}
+      \begin{minted}[]{verilog}
 if (is_bpsk) begin // BPSK
   out_I_tdata <= in_I_tvalid ? in_I_tdata + in_Q_tdata : 0;
   out_Q_tdata <= in_Q_tvalid ? in_I_tdata - in_Q_tdata : 0;
@@ -247,6 +255,7 @@ end
       A Gardner loop \cite{gardner1986bpsk} is used to achieve symbol (timing) synchronization.
       The structure of a Gardner loop is shown in Fig.~\ref{fig:gardner_loop}.
       \begin{figure}[htbp]
+        \input{tikz/gardner_loop}
         \caption{Structure of a Gardner loop for symbol timing synchronization.}
         \label{fig:gardner_loop}
       \end{figure}
