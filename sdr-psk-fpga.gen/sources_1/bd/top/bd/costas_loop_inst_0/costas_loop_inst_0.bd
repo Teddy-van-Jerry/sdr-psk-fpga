@@ -22,8 +22,8 @@
         "Error_Detect_Ctrl_0": ""
       },
       "IQ_Connect": {
-        "AXI_2x_Q": "",
         "AXI_2x_I": "",
+        "AXI_2x_Q": "",
         "Truncate_IQ_0": ""
       },
       "LPF": {
@@ -93,7 +93,7 @@
           },
           "POLARITY": {
             "value": "ACTIVE_HIGH",
-            "value_src": "const_prop"
+            "value_src": "strong"
           }
         }
       },
@@ -1081,11 +1081,11 @@
           }
         },
         "components": {
-          "AXI_2x_Q": {
+          "AXI_2x_I": {
             "vlnv": "xilinx.com:module_ref:AXI_2x:1.0",
-            "xci_name": "costas_loop_inst_0_AXI_2x_Q_0",
-            "xci_path": "ip\\costas_loop_inst_0_AXI_2x_Q_0\\costas_loop_inst_0_AXI_2x_Q_0.xci",
-            "inst_hier_path": "IQ_Connect/AXI_2x_Q",
+            "xci_name": "costas_loop_inst_0_AXI_2x_I_0",
+            "xci_path": "ip\\costas_loop_inst_0_AXI_2x_I_0\\costas_loop_inst_0_AXI_2x_I_0.xci",
+            "inst_hier_path": "IQ_Connect/AXI_2x_I",
             "reference_info": {
               "ref_type": "hdl",
               "ref_name": "AXI_2x",
@@ -1253,11 +1253,11 @@
               }
             }
           },
-          "AXI_2x_I": {
+          "AXI_2x_Q": {
             "vlnv": "xilinx.com:module_ref:AXI_2x:1.0",
-            "xci_name": "costas_loop_inst_0_AXI_2x_I_0",
-            "xci_path": "ip\\costas_loop_inst_0_AXI_2x_I_0\\costas_loop_inst_0_AXI_2x_I_0.xci",
-            "inst_hier_path": "IQ_Connect/AXI_2x_I",
+            "xci_name": "costas_loop_inst_0_AXI_2x_Q_0",
+            "xci_path": "ip\\costas_loop_inst_0_AXI_2x_Q_0\\costas_loop_inst_0_AXI_2x_Q_0.xci",
+            "inst_hier_path": "IQ_Connect/AXI_2x_Q",
             "reference_info": {
               "ref_type": "hdl",
               "ref_name": "AXI_2x",

@@ -1,10 +1,10 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
--- Date        : Thu Dec 28 13:58:59 2023
+-- Date        : Sat Jan  6 01:09:10 2024
 -- Host        : TVJ-PC running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode synth_stub -rename_top costas_loop_inst_0_Truncate_IQ_0_0 -prefix
---               costas_loop_inst_0_Truncate_IQ_0_0_ costas_loop_inst_0_Truncate_IQ_0_0_stub.vhdl
+-- Command     : write_vhdl -force -mode synth_stub
+--               e:/Documents/Study/Verilog/SDR/sdr-psk-fpga/sdr-psk-fpga.gen/sources_1/bd/top/bd/costas_loop_inst_0/ip/costas_loop_inst_0_Truncate_IQ_0_0_1/costas_loop_inst_0_Truncate_IQ_0_0_stub.vhdl
 -- Design      : costas_loop_inst_0_Truncate_IQ_0_0
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7z020clg484-1

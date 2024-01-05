@@ -1,10 +1,10 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Thu Dec 21 08:32:34 2023
+// Date        : Sat Jan  6 01:11:06 2024
 // Host        : TVJ-PC running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode synth_stub -rename_top top_PSK_Signal_Extend_0_1 -prefix
-//               top_PSK_Signal_Extend_0_1_ top_PSK_Signal_Extend_0_1_stub.v
+// Command     : write_verilog -force -mode synth_stub
+//               e:/Documents/Study/Verilog/SDR/sdr-psk-fpga/sdr-psk-fpga.gen/sources_1/bd/top/ip/top_PSK_Signal_Extend_0_1/top_PSK_Signal_Extend_0_1_stub.v
 // Design      : top_PSK_Signal_Extend_0_1
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7z020clg484-1

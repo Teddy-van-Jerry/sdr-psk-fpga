@@ -27,7 +27,7 @@ module tb_Tx;
   reg clk_2M048;
 
   // configuration parameters (constants)
-  assign DELAY_CNT = 4'd0;
+  assign DELAY_CNT = 4'd8;
   assign MODE_CTRL = MODE_MIX;
   assign TX_PHASE_CONFIG = 16'd8192; // 8192 for 4.196 MHz
 

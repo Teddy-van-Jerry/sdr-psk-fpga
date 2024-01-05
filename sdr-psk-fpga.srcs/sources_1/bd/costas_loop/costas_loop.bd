@@ -21,8 +21,8 @@
         "Error_Detect_Ctrl_0": ""
       },
       "IQ_Connect": {
-        "AXI_2x_Q": "",
         "AXI_2x_I": "",
+        "AXI_2x_Q": "",
         "Truncate_IQ_0": ""
       },
       "LPF": {
@@ -986,11 +986,11 @@
           }
         },
         "components": {
-          "AXI_2x_Q": {
+          "AXI_2x_I": {
             "vlnv": "xilinx.com:module_ref:AXI_2x:1.0",
-            "xci_name": "costas_loop_AXI_2x_I_0",
-            "xci_path": "ip\\costas_loop_AXI_2x_I_0\\costas_loop_AXI_2x_I_0.xci",
-            "inst_hier_path": "IQ_Connect/AXI_2x_Q",
+            "xci_name": "costas_loop_AXI_2x_0_0",
+            "xci_path": "ip\\costas_loop_AXI_2x_0_0\\costas_loop_AXI_2x_0_0.xci",
+            "inst_hier_path": "IQ_Connect/AXI_2x_I",
             "reference_info": {
               "ref_type": "hdl",
               "ref_name": "AXI_2x",
@@ -1033,6 +1033,9 @@
                   "HAS_TLAST": {
                     "value": "0",
                     "value_src": "constant"
+                  },
+                  "FREQ_HZ": {
+                    "value": "16384000"
                   }
                 },
                 "port_maps": {
@@ -1158,11 +1161,11 @@
               }
             }
           },
-          "AXI_2x_I": {
+          "AXI_2x_Q": {
             "vlnv": "xilinx.com:module_ref:AXI_2x:1.0",
-            "xci_name": "costas_loop_AXI_2x_0_0",
-            "xci_path": "ip\\costas_loop_AXI_2x_0_0\\costas_loop_AXI_2x_0_0.xci",
-            "inst_hier_path": "IQ_Connect/AXI_2x_I",
+            "xci_name": "costas_loop_AXI_2x_I_0",
+            "xci_path": "ip\\costas_loop_AXI_2x_I_0\\costas_loop_AXI_2x_I_0.xci",
+            "inst_hier_path": "IQ_Connect/AXI_2x_Q",
             "reference_info": {
               "ref_type": "hdl",
               "ref_name": "AXI_2x",
@@ -1205,6 +1208,9 @@
                   "HAS_TLAST": {
                     "value": "0",
                     "value_src": "constant"
+                  },
+                  "FREQ_HZ": {
+                    "value": "16384000"
                   }
                 },
                 "port_maps": {
@@ -1439,6 +1445,9 @@
                   "HAS_TLAST": {
                     "value": "0",
                     "value_src": "constant"
+                  },
+                  "FREQ_HZ": {
+                    "value": "16384000"
                   },
                   "LAYERED_METADATA": {
                     "value": [

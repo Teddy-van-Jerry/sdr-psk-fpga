@@ -1,10 +1,10 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Fri Dec 29 07:26:32 2023
+// Date        : Sat Jan  6 01:09:16 2024
 // Host        : TVJ-PC running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim -rename_top top_Rx_SD_0_0 -prefix
-//               top_Rx_SD_0_0_ top_Rx_SD_0_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim
+//               e:/Documents/Study/Verilog/SDR/sdr-psk-fpga/sdr-psk-fpga.gen/sources_1/bd/top/ip/top_Rx_SD_0_0/top_Rx_SD_0_0_sim_netlist.v
 // Design      : top_Rx_SD_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -12,6 +12,52 @@
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
+(* CHECK_LICENSE_TYPE = "top_Rx_SD_0_0,Rx_SD,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
+(* X_CORE_INFO = "Rx_SD,Vivado 2022.2" *) 
+(* NotValidForBitStream *)
+module top_Rx_SD_0_0
+   (clk,
+    rst,
+    RX_SD_THRESHOLD,
+    RX_SD_WINDOW,
+    I_tdata,
+    I_tvalid,
+    Q_tdata,
+    Q_tvalid,
+    SD_flag);
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_BUSIF I:Q, ASSOCIATED_RESET rst, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, INSERT_VIP 0" *) input clk;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 rst RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME rst, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *) input rst;
+  input [15:0]RX_SD_THRESHOLD;
+  input [7:0]RX_SD_WINDOW;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 I TDATA" *) input [15:0]I_tdata;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 I TVALID" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME I, TDATA_NUM_BYTES 2, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.0, LAYERED_METADATA undef, INSERT_VIP 0" *) input I_tvalid;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 Q TDATA" *) input [15:0]Q_tdata;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 Q TVALID" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME Q, TDATA_NUM_BYTES 2, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.0, LAYERED_METADATA undef, INSERT_VIP 0" *) input Q_tvalid;
+  output SD_flag;
+
+  wire [15:0]I_tdata;
+  wire I_tvalid;
+  wire [15:0]Q_tdata;
+  wire Q_tvalid;
+  wire [15:0]RX_SD_THRESHOLD;
+  wire [7:0]RX_SD_WINDOW;
+  wire SD_flag;
+  wire clk;
+  wire rst;
+
+  top_Rx_SD_0_0_Rx_SD inst
+       (.I_tdata(I_tdata),
+        .I_tvalid(I_tvalid),
+        .Q_tdata(Q_tdata),
+        .Q_tvalid(Q_tvalid),
+        .RX_SD_THRESHOLD(RX_SD_THRESHOLD),
+        .RX_SD_WINDOW(RX_SD_WINDOW),
+        .SD_flag(SD_flag),
+        .clk(clk),
+        .rst(rst));
+endmodule
+
+(* ORIG_REF_NAME = "Abs" *) 
 module top_Rx_SD_0_0_Abs
    (E,
     S,
@@ -987,6 +1033,7 @@ module top_Rx_SD_0_0_Abs_0
         .R(\out[15]_i_1__0_n_0 ));
 endmodule
 
+(* ORIG_REF_NAME = "Rx_SD" *) 
 module top_Rx_SD_0_0_Rx_SD
    (SD_flag,
     clk,
@@ -1350,51 +1397,6 @@ module top_Rx_SD_0_0_Rx_SD
         .\cnt_reg[6] (\cnt[6]_i_2_n_0 ),
         .\out_reg[14]_0 ({inst_Abs_Q_n_16,inst_Abs_Q_n_17,inst_Abs_Q_n_18,inst_Abs_Q_n_19}),
         .\out_reg[14]_1 ({inst_Abs_Q_n_20,inst_Abs_Q_n_21,inst_Abs_Q_n_22,inst_Abs_Q_n_23}),
-        .rst(rst));
-endmodule
-
-(* CHECK_LICENSE_TYPE = "top_Rx_SD_0_0,Rx_SD,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
-(* X_CORE_INFO = "Rx_SD,Vivado 2022.2" *) 
-(* NotValidForBitStream *)
-module top_Rx_SD_0_0
-   (clk,
-    rst,
-    RX_SD_THRESHOLD,
-    RX_SD_WINDOW,
-    I_tdata,
-    I_tvalid,
-    Q_tdata,
-    Q_tvalid,
-    SD_flag);
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_BUSIF I:Q, ASSOCIATED_RESET rst, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, INSERT_VIP 0" *) input clk;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 rst RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME rst, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *) input rst;
-  input [15:0]RX_SD_THRESHOLD;
-  input [7:0]RX_SD_WINDOW;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 I TDATA" *) input [15:0]I_tdata;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 I TVALID" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME I, TDATA_NUM_BYTES 2, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.0, LAYERED_METADATA undef, INSERT_VIP 0" *) input I_tvalid;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 Q TDATA" *) input [15:0]Q_tdata;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 Q TVALID" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME Q, TDATA_NUM_BYTES 2, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.0, LAYERED_METADATA undef, INSERT_VIP 0" *) input Q_tvalid;
-  output SD_flag;
-
-  wire [15:0]I_tdata;
-  wire I_tvalid;
-  wire [15:0]Q_tdata;
-  wire Q_tvalid;
-  wire [15:0]RX_SD_THRESHOLD;
-  wire [7:0]RX_SD_WINDOW;
-  wire SD_flag;
-  wire clk;
-  wire rst;
-
-  top_Rx_SD_0_0_Rx_SD inst
-       (.I_tdata(I_tdata),
-        .I_tvalid(I_tvalid),
-        .Q_tdata(Q_tdata),
-        .Q_tvalid(Q_tvalid),
-        .RX_SD_THRESHOLD(RX_SD_THRESHOLD),
-        .RX_SD_WINDOW(RX_SD_WINDOW),
-        .SD_flag(SD_flag),
-        .clk(clk),
         .rst(rst));
 endmodule
 `ifndef GLBL

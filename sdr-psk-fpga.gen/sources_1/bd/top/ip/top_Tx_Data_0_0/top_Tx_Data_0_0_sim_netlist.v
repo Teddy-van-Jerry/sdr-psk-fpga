@@ -1,10 +1,10 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Thu Dec 28 13:58:59 2023
+// Date        : Sat Jan  6 01:11:06 2024
 // Host        : TVJ-PC running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim -rename_top top_Tx_Data_0_0 -prefix
-//               top_Tx_Data_0_0_ top_Tx_Data_0_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim
+//               e:/Documents/Study/Verilog/SDR/sdr-psk-fpga/sdr-psk-fpga.gen/sources_1/bd/top/ip/top_Tx_Data_0_0/top_Tx_Data_0_0_sim_netlist.v
 // Design      : top_Tx_Data_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -12,6 +12,84 @@
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
+(* CHECK_LICENSE_TYPE = "top_Tx_Data_0_0,Tx_Data,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
+(* X_CORE_INFO = "Tx_Data,Vivado 2022.2" *) 
+(* NotValidForBitStream *)
+module top_Tx_Data_0_0
+   (clk,
+    rst_n,
+    MODE_CTRL,
+    pkt_sent,
+    data_tdata,
+    data_tvalid,
+    data_tready,
+    data_tlast,
+    data_tuser,
+    payload_length);
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_BUSIF data, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, INSERT_VIP 0" *) input clk;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 rst_n RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME rst_n, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input rst_n;
+  input [3:0]MODE_CTRL;
+  input pkt_sent;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 data TDATA" *) output [7:0]data_tdata;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 data TVALID" *) output data_tvalid;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 data TREADY" *) input data_tready;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 data TLAST" *) output data_tlast;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 data TUSER" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME data, TDATA_NUM_BYTES 1, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 1, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 1, FREQ_HZ 100000000, PHASE 0.0, LAYERED_METADATA undef, INSERT_VIP 0" *) output data_tuser;
+  output [15:0]payload_length;
+
+  wire \<const0> ;
+  wire \<const1> ;
+  wire [3:0]MODE_CTRL;
+  wire clk;
+  wire [6:0]\^data_tdata ;
+  wire data_tlast;
+  wire data_tready;
+  wire data_tuser;
+  wire data_tvalid;
+  wire pkt_sent;
+  wire rst_n;
+
+  assign data_tdata[7] = \^data_tdata [6];
+  assign data_tdata[6] = \^data_tdata [6];
+  assign data_tdata[5] = \^data_tdata [6];
+  assign data_tdata[4] = \^data_tdata [6];
+  assign data_tdata[3] = \^data_tdata [6];
+  assign data_tdata[2] = \^data_tdata [6];
+  assign data_tdata[1] = \^data_tdata [6];
+  assign data_tdata[0] = \^data_tdata [0];
+  assign payload_length[15] = \<const0> ;
+  assign payload_length[14] = \<const0> ;
+  assign payload_length[13] = \<const0> ;
+  assign payload_length[12] = \<const0> ;
+  assign payload_length[11] = \<const0> ;
+  assign payload_length[10] = \<const0> ;
+  assign payload_length[9] = \<const0> ;
+  assign payload_length[8] = \<const0> ;
+  assign payload_length[7] = \<const1> ;
+  assign payload_length[6] = \<const0> ;
+  assign payload_length[5] = \<const0> ;
+  assign payload_length[4] = \<const0> ;
+  assign payload_length[3] = \<const0> ;
+  assign payload_length[2] = \<const0> ;
+  assign payload_length[1] = \<const0> ;
+  assign payload_length[0] = \<const0> ;
+  GND GND
+       (.G(\<const0> ));
+  VCC VCC
+       (.P(\<const1> ));
+  top_Tx_Data_0_0_Tx_Data inst
+       (.MODE_CTRL(MODE_CTRL),
+        .clk(clk),
+        .data_tdata({\^data_tdata [6],\^data_tdata [0]}),
+        .data_tlast(data_tlast),
+        .data_tready(data_tready),
+        .data_tuser(data_tuser),
+        .data_tvalid(data_tvalid),
+        .pkt_sent(pkt_sent),
+        .rst_n(rst_n));
+endmodule
+
+(* ORIG_REF_NAME = "PN_Gen" *) 
 module top_Tx_Data_0_0_PN_Gen
    (pn,
     clk);
@@ -184,6 +262,7 @@ module top_Tx_Data_0_0_PN_Gen__parameterized0
         .R(\PN_buf[3]_i_1_n_0 ));
 endmodule
 
+(* ORIG_REF_NAME = "Tx_Data" *) 
 module top_Tx_Data_0_0_Tx_Data
    (data_tdata,
     data_tuser,
@@ -880,83 +959,6 @@ module top_Tx_Data_0_0_Tx_Data
         .D(mix_is_bpsk_i_1_n_0),
         .Q(mix_is_bpsk_reg_n_0),
         .R(1'b0));
-endmodule
-
-(* CHECK_LICENSE_TYPE = "top_Tx_Data_0_0,Tx_Data,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
-(* X_CORE_INFO = "Tx_Data,Vivado 2022.2" *) 
-(* NotValidForBitStream *)
-module top_Tx_Data_0_0
-   (clk,
-    rst_n,
-    MODE_CTRL,
-    pkt_sent,
-    data_tdata,
-    data_tvalid,
-    data_tready,
-    data_tlast,
-    data_tuser,
-    payload_length);
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_BUSIF data, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, INSERT_VIP 0" *) input clk;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 rst_n RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME rst_n, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input rst_n;
-  input [3:0]MODE_CTRL;
-  input pkt_sent;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 data TDATA" *) output [7:0]data_tdata;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 data TVALID" *) output data_tvalid;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 data TREADY" *) input data_tready;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 data TLAST" *) output data_tlast;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 data TUSER" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME data, TDATA_NUM_BYTES 1, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 1, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 1, FREQ_HZ 100000000, PHASE 0.0, LAYERED_METADATA undef, INSERT_VIP 0" *) output data_tuser;
-  output [15:0]payload_length;
-
-  wire \<const0> ;
-  wire \<const1> ;
-  wire [3:0]MODE_CTRL;
-  wire clk;
-  wire [6:0]\^data_tdata ;
-  wire data_tlast;
-  wire data_tready;
-  wire data_tuser;
-  wire data_tvalid;
-  wire pkt_sent;
-  wire rst_n;
-
-  assign data_tdata[7] = \^data_tdata [6];
-  assign data_tdata[6] = \^data_tdata [6];
-  assign data_tdata[5] = \^data_tdata [6];
-  assign data_tdata[4] = \^data_tdata [6];
-  assign data_tdata[3] = \^data_tdata [6];
-  assign data_tdata[2] = \^data_tdata [6];
-  assign data_tdata[1] = \^data_tdata [6];
-  assign data_tdata[0] = \^data_tdata [0];
-  assign payload_length[15] = \<const0> ;
-  assign payload_length[14] = \<const0> ;
-  assign payload_length[13] = \<const0> ;
-  assign payload_length[12] = \<const0> ;
-  assign payload_length[11] = \<const0> ;
-  assign payload_length[10] = \<const0> ;
-  assign payload_length[9] = \<const0> ;
-  assign payload_length[8] = \<const0> ;
-  assign payload_length[7] = \<const1> ;
-  assign payload_length[6] = \<const0> ;
-  assign payload_length[5] = \<const0> ;
-  assign payload_length[4] = \<const0> ;
-  assign payload_length[3] = \<const0> ;
-  assign payload_length[2] = \<const0> ;
-  assign payload_length[1] = \<const0> ;
-  assign payload_length[0] = \<const0> ;
-  GND GND
-       (.G(\<const0> ));
-  VCC VCC
-       (.P(\<const1> ));
-  top_Tx_Data_0_0_Tx_Data inst
-       (.MODE_CTRL(MODE_CTRL),
-        .clk(clk),
-        .data_tdata({\^data_tdata [6],\^data_tdata [0]}),
-        .data_tlast(data_tlast),
-        .data_tready(data_tready),
-        .data_tuser(data_tuser),
-        .data_tvalid(data_tvalid),
-        .pkt_sent(pkt_sent),
-        .rst_n(rst_n));
 endmodule
 `ifndef GLBL
 `define GLBL

@@ -1,31 +1,31 @@
 {
    "ActiveEmotionalView":"Default View",
    "Default View_ScaleFactor":"1.25",
-   "Default View_TopLeft":"-485,-142",
+   "Default View_TopLeft":"-515,-126",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
 #  -string -flagsOSRD
-preplace port I2 -pg 1 -lvl 3 -x 420 -y 130 -defaultsOSRD
-preplace port Q2 -pg 1 -lvl 3 -x 420 -y 200 -defaultsOSRD
-preplace port IQ -pg 1 -lvl 0 -x -80 -y 80 -defaultsOSRD
-preplace port port-id_I_valid -pg 1 -lvl 3 -x 420 -y 100 -defaultsOSRD
-preplace port port-id_Q_valid -pg 1 -lvl 3 -x 420 -y 260 -defaultsOSRD
-preplace portBus I_data -pg 1 -lvl 3 -x 420 -y 70 -defaultsOSRD
-preplace portBus Q_data -pg 1 -lvl 3 -x 420 -y 230 -defaultsOSRD
-preplace inst AXI_2x_Q -pg 1 -lvl 2 -x 260 -y 250 -defaultsOSRD
-preplace inst AXI_2x_I -pg 1 -lvl 2 -x 260 -y 90 -defaultsOSRD
-preplace inst Truncate_IQ_0 -pg 1 -lvl 1 -x 30 -y 80 -defaultsOSRD
-preplace netloc AXI_2x_I_O1_tdata 1 2 1 380 70n
+preplace port I2 -pg 1 -lvl 3 -x 380 -y 130 -defaultsOSRD
+preplace port Q2 -pg 1 -lvl 3 -x 380 -y 200 -defaultsOSRD
+preplace port IQ -pg 1 -lvl 0 -x -100 -y 80 -defaultsOSRD
+preplace port port-id_I_valid -pg 1 -lvl 3 -x 380 -y 100 -defaultsOSRD
+preplace port port-id_Q_valid -pg 1 -lvl 3 -x 380 -y 260 -defaultsOSRD
+preplace portBus I_data -pg 1 -lvl 3 -x 380 -y 70 -defaultsOSRD
+preplace portBus Q_data -pg 1 -lvl 3 -x 380 -y 230 -defaultsOSRD
+preplace inst AXI_2x_I -pg 1 -lvl 2 -x 230 -y 90 -defaultsOSRD
+preplace inst AXI_2x_Q -pg 1 -lvl 2 -x 230 -y 250 -defaultsOSRD
+preplace inst Truncate_IQ_0 -pg 1 -lvl 1 -x 10 -y 80 -defaultsOSRD
+preplace netloc AXI_2x_I_O1_tdata 1 2 1 350 70n
 preplace netloc AXI_2x_I_O1_tvalid 1 2 1 N 100
-preplace netloc AXI_2x_Q_O1_tdata 1 2 1 390 230n
+preplace netloc AXI_2x_Q_O1_tdata 1 2 1 360 230n
 preplace netloc AXI_2x_Q_O1_tvalid 1 2 1 N 260
-preplace netloc AXI_2x_I1_O2 1 2 1 380 200n
-preplace netloc AXI_2x_I_O2 1 2 1 380J 120n
-preplace netloc Truncate_IQ_0_I 1 1 1 130 70n
-preplace netloc Truncate_IQ_0_Q 1 1 1 120 90n
+preplace netloc AXI_2x_I1_O2 1 2 1 350 200n
+preplace netloc AXI_2x_I_O2 1 2 1 350J 120n
+preplace netloc Truncate_IQ_0_I 1 1 1 110 70n
+preplace netloc Truncate_IQ_0_Q 1 1 1 100 90n
 preplace netloc fir_compiler_I_M_AXIS_DATA 1 0 1 N 80
-levelinfo -pg 1 -80 30 260 420
-pagesize -pg 1 -db -bbox -sgen -150 -20 550 340
+levelinfo -pg 1 -100 10 230 380
+pagesize -pg 1 -db -bbox -sgen -170 -20 510 340
 "
 }
 

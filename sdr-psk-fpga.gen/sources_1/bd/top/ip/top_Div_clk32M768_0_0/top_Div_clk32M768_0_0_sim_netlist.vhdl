@@ -1,10 +1,10 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
--- Date        : Sun Dec 17 22:17:56 2023
+-- Date        : Sat Jan  6 01:11:07 2024
 -- Host        : TVJ-PC running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim -rename_top top_Div_clk32M768_0_0 -prefix
---               top_Div_clk32M768_0_0_ top_Div_clk32M768_0_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim
+--               e:/Documents/Study/Verilog/SDR/sdr-psk-fpga/sdr-psk-fpga.gen/sources_1/bd/top/ip/top_Div_clk32M768_0_0/top_Div_clk32M768_0_0_sim_netlist.vhdl
 -- Design      : top_Div_clk32M768_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -19,6 +19,8 @@ entity top_Div_clk32M768_0_0_Div_clk32M768 is
     \out\ : out STD_LOGIC_VECTOR ( 14 downto 0 );
     clk32M768 : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of top_Div_clk32M768_0_0_Div_clk32M768 : entity is "Div_clk32M768";
 end top_Div_clk32M768_0_0_Div_clk32M768;
 
 architecture STRUCTURE of top_Div_clk32M768_0_0_Div_clk32M768 is
