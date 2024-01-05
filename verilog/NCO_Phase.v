@@ -4,7 +4,9 @@
 // It has a delay of 1 clock.
 //
 // Author: Wuqiong Zhao (me@wqzhao.org)
-// Date: 2023/12/20
+// Date: 2024/01/05
+
+`timescale 1ns / 1ps
 
 module NCO_Phase # (
   parameter        WIDTH     = 16,
@@ -17,11 +19,11 @@ module NCO_Phase # (
   // feedback input
   input      signed [WIDTH-1:0] feedback_tdata,
   input                         feedback_tvalid,
-  // phase output
+  // phase output for DDS
   output reg signed [WIDTH-1:0] phase_tdata,
   output reg                    phase_tvalid
 );
-  always @(posedge clk) begin
+  always @ (posedge clk) begin
     if (rst) begin
       phase_tdata <= FREE_FREQ;
       phase_tvalid <= 1'b1;

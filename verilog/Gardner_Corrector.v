@@ -4,7 +4,9 @@
 // It takes the 32.768MHz input and outputs the 1.024MHz symbol.
 //
 // Author: Wuqiong Zhao (me@wqzhao.org)
-// Date: 2023/12/26
+// Date: 2024/01/05
+
+`timescale 1ns / 1ps
 
 module Gardner_Corrector # (
   parameter WIDTH = 16
@@ -23,6 +25,7 @@ module Gardner_Corrector # (
   // 1.024M symbol output
   output reg signed [WIDTH-1:0] I_1M,
   output reg signed [WIDTH-1:0] Q_1M,
+  // output sync clock (~1.024M), 1CC high and remaining low in relation to the 32.768M clock
   output reg                    clk_out
 );
   reg signed [WIDTH-1:0] cnt;
@@ -90,5 +93,4 @@ module Gardner_Corrector # (
       end
     endcase
   end
-
 endmodule

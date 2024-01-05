@@ -1,3 +1,14 @@
+// Module: Rx_BD
+// =============
+// BD: Boundary Detection
+// This module detects the boundary of a packet for symchronization of bits.
+// It detects the inverted sign in the TRN field of the packet.
+//
+// Author: Wuqiong Zhao (me@wqzhao.org)
+// Date: 2024/01/05
+
+`timescale 1ns / 1ps
+
 module Rx_BD # (
   parameter WIDTH = 16,
   parameter MAX_WINDOW_WIDTH = 8

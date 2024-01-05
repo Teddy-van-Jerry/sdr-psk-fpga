@@ -4,7 +4,9 @@
 // 512KHz, 256KHz, 128KHz, 64KHz, 32KHz, 16KHz, 8KHz, 4KHz, 2KHz, 1KHz.
 //
 // Author: Wuqiong Zhao (me@wqzhao.org)
-// Date: 2023/12/07
+// Date: 2024/01/05
+
+`timescale 1ns / 1ps
 
 module Div_clk32M768 (
   input  clk32M768,
@@ -24,10 +26,10 @@ module Div_clk32M768 (
   output clk2K,
   output clk1K
 );
-
   reg [14:0] clk_cnt = 15'd0;
-  // FSM
-  always @(posedge clk32M768) begin
+
+  // FSM using counter
+  always @ (posedge clk32M768) begin
     clk_cnt <= clk_cnt + 15'd1;
   end
 

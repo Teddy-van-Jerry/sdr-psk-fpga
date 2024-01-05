@@ -4,7 +4,9 @@
 // Currently, it only shifts the data to the right by SHIFT bits.
 //
 // Author: Wuqiong Zhao (me@wqzhao.org)
-// Date: 2023/12/25
+// Date: 2024/01/05
+
+`timescale 1ns / 1ps
 
 module Gardner_IQ_Pre # (
   parameter WIDTH = 16,

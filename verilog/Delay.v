@@ -3,7 +3,9 @@
 // This module delays the input signal by DELAY clock cycles.
 //
 // Author: Wuqiong Zhao (me@wqzhao.org)
-// Date: 2023/12/16
+// Date: 2024/01/05
+
+`timescale 1ns / 1ps
 
 module Delay # (
   parameter WIDTH = 16,

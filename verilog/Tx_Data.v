@@ -1,9 +1,13 @@
 // Module: Tx_Data
 // ===============
 // This module generates the data to be transmitted.
+// Currently it employs a PN sequence generator to generate the data.
+// It can be modified for customized data generation.
 //
 // Author: Wuqiong Zhao (me@wqzhao.org)
-// Date: 2023/12/25
+// Date: 2024/01/05
+
+`timescale 1ns / 1ps
 
 module Tx_Data # (
   parameter BYTES = 1 // at least 1 byte for AXIS interface
@@ -77,12 +81,12 @@ module Tx_Data # (
         end
       end
     end
-    else begin
+    else begin // !rst_n
       cnt <= 16'b0;
       mix_is_bpsk <= 1'b0;
     end
   end
 
-  assign payload_length = 16'd128;
+  assign payload_length = 16'd128; // fixed payload length, can be modified as variable
   assign payload_length_symbs = mix_is_bpsk ? payload_length : payload_length >> 1;
 endmodule

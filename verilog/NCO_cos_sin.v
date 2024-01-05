@@ -4,7 +4,9 @@
 // It has a delay of 1 clock cycle.
 // 
 // Author: Wuqiong Zhao (me@wqzhao.org)
-// Date: 2023/12/07
+// Date: 2024/01/05
+
+`timescale 1ns / 1ps
 
 module NCO_cos_sin # (
   parameter I_WIDTH = 32,

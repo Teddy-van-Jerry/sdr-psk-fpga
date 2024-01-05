@@ -1,3 +1,14 @@
+// Module: Rx_PD
+// =============
+// PD: Packet Detection
+// This module detects the presence of packet transmission.
+// It detects the repeated 010101... sequence.
+//
+// Author: Wuqiong Zhao (me@wqzhao.org)
+// Date: 2024/01/05
+
+`timescale 1ns / 1ps
+
 module Rx_PD # (
   parameter WIDTH = 16,
   parameter MAX_WINDOW_WIDTH = 8
@@ -21,7 +32,7 @@ module Rx_PD # (
   assign BPSK_diff = BPSK ^ BPSK_reg;
   
   always @ (posedge clk) begin
-    if (rst | disassert_PD | ~SD_flag) begin
+    if (rst | disassert_PD | ~SD_flag) begin // synchronized rst
       cnt <= 0;
       PD_flag <= 0;
       BPSK_reg <= 0;

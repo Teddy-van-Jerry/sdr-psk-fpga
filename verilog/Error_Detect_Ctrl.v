@@ -1,10 +1,12 @@
 // Module: Error_Detect_Ctrl
 // =========================
-// This module detects the error signal from the NCO.
-// It also controls the BPSK/QPSK mode.
+// This module detects the error signal from the NCO in the Costas loop.
+// It also provides a delayed version of is_bpsk.
 //
 // Author: Wuqiong Zhao (me@wqzhao.org)
-// Date: 2023/12/28
+// Date: 2024/01/05
+
+`timescale 1ns / 1ps
 
 module Error_Detect_Ctrl # (
   parameter WIDTH = 16
@@ -26,7 +28,6 @@ module Error_Detect_Ctrl # (
   input                         error_qpsk_tvalid,
   output     signed [WIDTH-1:0] error_tdata,
   output                        error_tvalid,
-  // for debugging
   output reg                    is_bpsk_delayed
 );
   // output
@@ -42,10 +43,14 @@ module Error_Detect_Ctrl # (
     else begin
       is_bpsk_delayed <= is_bpsk;
       if (is_bpsk) begin // BPSK
+        // NOTE: this is specific to our BPSK scheme. See the constellation for details.
+        // The paper is available at https://go.wqzhao.org/sdr-psk-fpga.
         out_I_tdata <= in_I_tvalid ? in_I_tdata + in_Q_tdata : 0;
         out_Q_tdata <= in_Q_tvalid ? in_I_tdata - in_Q_tdata : 0;
       end
       else begin // QPSK
+        // The arithematic right shift (>>>) is used to limit the output to match the scale of BPSK.
+        // It can be adjusted according to the specific case.
         out_I_tdata <= in_I_tvalid ? (in_Q_tdata[WIDTH-1] ? -in_I_tdata : in_I_tdata) >>> 6 : 0;
         out_Q_tdata <= in_Q_tvalid ? (in_I_tdata[WIDTH-1] ? -in_Q_tdata : in_Q_tdata) >>> 6 : 0;
       end

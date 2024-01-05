@@ -1,3 +1,13 @@
+// Module: Rx_SD
+// =============
+// SD: Strength Detection
+// This module detects the strength of the received signal.
+//
+// Author: Wuqiong Zhao (me@wqzhao.org)
+// Date: 2024/01/05
+
+`timescale 1ns / 1ps
+
 module Rx_SD # (
   parameter WIDTH = 16,
   parameter MAX_WINDOW_WIDTH = 8

@@ -1,9 +1,12 @@
 // Module: PSK_Signal_Extend
 // =========================
-// This module extends the PSK signal to a wider width.
+// This module extends the PSK signal to a wider width. (Actually not used now, when I_WIDTH == Q_WIDTH).
+// It also allows the selection of I or Q stream for later processing.
 //
 // Author: Wuqiong Zhao (me@wqzhao.org)
-// Date: 2023/12/07
+// Date: 2024/01/05
+
+`timescale 1ns / 1ps
 
 module PSK_Signal_Extend #(
   parameter I_WIDTH    = 12,
@@ -31,6 +34,6 @@ module PSK_Signal_Extend #(
   endgenerate
 
   always @ (posedge clk) begin
-    is_bpsk_out <= is_bpsk;
+    is_bpsk_out <= is_bpsk; // delay 1 CC
   end
 endmodule

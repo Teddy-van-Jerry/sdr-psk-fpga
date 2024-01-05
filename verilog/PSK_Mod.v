@@ -1,9 +1,12 @@
 // Module: PSK_Mod
 // ===============
 // Modulate data with BPSK/QPSK.
+// Both I and Q streams are used, where they have a consistent 90 deg phase shift for both BPSK and QPSK.
 //
 // Author: Wuqiong Zhao (me@wqzhao.org)
-// Date: 2023/12/17
+// Date: 2024/01/05
+
+`timescale 1ns / 1ps
 
 module PSK_Mod #(
   parameter WIDTH = 12,
@@ -27,16 +30,18 @@ module PSK_Mod #(
   output reg signed [WIDTH-1:0] out_I,
   // output modulated I signal
   output reg signed [WIDTH-1:0] out_Q,
+  // other output information
   output reg                    out_vld,
   output reg                    out_last,
   output reg                    out_is_bpsk,
-  output reg              [1:0] out_bits, // on;y for BPSK and QPSK
+  output reg              [1:0] out_bits,
   // output clock of 2.048M, not synchronized with clk_1M024
   output                        out_clk_1M024
 );
   localparam BITS = BYTES * 8;
 
-  wire is_bpsk = data_tuser;
+  wire is_bpsk;
+  assign is_bpsk = data_tuser;
 
   reg      [3:0] cnt;
   reg [BITS-1:0] data_buf;

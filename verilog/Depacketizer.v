@@ -1,3 +1,12 @@
+// Module: Depacketizer
+// ====================
+// This module depacketizes the input data stream, supporting BPSK/QPSK/mixed modes.
+//
+// Author: Wuqiong Zhao (me@wqzhao.org)
+// Date: 2024/01/05
+
+`timescale 1ns / 1ps
+
 module Depacketizer # (
   parameter BYTES = 1,
   parameter WIDTH = 16,
@@ -8,10 +17,11 @@ module Depacketizer # (
   // input configuration
   input  [MAX_WINDOW_WIDTH-1:0] RX_BD_WINDOW,
   input                   [3:0] MODE_CTRL,
-  input                         SD_flag,
-  input                         PD_flag,
-  input                         BD_flag,
-  input                         BD_sgn,
+  // input SPD signals
+  input                         SD_flag, // strength detection
+  input                         PD_flag, // packet detection
+  input                         BD_flag, // boundary detection
+  input                         BD_sgn, // sign of BD
   // input I/Q symbol signal (QPSK and BPSK)
   input                   [1:0] in_QPSK,
   input                         in_BPSK,
@@ -45,21 +55,22 @@ module Depacketizer # (
 
   reg [MAX_WINDOW_WIDTH-1:0] BD_WAIT_CC;
   reg [MAX_WINDOW_WIDTH-1:0] cnt_TRN = 0;
-  reg [ 5:0] cnt_HDR = 0; // 64 bits
-  reg [15:0] cnt_PLD = 0;
-  reg  [5:0] state = STATE_IDLE, state_next;
+  reg                  [5:0] cnt_HDR = 0; // 64 bits
+  reg                 [15:0] cnt_PLD = 0;
+  reg                  [5:0] state = STATE_IDLE;
+  reg                  [5:0] state_next;
 
-  reg     [15:0] payload_length = 128;
-  reg     [15:0] payload_length_symbs = 128;
-  reg      [7:0] MCS = 0; // modulation and coding scheme (only BPSK and QPSK now)
-  reg      [7:0] signature = 0; // <- currently not used
-  reg            BD_sgn_reg = 0;
-  reg [BITS-1:0] data_tdata_reg = 0;
-  reg            data_tvalid_reg = 0;
-  reg            data_tlast_reg = 0;
-  reg            is_bpsk_reg = 1;
-  reg      [1:0] out_QPSK = 0;
-  reg            out_BPSK = 0;
+  reg                 [15:0] payload_length = 128;
+  reg                 [15:0] payload_length_symbs = 128;
+  reg                  [7:0] MCS = 0; // modulation and coding scheme (only BPSK and QPSK now)
+  reg                  [7:0] signature = 0; // <- currently not used
+  reg                        BD_sgn_reg = 0;
+  reg             [BITS-1:0] data_tdata_reg = 0;
+  reg                        data_tvalid_reg = 0;
+  reg                        data_tlast_reg = 0;
+  reg                        is_bpsk_reg = 1;
+  reg                  [1:0] out_QPSK = 0;
+  reg                        out_BPSK = 0;
 
   always @ (*) begin
     BD_WAIT_CC <= 30 - RX_BD_WINDOW; // minus an additional CC
@@ -250,7 +261,7 @@ module Depacketizer # (
       endcase
     end
   end
-  
+
   // state transitions
   always @ (*) begin
     case (state)

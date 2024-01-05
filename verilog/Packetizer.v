@@ -5,9 +5,12 @@
 // It is worth noting that there should be at least 1 symbol of tvalid being 0 between two packets.
 // Therefore, when inserting the packetized data into the FIFO, the next packet should be inserted only after the FIFO is empty.
 // This can be done by checking the tlast signal from the output AXIS.
+// In the current design, all remaining data in the FIFO will be cleared after the packet is sent.
 //
 // Author: Wuqiong Zhao (me@wqzhao.org)
-// Date: 2023/12/25
+// Date: 2024/01/05
+
+`timescale 1ns / 1ps
 
 module Packetizer # (
   parameter BYTES = 1 // at least 1 byte for AXIS interface
@@ -42,9 +45,9 @@ module Packetizer # (
   localparam MODE_QPSK = 4'b0010;
   localparam MODE_MIX  = 4'b0100;
 
-  reg [9:0] hdr_cnt;
+  reg  [9:0] hdr_cnt;
   reg [15:0] payload_cnt;
-  reg [4:0] state, state_next;
+  reg  [4:0] state, state_next;
   reg [15:0] payload_length_symbs;
   localparam STATE_IDLE = 5'b00001;
   localparam STATE_HDR  = 5'b00010; // header
@@ -55,6 +58,7 @@ module Packetizer # (
   wire I_trans;
   assign I_trans = I_tvalid & I_tready;
 
+  // FSM
   always @ (posedge clk) begin
     if (rst_n) begin
       if (MODE_CTRL == MODE_MIX) begin
@@ -92,6 +96,7 @@ module Packetizer # (
               O_tdata <= { BITS{I_tuser ^ hdr_cnt[0]} };
             end
             else if (hdr_cnt < 32 * 8 + 8 + 16) begin
+              /* Let's just save the burden of compiler optimization and compose the following MUX. */
               // case (hdr_cnt)
               // 32 * 8 + 8 + 16 +  0: O_tdata <= { BITS{payload_length[15]} };
               // 32 * 8 + 8 + 16 +  1: O_tdata <= { BITS{payload_length[14]} };
@@ -184,7 +189,7 @@ module Packetizer # (
         // right shift payload_length by 1 if not is_bpsk (QPSK)
         payload_length_symbs <= I_tuser ? payload_length : payload_length >> 1;
       end
-      else begin
+      else begin // MODE_CTRL != MODE_MIX
         // just pass the input to output
         I_tready <= O_tready;
         O_tvalid <= I_tvalid;
@@ -196,7 +201,7 @@ module Packetizer # (
         pkt_sent <= 1'b0;
       end
     end
-    else begin
+    else begin // !rst_n
       state <= STATE_IDLE;
       hdr_cnt <= 10'b0;
       payload_cnt <= 16'b0;

@@ -2,9 +2,15 @@
 // ==============
 // This module connects two AXI stream interfaces to one.
 // There is no tready signal here!
+// This module is useful for cases when an AXI interface needs to connect to 2 different outputs.
+// Vivado block diagram does not allow this, but we can use this module to safely bypass because we do not have tready.
+// However, a critical warning about no associated clock will be generated.
+// In this project, the warning is manually suppressed.
 //
 // Author: Wuqiong Zhao (me@wqzhao.org)
-// Date: 2023/12/17
+// Date: 2024/01/05
+
+`timescale 1ns / 1ps
 
 module AXI_2x # (
   parameter WIDTH = 16
