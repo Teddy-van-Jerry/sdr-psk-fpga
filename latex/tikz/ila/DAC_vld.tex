@@ -1,7 +1,7 @@
 \begin{tikzpicture}
   \begin{axis}[
     , width = \linewidth
-    , height = 5mm
+    , height = 2.5mm
     , scale only axis = true
     , enlarge x limits = false
     , axis line style = { draw = none }
@@ -16,18 +16,22 @@
     ] table [
       , col sep = comma
       , x={time}
-      , y={I_1M}
+      , y={DAC_vld}
     ] {tikz/ila/\Modulation.csv};
-    % add zero line
+    % add shade
     \addplot [
-      , mygreen
-      , opacity = 0.3
+      , draw = none
       , name path = axis
-      , very thin
     ] table [
       , col sep = comma
       , x={time}
       , y={v0}
     ] {tikz/ila/\Modulation.csv};
+    \addplot [
+      , mygreen
+      , opacity = 0.3
+    ] fill between [
+      , of = f and axis
+    ];
   \end{axis}
 \end{tikzpicture}%
