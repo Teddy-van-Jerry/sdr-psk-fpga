@@ -25,6 +25,7 @@
 \usepackage[colorlinks,urlcolor=black,linkcolor=blue,citecolor=blue]{hyperref}
 
 \usetikzlibrary{svg.path,shapes.symbols,shapes.misc}
+\usepgfplotslibrary{fillbetween}
 \definecolor{orcidlogocol}{HTML}{A6CE39}
 \tikzset{
   orcidlogo/.pic={
@@ -47,6 +48,7 @@
 \newcolumntype{Y}{>{\centering\arraybackslash}X}
 \newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}} % centered m
 \newcommand{\tabvertspace}{\specialrule{0em}{0.08em}{.08em}}
+\renewcommand\tabularxcolumn[1]{m{#1}}% for vertical centering text in X column
 
 \definecolor{doicolor}{RGB}{2, 48, 129}
 
@@ -329,6 +331,37 @@ end
 
     \subsection{Transmitter}
 
+      The transmitter DAC simulaiton results are shown in Fig.~\ref{fig:tx_dac_sim}.
+      \begin{figure}[h]
+        \setlength{\tabcolsep}{2pt}
+        \subfloat[BPSK modulation.]{%
+          \sffamily\notsotiny
+          \begin{tabularx}{\linewidth}{@{}lX@{}}
+            clk\_1M024 & \input{tikz/sim/Tx_BPSK_clk_1M} \\
+            clk\_16M384 & \input{tikz/sim/Tx_BPSK_clk_16M} \\
+            DAC\_bits[1:0] & \input{tikz/sim/Tx_BPSK_bits} \\
+            DAC\_bits[1] & \input{tikz/sim/Tx_BPSK_bits_1} \\
+            \textcolor{gray}{DAC\_bits[0]} & \input{tikz/sim/Tx_BPSK_bits_0} \\
+            DAC\_I[11:0] & \input{tikz/sim/Tx_BPSK_DAC_I} \\
+            DAC\_Q[11:0] & \input{tikz/sim/Tx_BPSK_DAC_Q} \\
+          \end{tabularx}%
+        }\hfill%
+        \subfloat[QPSK modulation.]{%
+          \sffamily\notsotiny
+          \begin{tabularx}{\linewidth}{@{}lX@{}}
+            clk\_1M024 & \input{tikz/sim/Tx_QPSK_clk_1M} \\
+            clk\_16M384 & \input{tikz/sim/Tx_QPSK_clk_16M} \\
+            DAC\_bits[1:0] & \input{tikz/sim/Tx_QPSK_bits} \\
+            DAC\_bits[1] & \input{tikz/sim/Tx_QPSK_bits_1} \\
+            DAC\_bits[0] & \input{tikz/sim/Tx_QPSK_bits_0} \\
+            DAC\_I[11:0] & \input{tikz/sim/Tx_QPSK_DAC_I} \\
+            DAC\_Q[11:0] & \input{tikz/sim/Tx_QPSK_DAC_Q} \\
+          \end{tabularx}%
+        }
+        \caption{DAC simulation results of the transmitter.}
+        \label{fig:tx_dac_sim}
+      \end{figure}
+
     \subsection{BPSK-Mode Receiver}
 
     \subsection{QPSK-Mode Receiver}
@@ -409,6 +442,8 @@ end
   \appendices
 
   \section{Block Diagrams}
+
+  \section{Figures in This Paper}
 
   \bibliographystyle{IEEEtran}
   \bibliography{IEEEabrv, ref}

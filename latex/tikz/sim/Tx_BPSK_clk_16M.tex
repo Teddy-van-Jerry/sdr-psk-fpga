@@ -1,0 +1,21 @@
+\begin{tikzpicture}
+  \begin{axis}[
+    , width = \linewidth
+    , height = 2.5mm
+    , scale only axis = true
+    , enlarge x limits = false
+    , axis line style = { draw = none }
+    , ticks = none
+    , thin
+  ]
+    \addplot [
+      , color = mygreen
+      , mark = none
+      , const plot
+    ] table [
+      , col sep = comma
+      , x={time}
+      , y={clk_16M384}
+    ] {tikz/sim/Tx_QPSK.csv};
+  \end{axis}
+\end{tikzpicture}%

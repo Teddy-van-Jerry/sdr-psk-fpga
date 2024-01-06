@@ -1,0 +1,33 @@
+\begin{tikzpicture}
+  \begin{axis}[
+    , width = \linewidth
+    , height = 5mm
+    , scale only axis = true
+    , enlarge x limits = false
+    , axis line style = { draw = none }
+    , ticks = none
+    , thin
+  ]
+    \addplot [
+      , color = mygreen
+      , mark = none
+      , const plot
+      , name path = f
+    ] table [
+      , col sep = comma
+      , x={time}
+      , y={DAC_Q}
+    ] {tikz/sim/Tx_QPSK.csv};
+    % add shade
+    \addplot [
+      , mygreen
+      , opacity = 0.3
+      , name path = axis
+      , very thin
+    ] table [
+      , col sep = comma
+      , x={time}
+      , y={ground}
+    ] {tikz/sim/Tx_QPSK.csv};
+  \end{axis}
+\end{tikzpicture}%
