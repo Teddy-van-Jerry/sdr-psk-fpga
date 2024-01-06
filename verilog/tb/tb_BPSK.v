@@ -1,6 +1,21 @@
-`timescale 1ns/1ps
+// Module: tb_BPSK
+// ===============
+// This module is the testbench for the BPSK mode.
+//
+// Author: Wuqiong Zhao (me@wqzhao.org)
+// Date: 2024/01/07
 
-module tb_PSK_Demod_BPSK;
+`timescale 1ns / 1ps
+
+module tb_BPSK;
+  // file for data writing
+  integer fd;
+  initial begin
+    fd = $fopen("../../../../behav_sim/_BPSK_behav_sim.csv", "w");
+    $fdisplay(fd, "time, feedback");
+    #19500 $fclose(fd);
+  end
+
   // mode control parameters
   localparam [3:0] MODE_BPSK = 4'b0001;
   localparam [3:0] MODE_QPSK = 4'b0010;
@@ -17,22 +32,22 @@ module tb_PSK_Demod_BPSK;
 
   // Tx wires
   wire signed [11:0] DAC_I, DAC_Q;
-  wire  [1:0] DAC_bits;
-  wire        DAC_vld;
-  wire  [3:0] DELAY_CNT;
-  wire  [3:0] MODE_CTRL;
-  wire        Tx_1bit;
-  wire        Tx_vld;
-  wire [15:0] TX_PHASE_CONFIG; // maximum 15 bits
-  wire  [7:0] Tx_tdata;
-  wire        Tx_tlast;
-  wire        Tx_tuser;
-  wire        Tx_tvalid;
+  wire         [1:0] DAC_bits;
+  wire               DAC_vld;
+  wire         [3:0] DELAY_CNT;
+  wire         [3:0] MODE_CTRL;
+  wire               Tx_1bit;
+  wire               Tx_vld;
+  wire        [15:0] TX_PHASE_CONFIG; // maximum 15 bits
+  wire         [7:0] Tx_tdata;
+  wire               Tx_tlast;
+  wire               Tx_tuser;
+  wire               Tx_tvalid;
 
   // configuration parameters (constants)
   assign DELAY_CNT = 4'd8;
-  assign MODE_CTRL = MODE_MIX;
-  assign TX_PHASE_CONFIG = 16'd8188; // 8192 for 4.196 MHz
+  assign MODE_CTRL = MODE_BPSK;
+  assign TX_PHASE_CONFIG = 8192 + 32; // 8192 for 4.196 MHz
 
   // module instantiation
   Tx_imp_1IUYQQO inst_Tx (
@@ -156,6 +171,11 @@ module tb_PSK_Demod_BPSK;
     #4
     noise_I <= $urandom_range(32);
     noise_Q <= $urandom_range(32);
+  end
+
+  // data writing to CSV
+  always #4 begin
+    $fdisplay(fd, "%d, %d", $time, $signed(inst_Rx.costas_loop_0.feedback_tdata));
   end
 
 endmodule

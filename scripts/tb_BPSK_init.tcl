@@ -1,6 +1,6 @@
 # configurations
 set sim_fileset_name sim_BPSK
-set sim_top_module   tb_PSK_Demod_BPSK
+set sim_top_module   tb_BPSK
 set sim_top_filename $sim_top_module.v
 set sim_wave_cfg     $sim_top_module
 append sim_wave_cfg  _behav.wcfg

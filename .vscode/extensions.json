@@ -1,5 +1,6 @@
 {
     "recommendations": [
-        "teros-technology.teroshdl"
+        "teros-technology.teroshdl",
+        "mechatroner.rainbow-csv"
     ]
 }

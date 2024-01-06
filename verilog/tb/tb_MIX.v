@@ -1,6 +1,6 @@
 // Module: tb_MIX
 // ==============
-// This module is the testbench for mided mode.
+// This module is the testbench for the mixed mode.
 //
 // Author: Wuqiong Zhao (me@wqzhao.org)
 // Date: 2024/01/07
