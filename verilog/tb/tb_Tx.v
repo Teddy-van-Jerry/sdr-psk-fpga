@@ -1,23 +1,31 @@
 `timescale 1ns / 1ps
 
 module tb_Tx;
+  // file for data writing
+  integer fd;
+  initial begin
+    fd = $fopen("../../../../behav_sim/Tx_behav_sim.csv", "w");
+    $fdisplay(fd, "time, clk_1M024, rst_n_1M024, clk_16M384, rst_16M384, DAC_I, DAC_Q, DAC_bits, DAC_vld, pn_5, pn_4");
+    #28000 $fclose(fd);
+  end
+
   // mode control parameters
   localparam [3:0] MODE_BPSK = 4'b0001;
   localparam [3:0] MODE_QPSK = 4'b0010;
   localparam [3:0] MODE_MIX  = 4'b0100;
 
   // data
-  wire [11:0] DAC_I, DAC_Q;
-  wire  [1:0] DAC_bits;
-  wire        DAC_vld;
-  wire  [3:0] DELAY_CNT;
-  wire  [3:0] MODE_CTRL;
-  wire        Tx_1bit;
-  wire [15:0] TX_PHASE_CONFIG; // maximum 15 bits
-  wire  [7:0] data_tdata;
-  wire        data_tlast;
-  wire        data_tuser;
-  wire        data_tvalid;
+  wire signed [11:0] DAC_I, DAC_Q;
+  wire         [1:0] DAC_bits;
+  wire               DAC_vld;
+  wire         [3:0] DELAY_CNT;
+  wire         [3:0] MODE_CTRL;
+  wire               Tx_1bit;
+  wire        [15:0] TX_PHASE_CONFIG; // maximum 15 bits
+  wire         [7:0] data_tdata;
+  wire               data_tlast;
+  wire               data_tuser;
+  wire               data_tvalid;
 
   // clock
   reg clk_16M384;
@@ -71,7 +79,17 @@ module tb_Tx;
     #128
     rst_16M384 = 1'b0;
     rst_n_1M024 = 1'b1;
-    // #8192 $finish;
+  end
+
+  // data writing to CSV
+  always #1 begin
+    $fdisplay(fd, "%d, %b, %b, %b, %b, %d, %d, %d, %b, %b, %b",
+      $time,
+      clk_1M024, rst_n_1M024, clk_16M384, rst_16M384,
+      DAC_I, DAC_Q, DAC_bits, DAC_vld,
+      dut.Tx_Data_0.inst.pn_5,
+      dut.Tx_Data_0.inst.pn_4
+    );
   end
 
 endmodule
