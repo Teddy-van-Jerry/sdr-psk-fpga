@@ -1,10 +1,17 @@
+// Module: tb_Tx
+// =============
+// This module is the testbench for Tx.
+//
+// Author: Wuqiong Zhao (me@wqzhao.org)
+// Date: 2024/01/07
+
 `timescale 1ns / 1ps
 
 module tb_Tx;
   // file for data writing
   integer fd;
   initial begin
-    fd = $fopen("../../../../behav_sim/Tx_behav_sim.csv", "w");
+    fd = $fopen("../../../../behav_sim/_Tx_behav_sim.csv", "w");
     $fdisplay(fd, "time, clk_1M024, rst_n_1M024, clk_16M384, rst_16M384, DAC_I, DAC_Q, DAC_bits, DAC_vld, pn_5, pn_4");
     #28000 $fclose(fd);
   end

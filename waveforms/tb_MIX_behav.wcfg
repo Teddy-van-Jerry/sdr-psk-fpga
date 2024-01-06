@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tb_MIX_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="tb_MIX" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000000 us"></ZoomStartTime>
+      <ZoomEndTime time="40.000001 us"></ZoomEndTime>
+      <Cursor1Time time="40.000000 us"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="167"></NameColumnWidth>
+      <ValueColumnWidth column_width="72"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="23" />
+   <wvobject fp_name="/tb_MIX/clk_32M768" type="logic">
+      <obj_property name="ElementShortName">clk_32M768</obj_property>
+      <obj_property name="ObjectShortName">clk_32M768</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_MIX/rst_32M768" type="logic">
+      <obj_property name="ElementShortName">rst_32M768</obj_property>
+      <obj_property name="ObjectShortName">rst_32M768</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_MIX/clk_16M384" type="logic">
+      <obj_property name="ElementShortName">clk_16M384</obj_property>
+      <obj_property name="ObjectShortName">clk_16M384</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_MIX/rst_16M384" type="logic">
+      <obj_property name="ElementShortName">rst_16M384</obj_property>
+      <obj_property name="ObjectShortName">rst_16M384</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_MIX/clk_1M024" type="logic">
+      <obj_property name="ElementShortName">clk_1M024</obj_property>
+      <obj_property name="ObjectShortName">clk_1M024</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_MIX/rst_n_1M024" type="logic">
+      <obj_property name="ElementShortName">rst_n_1M024</obj_property>
+      <obj_property name="ObjectShortName">rst_n_1M024</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_MIX/clk_2M048" type="logic">
+      <obj_property name="ElementShortName">clk_2M048</obj_property>
+      <obj_property name="ObjectShortName">clk_2M048</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_MIX/DAC_bits" type="array">
+      <obj_property name="ElementShortName">DAC_bits[1:0]</obj_property>
+      <obj_property name="ObjectShortName">DAC_bits[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_MIX/DAC_vld" type="logic">
+      <obj_property name="ElementShortName">DAC_vld</obj_property>
+      <obj_property name="ObjectShortName">DAC_vld</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_MIX/Tx_1bit" type="logic">
+      <obj_property name="ElementShortName">Tx_1bit</obj_property>
+      <obj_property name="ObjectShortName">Tx_1bit</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_MIX/Tx_vld" type="logic">
+      <obj_property name="ElementShortName">Tx_vld</obj_property>
+      <obj_property name="ObjectShortName">Tx_vld</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_MIX/Tx_tlast" type="logic">
+      <obj_property name="ElementShortName">Tx_tlast</obj_property>
+      <obj_property name="ObjectShortName">Tx_tlast</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_MIX/Tx_tuser" type="logic">
+      <obj_property name="ElementShortName">Tx_tuser</obj_property>
+      <obj_property name="ObjectShortName">Tx_tuser</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_MIX/Tx_tvalid" type="logic">
+      <obj_property name="ElementShortName">Tx_tvalid</obj_property>
+      <obj_property name="ObjectShortName">Tx_tvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_MIX/BPSK" type="logic">
+      <obj_property name="ElementShortName">BPSK</obj_property>
+      <obj_property name="ObjectShortName">BPSK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_MIX/BPSK_raw" type="logic">
+      <obj_property name="ElementShortName">BPSK_raw</obj_property>
+      <obj_property name="ObjectShortName">BPSK_raw</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_MIX/Rx_1bit" type="logic">
+      <obj_property name="ElementShortName">Rx_1bit</obj_property>
+      <obj_property name="ObjectShortName">Rx_1bit</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_MIX/clk_1M_out" type="logic">
+      <obj_property name="ElementShortName">clk_1M_out</obj_property>
+      <obj_property name="ObjectShortName">clk_1M_out</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_MIX/Rx_tdata" type="array">
+      <obj_property name="ElementShortName">Rx_tdata[7:0]</obj_property>
+      <obj_property name="ObjectShortName">Rx_tdata[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_MIX/Rx_tlast" type="logic">
+      <obj_property name="ElementShortName">Rx_tlast</obj_property>
+      <obj_property name="ObjectShortName">Rx_tlast</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_MIX/Rx_tuser" type="logic">
+      <obj_property name="ElementShortName">Rx_tuser</obj_property>
+      <obj_property name="ObjectShortName">Rx_tuser</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_MIX/Rx_tvalid" type="logic">
+      <obj_property name="ElementShortName">Rx_tvalid</obj_property>
+      <obj_property name="ObjectShortName">Rx_tvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_MIX/Rx_vld" type="logic">
+      <obj_property name="ElementShortName">Rx_vld</obj_property>
+      <obj_property name="ObjectShortName">Rx_vld</obj_property>
+   </wvobject>
+</wave_config>
