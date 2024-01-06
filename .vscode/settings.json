@@ -7,9 +7,9 @@
                 "-synctex=1",
                 "-interaction=nonstopmode",
                 "-file-line-error",
-                "-pdf",
+                "-pdflua",
                 "-shell-escape",
-                "-outdir=%OUTDIR%",
+                "-cd",
                 "%DOC%"
             ],
             "env": {

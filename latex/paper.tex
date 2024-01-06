@@ -414,18 +414,36 @@ end
 
     \begin{figure*}
       \setlength{\tabcolsep}{2pt}
-        \subfloat[DAC and ADC.]{%
-          \sffamily\notsotiny
-          \begin{tabularx}{\linewidth}{@{}lX@{}}
-            % clk\_1M024 & \input{tikz/sim/Tx_BPSK_clk_1M} \\
-            % clk\_16M384 & \input{tikz/sim/Tx_BPSK_clk_16M} \\
-            % DAC\_bits[1:0] & \input{tikz/sim/Tx_BPSK_bits} \\
-            % DAC\_bits[1] & \input{tikz/sim/Tx_BPSK_bits_1} \\
-            % \textcolor{gray}{DAC\_bits[0]} & \input{tikz/sim/Tx_BPSK_bits_0} \\
-            % DAC\_I[11:0] & \input{tikz/sim/Tx_BPSK_DAC_I} \\
-            % DAC\_Q[11:0] & \input{tikz/sim/Tx_BPSK_DAC_Q} \\
-          \end{tabularx}%
-        }
+      \newcommand\Modulation{BPSK}%
+      \newcommand\IsBPSK1%
+      \subfloat[A \Modulation{} packet.]{%
+        \sffamily\notsotiny
+        \begin{tabularx}{\linewidth}{@{}lX@{}}
+          DAC\_I[11:0] & \input{tikz/ila/DAC_I} \\
+          DAC\_Q[11:0] & \input{tikz/ila/DAC_Q} \\
+          ADC\_I[11:0] & \input{tikz/ila/ADC_I} \\
+          ADC\_Q[11:0] & \input{tikz/ila/ADC_Q} \\
+          I\_16M[15:0] & \input{tikz/ila/I_16M} \\
+          Q\_16M[15:0] & \input{tikz/ila/Q_16M} \\
+          I\_1M[15:0] & \input{tikz/ila/I_1M} \\
+          Q\_1M[15:0] & \input{tikz/ila/Q_1M} \\
+        \end{tabularx}%
+      }\\
+      \renewcommand\Modulation{QPSK}%
+      \renewcommand\IsBPSK0%
+      \subfloat[A \Modulation{} packet.]{%
+        \sffamily\notsotiny
+        \begin{tabularx}{\linewidth}{@{}lX@{}}
+          DAC\_I[11:0] & \input{tikz/ila/DAC_I} \\
+          DAC\_Q[11:0] & \input{tikz/ila/DAC_Q} \\
+          ADC\_I[11:0] & \input{tikz/ila/ADC_I} \\
+          ADC\_Q[11:0] & \input{tikz/ila/ADC_Q} \\
+          I\_16M[15:0] & \input{tikz/ila/I_16M} \\
+          Q\_16M[15:0] & \input{tikz/ila/Q_16M} \\
+          I\_1M[15:0] & \input{tikz/ila/I_1M} \\
+          Q\_1M[15:0] & \input{tikz/ila/Q_1M} \\
+        \end{tabularx}%
+      }
       \caption{System ILA results.}
     \end{figure*}
 
