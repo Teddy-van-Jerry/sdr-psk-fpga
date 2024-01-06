@@ -12,10 +12,26 @@
       , color = mygreen
       , mark = none
       , const plot
+      , name path = f
     ] table [
       , col sep = comma
       , x={time}
       , y={clk_16M384}
     ] {tikz/sim/Tx_QPSK.csv};
+    % add shade
+    \addplot [
+      , draw = none
+      , name path = axis
+    ] table [
+      , col sep = comma
+      , x={time}
+      , y={ground}
+    ] {tikz/sim/Tx_QPSK.csv};
+    \addplot [
+      , fill = mygreen
+      , fill opacity = 0.1
+    ] fill between [
+      , of = f and axis
+    ];
   \end{axis}
 \end{tikzpicture}%

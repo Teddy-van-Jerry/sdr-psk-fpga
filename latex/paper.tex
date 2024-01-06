@@ -362,9 +362,7 @@ end
         \label{fig:tx_dac_sim}
       \end{figure}
 
-    \subsection{BPSK-Mode Receiver}
-
-    \subsection{QPSK-Mode Receiver}
+    \subsection{Carrier Synchronization Convergence}
 
     \subsection{Mixed-Mode Receiver}
 
@@ -414,6 +412,23 @@ end
       \label{fig:scope}
     \end{figure*}
 
+    \begin{figure*}
+      \setlength{\tabcolsep}{2pt}
+        \subfloat[DAC and ADC.]{%
+          \sffamily\notsotiny
+          \begin{tabularx}{\linewidth}{@{}lX@{}}
+            % clk\_1M024 & \input{tikz/sim/Tx_BPSK_clk_1M} \\
+            % clk\_16M384 & \input{tikz/sim/Tx_BPSK_clk_16M} \\
+            % DAC\_bits[1:0] & \input{tikz/sim/Tx_BPSK_bits} \\
+            % DAC\_bits[1] & \input{tikz/sim/Tx_BPSK_bits_1} \\
+            % \textcolor{gray}{DAC\_bits[0]} & \input{tikz/sim/Tx_BPSK_bits_0} \\
+            % DAC\_I[11:0] & \input{tikz/sim/Tx_BPSK_DAC_I} \\
+            % DAC\_Q[11:0] & \input{tikz/sim/Tx_BPSK_DAC_Q} \\
+          \end{tabularx}%
+        }
+      \caption{System ILA results.}
+    \end{figure*}
+
   \section{Discussions}
 
     \subsection{Possible Enhancement}
@@ -442,6 +457,11 @@ end
   \appendices
 
   \section{Block Diagrams}
+
+    \begin{figure*}
+      \includegraphics[width=\linewidth]{../schematic/top.pdf}
+      \caption{Top block diagram.}
+    \end{figure*}
 
   \section{Figures in This Paper}
 
