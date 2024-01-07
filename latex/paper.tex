@@ -1,5 +1,8 @@
 \documentclass[journal,twoside]{IEEEtran}
 \usepackage[T1]{fontenc}
+\usepackage{microtype}
+\DisableLigatures[<]{encoding = T1}
+\DisableLigatures[>]{encoding = T1}
 \usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{multicol,multirow}
@@ -87,13 +90,15 @@
 
   \author{%
     Wuqiong~Zhao{\hspace{.1em}\textsuperscript{\orcidicon{0000-0002-9550-7423}}},~\IEEEmembership{Student Member, IEEE}
-    \thanks{Date of publication 5 January 2024; date of current version 5 January 2024.
+    \thanks{Date of publication 7 January 2024; date of current version 7 January 2024.
       The author would like to thank Lecturer Dan Yang for the guidance and help in the course of the experiment.
       The author would also like to thank AI tools including GitHub Copilot and Claude.AI for their help in preparing this paper.}
     \thanks{Wuqiong Zhao is with Southeast University, Nanjing 211189, China. (e-mail: wqzhao@seu.edu.cn, website: \url{https://wqzhao.org}).}
     \thanks{Online URL: \url{https://go.wqzhao.org/sdr-psk-fpga}}
     % \vspace{-1mm}
   }
+
+  \IEEEspecialpapernotice{(This is a draft version and has not been completed yet.)}
 
   \maketitle
 
@@ -123,6 +128,8 @@
 
     \subsection{Software-Defined Radio}
 
+      eNodeX
+
     \subsection{Transceiver Design}
 
       The current transmitter and receiver are implemented on the same FPGA,
@@ -146,6 +153,9 @@
       \textbf{Tx Signal Generator}.
 
       \textbf{Rx Processor}.
+      This block is responsible to process the received signal,
+      including demodulation and data extraction from a packet.
+      It is the most complicated block in the system.
 
       \textbf{System ILA}.
       The system integrated logic analyzer (system ILA) \cite{xilinx:pg261} is used to observe the internal signals.
@@ -174,6 +184,9 @@
       The BPSK and QPSK modulation constellation graphs used in our system are shown in Fig.~\ref{fig:constellation}.
       Different from the traditional setting, out adopted BPSK constellation in Fig.~\subref*{subfig:constellation_BPSK}
       is a combination of I and Q components.
+      This is to make sure the phases used in BPSK are among those in QPSK,
+      to ensure a smooth transition between the two modes,
+      especially because the header field is always modulated in BPSK.
       \begin{figure}[htbp]
         \subfloat[BPSK.\label{subfig:constellation_BPSK}]{\input{tikz/mod_BPSK}}\hfill%
         \subfloat[QPSK.\label{subfig:constellation_QPSK}]{\input{tikz/mod_QPSK}}
@@ -191,12 +204,10 @@
 
   \subsection{PSK Modulation}
 
-    \subsection{Pseudo-random Noise (PN) Generator}
+    \subsubsection{Pseudo-random Noise (PN) Generator}
 
       In this experiment, the transmitted signal are pseudo-random noise (PN) sequences.
       Typically, we implement the PN generator with $N=4$ and $N=5$. % mention the structure here
-
-      \newpage
       The Verilog code for the module \texttt{PN\_Gen} is shown below.
       \begin{minted}[highlightlines={11,18}]{verilog}
 module PN_Gen # (parameter N = 5) (
@@ -225,20 +236,65 @@ module PN_Gen # (parameter N = 5) (
 endmodule
       \end{minted}
 
+    \subsubsection{Modulation With I and Q Streams}
+
+      The modulation is performed by multiplying selecting the appropriate carrier phase
+      according to the input bits and the constellation.
+      Note the Q component always has a phase $90^\circ$ ahead of the I component.
+
   \section{Receiver}
 
     \subsection{Overview}
 
+      The receiver performs carrier synchronization, symbol synchronization and PSK detection first,
+      without considering the packet structure.
+      The depacketizer and the packet extraction is based on the synchronized bit stream after PSK detection.
+
     \subsection{Carrier Synchronization Using Costas Loop}
 
-      Costas loop \cite{simon1977optimum}.
+      A Costas loop \cite{simon1977optimum} is used for carrier synchronization.
+      The basic idea of a Costas loop is to provide an error (carrier phase offset) feedback.
+      The negative feedback is used to lock the carrier phase to the PSK signal.
+      The generation of the error feedback is specific to different modulation schemes,
+      as well as their constellation graphs.
 
+      The proposed dual-mode Costas loop is shown in Fig.~\ref{fig:costas_loop},
+      which can be switched between BPSK and QPSK via a control signal \texttt{is\_bpsk}.
+      The two multipliers directly following the PSK stream input are phase detectors,
+      whose low-frequency components represent the baseband signal.
+      Therefore, the baseband I and Q signal can be extracted after passing through a low-pass filter (LPF).
+      Thus, it is ready to map the obtained I/Q signal to the constellation graph,
+      and generate the error signal when comparing with the designed one.
       \begin{figure}[htbp]
         \centering
         \input{tikz/costas_loop}
         \caption{Costas loop for carrier synchronization with BPSK/QPSK support.}
+        \label{fig:costas_loop}
       \end{figure}
 
+      The error feedback for BPSK is defined as
+      \begin{equation}
+        e_{\text{BPSK}}=(I+Q)\times(I-Q),
+      \end{equation}
+      and the error feedback for QPSK is defined as
+      \begin{equation}
+        e_{\text{QPSK}}=I\cdot\mathrm{sgn}(Q)-Q\cdot\mathrm{sgn}(I).
+      \end{equation}
+
+      For stability, the loop filter as an LPF is added before the error is fed back to the NCO.     
+      The NCO implemented with DDS has the phase defined as
+      \begin{equation}
+        \begin{aligned}
+          \phi[n]&=\phi[n-1]+\Delta\phi[n]\\
+          &=\phi[n-1]+(f_0+k\cdot f_{\text{feedback}}),
+        \end{aligned}
+      \end{equation}
+      where $\phi[n]$ is the phase increment at time $n$,
+      $f_0$ is the free running clock (\qty{4.096}{MHz} in our design),
+      and $k$ is the feedback coefficient.
+      The core Verilog implementation of the Error Detector Control is given below,
+      which shows that for QPSK, the feedback value is arithmetically right shifted by 6 bits
+      to match the scale of that in BPSK.
       \begin{minted}[]{verilog}
 if (is_bpsk) begin // BPSK
   out_I_tdata <= in_I_tvalid ? in_I_tdata + in_Q_tdata : 0;
@@ -251,11 +307,17 @@ else begin // QPSK
     -in_Q_tdata : in_Q_tdata) >>> 6 : 0;
 end
       \end{minted}
+      
+      In the Costas loop,
+      the feedback coefficient $k$ is an important coefficient to finetune according to the system.
+      This parameter is reflected as \texttt{FEEDBACK\_SHIFT}, and $k\triangleq2^{-\text{\texttt{FEEDBACK\_SHIFT}}}$.
+      The convergence of the Costas loop under different carrier frequency offset (CFO) is discussed in Section~\ref{subsec:costas_convergence}.
 
     \subsection{Symbol Synchronization Using Gardner Loop}
 
       A Gardner loop \cite{gardner1986bpsk} is used to achieve symbol (timing) synchronization.
       The structure of a Gardner loop is shown in Fig.~\ref{fig:gardner_loop}.
+      The loop itself is not directly shown in the figure,
       \begin{figure}[htbp]
         \input{tikz/gardner_loop}
         \caption{Structure of a Gardner loop for symbol timing synchronization.}
@@ -279,7 +341,7 @@ end
 
   \section{Packet-Based Communication}
 
-    \subsection{Frame Structure}
+    \subsection{Frame Structure}\label{subsec:frame_structure}
 
       The frame structure is shown in Fig.~\ref{fig:frame_structure}.
       \begin{figure}[htbp]
@@ -321,11 +383,32 @@ end
 
     \subsection{SPB Detection}
 
-      \subsubsection{Strength Detection (SD)}
+      SPD detection consists of strength detection (SD),
+      packet detection (PD) and boundary detection (BD).
+      They jointly provide information for the coarse packet timing.
 
-      \subsubsection{Packet Detection (SD)}
+      \subsubsection{Strength Detection (SD)}
+      The strength detection checks the baseband I/Q amplitude from the Costas loop.
+      It is useful because the PSK detector will always output a value,
+      and it can confuse the packet parsing when the noise coincides with the packet sequence.
+      For stability, the \texttt{SD\_flag} is asserted when
+      either the I or Q signal amplitude is larger than \texttt{RX\_SD\_THRESHOLD}
+      at one clock within the window of \texttt{RX\_SD\_WINDOW} clocks.
+
+      \subsubsection{Packet Detection (PD)}
+      The presence of a packet can be identified by detecting repetitive `010101\dots' sequence (modulated using BPSK).
+      This can be performed by checking the continuous 1s for the differential results.
+      The \texttt{PD\_flag} is asserted when the differential results remain 1 for \texttt{RX\_PD\_WINDOW} clocks.
+      Interestingly, the packet detection itself does not require a synchronized carrier,
+      as a carrier phase shift does not significantly affect the `01' sequence detection.
 
       \subsubsection{Boundary Detection (BD)}
+      Exploiting the phase transition from bit 223 to 224 in the training field
+      (see Section~\ref{subsec:frame_structure} and Fig.~\ref{fig:frame_structure}),
+      the boundary detection can be performed by checking the differential value being 0
+      after the \texttt{PD\_flag} being asserted.
+      To ensure stability,
+      the \texttt{BD\_flag} is asserted after \texttt{RX\_BD\_WINDOW} clocks of continuous 1s in differential values.
 
   \section{Simulation Results}
 
@@ -362,13 +445,39 @@ end
         \label{fig:tx_dac_sim}
       \end{figure}
 
-    \subsection{Carrier Synchronization Convergence}
+    \subsection{Carrier Synchronization Convergence}\label{subsec:costas_convergence}
+
+      Notably, the convergence performance of QPSK is poorer than BPSK in the current parameter set,
+      which is by design.
+      For a dual-mode system which transmits payload in both BPSK and QPSK with a BPSK header,
+      so the carrier synchronization is achieved at the BPSK header,
+      therefore, QPSK does not need a strong feedback.
+      Furthermore, the smaller feedback makes the BPSK and QPSK transmission smoother,
+      avoiding a sudden phase jump of $90^\circ$.
+
+      \begin{figure}[htbp]
+        \centering
+        \input{tikz/sim/sync_BPSK}
+        \caption{Carrier synchronization for BPSK}
+      \end{figure}
 
     \subsection{Mixed-Mode Receiver}
 
-  \section{Experiment Results on SDR}
+      In this simulation, we show the successful transmission of packets in both BPSK and QPSK modulations.
+
+  \section{FPGA Implementation}
 
     The design is implemented in Vivado 2022.2.
+
+    The hardware resources consumption on Zynq-7020 with the default synthesis and implementation strategy is shown in Table~\ref{tab:resource}.
+    Therefore, the design itself is area-efficient, and can be readily incorporated into a larger system.
+    \begin{table}[htbp]
+      \caption{Hardware Resources Consumption on Zynq-7020}
+      \label{tab:resource}
+    \end{table}
+
+  \section{Experiment Results on SDR}
+
     The experiment results are observed via a system ILA in Vivado,
     and 4 general-purpose input/output (GPIO) pins are used to output some 1-bit signals,
     including the 1-bit Tx and Rx data stream and their corresponding clock.
@@ -478,12 +587,28 @@ end
 
   \section{Block Diagrams}
 
-    \begin{figure*}
-      \includegraphics[width=\linewidth]{../schematic/top.pdf}
-      \caption{Top block diagram.}
-    \end{figure*}
+    \subsection{Block Diagrams Design}
+
+      \begin{figure*}
+        \includegraphics[width=\linewidth]{../schematic/top.pdf}
+        \caption{Top block diagram.}
+      \end{figure*}
+
+    \subsection{Debugging With Block Diagrams}
+
+      \textbf{AXI connections}.
+      1. connection one out of the bus.
+      2. \texttt{FREQ\_HZ} property.
+
+      \textbf{Testbenches for block diagrams}.
+
 
   \section{Figures in This Paper}
+
+    All figures except for block diagrams in this paper
+    are created using T\textit{i}kZ, part of \LaTeX{}.
+    The way I create them is quite interesting,
+    and you can find the source code in the GitHub repository \cite{github_repo}.
 
   \bibliographystyle{IEEEtran}
   \bibliography{IEEEabrv, ref}

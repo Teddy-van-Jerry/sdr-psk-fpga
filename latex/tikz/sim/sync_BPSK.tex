@@ -1,0 +1,64 @@
+\begin{tikzpicture}
+  \begin{axis}[
+    , thin
+    , enlarge x limits = false
+    , width = \linewidth
+  ]
+    \addplot [
+      , color = myred
+      , mark = none
+    ] table [
+      , col sep = comma
+      , skip first n = 410
+    ] {../behav_sim/BPSK_behav_sim_-32_F.csv};
+
+    \addplot [
+      , color = myblued
+      , mark = none
+    ] table [
+      , col sep = comma
+      , skip first n = 410
+    ] {../behav_sim/BPSK_behav_sim_-16_S0.csv};
+
+    \addplot [
+      , color = mygreen
+      , mark = none
+    ] table [
+      , col sep = comma
+      , skip first n = 410
+    ] {../behav_sim/BPSK_behav_sim_-8_S0.csv};
+
+    \addplot [
+      , color = myyellow
+      , mark = none
+    ] table [
+      , col sep = comma
+      , skip first n = 410
+    ] {../behav_sim/BPSK_behav_sim_+8_S1.csv};
+
+    \addplot [
+      , color = mypurple
+      , mark = none
+    ] table [
+      , col sep = comma
+      , skip first n = 410
+    ] {../behav_sim/BPSK_behav_sim_+16_S1.csv};
+
+    \addplot [
+      , color = gray
+      , mark = none
+    ] table [
+      , col sep = comma
+      , skip first n = 410
+    ] {../behav_sim/BPSK_behav_sim_+32_F.csv};
+
+    \legend{
+      $\qty{-15.6}{kHz}$,
+      $\qty{-7.81}{kHz}$,
+      $\qty{-3.91}{kHz}$,
+      $\qty{+3.91}{kHz}$,
+      $\qty{+7.81}{kHz}$,
+      $\qty{+15.6}{kHz}$,
+    };
+  \end{axis}
+\end{tikzpicture}%
