@@ -47,7 +47,7 @@ module tb_BPSK;
   // configuration parameters (constants)
   assign DELAY_CNT = 4'd8;
   assign MODE_CTRL = MODE_BPSK;
-  assign TX_PHASE_CONFIG = 8192 + 32; // 8192 for 4.196 MHz
+  assign TX_PHASE_CONFIG = 8192 + 16; // 8192 for 4.196 MHz
 
   // module instantiation
   Tx_imp_1IUYQQO inst_Tx (
