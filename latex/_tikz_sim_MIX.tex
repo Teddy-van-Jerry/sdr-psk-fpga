@@ -1,0 +1,25 @@
+\documentclass[journal,twoside]{IEEEtran}
+\usepackage{preamble}
+
+\pagestyle{empty}
+
+\begin{document}
+\begin{figure*}
+  \setlength{\tabcolsep}{2pt}
+  \sffamily\notsotiny
+  \newcommand{\Signal}{DAC_vld}
+  \newcommand{\Color}{mygreen}
+  \begin{tabularx}{\linewidth}{@{}lX@{}}
+    DAC\_vld & \input{tikz/sim/MIX} \\
+    Rx\_tdata[1] & \renewcommand{\Signal}{Rx_tdata_1}\renewcommand{\Color}{myblued}\input{tikz/sim/MIX} \\
+    Rx\_tdata[0] & \renewcommand{\Signal}{Rx_tdata_0}\renewcommand{\Color}{myblued}\input{tikz/sim/MIX} \\
+    Rx\_tvalid & \renewcommand{\Signal}{Rx_tvalid}\renewcommand{\Color}{myblued}\input{tikz/sim/MIX} \\
+    Rx\_tlast & \renewcommand{\Signal}{Rx_tlast}\renewcommand{\Color}{myblued}\input{tikz/sim/MIX} \\
+    Rx\_tuser & \renewcommand{\Signal}{Rx_tuser}\renewcommand{\Color}{myblued}\input{tikz/sim/MIX} \\
+    Tx\_1bit & \renewcommand{\Signal}{Tx_1bit}\renewcommand{\Color}{myred}\input{tikz/sim/MIX} \\
+    Tx\_vld & \renewcommand{\Signal}{Tx_vld}\renewcommand{\Color}{myred}\input{tikz/sim/MIX} \\
+    Rx\_1bit & \renewcommand{\Signal}{Rx_1bit}\renewcommand{\Color}{myblued}\input{tikz/sim/MIX} \\
+  \end{tabularx}
+  % Tx_1bit,Tx_vld,Rx_1bit,Rx_tdata_1,Rx_tdata_0,Rx_tvalid,Rx_tlast,Rx_tuser
+\end{figure*}
+\end{document}

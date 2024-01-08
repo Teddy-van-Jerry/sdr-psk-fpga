@@ -1,0 +1,38 @@
+\documentclass[journal,twoside]{IEEEtran}
+\usepackage{preamble}
+
+\pagestyle{empty}
+
+\begin{document}
+\begin{figure*}
+  \setlength{\tabcolsep}{2pt}
+  \sffamily\notsotiny
+  \newcommand\Modulation{QPSK}%
+  \newcommand\isBPSK0%
+  \newcommand\Color{mygreen}
+  \begin{tabularx}{\linewidth}{@{}lX@{}}
+    DAC\_vld & \input{tikz/ila/DAC_vld} \\
+    DAC\_I[11:0] & \input{tikz/ila/DAC_I} \\
+    DAC\_Q[11:0] & \input{tikz/ila/DAC_Q} \\
+    ADC\_I[11:0] & \input{tikz/ila/ADC_I} \\
+    ADC\_Q[11:0] & \input{tikz/ila/ADC_Q} \\
+    I\_16M[15:0] & \input{tikz/ila/I_16M} \\
+    Q\_16M[15:0] & \input{tikz/ila/Q_16M} \\
+    I\_1M[15:0] & \input{tikz/ila/I_1M} \\
+    Q\_1M[15:0] & \input{tikz/ila/Q_1M} \\
+    DAC\_bits[1:0] & \input{tikz/ila/DAC_bits} \\
+    DAC\_bits[1] & \input{tikz/ila/DAC_bits_1} \\
+    DAC\_bits[0] & \input{tikz/ila/DAC_bits_0} \\
+    Rx\_data\_tdata[1:0] & \input{tikz/ila/Rx_data_tdata} \\
+    Rx\_data\_tdata[1] & \input{tikz/ila/Rx_data_tdata_1} \\
+    Rx\_data\_tdata[0] & \input{tikz/ila/Rx_data_tdata_0} \\
+    Rx\_data\_tvalid & \input{tikz/ila/Rx_data_tvalid} \\
+    Rx\_data\_tlast & \input{tikz/ila/Rx_data_tlast} \\
+    Rx\_data\_tuser & \input{tikz/ila/Rx_data_tuser} \\
+    Tx\_1bit & \input{tikz/ila/Tx_1bit} \\
+    Tx\_vld & \input{tikz/ila/Tx_vld} \\
+    Rx\_1bit & \input{tikz/ila/Rx_1bit} \\
+    Rx\_vld & \input{tikz/ila/Rx_vld} \\
+  \end{tabularx}%
+\end{figure*}
+\end{document}

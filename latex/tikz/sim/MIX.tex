@@ -9,15 +9,15 @@
     , thin
   ]
     \addplot [
-      , color = myred
+      , color = \Color
       , mark = none
       , const plot
       , name path = f
     ] table [
       , col sep = comma
       , x={time}
-      , y={Tx_1bit}
-    ] {tikz/ila/\Modulation.csv};
+      , y={\Signal}
+    ] {tikz/sim/MIX.csv};
     % add shade
     \addplot [
       , draw = none
@@ -25,11 +25,11 @@
     ] table [
       , col sep = comma
       , x={time}
-      , y={v0}
-    ] {tikz/ila/\Modulation.csv};
+      , y={ground}
+    ] {tikz/sim/MIX.csv};
     \addplot [
-      , myred
-      , opacity = 0.1
+      , fill = \Color
+      , fill opacity = 0.1
     ] fill between [
       , of = f and axis
     ];

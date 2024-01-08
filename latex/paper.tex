@@ -1,72 +1,5 @@
 \documentclass[journal,twoside]{IEEEtran}
-\usepackage[T1]{fontenc}
-\usepackage{microtype}
-\DisableLigatures[<]{encoding = T1}
-\DisableLigatures[>]{encoding = T1}
-\usepackage{graphicx}
-\usepackage{booktabs}
-\usepackage{multicol,multirow}
-\usepackage{newtxmath}
-\usepackage{mathtools}
-\usepackage{bm}
-\usepackage[caption=false,font=footnotesize,subrefformat=parens]{subfig}
-\usepackage{lipsum}
-\usepackage{tabularx}
-\usepackage[dvipsnames,table]{xcolor}
-\usepackage{my-tikz}
-\usepackage{colortbl}
-\usepackage{scalerel}
-\usepackage{threeparttable}
-\usepackage{algorithm}
-\usepackage[italicComments=false,commentColor=darkgray,noEnd=true]{algpseudocodex}
-\usepackage{upgreek}
-\usepackage{calc}
-\usepackage[noadjust]{cite}
-\usepackage{circuitikz}
-\usepackage{siunitx}
-\usepackage{minted}
-\usepackage[colorlinks,urlcolor=black,linkcolor=blue,citecolor=blue]{hyperref}
-
-\usetikzlibrary{svg.path,shapes.symbols,shapes.misc}
-\usepgfplotslibrary{fillbetween}
-\definecolor{orcidlogocol}{HTML}{A6CE39}
-\tikzset{
-  orcidlogo/.pic={
-    \fill[orcidlogocol] svg{M256,128c0,70.7-57.3,128-128,128C57.3,256,0,198.7,0,128C0,57.3,57.3,0,128,0C198.7,0,256,57.3,256,128z};
-    \fill[white] svg{M86.3,186.2H70.9V79.1h15.4v48.4V186.2z}
-                 svg{M108.9,79.1h41.6c39.6,0,57,28.3,57,53.6c0,27.5-21.5,53.6-56.8,53.6h-41.8V79.1z M124.3,172.4h24.5c34.9,0,42.9-26.5,42.9-39.7c0-21.5-13.7-39.7-43.7-39.7h-23.7V172.4z}
-                 svg{M88.7,56.8c0,5.5-4.5,10.1-10.1,10.1c-5.6,0-10.1-4.6-10.1-10.1c0-5.6,4.5-10.1,10.1-10.1C84.2,46.7,88.7,51.3,88.7,56.8z};
-  }
-}
-
-\newcommand\orcidicon[1]{\href{https://orcid.org/#1}{\mbox{\scalerel*{
-  \begin{tikzpicture}[yscale=-1,transform shape]
-    \pic{orcidlogo};
-  \end{tikzpicture}
-}{|}}}}
-
-% \makesavenoteenv{tabular}
-\interdisplaylinepenalty=2500
-\aboverulesep = 0mm \belowrulesep = 0mm
-\newcolumntype{Y}{>{\centering\arraybackslash}X}
-\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}} % centered m
-\newcommand{\tabvertspace}{\specialrule{0em}{0.08em}{.08em}}
-\renewcommand\tabularxcolumn[1]{m{#1}}% for vertical centering text in X column
-
-\definecolor{doicolor}{RGB}{2, 48, 129}
-
-\DeclareMathOperator*{\argmax}{\arg\max}
-\DeclareMathOperator*{\argmin}{\arg\min}
-\DeclareMathOperator*{\argmint}{\widetilde{\arg\min}}
-\DeclareMathOperator*{\uargmin}{\mathrm{u}\arg\min}
-
-\setlength{\fboxsep}{0pt}
-\setminted{
-  , frame = lines
-  , fontsize = \scriptsize
-  , bgcolor = gray!3
-  , framesep = 2.5pt
-}
+\usepackage{preamble}
 
 \markboth{Southeast University Software-Defined Radio Experiment Course, January 2024}{W. Zhao: Dual-Mode PSK Transceiver on SDR With FPGA}
 \IEEEpubid{
@@ -431,30 +364,8 @@ end
       The transmitter DAC simulaiton results are shown in Fig.~\ref{fig:tx_dac_sim}.
       \begin{figure}[h]
         \setlength{\tabcolsep}{2pt}
-        \subfloat[BPSK modulation.]{%
-          \sffamily\notsotiny
-          \begin{tabularx}{\linewidth}{@{}lX@{}}
-            clk\_1M024 & \input{tikz/sim/Tx_BPSK_clk_1M} \\
-            clk\_16M384 & \input{tikz/sim/Tx_BPSK_clk_16M} \\
-            DAC\_bits[1:0] & \input{tikz/sim/Tx_BPSK_bits} \\
-            DAC\_bits[1] & \input{tikz/sim/Tx_BPSK_bits_1} \\
-            \textcolor{gray}{DAC\_bits[0]} & \input{tikz/sim/Tx_BPSK_bits_0} \\
-            DAC\_I[11:0] & \input{tikz/sim/Tx_BPSK_DAC_I} \\
-            DAC\_Q[11:0] & \input{tikz/sim/Tx_BPSK_DAC_Q} \\
-          \end{tabularx}%
-        }\hfill%
-        \subfloat[QPSK modulation.]{%
-          \sffamily\notsotiny
-          \begin{tabularx}{\linewidth}{@{}lX@{}}
-            clk\_1M024 & \input{tikz/sim/Tx_QPSK_clk_1M} \\
-            clk\_16M384 & \input{tikz/sim/Tx_QPSK_clk_16M} \\
-            DAC\_bits[1:0] & \input{tikz/sim/Tx_QPSK_bits} \\
-            DAC\_bits[1] & \input{tikz/sim/Tx_QPSK_bits_1} \\
-            DAC\_bits[0] & \input{tikz/sim/Tx_QPSK_bits_0} \\
-            DAC\_I[11:0] & \input{tikz/sim/Tx_QPSK_DAC_I} \\
-            DAC\_Q[11:0] & \input{tikz/sim/Tx_QPSK_DAC_Q} \\
-          \end{tabularx}%
-        }
+        \subfloat[BPSK modulation.]{\includegraphics{_tikz_sim_Tx_BPSK-crop.pdf}}\\
+        \subfloat[QPSK modulation.]{\includegraphics{_tikz_sim_Tx_QPSK-crop.pdf}}
         \caption{DAC simulation results of the transmitter.}
         \label{fig:tx_dac_sim}
       \end{figure}
@@ -469,7 +380,8 @@ end
       The convergence is relatively fast.
       \begin{figure}[htbp]
         \centering
-        \input{tikz/sim/sync_BPSK}
+        % \input{tikz/sim/sync_BPSK}
+        \includegraphics{_tikz_sim_sync_BPSK-crop.pdf}
         \caption{Carrier synchronization for BPSK. The feedback value after the loop filter v.s.\ time, with different CFO.}
         \label{fig:sync_BPSK}
       \end{figure}
@@ -485,6 +397,12 @@ end
     \subsection{Mixed-Mode Receiver}
 
       In this simulation, we show the successful transmission of packets in both BPSK and QPSK modulations.
+      The simulation results are shown in Fig.~\ref{fig:mix_sim}.
+      \begin{figure*}
+        \includegraphics{_tikz_sim_MIX-crop.pdf}
+        \caption{Mixed-mode simulation results.}
+        \label{fig:mix_sim}
+      \end{figure*}
 
   \section{FPGA Implementation}
 
@@ -550,68 +468,20 @@ end
 
 
     \begin{figure*}[t]
-      \centering
-      \subfloat[BPSK packet data (duration: \qty{200}{\micro\second}).\label{subfig:scope_bpsk}]{\input{tikz/scope/BPSK}}\\
-      \subfloat[QPSK packet data (duration: \qty{100}{\micro\second}).\label{subfig:scope_qpsk}]{\input{tikz/scope/QPSK}}\\
-      \subfloat[Symbol timing clock and BPSK data at Rx (duration: \qty{50}{\micro\second}).\label{subfig:scope_timing}]{\input{tikz/scope/timing}}
+      % \subfloat[BPSK packet data (duration: \qty{200}{\micro\second}).\label{subfig:scope_bpsk}]{\input{tikz/scope/BPSK}}\\
+      % \subfloat[QPSK packet data (duration: \qty{100}{\micro\second}).\label{subfig:scope_qpsk}]{\input{tikz/scope/QPSK}}\\
+      % \subfloat[Symbol timing clock and BPSK data at Rx (duration: \qty{50}{\micro\second}).\label{subfig:scope_timing}]{\input{tikz/scope/timing}}
+      \subfloat[BPSK packet data (duration: \qty{200}{\micro\second}).\label{subfig:scope_bpsk}]{\includegraphics{_tikz_scope_BPSK-crop.pdf}}\\
+      \subfloat[QPSK packet data (duration: \qty{100}{\micro\second}).\label{subfig:scope_qpsk}]{\includegraphics{_tikz_scope_QPSK-crop.pdf}}\\
+      \subfloat[Symbol timing clock and BPSK data at Rx (duration: \qty{50}{\micro\second}).\label{subfig:scope_timing}]{\includegraphics{_tikz_scope_timing-crop.pdf}}
       \caption{Two-channel oscilloscope results of GPIO outputs.}
       \label{fig:scope}
     \end{figure*}
 
     \begin{figure*}
       \setlength{\tabcolsep}{2pt}
-      \newcommand\Modulation{BPSK}%
-      \newcommand\IsBPSK1%
-      \subfloat[A \Modulation{} packet.]{%
-        \sffamily\notsotiny
-        \begin{tabularx}{\linewidth}{@{}lX@{}}
-          DAC\_vld & \input{tikz/ila/DAC_vld} \\
-          DAC\_I[11:0] & \input{tikz/ila/DAC_I} \\
-          DAC\_Q[11:0] & \input{tikz/ila/DAC_Q} \\
-          ADC\_I[11:0] & \input{tikz/ila/ADC_I} \\
-          ADC\_Q[11:0] & \input{tikz/ila/ADC_Q} \\
-          I\_16M[15:0] & \input{tikz/ila/I_16M} \\
-          Q\_16M[15:0] & \input{tikz/ila/Q_16M} \\
-          I\_1M[15:0] & \input{tikz/ila/I_1M} \\
-          Q\_1M[15:0] & \input{tikz/ila/Q_1M} \\
-          DAC\_bits[1] & \input{tikz/ila/DAC_bits_1} \\
-          DAC\_bits[0] & \input{tikz/ila/DAC_bits_0} \\
-          Rx\_data\_tdata[1] & \input{tikz/ila/Rx_data_tdata_1} \\
-          Rx\_data\_tdata[0] & \input{tikz/ila/Rx_data_tdata_0} \\
-          Rx\_data\_tvalid & \input{tikz/ila/Rx_data_tvalid} \\
-          Rx\_data\_tuser & \input{tikz/ila/Rx_data_tuser} \\
-          Tx\_1bit & \input{tikz/ila/Tx_1bit} \\
-          Tx\_vld & \input{tikz/ila/Tx_vld} \\
-          Rx\_1bit & \input{tikz/ila/Rx_1bit} \\
-          Rx\_vld & \input{tikz/ila/Rx_vld} \\
-        \end{tabularx}%
-      }\\
-      \renewcommand\Modulation{QPSK}%
-      \renewcommand\IsBPSK0%
-      \subfloat[A \Modulation{} packet.]{%
-        \sffamily\notsotiny
-        \begin{tabularx}{\linewidth}{@{}lX@{}}
-          DAC\_vld & \input{tikz/ila/DAC_vld} \\
-          DAC\_I[11:0] & \input{tikz/ila/DAC_I} \\
-          DAC\_Q[11:0] & \input{tikz/ila/DAC_Q} \\
-          ADC\_I[11:0] & \input{tikz/ila/ADC_I} \\
-          ADC\_Q[11:0] & \input{tikz/ila/ADC_Q} \\
-          I\_16M[15:0] & \input{tikz/ila/I_16M} \\
-          Q\_16M[15:0] & \input{tikz/ila/Q_16M} \\
-          I\_1M[15:0] & \input{tikz/ila/I_1M} \\
-          Q\_1M[15:0] & \input{tikz/ila/Q_1M} \\
-          DAC\_bits[1] & \input{tikz/ila/DAC_bits_1} \\
-          DAC\_bits[0] & \input{tikz/ila/DAC_bits_0} \\
-          Rx\_data\_tdata[1] & \input{tikz/ila/Rx_data_tdata_1} \\
-          Rx\_data\_tdata[0] & \input{tikz/ila/Rx_data_tdata_0} \\
-          Rx\_data\_tvalid & \input{tikz/ila/Rx_data_tvalid} \\
-          Rx\_data\_tuser & \input{tikz/ila/Rx_data_tuser} \\
-          Tx\_1bit & \input{tikz/ila/Tx_1bit} \\
-          Tx\_vld & \input{tikz/ila/Tx_vld} \\
-          Rx\_1bit & \input{tikz/ila/Rx_1bit} \\
-          Rx\_vld & \input{tikz/ila/Rx_vld} \\
-        \end{tabularx}%
-      }
+      \subfloat[A BPSK packet.]{\includegraphics{_tikz_ila_BPSK-crop.pdf}}\\
+      \subfloat[A QPSK packet.]{\includegraphics{_tikz_ila_QPSK-crop.pdf}}\\
       \caption{System ILA results.}
     \end{figure*}
 

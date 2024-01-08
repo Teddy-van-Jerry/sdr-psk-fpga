@@ -1,0 +1,19 @@
+\documentclass[journal,twoside]{IEEEtran}
+\usepackage{preamble}
+
+\pagestyle{empty}
+
+\begin{document}
+\begin{figure}
+  \sffamily\notsotiny
+  \begin{tabularx}{\linewidth}{@{}lX@{}}
+    clk\_1M024 & \input{tikz/sim/Tx_BPSK_clk_1M} \\
+    clk\_16M384 & \input{tikz/sim/Tx_BPSK_clk_16M} \\
+    DAC\_bits[1:0] & \input{tikz/sim/Tx_BPSK_bits} \\
+    DAC\_bits[1] & \input{tikz/sim/Tx_BPSK_bits_1} \\
+    \textcolor{gray}{DAC\_bits[0]} & \input{tikz/sim/Tx_BPSK_bits_0} \\
+    DAC\_I[11:0] & \input{tikz/sim/Tx_BPSK_DAC_I} \\
+    DAC\_Q[11:0] & \input{tikz/sim/Tx_BPSK_DAC_Q} \\
+  \end{tabularx}%
+\end{figure}
+\end{document}

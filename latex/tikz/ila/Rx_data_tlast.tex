@@ -7,16 +7,17 @@
     , axis line style = { draw = none }
     , ticks = none
     , thin
+    , ymax = 1
   ]
     \addplot [
-      , color = myred
+      , color = myblued
       , mark = none
       , const plot
       , name path = f
     ] table [
       , col sep = comma
       , x={time}
-      , y={Tx_1bit}
+      , y={Rx_data_tlast}
     ] {tikz/ila/\Modulation.csv};
     % add shade
     \addplot [
@@ -28,7 +29,7 @@
       , y={v0}
     ] {tikz/ila/\Modulation.csv};
     \addplot [
-      , myred
+      , myblued
       , opacity = 0.1
     ] fill between [
       , of = f and axis

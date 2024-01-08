@@ -11,27 +11,23 @@
     \addplot [
       , color = myred
       , mark = none
-      , const plot
-      , name path = f
+      % , const plot
+      % , name path = f
     ] table [
       , col sep = comma
       , x={time}
-      , y={Tx_1bit}
+      , y={DAC_bits_X1}
     ] {tikz/ila/\Modulation.csv};
-    % add shade
     \addplot [
-      , draw = none
-      , name path = axis
+      , color = myred
+      , mark = none
+      % , const plot
+      % , name path = f
     ] table [
       , col sep = comma
       , x={time}
-      , y={v0}
+      , y={DAC_bits_X2}
     ] {tikz/ila/\Modulation.csv};
-    \addplot [
-      , myred
-      , opacity = 0.1
-    ] fill between [
-      , of = f and axis
-    ];
+    \input {tikz/ila/\Modulation_DAC_bits_label_gen.tex}
   \end{axis}
 \end{tikzpicture}%

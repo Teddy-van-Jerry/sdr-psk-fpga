@@ -25,12 +25,28 @@ def get_signal_trans(btis_array: np.ndarray) -> list[np.ndarray, np.ndarray, np.
 
     return bits_change_seq_1.astype(int), bits_change_seq_2.astype(int), bits_change_idx_middle, bits_middle
 
+def trans_save_tikz(bits_change_idx_middle: np.ndarray, bits_middle: np.ndarray, output_f: str, length: int):
+    output_path = Path(os.path.dirname(os.path.realpath(__file__))) / output_f
+    with open(output_path, 'w') as f:
+        for i in range(len(bits_change_idx_middle)):
+            f.write(f'\\node [scale = .75] at (rel axis cs: {bits_change_idx_middle[i] / length}, 0.5) {{\\tiny{bits_middle[i]}}};\n')
+
 def downsample_by2(array: np.ndarray) -> np.ndarray:
     array_str = array.astype(str)
     array_str[::2] = ''
     return array_str
 
-def gen_csv(input_f: str, output_f: str):
+def remove_redundant(array: np.ndarray, skip=False) -> np.ndarray:
+    array_str = array.astype(str)
+    last_elem = '__'
+    for i in range(len(array_str) - 1): # we must keep the last element
+        tmp = array_str[i]
+        if array_str[i] == last_elem and (not skip or array_str[i] == array_str[i + 1]) :
+            array_str[i] = ''
+        last_elem = tmp
+    return array_str
+
+def gen_csv(input_f: str, output_f: str, mod_str: str):
     input_path = Path(os.path.dirname(os.path.realpath(__file__))) / input_f
     output_path = Path(os.path.dirname(os.path.realpath(__file__))) / output_f
 
@@ -54,7 +70,7 @@ def gen_csv(input_f: str, output_f: str):
     QPSK = df_in['top_i/system_ila_0/inst/probe12_1[1:0]'].to_numpy(dtype=int)
     BPSK = df_in['top_i/system_ila_0/inst/probe13_1'].to_numpy(dtype=int)
     clk_1M_out = df_in['top_i/system_ila_0/inst/probe14_1'].to_numpy(dtype=int)
-    Tx_data_tdata = [int(a, 16) for a in df_in['top_i/system_ila_0/inst/probe15_1[7:0]'].to_numpy()]
+    Tx_data_tdata = np.array([int(a, 16) for a in df_in['top_i/system_ila_0/inst/probe15_1[7:0]'].to_numpy()])
     Tx_data_tlast = df_in['top_i/system_ila_0/inst/probe16_1'].to_numpy(dtype=int)
     Tx_data_tuser = df_in['top_i/system_ila_0/inst/probe17_1'].to_numpy(dtype=int)
     Tx_data_tvalid = df_in['top_i/system_ila_0/inst/probe18_1'].to_numpy(dtype=int)
@@ -73,15 +89,19 @@ def gen_csv(input_f: str, output_f: str):
 
     DAC_bits_1 = DAC_bits // 2
     DAC_bits_0 = np.mod(DAC_bits, 2)
+    DAC_bits_X1, DAC_bits_X2, DAC_bits_change_idx_middle, DAC_bits_middle = get_signal_trans(DAC_bits)
+    trans_save_tikz(DAC_bits_change_idx_middle, DAC_bits_middle, f'{mod_str}_DAC_bits_label_gen.tex', len(DAC_bits))
 
     Tx_data_tdata_2bits = np.mod(Tx_data_tdata, 4)
     Tx_data_tdata_1 = Tx_data_tdata_2bits // 2
     Tx_data_tdata_0 = np.mod(Tx_data_tdata_2bits, 2)
     Tx_data_tdata_X1, Tx_data_tdata_X2, Tx_data_tdata_change_idx_middle, Tx_data_tdata_middle = get_signal_trans(Tx_data_tdata_2bits)
+    trans_save_tikz(Tx_data_tdata_change_idx_middle, Tx_data_tdata_middle, f'{mod_str}_Tx_data_tdata_label_gen.tex', len(Tx_data_tdata_2bits))
     Rx_data_tdata_2bits = np.mod(Rx_data_tdata, 4)
     Rx_data_tdata_1 = Rx_data_tdata_2bits // 2
     Rx_data_tdata_0 = np.mod(Rx_data_tdata_2bits, 2)
     Rx_data_tdata_X1, Rx_data_tdata_X2, Rx_data_tdata_change_idx_middle, Rx_data_tdata_middle = get_signal_trans(Rx_data_tdata_2bits)
+    trans_save_tikz(Rx_data_tdata_change_idx_middle, Rx_data_tdata_middle, f'{mod_str}_Rx_data_tdata_label_gen.tex', len(Rx_data_tdata_2bits))
 
     # downsample by 1/2, as original frequency is 16M
     DAC_vld = downsample_by2(DAC_vld)
@@ -93,39 +113,46 @@ def gen_csv(input_f: str, output_f: str):
     I_16M = downsample_by2(I_16M)
     Q_16M = downsample_by2(Q_16M)
     NCO_cos = downsample_by2(NCO_cos)
-    # QPSK_raw = downsample_by2(QPSK_raw)
-    # I_1M = downsample_by2(I_1M)
-    # Q_1M = downsample_by2(Q_1M)
-    # QPSK = downsample_by2(QPSK)
-    # BPSK = downsample_by2(BPSK)
-    # clk_1M_out = downsample_by2(clk_1M_out)
-    # Tx_data_tdata = downsample_by2(Tx_data_tdata)
-    # Tx_data_tlast = downsample_by2(Tx_data_tlast)
-    # Tx_data_tuser = downsample_by2(Tx_data_tuser)
-    # Tx_data_tvalid = downsample_by2(Tx_data_tvalid)
-    # Rx_data_tdata = downsample_by2(Rx_data_tdata)
-    # Rx_data_tlast = downsample_by2(Rx_data_tlast)
-    # Rx_data_tuser = downsample_by2(Rx_data_tuser)
-    # Rx_data_tvalid = downsample_by2(Rx_data_tvalid)
+    QPSK_raw = remove_redundant(QPSK_raw)
+    I_1M = remove_redundant(I_1M)
+    Q_1M = remove_redundant(Q_1M)
+    QPSK = remove_redundant(QPSK)
+    BPSK = remove_redundant(BPSK)
+    clk_1M_out = remove_redundant(clk_1M_out)
+    Tx_data_tdata = remove_redundant(Tx_data_tdata)
+    Tx_data_tlast = remove_redundant(Tx_data_tlast)
+    Tx_data_tuser = remove_redundant(Tx_data_tuser)
+    Tx_data_tvalid = remove_redundant(Tx_data_tvalid)
+    Rx_data_tdata = remove_redundant(Rx_data_tdata)
+    Rx_data_tlast = remove_redundant(Rx_data_tlast)
+    Rx_data_tuser = remove_redundant(Rx_data_tuser)
+    Rx_data_tvalid = remove_redundant(Rx_data_tvalid)
     error_tdata = downsample_by2(error_tdata)
     feedback_tdata = downsample_by2(feedback_tdata)
-    # Tx_1bit = downsample_by2(Tx_1bit)
-    # Tx_vld = downsample_by2(Tx_vld)
-    # Rx_1bit = downsample_by2(Rx_1bit)
-    # Rx_vld = downsample_by2(Rx_vld)
+    Tx_1bit = remove_redundant(Tx_1bit)
+    Tx_vld = remove_redundant(Tx_vld)
+    Rx_1bit = remove_redundant(Rx_1bit)
+    Rx_vld = remove_redundant(Rx_vld)
     gardner_error = downsample_by2(gardner_error)
     gardner_increment = downsample_by2(gardner_increment)
-    # Tx_data_tdata_2bits = downsample_by2(Tx_data_tdata_2bits)
-    # Tx_data_tdata_1 = downsample_by2(Tx_data_tdata_1)
-    # Tx_data_tdata_0 = downsample_by2(Tx_data_tdata_0)
-    # Tx_data_tdata_X1 = downsample_by2(Tx_data_tdata_X1)
-    # Tx_data_tdata_X2 = downsample_by2(Tx_data_tdata_X2)
-    # Rx_data_tdata_2bits = downsample_by2(Rx_data_tdata_2bits)
-    # Rx_data_tdata_1 = downsample_by2(Rx_data_tdata_1)
-    # Rx_data_tdata_0 = downsample_by2(Rx_data_tdata_0)
-    # Rx_data_tdata_X1 = downsample_by2(Rx_data_tdata_X1)
-    # Rx_data_tdata_X2 = downsample_by2(Rx_data_tdata_X2)
+    DAC_bits_1 = remove_redundant(DAC_bits_1)
+    DAC_bits_0 = remove_redundant(DAC_bits_0)
+    DAC_bits_X1 = remove_redundant(DAC_bits_X1, skip=True)
+    DAC_bits_X2 = remove_redundant(DAC_bits_X2, skip=True)
+    Tx_data_tdata_2bits = remove_redundant(Tx_data_tdata_2bits)
+    Tx_data_tdata_1 = remove_redundant(Tx_data_tdata_1)
+    Tx_data_tdata_0 = remove_redundant(Tx_data_tdata_0)
+    Tx_data_tdata_X1 = remove_redundant(Tx_data_tdata_X1, skip=True)
+    Tx_data_tdata_X2 = remove_redundant(Tx_data_tdata_X2, skip=True)
+    Rx_data_tdata_2bits = remove_redundant(Rx_data_tdata_2bits)
+    Rx_data_tdata_1 = remove_redundant(Rx_data_tdata_1)
+    Rx_data_tdata_0 = remove_redundant(Rx_data_tdata_0)
+    Rx_data_tdata_X1 = remove_redundant(Rx_data_tdata_X1, skip=True)
+    Rx_data_tdata_X2 = remove_redundant(Rx_data_tdata_X2, skip=True)
 
+    v0 = np.zeros(len(DAC_vld), dtype=str)
+    v0[0] = '0'
+    v0[-1] = '0'
 
     df_out['DAC_vld'] = DAC_vld
     df_out['DAC_bits'] = DAC_bits
@@ -160,6 +187,8 @@ def gen_csv(input_f: str, output_f: str):
     df_out['gardner_increment'] = gardner_increment
     df_out['DAC_bits_1'] = DAC_bits_1
     df_out['DAC_bits_0'] = DAC_bits_0
+    df_out['DAC_bits_X1'] = DAC_bits_X1
+    df_out['DAC_bits_X2'] = DAC_bits_X2
     df_out['Tx_data_tdata_2bits'] = Tx_data_tdata_2bits
     df_out['Tx_data_tdata_1'] = Tx_data_tdata_1
     df_out['Tx_data_tdata_0'] = Tx_data_tdata_0
@@ -170,12 +199,11 @@ def gen_csv(input_f: str, output_f: str):
     df_out['Rx_data_tdata_0'] = Rx_data_tdata_0
     df_out['Rx_data_tdata_X1'] = Rx_data_tdata_X1
     df_out['Rx_data_tdata_X2'] = Rx_data_tdata_X2
-    df_out['v0'] = 0
-    df_out['v8192'] = 8192
+    df_out['v0'] = v0
 
     df_out.to_csv(output_path, index=True, index_label='time')
 
-gen_csv('../../../ila/iladata_bpsk_1.csv', 'BPSK.csv')
-gen_csv('../../../ila/iladata_qpsk_1.csv', 'QPSK.csv')
+gen_csv('../../../ila/iladata_bpsk_1.csv', 'BPSK.csv', 'BPSK')
+gen_csv('../../../ila/iladata_qpsk_1.csv', 'QPSK.csv', 'QPSK')
 
 print('Done')
