@@ -7,6 +7,22 @@
                 "-synctex=1",
                 "-interaction=nonstopmode",
                 "-file-line-error",
+                "-pdf",
+                "-shell-escape",
+                "-cd",
+                "%DOC%"
+            ],
+            "env": {
+                "TZ": "America/New_York"
+            }
+        },
+        {
+            "name": "latexmk (lua)",
+            "command": "latexmk",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
                 "-pdflua",
                 "-shell-escape",
                 "-cd",
@@ -22,8 +38,14 @@
             "name": "latexmk",
             "tools": [
                 "latexmk"
-            ]
+            ],
         },
+        {
+            "name": "latexmk (lua)",
+            "tools": [
+                "latexmk (lua)"
+            ]
+        }
     ],
     "files.eol": "\n",
     "[verilog]": {

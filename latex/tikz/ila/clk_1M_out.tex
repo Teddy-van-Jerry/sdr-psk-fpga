@@ -1,0 +1,37 @@
+\begin{tikzpicture}
+  \begin{axis}[
+    , width = \linewidth
+    , height = 2.5mm
+    , scale only axis = true
+    , enlarge x limits = false
+    , axis line style = { draw = none }
+    , ticks = none
+    , thin
+  ]
+    \addplot [
+      , color = mygreen
+      , mark = none
+      , const plot
+      , name path = f
+    ] table [
+      , col sep = comma
+      , x={time}
+      , y={clk_1M_out}
+    ] {tikz/ila/\Modulation.csv};
+    % add shade
+    \addplot [
+      , draw = none
+      , name path = axis
+    ] table [
+      , col sep = comma
+      , x={time}
+      , y={v0}
+    ] {tikz/ila/\Modulation.csv};
+    \addplot [
+      , mygreen
+      , opacity = 0.1
+    ] fill between [
+      , of = f and axis
+    ];
+  \end{axis}
+\end{tikzpicture}%
