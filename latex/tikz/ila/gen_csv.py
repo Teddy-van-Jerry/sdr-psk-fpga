@@ -71,13 +71,16 @@ def gen_csv(input_f: str, output_f: str):
     gardner_error = df_in['top_i/system_ila_0/inst/probe29_1[15:0]'].to_numpy(dtype=int)
     gardner_increment = df_in['top_i/system_ila_0/inst/probe30_1[15:0]'].to_numpy(dtype=int)
 
+    DAC_bits_1 = DAC_bits // 2
+    DAC_bits_0 = np.mod(DAC_bits, 2)
+
     Tx_data_tdata_2bits = np.mod(Tx_data_tdata, 4)
-    Tx_data_tdata_1 = np.mod(Tx_data_tdata_2bits, 2)
-    Tx_data_tdata_0 = Tx_data_tdata_2bits // 2
+    Tx_data_tdata_1 = Tx_data_tdata_2bits // 2
+    Tx_data_tdata_0 = np.mod(Tx_data_tdata_2bits, 2)
     Tx_data_tdata_X1, Tx_data_tdata_X2, Tx_data_tdata_change_idx_middle, Tx_data_tdata_middle = get_signal_trans(Tx_data_tdata_2bits)
     Rx_data_tdata_2bits = np.mod(Rx_data_tdata, 4)
-    Rx_data_tdata_1 = np.mod(Rx_data_tdata_2bits, 2)
-    Rx_data_tdata_0 = Rx_data_tdata_2bits // 2
+    Rx_data_tdata_1 = Rx_data_tdata_2bits // 2
+    Rx_data_tdata_0 = np.mod(Rx_data_tdata_2bits, 2)
     Rx_data_tdata_X1, Rx_data_tdata_X2, Rx_data_tdata_change_idx_middle, Rx_data_tdata_middle = get_signal_trans(Rx_data_tdata_2bits)
 
     # downsample by 1/2, as original frequency is 16M
@@ -155,6 +158,8 @@ def gen_csv(input_f: str, output_f: str):
     df_out['Rx_vld'] = Rx_vld
     df_out['gardner_error'] = gardner_error
     df_out['gardner_increment'] = gardner_increment
+    df_out['DAC_bits_1'] = DAC_bits_1
+    df_out['DAC_bits_0'] = DAC_bits_0
     df_out['Tx_data_tdata_2bits'] = Tx_data_tdata_2bits
     df_out['Tx_data_tdata_1'] = Tx_data_tdata_1
     df_out['Tx_data_tdata_0'] = Tx_data_tdata_0

@@ -1,64 +1,94 @@
 \begin{tikzpicture}
   \begin{axis}[
-    , thin
+    , semithick
     , enlarge x limits = false
     , width = \linewidth
+    , height = .7\linewidth
+    , grid = both
+    , legend style = {
+      , font = \notsotiny
+      , cells = {
+        , align = right
+        , anchor = east
+        , line width = 1pt
+      }
+    }
+    , legend columns=2
+    , scaled x ticks = false
+    , xtick = {2048, 2048+1024, 2048+1024*2, 2048+1024*3, 2048+1024*4, 2048+1024*5, 2048+1024*6, 2048+1024*7, 2048+1024*8}
+    , xticklabels = {0, 256, 512, 768, 1024, 1280, 1635, 1792, 2048}
+    , ylabel near ticks
+    , xlabel near ticks
+    , label style = { font = \scriptsize, inner sep = 0pt }
+    , tick label style = {font = \notsotiny }
+    , ylabel = {Feedback}
+    , xlabel = {Clock}
+    , xmin = 4 * 512
+    , xmax = 20 * 512
+    , ymin = -100
+    , ymax = 100
   ]
     \addplot [
       , color = myred
+      , opacity = .8
       , mark = none
     ] table [
       , col sep = comma
-      , skip first n = 410
+      , skip first n = 420
     ] {../behav_sim/BPSK_behav_sim_-32_F.csv};
 
     \addplot [
       , color = myblued
+      , opacity = .8
       , mark = none
     ] table [
       , col sep = comma
-      , skip first n = 410
+      , skip first n = 420
     ] {../behav_sim/BPSK_behav_sim_-16_S0.csv};
 
     \addplot [
       , color = mygreen
+      , opacity = .8
       , mark = none
     ] table [
       , col sep = comma
-      , skip first n = 410
+      , skip first n = 420
     ] {../behav_sim/BPSK_behav_sim_-8_S0.csv};
 
     \addplot [
       , color = myyellow
+      , opacity = .8
       , mark = none
     ] table [
       , col sep = comma
-      , skip first n = 410
+      , skip first n = 420
     ] {../behav_sim/BPSK_behav_sim_+8_S1.csv};
 
     \addplot [
       , color = mypurple
+      , opacity = .8
       , mark = none
     ] table [
       , col sep = comma
-      , skip first n = 410
+      , skip first n = 420
     ] {../behav_sim/BPSK_behav_sim_+16_S1.csv};
 
     \addplot [
       , color = gray
+      , opacity = .8
       , mark = none
     ] table [
       , col sep = comma
-      , skip first n = 410
+      , skip first n = 420
     ] {../behav_sim/BPSK_behav_sim_+32_F.csv};
 
     \legend{
-      $\qty{-15.6}{kHz}$,
-      $\qty{-7.81}{kHz}$,
-      $\qty{-3.91}{kHz}$,
-      $\qty{+3.91}{kHz}$,
-      $\qty{+7.81}{kHz}$,
-      $\qty{+15.6}{kHz}$,
+      $\qty[retain-explicit-plus]{-15.6}{kHz}$,
+      $\qty[retain-explicit-plus]{-7.81}{kHz}$,
+      $\qty[retain-explicit-plus]{-3.91}{kHz}$,
+      $\qty[retain-explicit-plus]{+3.91}{kHz}$,
+      $\qty[retain-explicit-plus]{+7.81}{kHz}$,
+      $\qty[retain-explicit-plus]{+15.6}{kHz}$,
     };
   \end{axis}
 \end{tikzpicture}%

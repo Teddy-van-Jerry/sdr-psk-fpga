@@ -379,6 +379,17 @@ end
 
     \subsection{Packetizer Design}
 
+      The packetizer FSM has 5 states: IDLE, HDR, PLD, LAST and WAIT.
+      The IDLE state is used to wait for the packet start.
+      It transits to the HDR state when the valid and ready signals are both high,
+      i.e., the packet starts transmitting.
+      The HDR state is used to transmit the header (including TRN and HDR)%
+      \footnote{For the packetizer and the depactizer, we do not distinguish TRN and HDR for simplicity,
+      and they are called the header in contrast to the payload.}%
+      , as discussed in Section~\ref{subsec:frame_structure}.
+      It then transmits to the PLD state to transmit the payload stored in the FIFO.
+      Notably, the FIFO depth should not be smaller than the header length (i.e. $32$).
+
     \subsection{Depacketizer Design}
 
     \subsection{SPB Detection}
@@ -411,6 +422,9 @@ end
       the \texttt{BD\_flag} is asserted after \texttt{RX\_BD\_WINDOW} clocks of continuous 1s in differential values.
 
   \section{Simulation Results}
+
+    In all Verilog simulation,
+    random is added to the Rx ADC, to better simulate the real-world scenario.
 
     \subsection{Transmitter}
 
@@ -447,6 +461,19 @@ end
 
     \subsection{Carrier Synchronization Convergence}\label{subsec:costas_convergence}
 
+      The simulation results of the Costas loop are shown in Fig.~\ref{fig:sync_BPSK}.
+      In the BPSK mode, the Costas loop can successfully handle the CFO smaller than \qty{7.81}{kHz}.
+      It can be verified by the fact that the feedback saturates around a constant (corresponding to the CFO value),
+      which .
+      In the QPSK mode, the value is \qty{1.96}{kHz}.
+      The convergence is relatively fast.
+      \begin{figure}[htbp]
+        \centering
+        \input{tikz/sim/sync_BPSK}
+        \caption{Carrier synchronization for BPSK. The feedback value after the loop filter v.s.\ time, with different CFO.}
+        \label{fig:sync_BPSK}
+      \end{figure}
+      
       Notably, the convergence performance of QPSK is poorer than BPSK in the current parameter set,
       which is by design.
       For a dual-mode system which transmits payload in both BPSK and QPSK with a BPSK header,
@@ -454,12 +481,6 @@ end
       therefore, QPSK does not need a strong feedback.
       Furthermore, the smaller feedback makes the BPSK and QPSK transmission smoother,
       avoiding a sudden phase jump of $90^\circ$.
-
-      \begin{figure}[htbp]
-        \centering
-        \input{tikz/sim/sync_BPSK}
-        \caption{Carrier synchronization for BPSK}
-      \end{figure}
 
     \subsection{Mixed-Mode Receiver}
 
@@ -474,6 +495,22 @@ end
     \begin{table}[htbp]
       \caption{Hardware Resources Consumption on Zynq-7020}
       \label{tab:resource}
+      \renewcommand{\arraystretch}{1.2}
+      \rowcolors{1}{white}{gray!15}
+      \begin{tabularx}{\linewidth}{YYYY}
+        \toprule\tabvertspace
+        \textbf{Resource} & \textbf{Utilization} & \textbf{Available} & \textbf{Util.\ Rate} \\
+        \tabvertspace\midrule
+        LUT & 7,248 & 53,200 & \hphantom{0}8.04\% \\
+        LUTRAM & 1,121 & 17,400 & \hphantom{0}6.44\% \\
+        FF & 8,144 & 106,400\hphantom{0} & \hphantom{0}7.65\% \\
+        BRAM & \hphantom{0,0}27 & \hphantom{00,}140 & 19.29\% \\
+        DSP & \hphantom{0,0}51 & \hphantom{00,}220 & 23.18\% \\
+        IO & \hphantom{0,0}33 & \hphantom{00,}200 & 16.50\% \\
+        BUFG & \hphantom{0,0}10 & \hphantom{00,0}32 & 31.25\% \\
+        MMCM & \hphantom{0,00}2 & \hphantom{00,00}4 & 50.00\% \\
+        \bottomrule
+      \end{tabularx}
     \end{table}
 
   \section{Experiment Results on SDR}
@@ -537,6 +574,16 @@ end
           Q\_16M[15:0] & \input{tikz/ila/Q_16M} \\
           I\_1M[15:0] & \input{tikz/ila/I_1M} \\
           Q\_1M[15:0] & \input{tikz/ila/Q_1M} \\
+          DAC\_bits[1] & \input{tikz/ila/DAC_bits_1} \\
+          DAC\_bits[0] & \input{tikz/ila/DAC_bits_0} \\
+          Rx\_data\_tdata[1] & \input{tikz/ila/Rx_data_tdata_1} \\
+          Rx\_data\_tdata[0] & \input{tikz/ila/Rx_data_tdata_0} \\
+          Rx\_data\_tvalid & \input{tikz/ila/Rx_data_tvalid} \\
+          Rx\_data\_tuser & \input{tikz/ila/Rx_data_tuser} \\
+          Tx\_1bit & \input{tikz/ila/Tx_1bit} \\
+          Tx\_vld & \input{tikz/ila/Tx_vld} \\
+          Rx\_1bit & \input{tikz/ila/Rx_1bit} \\
+          Rx\_vld & \input{tikz/ila/Rx_vld} \\
         \end{tabularx}%
       }\\
       \renewcommand\Modulation{QPSK}%
@@ -553,6 +600,16 @@ end
           Q\_16M[15:0] & \input{tikz/ila/Q_16M} \\
           I\_1M[15:0] & \input{tikz/ila/I_1M} \\
           Q\_1M[15:0] & \input{tikz/ila/Q_1M} \\
+          DAC\_bits[1] & \input{tikz/ila/DAC_bits_1} \\
+          DAC\_bits[0] & \input{tikz/ila/DAC_bits_0} \\
+          Rx\_data\_tdata[1] & \input{tikz/ila/Rx_data_tdata_1} \\
+          Rx\_data\_tdata[0] & \input{tikz/ila/Rx_data_tdata_0} \\
+          Rx\_data\_tvalid & \input{tikz/ila/Rx_data_tvalid} \\
+          Rx\_data\_tuser & \input{tikz/ila/Rx_data_tuser} \\
+          Tx\_1bit & \input{tikz/ila/Tx_1bit} \\
+          Tx\_vld & \input{tikz/ila/Tx_vld} \\
+          Rx\_1bit & \input{tikz/ila/Rx_1bit} \\
+          Rx\_vld & \input{tikz/ila/Rx_vld} \\
         \end{tabularx}%
       }
       \caption{System ILA results.}
