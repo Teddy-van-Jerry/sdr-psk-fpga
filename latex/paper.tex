@@ -48,15 +48,34 @@
 
   \section{Introduction}
 
-    \IEEEPARstart{S}{oftware-defined} radio (SDR) is interesting, like application in millimeter wave \cite{zhao2020m}.
-    FPGA is also interesting!
+    \IEEEPARstart{S}{oftware-defined} radio (SDR) is useful in various applications,
+    including rapid prototyping and research.
+    A millimeter wave (mmWave) SDR platform \cite{zhao2020m} can enable research in both mmWave physical-layer communications
+    and the high-level networking problems.
 
-    Instead of employing high-level synthesis (HLS) \cite{zhao2023flexible},
+    Phase-shift keying (PSK) is a popular modulation scheme in digital communications,
+    the simplest two schemes are the binary PSK (BPSK) and the quadrature PSK (QPSK).
+    The carrier extraction is required for coherent demodulation,
+    though differential encoding can be used to avoid the carrier extraction.
+
+    Field programmable gate array (FPGA) is a popular choice for SDR baseband processing,
+    due to its flexibility and high performance.
+    In this project,
+    instead of employing high-level synthesis (HLS) \cite{zhao2023flexible},
     we directly implement the transceiver on FPGA using hardware description language (HDL) Verilog,
-    for a better control of the underlying hardware.
+    for a better control of the underlying hardware, and reduce the resource consumption.
 
-    The design source (Vivado project) and this paper (in \LaTeX) are open source \cite{github_repo}.
+    To benefit the research and learning community,
+    the design sources (Vivado project) and this paper (in \LaTeX) are open source \cite{github_repo}.
     
+    The contributions of this paper is summarized as follows:
+    \begin{enumerate}
+      \item We implement a dual-mode PSK transceiver on SDR with FPGA, enabling both BPSK/QPSK modulation and demodulation,
+      with carrier synchronization and symbol synchronization.
+      \item A packet-based communication is introduced to enable the switching between BPSK and QPSK based on header fields,
+      another step towards to a flexible and ready-to-use transceiver.
+      \item The open-source design is implemented on a Zynq-7020 FPGA and verified on an SDR platform, demonstrating its effectiveness.
+    \end{enumerate}
 
   \section{System Overview}
 
@@ -77,6 +96,7 @@
         \label{fig:system_overview}
       \end{figure}
 
+      \IEEEpubidadjcol
       \textbf{Clock Generator}.
       Required clocks are generated from the PL clock.
       All reset signals are generated using Processor System Reset Modules \cite{xilinx:pg164},
@@ -138,7 +158,6 @@
         \label{fig:constellation}
       \end{figure}
 
-    \IEEEpubidadjcol
     \section{Transmitter}
 
     \subsection{Carrier NCO}
@@ -488,6 +507,11 @@ end
 
   \section{Experiment Results on SDR}
 
+    The eNodeX SDR platform is configured to provide 1 Tx and 1 Rx
+    at a sampling frequency of \qty{16.384}{MHz}.
+    The GSM antenna carrier frequency is \qty{800}{MHz},
+    and the two antennas have a line-of-sight (LoS) channel.
+
     The experiment results are observed via a system ILA in Vivado,
     and 4 general-purpose input/output (GPIO) pins are used to output some 1-bit signals,
     including the 1-bit Tx and Rx data stream and their corresponding clock.
@@ -594,7 +618,7 @@ end
       \label{fig:block_rx}
     \end{figure*}
 
-    The costas loop is shown in Fig.~\ref{fig:block_costas_looop},
+    The Costas loop is shown in Fig.~\ref{fig:block_costas_looop},
     where the phase detectors are implemented using the multiplier IP.
 
     \begin{figure*}
