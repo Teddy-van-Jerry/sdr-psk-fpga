@@ -23,15 +23,13 @@
 
   \author{%
     Wuqiong~Zhao{\hspace{.1em}\textsuperscript{\orcidicon{0000-0002-9550-7423}}},~\IEEEmembership{Student Member, IEEE}
-    \thanks{Date of publication 10 January 2024; date of current version 10 January 2024.
+    \thanks{Date of publication 15 January 2024; date of current version 15 January 2024.
       The author would like to thank Lecturer Dan Yang for the guidance and help in the course of the experiment.
       The author would also like to thank AI tools including GitHub Copilot and Claude.AI for their help in preparing this paper.}
     \thanks{Wuqiong Zhao is with Southeast University, Nanjing 211189, China. (e-mail: wqzhao@seu.edu.cn, website: \url{https://wqzhao.org}).}
     \thanks{Online URL: \url{https://go.wqzhao.org/sdr-psk-fpga}}
     % \vspace{-1mm}
   }
-
-  \IEEEspecialpapernotice{(This is a draft version and has not been fully edited.)}
 
   \maketitle
 
@@ -40,6 +38,7 @@
     supporting both BPSK and QPSK.
     Moreover, the transceiver is designed to be able to switch between the two modes by introducing a packet-based communication protocol,
     where modulation information can be extracted from the packet header.
+    The design is resource-efficient implemented using block diagrams with intellectual property (IP) cores and Verilog modules in Vivado.
     Both simulation results and experiment observations on an SDR platform verify the effectiveness of the design.
   \end{abstract}
   \begin{IEEEkeywords}
@@ -52,25 +51,25 @@
     including rapid prototyping and research.
     A millimeter wave (mmWave) SDR platform \cite{zhao2020m} can enable research in both mmWave physical-layer communications
     and the high-level networking problems.
-
-    Phase-shift keying (PSK) is a popular modulation scheme in digital communications,
-    the simplest two schemes are the binary PSK (BPSK) and the quadrature PSK (QPSK).
+    %
+    Phase-shift keying (PSK) is a popular modulation scheme in digital communications.
+    Among PSK, the simplest two are the binary PSK (BPSK) and the quadrature PSK (QPSK).
     The carrier extraction is required for coherent demodulation,
     though differential encoding can be used to avoid the carrier extraction.
-
+    %
     Field programmable gate array (FPGA) is a popular choice for SDR baseband processing,
     due to its flexibility and high performance.
     In this project,
     instead of employing high-level synthesis (HLS) \cite{zhao2023flexible},
     we directly implement the transceiver on FPGA using hardware description language (HDL) Verilog,
-    for a better control of the underlying hardware, and reduce the resource consumption.
+    for better control of the underlying hardware and a more efficient design.
 
     To benefit the research and learning community,
     the design sources (Vivado project) and this paper (in \LaTeX) are open source \cite{github_repo}.
-    
+    %
     The contributions of this paper is summarized as follows:
     \begin{enumerate}
-      \item We implement a dual-mode PSK transceiver on SDR with FPGA, enabling both BPSK/QPSK modulation and demodulation,
+      \item We implement a dual-mode PSK transceiver on SDR with FPGA, enabling both BPSK/QPSK modulation and coherent demodulation,
       with carrier synchronization and symbol synchronization.
       \item A packet-based communication is introduced to enable the switching between BPSK and QPSK based on header fields,
       another step towards to a flexible and ready-to-use transceiver.
@@ -81,13 +80,15 @@
 
     \subsection{Software-Defined Radio}
 
-      We employ eNodeX \cite{eNodeX}, an SDR platform equipped with a pair of
+      We employ eNodeX 30B \cite{eNodeX}, an SDR platform equipped with a pair of
       configurable Global System for Mobile Communications (GSM) transmitter (Tx) and receiver (Rx) antennas.
+      An MS Windows software is provided for configurations,
+      including the sampling frequency, the carrier frequency, attenuation and gain, etc.
 
     \subsection{Transceiver Design}
 
       The current transmitter and receiver are implemented on the same FPGA,
-      but can be readily extended to different FPGAs with small frequency offsets.
+      but the implementation can be readily extended for different FPGAs with small frequency offsets.
       The system overview is shown in Fig.~\ref{fig:system_overview}.
       \begin{figure}[htbp]
         \centering
@@ -98,13 +99,13 @@
 
       \IEEEpubidadjcol
       \textbf{Clock Generator}.
-      Required clocks are generated from the PL clock.
+      Required clocks are generated from the programmable logic (PL) clock.
       All reset signals are generated using Processor System Reset Modules \cite{xilinx:pg164},
       which can provide synchronized power-up reset signals.
 
       \textbf{RF Data Converter}.
-      This block is contains analog-to-digital converter (ADC) and digital-to-analog converter (DAC),
-      enabled by a vendored AD9361 module.
+      This block contains analog-to-digital converters (ADCs) and digital-to-analog converters (DACs),
+      enabled by a vendored AD9361 module \cite{ad9361}.
 
       \textbf{Tx Signal Generator}.
       The transmitted signal is generated in this block.
@@ -112,9 +113,9 @@
       But it can be readily extended to a more complicated design, based on the current interface template.
 
       \textbf{Rx Processor}.
-      This block is responsible to process the received signal,
+      This block is responsible for processing the received signal,
       including demodulation and data extraction from a packet.
-      It is the most complicated block in the system.
+      It is the most complex (and the core) block in the system.
 
       \textbf{System ILA}.
       The system integrated logic analyzer (system ILA) \cite{xilinx:pg261} is used to observe the internal signals.
@@ -138,40 +139,56 @@
         \end{tabularx}
       \end{table}
 
-      As shown in Table~\ref{tab:mode_ctrl},
-      the system can be configured to work in BPSK, QPSK, or the mixed mode.
-      The remaining part will focus on the mixed mode,
-      which has \texttt{MODE\_CTRL} equal to \texttt{MODE\_MIX} (\texttt{4\textquotesingle b0100}).
+      % As shown in Table~\ref{tab:mode_ctrl},
+      The system can be configured to work in BPSK, QPSK, or the mixed mode.
+      The remaining part of the paper will focus on the mixed mode,
+      which has \texttt{MODE\_CTRL} equal to \texttt{MODE\_MIX} (\texttt{4\textquotesingle b0100})
+      and has a packet-based communication.
+      Details of the design of packets are in Section~\ref{sec:packet-based}.
 
-    \subsection{BPSK/QPSK Modulation}
+    \subsection{BPSK/QPSK Modulation}\label{subsec:modulation}
 
-      The BPSK and QPSK modulation constellation graphs used in our system are shown in Fig.~\ref{fig:constellation}.
+      The BPSK and QPSK modulation constellation graphs used in the system are shown in Fig.~\ref{fig:constellation}.
       Different from the traditional setting, out adopted BPSK constellation in Fig.~\subref*{subfig:constellation_BPSK}
       is a combination of in-phase (I) and quadrature (Q) components.
       This is to make sure the phases used in BPSK are among those in QPSK,
-      to ensure a smooth transition between the two modes,
-      especially because the header field is always modulated in BPSK.
+      enabling a smooth transition between the two modes,
+      which is critical because the header field is always modulated in BPSK.
+      The QPSK constellation in Fig.~\subref*{subfig:constellation_QPSK} satisfies the Gray code:
+      two adjacent values in the constellation differ in only one bit.
       \begin{figure}[htbp]
         \subfloat[BPSK.\label{subfig:constellation_BPSK}]{\input{tikz/mod_BPSK}}\hfill%
-        \subfloat[QPSK.\label{subfig:constellation_QPSK}]{\input{tikz/mod_QPSK}}
-        \caption{BPSK/QPSK modulation constellation used in our system.}
+        \subfloat[QPSK.\label{subfig:constellation_QPSK}]{\input{tikz/mod_QPSK}}%
+        \caption{BPSK/QPSK modulation constellation used in the system.}
         \label{fig:constellation}
       \end{figure}
+
+      The design heavily relies on the \textbf{a}dvanced e\textbf{x}tensible \textbf{i}nterface (AXI),
+      and the AXI stream (AXIS) protocol is used for data transmission,
+      which requires the data width is a multiple of 8 bits (1 byte) in Vivado.
+      Therefore, we define the BPSK uses bit 1, and QPSK uses bits 1 and 0,
+      both counting from the least significant bit (LSB).
 
     \section{Transmitter}
 
     \subsection{Carrier NCO}
 
       The carrier frequency is generated by a numerically controlled oscillator (NCO).
-      In Vivado, we use the Direct Digital Synthesis (DDS) Compiler IP \cite{xilinx:pg141} to generate the NCO.
+      In Vivado, we use the Direct Digital Synthesis (DDS) Compiler IP \cite{xilinx:pg141} as the NCO.
       Both the cosine and sine components are used.
+      Due to the need of carrier synchronization (see Section~\ref{subsec:costas}),
+      the DDS does not have a fixed frequency,
+      but an input stream signal controlling the phase,
+      connected from the module \texttt{NCO\_Phase} (see Eq.~\eqref{eq:Tx_NCO}).
 
   \subsection{PSK Modulation}
 
-    \subsubsection{Pseudo-random Noise (PN) Generator}
+    \subsubsection{Pseudo-random Number (PN) Generator}
 
-      In this experiment, the transmitted signal are pseudo-random noise (PN) sequences.
-      Typically, we implement the PN generator with $N=4$ and $N=5$ with a shift register \cite{james1990review}.
+      In this experiment, the transmitted signal are pseudo-random number (PN) sequences.
+      Typically, we implement the PN generator with $N=4$ (period is $2^4-1=15$) and $N=5$ (period is $2^5-1=31$)
+      using a shift register \cite{james1990review}.
+      Thus, the 2-bits signal aggregating the I and Q components has the period of $465$.
       The Verilog code for the module \texttt{PN\_Gen} is shown below.
       \begin{minted}[highlightlines={11,18}]{verilog}
 module PN_Gen # (parameter N = 5) (
@@ -202,9 +219,10 @@ endmodule
 
     \subsubsection{Modulation With I and Q Streams}
 
-      The modulation is performed by multiplying selecting the appropriate carrier phase
-      according to the input bits and the constellation.
-      Note the Q component always has a phase $90^\circ$ ahead of the I component.
+      The modulation is performed by selecting the appropriate carrier phase
+      according to the input bits and the constellation (in Fig.~\ref{fig:constellation}).
+      Note the Q component is always $90^\circ$ ahead of the I component.
+      The modulated I and Q components are then connected to the corresponding DAC ports.
 
   \section{Receiver}
 
@@ -214,7 +232,7 @@ endmodule
       without considering the packet structure.
       The depacketizer and the packet extraction is based on the synchronized bit stream after PSK detection.
 
-    \subsection{Carrier Synchronization Using Costas Loop}
+    \subsection{Carrier Synchronization Using Costas Loop}\label{subsec:costas}
 
       A Costas loop \cite{simon1977optimum} is used for carrier synchronization.
       The basic idea of a Costas loop is to provide an error (carrier phase offset) feedback.
@@ -226,9 +244,9 @@ endmodule
       which can be switched between BPSK and QPSK via a control signal \texttt{is\_bpsk}.
       The two multipliers directly following the PSK stream input are phase detectors,
       whose low-frequency components represent the baseband signal.
-      Therefore, the baseband I and Q signal can be extracted after passing through a low-pass filter (LPF).
+      Therefore, the baseband I and Q signal can be extracted after passing the mixed signals through a low-pass filter (LPF).
       Thus, it is ready to map the obtained I/Q signal to the constellation graph,
-      and generate the error signal when comparing with the designed one.
+      and generate the error signal.
       \begin{figure}[htbp]
         \centering
         \input{tikz/costas_loop}
@@ -247,7 +265,7 @@ endmodule
 
       For stability, the loop filter as an LPF is added before the error is fed back to the NCO.     
       The NCO implemented with DDS has the phase defined as
-      \begin{equation}
+      \begin{equation}\label{eq:Tx_NCO}
         \begin{aligned}
           \phi[n]&=\phi[n-1]+\Delta\phi[n]\\
           &=\phi[n-1]+(f_0+k\cdot f_{\text{feedback}}),
@@ -256,9 +274,9 @@ endmodule
       where $\phi[n]$ is the phase increment at time $n$,
       $f_0$ is the free running clock (\qty{4.096}{MHz} in our design),
       and $k$ is the feedback coefficient.
-      The core Verilog implementation of the Error Detector Control is given below,
-      which shows that for QPSK, the feedback value is arithmetically right shifted by 6 bits
-      to match the scale of that in BPSK.
+      The core Verilog implementation of the Error Detector Control is given below.
+      For QPSK, the feedback value is arithmetically right shifted by 6 bits
+      to coarsely match the scale of that in BPSK.
       \begin{minted}[]{verilog}
 if (is_bpsk) begin // BPSK
   out_I_tdata <= in_I_tvalid ? in_I_tdata + in_Q_tdata : 0;
@@ -273,7 +291,8 @@ end
       \end{minted}
       
       In the Costas loop,
-      the feedback coefficient $k$ is an important coefficient to finetune according to the system.
+      the feedback coefficient $k$ in Eq.~\eqref{eq:Tx_NCO}
+      is an important coefficient to finetune according to the system.
       This parameter is reflected as \texttt{FEEDBACK\_SHIFT}, and $k\triangleq2^{-\text{\texttt{FEEDBACK\_SHIFT}}}$.
       The convergence of the Costas loop under different carrier frequency offset (CFO) is discussed in Section~\ref{subsec:costas_convergence}.
 
@@ -282,6 +301,7 @@ end
       A Gardner loop \cite{gardner1986bpsk} is used to achieve symbol (timing) synchronization.
       The structure of a Gardner loop is shown in Fig.~\ref{fig:gardner_loop}.
       The loop itself is not directly shown in the figure,
+      which is part of the timing corrector with feedback.
       \begin{figure}[htbp]
         \input{tikz/gardner_loop}
         \caption{Structure of a Gardner loop for symbol timing synchronization.}
@@ -289,7 +309,7 @@ end
       \end{figure}
 
       To reduce implementation complexity, we use the sign of strobe values as mentioned in \cite{gardner1986bpsk}.
-      The total symbol timing error considering I and Q components is
+      The total symbol timing error considering I and Q components is then simplified as
       \begin{equation}
         \begin{aligned}
           u_t(r)&=y_I(r-\tfrac12)\left[\mathrm{sgn}\left(y_I(r)\right)-\mathrm{sgn}\left(y_I(r-1)\right)\right] \\
@@ -306,9 +326,28 @@ end
 
     \subsection{PSK Detection}
 
-      The detection is based on the constellation graph in Fig.~\ref{fig:constellation}, and the I/Q signals after the symbol synchronization.
+      The detection is based on the constellation graph in Fig.~\ref{fig:constellation}, and the I/Q signals after the symbol synchronization:
+      \begin{subequations}
+        \begin{equation}
+          \text{BPSK symbol}=\begin{cases}
+            \texttt{1\textquotesingle b0}, & I+Q>0,\\
+            \texttt{1\textquotesingle b1}, & I+Q\leq0.
+          \end{cases}
+        \end{equation}
+        \begin{equation}\label{eq:QOSK_detection}
+          \text{QPSK symbol}=\begin{cases}
+            \texttt{2\textquotesingle b00}, & I>0,Q>0,\\
+            \texttt{2\textquotesingle b10}, & I\leq0,Q>0,\\
+            \texttt{2\textquotesingle b11}, & I\leq0,Q\leq0,\\
+            \texttt{2\textquotesingle b01}, & I>0,Q\leq0.
+          \end{cases}
+        \end{equation}
+      \end{subequations}
 
-  \section{Packet-Based Communication}
+      It can be observed that the case conditions in Eq.~\eqref{eq:QOSK_detection}
+      satisfy the Gray code in Section~\ref{subsec:modulation}.
+
+  \section{Packet-Based Communication}\label{sec:packet-based}
 
     \subsection{Frame Structure}\label{subsec:frame_structure}
 
@@ -323,24 +362,27 @@ end
 
     \textbf{Training (TRN)}.
     The training field is used to provide packet timing information (coarse synchronization),
-    as well as synchronize the carrier and symbol timing.
+    as well as achieving synchronization of the carrier and symbol timing in the meantime.
     It consists of 7 repetitions of $\mathbf{D}$ and one $\overline{\mathbf{D}}$,
     where $\mathbf{D}$ and $\overline{\mathbf{D}}$ are of length 32.
     $\mathbf{D}$ and $\overline{\mathbf{D}}$ are repetitive sequences of `01' and `10', respectively.
+    The design is inspired by IEEE 802.11ad \cite{IEEE802.11ad},
+    but easier to implement at the cost of a lower signal-to-noise ratio (SNR).
     The training field from bit $0$ to $(7+1)\times32-1=255$ is defined as
     \begin{equation}
       \mathrm{TRN}[i]=\begin{cases}
         \mathrm{mod}(i,2), & i=0,1,\dots,223,\\
-        \mathrm{mod}(i+1,2), & i=224,225,\dots,255.
+        \mathrm{mod}(i+1,2), & i=224,225,\dots,255,
       \end{cases}
     \end{equation}
+    where $\mathrm{mod}(a,n)$ is the modulo operation returning the remainder of a division.
     Notably, the phase transition from bit 223 to 224 is used to indicate the boundary of the packet.
 
     \textbf{Header (HDR)}.
     The header field is used to provide packet information,
     including the modulation and coding scheme (MCS) and the packet length (Length) in bits.
     The remaining bits are reserved for future use.
-    The MCS field currently only determines the use of BPSK or QPSK.
+    The MCS field currently only determines the use of BPSK or QPSK (no channel coding is used in this design).
     The MCSs for BPSK and QPSK are defined as `01010101' and `10101010' respectively.
 
     \textbf{Payload (PLD)}.
@@ -349,31 +391,32 @@ end
 
     \subsection{Packetizer Design}
 
-      The packetizer FSM has 5 states: IDLE, HDR, PLD, LAST and WAIT.
-      The IDLE state is used to wait for the packet start.
-      It transits to the HDR state when the valid and ready signals are both high,
+      The packetizer finite state machine (FSM) has 5 states: IDLE, HDR, PLD, LAST and WAIT.
+      The IDLE state is used to wait for the start of a packet.
+      It transitions to the HDR state when both the \texttt{tvalid} and \texttt{tready} signals are high,
       i.e., the packet starts transmitting.
       The HDR state is used to transmit the header (including TRN and HDR)%
       \footnote{For the packetizer, we do not distinguish TRN and HDR for simplicity,
       and they are called the header in contrast to the payload.}%
       , as discussed in Section~\ref{subsec:frame_structure}.
       It then transmits to the PLD state%
-      \footnote{If the payload symbol length is 1, it will directly transit to the LAST state.}
-      to transmit the payload stored in the FIFO.
-      Notably, the FIFO depth should not be smaller than the header length (i.e. $320$).
+      \footnote{If the payload symbol length is 1, it will directly transition to the LAST state.}
+      to transmit the payload stored in the first in, first out (FIFO).
+      Notably, the FIFO depth should be no smaller than the header length (i.e., $320$).
       The LAST state is used to transmit the last symbol of the payload,
       when the AXIS \texttt{tlast} signal will be high.
       After transmitting all payload data,
-      the WAIT status is employed to consume all remaining data in the FIFO.
+      the WAIT state is employed to consume all remaining data in the FIFO.
       This is only used in our design to better demonstrate the relationship between the transmitted bits and the received bits,
-      and this status can be removed for other applications.
-      Finally, after the FIFO is cleared, the state will tradition to the IDLE state waiting for new data income.
+      and this state can be removed for other applications.
+      Finally, after the FIFO is cleared, the state will transition to the IDLE state waiting for new data to be transmitted.
 
     \subsection{SPB Detection}
 
       SPD detection consists of strength detection (SD),
       packet detection (PD) and boundary detection (BD).
       They jointly provide information for the coarse packet timing.
+      The PD and BD are designed similar to \cite{lacruz2021real} for IEEE 802.11 ad/ay.
 
       \subsubsection{Strength Detection (SD)}
       The strength detection checks the baseband I/Q amplitude from the Costas loop.
@@ -391,32 +434,34 @@ end
       as a carrier phase shift does not significantly affect the `01' sequence detection.
 
       \subsubsection{Boundary Detection (BD)}
-      Exploiting the phase transition from bit 223 to 224 in the training field
+      Exploiting the phase transition from bit 223 to 224 in the TRN field
       (see Section~\ref{subsec:frame_structure} and Fig.~\ref{fig:frame_structure}),
       the boundary detection can be performed by checking the differential value being 0
       after the \texttt{PD\_flag} being asserted.
       To ensure stability,
-      the \texttt{BD\_flag} is asserted after \texttt{RX\_BD\_WINDOW} clocks of continuous 1s in differential values.
+      the \texttt{BD\_flag} is asserted after \texttt{RX\_BD\_WINDOW} clocks of continuous 1s in differential values.%
+      \footnote{Please refer to the comments in \url{https://github.com/Teddy-van-Jerry/sdr-psk-fpga/blob/master/verilog/Rx_BD.v}
+        for an illustration.}
       At boundary detection,
       the sign of the bit 223 and 224 are also recorded in \texttt{BD\_sgn},
-      which can be used to counter the phase ambiguity in BPSK demodulation.
+      which can be used to counter the phase ambiguity in BPSK demodulation.%
 
     \subsection{Depacketizer Design}
 
       The depacketizer works the opposite way of the packetizer.
       It has 6 states: IDLE, TRN, HDR, PLD, LAST and WAIT.
-      The TRN and the HDR state must be distinguished because the need
+      The TRN and the HDR state must be distinguished because of the need
       to extract useful information in the TRN field.
-      The IDLE state transits to the TRN state when \texttt{BD\_flag} is high.
+      The IDLE state transitions to the TRN state when \texttt{BD\_flag} is high.
       Since the \texttt{BD\_flag} contains the packet timing information,
-      the demagnetizer can count the number of clocks to determine the start of the HDR field.
+      the depacketizer can count the number of clocks to determine the start of the HDR field.
       In the HDR field, both the MCS and packet length are extracted.
-      Then, the depacketizer transits to the PLD state to extract the payload.
+      Then, the depacketizer transitions to the PLD state to extract the payload.
       The \texttt{tuser} signal is used to indicate the modulation scheme (1 for BPSK and 0 for QPSK).
       The \texttt{tlast} signal is used to indicate the end of the payload, at the LAST state.
       To correct disassert the PD and BD signal,
       the WAIT state is employed to wait for one more clock
-      before it comes to the IDLE state.
+      before it goes to the IDLE state.
 
   \section{Simulation Results}
 
@@ -430,7 +475,9 @@ end
         \setlength{\tabcolsep}{2pt}
         \subfloat[BPSK modulation.]{\includegraphics{_tikz_sim_Tx_BPSK-crop.pdf}}\\
         \subfloat[QPSK modulation.]{\includegraphics{_tikz_sim_Tx_QPSK-crop.pdf}}
-        \caption{DAC simulation results of the transmitter.}
+        \caption{DAC simulation results of the transmitter.
+          The gray line denotes the wave is irrelevant.
+          The DAC waveforms are displayed in the \textit{hold} mode, in contrast to the \textit{linear} mode.}
         \label{fig:tx_dac_sim}
       \end{figure}
 
@@ -442,7 +489,7 @@ end
       The simulation results of the Costas loop are shown in Fig.~\ref{fig:sync_BPSK}.
       In the BPSK mode, the Costas loop can successfully handle the CFO smaller than \qty{7.81}{kHz}.
       It can be verified by the fact that the feedback saturates around a constant (corresponding to the CFO value),
-      which .
+      which corresponds to the CFO value.
       In the QPSK mode, the value is \qty{1.96}{kHz}.
       The convergence is relatively fast.
       \begin{figure}[htbp]
@@ -456,9 +503,9 @@ end
       Notably, the convergence performance of QPSK is poorer than BPSK in the current parameter set,
       which is by design.
       For a dual-mode system which transmits payload in both BPSK and QPSK with a BPSK header,
-      so the carrier synchronization is achieved at the BPSK header,
-      therefore, QPSK does not need a strong feedback.
-      Furthermore, the smaller feedback makes the BPSK and QPSK transmission smoother,
+      the carrier synchronization is achieved at the BPSK header.
+      Therefore, QPSK does not need a strong feedback.
+      Furthermore, a smaller feedback can make the BPSK and QPSK transition smoother,
       avoiding a sudden phase jump of $90^\circ$.
 
     \subsection{Mixed-Mode Receiver}
@@ -467,7 +514,8 @@ end
       The simulation results are shown in Fig.~\ref{fig:mix_sim}.
       \begin{figure*}
         \includegraphics{_tikz_sim_MIX-crop.pdf}
-        \caption{Mixed-mode simulation results.}
+        \caption{Mixed-mode simulation results.
+          The first packet is transmitted using QPSK, and the second packet is transmitted using BPSK.}
         \label{fig:mix_sim}
       \end{figure*}
 
@@ -481,9 +529,9 @@ end
     The design is implemented in Vivado 2022.2 using block diagrams.
     Some block diagram designs are shown in Section~\ref{sec:block_diagrams}.
 
-    The hardware resources consumption on Zynq-7020 (xc7z020clg484-1)
+    The hardware resources consumption on the Zynq-7020 (xc7z020clg484-1) board
     with the default synthesis and implementation strategy is shown in Table~\ref{tab:resource}.
-    Therefore, the design itself is area-efficient, and can be readily incorporated into a larger system.
+    Therefore, the design itself is resource-efficient, and can be readily incorporated into a larger system.
     \begin{table}[htbp]
       \caption{Hardware Resources Consumption on Zynq-7020}
       \label{tab:resource}
@@ -587,7 +635,7 @@ end
     \subsection{Possible Extensions Beyond the Experiment}
 
       The training (TRN) field can be better utilized for additional experiments.
-      For example, signal-to-noise (SNR) can be estimated at the TRN field.
+      For example, SNR can be estimated at the TRN field.
       Channel estimation algorithms \cite{zhao2023ompl,you2023beam} can also be investigated on the platform.
       It is also possible to investigate the auto generation \cite{zhao2023automatic} of digital circuits.
 
