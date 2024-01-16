@@ -1,5 +1,6 @@
 \documentclass[journal,twoside]{IEEEtran}
 \usepackage{preamble}
+\usepackage{pbalance}
 
 \markboth{Southeast University Software-Defined Radio Experiment Course, January 2024}{W. Zhao: Dual-Mode PSK Transceiver on SDR With FPGA}
 \IEEEpubid{
@@ -23,7 +24,7 @@
 
   \author{%
     Wuqiong~Zhao{\hspace{.1em}\textsuperscript{\orcidicon{0000-0002-9550-7423}}},~\IEEEmembership{Student Member, IEEE}
-    \thanks{Date of publication 15 January 2024; date of current version 15 January 2024.
+    \thanks{Date of publication 16 January 2024; date of current version 16 January 2024.
       The author would like to thank Lecturer Dan Yang for the guidance and help in the course of the experiment.
       The author would also like to thank AI tools including GitHub Copilot and Claude.AI for their help in preparing this paper.}
     \thanks{Wuqiong Zhao is with Southeast University, Nanjing 211189, China. (e-mail: wqzhao@seu.edu.cn, website: \url{https://wqzhao.org}).}
@@ -163,7 +164,7 @@
         \label{fig:constellation}
       \end{figure}
 
-      The design heavily relies on the \textbf{a}dvanced e\textbf{x}tensible \textbf{i}nterface (AXI),
+      The design heavily relies on the \textbf{a}dvanced e\textbf{x}tensible \textbf{i}nterface (AXI) \cite{xilinx:ug1037},
       and the AXI stream (AXIS) protocol is used for data transmission,
       which requires the data width is a multiple of 8 bits (1 byte) in Vivado.
       Therefore, we define the BPSK uses bit 1, and QPSK uses bits 1 and 0,
@@ -243,8 +244,8 @@ endmodule
       The proposed dual-mode Costas loop is shown in Fig.~\ref{fig:costas_loop},
       which can be switched between BPSK and QPSK via a control signal \texttt{is\_bpsk}.
       The two multipliers directly following the PSK stream input are phase detectors,
-      whose low-frequency components represent the baseband signal.
-      Therefore, the baseband I and Q signal can be extracted after passing the mixed signals through a low-pass filter (LPF).
+      whose low-frequency components represent the data stream signal.
+      Therefore, the data stream I and Q signal can be extracted after passing the mixed signals through a low-pass filter (LPF).
       Thus, it is ready to map the obtained I/Q signal to the constellation graph,
       and generate the error signal.
       \begin{figure}[htbp]
@@ -294,7 +295,7 @@ end
       the feedback coefficient $k$ in Eq.~\eqref{eq:Tx_NCO}
       is an important coefficient to finetune according to the system.
       This parameter is reflected as \texttt{FEEDBACK\_SHIFT}, and $k\triangleq2^{-\text{\texttt{FEEDBACK\_SHIFT}}}$.
-      The convergence of the Costas loop under different carrier frequency offset (CFO) is discussed in Section~\ref{subsec:costas_convergence}.
+      The convergence of the Costas loop under different carrier frequency offset (CFO) values is discussed in Section~\ref{subsec:costas_convergence}.
 
     \subsection{Symbol Synchronization Using Gardner Loop}
 
@@ -320,32 +321,55 @@ end
       For better timing performance, we linearly interpolate the \qty{16.385}{MHz} input I/Q data to \qty{32.768}{MHz}.
       Therefore, $y_I(r-1)$ and $y_Q(r-1)$ are delayed by 32 clocks.
       In FPGA implementation, for each I/Q stream, two shift registers of depth 16 are used.
+      The output \texttt{clk\_1M} signal indicates the symbol timing sampling point,
+      which is high for one clock under \qty{32.768}{MHz}.
+      The I/Q output signals \texttt{I\_1M} and \texttt{Q\_1M} are synchronized with \texttt{clk\_1M}.
       Notably, since we adopt the BPSK constellation in Fig.~\subref*{subfig:constellation_BPSK},
       the symbol timing error depends on both I and Q components, the same as QPSK.
       The correctness of symbol timing is shown in Fig.~\ref{fig:ila}.
 
     \subsection{PSK Detection}
 
+      \textbf{Threshold detection}.
       The detection is based on the constellation graph in Fig.~\ref{fig:constellation}, and the I/Q signals after the symbol synchronization:
       \begin{subequations}
         \begin{equation}
           \text{BPSK symbol}=\begin{cases}
-            \texttt{1\textquotesingle b0}, & I+Q>0,\\
-            \texttt{1\textquotesingle b1}, & I+Q\leq0.
+            \texttt{1\textquotesingle b0}, & I+Q\geq0,\\
+            \texttt{1\textquotesingle b1}, & I+Q<0.
           \end{cases}
         \end{equation}
-        \begin{equation}\label{eq:QOSK_detection}
+        \begin{equation}\label{eq:QPSK_detection}
           \text{QPSK symbol}=\begin{cases}
-            \texttt{2\textquotesingle b00}, & I>0,Q>0,\\
-            \texttt{2\textquotesingle b10}, & I\leq0,Q>0,\\
-            \texttt{2\textquotesingle b11}, & I\leq0,Q\leq0,\\
-            \texttt{2\textquotesingle b01}, & I>0,Q\leq0.
+            \texttt{2\textquotesingle b00}, & I\geq0,Q\geq0,\\
+            \texttt{2\textquotesingle b10}, & I<0,Q\geq0,\\
+            \texttt{2\textquotesingle b11}, & I<0,Q<0,\\
+            \texttt{2\textquotesingle b01}, & I\geq0,Q<0.
           \end{cases}
         \end{equation}
       \end{subequations}
-
-      It can be observed that the case conditions in Eq.~\eqref{eq:QOSK_detection}
+      It can be observed that the case conditions in Eq.~\eqref{eq:QPSK_detection}
       satisfy the Gray code in Section~\ref{subsec:modulation}.
+      In Verilog implementation, the threshold comparison is implemented by extracting
+      the MSB of the I/Q signals.
+
+      \textbf{Phase ambiguity}.
+      With the carrier synchronization method in Section~\ref{subsec:costas},
+      the phase ambiguity for detection is inevitably introduced:
+      the constellation can rotate by $180^\circ$ for BPSK,
+      and $\pm90^\circ$ or $180^\circ$ for QPSK.
+      For instance, it leads to flipped bits in BPSK.
+      Therefore, the detected data stream should be corrected.
+      The differential encoding \cite{weber1978differential} can be used, as the data is encoded in the phase difference,
+      which is immune to the phase ambiguity.
+      However, this method can increase the bit error rate (BER) with error propagation.
+
+      \textbf{Phase correction with known sequences}.
+      The phase ambiguity can be corrected by using a known sequence.
+      The existence of the known sequence can be detected by its differential results,
+      and the phase of the known sequence is recorded for phase correction during the payload and header transmission.
+      This approach does not add extra overhead in a packet-based communication system as there is a header field.
+      Details of the implementation will be introduced in Section~\ref{sec:packet-based}.
 
   \section{Packet-Based Communication}\label{sec:packet-based}
 
@@ -366,7 +390,7 @@ end
     It consists of 7 repetitions of $\mathbf{D}$ and one $\overline{\mathbf{D}}$,
     where $\mathbf{D}$ and $\overline{\mathbf{D}}$ are of length 32.
     $\mathbf{D}$ and $\overline{\mathbf{D}}$ are repetitive sequences of `01' and `10', respectively.
-    The design is inspired by IEEE 802.11ad \cite{IEEE802.11ad},
+    The design is inspired by the short training field (STF) in IEEE 802.11ad \cite{IEEE802.11ad},
     but easier to implement at the cost of a lower signal-to-noise ratio (SNR).
     The training field from bit $0$ to $(7+1)\times32-1=255$ is defined as
     \begin{equation}
@@ -416,10 +440,10 @@ end
       SPD detection consists of strength detection (SD),
       packet detection (PD) and boundary detection (BD).
       They jointly provide information for the coarse packet timing.
-      The PD and BD are designed similar to \cite{lacruz2021real} for IEEE 802.11 ad/ay.
+      The PD and BD are designed similar to \cite{lacruz2021real} for IEEE 802.11ad/ay.
 
       \subsubsection{Strength Detection (SD)}
-      The strength detection checks the baseband I/Q amplitude from the Costas loop.
+      The strength detection checks the data stream I/Q amplitude from the Costas loop.
       It is useful because the PSK detector will always output a value,
       and it can confuse the packet parsing when the noise coincides with the packet sequence.
       For stability, the \texttt{SD\_flag} is asserted when
@@ -487,11 +511,11 @@ end
     \subsection{Carrier Synchronization Convergence}\label{subsec:costas_convergence}
 
       The simulation results of the Costas loop are shown in Fig.~\ref{fig:sync_BPSK}.
-      In the BPSK mode, the Costas loop can successfully handle the CFO smaller than \qty{7.81}{kHz}.
-      It can be verified by the fact that the feedback saturates around a constant (corresponding to the CFO value),
-      which corresponds to the CFO value.
-      In the QPSK mode, the value is \qty{1.96}{kHz}.
       The convergence is relatively fast.
+      In the BPSK mode, the Costas loop can successfully handle the CFO smaller than \qty{7.81}{kHz}.
+      It can be verified by the fact that the feedback saturates around a constant,
+      which corresponds to the CFO value.
+      In the QPSK mode, the threshold value is \qty{1.96}{kHz}.
       \begin{figure}[htbp]
         \centering
         % \input{tikz/sim/sync_BPSK}
@@ -510,16 +534,30 @@ end
 
     \subsection{Mixed-Mode Receiver}
 
-      In this simulation, we show the successful transmission of packets in both BPSK and QPSK modulations.
-      The simulation results are shown in Fig.~\ref{fig:mix_sim}.
       \begin{figure*}
         \includegraphics{_tikz_sim_MIX-crop.pdf}
         \caption{Mixed-mode simulation results.
           The first packet is transmitted using QPSK, and the second packet is transmitted using BPSK.}
         \label{fig:mix_sim}
+      % \end{figure*}
+      % \begin{figure*}[t]
+        % \subfloat[BPSK packet data (duration: \qty{200}{\micro\second}).\label{subfig:scope_bpsk}]{\input{tikz/scope/BPSK}}\\
+        % \subfloat[QPSK packet data (duration: \qty{100}{\micro\second}).\label{subfig:scope_qpsk}]{\input{tikz/scope/QPSK}}\\
+        % \subfloat[Symbol timing clock and BPSK data at Rx (duration: \qty{50}{\micro\second}).\label{subfig:scope_timing}]{\input{tikz/scope/timing}}
+        \subfloat[BPSK packet data (duration: \qty{200}{\micro\second}).\label{subfig:scope_bpsk}]{\includegraphics{_tikz_scope_BPSK-crop.pdf}}\\
+        \subfloat[QPSK packet data (duration: \qty{100}{\micro\second}).\label{subfig:scope_qpsk}]{\includegraphics{_tikz_scope_QPSK-crop.pdf}}\\
+        \subfloat[Symbol timing clock and BPSK data at Rx (duration: \qty{50}{\micro\second}).\label{subfig:scope_timing}]{\includegraphics{_tikz_scope_timing-crop.pdf}}
+        \caption{Two-channel oscilloscope results of GPIO outputs.}
+        \label{fig:scope}
       \end{figure*}
 
-      The two packets are clearly shown,
+      In this simulation, we show the successful transmission of packets in both BPSK and QPSK modulations.
+      The simulation results are shown in Fig.~\ref{fig:mix_sim}.
+
+      The DAC transmits data when \texttt{DAC\_vld} is high,
+      and the payload is transmitted when \texttt{Tx\_vld} is high.
+      There is a delay of 
+      The two packet streams are clearly shown,
       with the first being QPSK and the second being BPSK, both of 128 bits length.
       The \texttt{Rx\_tuser} signal shows the detected modulation scheme at the Rx, with 1 for BPSK and 0 for QPSK.
       Since QPSk has a $2\times$ bit rate, the first packet payload is transmitted $2\times$ faster than the first one.
@@ -553,12 +591,21 @@ end
       \end{tabularx}
     \end{table}
 
+    The FPGA design source is open source \cite{github_repo},
+    and parts of the design can be easily reused in other projects.
+
   \section{Experiment Results on SDR}
 
-    The eNodeX SDR platform is configured to provide 1 Tx and 1 Rx
+    The eNodeX SDR platform \cite{eNodeX} is configured to provide 1 Tx and 1 Rx
     at a sampling frequency of \qty{16.384}{MHz}.
     The GSM antenna carrier frequency is \qty{800}{MHz},
     and the two antennas have a line-of-sight (LoS) channel.
+
+    The parameters used in this design
+    are specially adjusted for received signal with strength ranging between $1/2$ and $3/4$ of the full ADC range.
+    Therefore, you should adapt the antenna attenuation and gains to get the appropriate signal strength.
+    With AD9361 \cite{ad9361},
+    each ADC stream has 12 bits as a signed number, i.e., ranging between $-2048$ and $2047$.
 
     The experiment results are observed via a system ILA in Vivado,
     and 4 general-purpose input/output (GPIO) pins are used to output some 1-bit signals,
@@ -583,8 +630,8 @@ end
       \end{tabularx}
     \end{table}
 
-    Fig.~\subref*{subfig:scope_bpsk} and Fig.~\subref*{subfig:scope_qpsk}
-    connects the \texttt{GPIO\_TH1} and \texttt{GPIO\_TH2} pins,
+    In Fig.~\subref*{subfig:scope_bpsk} and Fig.~\subref*{subfig:scope_qpsk},
+    the \texttt{GPIO\_TH1} and \texttt{GPIO\_TH2} pins are connected,
     showing the transmitted 1-bit sequence (Tx) and the respective received 1-bit sequence (Rx).
     Clearly, the sequence is successfully recovered in both cases, with a certain time delay.
     The structure of \texttt{pn\_5} sequence in BPSK is clearly seen in Fig.~\subref*{subfig:scope_bpsk},
@@ -593,31 +640,34 @@ end
     The symbol timing clock is shown in Fig.~\subref*{subfig:scope_timing},
     which is not synchronized with the Rx data in BPSK,
     as the Rx data is connected after a FIFO with the master clock of \qty{1.024}{MHz}.
+    The symbol timing clock has a measured frequency of near \qty{1.024}{MHz} on the oscilloscope.
 
-    \begin{figure*}[t]
-      % \subfloat[BPSK packet data (duration: \qty{200}{\micro\second}).\label{subfig:scope_bpsk}]{\input{tikz/scope/BPSK}}\\
-      % \subfloat[QPSK packet data (duration: \qty{100}{\micro\second}).\label{subfig:scope_qpsk}]{\input{tikz/scope/QPSK}}\\
-      % \subfloat[Symbol timing clock and BPSK data at Rx (duration: \qty{50}{\micro\second}).\label{subfig:scope_timing}]{\input{tikz/scope/timing}}
-      \subfloat[BPSK packet data (duration: \qty{200}{\micro\second}).\label{subfig:scope_bpsk}]{\includegraphics{_tikz_scope_BPSK-crop.pdf}}\\
-      \subfloat[QPSK packet data (duration: \qty{100}{\micro\second}).\label{subfig:scope_qpsk}]{\includegraphics{_tikz_scope_QPSK-crop.pdf}}\\
-      \subfloat[Symbol timing clock and BPSK data at Rx (duration: \qty{50}{\micro\second}).\label{subfig:scope_timing}]{\includegraphics{_tikz_scope_timing-crop.pdf}}
-      \caption{Two-channel oscilloscope results of GPIO outputs.}
-      \label{fig:scope}
-    \end{figure*}
+    % \begin{figure*}[t]
+    %   % \subfloat[BPSK packet data (duration: \qty{200}{\micro\second}).\label{subfig:scope_bpsk}]{\input{tikz/scope/BPSK}}\\
+    %   % \subfloat[QPSK packet data (duration: \qty{100}{\micro\second}).\label{subfig:scope_qpsk}]{\input{tikz/scope/QPSK}}\\
+    %   % \subfloat[Symbol timing clock and BPSK data at Rx (duration: \qty{50}{\micro\second}).\label{subfig:scope_timing}]{\input{tikz/scope/timing}}
+    %   \subfloat[BPSK packet data (duration: \qty{200}{\micro\second}).\label{subfig:scope_bpsk}]{\includegraphics{_tikz_scope_BPSK-crop.pdf}}\\
+    %   \subfloat[QPSK packet data (duration: \qty{100}{\micro\second}).\label{subfig:scope_qpsk}]{\includegraphics{_tikz_scope_QPSK-crop.pdf}}\\
+    %   \subfloat[Symbol timing clock and BPSK data at Rx (duration: \qty{50}{\micro\second}).\label{subfig:scope_timing}]{\includegraphics{_tikz_scope_timing-crop.pdf}}
+    %   \caption{Two-channel oscilloscope results of GPIO outputs.}
+    %   \label{fig:scope}
+    % \end{figure*}
 
     Fig.~\ref{fig:ila} gives the ILA results for two cases involving BPSK and QPSK.
     The ILA results are consistent with the oscilloscope results,
     and provide additional insight into the system, including PSK detection and packet extraction.
-    The \texttt{I\_16M} and the \texttt{Q\_16M} signals are the I and Q components of the baseband signal from the Costas loop,
+    The \texttt{I\_16M} and the \texttt{Q\_16M} signals are the I and Q components of the data stream signal from the Costas loop,
     while the \texttt{I\_1M} and the \texttt{Q\_1M} signals are provided by the Gardner loop after symbol timing.
     The \texttt{out\_clk\_1M} clock is the symbol timing clock, which is near optimal, as designed by the Gardner loop.
 
-
-    \begin{figure*}
+    \begin{figure*}[!t]
       \setlength{\tabcolsep}{2pt}
-      \subfloat[A BPSK packet.]{\includegraphics{_tikz_ila_BPSK-crop.pdf}}\\
-      \subfloat[A QPSK packet.]{\includegraphics{_tikz_ila_QPSK-crop.pdf}}\\
-      \caption{System ILA results (some signals not shown). The system ILA has a window of 4,096, at the clock of \qty{32.768}{MHz} (twice the sampling rate).}
+      \subfloat[A BPSK packet (with \textsf{Rx\_data\_tuser} is high).]{\includegraphics{_tikz_ila_BPSK-crop.pdf}}\\
+      \subfloat[A QPSK packet (with \textsf{Rx\_data\_tuser} is low).]{\includegraphics{_tikz_ila_QPSK-crop.pdf}}\\
+      \caption{System ILA results (some signals not shown, and this is plotted with the saved CSV data).
+        The system ILA has a window of 4,096, with the ILA clock frequency of \qty{32.768}{MHz} (twice the ADC/DAC sampling rate).
+        The \textcolor{myred}{red} and \textcolor{myblued}{blue} signals are at the Tx and Rx side, respectively.
+        }
       \label{fig:ila}
     \end{figure*}
 
@@ -626,27 +676,64 @@ end
     \subsection{Possible Enhancement}
 
       \textbf{Frame structure design}.
-      CRC and/or checksums can be added to the frame structure to enhance the packet transmission stability.
+      CRC and/or checksums can be added to the frame structure to enhance the packet transmission stability in Section~\ref{subsec:frame_structure}.
+      Additionally,
+      the HDR and TRN field in Section~\ref{subsec:frame_structure} may have some improvements.
+      The Golay sequence used in \cite{IEEE802.11ad,lacruz2021real,zhao2023automatic} is one possible better solution:
+      it has a better performance at low SNR, and the packet detection based on autocorrelation \cite{lacruz2021real}
+      can reduce power consumption by disabling the demodulation when there is no packet.
 
       \textbf{Changing parameters on the fly}.
-      AXI peripheral \cite{xilinx:pg127} can be used to change the parameters in the \texttt{Constant\_Config} on the fly,
+      AXI peripheral \cite{xilinx:pg127} can be used to change the parameters in the \texttt{Const\_Config} on the fly,
       if the board allows.
+      Therefore, the BPSK/QPSK/mixed mode can be switched directly,
+      and the parameters in the design can be changed without recompiling the design,
+      allowing easier use in various scenarios.
+
+      \textbf{Pulse shaping}.
+      The SNR performance will be improved if appropriate pulse shaping is employed.
+      This enhancement is left as an exercise for the reader.
 
     \subsection{Possible Extensions Beyond the Experiment}
 
       The training (TRN) field can be better utilized for additional experiments.
-      For example, SNR can be estimated at the TRN field.
-      Channel estimation algorithms \cite{zhao2023ompl,you2023beam} can also be investigated on the platform.
-      It is also possible to investigate the auto generation \cite{zhao2023automatic} of digital circuits.
+      For example, SNR can be estimated at the TRN field,
+      so a plot with BER against SNR can be obtained.
+      Channel estimation algorithms \cite{zhao2023ompl,you2023beam} can also be investigated on the platform,
+      allowing the test of the performance of the algorithms in real-world scenarios.
+      Besides, it is also possible to investigate the auto generation \cite{zhao2023automatic} of digital circuits,
+      so that the design can be automatically generated according to different requirements.
 
   \section{Conclusion}
 
     In this paper,
-    we implement the PSK transceiver with modulation and demodulation on FPGA.
-    It successfully demonstrates the high-level system design,
-    and communication techniques such as carrier synchronization, symbol synchronization and packet-based communication.
+    we implement the PSK transceiver with modulation and coherent demodulation on SDR with FPGA.
+    The proposed high-level system design and communication techniques
+    feature carrier synchronization, symbol synchronization and packet-based communication.
+    The design is tested and verified on a SDR platform, successfully performing wireless transmission in \qty{2.048}{Mb/s} data rate using QPSK
+    or \qty{1.024}{Mb/s} data rate using BPSK
+    with a \qty{16.384}{MHz} bandwidth (considering I/Q sampling) channel.
+    As an open source project,
+    this paper opens up new possibilities of easy extension of the PSK transceiver.
 
   \appendices
+
+  \begin{figure*}[!t]
+    \includegraphics[width=\linewidth]{../schematic/top.pdf}
+    \caption{Top block diagram.}
+    \label{fig:block_top}
+    \vspace*{.5em}
+  % \end{figure*}
+  % \begin{figure*}
+    \includegraphics[width=\linewidth]{../schematic/Rx.pdf}
+    \caption{Rx processor block diagram.}
+    \label{fig:block_rx}
+  % \end{figure*}
+  % \begin{figure*}
+    \includegraphics[width=\linewidth]{../schematic/costas_loop.pdf}
+    \caption{Costas loop block diagram for carrier synchronization.}
+    \label{fig:block_costas_looop}
+  \end{figure*}
 
   \section{Block Diagrams}\label{sec:block_diagrams}
 
@@ -655,26 +742,11 @@ end
     The top level block diagram corresponding to Fig.~\ref{fig:system_overview} is shown in Fig.~\ref{fig:block_top},
     and the Rx processor block diagram is shown in Fig.~\ref{fig:block_rx}.
     Among the Rx processor, the Costas loop and the Gardner are both inserted block diagrams.
-    \begin{figure*}
-      \includegraphics[width=\linewidth]{../schematic/top.pdf}
-      \caption{Top block diagram.}
-      \label{fig:block_top}
-    \end{figure*}
-    \begin{figure*}
-      \includegraphics[width=\linewidth]{../schematic/Rx.pdf}
-      \caption{Rx processor block diagram.}
-      \label{fig:block_rx}
-    \end{figure*}
 
-    The Costas loop is shown in Fig.~\ref{fig:block_costas_looop},
+    The Costas loop design is shown in Fig.~\ref{fig:block_costas_looop},
     where the phase detectors are implemented using the multiplier IP \cite{xilinx:pg108},
     and the NCO hierarchy is mainly composed of the DDS Compiler IP \cite{xilinx:pg141}.
-
-    \begin{figure*}
-      \includegraphics[width=\linewidth]{../schematic/costas_loop.pdf}
-      \caption{Costas loop block diagram for carrier synchronization.}
-      \label{fig:block_costas_looop}
-    \end{figure*}
+    The LPF hierarchy contains a low-pass filter with 2 channels (I and Q).
 
     More block diagrams are provided at \url{https://github.com/Teddy-van-Jerry/sdr-psk-fpga/tree/master/schematic} \cite{github_repo}.
 
@@ -683,26 +755,44 @@ end
       \textbf{AXI connections}.
       AXI and AXI stream (AXIS) interfaces should be carefully dealt with in the block diagram.
       When connecting one of the signal in the bus elsewhere (e.g., to ILA),
-      ar manual connection of the signal to the corresponding AXIS interface signal is required.
+      a manual connection of the signal to the corresponding AXIS interface signal is required.
       Besides, when the AXI interface is not associated with a clock (for example a combinational logic with no register output)
-      the \texttt{FREQ\_HZ} property needs to be correctly set before validating the design.
+      the \texttt{FREQ\_HZ} property needs to be correctly set (either using Tcl or GUI) before validating the design.
 
       \textbf{Testbenches for block diagrams}.
       It is relatively difficult to simulate block diagrams than Verilog modules.
       The possible way is to generate the output products and find the correct module (name containing \texttt{impl}).
       Be careful when adding sources for simulation, and Tcl scripts are provided in \cite{github_repo} to ensure the correctness.
-      Vivado can be buggy when updating sources from the block diagram (for both simulation and implementation),
+      Vivado can be buggy (mostly reluctant!) when updating sources from the block diagram (for both simulation and implementation),
       and therefore it is advised to double-check the netlist file timestamp.
+      A workaround by forcing Vivado to update the design is adding a dummy port, updating the module, and then removing it.
+
+      \textbf{Suggestions}.
+      The project could have been more smooth if I did without block diagrams (or for AMD to fix all these bugs).
+      You can directly use the Verilog modules in \cite{github_repo} for your own project if you are not accustomed to block diagrams.
+      Nevertheless, block diagrams are at least better looking and easier to use for a system-level project,
+      especially when dealing with the system on a chip (SoC).
 
 
   \section{Figures in This Paper}
 
     All figures except for block diagrams in this paper
     are created using T\textit{i}kZ, part of \LaTeX{}.
-    The way I create them is quite interesting,
+    The way I create them is quite interesting, involving extensive Python processing and optimization,
     and you can find the source code in the GitHub repository \cite{github_repo}.
 
   \bibliographystyle{IEEEtran}
   \bibliography{IEEEabrv, ref}
+
+  \begin{IEEEbiographynophoto}%
+    {Wuqiong Zhao} (S'22)
+    is a senior undergraduate student pursuing the Bachelor's Degree in communications engineering,
+    at the National Mobile Communications Research Laboratory of Southeast University, Nanjing, China.
+    His research interests include wireless systems and networking, signal processing, and hardware implementation.
+    He has published several journal papers at \textsc{IEEE Transactions on Vehicular Technology} (TVT)
+    and \textsc{IEEE Transactions on Circuits and Systems II} (TCAS-II).
+    He was also reviewers of IEEE ISCAS 2023 and IEEE TCAS-II.
+    Visit the website \url{https://wqzhao.org} for more information.
+  \end{IEEEbiographynophoto}
 
 \end{document}
