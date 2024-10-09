@@ -37,6 +37,22 @@ You can explore details of implementations in [the report](https://go.wqzhao.org
   - Python >= 3.9 *(For Data Processing in Report)*
 
 ## Directories
+- [`behav_sim`](behav_sim): Behavioral Simulation Results
+- [`constraints`](constraints): Constraints Files
+- [`ila`](ila): Integrated Logic Analyzer (ILA) Results
+- [`latex`](latex): LaTeX Report Source
+- [`matlab`](matlab): MATLAB Filter Design
+- [`schematic`](schematic): Schematic Diagrams in PDF
+- [`scopes`](scopes): Oscilloscope Results
+- [`scripts`](scripts): TCL Scripts for Vivado
+- `sdr-psk-fpga.*`: Vivado Project Directory
+- [`verilog`](verilog): Verilog RTL Source
+- [`waveforms`](waveforms): Waveform Configuration Files
+
+## Further Readings
+- [**`ip-doc` LaTeX Template**](https://github.com/Teddy-van-Jerry/ip-doc): Document LaTeX elegantly in LaTeX.
+- [**FLAMES HLS Library**](https://flames.autohdw.com): Flexible Linear Algebra with Matrix-Empowered Synthesis (for Vitis HLS) [[Paper at IEEE](https://ieeexplore.ieee.org/document/10437992)] [[Paper PDF](https://wqzhao.org/assets/zhao2024flexible.pdf)] [[GitHub](https://github.com/autohdw/flames)]
+- [**Enhancing mmWave Radar Sensing Using a Phased-MIMO Architecture**](https://dl.acm.org/doi/abs/10.1145/3643832.3661865): Analog and Digital Radar Using Phased-MIMO at 60 GHz [[Paper at ACM](https://dl.acm.org/doi/abs/10.1145/3643832.3661865)] [[Paper PDF](https://dl.acm.org/doi/pdf/10.1145/3643832.3661865)]
 
 ## License
 This project is distributed under the [MIT License](LICENSE).
